@@ -4,7 +4,7 @@ description: "Узнайте, как подключиться к системе 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Подключение к виртуальной машине SQL Server в Azure
 
@@ -80,7 +80,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 > [!IMPORTANT]
 > Образ виртуальной машины для выпусков SQL Server Developer и Express не включает протокол TCP/IP автоматически. Для выпусков Developer и Express после создания виртуальной машины необходимо [вручную включить протокол TCP/IP](#manualtcp) в диспетчере конфигурации SQL Server.
 
-Частное подключение часто используется в сочетании с [виртуальной сетью](../../../virtual-network/virtual-networks-overview.md), что позволяет реализовать несколько сценариев. Вы можете подключить виртуальные машины в одной виртуальной сети, даже если они расположены в разных группах ресурсов. Если используется [VPN типа «сеть-сеть»](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), можно создать гибридную архитектуру, обеспечивающую подключение виртуальных машин к локальным сетям и компьютерам.
+Частное подключение часто используется в сочетании с [виртуальной сетью](../../../virtual-network/virtual-networks-overview.md), что позволяет реализовать несколько сценариев. Вы можете подключить виртуальные машины в одной виртуальной сети, даже если они расположены в разных группах ресурсов. Если используется [VPN типа «сеть-сеть»](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), можно создать гибридную архитектуру, обеспечивающую подключение виртуальных машин к локальным сетям и компьютерам.
 
 Виртуальные сети также позволяют присоединять виртуальные машины Azure к домену. Это единственный способ использовать проверку подлинности Windows в SQL Server. Другие сценарии подключения требуют проверки подлинности SQL с использованием имен пользователей и паролей.
 

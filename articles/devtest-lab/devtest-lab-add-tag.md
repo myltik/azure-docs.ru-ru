@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 72e82b207a543a9020b38b2c4494717e9f648ab7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Добавление тегов в лабораторию в Azure DevTest Labs
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/02/2018
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Процедура настройки управления тегами в имеющейся лаборатории
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. При необходимости щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**. Возможно, лаборатория уже отображается на панели мониторинга в разделе **Все ресурсы**.
+1. При необходимости щелкните **Все службы**, а затем выберите в списке **DevTest Labs**. Возможно, лаборатория уже отображается на панели мониторинга в разделе **Все ресурсы**.
 1. Из списка лабораторий выберите ту, в которой необходимо добавить виртуальную машину или управлять ею.  
 1. В области лаборатории **Обзор** выберите **Configuration and policies** (Конфигурация и политики).  
 

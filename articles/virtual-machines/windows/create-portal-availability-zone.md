@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Создание виртуальной машины Windows в зоне доступности с помощью портала Azure
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 
 2. Выберите **Вычисления**, а затем — **Windows Server 2016 Datacenter**. 
 

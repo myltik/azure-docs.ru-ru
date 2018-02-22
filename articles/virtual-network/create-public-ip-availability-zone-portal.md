@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Создание общедоступного IP-адреса в зоне доступности с помощью портала Azure.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-zonal-public-ip-address"></a>Создание зонального общедоступного IP-адреса
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 2. Выберите **Сети**, а затем **Общедоступный IP-адрес**.
 3. Введите или выберите значения для следующих параметров, выберите подписку, примите значения по умолчанию для остальных параметров, а затем нажмите кнопку **Создать**.
 

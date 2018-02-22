@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14cc32c22653d5d8bd3dd5a1a41d2f64cfd8c73c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Структурированная потоковая передача Apache Spark в HDInsight для обработки событий из концентраторов событий
 
@@ -29,13 +29,11 @@ ms.lasthandoff: 01/12/2018
 1. На локальной рабочей станции скомпилируйте и запустите пример приложения "Создатель событий", создающего события для отправки концентраторам событий.
 2. Для определения и запуска простого приложения структурированной потоковой передачи Spark используйте [оболочку Spark](apache-spark-shell.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](apache-spark-jupyter-spark-sql.md).
-
-* Пространство имен концентраторов событий Azure. Дополнительные сведения см. в разделе [Создание концентратора событий Azure](apache-spark-eventhub-streaming.md#create-an-azure-event-hub).
 
 * Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 

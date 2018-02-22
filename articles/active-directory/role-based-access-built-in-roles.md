@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли управления доступом на основе ролей в Azure
 Управление доступом на основе ролей Azure (RBAC) поставляется со следующими встроенными ролями, которые могут быть назначены пользователям, группам и службам. Изменить определения встроенных ролей нельзя. Однако можно создать [настраиваемые роли в Azure RBAC](role-based-access-control-custom-roles.md) в соответствии с потребностями вашей организации.
@@ -61,7 +61,6 @@ ms.lasthandoff: 02/09/2018
 | [Monitoring Reader](#monitoring-reader) (Читатель данных мониторинга) |Может читать все данные мониторинга. |
 | [Monitoring Contributor](#monitoring-contributor) (Участник мониторинга) |Может читать данные мониторинга и изменять параметры мониторинга. |
 | [Участник сети](#network-contributor) |Может управлять всеми сетевыми ресурсами |
-| [Участник учетной записи New Relic APM](#new-relic-apm-account-contributor) |Может управлять учетными записями и приложениями для управления производительностью приложений New Relic |
 | [Владелец](#owner) |Может управлять всем, включая доступ |
 | [Читатель](#reader) |Может все просматривать, но не может вносить изменения |
 | [Участник кэша Redis](#redis-cache-contributor) |Может управлять кэшами Redis |
@@ -440,19 +439,6 @@ ms.lasthandoff: 02/09/2018
 | Microsoft.Resources/deployments/* |Создание развертываний группы ресурсов и управление ими |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
-
-### <a name="new-relic-apm-account-contributor"></a>Участник учетной записи New Relic APM
-Может управлять учетными записями и приложениями для управления производительностью приложений New Relic
-
-| **Действия** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Чтение ролей и назначений ролей |
-| Microsoft.Insights/alertRules/* |Создание правил оповещения и управление ими |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Получение данных о работоспособности ресурсов |
-| Microsoft.Resources/deployments/* |Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
-| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
-| NewRelic.APM/accounts/* |Создание учетных записей для управления производительностью приложений New Relic и управление ими |
 
 ### <a name="owner"></a>Владелец.
 Может управлять всем, включая доступ

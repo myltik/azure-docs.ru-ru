@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Создание изолированного кластера под управлением Windows Server
 Azure Service Fabric позволяет создавать кластеры Service Fabric на любых виртуальных машинах или компьютерах под управлением Windows Server. Это означает, что вы сможете разворачивать и запускать приложения Service Fabric в любой среде с набором подключенных друг к другу компьютеров с Windows Server как в локальной среде, так и у любого поставщика облачных служб. Service Fabric предоставляет установочный пакет для создания кластеров Service Fabric, который называется изолированным пакетом Windows Server.
@@ -43,15 +43,15 @@ Azure Service Fabric позволяет создавать кластеры Serv
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Скачивание Service Fabric для пакета Windows Server
 Чтобы создать кластер, используйте Service Fabric для пакета Windows Server (2012 R2 и более поздней версии), доступный здесь: <br>
-[Загрузить связи - автономный пакет Service Fabric — Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Ссылка для скачивания изолированного пакета Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 Подробные сведения о содержимом пакета можно получить [здесь](service-fabric-cluster-standalone-package-contents.md).
 
 Пакет среды выполнения Service Fabric автоматически скачивается во время создания кластера. В случае развертывания с компьютера, не подключенного к Интернету, скачайте внешний пакет среды выполнения отсюда: <br>
-[Загрузка сервера Windows - среда выполнения Service Fabric - ссылка](https://go.microsoft.com/fwlink/?linkid=839354)
+[Ссылка для скачивания среды выполнения Service Fabric для Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
 
 Примеры конфигурации изолированного кластера доступны здесь: <br>
-[Примеры конфигурации кластера автономный](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[Примеры конфигурации изолированного кластера](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 <a id="createcluster"></a>
 
@@ -70,7 +70,7 @@ Service Fabric можно развернуть на кластере с одни
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Шаг 1Б. Создание кластера с несколькими компьютерами
 Выполнив этапы планирования и подготовки, как описано в разделе, доступном по ссылке ниже, вы будете готовы создать рабочий кластер с помощью своего файла конфигурации кластера. <br>
-[Планирование и Подготовка развертывания кластера](service-fabric-cluster-standalone-deployment-preparation.md)
+[Планирование и подготовка развертывания кластера](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. Проверьте созданный файл конфигурации, запустив сценарий *TestConfiguration.ps1* в папке изолированного пакета.  
 
@@ -193,7 +193,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Развертывание и удаление приложений с помощью PowerShell](service-fabric-deploy-remove-applications.md)
 * [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md)
 * [Добавление узлов в автономный кластер Service Fabric под управлением Windows Server или удаление узлов из него](service-fabric-cluster-windows-server-add-remove-nodes.md)

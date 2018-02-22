@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -151,7 +151,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 | [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Создайте виртуальную машину.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Удаляет группу ресурсов и все ресурсы, содержащиеся в ней.                                                                                                                         |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 

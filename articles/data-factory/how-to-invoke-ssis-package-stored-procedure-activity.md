@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89eb2e567e06660efa5feddce1db0fcdb47792f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Вызов пакета SSIS с помощью действия хранимой процедуры в фабрике данных Azure
 В этой статье описывается, как вызвать пакет SSIS из конвейера фабрики данных Azure, используя действие хранимой процедуры. 
@@ -39,8 +39,9 @@ ms.lasthandoff: 02/03/2018
 ### <a name="create-a-data-factory"></a>Создать фабрику данных
 Сначала нужно создать фабрику данных с помощью портала Azure. 
 
-1. Перейдите на [портал Azure](https://portal.azure.com). 
-2. В меню слева щелкните **Создать**, выберите **Данные+аналитика** и щелкните **Фабрика данных**. 
+1. Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
+2. Перейдите на [портал Azure](https://portal.azure.com). 
+3. В меню слева щелкните **Создать**, выберите **Данные+аналитика** и щелкните **Фабрика данных**. 
    
    ![Создать -> Фабрика данных](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. На странице **Новая фабрика данных** введите **ADFTutorialDataFactory** в поле **Имя**. 
@@ -75,7 +76,7 @@ ms.lasthandoff: 02/03/2018
 1. На странице "Начало работы" щелкните **Create pipeline** (Создать конвейер). 
 
     ![Страница "Начало работы"](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. На панели **Действия** разверните элемент **База данных SQL** и перетащите действие **Хранимая процедура** в область конструктора конвейера. 
+2. На панели **Действия** разверните элемент **Общие** и перетащите действие **Хранимая процедура** в область конструктора конвейера. 
 
     ![Перетаскивание действия "Хранимая процедура"](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. В окне свойств действия хранимой процедуры перейдите на вкладку **Учетная запись SQL** и нажмите кнопку **+ Создать**. Вы создадите подключение к базе данных SQL Azure, в которой размещается каталог SSIS (база данных SSISDB). 
@@ -94,11 +95,12 @@ ms.lasthandoff: 02/03/2018
         ![Связанная служба базы данных SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. В окне свойств перейдите из вкладки **Учетная запись SQL** на вкладку **Хранимая процедура** и выполните следующие действия: 
 
-    1. В поле **Имя хранимой процедуры** введите `sp_executesql`. 
-    2. Нажмите кнопку **+ Создать** в разделе **Параметры хранимой процедуры**. 
-    3. В поле для **имени** параметра введите **stmt**. 
-    4. В поле для **типа** параметра введите **String**. 
-    5. В поле для **значения** параметра введите следующий SQL-запрос.
+    1. Выберите **Изменить** 
+    2. В поле **Имя хранимой процедуры** введите `sp_executesql`. 
+    3. Нажмите кнопку **+ Создать** в разделе **Параметры хранимой процедуры**. 
+    4. В поле для **имени** параметра введите **stmt**. 
+    5. В поле для **типа** параметра введите **String**. 
+    6. В поле для **значения** параметра введите следующий SQL-запрос.
 
         В SQL-запросе укажите правильные значения для параметров **folder_name**, **project_name** и **package_name**. 
 
@@ -120,7 +122,8 @@ ms.lasthandoff: 02/03/2018
 1. Чтобы активировать конвейер, щелкните **Триггер** на панели инструментов, а затем **Trigger Now** (Активировать сейчас). 
 
     ![Trigger Now (Активировать сейчас)](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Перейдите на вкладку **Мониторинг** слева. На ней отображается выполнение конвейера и его состояние вместе с другой информацией (например, время начала выполнения). Чтобы обновить это представление, щелкните **Refresh** (Обновить).
+2. На странице **Запуск конвейера** нажмите кнопку **Готово**. 
+3. Перейдите на вкладку **Мониторинг** слева. На ней отображается выполнение конвейера и его состояние вместе с другой информацией (например, время начала выполнения). Чтобы обновить это представление, щелкните **Refresh** (Обновить).
 
     ![Запуски конвейера](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Щелкните ссылку **View Activity Runs** (Просмотр выполнений действий) в столбце **Actions** (Действия). Вы видите только одно выполнение действия, так как конвейер содержит только действие (действие хранимой процедуры).
@@ -193,7 +196,7 @@ ms.lasthandoff: 02/03/2018
 
     ```json
     {
-        "name": "AzureSqlDbLinkedService",
+        "name": "AzureSqlDatabaseLinkedService",
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
@@ -232,7 +235,7 @@ ms.lasthandoff: 02/03/2018
                     "description":"Runs an SSIS package",
                     "type": "SqlServerStoredProcedure",
                     "linkedServiceName": {
-                        "referenceName": "AzureSqlDbLinkedService",
+                        "referenceName": "AzureSqlDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
                     "typeProperties": {

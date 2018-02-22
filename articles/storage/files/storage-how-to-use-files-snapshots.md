@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Работа с моментальными снимками общих ресурсов (предварительная версия)
 Моментальный снимок общего ресурса (предварительная версия) — это предназначенная только для чтения версия общего файлового ресурса Azure, созданная в определенный момент времени. После создания моментального снимка общего ресурса его можно читать, копировать или удалять, но нельзя изменять. Моментальные снимки общих ресурсов обеспечивают резервное копирование общих ресурсов в том виде, в котором они пребывают в определенный момент времени. 
@@ -246,7 +246,6 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Операции с моментальными снимками файловых ресурсов в Azure PowerShell
 Вы можете использовать Azure PowerShell для выполнения одних и тех же операций, таких как вывод списка моментальных снимков общедоступных ресурсов, просмотр их содержимого, восстановление или скачивание файлов из моментального снимка или удаление моментальных снимков общедоступных ресурсов.
 
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Удаление моментальных снимков общих файловых ресурсов Azure
-=======
 ## <a name="delete-a-share-snapshot"></a>Удаление моментального снимка общего ресурса
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Удалить моментальные снимки общих ресурсов можно с помощью портала Azure, PowerShell, интерфейса командной строки, REST API или любого пакета SDK службы хранилища. Следующие разделы содержат сведения о том, как удалять моментальные снимки общих ресурсов с помощью портала Azure, интерфейса командной строки и PowerShell.
 

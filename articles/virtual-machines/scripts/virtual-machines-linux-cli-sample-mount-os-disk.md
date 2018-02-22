@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 Для создания группы ресурсов, виртуальной машины и всех связанных ресурсов этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Возвращает список виртуальных машин. В этом случае параметр запроса используется для возвращения диска операционной системы виртуальной машины. Это значение добавляется к имени переменной uri. |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Удаляет виртуальную машину. |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | Подключает диск к виртуальной машине. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Возвращает IP-адреса виртуальной машины. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

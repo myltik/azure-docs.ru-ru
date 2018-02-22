@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 82841833ea0c63d22c43f9509fe9f88f9e9edebe
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="model-management-setup"></a>Установка службы управления моделями
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/04/2018
 Выполнив инструкции в этом документе, вы сможете настроить среду управления моделями и подготовить ее к развертыванию моделей машинного обучения.
 
 ## <a name="what-you-need-to-get-started"></a>Что необходимо для начала работы
-Чтобы максимально эффективно использовать в этом руководстве, должны иметь участника доступ к подписки Azure или группу ресурсов, можно развернуть модели.
+Чтобы получить оптимальный результат, нужны права владельца на доступ к подписке или группе ресурсов Azure, в которой вы сможете развернуть модели.
 Интерфейс командной строки поставляется предварительно установленным в Azure Machine Learning Workbench и на [виртуальных машинах Azure для обработки и анализа данных](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Использование интерфейса командной строки
@@ -42,16 +42,7 @@ ms.lasthandoff: 01/04/2018
 Откройте командную строку, используя запуск от имени администратора, а затем выполните следующие команды:
 
 ```cmd
-pip install azure-cli
-pip install azure-cli-ml
-```
- 
->[!NOTE]
->Если у вас установлена более ранняя версия, сначала удалите ее с помощью следующей команды:
->
-
-```cmd
-pip uninstall azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="installing-or-updating-on-linux"></a>Установка (или обновление) в Linux
@@ -59,8 +50,7 @@ pip uninstall azure-cli-ml
 
 ```bash
 sudo -i
-pip install azure-cli
-pip install azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Настройка Docker в Linux
@@ -81,10 +71,10 @@ pip install azure-cli-ml
 
 Действия после настройки среды:
 - Вам будет предложено войти в Azure. Чтобы войти, откройте в веб-браузере страницу https://aka.ms/devicelogin и введите предоставленный код для проверки подлинности.
-- В процессе проверки подлинности вам будет предложена учетная запись, с помощью которой будет выполнена проверка подлинности. Внимание: Выберите учетную запись с действительной подписки Azure и достаточные разрешения для создания ресурсов в учетной записи. По завершении журнала в сведений о подписке и будет предложено продолжить с выбранной учетной записи.
+- В процессе проверки подлинности вам будет предложена учетная запись, с помощью которой будет выполнена проверка подлинности. Важно! Выберите учетную запись с действительной подпиской Azure и достаточными разрешениями для создания ресурсов в учетной записи. После входа отображаются сведения о подписке и запрос на продолжение работы с выбранной учетной записью.
 
 ### <a name="environment-setup"></a>Настройка среды
-Чтобы начать процесс установки, необходимо зарегистрировать несколько поставщиков среды, введя следующие команды:
+Чтобы начать процесс установки, зарегистрируйте несколько поставщиков среды при помощи следующей команды:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
@@ -130,7 +120,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 - учетную запись Application Insights.
 
 >[!IMPORTANT]
-> Для успешного создания кластерной среде, необходимо иметь доступ участника подписки Azure или группе ресурсов.
+> Чтобы успешно создать кластерную среду, нужны права участника для подписки или группы ресурсов Azure.
 
 Группа ресурсов, учетная запись хранения и запись контроля доступа создаются быстро. Развертывание ACS может занять до 20 минут. 
 
@@ -171,5 +161,5 @@ az ml account modelmanagement set -n [your account name] -g [resource group it w
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Воспользуйтесь одним из многих примеров в коллекции.

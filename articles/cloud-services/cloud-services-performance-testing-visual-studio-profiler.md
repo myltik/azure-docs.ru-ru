@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Локальное тестирование производительности облачной службы в эмуляторе вычислений Azure с помощью профилировщика Visual Studio
 Для тестирования производительности облачных служб доступны разнообразные средства и методы.
@@ -44,31 +44,35 @@ ms.lasthandoff: 10/27/2017
 
 Для целей примера добавьте в проект код, выполнение которого занимает много времени и демонстрирует очевидные проблемы с производительностью. Например, добавьте в проект роли рабочего процесса следующий код:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Вызовите этот код из метода RunAsync класса, производного от рабочей роли RoleEntryPoint. (Игнорируйте предупреждение о том, что метод выполняется синхронно.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Выполните сборку и запуск облачной службы локально без отладки (Ctrl + F5) и с установленным в конфигурации решения параметром **Выпуск**. Это гарантирует, что все файлы и папки будут созданы для локального запуска приложения, а также гарантирует, что запущены все эмуляторы. Из панели задач запустите пользовательский интерфейс эмулятора вычислений, чтобы проверить, запускается ли рабочая роль.
 
@@ -88,9 +92,11 @@ ms.lasthandoff: 10/27/2017
  Можно также присоединиться к веб-роли путем присоединения к WaIISHost.exe.
 При наличии в приложении нескольких процессов роли рабочего процесса они идентифицируются по значению processID. Запрос processID можно выполнить в программе путем обращения к объекту Process. Например, если вы добавите этот код в метод Run класса, производного от RoleEntryPoint в роли, вы сможете просмотреть журнал в пользовательском интерфейсе эмулятора вычислений, чтобы узнать, к какому процессу подключиться.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Чтобы просмотреть журнал, запустите пользовательский интерфейс эмулятора вычислений.
 
@@ -126,16 +132,18 @@ ms.lasthandoff: 10/27/2017
 ## <a name="4-make-changes-and-compare-performance"></a>4. Внесение изменений и сравнение производительности
 Можно также сравнить производительность до и после изменения кода.  Остановите выполняемый процесс и измените код таким образом, чтобы заменить операцию сцепления строк с помощью класса StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Выполните еще один прогон, а затем сравните производительность. В обозревателе производительности, если прогоны находятся в одном сеансе, достаточно выбрать оба отчета, открыть контекстное меню и нажать кнопку **Сравнить отчеты о производительности**. Если нужно выполнить сравнение с прогоном, находящимся в другом сеансе проверки производительности, откройте меню **Анализ** и выберите **Сравнить отчеты о производительности**. В открывшемся диалоговом окне укажите оба файла.
 

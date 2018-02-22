@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: v-craic
-ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 616117e1f1e55e9c59b409740e17e295ce114d52
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Создание запрашиваемой виртуальной машины и управление ею в лаборатории Azure DevTest Labs
 Добавление запрашиваемой виртуальной машины в лабораторию аналогично [добавлению стандартной виртуальной машины](devtest-lab-add-vm.md). Оно выполняется *на базе* [пользовательского образа](devtest-lab-create-template.md), [формулы](devtest-lab-manage-formulas.md) или [образа Marketplace](devtest-lab-configure-marketplace-images.md). В этой статье описывается добавление запрашиваемой виртуальной машины в лабораторию в DevTest Labs с помощью портала Azure, а также действия пользователя для резервирования или освобождения виртуальной машины.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Процедура добавления запрашиваемой виртуальной машины в лабораторию в Azure DevTest Labs
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
+1. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите ту, в которой необходимо создать запрашиваемую виртуальную машину .  
 1. В области **Обзор** выберите **+ Добавить**.  
 

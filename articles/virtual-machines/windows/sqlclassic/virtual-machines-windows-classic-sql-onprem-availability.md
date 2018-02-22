@@ -4,7 +4,7 @@ description: "В этом руководстве используются рес
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Расширение локальных групп доступности Always On в Azure
 Группы доступности Always On обеспечивают высокий уровень доступности для групп базы данных путем добавления вторичных реплик. Эти реплики позволяют отрабатывать отказы баз данных. Кроме того, их можно использовать для разгрузки рабочих нагрузок чтения или задач резервного копирования.

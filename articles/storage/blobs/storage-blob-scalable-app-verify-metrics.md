@@ -2,23 +2,20 @@
 title: "Проверка метрик пропускной способности и задержки для учетной записи хранения на портале Azure | Документация Майкрософт"
 description: "Узнайте, как проверить метрики пропускной способности и задержки для учетной записи хранения на портале."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Проверка метрик пропускной способности и задержки для учетной записи хранения
 

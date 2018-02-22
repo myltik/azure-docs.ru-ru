@@ -39,6 +39,8 @@
       href: log-analytics-faq.md
     - name: Использование данных
       href: log-analytics-usage.md
+    - name: Защита данных
+      href: log-analytics-data-security.md
     - name: Управление доступом
       href: log-analytics-manage-access.md
     - name: Мониторинг гибридных сред

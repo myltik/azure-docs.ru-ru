@@ -51,7 +51,7 @@ az group delete -n az-cli-vhd
 
 Для создания группы ресурсов, виртуальной машины, группы доступности, балансировщика нагрузки и всех связанных ресурсов этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
 | [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Выводит список учетных записей хранения. |
@@ -65,7 +65,7 @@ az group delete -n az-cli-vhd
 | [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Сбрасывает ключ SSH для предоставления текущему пользователю прав доступа к виртуальной машине. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Возвращает IP-адрес созданной виртуальной машины. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

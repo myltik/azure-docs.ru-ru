@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/01/2018
 | Путеводитель по статьям |  |
 |:---:| --- |
 | Общие сведения о федеративном и других способах входа |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-| Тысячи приложений SaaS, предварительно интегрированных с Azure AD, для которых можно с легкостью настроить единый вход |[Начало работы с коллекцией приложений Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Полный список предварительно интегрированных приложений, поддерживающих федерацию](http://aka.ms/aadfederatedapps)<br /><br />[Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md) |
+| Тысячи приложений SaaS, предварительно интегрированных с Azure AD, для которых можно с легкостью настроить единый вход |[Начало работы с коллекцией приложений Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Полный список предварительно интегрированных приложений, поддерживающих федерацию](active-directory-saas-tutorial-list.md)<br /><br />[Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md) |
 | Более 150 руководств по настройке единого входа для таких приложений, как [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) и многих других |[Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Настройка конфигурации единого входа вручную |[Настройка федеративного единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений](active-directory-saml-claims-customization.md) |
 | Руководство по устранению неполадок для федеративных приложений, использующих протокол SAML |[Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |

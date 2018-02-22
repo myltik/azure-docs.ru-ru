@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 10/11/2017
 ms.author: janeng
-ms.openlocfilehash: 404d43a6f2fa38276b9517e9542f1e50a4b1980b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Создание отдельной базы данных SQL и настройка правила брандмауэра с помощью интерфейса командной строки
 
@@ -54,9 +54,9 @@ az group delete --name myResourceGroup
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Создает логический сервер, на котором размещена база данных SQL. |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Создает правило брандмауэра, чтобы разрешить доступ ко всем базам данных SQL на сервере по введенному диапазону IP-адресов. |
 | [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Создает базу данных SQL на логическом сервере. |
-| [az group delete](/cli/azure/resource#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

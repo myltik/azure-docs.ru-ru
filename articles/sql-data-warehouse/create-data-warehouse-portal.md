@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Краткое руководство. Создание хранилища данных SQL Azure на портале Azure и отправка запросов к этому хранилищу данных
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/01/2018
 
 Следуйте приведенным инструкциям по созданию хранилища данных SQL, содержащего пример данных AdventureWorksDW. 
 
-1. На портале Azure нажмите кнопку **Создать** в верхнем левом углу.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 
 2. Выберите **Базы данных** на странице **Создание**, а затем выберите **Хранилище данных SQL** в разделе **Избранные** на странице **Создание**.
 

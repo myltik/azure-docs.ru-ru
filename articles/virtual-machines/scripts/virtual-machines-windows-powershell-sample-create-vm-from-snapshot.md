@@ -46,7 +46,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Для получения свойств моментального снимка, создания управляемого диска из моментального снимка и создания виртуальной машины этот сценарий использует указанные ниже команды. Для каждого элемента в таблице приведены ссылки на документацию по команде.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [Get-AzureRmSnapshot](/powershell/module/azurerm.compute/get-azurermsnapshot) | Возвращает моментальный снимок на основе его имени. |
 | [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) | Создает конфигурацию диска. Эта конфигурация используется при создании диска. |
@@ -58,7 +58,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Создает виртуальную машину. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Удаляет группу ресурсов и все ресурсы, содержащиеся в ней. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 

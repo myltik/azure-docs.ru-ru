@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Справочник по файлу host.json для Функций Azure
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-|Свойство  |значение по умолчанию | ОПИСАНИЕ |
+|Свойство |значение по умолчанию  | ОПИСАНИЕ |
 |---------|---------|---------| 
 |batchSize|1000|Максимальное количество запросов, которое необходимо обработать.| 
 |flushTimeout|00:00:30|Максимальный период времени, который необходимо обработать.| 
@@ -237,25 +237,7 @@ ms.lasthandoff: 02/01/2018
 
 Параметры конфигурации для [триггеров и привязок очереди хранилища](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Свойство  |значение по умолчанию | ОПИСАНИЕ |
-|---------|---------|---------| 
-|maxPollingInterval|60 000|Максимальный интервал в миллисекундах между опросами очереди.| 
-|visibilityTimeout|0|Интервал времени между повторными попытками, когда при обработке сообщения возникает сбой.| 
-|batchSize|16|Число сообщений очереди, которые необходимо получить и обработать параллельно. Максимальное значение — 32.| 
-|maxDequeueCount|5|Число повторных попыток обработки сообщения, прежде чем поместить его в очередь подозрительных сообщений.| 
-|newBatchThreshold|batchSize/2|Пороговое значение, при котором загружается новый пакет сообщений.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -268,6 +250,7 @@ ms.lasthandoff: 02/01/2018
 Параметры конфигурации для одноэлементной блокировки. Дополнительные сведения см. в [проблеме, посвященной одноэлементной блокировке, на портале GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

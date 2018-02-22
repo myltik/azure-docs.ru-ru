@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2017
+ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Создание виртуальной машины Linux с помощью портала Azure
 
@@ -46,7 +46,7 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 
 2. Выберите **Вычисления**, а затем — **Сервер Ubuntu 16.04 LTS**. 
 

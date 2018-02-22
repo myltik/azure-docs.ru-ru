@@ -17,7 +17,7 @@ ms.date: 12/15/2017
 ms.author: iainfou
 ms.openlocfilehash: 7e1e9a69d226b03e6722c2d19b7a091cfe4e71c7
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/16/2017
 ---
@@ -57,7 +57,7 @@ az group delete --name myResourceGroup
 | [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | Отображает состояние шифрования виртуальной машины. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

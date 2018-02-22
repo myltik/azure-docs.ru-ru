@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Руководство по интеграции Azure Active Directory с FloQast
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление FloQast из коллекции.
+1. Добавление FloQast из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-floqast-from-the-gallery"></a>Добавление FloQast из коллекции
@@ -106,19 +106,14 @@ ms.lasthandoff: 02/13/2018
 
     ![Сведения о домене и URL-адресах единого входа для приложения FloQast](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.floqast.com/`
-
-    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<subdomain>.floqast.com/api/sso/saml/azure`.
+     В текстовом поле **Идентификатор** введите URL-адрес: `https://go.floqast.com/`
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, и выполните следующее действие, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
 
     ![Сведения о домене и URL-адресах единого входа для приложения FloQast](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.floqast.com/login/sso`
+     В текстовом поле **URL-адрес для входа** введите URL-адрес в формате `https://go.floqast.com/login/sso`.
      
-    > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов FloQast](mailto:support@floqast.com).
-
 5. Приложение FloQast ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
     
     ![Настройка атрибута единого входа](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
@@ -241,8 +236,6 @@ ms.lasthandoff: 02/13/2018
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

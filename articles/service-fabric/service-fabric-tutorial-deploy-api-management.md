@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>развертывание службы управления API с помощью Service Fabric.
 Это руководство представляет собой четвертую часть цикла.  Расширенный сценарий развертывания для службы управления API Azure в Service Fabric.  Управление API позволяет публиковать API-интерфейсы с широким набором правил маршрутизации для служб серверной части Service Fabric. Обычно, облачным приложениям требуется интерфейсный шлюз, который предоставляет единую точку передачи входящего трафика пользователей, устройств или других приложений. В Service Fabric шлюзом может быть любая служба без отслеживания состояния, предназначенная для обработки входящего трафика, например приложение ASP.NET Core, концентраторы событий, Центр Интернета вещей или служба управления API Azure. 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/01/2018
 Из этого цикла руководств вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
 > * создание защищенного [кластера Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) или [кластера Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) в Azure;
-> * [свертывание и развертывание кластера](/service-fabric-tutorial-scale-cluster.md);
+> * [свертывание и развертывание кластера](service-fabric-tutorial-scale-cluster.md);
 > * [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
 > * развертывание службы управления API с помощью Service Fabric.
 

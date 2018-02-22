@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Развертывание служб федерации Active Directory в Azure
 В службах федерации Active Directory (AD FS) представлены возможности упрощенной безопасной федерации удостоверений и единого входа. Федерация с Azure AD или O365 дает пользователям возможность выполнять проверку подлинности с использованием локальных учетных данных и получать доступ ко всем ресурсам в облаке. В связи с этим требуется высокодоступная инфраструктура AD FS, обеспечивающая доступ к ресурсам как в локальной, так и в облачной средах. С помощью развертывания AD FS в Azure можно достичь необходимого уровня доступности с минимальными усилиями.
@@ -354,7 +354,7 @@ ms.lasthandoff: 02/01/2018
 * [Приступая к созданию балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью PowerShell](https://aka.ms/Azure/ILB/Internet)
 * [Учетные записи хранения](https://aka.ms/Azure/Storage)
 * [Виртуальные сети Azure](https://aka.ms/Azure/VNet)
-* [AD FS and Web Application Proxy Links (Ссылки на ресурсы по AD FS и прокси веб-приложений)](http://aka.ms/ADFSLinks) 
+* [AD FS and Web Application Proxy Links (Ссылки на ресурсы по AD FS и прокси веб-приложений)](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)

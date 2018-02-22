@@ -3,8 +3,8 @@ title: "Создание и публикация элемента Marketplace в
 description: "Создание и публикация элемента Marketplace в Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Создание и публикация элемента Marketplace
 

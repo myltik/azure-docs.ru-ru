@@ -2,24 +2,18 @@
 title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и из него с помощью обозревателя службы хранилища Azure| Документация Майкрософт"
 description: "Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и обратно с помощью обозревателя службы хранилища Azure"
 services: storage
-documentationcenter: storage
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
-ms.author: gwallace
-ms.openlocfilehash: c500ab59fad5fd59ca1b99b5ebc75d4902f78845
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.date: 02/20/2018
+ms.author: tamram
+ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью обозревателя службы хранилища Azure
 

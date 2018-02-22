@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 4aca25f74d3e22911ab5059a8cdec45f189dc8cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Общие сведения о Service Fabric
 Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые надежные микрослужбы и контейнеры, но и управлять ими. Service Fabric также позволяет устранить значительные трудности, возникающие при разработке облачных собственных приложений и управлении ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой. Service Fabric — это принципиально новая платформа, позволяющая создавать облачные высококлассные приложения уровня 1, выполняющиеся в контейнерах, и управлять ими.
@@ -49,7 +49,7 @@ Service Fabric работает где угодно. Кластеры Service Fa
 
 ![Платформа Service Fabric][Image1]
 
-Пакет SDK Service Fabric для .NET для разработки приложений Windows интегрируется с Visual Studio и PowerShell. Ознакомьтесь с разделом [Настройка среды разработки для Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md). Пакет SDK Service Fabric для Java для разработки приложений Linux интегрирован с Eclipse. Yeoman используется для создания шаблонов для приложений Java, .NET Core и приложений-контейнеров. Ознакомьтесь с разделом [Подготовка среды разработки в Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md).
+Пакет SDK Service Fabric для .NET для разработки приложений Windows интегрируется с Visual Studio и PowerShell. Ознакомьтесь с разделом [Настройка среды разработки для Windows](service-fabric-get-started.md). Пакет SDK Service Fabric для Java для разработки приложений Linux интегрирован с Eclipse. Yeoman используется для создания шаблонов для приложений Java, .NET Core и приложений-контейнеров. Ознакомьтесь с разделом [Подготовка среды разработки в Linux](service-fabric-get-started.md).
 
 Изучите дополнительные сведения о создании [кластеров на платформе Windows Server или Linux](service-fabric-deploy-anywhere.md) и создании кластеров Azure [на портале Azure](service-fabric-cluster-creation-via-portal.md).
 

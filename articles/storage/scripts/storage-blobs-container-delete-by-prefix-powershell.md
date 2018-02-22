@@ -45,13 +45,13 @@ Remove-AzureRmResourceGroup -Name containerdeletetestrg
 
 Ниже приведены команды, с помощью которых скрипт удаляет контейнеры на основе префикса имени. Для каждого элемента в таблице приведены ссылки на документацию по команде.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Возвращает определенную учетную запись хранения или все учетные записи хранения в группе ресурсов или подписке. |
 | [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | Возвращает список контейнеров хранилища, связанных с учетной записью хранения. |
 | [Remove-AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | Удаляет указанный контейнер хранилища. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 

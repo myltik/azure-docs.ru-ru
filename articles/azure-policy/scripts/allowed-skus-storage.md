@@ -58,6 +58,6 @@ New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentnam
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные примеры шаблонов для Политики Azure [доступны здесь](../json-samples.md).

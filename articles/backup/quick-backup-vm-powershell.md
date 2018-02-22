@@ -1,26 +1,26 @@
 ---
 title: "Краткое руководство по Azure. Резервное копирование виртуальной машины с помощью PowerShell | Документация Майкрософт"
 description: "Узнайте, как создавать резервные копии виртуальных машин с помощью Azure PowerShell"
-services: backup, virtual-machines-windows
+services: backup
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines-windows
+ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 1/12/2018
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0e9615ca52fe981f49eb85f68cd1ab0204406bfc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Резервное копирование виртуальной машины в Azure с помощью PowerShell
 Модуль Azure PowerShell используется для создания и администрирования ресурсов Azure с помощью командной строки или скриптов. Для защиты данных можно создавать архивы с регулярным интервалом. Служба Azure Backup создает точки восстановления, которые могут храниться в геоизбыточных хранилищах служб восстановления. В этой статье объясняется, как создать резервную копию виртуальной машины с помощью модуля Azure PowerShell. Эти действия можно также выполнить с помощью [Azure CLI](quick-backup-vm-cli.md) или [портала Azure](quick-backup-vm-portal.md).

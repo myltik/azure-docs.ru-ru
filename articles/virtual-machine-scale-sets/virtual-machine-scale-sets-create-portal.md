@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Создание масштабируемого набора виртуальных машин на портале Azure
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В этой начальной статье создается масштабируемый набор виртуальных машин на портале Azure. Кроме того, масштабируемый набор можно создать с помощью [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) или [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/12/2018
 ## <a name="create-virtual-machine-scale-set"></a>Создание масштабируемого набора виртуальных машин
 Масштабируемый набор можно развернуть с помощью образа Windows Server или Linux, например RHEL, CentOS, Ubuntu или SLES.
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 2. Найдите *масштабируемый набор*, выберите **Набор масштабирования виртуальной машины**, а затем **Создать**.
 3. Введите имя масштабируемого набора, например *myScaleSet*.
 4. Выберите нужный тип ОС, например *Windows Server 2016 Datacenter*.

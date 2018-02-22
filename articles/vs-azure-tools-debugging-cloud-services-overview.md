@@ -14,20 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
 ms.author: mikejo
-ms.openlocfilehash: 196a39a75f8a3151c277f0b2a7944e6886192171
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 0ba0871cdc522cb1ffbafa617181931fe6fd5b59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Узнайте о различных способах отладки облачной службы Azure.
 В этой статье приведены ссылки на различные способы отладки облачной службы Azure. 
 
 ## <a name="debugging-an-azure-cloud-service-in-visual-studio"></a>Отладка облачной службы Azure в Visual Studio
 Вы можете сэкономить время и деньги, воспользовавшись эмулятором вычислений Azure для отладки облачной службы на локальном компьютере. Посредством локальной отладки службы перед ее развертыванием можно повысить надежность и производительность службы, не платя за время использования вычислительных ресурсов. Однако некоторые ошибки могут возникнуть только при запуске облачной службы в среде Azure. Ошибки, которые возникают только при запуске облачной службы в среде Azure, можно устранить, если включить удаленную отладку при публикации службы, а затем подключить отладчик к экземпляру роли. Дополнительные сведения см. в разделе [Отладка облачной службы на локальном компьютере](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-your-cloud-service-on-your-local-computer).
-
-## <a name="using-azure-diagnostics"></a>Использование службы диагностики Azure 
-Систему диагностики Azure можно использовать для регистрации подробных сведений из кода, выполняющегося в ролях, независимо от того, запущены ли эти роли в среде разработки или в Azure. Дополнительные сведения см. в статье [Включение системы диагностики Azure в облачных службах Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
 ## <a name="using-intellitrace"></a>Использование IntelliTrace 
 Если Visual Studio Enterprise используется для написания ролей для .NET Framework 4.5, вы можете включить IntelliTrace в момент развертывания облачной службы Azure из Visual Studio. IntelliTrace предоставляет журнал, который можно использовать с Visual Studio для отладки приложения как в Azure. Дополнительные сведения см. в статье [Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=623016).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: v-craic
-ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7a0a86f658ac19bfb197c7e233b8717bf9fba40b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Подключение диска данных к виртуальной машине в Azure DevTest Labs и его отключение
 Служба [Управляемые диски Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) управляет учетными записями хранения, которые связаны с дисками данных виртуальной машины. Пользователь подключает новый диск данных к виртуальной машине, указывает необходимый тип и размер диска, а Azure автоматически создает диск и управляет им. Созданный диск данных можно отключить от виртуальной машины для последующего переподключения к той же виртуальной машине или подключения к другой, принадлежащей тому же пользователю.
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/02/2018
 Для создания и подключения нового управляемого диска данных к виртуальной машине в Azure DevTest Labs сделайте следующее:
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
+1. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите нужную лабораторию. 
 1. В списке **Мои виртуальные машины** выберите запущенную виртуальную машину.
 1. В меню слева выберите **Диски**.

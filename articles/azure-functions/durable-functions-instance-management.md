@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: a938e5949896ad3bfa91903106d56ccdf827c725
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Управление экземплярами в устойчивых функциях (Функции Azure)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/15/2017
 
 Метод [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) запускает новый экземпляр функции оркестратора. Экземпляры этого класса можно получить с помощью привязки `orchestrationClient`. На внутреннем уровне этот метод ставит в очередь управления сообщение, которое инициирует запуск функции с заданным именем и привязкой к триггеру `orchestrationTrigger`.
 
-Параметры для [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) , как показано ниже:
+[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) принимает следующие параметры:
 
 * **Name.** Имя функции оркестратора, для которой назначается запуск.
 * **Input.** Любые данные, сериализуемые в формат JSON, которые нужно передать как входные данные для функции оркестратора.
@@ -38,12 +38,12 @@ ms.lasthandoff: 12/15/2017
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
-public static Task Run(
+public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
     TraceWriter log)
 {
-    string instanceId = starter.StartNewAsync("HelloWorld", input);
+    string instanceId = await starter.StartNewAsync("HelloWorld", input);
     log.Info($"Started orchestration with ID = '{instanceId}'.");
 }
 ```
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Экземпляр запроса является в настоящее время поддерживается только для функции orchestrator C#.
+> Сейчас отправка запросов к экземплярам поддерживается только для функций оркестратора C#.
 
 ## <a name="terminating-instances"></a>Прерывание выполнения экземпляров
 
@@ -115,13 +115,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Завершение экземпляра в данный момент поддерживается только для функции orchestrator C#.
+> Сейчас завершение работы экземпляров поддерживается только для функций оркестратора C#.
 
 ## <a name="sending-events-to-instances"></a>Отправка событий в экземпляры
 
 В выполняющиеся экземпляры можно отсылать уведомления о событиях с помощью метода [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Чтобы обрабатывать эти уведомления, экземпляр должен ожидать вызова при помощи функции [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
 
-Параметры для [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) , как показано ниже:
+[RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) принимает следующие параметры:
 
 * **InstanceId** — уникальный идентификатор экземпляра;
 * **EventName** — имя отправляемого события;
@@ -141,12 +141,12 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Создание событий в настоящее время поддерживается только для функции orchestrator C#.
+> Сейчас создание событий поддерживается только для функций оркестратора C#.
 
 > [!WARNING]
 > Если экземпляра оркестрации с указанным *идентификатором* не существует или этот экземпляр не ожидает указанное *имя события*, сообщение о событии игнорируется. Дополнительные сведения об этом поведении см. в [описании проблемы на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > Узнайте, как использовать [HTTP-интерфейсы API для управления экземплярами](durable-functions-http-api.md)

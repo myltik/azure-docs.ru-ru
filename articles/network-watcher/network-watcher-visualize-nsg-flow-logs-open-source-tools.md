@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Визуализация журнала потоков для групп безопасности сети Наблюдателя за сетями Azure с помощью инструментов с открытым кодом
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/08/2017
 1. Для Elastic Stack версии 5.0 и более поздних версий требуется Java 8. Выполните команду `java -version`, чтобы проверить установленную версию. Если компонент Java не установлен, обратитесь к документации на [веб-сайте компании Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
 1. Скачайте правильный двоичный пакет для своей системы.
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ ms.lasthandoff: 12/08/2017
 
 1. Убедитесь, что Elasticsearch выполняется, выполнив следующую команду.
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Вы должны увидеть ответ следующего вида.
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ ms.lasthandoff: 12/08/2017
 
 1. Введите следующие команды, чтобы установить Logstash.
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Далее необходимо настроить Logstash для получения и анализа журналов потоков. Создайте файл logstash.conf следующим образом.
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ output {
 
 Этот подключаемый модуль Logstash позволит обращаться непосредственно к журналам потоков из заданной для них учетной записи хранения. Чтобы установить этот подключаемый модуль, из каталога установки Logstash по умолчанию (в этом случае — /usr/share/logstash/bin) выполните следующую команду.
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Чтобы запустить Logstash, выполните приведенную ниже команду.
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,14 +178,14 @@ sudo /etc/init.d/logstash start
 
 1. Введите следующие команды для установки Kibana.
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Запустите Kibana, выполнив следующие команды.
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```

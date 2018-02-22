@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/08/2017
 > Вы можете использовать этот подключаемый модуль, чтобы создавать и отправлять приложения только в кластер HDInsight Spark на Linux.
 > 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](apache-spark-jupyter-spark-sql.md).
 - Комплект разработчика Oracle Java. Его можно установить с [веб-сайта Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -68,6 +68,27 @@ ms.lasthandoff: 12/08/2017
 6. Далее можно развернуть узел имени кластера, чтобы увидеть ресурсы (например, учетные записи хранения), связанные с ним.
    
     ![Развернутый узел имени кластера](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
+
+## <a name="link-a-cluster"></a>Связывание кластера
+Вы можете связать обычный кластер с помощью управляемого имени пользователя Ambari, а кластер безопасности — с помощью имени пользователя домена (например, user1@contoso.com). 
+1. Щелкните **Link a cluster** (Связывание кластера) в **обозревателе Azure**.
+
+   ![контекстное меню связывания кластера](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Введите **имя кластера**, данные **учетной записи хранилища**, **ключ к хранилищу данных** и выберите контейнер в разделе **Контейнер хранилища**. Затем введите имя пользователя и пароль. В случае сбоя аутентификации проверьте имя пользователя и пароль.
+   
+   ![диалоговое окно связывания кластера](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Если кластер зарегистрирован в подписке Azure и связан, используется ключ к хранилищу данных, имя пользователя и пароль для связывания. 
+   
+3. Если данные введены правильно, связанный кластер отобразится в узле **HDInsight**. Теперь в этот связанный кластер можно отправить приложение.
+
+   ![связанный кластер](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. В **обозревателе Azure** также можно удалить связь кластера.
+   
+   ![кластер с удаленной связью](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Запуск приложения Spark Scala в кластере HDInsight Spark
 
@@ -164,12 +185,14 @@ ms.lasthandoff: 12/08/2017
 
    c. На вкладке **Spark Submission** (Отправка в Spark) в нижней части окна начнет отображаться ход выполнения. Приложение также можно остановить, выбрав красную кнопку в окне **Spark Submission** (Отправка в Spark).
       
-      ![Окно Spark Submission (Отправка в Spark)](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Окно Spark Submission (Отправка в Spark)](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       В разделе "Доступ к кластерам HDInsight Spark и управление ими с помощью набора средств Azure для IntelliJ" ниже в этой статье показано, как получить доступ к выходным данным задачи.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Локальная и удаленная отладка приложений Spark в кластере HDInsight 
-Мы также рекомендуем еще один способ отправки приложения Spark в кластер. Он заключается в настройке параметров **конфигураций запуска и отладки** в интегрированной среде разработки. Дополнительные сведения см. в статье [Отладка приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Мы также рекомендуем еще один способ отправки приложения Spark в кластер. Он заключается в задании параметров **конфигураций запуска и отладки** в интегрированной среде разработки. Дополнительные сведения см. в статье [Отладка приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Доступ к кластерам HDInsight Spark и управление ими с помощью набора средств Azure для IntelliJ
 При помощи набора средств Azure для IntelliJ можно выполнять разные операции.
@@ -182,6 +205,8 @@ ms.lasthandoff: 12/08/2017
 2. В области справа на вкладке **Spark Job View** (Просмотр заданий Spark) отображаются все приложения, запускаемые в кластере. Выберите имя приложения, дополнительные сведения о котором вы хотите просмотреть.
 
     ![Сведения о приложении](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Примечание
+    >
 
 3. Чтобы отобразить базовые сведения о выполняющемся задании, наведите указатель мыши на граф задания. Чтобы просмотреть этапы графа и сведения, создаваемые каждым заданием, выберите узел на графе задания.
 
@@ -276,7 +301,6 @@ ms.lasthandoff: 12/08/2017
 * [Использование средств визуализации данных с помощью Apache Spark BI в Azure HDInsight](apache-spark-use-bi-tools.md)
 * [Создание приложений машинного обучения Apache Spark в Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](apache-spark-machine-learning-mllib-ipython.md)
-* [Потоковая передача Apache Spark. Обработка данных из концентраторов событий Azure с помощью кластера Spark в HDInsight](apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Создание и запуск приложений

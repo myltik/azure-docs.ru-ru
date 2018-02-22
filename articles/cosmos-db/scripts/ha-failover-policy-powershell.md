@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.openlocfilehash: 94f1c958f6bb78d78d6b7da2416be06ff8d22065
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -52,7 +52,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 |||
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о Azure PowerShell см. в [документации по Azure PowerShell](https://docs.microsoft.com/powershell/).
 

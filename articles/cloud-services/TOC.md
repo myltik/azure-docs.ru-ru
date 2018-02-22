@@ -20,13 +20,10 @@
 #### [Хранилище BLOB-объектов и подключенные службы](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Хранилище очередей и подключенные службы](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Хранилище таблиц и подключенные службы](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Настройка пакетов для непрерывного процесса сборки и развертывания
-#### [TFS и командная сборка](cloud-services-dotnet-continuous-delivery.md)
 ### [Настройка правил трафика для роли](cloud-services-enable-communication-role-instances.md)
 ### [Обработка событий жизненного цикла облачной службы](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.IO (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Использование Twilio для телефонных звонков (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Настройка задач запуска
 #### [Создание задач запуска](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Хранение и просмотр диагностических данных в службе хранилища Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Трассировка облачной службы с помощью системы диагностики](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Отправка диагностических данных в App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Устранение неполадок
 ### Отладка 
-#### [Включение удаленной отладки посредством непрерывной доставки](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Варианты отладки для облачной службы](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Отладка локальной облачной службы с помощью Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Отладка опубликованной облачной службы с помощью Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

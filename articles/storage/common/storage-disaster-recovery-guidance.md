@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Что делать в случае простоя службы хранилища Azure
 Корпорация Майкрософт прилагает все усилия, чтобы наши службы были всегда доступны. Иногда по независящим от нас обстоятельствам происходят незапланированные простои служб в одном или нескольких регионах. Ниже приведено общее руководство для служб хранилища Azure, которое поможет вам справиться с такими редкими ситуациями.
@@ -27,9 +27,9 @@ ms.lasthandoff: 02/09/2018
 Крайне важно, чтобы каждый клиент подготовил свой собственный план аварийного восстановления. Меры по восстановлению работоспособности приложений после простоя обычно охватывают как персонал, так и автоматизированные процедуры. Обратитесь к приведенной ниже документации Azure, чтобы составить свой план аварийного восстановления.
 
 * [Контрольный список для обеспечения доступности](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Проектирование устойчивых приложений для Azure](/azure/architecture/resiliency)
+* [Проектирование устойчивых приложений для Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Служба Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Репликация службы хранилища Azure](storage-redundancy)
+* [Репликация службы хранилища Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Служба архивации Azure](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Определение

@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Использование средств Azure HDInsight для Visual Studio Code
 
 Сведения об использовании средств Azure HDInsight для Visual Studio Code (VS Code) для создания и отправки пакетных заданий Hive, интерактивных запросов Hive и скриптов pySpark. Средства Azure HDInsight можно устанавливать на всех платформах, поддерживаемых VS Code. К ним относятся Windows, Linux и macOS. Здесь описаны предварительные требования для различных платформ.
 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для выполнения действий в этом руководстве необходимы такие компоненты:
 
@@ -101,6 +101,26 @@ ms.lasthandoff: 01/04/2018
     - Отправка интерактивных запросов PySpark
     - отправка пакетных сценариев PySpark;
     - настройка конфигурации.
+
+**Связывание кластера**
+
+Вы можете связать обычный кластер с помощью управляемого имени пользователя Ambari, а кластер безопасности — с помощью имени пользователя домена (например, user1@contoso.com).
+1. Откройте палитру команд, нажав **CTRL+SHIFT+P** и введите **HDInsight: Link a cluster** (HDInsight: связать кластер).
+
+   ![команда связывания кластера](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Введите URL-адрес кластера HDInsight, имя пользователя и пароль и выберите тип кластера. Если проверка пройдена, отобразится сообщение об успешном выполнении.
+   
+   ![диалоговое окно связывания кластера](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Если кластер зарегистрирован в подписке Azure и связан, используется имя пользователя и пароль для связывания. 
+   
+3. Данные связанного кластера можно просмотреть с помощью команды **перечисления кластеров**. Теперь в этот связанный кластер можно отправить скрипт.
+
+   ![связанный кластер](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Также можно удалить связь кластера. Для этого введите **HDInsight: Unlink a cluster** (HDInsight: удалить связь кластера) в палитре команд.
 
 ## <a name="list-hdinsight-clusters"></a>Получение списка кластеров HDInsight
 
@@ -258,6 +278,9 @@ ms.lasthandoff: 01/04/2018
 После отправки задания Python в окне **вывода** в VS Code отобразятся журналы отправки. Также отображаются **URL-адрес пользовательского интерфейса Spark** и **URL-адрес пользовательского интерфейса Yarn**. URL-адрес можно открыть в веб-браузере, чтобы отследить состояние задания.
 
 
+   
+
+
 ## <a name="additional-features"></a>Дополнительные функции
 
 HDInsight для VSCode поддерживает перечисленные ниже функции.
@@ -270,7 +293,7 @@ HDInsight для VSCode поддерживает перечисленные ни
 
     ![Подсветка синтаксиса в средствах HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="demo"></a>Демонстрация
 * HDInsight для VS Code: [видео](https://go.microsoft.com/fwlink/?linkid=858706)
@@ -286,7 +309,7 @@ HDInsight для VSCode поддерживает перечисленные ни
 * [Использование внешних пакетов с записными книжками Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Визуализация данных Hive интерактивного запроса с помощью Power BI в Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+* [Visualize Interactive Query Hive data with Microsoft Power BI using DirectQuery in Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) (Визуализация данных Hive из кластера Interactive Query с помощью Microsoft Power BI и DirectQuery в Azure HDInsight).
 * [Настройка интерактивной среды PySpark для Visual Studio Code](set-up-pyspark-interactive-environment.md)
 * [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](./hdinsight-connect-hive-zeppelin.md)
 
@@ -294,7 +317,6 @@ HDInsight для VSCode поддерживает перечисленные ни
 * [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](spark/apache-spark-use-bi-tools.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](spark/apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Создание и запуск приложений

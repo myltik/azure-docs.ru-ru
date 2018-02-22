@@ -3,8 +3,8 @@ title: "Общие сведения о планах, предложениях, �
 description: "Сведения о планах, предложениях, квотах и подписках Azure Stack (для операторов облачной среды)."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Обзор планов, предложений, квот и подписок
 

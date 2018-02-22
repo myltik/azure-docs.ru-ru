@@ -3,8 +3,8 @@ title: "Разработка приложений для Azure Stack | Доку�
 description: "Рекомендации по разработке в приложениях при создании прототипов приложений в Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 062c17173f87eec8e0eaa3f74323cbf8a8f48571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 4b9e0f5a264296e59579539dd929f5d75a54b62a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="develop-for-azure-stack"></a>Разработка для Azure Stack
 Вы можете сразу приступить к разработке приложений даже при отсутствии доступа к среде Azure Stack. Так как Azure Stack предоставляет службы Microsoft Azure, выполняемые в вашем центре обработки данных, при разработке в среде Azure Stack вы можете использовать те же средства и процессы, что и для Azure.  Ознакомившись со следующими рекомендациями, вы сможете использовать Azure для эмуляции среды Azure Stack:

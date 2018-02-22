@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Создание учетной записи хранения и смена ее ключей доступа
 
@@ -45,14 +45,14 @@ az group delete --name myResourceGroup
 
 Этот скрипт использует следующие команды для создания учетной записи хранения и извлечения и смены ее ключей доступа. Для каждого элемента в таблице приведены ссылки на документацию по команде.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
-| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az storage account create](/cli/azure/storage/account#create) | Создает учетную запись хранения Azure в указанной группе ресурсов. |
-| [az storage account keys list](/cli/azure/storage/account/keys#list) | Отображает ключи доступа для указанной учетной записи хранения. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#renew) | Повторно создает первичный или вторичный ключи доступа учетной записи хранения. |
+| [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Создает учетную запись хранения Azure в указанной группе ресурсов. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Отображает ключи доступа для указанной учетной записи хранения. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Повторно создает первичный или вторичный ключи доступа учетной записи хранения. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](/cli/azure/overview).
 

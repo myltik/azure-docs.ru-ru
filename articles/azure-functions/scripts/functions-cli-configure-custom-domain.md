@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 В этом сценарии используются следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Создает учетную запись хранения, необходимую для приложения-функции. |
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 | [az functionapp create]() | Создает приложение-функцию. |
 | [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Сопоставляет личный домен с приложением-функцией. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: d7c0ba8a8ac477e7e3175d590a6de13fb3f460cb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Проектирование первой базы данных SQL Azure
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/01/2018
 
 Чтобы создать пустую базу данных SQL, выполните приведенные ниже действия. 
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 
 2. Выберите **Базы данных** на странице **Создание** и щелкните **Создать** в разделе **База данных SQL** на странице **Создание**.
 

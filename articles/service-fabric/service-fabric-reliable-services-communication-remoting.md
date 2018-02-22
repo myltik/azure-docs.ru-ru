@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Удаленное взаимодействие службы с Reliable Services
 Для служб, которые не привязаны к определенному протоколу обмена данными или стеку, например веб-API, Windows Communication Foundation (WCF) или др., платформа Reliable Services предоставляет механизм удаленного взаимодействия для быстрой и простой настройки удаленного вызова процедур.
@@ -59,7 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -146,7 +146,7 @@ string message = await helloWorldClient.HelloWorldAsync();
   </Resources>
   ```
 
-2. Используйте [прослушиватель удаленного взаимодействия версии 2](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Используемое имя ресурса конечной точки службы по умолчанию — ServiceEndpointV2. Оно должны быть определено в манифесте службы.
+2. Используйте [прослушиватель удаленного взаимодействия версии 2](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Используемое имя ресурса конечной точки службы по умолчанию — ServiceEndpointV2. Оно должны быть определено в манифесте службы.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

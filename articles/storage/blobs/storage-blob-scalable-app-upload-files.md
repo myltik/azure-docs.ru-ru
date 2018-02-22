@@ -2,23 +2,20 @@
 title: "Передача больших объемов случайных данных в параллельном режиме в службу хранилища Azure | Документация Майкрософт"
 description: "Сведения об использовании пакета SDK Azure для передачи больших объемов случайных данных в параллельном режиме в учетную запись службы хранилища Azure"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Передача больших объемов случайных данных в параллельном режиме в службу хранилища Azure
 
@@ -27,7 +24,7 @@ ms.lasthandoff: 12/23/2017
 Из второй части цикла вы узнаете, как выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * Настройка строки подключения.
+> * Настройка строки подключения
 > * Создание приложения
 > * Выполнение приложения
 > * Проверка количества подключений.
@@ -191,7 +188,7 @@ C:\>
 Из второй части в серии вы узнали не только о передаче больших объемов случайных данных в учетную запись хранения в параллельном режиме, но и о том, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * Настройка строки подключения.
+> * Настройка строки подключения
 > * Создание приложения
 > * Выполнение приложения
 > * Проверка количества подключений.

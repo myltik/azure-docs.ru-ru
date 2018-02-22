@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Удаление контейнеров на основе префикса имени
 
@@ -45,15 +45,15 @@ az group delete --name myResourceGroup
 
 Ниже приведены команды, с помощью которых скрипт удаляет контейнеры на основе префикса имени. Для каждого элемента в таблице приведены ссылки на документацию по команде.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
-| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az storage account create](/cli/azure/storage/account#create) | Создает учетную запись хранения Azure в указанной группе ресурсов. |
-| [az storage container create](/cli/azure/storage/container#create) | Создает контейнер в хранилище BLOB-объектов Azure. |
-| [az storage container list](/cli/azure/storage/container#list) | Возвращает список контейнеров BLOB-объектов в учетной записи службы хранилища Azure. |
-| [az storage container delete](/cli/azure/storage/container#delete) | Удаляет контейнеры в учетной записи службы хранилища Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Создает учетную запись хранения Azure в указанной группе ресурсов. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Создает контейнер в хранилище BLOB-объектов Azure. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Возвращает список контейнеров BLOB-объектов в учетной записи службы хранилища Azure. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Удаляет контейнеры в учетной записи службы хранилища Azure. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](/cli/azure/overview).
 
