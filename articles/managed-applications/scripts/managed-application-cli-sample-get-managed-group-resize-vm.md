@@ -36,14 +36,14 @@ ms.lasthandoff: 10/30/2017
 
 В этом скрипте используются следующие команды для развертывания управляемого приложения. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Перечисление управляемых приложений Azure. Укажите значения запроса для поиска результатов. |
 | [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Перечисление ресурсов. Укажите группу ресурсов и значения запроса для поиска результатов. |
 | [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Обновление размера виртуальной машины. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](../overview.md).
 * Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).

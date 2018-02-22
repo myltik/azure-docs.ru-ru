@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Начало работы](iot-hub-get-started.md)
+# [Приступите к работе](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Приступая к работе с двойниками устройств
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-twin-how-to-configure.md)
+#### [Серверная часть и устройство Python](iot-hub-python-python-twin-how-to-configure.md)
 ### Использование заданий устройства для обновления встроенного ПО устройства
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-firmware-update.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-firmware-update.md)
+#### [Серверная часть и устройство Python](iot-hub-python-python-firmware-update.md)
 ### Планирование и трансляция заданий
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-schedule-jobs.md)
+#### [Серверная часть и устройство Python](iot-hub-python-python-schedule-jobs.md)
 
 ## управление
 ### Создание Центра Интернета вещей 

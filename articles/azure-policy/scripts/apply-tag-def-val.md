@@ -75,6 +75,6 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "ap
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные примеры шаблонов для Политики Azure [доступны здесь](../json-samples.md).

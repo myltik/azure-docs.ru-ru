@@ -35,12 +35,12 @@ ms.lasthandoff: 11/29/2017
 
 Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Возвращает ресурс `Microsoft.Network/loadBalancers`. |
 |[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Обновляет ресурс `Microsoft.Network/loadBalancers`.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 

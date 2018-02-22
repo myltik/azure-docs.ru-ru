@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: c87e62ad82470f2d159da13f02a1f97b629e7fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Приступая к работе с сервером Многофакторной идентификации Azure
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/13/2018
 Чтобы скачать сервер Многофакторной идентификации Azure с портала Azure, сделайте следующее:
 
 1. Войдите на [портал Azure](https://portal.azure.com) с использованием учетной записи администратора.
-2. Выберите **Active Directory** > **MFA Server** (Сервер MFA).
+2. Выберите **Azure Active Directory** > **MFA Server** (Сервер MFA).
 3. Выберите **Параметры сервера**.
 4. Выберите **Загрузить** и следуйте инструкциям на странице скачивания, чтобы сохранить установщик. 
 

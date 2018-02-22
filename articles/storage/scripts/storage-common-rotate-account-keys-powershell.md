@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 
 Ниже приведены команды, на основе которых скрипт создает учетную запись хранения, извлекает и обновляет один из ее ключей доступа. Для каждого элемента в таблице приведены ссылки на документацию по команде.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | Выводит все расположения и поддерживаемых в каждом из них поставщиков ресурсов. |
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Создает группы ресурсов Azure. |
@@ -53,7 +53,7 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 | [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Выводит список ключей доступа для учетной записи хранения Azure. |
 | [New-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | Повторно создает ключ доступа учетной записи хранения Azure. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 

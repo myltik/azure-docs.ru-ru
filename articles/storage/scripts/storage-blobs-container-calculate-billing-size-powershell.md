@@ -17,7 +17,7 @@ ms.date: 11/07/2017
 ms.author: fryu
 ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -119,7 +119,7 @@ For-Each Signed Identifier[512 bytes]
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size-ex.ps1 "Calculate container size")]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Простой сценарий оценки размера контейнеров см. в разделе [Вычисление размера контейнера больших двоичных объектов](../scripts/storage-blobs-container-calculate-size-powershell.md).
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Создание функции, интегрируемой с Azure Logic Apps
 
@@ -53,7 +53,7 @@ API-интерфейсы Cognitive Services доступны как отдель
 
 1. Войдите на [портале Azure](https://portal.azure.com/).
 
-2. Щелкните **Создать** в верхнем левом углу портала Azure.
+2. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 
 3. Нажмите **AI + Analytics** (Искусственный интеллект и аналитика) > **API анализа текста**. Затем используйте параметры, указанные в таблице, примите условия и установите флажок **Закрепить на панели мониторинга**.
 

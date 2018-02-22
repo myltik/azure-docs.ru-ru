@@ -35,13 +35,13 @@ ms.lasthandoff: 11/29/2017
 
 В этом сценарии используются следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Получает свойства типа узла кластера (масштабируемого набора виртуальных машин).   |
 | [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| Добавляет расширение в масштабируемый набор виртуальных машин.|
 | [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)|Обновляет состояние масштабируемого набора виртуальных машин до состояния локального объекта VMSS.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
