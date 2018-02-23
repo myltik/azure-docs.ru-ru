@@ -56,7 +56,7 @@ ms.lasthandoff: 02/14/2018
 | Check Point |Security Gateway |R77.30 |[Руководство по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Руководство по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Примеры конфигурации](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Руководство по настройке*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Примеры конфигурации](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Примеры конфигурации](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Примеры конфигурации](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Примеры конфигурации**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Примеры конфигурации](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Примеры конфигурации](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) \** |
 | Cisco |Meraki |Недоступно |Не совместимо |Не совместимо |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 и выше |[Руководство по настройке](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Не совместимо |
 | F5 |Серия BIG-IP |12.0 |[Руководство по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Руководство по настройке](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -78,7 +78,7 @@ ms.lasthandoff: 02/14/2018
 >
 > (*) Версии Cisco ASA 8.4+ с поддержкой IKEv2 могут подключаться к VPN-шлюзу Azure при помощи настраиваемой политики IPsec/IKE с параметром UsePolicyBasedTrafficSelectors. Дополнительные сведения см. в этой [статье](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
-> (**) Маршрутизаторы ISR серии 7200 поддерживают только VPN типа PolicyBased.
+> (\**) Маршрутизаторы ISR серии 7200 поддерживают только VPN типа PolicyBased.
 
 ## <a name="additionaldevices"></a>Непроверенные VPN-устройства
 
