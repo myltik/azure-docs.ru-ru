@@ -16,7 +16,7 @@ ms.date: 09/12/2016
 ms.author: magoedte;bwren
 ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -38,9 +38,9 @@ ms.lasthandoff: 01/03/2018
 6. Если модуль Runbook является [модулем рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) или [графическим](automation-runbook-types.md#graphical-runbooks), то вы можете остановить или приостановить его в процессе тестирования с помощью кнопок под областью выходных данных. В случае приостановки модуль Runbook завершает действие, начатое до приостановки. Приостановленный модуль Runbook можно остановить или перезапустить.
 7. Проверьте выходные данные модуля Runbook в области выходных данных.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Инструкции по созданию и импорту модуля Runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
 * Дополнительные сведения о графической разработке см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
-* Дополнительные сведения о настройке модулей Runbook для возврата сообщения о состоянии и ошибках, включая рекомендации, см. в [Runbook выходные данные и сообщения в службе автоматизации Azure](automation-runbook-output-and-messages.md)
+* Дополнительные сведения о настройке модулей runbook для возврата ошибок и сообщений о состоянии, включая рекомендации, см. в статье [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
 

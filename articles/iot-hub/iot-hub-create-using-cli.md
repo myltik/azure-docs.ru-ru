@@ -107,15 +107,14 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 az group delete --name {your resource group name}
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о разработке для Центра Интернета вещей см. в следующих статьях:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* 
-            [Создание центра Интернета вещей через портал Azure][lnk-portal]
+* [Управление Центром Интернета вещей с помощью портала Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

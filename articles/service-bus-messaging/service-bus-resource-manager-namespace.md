@@ -1,6 +1,6 @@
 ---
-title: "Создание пространства имен на обмен сообщениями Service Bus с помощью шаблона диспетчера ресурсов Azure | Документы Microsoft"
-description: "Шаблон диспетчера ресурсов Azure используется для создания пространства имен, обмен сообщениями Service Bus"
+title: "Создание пространства имен для обмена сообщениями служебной шины с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Используйте шаблон Azure Resource Manager для создания пространства имен для обмена сообщениями служебной шины"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm;shvija
 ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
 ---
@@ -144,7 +144,7 @@ azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы создали и развернули ресурсы с помощью Azure Resource Manager, узнайте, как управлять этими ресурсами, изучив следующие статьи.
 
 * [Управление служебной шиной с помощью PowerShell](service-bus-manage-with-ps.md)

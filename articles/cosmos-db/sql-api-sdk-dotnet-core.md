@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: API Core .NET для SQL SDK и ресурсы | Документы Microsoft"
-description: "Дополнительные сведения о SQL .NET Core API и SDK, включая даты выхода, даты выбытия и изменения, выполняемые на каждой версии пакета SDK Azure Cosmos DB .NET Core."
+title: "API-интерфейс, пакет SDK и ресурсы для SQL .NET Core (Azure Cosmos DB) | Документация Майкрософт"
+description: "Сведения об API-интерфейсе и пакете SDK для SQL .NET Core, в том числе даты выхода, даты прекращения использования и внесенные изменения по каждой версии пакета SDK .NET Core для Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Cosmos DB .NET Core для API-Интерфейсы SQL: заметки о выпуске и ресурсы
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для .NET Core для API-интерфейса SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Веб-канал изменений в .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -58,6 +58,14 @@ ms.lasthandoff: 12/18/2017
 
 > [!NOTE] 
 > Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Исправлена регрессия, где FeedOptions.MaxItemCount = -1 вызвало исключение System.ArithmeticException: размер страницы является отрицательным значением.
+* Добавлена новая функция ToString() в QueryMetrics.
+* Предоставлена статистика по секциям для считывания коллекций.
+* Добавлено свойство PartitionKey в ChangeFeedOptions.
+* Исправлены незначительные ошибки.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ ms.lasthandoff: 12/18/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |5 февраля 2018 г. |--- |
 | [1.7.1](#1.7.1) |16 ноября 2017 г. |--- |
 | [1.7.0](#1.7.0) |10 ноября 2017 г. |--- |
 | [1.6.0](#1.6.0) |17 октября 2017 г. |--- |

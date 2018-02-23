@@ -19,7 +19,7 @@ ms.date: 11/27/2017
 ms.author: jgao
 ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -43,7 +43,7 @@ Interactive Query (также Hive LLAP, или [Live Long and Process](https://
 
 * С помощью Power BI
 
-    В разделе [визуализировать интерактивный Hive запрос данных с помощью Power BI в Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) . в разделе [визуализировать большие объемы данных с помощью Power BI в Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+    См. статью о [визуализации данных интерактивного запроса Hive с помощью Power BI в Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md). См. статью о [визуализации больших данных с помощью Power BI в Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
  
 * Использование Zeppelin
 
@@ -76,7 +76,7 @@ Interactive Query (также Hive LLAP, или [Live Long and Process](https://
    
    ![JDBC для кластеров HDInsight Hadoop типа Interactive Query на LLAP](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте, как [создавать кластеры Interactive Query в HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Узнайте, как [визуализировать большие данные с помощью Power BI в Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).

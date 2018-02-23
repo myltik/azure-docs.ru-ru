@@ -41,21 +41,20 @@ ms.lasthandoff: 11/18/2017
 
 Использование Центра Интернета вещей вместе с концентраторами событий не является экзотикой. В таких случаях Центр Интернета вещей обрабатывает передачу данных с устройств в облако, а концентраторы событий — дальнейшую передачу событий в модули обработки в реальном времени.
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о планировании развертывания Центра Интернета вещей см. в статье [Масштабирование Центра Интернета вещей][lnk-scaling].
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
-* [Развертывание Azure IoT Edge на имитированном устройстве в Linux (предварительная версия)][lnk-iotedge]
+* [Развертывание ИИ на пограничных устройствах с использованием Azure IoT Edge][lnk-iotedge]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
-
-            [раздел "Безопасность" руководства разработчика для Центра Интернета вещей]: iot-hub-devguide-security.md.
+[раздел "Безопасность" руководства разработчика для Центра Интернета вещей]: iot-hub-devguide-security.md.
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
 [Azure Event Hubs quotas]: ../event-hubs/event-hubs-quotas.md

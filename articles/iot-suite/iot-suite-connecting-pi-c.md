@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: dobett
 ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
 ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -47,11 +47,11 @@ ms.lasthandoff: 01/03/2018
 
 ### <a name="required-raspberry-pi-software"></a>Необходимое ПО для Raspberry Pi
 
-В этой статье предполагается установить последнюю версию [Raspbian ОС на ваш Pi Raspberry](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+В этой статье предполагается, что вы установили последнюю версию [Raspbian ОС на устройстве Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
 В следующих шагах объясняется, как подготовить устройство Raspberry Pi для создания приложения C, которое подключается к предварительно настроенному решению.
 
-1. Подключение к Raspberry пи с помощью **ssh**. Дополнительные сведения см. в разделе о [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) на [веб-сайте Raspberry Pi](https://www.raspberrypi.org/).
+1. Подключитесь к Raspberry Pi с помощью **ssh**. Дополнительные сведения см. в разделе о [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) на [веб-сайте Raspberry Pi](https://www.raspberrypi.org/).
 
 1. Чтобы обновить устройство Raspberry Pi, используйте следующую команду:
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/03/2018
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Используйте следующие команды для загрузки, сборка и установка клиентских библиотек центр IoT с вашей пи Raspberry:
+1. Используйте следующие команды для скачивания, сборки и установки клиентских библиотек Центра Интернета вещей на устройстве Raspberry Pi:
 
     ```sh
     cd ~
@@ -80,9 +80,9 @@ ms.lasthandoff: 01/03/2018
 
 ## <a name="create-a-project"></a>Создание проекта
 
-Выполните следующие действия с помощью **ssh** подключение к вашей Raspberry Pi:
+Выполните следующие шаги, установив подключение по протоколу **ssh** к устройству Raspberry Pi:
 
-1. Создайте папку с именем `remote_monitoring` в домашней папке на Raspberry Pi. Перейдите к этой папке в оболочка:
+1. Создайте папку с именем `remote_monitoring` в домашней папке на Raspberry Pi. Перейдите к этой папке в оболочке:
 
     ```sh
     cd ~
@@ -90,9 +90,9 @@ ms.lasthandoff: 01/03/2018
     cd remote_monitoring
     ```
 
-1. Создайте четыре файла **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, и **CMakeLists.txt** в `remote_monitoring` папка.
+1. Создайте четыре файла: **main.c**, **remote_monitoring.c**, **remote_monitoring.h** и **CMakeLists.txt** в папке `remote_monitoring`.
 
-1. В текстовом редакторе откройте **remote_monitoring.c** файла. На Raspberry Pi, можно использовать **nano** или **vi** текстовый редактор. Добавьте следующие операторы `#include` :
+1. Откройте в текстовом редакторе файл **remote_monitoring.c**. На Raspberry Pi можно использовать текстовый редактор **nano** или **vi**. Добавьте следующие операторы `#include` :
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/03/2018
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-Сохранить **remote_monitoring.c** файл и закройте редактор.
+Сохраните файл **remote_monitoring.c** и закройте редактор.
 
 ## <a name="add-code-to-run-the-app"></a>Добавление кода для запуска приложения
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 01/03/2018
 void remote_monitoring_run(void);
 ```
 
-Сохранить **remote_monitoring.h** файл и закройте редактор.
+Сохраните файл **remote_monitoring.h** и закройте редактор.
 
 Откройте в текстовом редакторе файл **main.c** . Добавьте следующий код:
 
@@ -132,7 +132,7 @@ int main(void)
 }
 ```
 
-Сохранить **main.c** файл и закройте редактор.
+Сохраните файл **main.c** и закройте редактор.
 
 ## <a name="build-and-run-the-application"></a>Создание и запуск приложения
 
@@ -187,7 +187,7 @@ int main(void)
     )
     ```
 
-1. Сохранить **CMakeLists.txt** файл и закройте редактор.
+1. Сохраните файл **CMakeLists.txt** и закройте редактор.
 
 1. В папке `remote_monitoring` создайте папку для хранения файлов *make*, созданных с помощью CMake. Затем запустите команды **cmake** и **make** следующим образом:
 

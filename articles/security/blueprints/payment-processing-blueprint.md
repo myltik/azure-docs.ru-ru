@@ -1,6 +1,6 @@
 ---
-title: "План обработки платежей для PCI DSS-совместимых сред"
-description: "Требование PCI DSS"
+title: "Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS"
+description: "Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Служба автоматизации Azure Blueprint: обработка платежей для PCI DSS-совместимых сред
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS
 
 ## <a name="overview"></a>Обзор
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/30/2017
 - Для соответствия требованиям PCI DSS требуется, чтобы квалифицированный аудитор систем безопасности (QSA) сертифицировал решение для рабочей среды.
 - Клиенты несут ответственность за проведение соответствующих проверок безопасности и соответствия любого решения, созданного с использованием этой базовой архитектуры, поскольку требования могут варьироваться в зависимости от специфики реализации и географического расположения каждого клиента.  
 
-Краткий обзор того, как работает это решение, содержится в этом [видео](https://aka.ms/pciblueprintvideo), в котором объясняется и демонстрируется развертывание решения.
+Краткий обзор того, как работает это решение, содержится в этом [видео](https://aka.ms/pciblueprintvideo). В нем объясняется и демонстрируется развертывание решения.
 
 ## <a name="solution-components"></a>Компоненты решения
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/30/2017
 - **Шаблоны развертывания**. В этом развертывании [шаблоны Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) используются для автоматического развертывания компонентов архитектуры в Microsoft Azure путем указания параметров конфигурации во время установки.
 - **Автоматизированное развертывание скриптов**. Эти скрипты помогают развернуть комплексное решение. Скрипты состоят из:
     - Скрипт установки модуля и настройки [глобального администратора](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) позволяет установить и проверить правильность настройки необходимых модулей PowerShell и ролей глобального администратора.
-    - Сценарий установки PowerShell используется для развертывания комплексного решения, предоставляемого в виде ZIP-файла и BACPAC-файла, которые содержат предварительно созданную демонстрационную версию веб-приложения с [примером содержимого базы данных SQL](https://github.com/Microsoft/azure-sql-security-sample) . Исходный код этого решения доступен для изучения в [репозитории кода схемы обработки платежей][code-repo]. 
+    - Сценарий установки PowerShell используется для развертывания комплексного решения, предоставляемого в виде ZIP-файла и BACPAC-файла, которые содержат предварительно созданную демонстрационную версию веб-приложения с [примером содержимого базы данных SQL](https://github.com/Microsoft/azure-sql-security-sample) . Исходный код этого решения доступен для изучения в [репозитории кода схемы][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Схема архитектуры
 
@@ -110,8 +110,6 @@ ms.lasthandoff: 11/30/2017
 - создание и чтение информации о клиентах;
 - изменение информации о клиентах;
 - перезаписывание или изменение номера кредитной карты, срока действия и кода безопасности карты.
-
-> В интернет-магазине Contoso пользователь автоматически выполняет функцию пользователя **Эдна** для проверки возможностей развернутой среды.
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Интернет-магазин Contoso — примерная стоимость
 
@@ -191,7 +189,7 @@ ms.lasthandoff: 11/30/2017
 
 Для выполнения требований шифрования неактивных данных все [хранилища Azure](https://azure.microsoft.com/services/storage/) используют [шифрование службы хранения](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>База данных SQL Azure
+#### <a name="azure-sql-database"></a>Базы данных SQL Azure
 
 В экземпляре базы данных Azure SQL используются следующие меры безопасности базы данных:
 
@@ -272,7 +270,7 @@ ms.lasthandoff: 11/30/2017
 
 [Антивредоносная программа (Майкрософт)](/azure/security/azure-security-antimalware) для облачных служб и виртуальных машин Azure — это средство защиты для обнаружения и удаления вирусов, шпионских и других вредоносных программ в режиме реального времени. Кроме того, вы можете настроить оповещения о попытках установки вредоносного или нежелательного программного обеспечения в системе Azure.
 
-### <a name="operations-management"></a>Пакет Operations Management
+### <a name="operations-management"></a>Operations Management
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -357,13 +355,13 @@ ms.lasthandoff: 11/30/2017
     
 ## <a name="threat-model"></a>Модель рисков
 
-Схема потока данных (DFD) и пример модели угроз для [модели угроз для схемы обработки платежей](https://aka.ms/pciblueprintthreatmodel) интернет-магазина Contoso.
+Схема потока данных (DFD) и пример модели угроз для [модели угроз для схемы](https://aka.ms/pciblueprintthreatmodel) интернет-магазина Contoso.
 
 ![](images/pci-threat-model.png)
 
 
 
-## <a name="customer-responsibility-matrix"></a>Таблица ответственности клиента
+## <a name="customer-responsibility-matrix"></a>Таблица обязанностей клиента
 
 Клиенты несут ответственность за сохранение копии [итоговой таблицы ответственности](https://aka.ms/pciblueprintcrm32), в которой изложены требования PCI DSS, за которые отвечает заказчик, и те, за которые отвечает Microsoft Azure.
 

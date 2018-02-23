@@ -18,7 +18,7 @@ ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -87,13 +87,13 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Как использовать сертификат в Python
 
-По умолчанию [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) для API-Интерфейсы SQL будет попробуйте и не использовать SSL-сертификат при подключении к локальном эмуляторе. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в документации по [оболочкам сокетов Python](https://docs.python.org/2/library/ssl.html).
+По умолчанию при подключении к локальному эмулятору [пакет SDK Python (версии 2.0.0 или выше)](sql-api-sdk-python.md) для API SQL не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в документации по [оболочкам сокетов Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Как использовать сертификат в Node.js
 
-По умолчанию [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) для API-Интерфейсы SQL будет попробуйте и не использовать SSL-сертификат при подключении к локальном эмуляторе. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в [документации по Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+По умолчанию при подключении к локальному эмулятору [пакет SDK Node.js (версии 1.10.1 или выше)](sql-api-sdk-node.md) для API SQL не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в [документации по Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы выполнили следующее:
 

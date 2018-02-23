@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Привязки хранилища очередей Azure для службы "Функции Azure"
 
@@ -36,12 +36,12 @@ ms.lasthandoff: 01/03/2018
 Языковой пример см. в разделах:
 
 * [C#](#trigger---c-example)
-* [Скрипт C# (.csx)](#trigger---c-script-example)
+* [Скрипт C# (CSX)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , опрашивает `myqueue-items` очередь, а затем записывает журнал каждый раз при обработке элемента очереди.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Пример скрипта C# в триггере
 
-В следующем примере показан триггер большого двоичного объекта привязки в *function.json* файла и [скрипт C# (.csx)](functions-reference-csharp.md) код, который использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C# (CSX)](functions-reference-csharp.md), который использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
 
 Ниже показан файл *function.json*.
 
@@ -153,7 +153,7 @@ module.exports = function (context) {
 
 ## <a name="trigger---attributes"></a>Атрибуты триггера
  
-В [библиотеки классов C#](functions-dotnet-class-library.md), использовать для настройки триггеров очереди следующие атрибуты:
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки триггера очереди:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -181,7 +181,7 @@ module.exports = function (context) {
   }
   ```
  
-  Полный пример см. в разделе [триггер - пример на C#](#trigger---c-example).
+  Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -267,12 +267,12 @@ module.exports = function (context) {
 Языковой пример см. в разделах:
 
 * [C#](#output---c-example)
-* [Скрипт C# (.csx)](#output---c-script-example)
+* [Скрипт C# (CSX)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Пример выходных данных C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , создает сообщение очереди для каждого HTTP-запрос получен.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая создает сообщения очереди для каждого полученного HTTP-запроса.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Пример выходных данных скрипта C#
 
-В следующем примере показан триггер большого двоичного объекта привязки в *function.json* файла и [скрипт C# (.csx)](functions-reference-csharp.md) код, который использует привязку. С помощью этой функции можно создать элемент очереди с полезными данными POCO для каждого полученного HTTP-запроса.
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C# (CSX)](functions-reference-csharp.md), который использует привязку. С помощью этой функции можно создать элемент очереди с полезными данными POCO для каждого полученного HTTP-запроса.
 
 Ниже показан файл *function.json*.
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
  
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), которая определена в пакет NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Этот атрибут применяется к параметру `out` или возвращаемому значению функции. Конструктор атрибута принимает имя очереди, как показано в следующем примере:
 
@@ -425,7 +425,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Полный пример см. в разделе [выходные данные - пример на C#](#output---c-example).
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
 
 Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attribute).
 
@@ -459,7 +459,16 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 В функциях JavaScript используйте `context.bindings.<name>`, чтобы получить доступ к выходной очереди сообщений. Строку или сериализуемый объект JSON можно использовать для полезных данных элемента очереди.
 
-## <a name="next-steps"></a>Дальнейшие действия
+
+## <a name="exceptions-and-return-codes"></a>Коды возврата и исключений
+
+| Привязка |  Справочные материалы |
+|---|---|
+| Очередь | [Коды ошибок очередей](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Большой двоичный объект, таблица, очередь | [Коды ошибок хранилища](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Большой двоичный объект, таблица, очередь |  [Устранение неполадок](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Создание функции, активируемой хранилищем очередей Azure](functions-create-storage-queue-triggered-function.md)

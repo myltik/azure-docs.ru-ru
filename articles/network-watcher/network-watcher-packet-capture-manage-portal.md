@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Управление записью пакетов с помощью Наблюдателя за сетями Azure на портале Azure
 
@@ -61,7 +61,10 @@ ms.lasthandoff: 02/01/2018
 На странице общих сведений представлен список со всеми существующими операциями записи пакетов, независимо от их состояния.
 
 > [!NOTE]
-> Для записи пакетов требуется подключение к учетной записи хранения через порт 443.
+> Для записи пакетов требуются следующие подключения.
+> * Исходящее подключение к учетной записи хранения через порт 443.
+> * Входящее и исходящее подключение через адрес 169.254.169.254.
+> * Входящее и исходящее подключение через адрес 168.63.129.16.
 
 ![Страница обзора записи пакетов][1]
 

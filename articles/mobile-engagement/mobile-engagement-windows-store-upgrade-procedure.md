@@ -16,7 +16,7 @@ ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -294,7 +294,7 @@ Engagement использует строку подключения. При ис
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-Строка подключения для приложения отображается на портале Azure.
+Теперь строка подключения для приложения отображается на портале Azure.
 
 ### <a name="items-name-change"></a>Изменение имени элементов
 Каждый из элементов с именем *capptain* был переименован на *engagement*. Аналогичным образом имя *Capptain* изменилось на *Engagement*.

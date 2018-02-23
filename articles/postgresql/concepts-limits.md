@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 12/04/2017
 ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/06/2018
 | Уровень службы "Базовый"         | 1 TБ              |
 | Уровень службы "Стандартный"      | 1 TБ              |
 
-Система Azure требует пяти соединений мониторинга PostgreSQL сервера базы данных Azure. Когда число подключений превышается, может появиться следующая ошибка:
+Системе Azure требуется пять подключений для отслеживания Базы данных Azure для PostgreSQL. Когда число подключений превышается, может появиться следующая ошибка:
 > FATAL: sorry, too many clients already (Неустранимая ошибка: уже подключено слишком много клиентов)
 
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/06/2018
 1.  Восстановление в другой уровень служб и (или) до другого числа единиц вычислений и размера хранилища не допускается.
 2.  Восстановление удаленного сервера не поддерживается.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Ознакомьтесь со статьей [Параметры и производительность базы данных Azure для MySQL: возможности разных уровней служб](concepts-service-tiers.md).
 - Ознакомьтесь со статьей [Поддерживаемые версии в базе данных Azure для PostgreSQL](concepts-supported-versions.md).
 - Просмотрите статью [How To Backup and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md) (Архивация и восстановление сервера в базе данных Azure для PostgreSQL с помощью портала Azure).

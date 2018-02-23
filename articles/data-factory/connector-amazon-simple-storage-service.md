@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Копирование данных из Amazon Simple Storage Service с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ ms.lasthandoff: 01/23/2018
 Чтобы скопировать данные из Amazon S3, убедитесь, что вы предоставили следующие разрешения:
 
 - `s3:GetObject` и `s3:GetObjectVersion` для операций с объектами Amazon S3.
-- `s3:ListBucket` для операций в контейнере Amazon S3. Если вы используете мастер копирования фабрики данных, также требуется разрешение `s3:ListAllMyBuckets`.
+- `s3:ListBucket` или `s3:GetBucketLocation` для операций в контейнере Amazon S3. Если вы используете мастер копирования фабрики данных, также требуется разрешение `s3:ListAllMyBuckets`.
 
-Полный список разрешений Amazon S3 см. в статье, посвященной [назначению разрешений в политике](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+Полный список разрешений Amazon S3 см. в статье, посвященной [назначению разрешений в политике](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Приступая к работе
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/23/2018
 |:--- |:--- |:--- |
 | Тип | Для свойства типа необходимо задать значение **AmazonS3**. | Yes |
 | accessKeyId | Идентификатор секретного ключа доступа. |Yes |
-| secretAccessKey | Сам секретный ключ доступа. Пометьте это поле в качестве SecureString. |Yes |
+| secretAccessKey | Сам секретный ключ доступа. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
 
 >[!NOTE]

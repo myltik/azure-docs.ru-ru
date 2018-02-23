@@ -1,6 +1,6 @@
 ---
 title: "Параметры Runbook | Документация Майкрософт"
-description: "Описание параметров конфигурации для модуля runbook в автоматизации Azure и как изменить их с помощью портала управления Azure, а в Windows PowerShell."
+description: "Описываются параметры конфигурации для модуля runbook службы автоматизации Azure и объясняется, как изменить их с помощью портала Azure и Windows PowerShell."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -16,7 +16,7 @@ ms.date: 11/11/2016
 ms.author: bwren
 ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/06/2018
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Чтобы узнать, как создавать и извлекать выходные данные и сообщения об ошибках из модулей Runbook, ознакомьтесь со статьей [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md) 
 * Сведения о добавлении модуля Runbook, который уже был разработан сообществом или взят из другого источника, а также сведения о создании собственного модуля Runbook см. в статье [Создание или импорт модуля Runbook](automation-creating-importing-runbook.md). 
 

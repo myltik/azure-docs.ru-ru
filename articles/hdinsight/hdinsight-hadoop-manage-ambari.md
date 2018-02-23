@@ -18,7 +18,7 @@ ms.date: 01/04/2018
 ms.author: larryfr
 ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -32,7 +32,7 @@ Apache Ambari упрощает управление кластером Hadoop и
 
 ## <a id="whatis"></a>Что такое Ambari
 
-[Apache Ambari](http://ambari.apache.org) упрощает управление Hadoop, предоставляя простой в использовании веб-интерфейс. Ambari можно использовать для управления и наблюдения за кластерами Hadoop. Разработчики могут интегрировать эти возможности в своих приложениях с помощью [интерфейсов REST API Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) упрощает управление Hadoop, предоставляя простой в использовании веб-интерфейс. Ambari можно использовать для отслеживания кластеров Hadoop, а также для управления ими. Разработчики могут интегрировать эти возможности в своих приложениях с помощью [интерфейсов REST API Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Веб-интерфейс Ambari предоставляется по умолчанию с кластерами HDInsight, использующими операционную систему Linux.
 
@@ -246,6 +246,6 @@ Apache Ambari упрощает управление кластером Hadoop и
 
 * __Перемещение службы сборщика метрик__. При просмотре сведений в службе сборщика метрик одно из действий, доступных в меню действий службы, — это __Move Metrics collector__ (Переместить сборщик метрик). В HDInsight это действие не поддерживается.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Узнайте, как использовать [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) с HDInsight.

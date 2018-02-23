@@ -2,23 +2,17 @@
 title: "Azure Site Recovery: вопросы и ответы | Документация Майкрософт"
 description: "В этой статье приводятся ответы на распространенные вопросы об использовании Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/18/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: вопросы и ответы
 Данная статья содержит часто задаваемые вопросы об Azure Site Recovery. Если после прочтения статьи у вас возникли какие-либо вопросы, вы можете задать их на [форуме, посвященном службам восстановления Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -168,8 +162,8 @@ Azure Site Recovery реплицирует данные в учетную зап
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Если локальный узел не отвечает или поврежден, можно ли выполнить отработку отказа на другой узел?
 Да. Вы можете выполнить восстановление на другой узел из Azure. Дополнительные сведения о доступных вариантах см. в приведенных ниже ресурсах для виртуальных машин VMware и Hyper-V.
 
-* [Для виртуальных машин VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Для виртуальных машин Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [Для виртуальных машин VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Для виртуальных машин Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Поставщики услуг
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Я являюсь поставщиком услуг. Работает ли служба Site Recovery для моделей выделенной и общей инфраструктуры?
@@ -198,6 +192,6 @@ Azure Site Recovery реплицирует данные в учетную зап
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Поддерживаются ли отдельные развертывания Azure Pack или односерверные развертывания VMM?
 Да, можно выполнять репликацию виртуальных машин Hyper-V в Azure или между сайтами поставщиков служб.  Обратите внимание, что при репликации между сайтами поставщика услуг интеграция Runbook Azure недоступна.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь со статьей [Обзор Site Recovery](site-recovery-overview.md)
 * Ознакомьтесь с [архитектурой Site Recovery](site-recovery-components.md).  

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Уровень совместимости заданий Azure Stream Analytics
  
@@ -57,7 +57,10 @@ ms.lasthandoff: 01/12/2018
   * **Предыдущие версии.** Имена полей изменялись в нижний регистр при обработке Azure Stream Analytics. 
 
   * **Текущая версия.** В именах полей учитывается регистр при обработке в Azure Stream Analytics. 
- 
+
+  > [!NOTE] 
+  > Возможность учета регистра еще не доступна для заданий Stream Analytics, размещенных с использованием среды IoT Edge. Поэтому, если задание размещено в IoT Edge, все имена полей преобразуются в нижний регистр. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **Предыдущие версии.** Команда CREATE TABLE не фильтрует события со значением NaN (не число, например Infinity, -Infinity) в типе столбца FLOAT, так как они не соответствуют задокументированному диапазону этих номеров.

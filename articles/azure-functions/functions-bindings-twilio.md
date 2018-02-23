@@ -18,7 +18,7 @@ ms.author: wesmc
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -33,12 +33,12 @@ ms.lasthandoff: 01/02/2018
 Языковой пример см. в разделах:
 
 * [C#](#c-example)
-* [Скрипт C# (.csx)](#c-script-example)
+* [Скрипт C# (CSX)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Пример C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , отправка текстового сообщения при использовании очереди сообщений.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая отправляет текстовое сообщение при активации сообщением из очереди.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Атрибуты
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
 
 Дополнительные сведения о настройке свойств атрибутов см. в разделе [Конфигурация](#configuration). Ниже приведен пример атрибута `TwilioSms` в сигнатуре метода:
 
@@ -213,7 +213,7 @@ public static SMSMessage Run(
 }
  ```
 
-Полный пример см. в разделе [пример на C#](#c-example).
+Полный пример см. в разделе [Пример C#](#c-example).
 
 ## <a name="configuration"></a>Параметр Configuration
 
@@ -232,7 +232,7 @@ public static SMSMessage Run(
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

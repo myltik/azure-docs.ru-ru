@@ -16,12 +16,12 @@ ms.date: 12/11/2017
 ms.author: maheshu
 ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Устранение ошибок несоответствия каталога для существующих управляемых доменов доменных служб Azure AD
-У вас есть существующий домен управляемого доменные службы Azure AD. При переходе на портал Azure просмотра управляемого домена, появится следующее сообщение об ошибке:
+У вас есть управляемый домен доменных служб Azure AD. При переходе на портал Azure и просмотре управляемого домена может появиться следующее сообщение об ошибке:
 
 ![Ошибка несоответствия каталога](.\media\getting-started\mismatched-tenant-error.png)
 

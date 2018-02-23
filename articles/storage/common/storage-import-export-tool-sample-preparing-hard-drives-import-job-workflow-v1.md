@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -169,9 +169,9 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Завершение сеанса копирования
 
-После того, как сеансы копирования будут завершены, можно будет отключить оба диска от компьютера копирования и доставить их в соответствующий центр обработки данных Microsoft Azure. Отправить два файла журнала, `FirstDrive.jrn` и `SecondDrive.jrn`при создании задания импорта в [портал Azure](https://portal.azure.com).  
+После того, как сеансы копирования будут завершены, можно будет отключить оба диска от компьютера копирования и доставить их в соответствующий центр обработки данных Microsoft Azure. При создании задания импорта на [портале Azure](https://portal.azure.com) вы передадите два файла журнала: `FirstDrive.jrn` и `SecondDrive.jrn`.  
   
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Подготовка жестких дисков для задания импорта](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Краткий справочник по часто используемым командам](../storage-import-export-tool-quick-reference-v1.md) 

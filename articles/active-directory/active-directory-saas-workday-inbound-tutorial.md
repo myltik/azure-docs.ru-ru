@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Руководство по настройке Workday для автоматической подготовки пользователей
 
@@ -297,7 +297,7 @@ Azure Active Directory поддерживает готовые соединит�
 
          * **Выражение** — позволяет записывать пользовательское значение в атрибут AD на основании одного или нескольких атрибутов Workday. [Дополнительные сведения см. в статье о выражениях](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Исходный атрибут** — атрибут пользователя из Workday.
+      * **Исходный атрибут** — атрибут пользователя из Workday. Если нужный вам атрибут отсутствует, см. раздел [Настройка списка атрибутов пользователя Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Значение по умолчанию** — необязательно. Если исходный атрибут имеет пустое значение, сопоставление запишет это значение.
             В наиболее распространенной конфигурации это поле остается пустым.
@@ -549,7 +549,7 @@ Azure Active Directory поддерживает готовые соединит�
 
       * **Выражение** — позволяет записывать пользовательское значение в атрибут AD на основании одного или нескольких атрибутов Workday. [Дополнительные сведения см. в статье о выражениях](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Исходный атрибут** — атрибут пользователя из Workday.
+   * **Исходный атрибут** — атрибут пользователя из Workday. Если нужный вам атрибут отсутствует, см. раздел [Настройка списка атрибутов пользователя Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Значение по умолчанию** — необязательно. Если исходный атрибут имеет пустое значение, сопоставление запишет это значение.
             В наиболее распространенной конфигурации это поле остается пустым.
@@ -646,7 +646,7 @@ Azure Active Directory поддерживает готовые соединит�
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Настройка списка атрибутов пользователя Workday
 Подготовка приложений Workday для Active Directory и Azure AD включает стандартный список атрибутов пользователей Workday, которые вы можете выбирать. Но эти списки не являются исчерпывающими. Приложение Workday поддерживает сотни пользовательских атрибутов, которые могут быть стандартными или уникальными для клиента Workday. 
 
-Служба подготовки Azure AD позволяет настроить список или атрибут Workday, чтобы включить все атрибуты, отображаемые в операции [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html), в API Human Resources.
+Служба подготовки Azure AD позволяет настроить список или атрибут Workday, чтобы включить все атрибуты, отображаемые в операции [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html), в API Human Resources.
 
 Для этого используйте [Workday Studio](https://community.workday.com/studio-download) для извлечения выражений XPath, представляющих атрибуты, которые вы хотите использовать. Затем добавьте их в конфигурацию подготовки с помощью расширенного редактора атрибутов на портале Azure.
 
@@ -654,7 +654,7 @@ Azure Active Directory поддерживает готовые соединит�
 
 1. Скачайте и установите [Workday Studio](https://community.workday.com/studio-download). Вам потребуется учетная запись сообщества Workday для доступа к установщику.
 
-2. Скачайте файл Workday Human_Resources WDSL отсюда: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl.
+2. Скачайте файл Workday Human_Resources WDSL отсюда: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Запустите Workday Studio.
 
@@ -680,12 +680,23 @@ Azure Active Directory поддерживает готовые соединит�
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

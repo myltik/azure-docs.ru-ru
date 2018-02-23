@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -98,8 +98,8 @@ ms.lasthandoff: 12/08/2017
 
 Дополнительные сведения о [ролях и контроле доступа](app-insights-resources-roles-access-control.md).
 
-## <a name="create-dashboards-programmatically"></a>Программное создание панелей мониторинга
-Можно автоматизировать с помощью создания панели мониторинга [диспетчера ресурсов Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) и простой редактор JSON.
+## <a name="create-dashboards-programmatically"></a>Создание панелей мониторинга с помощью программных средств
+С помощью [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) и простого редактора JSON можно автоматизировать создание панелей мониторинга.
 
 ## <a name="app-navigation"></a>Навигация в приложении
 Колонка "Обзор" — это шлюз для получения дополнительных сведений о приложении.
@@ -160,7 +160,7 @@ ms.lasthandoff: 12/08/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 |  |  |
 | --- | --- |

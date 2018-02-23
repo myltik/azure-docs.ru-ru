@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Реальный сценарий прогнозного обслуживания.
 
-Незапланированный простой оборудования может оказывать неблагоприятное влияние на предприятие. Поэтому важно поддерживать рабочее состояние оборудования, используемого в области, чтобы обеспечить максимально эффективное использование ресурсов и добиться максимальной производительности, сводя к минимуму время затратного незапланированного простоя. Раннее определение проблем позволяет выделить ограниченные ресурсы обслуживания с наименьшими затратами, а также повысить качество и эффективность выполнения процессов логистической цепочки. 
+Незапланированный простой оборудования может оказывать неблагоприятное влияние на предприятие. Важно поддерживать рабочее состояние используемого оборудования, чтобы обеспечить максимально эффективное использование ресурсов, добиться максимальной производительности и минимизировать время затратных незапланированных простоев. Раннее определение проблем позволяет выделить ограниченные ресурсы обслуживания с наименьшими затратами, а также повысить качество и эффективность выполнения процессов логистической цепочки. 
 
 В этом сценарии исследуется относительно [крупномасштабный симулированный набор данных](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data). Вы ознакомитесь со всеми этапами проекта по обработке и анализу данных с использованием прогнозного обслуживания: прием данных, проектирование признаков, создание модели, а также операционализация и развертывание модели. Код для всего процесса написан в записных книжках Jupyter на языке PySpark в среде Azure ML Workbench. Окончательная модель развертывается с помощью службы Azure "Управление моделями Машинного обучения" для прогнозирования сбоев оборудования в реальном времени.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Ссылка на репозиторий коллекции на GitHub
 
-Вот ссылка на общедоступный репозиторий GitHub: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Вот ссылка на общедоступный репозиторий GitHub для отправки отчетов о проблемах и предложений: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Обзор варианта использования
@@ -36,11 +36,11 @@ ms.lasthandoff: 01/12/2018
 
 При использовании смоделированных данных компании сталкиваются с такой сложностью, как прогнозирование проблем, вызванных сбоем компонентов. В сфере бизнеса вопрос звучит так: *Какова вероятность сбоя компьютера из-за сбоя компонента*? Эта проблема форматируется как проблема многоклассовой классификации (несколько компонентов на каждом компьютере). Для создания прогнозной модели используется алгоритм машинного обучения. Эта модель обучается на основе данных журнала, собранных с компьютеров. В этом сценарии пользователь выполнит несколько шагов реализации этой модели в среде Azure Machine Learning Workbench.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Учетная запись Azure](https://azure.microsoft.com/en-us/free/) (доступны бесплатные пробные версии).
 * Установленная копия [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Чтобы установить эту программу и создать рабочую область, выполните инструкции из [краткого руководства по установке](./quickstart-installation.md).
-* Для практического применения машинного обучения Azure требуется локальная среда развертывания и [учетная запись службы "Управление моделями"](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
+* Для практического применения машинного обучения Azure требуется локальная среда развертывания и [учетная запись службы "Управление моделями"](model-management-overview.md).
 
 Этот пример можно выполнить в любом контексте вычислений AML Workbench. Но мы рекомендуем использовать не менее 16 ГБ памяти. Этот сценарий был разработан и протестирован на компьютере под управлением Windows 10 с удаленным доступом к [виртуальной машине Linux (Ubuntu) для обработки и анализа данных](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) категории DS4_V2 Standard.
 
@@ -52,8 +52,8 @@ ms.lasthandoff: 01/12/2018
 1.  Откройте Azure Machine Learning Workbench.
 2.  На странице **Projects** (Проекты) щелкните знак **+** и выберите **New Project** (Создать проект).
 3.  В области **Create New Project** (Создание проекта) введите информацию о новом проекте.
-4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Predictive Maintenance (Прогнозное обслуживание) и выберите шаблон.
-5.  Нажмите кнопку **Создать**.
+4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Predictive Maintenance (Прогнозное обслуживание) и выберите шаблон **Predictive Maintenance** (Прогнозное обслуживание).
+5.  Нажмите кнопку **Create** (Создать).
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Подготовка целевого объекта вычислений для сервера записных книжек
 
@@ -125,13 +125,15 @@ az ml notebook start
 
 ## <a name="references"></a>Ссылки
 
-Этот пример использования был ранее применен для нескольких платформ:
+Другие примеры использования прогнозного обслуживания также доступны для разных платформ:
 
 * [Сборник тренировочных заданий для шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Predictive Maintenance Modelling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1) (Руководство по моделированию прогнозного обслуживания)
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1) (Руководство по моделированию прогнозного обслуживания с помощью служб R SQL)
 * [Predictive Maintenance Modelling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1) (Руководство по моделированию прогнозного обслуживания с помощью записной книжки Python)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark) (Прогнозное обслуживание с помощью PySpark)
+* [Глубокое обучение по прогнозному обслуживанию](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -15,7 +15,7 @@ ms.author: mimig
 ms.custom: cda
 ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -177,11 +177,11 @@ ms.lasthandoff: 12/11/2017
 
 Совет 20. Все любят старые добрые памятки В Azure #CosmosDB есть такие. См. статью [Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF](https://aka.ms/Nt01nl)
 
-Cheatsheet: [Azure Cosmos DB: памятку запроса SQL PDF](https://aka.ms/Nt01nl)
+[Памятка по SQL-запросам Azure Cosmos DB в формате PDF](https://aka.ms/Nt01nl)
 
 [![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure Cosmos DB см. в статье [Добро пожаловать в Azure Cosmos DB](introduction.md) и записи блога с [техническим обзором Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
 

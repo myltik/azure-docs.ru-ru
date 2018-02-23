@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: jeanb
 ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,7 +27,7 @@ Stream Analytics позволяет направлять данные из [Azur
 Тем, кто не знаком с Cosmos DB, мы рекомендуем просмотреть [схему обучения работе с Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/). 
 
 > [!Note]
-> В настоящее время Azure Stream Analytics поддерживает только подключения, используя CosmosDB **API-Интерфейсы SQL**.
+> В настоящее время Azure Stream Analytics поддерживает соединение только с CosmosDB при помощи **API SQL**.
 > Другие API Azure Cosmos DB в данный момент не поддерживаются. Если указать модулю Azure Stream Analytics учетные записи Azure Cosmos DB, созданные при помощи других API, это может привести к неправильному сохранению данных. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Основные сведения о Cosmos DB как объекте вывода данных

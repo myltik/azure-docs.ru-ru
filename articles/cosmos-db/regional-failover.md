@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -46,7 +46,7 @@ Cosmos DB поддерживает явную отработку отказа и
 * `West US` настроен как первый предпочтительный регион для операций чтения с низкой задержкой.
 * `North Europe` настроен как второй предпочтительный регион (для обеспечения высокой доступности во время региональных сбоев).
 
-В API-Интерфейсы SQL эта конфигурация выглядит следующий фрагмент кода:
+В API SQL эта конфигурация выглядит так:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ do
 ## <a id="NextSteps"></a>Дальнейшие действия
 * Дополнительные сведения о поддержке глобального распространения в Cosmos DB см. [здесь](distribute-data-globally.md).
 * Дополнительные сведения о глобальной согласованности в Cosmos DB см. в [этой статье](consistency-levels.md).
-* Разработка с несколькими областями с помощью Azure Cosmos DB [SQL API](tutorial-global-distribution-sql-api.md)
-* Сведения о создании [записи в нескольких регионах архитектур](multi-region-writers.md) с Azure Cosmos DB
+* Сведения о разработке с использованием нескольких регионов см. в статье [How to setup Azure Cosmos DB global distribution using the SQL API](tutorial-global-distribution-sql-api.md) (Как настроить глобальное распределение Azure Cosmos DB с помощью API SQL).
+* Сведения о разработке [архитектуры записи в нескольких регионах](multi-region-writers.md) с помощью Azure Cosmos DB.
 

@@ -1,6 +1,6 @@
 ---
 title: "Исключения ретранслятора Azure и способы их разрешения | Документация Майкрософт"
-description: "Список исключений ретрансляции Azure и предлагаются действия, которые можно предпринять для их устранения."
+description: "Список исключений ретранслятора Azure и предлагаемые действия по их разрешению."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -16,7 +16,7 @@ ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) указывает, что запущенная пользователем операция занимает больше времени, чем время ожидания операции. 
 
-Проверьте значение свойства [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit). Достижения этого предела может повлечь за собой [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Проверьте значение свойства [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit). Достижение этого ограничения также может породить исключение [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 Для ретранслятора исключения времени ожидания могут отображаться при первом открытии подключения отправителя ретрансляции. Существует две основные причины этого исключения:
 
@@ -89,7 +89,7 @@ The time allotted to this operation may have been a portion of a longer timeout.
 
     Иногда в службе ретранслятора могут происходить задержки при обработке запросов. Например, это может произойти в период интенсивной нагрузки сети. В этом случае можно настроить повторную попытку выполнения операции через некоторое время до ее успешного завершения. Если же операцию по-прежнему не удается выполнить после нескольких попыток, посетите [сайт состояния служб Azure](https://azure.microsoft.com/status/), чтобы получить сведения об известных простоях служб.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Часто задаваемые вопросы о ретрансляторе Azure](relay-faq.md)
 * [Создание пространства имен ретранслятора с помощью портала Azure](relay-create-namespace-portal.md)
 * [Приступая к работе с гибридными подключениями к ретранслятору](relay-hybrid-connections-dotnet-get-started.md)

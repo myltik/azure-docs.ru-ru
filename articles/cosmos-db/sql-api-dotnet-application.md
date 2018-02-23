@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: devcenter
 ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/18/2017
 Все снимки экранов в этой статье сделаны с помощью Microsoft Visual Studio Community 2017. Если система настроена с помощью другой версии, то вполне вероятно, что ваши экраны и параметры не будут соответствовать полностью, но если выполнить все вышеуказанные требования, то это решение должно работать.
 
 ## <a name="_Toc395637761"></a>Шаг 1. Создание учетной записи базы данных Azure Cosmos DB
-Давайте сначала создадим учетную запись Azure Cosmos DB. Если уже есть учетная запись SQL для Azure Cosmos DB или если вы используете эмулятор Azure Cosmos БД для этого учебника, можно перейти к [Создание нового приложения ASP.NET MVC](#_Toc395637762).
+Давайте сначала создадим учетную запись Azure Cosmos DB. Если у вас уже есть учетная запись SQL для Azure Cosmos DB или вы используете эмулятор Azure Cosmos DB для этого руководства, то вы можете перейти к разделу [Создание нового приложения ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

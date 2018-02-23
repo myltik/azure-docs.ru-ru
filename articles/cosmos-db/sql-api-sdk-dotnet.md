@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: API .NET для SQL SDK и ресурсы | Документы Microsoft"
-description: "Дополнительные сведения о SQL .NET API и SDK, включая даты выхода, даты выбытия и изменения, выполняемые на каждой версии пакета SDK .NET Azure DB Cosmos."
+title: "API-интерфейс, пакет SDK и ресурсы для SQL .NET (Azure Cosmos DB) | Документация Майкрософт"
+description: "Сведения об API и пакетах SDK для SQL .NET, в том числе даты выхода, даты снятия с учета и изменения, внесенные в каждую версию пакета SDK для .NET для Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure SDK .NET DB Cosmos для API-Интерфейсы SQL: загрузка и заметки о выпуске
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске для API SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Веб-канал изменений в .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Исправлена регрессия, где FeedOptions.MaxItemCount = -1 вызвало исключение System.ArithmeticException: размер страницы является отрицательным значением.
+* Добавлена новая функция ToString() в QueryMetrics.
+* Предоставлена статистика по секциям для считывания коллекций.
+* Добавлено свойство PartitionKey в ChangeFeedOptions.
+* Исправлены незначительные ошибки.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Добавлена возможность указывать уникальные индексы для документов с помощью применения свойства UniqueKeyPolicy к коллекции DocumentCollection.
@@ -88,7 +96,7 @@ ms.lasthandoff: 12/18/2017
 *   Добавлена поддержка для указания пользовательских параметров JsonSerializerSettings при создании экземпляра [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Устранена проблема, затронутых x64 машин, которые не поддерживают инструкции SSE4 и вызывать SEHException при выполнении запросов базы данных SQL Azure Cosmos.
+*   Устранена проблема, возникающая на компьютерах под управлением 64-разрядной ОС без поддержки инструкций SSE4, которая приводила к исключению SEHException при выполнении запросов SQL Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
@@ -277,6 +285,7 @@ ms.lasthandoff: 12/18/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |5 февраля 2018 г. |--- |
 | [1.19.1](#1.19.1) |16 ноября 2017 г. |--- |
 | [1.19.0](#1.19.0) |10 ноября 2017 г. |--- |
 | [1.18.1](#1.18.1) |7 ноября 2017 г. |--- |

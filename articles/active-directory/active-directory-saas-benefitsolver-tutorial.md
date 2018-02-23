@@ -16,7 +16,7 @@ ms.date: 08/30/2017
 ms.author: jeedes
 ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/20/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Benefitsolver, вам потребуется:
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 12/20/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Для настройки единого входа на **Benefitsolver** стороны, необходимо отправить загруженного **метаданные в формате XML** для [Benefitsolver поддержки](https://www.businessolver.com/contact).
+8. Чтобы настроить единый вход на стороне **Benefitsolver**, отправьте скачанный **XML-файл метаданных** в [службу поддержки Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > Настройка единого входа должна выполняться службой поддержки Benefitsolver. Как только единый вход для вашей подписки будет включен, вы получите уведомление.

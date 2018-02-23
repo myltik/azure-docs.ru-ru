@@ -16,7 +16,7 @@ ms.date: 11/09/2017
 ms.author: mazha
 ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -43,9 +43,9 @@ ms.lasthandoff: 12/18/2017
    
    ![Конечные точки профиля CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-2. В левой области в разделе Параметры щелкните **правила кэширования**.
+2. В области слева в разделе "Параметры" щелкните **Правила кэширования**.
    
-    ![Кнопка правила кэширования CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![Кнопка "Правила кэширования" CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. В списке **Режим кэширования строк запросов** выберите нужный режим и нажмите кнопку **Сохранить**.
    

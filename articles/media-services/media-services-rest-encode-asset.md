@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/18/2017
 >
 > При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 >
-> При использовании JSON и указание использовать **__metadata** ключевое слово в запросе (например, ссылку на связанный объект), необходимо задать **Accept** заголовок, чтобы [JSON расширенный формат](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Принять: приложение/json; odata = подробных сведений.
+> Если вы используете JSON и указали ключевое слово **__metadata** в запросе (например, для ссылки на связанный объект), вам НЕОБХОДИМО задать для заголовка **Accept** [подробный формат JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 
@@ -90,13 +90,13 @@ ms.lasthandoff: 12/18/2017
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Рекомендации
-* Чтобы определить количество входных или выходных ресурсов, используемых задачей, в свойствах TaskBody необходимо использовать XML-литерал. Статья задача содержит определение схемы XML для XML.
+* Чтобы определить количество входных или выходных ресурсов, используемых задачей, в свойствах TaskBody необходимо использовать XML-литерал. В статье о задаче приведено определение схемы XML.
 * В определении TaskBody каждое внутреннее значение <inputAsset> и <outputAsset> необходимо установить как JobInputAsset(value) или JobOutputAsset(value).
 * В задаче может содержаться несколько выходных ресурсов. Значение JobOutputAsset(x) может использоваться только один раз в качестве выходных данных задачи в задании.
 * В качестве входного ресурса задачи можно указать JobInputAsset или JobOutputAsset.
 * Задачи не должны образовывать цикл.
 * Значение параметра, которое передается в JobInputAsset или JobOutputAsset, — это значение индекса для ресурса. Фактические ресурсы определяются в свойствах навигации ресурса InputMediaAsset и OutputMediaAsset в определении сущности Job.
-* Поскольку службы мультимедиа разработаны на основе OData v3, отдельные ресурсы в коллекции свойства навигации InputMediaAssets и OutputMediaAssets указываются с помощью «__metadata: uri» пары "имя значение".
+* Так как службы мультимедиа созданы на платформе OData версии 3, ссылки на отдельные ресурсы в коллекциях свойств навигации ресурсов InputMediaAsset и OutputMediaAsset добавляются в виде пары "имя — значение": "__metadata : uri".
 * Ресурсы InputMediaAsset сопоставляются с одним или несколькими ресурсами, созданными в службах мультимедиа. Ресурсы OutputMediaAsset создаются системой. Они не ссылаются на существующий ресурс.
 * Ресурсам OutputMediaAsset можно присвоить имя с помощью атрибута assetName. Если этот атрибут отсутствует, то именем ресурса OutputMediaAsset будет внутреннее текстовое значение элемента <outputAsset> с суффиксом, которым может быть значение параметра имени задания или параметра идентификатора задания (если свойство Name не определено). Например, если задать для атрибута assetName значение Sample, то для свойства Name ресурса OutputMediaAsset будет задано значение Sample. Тем не менее, если значение атрибута assetName не задано, но в качестве имени задания задано NewJob, имя OutputMediaAsset будет выглядеть следующим образом: JobOutputAsset(значение)_NewJob.
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы узнали, как создать задание для кодирования ресурса, ознакомьтесь со статьей [Практическое руководство. Проверка хода выполнения задания](media-services-rest-check-job-progress.md).
 
 ## <a name="see-also"></a>См. также

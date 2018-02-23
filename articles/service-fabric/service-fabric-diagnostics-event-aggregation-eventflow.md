@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Агрегирование и сбор событий с помощью EventFlow
 
@@ -43,6 +43,9 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="configure-and-enable-log-collection"></a>Настройка и включение сбора журналов
 Конвейер EventFlow, отвечающий за отправку журналов, создается на основе спецификации, хранящейся в файле конфигурации. Пакет `Microsoft.Diagnostics.EventFlow.ServiceFabric` устанавливает начальный файл конфигурации EventFlow в паку решения `PackageRoot\Config` с именем `eventFlowConfig.json`. Этот файл конфигурации нужно изменить, чтобы собирать данные из класса `EventSource` службы по умолчанию, а также другие входные данные, которые вы хотите настроить, и отправлять их в соответствующее место.
+
+>[!NOTE]
+>Если используется файл проекта в формате Visual Studio 2017, файл `eventFlowConfig.json` не будет добавлен автоматически. Чтобы это исправить, создайте файл в папке `Config` и задайте действие сборки для `Copy if newer`. 
 
 Вот пример файла *eventFlowConfig.json* на основе упомянутых выше пакетов NuGet:
 ```json
@@ -150,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Запустите службу и просмотрите окно выходных данных отладки в Visual Studio. После запуска службы вы должны увидеть подтверждение того, что она отправляет записи в настроенное расположение вывода. Перейдите в платформу анализа и визуализации событий и убедитесь в том, что журналы начали отображаться (это может занять несколько минут).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Анализ событий и визуализация с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Анализ событий и визуализация с помощью OMS](service-fabric-diagnostics-event-analysis-oms.md)

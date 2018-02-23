@@ -16,17 +16,17 @@ ms.author: rafats
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Секционирование в базу данных Cosmos Azure, используя API-Интерфейсы SQL
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Секционирование в Azure Cosmos DB с помощью API SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [База данных Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) — это глобально распределенная, многомодельная служба базы данных, созданная для обеспечения высокой производительности и прогнозируемости, а также легкой масштабируемости по мере расширения вашего приложения. 
 
-Приводятся общие сведения о работе с секционированием Cosmos DB контейнеров с помощью API SQL. Обзор концепций и рекомендации для секционирования с использованием любого API базы данных Azure Cosmos DB см. [в этой статье](../cosmos-db/partition-data.md). 
+В этой статье описаны способы работы с секционированием контейнеров Cosmos DB с помощью API SQL. Обзор концепций и рекомендации для секционирования с использованием любого API базы данных Azure Cosmos DB см. [в этой статье](../cosmos-db/partition-data.md). 
 
 Чтобы начать работу с кодом, скачайте проект с [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="partition-keys"></a>Ключи секции
 
-В API-Интерфейсы SQL можно указать определение ключа секции в виде пути JSON. В следующей таблице приведены примеры определений для ключей секции и соответствующие значения. Ключ секции указывается в виде пути, например `/department` представляет свойство отдела. 
+В API SQL укажите определение ключа секции в формате пути к JSON-файлу. В следующей таблице приведены примеры определений для ключей секции и соответствующие значения. Ключ секции указывается в виде пути, например `/department` представляет свойство отдела. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -107,7 +107,7 @@ await client.CreateDocumentCollectionAsync(
 Этот метод выполняет вызов REST API в Cosmos DB, а служба подготавливает число секций, основываясь на запрошенной пропускной способности. Пропускную способность контейнера можно изменить, когда требуется повысить ее производительность. 
 
 ### <a name="reading-and-writing-items"></a>Чтение и запись элементов
-Пора перейти к вставке данных в Cosmos DB. Ниже приведен пример класса, содержащего показание устройства, и вызов CreateDocumentAsync для добавления нового показания устройства в контейнер. Ниже приведен пример использования API-Интерфейсы SQL:
+Пора перейти к вставке данных в Cosmos DB. Ниже приведен пример класса, содержащего показание устройства, и вызов CreateDocumentAsync для добавления нового показания устройства в контейнер. Ниже приведен пример использования API SQL:
 
 ```csharp
 public class DeviceReading
@@ -223,8 +223,8 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 В следующем разделе мы рассмотрим переход на секционированные контейнеры с односекционных контейнеров.
 
-## <a name="next-steps"></a>Дальнейшие действия
-В этой статье мы предоставляем Общие сведения о работе с секционированием контейнеров Azure Cosmos DB с помощью API SQL. Обзор концепций и рекомендации для секционирования с использованием любого API базы данных Azure Cosmos DB см. [в этой статье](../cosmos-db/partition-data.md). 
+## <a name="next-steps"></a>Дополнительная информация
+В этой статье описаны способы работы с секционированием контейнеров Azure Cosmos DB с помощью API SQL. Обзор концепций и рекомендации для секционирования с использованием любого API базы данных Azure Cosmos DB см. [в этой статье](../cosmos-db/partition-data.md). 
 
 * Выполняйте проверку масштабирования и производительности с помощью базы данных Azure Cosmos DB. Пример см. в статье [Проверка производительности и масштабирования с помощью Azure DocumentDB](performance-testing.md).
 * Приступите к созданию кода с помощью [пакетов SDK](sql-api-sdk-dotnet.md) или [REST API](/rest/api/documentdb/).

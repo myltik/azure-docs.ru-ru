@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Мониторинг приложений и ресурсов в Azure
 
@@ -57,8 +57,11 @@ Azure предлагает несколько служб, которые по о
 Решение [Сопоставление служб](../operations-management-suite/operations-management-suite-service-map.md) позволяет получить представление о вашей среде IaaS, анализируя виртуальные машины с различными процессами и зависимостями от других компьютеров и внешних процессов.  Оно объединяет события, данные о производительности и решения для управления в Log Analytics, чтобы вы могли просматривать эти данные в контексте каждого компьютера и его связи с остальной средой.  "Сопоставление служб" похоже на [схему приложений в Application Insights](../application-insights/app-insights-app-map.md), но это решение фокусируется на компонентах инфраструктуры, которые поддерживают ваши приложения.
 
 ### <a name="network-watcher"></a>Наблюдатель за сетями
-[Наблюдатель за сетями](../network-watcher/network-watcher-monitoring-overview.md) обеспечивает мониторинг на основе сценариев и диагностику различных сетевых сценариев в Azure.  Он хранит данные в метриках и диагностике Azure для дальнейшего анализа и работает с [решениями для управления в Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) для комплексного мониторинга ваших сетевых ресурсов.
-
+[Наблюдатель за сетями](../network-watcher/network-watcher-monitoring-overview.md) обеспечивает мониторинг на основе сценариев и диагностику различных сетевых сценариев в Azure.  Этот инструмент хранит данные в метриках и диагностических сведениях Azure для дальнейшего анализа, а также взаимодействует со следующими решениями мониторинга различных параметров сети:
+* [Монитор производительности сети (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) — облачное решение мониторинга сети, отслеживающее подключения общедоступных облаков, центров обработки данных и локальных сред.
+* [ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) — функция NPM, полностью отслеживающая подключение и производительность по каналам ExpressRoute.
+* "Аналитика трафика" — облачное решение, которое позволяет следить за действиями пользователя и приложения в вашей облачной сети.
+* [Аналитика DNS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) предоставляет данные о безопасности, производительности и операциях на базе DNS-серверов.
 
 ### <a name="management-solutions"></a>Решения для управления
 [Решения по управлению](../log-analytics/log-analytics-add-solutions.md) — это упакованные наборы логики, предоставляющие данные по конкретному приложению или службе.  Они используют Log Analytics для хранения и анализа данных мониторинга, которые они собирают.  Доступны партнерские решения по управлению и решения от корпорации Майкрософт, обеспечивающие мониторинг различных служб Azure и служб сторонних производителей. Примеры решений для мониторинга включают в себя [мониторинг контейнеров](../log-analytics/log-analytics-containers.md), который помогает просматривать узлы контейнеров и управлять ими, и [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md), который собирает и визуализирует метрики производительности баз данных SQL Azure.

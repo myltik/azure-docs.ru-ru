@@ -22,7 +22,7 @@
     * Нажмите кнопку **ОК**, чтобы закрыть настройки TCP/IP, а затем нажмите кнопку **ОК** еще раз, чтобы закрыть параметры адаптера. После этого подключение к удаленному рабочему столу будет восстановлено.
 
 6. В командной строке введите *ipconfig /all*. Отобразятся все добавленные IP-адреса, а DHCP будет отключен.
-7. Настройте Windows для использования частный IP-адрес основной IP-конфигурации в Azure в качестве основной IP-адрес для Windows. В разделе [доступ к Интернету нет из виртуальной Машины Windows Azure, несколько IP-адресов](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) подробные сведения. 
+7. Настройте Windows для использования частного IP-адреса основной IP-конфигурации в Azure в качестве основного IP-адрес для Windows. См. дополнительные сведения об [отсутствии доступа к Интернету из виртуальной машины Windows Azure с несколькими IP-адресами](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
 
 ### <a name="validation-windows"></a>Проверка (Windows)

@@ -36,8 +36,11 @@
 #### [Управление ресурсами в нескольких учетных записях хранения](meda-services-managing-multiple-storage-accounts.md)
 ### [Квоты и ограничения](media-services-quotas-and-limitations.md)
 ## [Настройка Postman](media-rest-apis-with-postman.md)
-### [Среда](postman-environment.md)
-### [Коллекция](postman-collection.md)
+### Потоковое воспроизведение по запросу
+#### [Среда](postman-environment.md)
+#### [Коллекция](postman-collection.md)
+### Потоковая передача в реальном времени
+#### [Коллекция](postman-live-streaming-collection.md)
 ## Передача содержимого
 ### Отправка файлов в учетную запись
 #### [портал Azure](media-services-portal-upload-files.md)

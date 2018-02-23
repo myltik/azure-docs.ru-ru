@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Структура определения службы "Политика Azure"
 
@@ -66,14 +66,11 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="mode"></a>Mode
 
-Мы рекомендуем задать для `mode` значение `all`, чтобы назначенная политика оценивала все группы ресурсов и типы. С примером определения политики, применяющей теги к группе ресурсов, можно ознакомиться в разделе [Разрешение использования пользовательского образа виртуальной машины из группы ресурсов](scripts/allow-custom-vm-image.md).
+**Режим** определяет типы ресурсов, которые будут оцениваться для политики. Ниже приведены поддерживаемые режимы.
+* `all`: оценка групп ресурсов и всех типов ресурсов. 
+* `indexed`: оцениваются только типы ресурсов, которые поддерживают теги и расположение.
 
-Если задать значение **all**, группы ресурсов и все типы ресурсов будут оцениваться в соответствии с политикой. На портале используется значение **all** для всех политик. Если используется PowerShell или Azure CLI, необходимо указать параметр `mode` и присвоить ему значение **all**.
-
-Все определения политик, созданные с помощью портала, используют режим `all`, однако если вы хотите использовать PowerShell или Azure CLI, необходимо указать параметр `mode` и присвоить ему значение `all`.
-
-Если выбран режим `indexed`, то назначенная политика будет оцениваться только для типов ресурсов, которые поддерживают теги и расположения.
-
+Рекомендуется задать для параметра **mode** значение `all`. Во всех определениях политик, создаваемых на портале, используется режим `all`. Если для создания используется PowerShell или Azure CLI, необходимо указать параметр **mode** и присвоить ему значение `all`. 
 
 ## <a name="parameters"></a>Параметры
 
@@ -265,6 +262,7 @@ ms.lasthandoff: 01/18/2018
 | Microsoft.Compute/virtualMachines/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Задает универсальный код ресурса (URI) виртуального жесткого диска. |
 | Microsoft.Compute/virtualMachines/sku.name | Задайте размер виртуальной машины. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Задает идентификатор группы доступности для виртуальной машины. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ ms.lasthandoff: 01/18/2018
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Указывает, шифрует ли служба данные, хранящиеся в службе хранилища файлов. |
 | Microsoft.Storage/storageAccounts/sku.name | Задает имя SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Позволяет разрешить только передачу трафика HTTPS в службу хранилища. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Проверяет, включена ли конечная точка службы виртуальной сети. |
 
 ## <a name="initiatives"></a>Инициативы
 

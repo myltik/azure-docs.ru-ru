@@ -15,12 +15,12 @@ ms.date: 01/03/2018
 ms.author: billmath
 ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Управление привилегированными пользователями Azure AD: добавление и удаление роли пользователя
-С помощью Azure Active Directory (AD) глобальный администратор (или администратор организации) может изменить назначения **постоянных** ролей для пользователей в Azure AD. Это делается с помощью таких командлетов PowerShell, как `Add-MsolRoleMember` и `Remove-MsolRoleMember`. Также они могут использовать портал Azure, как описано в [назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
+С помощью Azure Active Directory (AD) глобальный администратор (или администратор организации) может изменить назначения **постоянных** ролей для пользователей в Azure AD. Это делается с помощью таких командлетов PowerShell, как `Add-MsolRoleMember` и `Remove-MsolRoleMember`. Кроме того, можно использовать портал Azure, как описано в статье [Назначение ролей администраторов в Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Приложение "Управление привилегированными пользователями" (PIM) Azure AD также позволяет администраторам привилегированных ролей назначать постоянные роли. Кроме того, администраторы привилегированных ролей могут предоставлять пользователям **право** на получение ролей администратора. Временные администраторы могут активировать роль при необходимости; срок действия их разрешений истекает, когда роль больше не требуется им для работы.
 
@@ -61,6 +61,6 @@ ms.lasthandoff: 01/05/2018
 
 Если вам неизвестно, каким пользователям по-прежнему требуются назначенные им роли, можно [запустить проверку доступа для ролей](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

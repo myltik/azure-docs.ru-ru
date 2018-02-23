@@ -1,6 +1,6 @@
 ---
-title: "Найти отчеты о действиях пользователя Azure Active Directory на портале Azure | Документы Microsoft"
-description: "Дополнительные сведения, в которых отчеты о действиях пользователя Azure Active Directory на портале Azure."
+title: "Поиск отчетов о действиях пользователя Azure Active Directory на портале Azure | Документация Майкрософт"
+description: "Узнайте, где искать отчеты о действиях пользователей Azure Active Directory на портале Azure."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -17,17 +17,17 @@ ms.author: curtand
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Поиск отчетов о действиях на портале Azure
 
-В этой статье описаны способы поиска отчеты о действиях пользователя Azure Active Directory на портале Azure.
+В этой статье объясняется, как находить отчеты о действиях пользователей Azure Active Directory на портале Azure.
 
 ## <a name="whats-new"></a>Новые возможности
 
-Отчеты в классическом портале Azure были разделены на категории:
+Отчеты на классическом портале Azure были разделены на категории:
 * Отчеты о безопасности
 * Отчеты об активности
 * Отчеты интегрированных приложений
@@ -151,6 +151,6 @@ ms.lasthandoff: 12/11/2017
 
 ![Отчет о событиях входа в корпоративные приложения](./media/active-directory-reporting-migration/199.png "Отчет о событиях входа в корпоративные приложения")
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Общие сведения об отчетах Azure Active Directory см. в [этой статье](active-directory-reporting-azure-portal.md).

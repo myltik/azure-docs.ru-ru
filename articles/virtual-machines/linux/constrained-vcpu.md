@@ -1,6 +1,6 @@
 ---
-title: "Размеры виртуальных процессоров - Linux ограниченного Azure | Документы Microsoft"
-description: "Список размеров виртуальной машины, способные иметь число ограниченное виртуальных процессоров."
+title: "Размеры с ограничением на виртуальные ЦП Azure в Linux | Документация Майкрософт"
+description: "Список размеров виртуальных машин, в которых можно задать ограниченное число виртуальных ЦП."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -17,11 +17,11 @@ ms.date: 12/07/2017
 ms.author: jonbeck
 ms.openlocfilehash: 6bf5bf4ac4911f78e1961a81874f535317f5aca8
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
-# <a name="constrained-vcpu-capable-vm-sizes"></a>Размеры виртуальных Машин поддерживает ограниченное виртуальных процессоров
+# <a name="constrained-vcpu-capable-vm-sizes"></a>Размеры виртуальных машин, поддерживающие ограниченное число виртуальных ЦП
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-constrained-vcpu.md)]
@@ -34,6 +34,6 @@ ms.lasthandoff: 12/08/2017
 - [GPU](sizes-gpu.md)
 - [Для высокопроизводительных вычислений](sizes-hpc.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
 

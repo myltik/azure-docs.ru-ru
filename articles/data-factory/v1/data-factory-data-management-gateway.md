@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, прочитайте статью о [локальной среде выполнения интеграции в версии 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Шлюз управления данными теперь называется локальной средой выполнения интеграции.  
 
 Шлюз управления данными — это агент клиента, который необходимо установить в локальной среде, чтобы обеспечить копирование данных между облачными и локальными хранилищами данных. Перечень локальных хранилищ данных, поддерживаемых фабрикой данных, приведен в разделе [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 

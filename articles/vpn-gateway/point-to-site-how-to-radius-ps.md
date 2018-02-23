@@ -1,10 +1,10 @@
 ---
 title: "Установка между компьютером и виртуальной сетью подключения типа \"точка — сеть\" с использованием аутентификации RADIUS и PowerShell | Документация Майкрософт"
-description: "Устанавливайте между компьютером к виртуальной сетью Azure безопасное подключение типа \"точка — сеть\" с использованием VPN-шлюза и аутентификации RADIUS."
+description: "Безопасное подключение клиентов Windows и Mac OS X к виртуальной сети с помощью подключения типа \"точка — сеть\" и аутентификации RADIUS."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с использованием аутентификации RADIUS и PowerShell
 
@@ -235,6 +235,8 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
+
+Устранение неполадок подключения типа "точка — сеть" описывается в разделе [Устранение неполадок подключения типа "точка — сеть" Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>Подключение к виртуальной машине
 

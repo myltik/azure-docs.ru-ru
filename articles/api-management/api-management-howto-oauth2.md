@@ -101,7 +101,7 @@ ms.lasthandoff: 12/04/2017
 ## <a name="step3"> </a>Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика
 Настроив сервер авторизации OAuth 2.0 и его использование интерфейсом API, вы можете протестировать сервер, перейдя на портал разработчика и вызвав интерфейс API.  В правом верхнем меню выберите пункт **Developer portal** (Портал разработчика).
 
-![Портал разработчика][api-management-developer-portal-menu]
+![Developer portal][api-management-developer-portal-menu]
 
 Щелкните **APIs** в меню вверху и выберите **Echo API**.
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 12/04/2017
 > 
 > 
 
-![входа][api-management-oauth2-signin]
+![Вход][api-management-oauth2-signin]
 
 После входа поле **Request headers** (Заголовки запроса) заполняется заголовком `Authorization : Bearer`, используемым для авторизации запроса.
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 12/04/2017
 
 Теперь вы можете настроить остальные параметры и отправить запрос. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Для получения дополнительных сведений об использовании OAuth 2.0 и службы управления API см. следующий видеоролик и эту [статью](api-management-howto-protect-backend-with-aad.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]

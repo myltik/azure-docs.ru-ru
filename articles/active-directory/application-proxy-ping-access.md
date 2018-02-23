@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -75,7 +75,7 @@ PingAccess для Azure Active Directory — предложение PingAccess, 
    - **Внутренний URL-адрес** — обычно для приложения указывается URL-адрес страницы входа, на которую вы будете переходить во время работы в корпоративной сети. Для такого сценария соединителю необходимо считать прокси-сервер PingAccess титульной страницей приложения. Используйте следующий формат: `https://<host name of your PA server>:<port>`. Порт 3000 используется по умолчанию, но его можно настроить в PingAccess.
 
     > [!WARNING]
-    > Для этого типа единого входа внутренний URL-адрес должен использовать протокол https и не может использовать протокол http.
+    > Для этого типа единого входа во внутреннем URL-адресе должен использоваться протокол HTTPS и не может использоваться протокол HTTP.
 
    - **Метод предварительной аутентификации** — выберите Azure Active Directory.
    - **Преобразование URL-адреса в заголовок** — выберите значение "Нет".
@@ -139,7 +139,7 @@ PingAccess для Azure Active Directory — предложение PingAccess, 
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Необязательно. Обновление API Graph для отправки настраиваемых полей
 
-Список маркеров безопасности, отправляемых Azure AD для проверки подлинности, см. в [справочнике по маркерам Azure AD](./develop/active-directory-token-and-claims.md). Если требуется пользовательское утверждение, отправляющий других токенов, использовать Graph Explorer или манифест приложения на портале Azure Чтобы задать поле приложения *acceptMappedClaims* для **True**.    
+Список маркеров безопасности, отправляемых Azure AD для проверки подлинности, см. в [справочнике по маркерам Azure AD](./develop/active-directory-token-and-claims.md). Если требуется пользовательское утверждение для отправки других маркеров, используйте Graph Explorer или манифест приложения на портале Azure, чтобы задать в поле приложения *acceptMappedClaims* значение **True**.    
 
 В этом примере используется Graph Explorer.
 
@@ -150,11 +150,11 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-В этом примере используется [портал Azure](https://portal.azure.com) для udpate будет именем *acceptedMappedClaims* поля:
+В этом примере для обновления значения в поле *acceptedMappedClaims* используется [портал Azure](https://portal.azure.com):
 1. Войдите на [портал Azure](https://portal.azure.com) как глобальный администратор.
-2. Выберите **Azure Active Directory** > **регистрации приложения**.
-3. Выберите приложение > **манифеста**.
-4. Выберите **изменить**, поиск *acceptedMappedClaims* поле и измените значение на **true**.
+2. Выберите **Azure Active Directory** > **Регистрация приложений**.
+3. Выберите свое приложение и его **манифест**.
+4. Выберите **Изменить**, найдите поле *acceptedMappedClaims* и измените его значение на **True**.
 ![Манифест приложения](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
 1. Щелкните **Сохранить**.
 
@@ -178,7 +178,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 Когда вы завершите выполнение этих шагов, ваше приложение будет настроено и запущено. Чтобы протестировать его, откройте браузер и перейдите по внешнему URL-адресу, созданному при публикации приложения в Azure. Войдите с помощью тестовой учетной записи, назначенной приложению.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Настройка PingAccess для Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Как прокси приложения Azure AD предоставляет единый вход?](application-proxy-sso-overview.md)

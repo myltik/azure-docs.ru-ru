@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: a7c346b259f6635589f80a9c52c748fc0c05eef1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Создание узлов в Azure с помощью компьютера Docker | Документация Майкрософт
 В этой статье представлены сведения о том, как создать узел в Azure с использованием [компьютера Docker](https://docs.docker.com/machine/). Команда `docker-machine` создает виртуальную машину Linux в Azure, после чего устанавливает Docker. Затем можно управлять узлами Docker в Azure с помощью аналогичных локальных средств и рабочих процессов. Для работы с docker-machine в Windows 10 необходимо использовать Linux bash.
 
 ## <a name="create-vms-with-docker-machine"></a>Создание виртуальных машин с помощью машины Docker
-Сначала получите идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#show) следующим образом:
+Сначала получите идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#az_account_show) следующим образом:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -94,7 +94,7 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Чтобы определить параметры подключения, либо можно выполнить команду Рекомендуемая конфигурация (`eval $(docker-machine env myvm)`), или можно вручную задать переменные среды. 
+Для задания параметров вы можете либо выполнить предлагаемую команду настройки (`eval $(docker-machine env myvm)`), либо задать переменные среды самостоятельно. 
 
 ## <a name="run-a-container"></a>Запуск контейнера
 Чтобы увидеть контейнер в действии, запустите основной веб-сервер NGINX. Создайте контейнер с `docker run` и настройте порт 80 для веб-трафика следующим образом:
@@ -135,5 +135,5 @@ docker-machine ip myvm
 
 ![Запущенный контейнер nginx](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Кроме того, можно создавать узлы с помощью [расширения виртуальной машины Docker](dockerextension.md). Примеры использования Docker Compose см. в статье [Приступая к работе с Docker и Compose для определения и запуска многоконтейнерного приложения в Azure](docker-compose-quickstart.md).

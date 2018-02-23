@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: genli
 ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/12/2017
 
 ![Проверка подключенных устройств](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Чтобы выключить службу, в разделе [отключить Azure доменных служб Active Directory с помощью портала Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+Чтобы отключить службу, см. статью об [отключении доменных служб Azure Active Directory с помощью портала Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Проверка, подключена ли виртуальная сеть к другому ресурсу
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/12/2017
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Виртуальная сеть Azure](virtual-networks-overview.md)
 - [Виртуальная сеть Azure: часто задаваемые вопросы](virtual-networks-faq.md)

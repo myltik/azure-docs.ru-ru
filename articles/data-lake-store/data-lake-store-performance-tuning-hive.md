@@ -16,7 +16,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,12 +24,12 @@ ms.lasthandoff: 12/08/2017
 
 По умолчанию устанавливаются параметры, которые должны обеспечить оптимальную производительность для самых разных сценариев использования.  Но для запросов, предполагающих интенсивное выполнение операций ввода-вывода, производительность Hive в Azure Data Lake Store можно повысить, изменив некоторые настройки.  
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Учетная запись хранения озера данных Azure**. Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 * **Кластер Azure HDInsight** с доступом к учетной записи Data Lake Store. См. статью [Создание кластера HDInsight с Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Убедитесь, что вы включили удаленный рабочий стол для кластера.
-* **Запустите Hive в HDInsight**.  Дополнительные сведения о выполнении задания Hive в HDInsight см. в разделе [используйте Hive в HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Запустите Hive в HDInsight**.  Дополнительные сведения о выполнении заданий Hive в HDInsight см. в статье [Использование Hive с HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Рекомендации по настройке производительности в Azure Data Lake Store**.  См. [рекомендации по настройке производительности для Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
 
 ## <a name="parameters"></a>Параметры

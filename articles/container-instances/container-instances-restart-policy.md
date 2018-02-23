@@ -10,7 +10,7 @@ ms.date: 11/16/2017
 ms.author: marsma
 ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -20,7 +20,7 @@ ms.lasthandoff: 01/02/2018
 
 Настраиваемая политика перезапуска позволяет указать, что контейнер нужно остановить после завершения всех его процессов. Так как работа экземпляров контейнеров оплачивается посекундно, в счет включаются только те вычислительные ресурсы, которые использовались во время выполнения контейнера с задачей.
 
-В этой статье представлены примеры, в которых используется Azure CLI. Необходимо иметь Azure CLI версии 2.0.21 или более поздней [установлены локально][azure-cli-install], или использовать CLI в [оболочки облако Azure](../cloud-shell/overview.md).
+В этой статье представлены примеры, в которых используется Azure CLI. Для их выполнения потребуется [локально установленная][azure-cli-install] версия Azure CLI 2.0.21 или выше. Кроме того, можно использовать CLI в [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Политика перезапуска контейнера
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Пример выполнения до завершения
 
-Чтобы увидеть политика перезагрузки в действии, создайте экземпляр контейнера из [aci/microsoft-wordcount] [ aci-wordcount-image] изображения и укажите `OnFailure` перезапустите политики. Контейнер из этого примера запускает скрипт Python, который по умолчанию анализирует текст пьесы [Гамлет](http://shakespeare.mit.edu/hamlet/full.html) Уильяма Шекспира, выдает в STDOUT 10 самых употребимых слов в тексте, и завершает работу.
+Чтобы увидеть применение политики перезагрузки, создайте экземпляр контейнера из образа [aci/microsoft-wordcount][aci-wordcount-image] и укажите для него политику перезапуска `OnFailure`. Контейнер из этого примера запускает скрипт Python, который по умолчанию анализирует текст пьесы [Гамлет](http://shakespeare.mit.edu/hamlet/full.html) Уильяма Шекспира, выдает в STDOUT 10 самых употребимых слов в тексте, и завершает работу.
 
 Запустите этот контейнер с помощью команды [az container create][az-container-create], как показано ниже.
 
@@ -162,7 +162,7 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="persist-task-output"></a>Сохранение выходных данных задачи
 

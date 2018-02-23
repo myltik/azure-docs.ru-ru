@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: arramac
 ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -88,7 +88,7 @@ Azure Cosmos DB поддерживает автоматическую отраб
 ### <a id="MultiHomingAPIs"></a>Интерфейсы API множественной адресации в Azure Cosmos DB
 Azure Cosmos DB позволяет взаимодействовать с базой данных, используя логические (независящие от региона) или физические (зависящие от региона) конечные точки. Применение логических конечных точек гарантирует, что приложение сможет явным образом использовать множественную адресацию в случае отработки отказа. Физические же конечные точки предоставляют приложению детальный контроль для перенаправления операций чтения и записи в определенные регионы.
 
-Можно найти сведения о том, как настроить чтения [API-Интерфейсы SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [API таблиц](../cosmos-db/tutorial-global-distribution-table.md), и [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) в их соответствующие связанные статьи.
+Сведения о настройке параметров чтения для [API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [API Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API таблиц](../cosmos-db/tutorial-global-distribution-table.md) и [API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) можно найти в соответствующих статьях.
 
 ### <a id="TransparentSchemaMigration"></a>Прозрачный и согласованный перенос схемы и индекса базы данных 
 Azure Cosmos DB является полностью [бессхемной](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) службой. Уникальное устройство ядра СУБД DocumentDB позволяет автоматически и синхронно индексировать все принимаемые данные, не требуя от вас схемы или вторичных индексов. Это дает возможность быстро выполнять итерацию глобально распределенного приложения, не беспокоясь о переносе схемы и индекса базы данных или координировании многоэтапных развертываний изменений схемы в приложении. Azure Cosmos DB гарантирует, что любые изменения политик индексации, внесенные вами явным образом, не приведут к снижению производительности или доступности.  

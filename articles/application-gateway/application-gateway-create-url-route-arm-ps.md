@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Создание шлюза приложений с правилами маршрутизации на основе URL-пути при помощи Azure PowerShell
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/29/2018
 > [!div class="checklist"]
 > * Настройка сети
 > * создание шлюза приложений с сопоставлением URL-адресов;
-> * создание масштабируемых наборов виртуальных машин с серверными пулами.
+> * создание масштабируемых наборов виртуальных машин с внутренними пулами.
 
 ![Пример маршрутизации для URL-адресов](./media/application-gateway-create-url-route-arm-ps/scenario.png)
 
@@ -257,7 +257,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Создание масштабируемых наборов виртуальных машин
 
-В этом примере мы создадим три масштабируемых набора виртуальных машин, которые поддерживают три созданных серверных пула. Имена создаваемых масштабируемых наборов — *myvmss1*, *myvmss2* и *myvmss3*. Каждый масштабируемый набор содержит два экземпляра виртуальной машины, на которых устанавливаются службы IIS. Масштабируемый набор назначается серверному пулу при настройке параметров IP-адреса.
+В этом примере вы создадите три масштабируемых набора виртуальных машин, которые поддерживают три созданных внутренних пула. Имена создаваемых масштабируемых наборов — *myvmss1*, *myvmss2* и *myvmss3*. Каждый масштабируемый набор содержит два экземпляра виртуальной машины, на которых устанавливаются службы IIS. Масштабируемый набор назначается серверному пулу при настройке параметров IP-адреса.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -352,7 +352,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Тестирование базового URL-адреса в шлюзе приложений](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Измените URL-адрес на http://<ip-address>:8080/video/test.htm в конце базового URL-адреса. Результат должен быть примерно таким:
+Измените URL-адрес на http://<ip-address>:8080/video/test.htm: подставьте вместо <ip-address> свой IP-адрес. Результат должен быть примерно таким, как показано ниже:
 
 ![Тестирование URL-адреса изображений в шлюзе приложений](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
@@ -367,6 +367,6 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 > [!div class="checklist"]
 > * Настройка сети
 > * создание шлюза приложений с сопоставлением URL-адресов;
-> * создание масштабируемых наборов виртуальных машин с серверными пулами.
+> * создание масштабируемых наборов виртуальных машин с внутренними пулами.
 
 Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.

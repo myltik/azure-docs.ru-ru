@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Краткое руководство по развертыванию первого простого модуля IoT Edge на устройстве с Windows при помощи портала Azure (предварительная версия)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 3. Установите [Python 2.7 для Windows][lnk-python] и убедитесь, что команда pip работает.
 4. Выполните приведенную ниже команду, чтобы скачать файл управления IoT Edge.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/18/2017
 >    * Windows IoT Базовая (сборка 16299) на устройстве x64.
 >
 > Если вы используете Windows IoT Базовая, выполните инструкции из статьи [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore] (Установка среды выполнения IoT Edge на Windows IoT Базовая). Для других систем просто [настройте в Docker работу с контейнерами Windows][lnk-docker-containers]. При желании вы можете проверить наличие необходимых компонентов с помощью следующей команды PowerShell:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ ms.lasthandoff: 11/18/2017
 
 Для среды выполнения укажите строку подключения устройства IoT Edge, о которой шла речь в предыдущем разделе.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Запустите среду выполнения.
 
-```
+```cmd
 iotedgectl start
 ```
 
 В Docker убедитесь, что агент IoT Edge работает как модуль.
 
-```
+```cmd
 docker ps
 ```
 

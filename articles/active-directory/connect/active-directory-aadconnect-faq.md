@@ -15,7 +15,7 @@ ms.date: 08/12/2017
 ms.author: billmath
 ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -36,10 +36,10 @@ ms.lasthandoff: 12/11/2017
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**Вопрос AADConnect поддерживает синхронизацию с двумя доменами, чтобы в Azure AD?**</br>
-Да, это поддерживается. Ссылаться на [нескольких доменов](active-directory-aadconnect-multiple-domains.md)
+**Вопрос. Поддерживает ли Azure AD Connect синхронизацию между двумя доменами и Azure AD?**</br>
+Да, это поддерживается. См. дополнительные сведения об использовании [нескольких доменов](active-directory-aadconnect-multiple-domains.md).
  
-**Вопрос мы включаем поддержку нескольких соединителей для одного домена Active Directory в Azure AD подключиться?**</br> Нет, это не поддерживается 
+**Вопрос. Поддерживается ли использование нескольких соединителей для одного домена Active Directory в Azure AD Connect?**</br> Нет, это не поддерживается. 
 
 ## <a name="network"></a>Сеть
 **Вопрос. У меня есть брандмауэр, сетевое устройство или иное средство, ограничивающее максимальное время, в течение которого подключения могут оставаться открытыми в моей сети. Каким должно быть пороговое значение времени ожидания на стороне клиента при использовании Azure AD Connect?**  

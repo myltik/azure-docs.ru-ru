@@ -16,7 +16,7 @@ ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -26,13 +26,13 @@ ms.lasthandoff: 01/05/2018
 
 Интеграция Azure AD с приложением Boomi обеспечивает следующие преимущества.
 
-- Можно управлять в Azure AD, который имеет доступ к Boomi.
-- Позволяет пользователям автоматически получить вошедшего в Boomi (Single Sign-On) с помощью своих учетных записей Azure AD.
+- С помощью Azure AD вы можете контролировать доступ к Boomi.
+- Вы можете включить автоматический вход пользователей в Boomi (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Boomi, вам потребуется:
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/05/2018
 
     ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Boomi**выберите **Boomi** из панели результатов щелкните **добавить** кнопку, чтобы добавить приложение.
+4. В поле поиска введите **Boomi**, выберите **Boomi** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
     ![Boomi в списке результатов](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/05/2018
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Boomi](#create-a-boomi-test-user)**  — на аналог Саймон Britta в Boomi, связанного с представлением Azure AD пользователя.
+3. **[Создание тестового пользователя Boomi](#create-a-boomi-test-user)** требуется для создания в Boomi пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
@@ -106,14 +106,14 @@ ms.lasthandoff: 01/05/2018
 
 3. В разделе **Домены и URL-адреса приложения Boomi** выполните следующие действия:
 
-    ![URL-адреса и Boomi домена единого входа сведения](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Boomi](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
     a. В текстовом поле **Идентификатор** введите URL-адрес: `https://platform.boomi.com/`
 
     Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://platform.boomi.com/sso/<boomi-tenant>/saml`.
 
     > [!NOTE] 
-    > Значение URL-адреса ответа приведено для примера. Вместо него нужно указать фактический URL-адрес ответа. Обратитесь к [Boomi поддержки](https://boomi.com/company/contact/) для получения значения.
+    > Значение URL-адреса ответа приведено для примера. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь в [службу поддержки Boomi](https://boomi.com/company/contact/).
  
 4. Приложение Boomi ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
     
@@ -249,7 +249,7 @@ ms.lasthandoff: 01/05/2018
 
 2. В списке приложений выберите **Boomi**.
 
-    ![Boomi ссылку в список приложений](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png)  
+    ![Ссылка на Boomi в списке приложений](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 

@@ -23,6 +23,10 @@
       items:
         - name: С помощью виртуальной машины Linux
           href: msi-tutorial-linux-vm-access-arm.md
+    - name: Использование MSI виртуальной машины для доступа к Azure Cosmos DB
+      items:
+        - name: С помощью виртуальной машины Linux
+          href: msi-tutorial-linux-vm-access-cosmosdb.md
     - name: Использование виртуальной машины MSI для доступа к хранилищу Azure
       items:
         - name: С помощью виртуальной машины Linux и ключа доступа

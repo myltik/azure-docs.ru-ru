@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.author: raymondl
+ms.openlocfilehash: 88eba56424d9289a35b7de4dcf5f50191411a09a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Управление веб-службой с помощью портала веб-служб машинного обучения Azure
 С помощью портала веб-служб машинного обучения Microsoft Azure можно управлять новыми и классическими веб-службами машинного обучения. Так как классические и новые веб-службы основаны на различных базовых технологиях, возможности управления для них слегка различаются.
@@ -110,7 +110,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="manage-classic-web-services"></a>Управление классическими веб-службами
 > [!NOTE]
-> Процедуры, описанные в этом разделе, относятся к управлению классическими веб-службами на портале веб-служб машинного обучения Azure. Сведения об управлении классического веб-служб через студии машинного обучения и портал Azure см. в разделе [управление рабочую область машинного обучения Azure](manage-workspace.md).
+> Процедуры, описанные в этом разделе, относятся к управлению классическими веб-службами на портале веб-служб машинного обучения Azure. Сведения об управлении классическими веб-службами с помощью студии машинного обучения и портала Azure см. в статье об [управлении рабочей областью машинного обучения Azure](manage-workspace.md).
 > 
 > 
 

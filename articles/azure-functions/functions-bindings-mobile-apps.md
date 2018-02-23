@@ -17,7 +17,7 @@ ms.date: 11/21/2017
 ms.author: glenga
 ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/02/2018
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#input---c-script-example)
+* [Скрипт C# (CSX)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Пример входных данных сценария C#
@@ -128,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Входные атрибуты
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Дополнительные сведения о настройке свойств атрибутов см. в следующем разделе о [настройке](#input---configuration).
 
@@ -144,7 +144,7 @@ module.exports = function (context, myQueueItem) {
 |**tableName** |**TableName**|Имя таблицы данных мобильного приложения|
 | **id**| **Id** | Идентификатор извлекаемой записи. Может быть статическим или определяться по триггеру, который вызывает функцию. Например, если вы используете триггер очереди для функции, то `"id": "{queueTrigger}"` использует строковое значение сообщения очереди в качестве идентификатора записи, который нужно получить.|
 |**подключение**|**Connection**|Имя параметра приложения, в котором содержится URL-адрес мобильного приложения. Функция использует этот URL-адрес для создания необходимых операций REST с мобильным приложением. Создайте параметр приложения в приложении-функции, содержащем URL-адрес мобильного приложения, а затем укажите имя параметра приложения в свойстве `connection` во входной привязке. URL-адрес выглядит следующим образом: `http://<appname>.azurewebsites.net`.
-|**apiKey**|**apiKey**|Имя параметра приложения, в котором содержится ваш ключ API для мобильных приложений. При [внедрении ключа API в мобильное приложение Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) или [.NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) предоставьте ключ API. Для этого создайте параметр приложения в приложении-функции, содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. |
+|**apiKey**|**apiKey**|Имя параметра приложения, в котором содержится ваш ключ API для мобильных приложений. При ](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)внедрении ключа API в мобильное приложение Node.js[ или ](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).NET[ предоставьте ключ API. Для этого создайте параметр приложения в приложении-функции, содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -168,12 +168,12 @@ module.exports = function (context, myQueueItem) {
 Языковой пример см. в разделах:
 
 * [C#](#output---c-example)
-* [Скрипт C# (.csx)](#output---c-script-example)
+* [Скрипт C# (CSX)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Пример выходных данных C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , запускаемая по очереди сообщений и создает запись в таблице мобильного приложения.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая активируется сообщением из очереди и создает запись в таблице мобильного приложения.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -274,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Дополнительные сведения о настройке свойств атрибутов см. в разделе [Выходная конфигурация](#output---configuration). Ниже приведен пример атрибута `MobileTable` в сигнатуре метода:
 
@@ -289,7 +289,7 @@ public static object Run(
 }
 ```
 
-Полный пример см. в разделе [выходные данные - пример на C#](#output---c-example).
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
@@ -302,7 +302,7 @@ public static object Run(
 | **name**|| Имя выходного параметра в сигнатуре функции.|
 |**tableName** |**TableName**|Имя таблицы данных мобильного приложения|
 |**подключение**|**MobileAppUriSetting**|Имя параметра приложения, в котором содержится URL-адрес мобильного приложения. Функция использует этот URL-адрес для создания необходимых операций REST с мобильным приложением. Создайте параметр приложения в приложении-функции, содержащем URL-адрес мобильного приложения, а затем укажите имя параметра приложения в свойстве `connection` во входной привязке. URL-адрес выглядит следующим образом: `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|Имя параметра приложения, в котором содержится ваш ключ API для мобильных приложений. При [внедрении ключа API в серверную часть мобильного приложения Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)[ или ](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).NET предоставьте ключ API. Для этого создайте параметр приложения в приложении-функции, содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. |
+|**apiKey**|**ApiKeySetting**|Имя параметра приложения, в котором содержится ваш ключ API для мобильных приложений. При ](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)внедрении ключа API в серверную часть мобильного приложения Node.js[ или ](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).NET[ предоставьте ключ API. Для этого создайте параметр приложения в приложении-функции, содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -311,7 +311,7 @@ public static object Run(
 
 ## <a name="output---usage"></a>Использование выходной привязки
 
-Используйте именованный выходной параметр типа `out object` для доступа к выходной записи в функциях сценария C#. В C# библиотеки классов `MobileTable` атрибут может использоваться с любым из следующих типов:
+Используйте именованный выходной параметр типа `out object` для доступа к выходной записи в функциях сценария C#. В библиотеках классов C# атрибут `MobileTable` можно использовать в любом из следующих типов:
 
 * `ICollector<T>` или `IAsyncCollector<T>`, где `T` имеет значение `JObject` или является типом со свойством `public string Id`.
 * `out JObject`
@@ -319,7 +319,7 @@ public static object Run(
 
 Для доступа к выходной записи в функциях Node.js используйте `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: govindk
 ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -72,7 +72,7 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 
 ## <a name="debugging-why-queries-are-running-slow"></a>Устранение причины медленного выполнения запросов
 
-В API SQL пакетов SDK Azure Cosmos DB предоставляет статистику выполнения запросов. 
+В пакетах SDK для API SQL можно просмотреть статистику выполнения запросов в базе данных Azure Cosmos DB. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -93,7 +93,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Свойство *QueryMetrics* предоставляет подробные сведения о длительности выполнения каждого компонента запроса. Основная причина длительного выполнения запросов заключается в сканировании (запрос не может использовать индексы). Эту проблему можно решить, задав более эффективные условия для фильтра.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Узнав принципы мониторинга и отладки неисправностей на основе метрик портала Azure, вы, возможно, захотите более подробно изучить вопрос, как улучшить производительность базы данных. Для этого ознакомьтесь со следующими статьями:
 

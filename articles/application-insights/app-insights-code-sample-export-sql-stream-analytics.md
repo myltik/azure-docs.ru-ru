@@ -16,7 +16,7 @@ ms.date: 03/06/2015
 ms.author: mbullwin
 ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -141,17 +141,17 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 В этом примере мы используем данные из представлений страниц. Для просмотра других доступных данных проверьте выходные данные JSON и ознакомьтесь с разделом [Экспорт модели данных](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Создание экземпляра Azure Stream Analytics
-Из [портал Azure](https://portal.azure.com/), выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
+На [портале Azure](https://portal.azure.com/) выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Когда создается новое задание, выберите **переход к ресурсу**.
+Создав новое задание, выберите **Перейти к ресурсу**.
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="add-a-new-input"></a>Добавить новые входные данные
+#### <a name="add-a-new-input"></a>Добавление новых входных данных
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 

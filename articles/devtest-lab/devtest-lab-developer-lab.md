@@ -16,7 +16,7 @@ ms.date: 05/23/2017
 ms.author: v-craic
 ms.openlocfilehash: f99776a718c03e8af36d45d7006be8ce29208615
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -53,7 +53,7 @@ Azure DevTest Labs можно использовать для реализаци
    
    | Задача | Что вы узнаете |
    | --- | --- |
-   | [Настройка образы Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Как добавить образы из Azure Marketplace в список разрешений, сделав доступными для выбора только образы для разработчиков.|
+   | [Настройка образов Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Как добавить образы из Azure Marketplace в список разрешений, сделав доступными для выбора только образы для разработчиков.|
    | [Создание пользовательского образа](devtest-lab-create-template.md) |Как создать пользовательский образ путем предварительной установки необходимого ПО. С помощью пользовательского образа разработчики смогут быстро создавать виртуальные машины.|
    | [Дополнительные сведения о фабрике образов](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Как настроить и использовать фабрику образов (видео).|
 

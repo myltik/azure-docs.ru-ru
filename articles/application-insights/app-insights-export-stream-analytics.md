@@ -15,7 +15,7 @@ ms.date: 01/04/2018
 ms.author: mbullwin
 ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -76,17 +76,17 @@ ms.lasthandoff: 01/05/2018
 События записываются в JSON-файлы больших двоичных объектов. Каждый файл может содержать одно или несколько событий. Поэтому нам нужна возможность считывать данные событий и отфильтровывать необходимые поля. С данными можно выполнять любые действия, но сейчас мы будем использовать Stream Analytics для перемещения данных в Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Создание экземпляра Azure Stream Analytics
-Из [портал Azure](https://portal.azure.com/), выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
+На [портале Azure](https://portal.azure.com/) выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
 
 ![](./media/app-insights-export-stream-analytics/SA001.png)
 
 ![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Когда создается новое задание, выберите **переход к ресурсу**.
+Создав новое задание, выберите **Перейти к ресурсу**.
 
 ![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="add-a-new-input"></a>Добавить новые входные данные
+### <a name="add-a-new-input"></a>Добавление новых входных данных
 
 ![](./media/app-insights-export-stream-analytics/SA004.png)
 
@@ -115,8 +115,8 @@ ms.lasthandoff: 01/05/2018
 > Проверьте хранилище и убедитесь, что вы получаете нужный путь.
 > 
 
-## <a name="add-new-output"></a>Добавить новый выход
-Теперь выберите задание > **выходов** > **добавить**.
+## <a name="add-new-output"></a>Добавление новых выходных данных
+Теперь выберите свое задание и последовательно нажмите элементы **Выходные данные** > **Добавить**.
 
 ![](./media/app-insights-export-stream-analytics/SA006.png)
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 01/05/2018
 
 * export-input — это псевдоним, присвоенный входным данным потока.
 * pbi-output — это определенный псевдоним выходных данных.
-* Мы используем [GetElements ВНЕШНЕГО применить](https://msdn.microsoft.com/library/azure/dn706229.aspx) так как вложенный массив JSON имя события. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) предложение группирует элементы периодам времени до одной минуты.
+* Мы используем [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx), так как имя события находится во вложенном массиве JSON. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. Предложение [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) группирует элементы по периодам времени в одну минуту.
 
 ### <a name="query-to-display-metric-values"></a>Запрос для отображения значений метрики
 ```SQL
@@ -220,7 +220,7 @@ ms.lasthandoff: 01/05/2018
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [непрерывный экспорт.](app-insights-export-telemetry.md)
 * [Подробный справочник по модели данных типов и значений свойств.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)

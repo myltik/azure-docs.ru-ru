@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,15 +24,15 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>Обзор
 
-В этой статье показано, как выполнить расширенный кодировку с Media Encoder Standard (MES) с помощью настраиваемой предустановки. Статья использует .NET для создания задачу кодирования и задания, в которой выполняется эта задача.  
+В этой статье показано, как выполнять расширенные задачи кодирования с помощью Media Encoder Standard (MES) и пользовательской предустановки. В этой статье с помощью .NET создаются задача кодирования и задание, которое выполняет эту задачу.  
 
-В этой статье показано, как настроить конфигурацию, выполнив [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) стиль и уменьшить число слоев. [Настройка стандартный кодировщик мультимедиа стили](media-services-advanced-encoding-with-mes.md) статье демонстрируется пользовательские стили, которые можно использовать для выполнения расширенных задач кодирования.
+В этой статье показано, как настроить предустановку. Для примера взята предустановка [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md), в которой уменьшается количество уровней. В статье [Настройка предустановок MES для расширенного кодирования](media-services-advanced-encoding-with-mes.md) показаны пользовательские предустановки, которые могут использоваться для выполнения расширенных задач кодирования.
 
 ## <a id="customizing_presets"></a> Настройка предустановки MES
 
 ### <a name="original-preset"></a>Первоначальная предустановка
 
-Сохранение JSON, определенные в [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) статьи в некоторый файл с расширением .json. Например, **CustomPreset_JSON.json**.
+Сохраните код JSON, определенный в статье [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md), в отдельный JSON-файл. Например, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Настроенная предустановка
 

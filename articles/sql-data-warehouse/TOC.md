@@ -23,6 +23,7 @@
 ### [Архитектура MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Уровни производительности](performance-tiers.md)
 ### [Единицы использования хранилища данных](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Масштабирование, приостановка и возобновление](sql-data-warehouse-manage-compute-overview.md)
 ### [Резервные копии хранилища данных](sql-data-warehouse-backups.md)
 ### [Аудит](sql-data-warehouse-auditing-overview.md)
 ### [Ограничения емкости](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## Мониторинг и настройка
-### [Рекомендации](resource-classes-for-workload-management.md)
+### [управления рабочими нагрузками](resource-classes-for-workload-management.md)
 ### [Сжатие ColumnStore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Мониторинг](sql-data-warehouse-manage-monitor.md)
 ### [Устранение неполадок](sql-data-warehouse-troubleshoot.md)

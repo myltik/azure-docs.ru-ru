@@ -16,19 +16,19 @@ ms.date: 06/20/2017
 ms.author: saveenr
 ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Руководство. Начало работы с расширением возможностей U-SQL c Python
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
-Прежде чем начать, убедитесь, что в вашей учетной записи аналитики Озера данных Azure устанавливаются расширения Python.
+Прежде чем начать, убедитесь, что в вашей учетной записи Azure Data Lake Analytics установлены расширения Python:
 
-* Перейдите к учетной записи аналитики Озера данных на портале Azure
-* В меню слева в списке **ПРИСТУПАЯ к работе** щелкните **примеры сценариев**
-* Нажмите кнопку **установить расширения U-SQL** затем **ОК**
+* выберите свою учетную запись Data Lake Analytics на портале Azure;
+* в меню слева в разделе **Приступая к работе** щелкните **Примеры сценариев**;
+* выберите **Установка расширений U-SQL** и нажмите кнопку **ОК**.
 
 ## <a name="overview"></a>Обзор 
 

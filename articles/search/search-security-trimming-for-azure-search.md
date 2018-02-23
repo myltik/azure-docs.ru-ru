@@ -1,25 +1,25 @@
 ---
-title: "Фильтры безопасности для усечения результатов в поиске Azure | Документы Microsoft"
-description: "Управление доступом к содержимого службы поиска Azure, с помощью фильтров безопасности и пользователей."
+title: "Фильтры безопасности для усечения результатов в службе \"Поиск Azure\" | Документация Майкрософт"
+description: "Управление доступом к содержимому службы \"Поиск Azure\" с помощью фильтров безопасности и удостоверений пользователей."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+caps.latest.revision: 
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
 ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-filters-for-trimming-results-in-azure-search"></a>Фильтры безопасности для усечения результатов в поиске Azure
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Фильтры безопасности для усечения результатов в службе "Поиск Azure"
 
-Можно применять фильтры безопасности для усечения результаты поиска в службе поиска Azure на основе удостоверения пользователя. В рамках этого поиска, как правило, требуется сравнить личность инициатора поискового запроса с указанными в поле субъектами, у которых есть разрешения на документ. Если совпадение обнаружено, пользователь или субъект (например, группа или роль) имеет доступ к этому документу.
+Фильтры безопасности можно применять для усечения результатов поиска в службе "Поиск Azure" на основе удостоверения пользователя. В рамках этого поиска, как правило, требуется сравнить личность инициатора поискового запроса с указанными в поле субъектами, у которых есть разрешения на документ. Если совпадение обнаружено, пользователь или субъект (например, группа или роль) имеет доступ к этому документу.
 
 Один из способов реализации фильтров безопасности — через логическое сложение выражений равенства, например, `Id eq 'id1' or Id eq 'id2'` и т. д. Это ненадежный подход, его трудно поддерживать, а в тех случаях, когда список содержит сотни или тысячи значений, замедляется время ответа на запрос (в секундах). 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/15/2017
 >[!NOTE]
 > В этом документе не рассматривается процесс получения идентификаторов субъектов. Его следует узнать у поставщика службы идентификации.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 В этой статье предполагается наличие [подписки Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [службы поиска Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) и [индекса поиска Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -157,6 +157,6 @@ api-key: [admin or query key]
  
 ## <a name="see-also"></a>См. также
 
-+ [Контроль доступа на основе удостоверения Active Directory, с помощью фильтров поиска Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Security filters for trimming Azure Search results using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md) (Фильтры безопасности для обрезки результатов Поиска Azure с использованием удостоверений Active Directory)
 + [Фильтры в службе "Поиск Azure"](search-filters.md)
-+ [Управление доступом и безопасности данных в операциях поиска Azure](search-security-overview.md)
++ [Безопасность и управляемый доступ в службе поиска Azure](search-security-overview.md)

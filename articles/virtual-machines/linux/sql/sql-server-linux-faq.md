@@ -14,7 +14,7 @@ ms.date: 12/13/2017
 ms.author: jroth
 ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -24,30 +24,30 @@ ms.lasthandoff: 12/21/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](sql-server-linux-faq.md)
 
-В этой статье содержатся ответы на некоторые распространенные вопросы о запуске [SQL Server в Linux виртуальных машинах Azure](sql-server-linux-virtual-machines-overview.md).
+В этой статье содержатся ответы на некоторые наиболее распространенные вопросы о выполнении [SQL Server на виртуальных машинах Linux в Azure](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Это статье рассматриваются проблемы, относящиеся к SQL Server на виртуальных машинах Linux. Если вы используете SQL Server на виртуальных машинах Windows, изучите [аналогичную статью для Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> Эта статья посвящена проблемам с SQL Server на виртуальных машинах Linux. Если вы используете SQL Server на виртуальных машинах Windows, изучите [аналогичную статью для Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Изображения
+## <a id="images"></a> Образы
 
-1. **Какие образах коллекции виртуальных машин SQL Server доступны?**
+1. **Какие образы доступны в коллекции виртуальных машин SQL Server?**
 
-   Azure использует образы виртуальных машин для всех поддерживаемых основные выпуски SQL Server во всех выпусках для Linux и Windows. Дополнительные сведения см. Полный список [образов виртуальных Машин Linux](sql-server-linux-virtual-machines-overview.md#create) и [образов виртуальных Машин Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   В Azure доступны образы виртуальных машин для всех поддерживаемых основных выпусков SQL Server во всех выпусках Windows и Linux. Дополнительные сведения см. в полном списке образов виртуальных машин [Linux](sql-server-linux-virtual-machines-overview.md#create) и [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
-1. **Обновляются существующие образах коллекции виртуальных машин SQL Server**
+1. **Обновляются ли доступные образы в коллекции виртуальных машин SQL Server?**
 
-   Каждые два месяца обновления образов SQL Server в коллекции виртуальных машин с помощью последней Linux и обновлений Windows. Для образов Linux Сюда входят последние обновления системы. Для образов Windows Сюда входят все обновления, помеченные как важные обновления Windows, включая важные обновления для системы безопасности SQL Server и пакетов обновления. Накопительные пакеты обновления SQL Server, обрабатываются по-разному для Linux и Windows. Для Linux накопительные пакеты обновления SQL Server также включается в обновление. Однако в данный момент виртуальные машины Windows не обновляются с накопительными пакетами обновления для SQL Server или Windows Server.
+   Каждые два месяца образы SQL Server в коллекции виртуальных машин обновляются до последних версий Windows и Linux. Образы Linux содержат последние обновления системы. Образы Windows содержат все обновления, отмеченные как важные в Центре обновления Windows, в частности важные обновления системы безопасности и пакеты обновления SQL Server. Накопительные пакеты обновления SQL Server в Linux и Windows обрабатываются по-разному. Для Linux накопительные пакеты обновления SQL Server также включены в обновление. Но виртуальные машины Windows сейчас не поддерживают накопительные пакеты обновления для SQL Server или Windows Server.
 
 1. **Какие связанные пакеты SQL Server устанавливаются вместе с ним?**
 
    Список пакетов SQL Server, по умолчанию установленных на виртуальных машинах SQL Server на базе Linux, вы найдете [здесь](sql-server-linux-virtual-machines-overview.md#packages).
 
-1. **Образы виртуальных машин SQL Server можно получить удален из каталога?**
+1. **Можно ли удалить образы виртуальных машин SQL Server из коллекции?**
 
-   Да. Azure поддерживает только одно изображение в основной номер версии и выпуска. Например при выпуске нового пакета обновления SQL Server, Azure добавляет новый образ в коллекцию для этого пакета обновления. Образ SQL Server для предыдущего пакета обновления немедленно удаляется из портала Azure. Тем не менее он доступен для подготовки из PowerShell для следующих трех месяцев. После трех месяцев на предыдущем рисунке пакет службы больше не доступны. Эта политика удаления также можно применить в случае версии SQL Server не поддерживается при достижении конца своего жизненного цикла.
+   Да. Azure поддерживает только один образ для основного номера версии и выпуска. Например, при выпуске нового пакета обновления SQL Server в коллекцию Azure для него добавляется новый образ. Образ SQL Server для предыдущего пакета обновления немедленно удаляется с портала Azure. Но он доступен для подготовки из PowerShell в течение следующих трех месяцев. После трех месяцев предыдущий образ пакета обновления становится недоступным. Эта политика удаления также применяется, если версия SQL Server перестает поддерживаться по окончании жизненного цикла.
 
 ## <a name="creation"></a>Создание
 
@@ -75,11 +75,11 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="administration"></a>Администрирование
 
-1. **Можно управлять виртуальной машины с Linux SQL Server с SQL Server Management Studio (SSMS)**
+1. **Можно ли управлять виртуальной машиной SQL Server на базе Linux с помощью SQL Server Management Studio (SSMS)?**
 
-   Да, но SSMS в настоящее время это средство только для Windows. Необходимо подключиться удаленно с компьютера Windows для использования SSMS с виртуальных машин Linux SQL Server. Локально в Linux новый [mssql conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) средство может выполнять многие задачи администрирования. Для предварительного просмотра средство управления базой данных между различными платформами, в разделе [Studio операций SQL Server (Предварительная версия)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Да. Но сейчас средства SSMS доступны только в ОС Windows. Чтобы использовать SSMS с виртуальными машинами SQL Server на базе Linux, необходимо установить удаленное подключение с компьютера с Windows. На компьютере с Linux большинство задач администрирования можно выполнять с помощью нового средства [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf). Сведения о кроссплатформенном средстве управления базой данных см. в статье о [SQL Server Operations Studio (предварительная версия)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
 
-## <a name="updating-and-patching"></a>Обновления и исправления
+## <a name="updating-and-patching"></a>Установка обновлений и исправлений
 
 1. **Как выполнить обновление до новой версии или выпуска SQL Server в виртуальной машине Azure?**
 

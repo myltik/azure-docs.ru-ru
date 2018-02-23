@@ -1,6 +1,6 @@
 ---
-title: "Сбор и анализ журналов событий Windows в службе анализа журналов Azure | Документы Microsoft"
-description: "Журналы событий Windows — один из самых распространенных источников данных, используемых службой Log Analytics.  В этой статье описываются способы настройки сбора журналов событий Windows и сведения о записи, которые они создают в рабочей области аналитики журналов."
+title: "Сбор и анализ журналов событий Windows в Azure Log Analytics | Документация Майкрософт"
+description: "Журналы событий Windows — один из самых распространенных источников данных, используемых службой Log Analytics.  Из этой статьи вы узнаете, как настроить коллекцию журналов событий Windows и сведения о записях, создаваемых журналами в рабочей области Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: bwren
 ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
@@ -72,7 +72,7 @@ Log Analytics собирает события только из журналов
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Число событий ошибок Windows по источникам. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Настройте службу Log Analytics для сбора других [источников данных](log-analytics-data-sources.md) для анализа.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.  
 * Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа записей событий в отдельных полях.

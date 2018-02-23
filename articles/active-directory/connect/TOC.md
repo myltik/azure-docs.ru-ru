@@ -17,6 +17,7 @@
 ### [Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Установка новой версии](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Установка с помощью существующей базы данных ADSync](active-directory-aadconnect-existing-database.md)
+### [Установка с помощью разрешений делегированного администратора SQL](active-directory-aadconnect-sql-delegation.md)
 
 # Практическое руководство
 ## Планирование и проектирование
@@ -51,6 +52,7 @@
 
 
 ## Управление синхронизацией Azure AD Connect
+### [Azure AD Connect и соответствие требованиям GDPR](active-directory-aadconnect-gdpr.md)
 ### [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Синхронизация паролей](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Учетная запись службы Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [Соединение](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Ошибки при синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Объект не синхронизирован](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Синхронизация объектов с помощью задачи устранения неполадок](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Синхронизация паролей](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [Ошибка LargeObject, вызванная userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Восстановление из LocalDB с ограничением в 10 ГБ](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

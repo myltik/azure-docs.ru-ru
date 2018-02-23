@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Сценарий службы автоматизации Azure: интеграция системы управления версиями службы автоматизации с Visual Studio Team Services
 
@@ -31,19 +31,19 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="runbooks"></a>Модули Runbook
 
-Модуль Runbook | Описание| 
+Модуль Runbook | ОПИСАНИЕ| 
 --------|------------|
-Sync-VSTS | Импорт модулей Runbook или конфигураций из системы управления версиями VSTS, когда выполняется возврат. Если запустить модуль вручную, то он импортирует и опубликует все модули Runbook или конфигурации в учетную запись службы автоматизации.| 
-Sync-VSTSGit | Импорт модулей Runbook или конфигураций из системы управления версиями Git VSTS, когда выполняется возврат. Если запустить модуль вручную, то он импортирует и опубликует все модули Runbook или конфигурации в учетную запись службы автоматизации.|
+Sync-VSTS | Импорт модулей Runbook или конфигураций из системы управления версиями VSTS, когда выполняется возврат. Если запустить модуль вручную, он импортирует и публикует все модули Runbook или конфигурации в учетную запись службы автоматизации.| 
+Sync-VSTSGit | Импорт модулей Runbook или конфигураций из системы управления версиями Git VSTS, когда выполняется возврат. Если запустить модуль вручную, он импортирует и публикует все модули Runbook или конфигурации в учетную запись службы автоматизации.|
 
 ### <a name="variables"></a>Переменные
 
-Переменная | Описание|
+Переменная | ОПИСАНИЕ|
 -----------|------------|
-VSToken | Создаваемый вами ресурс защищенной переменной, который содержит персональный маркер доступа VSTS. Сведения о создании персонального маркера доступа VSTS см. в статье [Basic authentication for the REST APIs](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) (Обычная проверка подлинности для интерфейсов REST API). 
+VSToken | Создаваемый вами ресурс защищенной переменной, который содержит персональный маркер доступа VSTS. Сведения о создании персонального маркера доступа VSTS см. в статье [Basic authentication for the REST APIs](/vsts/accounts/use-personal-access-tokens-to-authenticate) (Обычная проверка подлинности для интерфейсов REST API).
 ## <a name="installing-and-configuring-this-scenario"></a>Установка и настройка данного сценария
 
-Создайте [персональный маркер доступа](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) в VSTS, который будет использоваться для синхронизации модулей Runbook или конфигураций в учетную запись службы автоматизации.
+Создайте [персональный маркер доступа](/vsts/accounts/use-personal-access-tokens-to-authenticate) в VSTS для синхронизации модулей Runbook или конфигураций в учетной записи службы автоматизации.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
@@ -51,23 +51,23 @@ VSToken | Создаваемый вами ресурс защищенной пе
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Импортируйте модуль Runbook, который синхронизирует ваши модули Runbook или конфигурации в учетную запись службы автоматизации. Можно использовать [пример модуля Runbook VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) или [пример модуля Runbook VSTS Git] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) с сайта PowerShellGallery.com в зависимости от того, какая система управления версиями используется (VSTS или VSTS Git), и развернуть в учетной записи службы автоматизации.
+Импортируйте модуль Runbook, который синхронизирует ваши модули Runbook или конфигурации в учетной записи службы автоматизации. Можно использовать [пример модуля Runbook VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) или [пример модуля Runbook VSTS Git] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) с сайта PowerShellGallery.com в зависимости от того, какая система управления версиями используется (VSTS или VSTS Git), и развернуть в учетной записи службы автоматизации.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
 Теперь можно [опубликовать](automation-creating-importing-runbook.md#publishing-a-runbook) этот модуль Runbook, чтобы затем создать объект webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Создайте объект [webhook](automation-webhooks.md) для этого модуля Runbook Sync-VSTS и заполните параметры, как показано ниже. Скопируйте URL-адрес webhook, так как он вам понадобится для перехватчика события в VSTS. VSAccessTokenVariableName — это имя (VSToken) защищенной переменной, которую вы создали ранее для хранения персонального маркера доступа. 
+Создайте объект [webhook](automation-webhooks.md) для этого модуля Runbook Sync-VSTS и заполните параметры, как показано ниже. Скопируйте URL-адрес веб-перехватчика, так как он требуется для перехватчика события в VSTS. VSAccessTokenVariableName — это имя (VSToken) защищенной переменной, которую вы создали ранее для хранения персонального маркера доступа. 
 
-При интеграция с помощью VSTS (Sync-VSTS.ps1) используются следующие параметры.
+При интеграции с помощью VSTS (Sync-VSTS.ps1) используются следующие параметры:
 ### <a name="sync-vsts-parameters"></a>Параметры Sync-VSTS
 
-Параметр | Описание| 
+Параметр | ОПИСАНИЕ| 
 --------|------------|
-WebhookData | Будет содержать сведения о возврате, отправленные из перехватчика события VSTS. Этот параметр следует оставить пустым.| 
+WebhookData | Содержит сведения о возврате, отправленные из перехватчика события VSTS. Этот параметр следует оставить пустым.| 
 ResourceGroup | Имя группы ресурсов, в которой находится учетная запись службы автоматизации.|
-AutomationAccountName | Имя учетной записи службы автоматизации, которая будет синхронизироваться с VSTS.|
+AutomationAccountName | Имя учетной записи службы автоматизации, которая синхронизируется с VSTS.|
 VSFolder | Имя папки в VSTS, где находятся модули Runbook и конфигурации.|
 VSAccount | Имя учетной записи Visual Studio Team Services.| 
 VSAccessTokenVariableName | Имя защищенной переменной (VSToken), в который хранится персональный маркер доступа VSTS.| 
@@ -77,10 +77,10 @@ VSAccessTokenVariableName | Имя защищенной переменной (VS
 
 При интеграция с помощью VSTS GIT (Sync-VSTSGit.ps1) используются следующие параметры.
 
-Параметр | Описание|
+Параметр | ОПИСАНИЕ|
 --------|------------|
 WebhookData | Будет содержать сведения о возврате, отправленные из перехватчика события VSTS. Этот параметр следует оставить пустым.| ResourceGroup | Имя группы ресурсов, в которой находится учетная запись службы автоматизации.|
-AutomationAccountName | Имя учетной записи службы автоматизации, которая будет синхронизироваться с VSTS.|
+AutomationAccountName | Имя учетной записи службы автоматизации, которая синхронизируется с VSTS.|
 VSAccount | Имя учетной записи Visual Studio Team Services.|
 VSProject | Имя проекта в VSTS, где находятся модули Runbook и конфигурации.|
 GitRepo | Имя репозитория Git.|
@@ -90,13 +90,13 @@ VSAccessTokenVariableName | Имя защищенной переменной (VS
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Создайте перехватчик события в VSTS для операций возврата в папку, который запускает этот webhook при возврате кода. Выберите webhook как службу для интеграции при создании подписки. Дополнительные сведения о перехватчиках события см. в статье [Integrate with service hooks](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started) (Интеграция с перехватчиками события).
+Создайте перехватчик события в VSTS для операций возврата в папку, который запускает этот webhook при возврате кода. Выберите **веб-перехватчики** как службу для интеграции при создании подписки. Дополнительные сведения о перехватчиках события см. в статье [Integrate with service hooks](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started) (Интеграция с перехватчиками события).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-Теперь вы можете выполнять все операции возврата модулей Runbook и конфигураций в VSTS, и они будут автоматически синхронизироваться в учетную запись службы автоматизации.
+Теперь вы можете выполнять все операции возврата модулей Runbook и конфигураций в VSTS, и они будут автоматически синхронизироваться в учетной записи службы автоматизации.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-Если этот модуль Runbook запускается вручную, а не активируется VSTS, то параметр WebhookData можно оставить пустым, и он выполнит полную синхронизацию из указанной папки VSTS.
+Если этот модуль Runbook запускается вручную, а не активируется VSTS, то параметр WebhookData можно оставить пустым. Он выполняет полную синхронизацию из указанной папки VSTS.
 
 Если вы хотите удалить сценарий, то удалите перехватчик события из VSTS, удалите модуль Runbook и переменную VSToken.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: ad98f3fb1ddb753976be627764d34864e5bf3d50
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Доменные службы Azure AD: устранение неполадок при настройке защищенного протокола LDAP
 
@@ -48,6 +48,9 @@ ms.lasthandoff: 01/18/2018
 5. Убедитесь, что вы создали правило.
 6. Проверьте работоспособность домена через два часа, чтобы убедиться, что шаги выполнены правильно.
 
+> [!TIP]
+> Для беспроблемной работы доменных служб Azure AD нужен не только порт 636. Чтобы узнать больше, ознакомьтесь со статьями [Рекомендации по сетям для доменных служб Azure AD](active-directory-ds-networking.md) и [Узнайте, как устранить неполадки при настройке групп безопасности сети в доменных службах Azure AD](active-directory-ds-troubleshoot-nsg.md).
+>
 
 ## <a name="contact-us"></a>Свяжитесь с нами
 Чтобы [оставить отзыв или обратиться за помощью](active-directory-ds-contact-us.md), свяжитесь с командой разработки продукта, отвечающей за доменные службы Azure Active Directory.

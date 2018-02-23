@@ -88,6 +88,7 @@
 #### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 #### [Справочник по продуктам и планам службы в Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Настройка срока действия групп Office 365](active-directory-groups-lifecycle-azure-portal.md)
+### [Принудительное применение политики именования для групп](groups-naming-policy.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Восстановление удаленной группы Office 365](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Управление корпоративными приложениями
 #### [Назначение пользователей](active-directory-coreapps-assign-user-azure-portal.md)

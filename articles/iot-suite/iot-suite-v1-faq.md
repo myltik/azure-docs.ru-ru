@@ -17,7 +17,7 @@ ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/05/2018
 
 Ознакомьтесь с записью блога Эрика Голпа (Eric Golpe) [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Пошаговое руководство по удалению клиента Azure AD).
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 
 Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 

@@ -63,7 +63,7 @@ Cloud Foundry придерживается методики [12-факторно
 
 Cloud Foundry идеально подходит для гибкой разработки программного обеспечения, включая использование непрерывной интеграции (CI) и непрерывной доставки (CD). Если вы используете Visual Studio Team Services (VSTS) для управления проектами и хотите установить конвейер непрерывной интеграции и непрерывной доставки, нацеленный на Cloud Foundry, то можете использовать [расширение для сборки Cloud Foundry для VSTS](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Этот подключаемый модуль упрощает настройку и автоматизацию развертываний на платформе Cloud Foundry, работающей в Azure или в другой среде.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-- [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/) (Развертывание Pivotal Cloud Foundry из Azure Marketplace)
+- [Pivotal Cloud Foundry on Microsoft Azure](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/) (Pivotal Cloud Foundry в Microsoft Azure)
 - [Развертывание первого приложения в Cloud Foundry в Microsoft Azure](./cloudfoundry-deploy-your-first-app.md)

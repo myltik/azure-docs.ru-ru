@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Копирование данных из ServiceNow с помощью фабрики данных Azure (бета-версия)
 
@@ -48,12 +48,12 @@ ms.lasthandoff: 01/19/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type нужно задать значение **ServiceNow**. | Yes |
-| endpoint | Конечная точка сервера ServiceNow (это http://ServiceNowData.com).  | Yes |
+| endpoint | Конечная точка сервера ServiceNow (`http://ServiceNowData.com`).  | Yes |
 | authenticationType | Тип проверки подлинности. <br/>Допустимые значения: **Basic**, **OAuth2**. | Yes |
 | Имя пользователя | Имя пользователя, используемое для подключения к серверу ServiceNow для обычной проверки подлинности и OAuth2.  | Нет  |
-| password | Пароль, соответствующий имени пользователя для обычной проверки подлинности и OAuth2. Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в ADF, или сохранить пароль в Azure Key Vault и передавать его оттуда в действие копирования при фактическом копировании данных. Подробнее это описано в статье [о хранении учетных данных в Key Vault](store-credentials-in-key-vault.md). | Нет  |
+| password | Пароль, соответствующий имени пользователя для обычной проверки подлинности и OAuth2. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Нет  |
 | clientid | Идентификатор клиента для проверки подлинности OAuth2.  | Нет  |
-| clientSecret | Секрет клиента для проверки подлинности OAuth2. Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в ADF, или сохранить пароль в Azure Key Vault и передавать его оттуда в действие копирования при фактическом копировании данных. Подробнее это описано в статье [о хранении учетных данных в Key Vault](store-credentials-in-key-vault.md). | Нет  |
+| clientSecret | Секрет клиента для проверки подлинности OAuth2. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Нет  |
 | useEncryptedEndpoints | Указывает, шифруются ли конечные точки источника данных с помощью протокола HTTPS. По умолчанию используется значение true.  | Нет  |
 | useHostVerification | Указывает, следует ли требовать, чтобы имя узла в сертификате сервера совпадало с именем узла сервера при подключении по протоколу SSL. По умолчанию используется значение true.  | Нет  |
 | usePeerVerification | Указывает, следует ли проверять удостоверение сервера при подключении по протоколу SSL. По умолчанию используется значение true.  | Нет  |
@@ -103,14 +103,22 @@ ms.lasthandoff: 01/19/2018
 
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md). Этот раздел содержит список свойств, поддерживаемых источником ServiceNow.
 
-### <a name="servicenowsource-as-source"></a>ServiceNowSource в качестве источника
+### <a name="servicenow-as-source"></a>ServiceNow в качестве источника
 
 Чтобы копировать данные из ServiceNow, установите тип источника **ServiceNowSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **ServiceNowSource**. | Yes |
-| query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM alm.asset"`. | Yes |
+| query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM Actual.alm_asset"`. | Yes |
+
+Указывая схему и столбец для ServiceNow в запросе, обратите внимание на следующее:
+
+- **Схема.** Для создания запроса к ServiceNow необходимо указать схему как `Actual` или `Display`, что можно рассматривать как параметр `sysparm_display_value` со значением true или false при вызове [REST API ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Столбец.** Имя столбца для фактического значения — это `[columne name]_value`, а отображаемое имя — это `[columne name]_display_value`.
+
+**Пример запроса:**
+`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` или `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **Пример.**
 
@@ -134,7 +142,7 @@ ms.lasthandoff: 01/19/2018
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

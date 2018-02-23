@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/03/2018
 Ниже приведены действия по развертыванию.
 1. Использование сохраненной обученной модели машинного обучения.
 2. Создание схемы для входных и выходных данных веб-службы.
-3. Создание образа контейнера на основе Docker
+3. Создание образа контейнера на основе Docker.
 4. Создание и развертывание веб-службы
 
 ### <a name="1-save-your-model"></a>1. Сохранение модели
@@ -186,5 +186,5 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [INPUT DATA]}"
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы протестировали веб-службу в локальной среде, ее можно развернуть в кластере для крупномасштабного использования. Дополнительные сведения о настройке кластера для развертывания веб-службы см. в статье [Установка службы управления моделями](deployment-setup-configuration.md). 

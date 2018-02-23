@@ -1,6 +1,6 @@
 ---
-title: "Обзор возможностей базы данных SQL Azure | Документация Майкрософт"
-description: "На этой странице представлен обзор логических серверов и баз данных SQL Azure, а также таблица со сведениями о поддержке функций и ссылки для каждой из них."
+title: "Сравнение функций Базы данных SQL Azure | Документация Майкрософт"
+description: "В этой статье сравниваются функции SQL Server и Базы данных SQL Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/25/2017
+ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: a15c23683a3334328720e8ae4369b2495f9613de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Возможности базы данных SQL Azure
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Сравнение функций Базы данных SQL Azure и SQL Server 
 
 База данных SQL Azure и SQL Server используют общую базу кода и поддерживают преимущественно одинаковые функции на уровне базы данных. Основные отличия между функциями базы данных SQL Azure и SQL Server видны на уровне экземпляров. 
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/08/2017
 | **Функция SQL Server** | **Поддержка в базе данных SQL Azure** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Да. Дополнительные сведения см. в статье [Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище сертификатов Windows](sql-database-always-encrypted.md) и [Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище ключей Azure](sql-database-always-encrypted-azure-key-vault.md).|
-| [Группы доступности AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
+| [Группы доступности AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. См. дополнительные сведения о [высокой доступности и Базе данных SQL Azure](sql-database-high-availability.md) Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
 | [Присоединение базы данных](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Нет  |
 | [Роли приложений](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
 |[Аудит](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Да](sql-database-auditing.md)|
@@ -127,7 +127,7 @@ ms.lasthandoff: 12/08/2017
 | [Отказоустойчивая кластеризация Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
 | [XML-индексы](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Yes |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Сведения о службе базы данных SQL Azure см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md).
 - Сведения о поддержке функций Transact-SQL в базе данных SQL Azure см. в статье [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).

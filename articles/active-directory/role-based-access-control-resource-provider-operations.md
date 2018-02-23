@@ -14,7 +14,7 @@ ms.date: 04/28/2017
 ms.author: jaboes
 ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 В этом документе перечислены операции, доступные в каждом поставщике ресурсов Microsoft Azure Resource Manager. Они могут использоваться в настраиваемых ролях, чтобы обеспечить детальные разрешения управления доступом на основе ролей (RBAC) для ресурсов в Azure. Обратите внимание на то, что это не полный список, и операции могут добавляться или удаляться по мере обновления поставщиков. Строки операций используют формат `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
 
 > [!NOTE]
-> Полный список текущего использования `Get-AzureRmProviderOperation` (в PowerShell) или `az provider operation list` (в Azure CLI v2) для операции списка поставщиков ресурсов Azure.
+> Чтобы получить полный актуальный список, используйте командлет `Get-AzureRmProviderOperation` (в PowerShell) или команду `az provider operation list` (в Azure CLI версии 2).
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -2194,9 +2194,9 @@ ms.lasthandoff: 12/11/2017
 |/locations/connectiongatewayinstallations/read|Возвращает данные об установленных шлюзах подключений в расположениях.|
 |/listSitesAssignedToHostName/Read|Возвращает имена сайтов, назначенные имени узла.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте, как [создать настраиваемую роль](role-based-access-control-custom-roles.md).
 - Ознакомьтесь со [встроенными ролями RBAC](role-based-access-built-in-roles.md).
 - Узнайте, как управлять назначением доступа [по пользователям](role-based-access-control-manage-assignments.md) или [по ресурсам](role-based-access-control-configure.md). 
-- Узнайте, как [просматривать журналы действий для аудита действий для ресурсов](~/articles/azure-resource-manager/resource-group-audit.md)
+- Узнайте, как [просмотреть журналы действий для аудита действий с ресурсами](~/articles/azure-resource-manager/resource-group-audit.md).

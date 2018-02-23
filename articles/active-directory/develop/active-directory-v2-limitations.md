@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/11/2017
 * Конечная точка версии 2.0 не поддерживает выдачу утверждений ролей или групп в маркерах идентификации.
 * Она не поддерживает [предоставление учетных данных владельца ресурса OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
 
-Кроме того конечная точка версии 2.0 не поддерживает протоколы SAML или WS-Federation в любой форме.
+Кроме того, конечная точка версии 2.0 не поддерживает протоколы SAML или WS-Federation ни в какой форме.
 
 Чтобы лучше понять область действия функций протоколов, поддерживаемых в конечной точке версии 2.0, ознакомьтесь со [справочником по протоколам OpenID Connect и OAuth 2.0](active-directory-v2-protocols.md).
 

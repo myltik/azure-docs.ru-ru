@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Просмотр операций развертывания с помощью Azure Resource Manager
 
 
 Вы можете просматривать операции развертывания на портале Azure. Чаще всего необходимость просмотреть операции возникает, если во время развертывания произошла ошибка. Таким образом, эта статья посвящена просмотру операций, которые завершились с ошибкой. Портал Azure предоставляет интерфейс, который позволяет легко находить ошибки и определять возможные действия по их устранению.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Вы можете устранять неполадки развернутой службы, просматривая журналы аудита или операции развертывания. В этой статье показаны оба способа. Сведения об устранении некоторых ошибок развертывания см. в статье об [устранении распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Microsoft Azure
 Для просмотра операций развертывания выполните следующие действия:
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
     ![просмотр неудачного развертывания](./media/resource-manager-deployment-operations/view-error.png)
    
     Описания в этом сообщении об ошибке должно быть достаточно, чтобы приступить к устранению неполадки. Однако если вы хотите узнать, какие задачи выполнены, вы можете просмотреть операции, как описано ниже.
-4. Все операции развертывания отображаются в колонке **Развертывание**. Чтобы просмотреть сведения о конкретной операции, выберите ее.
+4. Вы можете просмотреть все операции развертывания. Чтобы просмотреть сведения о конкретной операции, выберите ее.
    
     ![просмотр операций](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 5. Чтобы просмотреть события развертывания, щелкните **События**.
    
     ![просмотр событий](./media/resource-manager-deployment-operations/view-events.png)
-6. В открывшемся окне отобразятся все события развертывания. Чтобы просмотреть дополнительные сведения о конкретном событии, выберите его. Также обратите внимание на идентификаторы корреляции. Это значение может быть полезным при работе с технической поддержкой для устранения проблемы развертывания.
+6. В открывшемся окне отобразятся все события развертывания. Чтобы просмотреть дополнительные сведения о конкретном событии, выберите его. Обратите внимание на идентификаторы корреляции. Это значение может быть полезным при работе с технической поддержкой для устранения проблемы развертывания.
    
     ![просмотр событий](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 10/11/2017
   }
   ```
 
-2. Получите сведения об операциях развертывания с помощью операции [вывода списка всех операций развертывания шаблона](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. См. дополнительные сведения о [перечислении всех операций развертывания шаблона](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -212,7 +212,7 @@ ms.lasthandoff: 10/11/2017
   ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения об устранении некоторых ошибок развертывания см. в статье об [устранении распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Дополнительные сведения об использовании журналов действий для мониторинга других типов действий см. в статье [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
 * Чтобы проверить развернутую службу перед ее выполнением, ознакомьтесь со статьей [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md).

@@ -1,6 +1,6 @@
 ---
 title: "Настройка конечных точек на классической виртуальной машине Linux | Документация Майкрософт"
-description: "Узнайте, как настроить конечные точки для виртуальной Машины Linux на портале Azure, используемый для взаимодействия с виртуальной машины Linux в Azure"
+description: "Узнайте, как настроить конечные точки для виртуальной машины Linux на портале Azure, чтобы обеспечить обмен данными с виртуальной машиной Linux в Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -17,7 +17,7 @@ ms.date: 06/09/2017
 ms.author: cynthn
 ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,6 +34,6 @@ ms.lasthandoff: 12/11/2017
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Вы также можете создать конечную точку виртуальной машины с помощью [интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Выполните команду **azure vm endpoint create** .
 * Если вы создали виртуальную машину с помощью модели развертывания Resource Manager, [создайте группы безопасности сети](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) с помощью интерфейса командной строки Azure в режиме Resource Manager и управляйте трафиком, поступающим к этой виртуальной машине.

@@ -1,5 +1,5 @@
 ---
-title: "Настройка DHCPv6 для виртуальных машин Linux | Документы Microsoft"
+title: "Настройка DHCPv6 для виртуальных машин Linux | Документация Майкрософт"
 description: "Узнайте, как настроить DHCPv6 для виртуальных машин Linux."
 services: load-balancer
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
 ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/09/2017
 ---
@@ -25,26 +25,26 @@ ms.lasthandoff: 12/09/2017
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Некоторые из образов виртуальной машины Linux в Azure Marketplace нет Dynamic Host Configuration Protocol версии 6 (DHCPv6), настроенные по умолчанию. Для поддержки IPv6, необходимо настроить DHCPv6 в ОС Linux распределение, которое вы используете. Различные дистрибутивы Linux настройте DHCPv6 в различными способами, потому что они используют разные пакеты.
+В некоторых образах виртуальных машин Linux в Azure Marketplace протокол DHCPv6 не настроен по умолчанию. Для поддержки IPv6 в используемом дистрибутиве ОС Linux необходимо настроить DHCPv6. Различные дистрибутивы Linux настраивают DHCPv6 различными способами, потому что они используют разные пакеты.
 
 > [!NOTE]
-> В недавно выпущенных образах SUSE Linux и CoreOS в Azure Marketplace протокол DHCPv6 предварительно настроен. При использовании этих изображений, без дополнительных изменений не требуется.
+> В недавно выпущенных образах SUSE Linux и CoreOS в Azure Marketplace протокол DHCPv6 предварительно настроен. При использовании этих образов дополнительные изменения не требуются.
 
 В этом документе описывается, как включить DHCPv6, чтобы виртуальная машина Linux получила IPv6-адрес.
 
 > [!WARNING]
-> Путем неправильно изменения файлов конфигурации сети, вы можете потерять доступ к сети для виртуальной Машины. Рекомендуется сначала протестировать изменения конфигурации на нерабочих системах. Приведенные в этой статье инструкции были протестированы на последних версиях образов Linux в Azure Marketplace. Более подробные инструкции см. в документации для версии Linux.
+> Неправильное изменение файлов конфигурации сети может привести к тому, что виртуальная машина утратит доступ к сети. Рекомендуется сначала протестировать изменения конфигурации на нерабочих системах. Приведенные в этой статье инструкции были протестированы на последних версиях образов Linux в Azure Marketplace. Подробные инструкции см. в документации к своей версии Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
-1. Изменить */etc/dhcp/dhclient6.conf* файл и добавьте следующую строку:
+1. Измените файл */etc/dhcp/dhclient6.conf* и добавьте следующую строку:
 
         timeout 10;
 
 2. Замените конфигурацию сети для интерфейса eth0 следующей конфигурацией:
 
-   * На **Ubuntu 12.04 и 14.04**, изменить */etc/network/interfaces.d/eth0.cfg* файла. 
-   * На **Ubuntu 16.04**, изменить */etc/network/interfaces.d/50-cloud-init.cfg* файла.
+   * В **Ubuntu 12.04 и 14.04** измените файл */etc/network/interfaces.d/eth0.cfg*. 
+   * В **Ubuntu 16.04** измените файл */etc/network/interfaces.d/50-cloud-init.cfg*.
 
          iface eth0 inet6 auto
              up sleep 5
@@ -58,11 +58,11 @@ ms.lasthandoff: 12/09/2017
 
 ## <a name="debian"></a>Debian
 
-1. Изменить */etc/dhcp/dhclient6.conf* файл и добавьте следующую строку:
+1. Измените файл */etc/dhcp/dhclient6.conf* и добавьте следующую строку:
 
         timeout 10;
 
-2. Изменить */etc/network/interfaces* и добавьте следующую конфигурацию:
+2. Измените файл */etc/network/interfaces*, добавив следующую конфигурацию:
 
         iface eth0 inet6 auto
             up sleep 5
@@ -76,11 +76,11 @@ ms.lasthandoff: 12/09/2017
 
 ## <a name="rhel-centos-and-oracle-linux"></a>RHEL, CentOS и Oracle Linux
 
-1. Изменить */etc/sysconfig/network* и добавьте следующий параметр:
+1. Измените файл */etc/sysconfig/network*, добавив следующий параметр:
 
         NETWORKING_IPV6=yes
 
-2. Изменить */etc/sysconfig/network-scripts/ifcfg-eth0* и добавьте следующие два параметра:
+2. Измените файл */etc/sysconfig/network-scripts/ifcfg-eth0*, добавив следующие два параметра:
 
         IPV6INIT=yes
         DHCPV6C=yes
@@ -91,9 +91,9 @@ ms.lasthandoff: 12/09/2017
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11-and-opensuse-13"></a>SLES 11 и 13 openSUSE
+## <a name="sles-11-and-opensuse-13"></a>SLES 11 и openSUSE 13
 
-Последние SUSE Linux Enterprise Server (SLES) и openSUSE образы в Azure были предварительно настроенную DHCPv6. При использовании этих изображений, без дополнительных изменений не требуется. При наличии виртуальной Машины, которая основана на старую или пользовательского образа SUSE, выполните следующее:
+В недавно выпущенных образах SUSE Linux Enterprise Server (SLES) и openSUSE в Azure протокол DHCPv6 предварительно настроен. При использовании этих образов дополнительные изменения не требуются. Если у вас есть виртуальная машина, использующая более старый или пользовательский образ SUSE, то сделайте следующее.
 
 1. При необходимости установите пакет `dhcp-client` :
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/09/2017
     sudo zypper install dhcp-client
     ```
 
-2. Изменить */etc/sysconfig/network/ifcfg-eth0* и добавьте следующий параметр:
+2. Измените файл */etc/sysconfig/network/ifcfg-eth0*, добавив следующий параметр:
 
         DHCLIENT6_MODE='managed'
 
@@ -113,13 +113,13 @@ ms.lasthandoff: 12/09/2017
 
 ## <a name="sles-12-and-opensuse-leap"></a>SLES 12 и openSUSE Leap
 
-В недавно выпущенных образах SLES и openSUSE в Azure протокол DHCPv6 предварительно настроен. При использовании этих изображений, без дополнительных изменений не требуется. При наличии виртуальной Машины, которая основана на старую или пользовательского образа SUSE, выполните следующее:
+В недавно выпущенных образах SLES и openSUSE в Azure протокол DHCPv6 предварительно настроен. При использовании этих образов дополнительные изменения не требуются. Если у вас есть виртуальная машина, использующая более старый или пользовательский образ SUSE, то сделайте следующее.
 
-1. Изменить */etc/sysconfig/network/ifcfg-eth0* и замените `#BOOTPROTO='dhcp4'` параметр со следующим значением:
+1. Измените файл */etc/sysconfig/network/ifcfg-eth0* и замените параметр `#BOOTPROTO='dhcp4'` следующим значением:
 
         BOOTPROTO='dhcp'
 
-2. Чтобы */etc/sysconfig/network/ifcfg-eth0* файл, добавьте следующий параметр:
+2. В файл */etc/sysconfig/network/ifcfg-eth0* добавьте следующий параметр:
 
         DHCLIENT6_MODE='managed'
 
@@ -131,9 +131,9 @@ ms.lasthandoff: 12/09/2017
 
 ## <a name="coreos"></a>CoreOS
 
-В недавно выпущенных образах CoreOS в Azure протокол DHCPv6 предварительно настроен. При использовании этих изображений, без дополнительных изменений не требуется. Если у вас есть на основе CoreOS более раннюю версию или пользовательского образа виртуальной Машины, выполните следующее:
+В недавно выпущенных образах CoreOS в Azure протокол DHCPv6 предварительно настроен. При использовании этих образов дополнительные изменения не требуются. Если у вас есть виртуальная машина, использующая более старый или пользовательский образ CoreOS, сделайте следующее.
 
-1. Изменить */etc/systemd/network/10_dhcp.network* файла:
+1. Измените файл */etc/systemd/network/10_dhcp.network*:
 
         [Match]
         eth0

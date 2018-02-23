@@ -1,5 +1,5 @@
 ---
-title: "О Azure Power BI Embedded | Документы Microsoft"
+title: "О службе Azure Power BI Embedded | Документация Майкрософт"
 description: "Цель Power BI Embedded — упростить использование возможностей Power BI независимыми поставщиками программного обеспечения и разработчиками, помогая им быстро добавлять привлекательные визуальные элементы, отчеты и панели мониторинга в свои приложения."
 services: power-bi-embedded
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.date: 01/04/2018
 ms.author: asaxton
 ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="about-power-bi-embedded"></a>О Power BI Embedded
+# <a name="about-power-bi-embedded"></a>О службе Power BI Embedded
 
 Назначение Power BI Embedded — упростить использование возможностей Power BI независимыми поставщиками программного обеспечения и разработчиками. Power BI Embedded упрощает возможности Power BI, позволяя быстро добавлять привлекательные визуальные элементы, отчеты и панели мониторинга в приложения. Аналогичным образом приложения на основе Microsoft Azure используют такие службы, как "Машинное обучение" и "Интернет вещей". Обеспечивая в своих приложениях анализ данных с удобной навигацией, независимые поставщики программного обеспечения позволяют своим клиентам быстро принимать обоснованные решения, исходя из контекста.
 
@@ -52,7 +52,7 @@ Power BI Embedded позволяет сосредоточиться на том,
 * [Power BI Ideas](https://ideas.powerbi.com): здесь можно запросить функции и проголосовать за них.
 * [Reddit](https://www.reddit.com/r/PowerBI/): здесь можно обсудить Power BI.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Сведения о емкости узлов приведены на [странице цен](https://azure.microsoft.com/pricing/details/power-bi-embedded/).
 

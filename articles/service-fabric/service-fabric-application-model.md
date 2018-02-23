@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: ryanwi
 ms.openlocfilehash: d5f6fbb9d9c0bc0d9762f8d6b4b4eb3b02d29adc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 
 Тип приложения представляет собой отнесение приложения к определенной категории и состоит из пакета типов служб. Тип службы представляет собой отнесение службы к определенной категории, которая может обладать различными параметрами и конфигурациями, однако ее основная функция не изменяется. Экземпляры службы представляют собой различные вариации конфигурации служб, принадлежащих к одному типу.  
 
-Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и служб).  Манифесты описания приложений и служб и шаблонов, по которым приложений может быть создан из хранилища образов кластера.  Манифесты подробно описаны в [службы манифестов приложения и](service-fabric-application-and-service-manifests.md). Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Схема XML описана в [ServiceFabricServiceModel.xsd документации по схеме](service-fabric-service-model-schema.md).
+Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и служб).  Манифесты описывают приложения и службы. Это шаблоны, по которым создаются экземпляры приложений из хранилища образов кластера.  См. дополнительные сведения о [манифестах приложений и служб](service-fabric-application-and-service-manifests.md). Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. См. документацию по [схеме ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
 Код для различных экземпляров приложений выполняется как отдельные процессы, даже если они размещены на одном узле структуры службы. Кроме того, возможно независимое управление жизненным циклом (например, обновление). На следующей диаграмме показано, что типы приложений состоят из типов служб, которые, в свою очередь, состоят из кода, конфигурации и пакетов данных. Чтобы упростить схему, показаны только пакеты кода, конфигурации или данных для `ServiceType4`, хотя каждый тип службы будет включать некоторые или все из этих типов пакетов.
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 12/11/2017
 > 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения о [масштабируемость приложения](service-fabric-concepts-scalability.md).
-- Дополнительные сведения о службе [состояние](service-fabric-concepts-state.md), [секционирование](service-fabric-concepts-partitioning.md), и [доступности](service-fabric-availability-services.md).
-- Узнайте, как определение приложений и служб в [службы манифестов приложения и](service-fabric-application-and-service-manifests.md).
-- [Приложения, размещения моделей](service-fabric-hosting-model.md) описания связи между реплик (или экземпляры), развернутая служба и процесс размещения службы.
+## <a name="next-steps"></a>Дополнительная информация
+- Дополнительные сведения об [обновлениях приложений](service-fabric-concepts-scalability.md).
+- Дополнительные сведения о [состоянии](service-fabric-concepts-state.md), [секционирование](service-fabric-concepts-partitioning.md) и [доступности](service-fabric-availability-services.md) служб.
+- Узнайте, как приложения и службы определяются в [манифестах приложений и служб](service-fabric-application-and-service-manifests.md).
+- В описании[моделей размещения](service-fabric-hosting-model.md) рассматривается связь между репликами (или экземплярами) развернутой службы и процессом размещения службы.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

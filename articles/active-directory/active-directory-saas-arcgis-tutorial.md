@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: jeedes
 ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,18 +26,18 @@ ms.lasthandoff: 12/14/2017
 
 Интеграция ArcGIS Online с Azure AD обеспечивает следующие преимущества:
 
-- Можно управлять в Azure AD, кто имеет доступ к документации по ArcGIS.
-- Вы можете включить их учетные записи Azure AD пользователям автоматически получить вошедшего в ArcGIS Online (Single Sign-On).
+- С помощью Azure AD вы можете контролировать доступ к ArcGIS Online.
+- Вы можете включить автоматический вход пользователей в ArcGIS Online (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с ArcGIS Online, вам потребуется:
 
 - подписка Azure AD;
-- Подписка настроенная ArcGIS Online единым входом
+- подписка ArcGIS Online с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -70,23 +70,23 @@ ms.lasthandoff: 12/14/2017
 
     ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **ArcGIS Online**выберите **ArcGIS Online** из панели результатов щелкните **добавить** кнопку, чтобы добавить приложение.
+4. В поле поиска введите **ArcGIS Online**, выберите **ArcGIS Online** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Online ArcGIS в списке результатов](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
+    ![ArcGIS Online в списке результатов](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-В этом разделе настройки и тестирования в Azure AD единого входа с ArcGIS Online основании тестового пользователя с именем «Britta Simon».
+В этом разделе описана настройка и проверка единого входа Azure AD в ArcGIS Online с использованием данных тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в ArcGIS Online соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ArcGIS Online.
 
-В документации по ArcGIS, присвойте значение **имя пользователя** в Azure AD в качестве значения **Username** для установления связи.
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в ArcGIS Online.
 
 Чтобы настроить и проверить единый вход Azure AD в ArcGIS Online, вам потребуется выполнить действия в следующих стандартных блоках.
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя сети ArcGIS](#create-a-arcgis-online-test-user)**  — на аналог Саймон Britta в ArcGIS Online, связанного с представлением Azure AD пользователя.
+3. **[Создание тестового пользователя ArcGIS Online](#create-a-arcgis-online-test-user)** нужно для того, чтобы в ArcGIS Online также существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
@@ -104,16 +104,16 @@ ms.lasthandoff: 12/14/2017
  
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
-3. На **URL-адреса и домена ArcGIS** выполните следующие действия:
+3. В разделе **ArcGIS Online Domain and URLs** (Домены и URL-адреса приложения ArcGIS Online) выполните следующие действия:
 
-    ![URL-адреса и домена ArcGIS единого входа сведения](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения ArcGIS Online](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
 
     a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.maps.arcgis.com`
 
     Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `<companyname>.maps.arcgis.com`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Обратитесь к [группа поддержки клиента в сети ArcGIS](http://support.esri.com/en/) для получения этих значений. 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Для получения этих значений обратитесь в [группу поддержки ArcGIS Online](http://support.esri.com/en/). 
  
 
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 12/14/2017
 
     d. Нажмите кнопку **Создать**.
  
-### <a name="create-a-arcgis-online-test-user"></a>Создание документации ArcGIS тестового пользователя
+### <a name="create-a-arcgis-online-test-user"></a>Создание тестового пользователя ArcGIS Online
 
 Чтобы пользователи Azure AD могли выполнять вход в ArcGIS Online, они должны быть подготовлены в ArcGIS Online.  
 В случае ArcGIS Online подготовка выполняется вручную.
@@ -232,7 +232,7 @@ ms.lasthandoff: 12/14/2017
 
 2. Из списка приложений выберите **ArcGIS Online**.
 
-    ![ArcGIS веб-ссылки в списке приложений](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
+    ![Ссылка на ArcGIS Online в списке "Приложения"](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 

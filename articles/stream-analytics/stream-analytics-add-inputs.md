@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 1. На портале Azure щелкните **Входные данные**, а затем выберите **Добавление входных данных** в задании Stream Analytics.
    
-    ![Портал Azure — Добавление входных данных.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Портал Azure — добавление входящих данных.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     На портале Azure щелкните элемент **Входные данные** в вашем задании Stream Analytics.  
    
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="get-help-with-streaming-data-inputs"></a>Получение справки по потоковой передаче входных данных
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)

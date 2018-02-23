@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: API-Интерфейс Python SQL SDK и ресурсы | Документы Microsoft"
-description: "Узнайте о SQL Python API и пакета SDK, включая даты выхода, даты выбытия и изменения, выполняемые на каждой версии пакета SDK для Python DB Azure Cosmos."
+title: "Пакет SDK, интерфейс API SQL и ресурсы для Python (Azure Cosmos DB) | Документация Майкрософт"
+description: "Сведения о пакете SDK и интерфейсах API SQL для Python, включая даты выхода и прекращения использования, а также изменения, внесенные в каждую версию пакета SDK для Azure Cosmos DB на Python."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6801c5b62be08e4dcb32ad342b15e9ad3f3e20a8
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Cosmos DB Python для API-Интерфейсы SQL: заметки о выпуске и ресурсы
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK Python для API-интерфейса SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Веб-канал изменений в .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="release-notes"></a>Заметки о выпуске
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
-* Обновленная документация к ссылке Azure DB Cosmos вместо Azure DocumentDB.
+* Обновленная документация для Azure DB Cosmos вместо Azure DocumentDB.
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Для этой версии пакета SDK требуется последняя версия эмулятора Azure Cosmos DB. Ее можно скачать по адресу https://aka.ms/cosmosdb-emulator.
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/05/2018
 * Добавлена поддержка функции срока жизни для документов.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Исправления, относящиеся к серверным секционирование позволяет специальные символы в пути к ключу секции.
+* Исправления ошибок, связанных с секционированием на стороне сервера, которые позволяют использовать специальные знаки в пути partitionkey.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Реализованы [секционированные коллекции](partition-data.md) и [определяемые пользователем уровни производительности](performance-levels.md). 
@@ -128,10 +128,10 @@ ms.lasthandoff: 01/05/2018
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии. 
 
-Любой запрос на Cosmos базу данных, используя удалено SDK отклоняются службой.
+Любые запросы к Cosmos DB с помощью выведенного из эксплуатации пакета SDK отклоняются службой.
 
 > [!WARNING]
-> Все версии SQL Azure SDK для Python до версии **1.0.0** заменены на **29 февраля 2016 г.**. 
+> Поддержка всех версий пакета SDK SQL Azure для Python версии ниже **1.0.0** была прекращена **29 февраля 2016 года**. 
 > 
 > 
 

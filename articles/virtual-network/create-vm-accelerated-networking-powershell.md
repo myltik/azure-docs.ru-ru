@@ -1,6 +1,6 @@
 ---
 title: "Создание виртуальной машины Azure с ускоренной сетью | Документация Майкрософт"
-description: "Описание способов создания виртуальной машины Linux с помощью Accelerated сетевых."
+description: "Узнайте, как создать виртуальную машину Linux с ускоренной сетью."
 services: virtual-network
 documentationcenter: 
 author: jdial
@@ -16,25 +16,25 @@ ms.date: 01/04/2018
 ms.author: jimdial
 ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Создание виртуальной машины Windows с помощью Accelerated сетевых
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Создание виртуальной машины Windows с ускоренной сетью
 
 > [!IMPORTANT] 
-> Виртуальные машины должны создаваться с помощью Accelerated сетевых включена. Эта функция не включена на существующих виртуальных машин. Можно выполнить следующие действия, чтобы включить ускорителем сеть
+> Виртуальные машины должны создаваться с включенной функцией ускорения сети. Эту функцию невозможно включить на имеющихся виртуальных машинах. Чтобы включить функцию ускорения сети, выполните шаги ниже.
 >   1. Удаление виртуальной машины
->   2. Повторно создать виртуальную машину с ускорителем сети включена
+>   2. Повторно создайте виртуальную машину с включенной функцией ускорения сети.
 >
 
-В этом учебнике вы узнаете, как для создания виртуальной машины (ВМ) Windows с Accelerated работа по сети. Функция ускорения сети позволяет использовать виртуализацию ввода-вывода с единым корнем (SR-IOV), повышая тем самым производительность сети виртуальной машины. Этот путь высокой производительности обходит узла из пути к данным, уменьшение задержки, флуктуации и использования ЦП, для использования с наиболее ресурсоемких рабочих нагрузок сети в поддерживаемых типов ВМ. На следующем рисунке показаны связи между двумя виртуальными машинами с и без ускорителем сети:
+В этом руководстве вы узнаете, как создать виртуальную машину Windows с ускоренной сетью. Функция ускорения сети позволяет использовать виртуализацию ввода-вывода с единым корнем (SR-IOV), повышая тем самым производительность сети виртуальной машины. Этот высокопроизводительный метод обеспечивает обход узла на пути к данным, что уменьшает задержку, дрожание и нагрузку ЦП. Он предназначен для ресурсоемких рабочих нагрузок сети на виртуальных машинах поддерживаемых типов. На следующем рисунке приведена схема обмена данными между двумя виртуальными машинами с функцией ускорения сети и без нее:
 
 ![Сравнение](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
 Без функции ускорения сети весь входящий и исходящий сетевой трафик виртуальной машины должен проходить через узел и виртуальный коммутатор. Виртуальный коммутатор обеспечивает принудительное применение всех политик, таких как группы безопасности сети, списки управления доступом, изоляция, и использование других служб виртуализации сети для сетевого трафика. Дополнительные сведения о виртуальных коммутаторах см. в статье о [виртуализации сети Hyper-V](https://technet.microsoft.com/library/jj945275.aspx).
 
-При использовании функции ускорения сети трафик поступает в сетевой интерфейс (NIC), а затем перенаправляется на виртуальную машину. Все сетевые политики, применяемых виртуального коммутатора теперь прямой и применяется в оборудовании. Благодаря применению политик на аппаратном уровне сетевая карта может перенаправлять сетевой трафик непосредственно на виртуальную машину в обход узла и виртуального коммутатора. При этом все политики, примененные на узле, сохраняются.
+При использовании функции ускорения сети трафик поступает в сетевой интерфейс (NIC), а затем перенаправляется на виртуальную машину. Все сетевые политики, которые применяет виртуальный коммутатор, выгружены и применяются на аппаратном уровне. Благодаря применению политик на аппаратном уровне сетевая карта может перенаправлять сетевой трафик непосредственно на виртуальную машину в обход узла и виртуального коммутатора. При этом все политики, примененные на узле, сохраняются.
 
 Возможности функции ускорения сети применяются только к той виртуальной машине, где она включена. Для получения наилучших результатов необходимо включить эту функцию по крайней мере на двух виртуальных машинах, подключенных к одной виртуальной сети Azure. При обмене данными между виртуальными или локальными сетями эта функция практически не влияет на общую задержку.
 
@@ -46,34 +46,34 @@ ms.lasthandoff: 01/05/2018
 ## <a name="supported-operating-systems"></a>Поддерживаемые операционные системы
 Microsoft Windows Server 2012 R2 Datacenter и Windows Server 2016.
 
-## <a name="supported-vm-instances"></a>Поддерживаемые экземпляров виртуальных Машин
-Ускорителем сети поддерживается на наиболее общего назначения и размеров оптимизированных вычислительных экземпляров с 4 или более ЦП. На экземплярах как D/DSv3 или E-ESv3, поддерживающие технологию Hyper-Threading Accelerated сети поддерживается в экземплярах виртуальных Машин с 8 или более ЦП. Поддерживаемые рядов: D/серии DSv2, D/DSv3, E-ESv3, F-Fs-Fsv2 и Ms-Mms.
+## <a name="supported-vm-instances"></a>Поддерживаемые экземпляры виртуальных машин
+Функция ускорения сети поддерживается для большинства размеров экземпляров, оптимизированных для вычислений, и экземпляров общего назначения с количеством виртуальных ЦП от 4. На таких экземплярах, как D/DSv3 или E/ESv3, поддерживающих технологию Hyper-Threading, функция ускорения сети поддерживается на экземплярах виртуальной машины с количеством виртуальных ЦП от 8. Поддерживаемые серии: D/DSv2, D/DSv3, E-ESv3, F-Fs-Fsv2 и Ms-Mms.
 
-Дополнительные сведения о экземпляров виртуальных Машин см. в разделе [размеры виртуальных Машин Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Дополнительные сведения см. в статье [Размеры виртуальных машин Windows в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>регионы
-Доступно во всех открытых регионах Azure и государственных облако Azure. 
+Доступна во всех общедоступных регионах Azure и облаке Azure для государственных организаций. 
 
 ## <a name="limitations"></a>Ограничения
 При использовании этой возможности действуют следующие ограничения:
 
 * **Создание сетевого интерфейса.** Функцию ускорения сети можно включить только в новом сетевом интерфейсе. Ее нельзя включить в имеющемся сетевом интерфейсе.
-* **Создание виртуальной машины.** Сетевой интерфейс с включенной функцией ускорения сети можно подключить к виртуальной машине при ее создании. Этого нельзя сделать для имеющейся виртуальной машины. Если добавление ВМ в существующую группу, все виртуальные машины в группу доступности должен также accelerated сети включена.
-* **Только при развертывании на диспетчере ресурсов Azure:** с помощью Accelerated сетевых невозможно развернуть виртуальные машины (классические).
+* **Создание виртуальной машины.** Сетевой интерфейс с включенной функцией ускорения сети можно подключить к виртуальной машине при ее создании. Этого нельзя сделать для имеющейся виртуальной машины. При добавлении виртуальной машины в имеющуюся группу доступности для всех виртуальных машин в группе доступности нужно включить функцию ускорения сети.
+* **Развертывание только с помощью Azure Resource Manager:** классические виртуальные машины нельзя развернуть с включенной функцией ускорения сети.
 
 ## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 
-Установка [Azure PowerShell](/powershell/azure/install-azurerm-ps) версии 5.1.1 или более поздней версии. Чтобы определить текущую версию, запустите `Get-Module -ListAvailable AzureRM`. Если требуется установка или обновление, установите последнюю версию модуля AzureRM из [коллекции PowerShell](https://www.powershellgallery.com/packages/AzureRM). В сеансе PowerShell войдите в учетную запись Azure с помощью [AzureRmAccount добавить](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Установите [Azure PowerShell](/powershell/azure/install-azurerm-ps) версии 5.1.1 или более поздней. Чтобы определить текущую версию, выполните командлет `Get-Module -ListAvailable AzureRM`. Если требуется установка или обновление, установите последнюю версию модуля AzureRM из [коллекции PowerShell](https://www.powershellgallery.com/packages/AzureRM). В сеансе PowerShell войдите в учетную запись Azure с помощью командлета [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
 
-В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров включены *myResourceGroup*, *myNic*, и *myVM*.
+В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myNic* и *myVM*.
 
-Создайте группу ресурсов с помощью командлета [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). В следующем примере создается группа ресурсов с именем *myResourceGroup* в *centralus* расположение:
+Создайте группу ресурсов с помощью командлета [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *centralus*.
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-Во-первых, создайте конфигурацию подсети с [New AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetworkSubnetConfig). В следующем примере создается подсеть с именем *mySubnet*:
+Сначала создайте конфигурацию подсети с помощью командлета [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetworkSubnetConfig). В следующем примере создается подсеть с именем *mySubnet*:
 
 ```powershell
 $subnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -81,7 +81,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig `
     -AddressPrefix "192.168.1.0/24"
 ```
 
-Создайте виртуальную сеть с [New AzureRmVirtualNetwork](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork), с *mySubnet* подсети.
+Создайте виртуальную сеть с помощью командлета [New-AzureRmVirtualNetwork](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork) с подсетью *mySubnet*.
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -93,7 +93,7 @@ $vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-network-security-group"></a>Создание группы безопасности сети
 
-Во-первых, создайте правило группы безопасности сети с [New AzureRmNetworkSecurityRuleConfig](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityRuleConfig).
+Сначала создайте правило группы безопасности сети с помощью командлета [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityRuleConfig).
 
 ```powershell
 $rdp = New-AzureRmNetworkSecurityRuleConfig `
@@ -109,7 +109,7 @@ $rdp = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-Создание группы безопасности сети с [New AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityGroup) и назначить *разрешить протокола удаленного рабочего СТОЛА все* правила безопасности. В дополнение к *разрешить протокола удаленного рабочего СТОЛА все* правил сетевой группы безопасности содержит несколько правил по умолчанию. Одно правило по умолчанию отключает все входящий доступ из Интернета, поэтому *разрешить протокола удаленного рабочего СТОЛА все* правило назначается группу безопасности сети, таким образом, можно удаленно подключиться к виртуальной машине после ее создания.
+Затем с помощью командлета [New-AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityGroup) создайте группу безопасности сети и назначьте ей правило безопасности *Allow-RDP-All*. Кроме правила *Allow-RDP-All* группа безопасности сети содержит несколько стандартных правил. С помощью одного правила по умолчанию запрещается входящий трафик из Интернета, из-за чего правило *Allow-RDP-All* и назначается группе безопасности сети. Таким образом вы можете удаленно подключиться к виртуальной машине после ее создания.
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -119,7 +119,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -SecurityRules $rdp
 ```
 
-Связать группу безопасности сети для *mySubnet* подсети с [AzureRmVirtualNetworkSubnetConfig набор](/powershell/module/AzureRM.Network/Set-AzureRmVirtualNetworkSubnetConfig). Правила в группу безопасности сети является эффективным для всех ресурсов, развернутых в подсети.
+Свяжите группу безопасности сети с подсетью *mySubnet* с помощью командлета [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/Set-AzureRmVirtualNetworkSubnetConfig). Правило в группе безопасности сети распространяется на все ресурсы, развернутые в подсети.
 
 ```powershell
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -129,8 +129,8 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-## <a name="create-a-network-interface-with-accelerated-networking"></a>Создание сетевого интерфейса ускорителем сети.
-Создайте общедоступный IP-адрес с помощью командлета [New-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/New-AzureRmPublicIpAddress). Общедоступный IP-адрес не требуется, если для доступа к виртуальной машине из Интернета, но для выполнения шагов в данной статье не планируется, это необходимо.
+## <a name="create-a-network-interface-with-accelerated-networking"></a>Создание сетевого интерфейса с функцией ускорения сети
+Создайте общедоступный IP-адрес с помощью командлета [New-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/New-AzureRmPublicIpAddress). Если вы не планируете входить на виртуальную машину из Интернета, общедоступный IP-адрес не требуется, однако он нужен, чтобы выполнить шаги, описанные в этой статье.
 
 ```powershell
 $publicIp = New-AzureRmPublicIpAddress `
@@ -140,7 +140,7 @@ $publicIp = New-AzureRmPublicIpAddress `
     -AllocationMethod Dynamic
 ```
 
-Создание сетевого интерфейса с [New AzureRmNetworkInterface](/powershell/module/AzureRM.Network/New-AzureRmNetworkInterface) с accelerated сети включена и назначить общедоступный IP-адрес сетевого интерфейса. В следующем примере создается с именем сетевого интерфейса *myNic* в *mySubnet* подсети *myVnet* виртуальную сеть и назначит *myPublicIp*  общедоступный IP-адрес, к нему:
+С помощью командлета [New-AzureRmNetworkInterface](/powershell/module/AzureRM.Network/New-AzureRmNetworkInterface) создайте сетевой интерфейс с включенной функцией ускорения сети и назначьте этому интерфейсу общедоступный IP-адрес. В следующем примере создается сетевой интерфейс с именем *myNic* в подсети *mySubnet* виртуальной сети *myVnet* и ему назначается общедоступный IP-адрес *myPublicIp*.
 
 ```powershell
 $nic = New-AzureRmNetworkInterface `
@@ -154,19 +154,19 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-the-virtual-machine"></a>Создание виртуальной машины
 
-Задать учетные данные виртуальной Машины `$cred` переменной с помощью [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
+Задайте переменной `$cred` учетные данные виртуальной машины, используя командлет [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Во-первых, определите ВМ с [New AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). В следующем примере определяется Виртуальную машину с именем *myVM* с размером виртуальной Машины, который поддерживает Accelerated сети (*Standard_DS4_v2*):
+Сначала определите виртуальную машину с помощью командлета [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). В следующем примере определяется виртуальная машина с именем *myVM* и используется размер виртуальной машины с поддержкой функции ускорения сети (*Standard_DS4_v2*):
 
 ```powershell
 $vmConfig = New-AzureRmVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
 ```
 
-Список всех размеров виртуальных Машин и характеристики см. в разделе [размеры виртуальных Машин Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Чтобы просмотреть список всех размеров виртуальных машин и их характеристики, ознакомьтесь со статьей [Размеры виртуальных машин Windows в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Создайте оставшуюся часть конфигурации виртуальной машины с помощью [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) и [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). В следующем примере создается виртуальная машина Windows Server 2016:
 
@@ -184,7 +184,7 @@ $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
     -Version "latest"
 ```
 
-Подключить сетевой интерфейс, созданный ранее с [AzureRmVMNetworkInterface добавить](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+Подключите созданный ранее сетевой интерфейс с помощью командлета [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
 ```powershell
 $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
@@ -196,13 +196,13 @@ $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
 ```
 
-## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Убедитесь, что драйвер установлен в операционной системе
+## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Проверка установки драйвера в операционной системе
 
-После создания виртуальной Машины в Azure, подключитесь к виртуальной Машине и убедитесь, что установлен драйвер в Windows. 
+После создания виртуальной машины в Azure подключитесь к ней и проверьте, установлен ли драйвер в Windows. 
 
-1. Веб-браузер, откройте Azure [портала](https://portal.azure.com) и выполните вход с учетной записью Azure.
-2. В поле, содержащее текст *Найдите ресурсы* в верхней части портала Azure, введите *myVm*. Когда **myVm** появится в результатах поиска щелкните его. Если **создание** отображается в группе **Connect** кнопки, Azure не завершено создание виртуальной Машины. Нажмите кнопку **Connect** в левом верхнем углу Обзор только после больше не отображается для **создание** под **Connect** кнопки.
-3. Введите имя пользователя и пароль, введенный в [создания виртуальной машины](#create-the-virtual-machine). Если вы не подключились к виртуальной Машине Windows в Azure, см. раздел [подключиться к виртуальной машине](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
+1. Откройте [портал](https://portal.azure.com) Azure в браузере и войдите, используя учетную запись Azure.
+2. В верхней области портала Azure в поле с текстом *Поиск ресурсов* введите *MyVm*. Когда виртуальная машина **MyVm** появится в результатах поиска, щелкните ее. Если под кнопкой **Подключиться** отображается элемент **Создание**, это означает, что виртуальная машина по-прежнему создается в Azure. Когда элемент **Создание** больше не будет отображаться под кнопкой **Подключиться**, вы можете нажать кнопку **подключения** в левом верхнем углу страницы обзора.
+3. Введите имя пользователя и пароль, указанный при [создании виртуальной машины](#create-the-virtual-machine). Ознакомьтесь с разделом [Подключение к виртуальной машине](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine), если вы никогда не подключались к виртуальной машине Windows в Azure.
 4. В главном меню Windows щелкните правой кнопкой мыши кнопку "Пуск" и выберите **Диспетчер устройств**. Разверните узел **Сетевые адаптеры**. Проверьте, есть ли в списке виртуальный адаптер **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**, как показано на следующем рисунке:
    
     ![Диспетчер устройств](./media/create-vm-accelerated-networking/device-manager.png)

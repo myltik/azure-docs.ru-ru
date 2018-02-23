@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Доменные службы Azure Active Directory. Устранение неполадок: предупреждения
 В этой статье содержатся руководства по устранению любых неполадок, возникающих в управляемом домене.
@@ -75,6 +75,11 @@ ms.lasthandoff: 01/18/2018
 
 Прежде чем начать, ознакомьтесь с разделом об **адресном пространстве закрытых IP-адресов версии 4** [в этой статье](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+Внутри виртуальной сети компьютеры могут выполнять запросы к ресурсам Azure, которые находятся в одном диапазоне IP-адресов, настроенном для подсети. Тем не менее, так как для данного диапазона настроена виртуальная сеть, эти запросы будут направлены в нее и не достигнут целевых веб-ресурсов. Это может привести к непредвиденным ошибкам в работе доменных служб Azure AD.
+
+**Если вам принадлежит диапазон IP-адресов в Интернете, настроенный в виртуальной сети, то это оповещение можно игнорировать. Тем не менее доменные службы Azure AD не смогут обеспечить выполнение [соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) в этой конфигурации, так как она может привести к непредвиденным ошибкам.**
+
+
 1. [Удалите свой управляемый домен](active-directory-ds-disable-aadds.md) из имеющегося каталога.
 2. Исправьте диапазон IP-адресов для подсети
   1. Перейдите [на страницу "Виртуальные сети" на портале Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ ms.lasthandoff: 01/18/2018
   7. Обновите диапазон адресов и сохраните изменения.
 3. Следуйте руководству [Enable Azure Active Directory Domain Services using the Azure portal](active-directory-ds-getting-started.md) (Включение доменных служб Azure Active Directory с помощью портала Azure), чтобы повторно создать управляемый домен. Убедитесь, что выбрана виртуальная сеть с закрытым диапазоном IP-адресов.
 4. Чтобы соединить виртуальные машины с доменом следуйте [этому руководству](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Проверьте работоспособность домена через два часа, чтобы убедиться, что шаги выполнены правильно.
+8. Чтобы убедиться, что причина оповещения устранена, проверьте работоспособность домена через два часа.
 
 
 ## <a name="contact-us"></a>Свяжитесь с нами

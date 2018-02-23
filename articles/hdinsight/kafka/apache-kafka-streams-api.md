@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>API Потоков Apache Kafka
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 01/20/2018
 
 * Клиент SSH и команда `scp`. Дополнительные сведения см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="set-up-your-deployment-environment"></a>Настройка среды развертывания
+## <a name="set-up-your-deployment-environment"></a>Настройка окружения развертывания
 
-Для этого примера требуется Kafka в HDInsight версии 3.6. Чтобы узнать, как создавать Kafka в кластере HDInsight, см. статью [Приступая к работе с Apache Kafka в HDInsight](apache-kafka-get-started.md).
+Для выполнения этого примера требуется Kafka в HDInsight версии 3.6. Чтобы узнать, как создавать Kafka в кластере HDInsight, см. статью [Приступая к работе с Apache Kafka в HDInsight](apache-kafka-get-started.md).
 
 ## <a name="build-and-deploy-the-example"></a>Создание и развертывание примера
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/20/2018
 
 ## <a name="run-the-example"></a>Выполнение примера
 
-1. Чтобы открыть подключение SSH в кластере, примените следующую команду:
+1. Чтобы открыть SSH-подключение к кластеру, выполните следующую команду:
 
     ```bash
     ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
@@ -89,7 +89,7 @@ ms.lasthandoff: 01/20/2018
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
     ```
 
-    Замените __имя вашего кластера__ именем кластера HDInsight. При появлении запроса введите свой пароль HDInsight, чтобы войти в кластер.
+    Замените строку __your cluster name__ именем кластера HDInsight. При появлении запроса введите пароль от учетной записи кластера HDInsight.
 
     > [!NOTE]
     > Если имя для входа в кластер отличается от значения по умолчанию `admin`, замените значение `admin` в предыдущих командах на имя для входа в кластер.
@@ -100,6 +100,12 @@ ms.lasthandoff: 01/20/2018
     * Запустите отправитель, который записывает данные в раздел `test`.
     * Запустите объект-получатель, чтобы просмотреть выходные данные, записанные в разделе `wordcounts`.
 
+    > [!NOTE]
+    > Убедитесь, что в файле конфигурации брокера Kafka для свойства `auto.create.topics.enable` задано значение `true`. Это свойство можно просмотреть и изменить в файле расширенной конфигурации брокера Kafka с помощью веб-интерфейса Ambari. В противном случае необходимо вручную создать промежуточный раздел `RekeyedIntermediateTopic` перед запуском этого примера, используя следующую команду:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Эти операции можно выполнить, открыв три сеанса SSH. Однако затем необходимо задать значения `$KAFKABROKERS` и `$KAFKAZKHOSTS`, выполнив шаг 4 из этого раздела в каждом сеансе SSH. Более простое решение — использовать программу `tmux`, которая может разделить текущее отображение SSH на несколько секций. Чтобы запустить потоковую передачу, объект-получатель и отправитель с помощью `tmux`, используйте следующую команду:
 
     ```bash
@@ -146,6 +152,6 @@ ms.lasthandoff: 01/20/2018
 * [Apache Kafka Producer and Consumer APIs](apache-kafka-producer-consumer-api.md) (API-интерфейсы отправителя и объекта-получателя Apache Kafka)
 * [Пример потоковой передачи Apache Spark (DStream) с использованием Kafka (предварительная версия) в HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Использование структурированной потоковой передачи Spark с Kafka (предварительная версия) в HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Use Spark Structured Streaming with Kafka and Azure Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md) (Использование структурированной потоковой передачи Spark с Kafka и Azure Cosmos DB)
+* [Использование структурированной потоковой передачи Apache Spark из Kafka HDInsight в Azure Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Подключение к Kafka через виртуальную сеть Azure](apache-kafka-connect-vpn-gateway.md)

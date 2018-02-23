@@ -14,7 +14,7 @@ ms.date: 11/29/2017
 ms.author: tdykstra
 ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -29,12 +29,12 @@ ms.lasthandoff: 01/02/2018
 Языковой пример см. в разделах:
 
 * [C#](#c-example)
-* [Скрипт C# (.csx)](#c-script-example)
+* [Скрипт C# (CSX)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Пример C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , триггер использует очереди Service Bus и привязка для вывода SendGrid.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая использует триггер очереди служебной шины и выходную привязку SendGrid.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Атрибуты
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
 
 Дополнительные сведения о настройке свойств атрибутов см. в разделе [Конфигурация](#configuration). Ниже приведен пример атрибута `SendGrid` в сигнатуре метода:
 
@@ -169,7 +169,7 @@ public static void Run(
 }
 ```
 
-Полный пример см. в разделе [пример на C#](#c-example).
+Полный пример см. в разделе [Пример C#](#c-example).
 
 ## <a name="configuration"></a>Параметр Configuration
 
@@ -188,7 +188,7 @@ public static void Run(
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

@@ -1,6 +1,6 @@
 ---
 title: "Настройка конечных точек в классической виртуальной машине Windows | Документация Майкрософт"
-description: "Узнайте, как настроить конечные точки для классической виртуальной Машине Windows на портале Azure для взаимодействия с виртуальной машиной Windows в Azure."
+description: "Узнайте, как настроить конечные точки для классической виртуальной машины Windows на портале Azure, чтобы обеспечить обмен данными с виртуальной машиной Windows в Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -17,7 +17,7 @@ ms.date: 06/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Инструкции по использованию командлета Azure PowerShell для настройки конечной точки виртуальной машины см. в разделе [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * Инструкции по управлению списком управления доступом к конечной точке с помощью командлета Azure PowerShell см. в разделе [Управление списками управления доступом для конечных точек с помощью PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
 * Если вы создали виртуальную машину, используя модель развертывания с помощью Resource Manager, [создайте группы безопасности сети](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) с помощью Azure PowerShell и управляйте трафиком к этой виртуальной машине.

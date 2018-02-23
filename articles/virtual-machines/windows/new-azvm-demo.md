@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной Машины Windows с помощью упрощенного командлет New-AzureRMVM в оболочке облако Azure | Документы Microsoft"
-description: "Быстро научиться создавать виртуальные машины Windows с помощью упрощенный командлета New-AzureRMVM в оболочке облако Azure."
+title: "Создание виртуальной машины Windows с помощью упрощенного командлета New-AzureRMVM в Azure Cloud Shell | Документация Майкрософт"
+description: "Научитесь быстро создавать виртуальные машины Windows с помощью упрощенного командлета New-AzureRMVM в Azure Cloud Shell."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -18,13 +18,13 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 94eb6232cf59d502a9d70545785c3788398f4d27
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Создание виртуальной машины Windows с командлетом New-AzureRMVM упрощенный в оболочке облака 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Создание виртуальной машины Windows с помощью упрощенного командлета New-AzureRMVM в Cloud Shell 
 
-[New AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) командлет добавлен упрощенный набор параметров для создания новой виртуальной Машины с помощью PowerShell. В этом разделе показано, как использовать PowerShell в оболочку облако Azure, с последней версией командлет New-AzureVM предустановленными, для создания новой виртуальной Машины. Мы будем использовать набор параметров упрощенный, автоматически создает все необходимые ресурсы, с помощью смарт-значения по умолчанию. 
+В командлет [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) добавлен упрощенный набор параметров для создания виртуальной машины с помощью PowerShell. В этом разделе описано, как использовать PowerShell в Azure Cloud Shell с последней версией предварительно установленного командлета New-AzureVM для создания виртуальной машины. Мы будем использовать упрощенный набор параметров, с помощью которого можно автоматически создать все необходимые ресурсы, используя стандартные интеллектуальные значения. 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="create-the-vm"></a>Создание виртуальной машины
 
-Можно использовать [New AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) для создания виртуальной Машины со смарт-значениями по умолчанию, которые включают в себя использование образа Windows Server 2016 Datacenter из Azure Marketplace. Можно использовать New-AzureRMVM с только что **-имя** параметра и он будет использовать это значение для всех имен ресурсов. В этом примере в качестве параметра **-Name** задается значение *myVM*. 
+Вы можете использовать командлет [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) для создания виртуальной машины со стандартными интеллектуальными значениями, которые включают использование образа Windows Server 2016 Datacenter из Azure Marketplace. Вы можете использовать командлет New-AzureRMVM только с параметром **-Name**, и это значение будет использоваться для всех названий ресурсов. В этом примере в качестве параметра **-Name** задается значение *myVM*. 
 
 Убедитесь, что **PowerShell** выбран в Cloud Shell, и введите:
 
@@ -63,14 +63,14 @@ Get-AzureRmPublicIpAddress `
     -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-На локальном компьютере, откройте командную строку и использовать **mstsc** команду, чтобы начать сеанс удаленного рабочего стола с вашей новой виртуальной Машины. Замените &lt;publicIPAddress&gt; IP-адресом виртуальной машины. При появлении запроса введите имя пользователя и пароль, предоставленные вашей виртуальной машине при создании.
+На локальном компьютере откройте командную строку и введите команду **mstsc** для запуска сеанса удаленного рабочего стола для новой виртуальной машины. Замените &lt;publicIPAddress&gt; IP-адресом виртуальной машины. При появлении запроса введите имя пользователя и пароль, предоставленные вашей виртуальной машине при создании.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
-## <a name="specify-different-resource-names"></a>Укажите имена различных ресурсов
+## <a name="specify-different-resource-names"></a>Указание разных названий ресурсов
 
-Можно также предоставить понятные имена для ресурсов и по-прежнему использовать создается автоматически. Ниже приведен пример, где иметь именованные несколько ресурсов для новой виртуальной Машины, включая новую группу ресурсов.
+Вы можете также указать понятные имена для ресурсов. Они по-прежнему будут созданы автоматически. Ниже приведен пример присвоения имен нескольким ресурсам новой виртуальной машины, включая новую группу ресурсов.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -93,7 +93,7 @@ Remove-AzureRmResourceGroup -Name myVM
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 При работе с этой статьей вы развернули простую виртуальную машину с помощью командлета New-AzVM, а затем подключились к ней с помощью протокола удаленного рабочего стола. Дополнительные сведения о виртуальных машинах Azure см. в руководстве по работе с виртуальными машинами Windows.
 

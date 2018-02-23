@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b32997f9a936b73a08b367ca69341da24f31f3a8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-media-services-community"></a>Сообщество служб мультимедиа Azure
 На этой странице сообщества служб мультимедиа Azure (AMS) описаны разные способы получения новых сведений об AMS. Вы можете просматривать видео и прослушивать подкасты, а также задавать вопросы и отправлять отзывы.   
@@ -59,4 +59,6 @@ ms.lasthandoff: 02/01/2018
 | Проигрыватель мультимедиа Azure |ampinfo@microsoft.com |
 | Обозреватель мультимедиа Azure |amse@microsoft.com |
 | Конструктор рабочих процессов |mepd@microsoft.com |
+| Потоковая передача и упаковка файлов |amsstreaming@microsoft.com |
+| Потоковая трансляция и упаковка |amslived@microsoft.com |
 

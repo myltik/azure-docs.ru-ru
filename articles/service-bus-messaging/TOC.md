@@ -41,6 +41,8 @@
 #### [Передача, блокировка и согласование сообщений](message-transfers-locks-settlement.md)
 #### [Последовательность сообщений и метки времени](message-sequencing.md)
 #### [Срок действия сообщения (срок жизни)](message-expiration.md)
+#### [Обработка сообщений с помощью Сетки событий Azure](service-bus-to-event-grid-integration-concept.md)
+#### [Сетка событий Azure: примеры](service-bus-to-event-grid-integration-example.md)
 ### [Аутентификация и авторизация](service-bus-authentication-and-authorization.md)
 #### [Миграция из ACS в SAS](service-bus-migrate-acs-sas.md)
 #### [Проверка подлинности с помощью подписанных URL-адресов](service-bus-sas.md)

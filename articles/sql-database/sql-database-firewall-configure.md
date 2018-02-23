@@ -19,7 +19,7 @@ ms.date: 10/11/2017
 ms.author: carlrab
 ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -221,7 +221,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
   * Попросите поставщика услуг Интернета (ISP) назначить диапазон IP-адресов тем клиентским компьютерам, с которых осуществляется доступ к серверу Базы данных SQL Azure, а затем добавьте диапазон IP-адресов в качестве правила брандмауэра.
   * Получите статические IP-адреса для клиентских компьютеров, а затем добавьте IP-адреса как правила брандмауэра.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Чтобы быстро приступить к созданию правила брандмауэра уровня сервера и уровня базы данных, ознакомьтесь со статьей [Создание базы данных SQL Azure на портале Azure](sql-database-get-started-portal.md).
 - Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).

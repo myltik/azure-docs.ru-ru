@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: API-интерфейса Java SQL SDK и ресурсы | Документы Microsoft"
-description: "Дополнительные сведения о SQL Java API и пакет SDK, включая даты выхода, даты выбытия и изменения, выполняемые на каждой версии пакета SDK Java для базы данных SQL Azure Cosmos."
+title: "Интерфейс API, пакет SDK и ресурсы для SQL Java (Azure Cosmos DB) | Документация Майкрософт"
+description: "Сведения о пакете SDK и API-интерфейсе SQL Java, включая даты выхода и прекращения использования, а также изменения, внесенные в каждую версию пакета SDK SQL Java для Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Cosmos DB Java для API-Интерфейсы SQL: заметки о выпуске и ресурсы
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK Java для API-интерфейса SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Веб-канал изменений в .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/18/2017
 Любые запросы к Cosmos DB с помощью выведенного из эксплуатации пакета SDK будут отклонены службой.
 
 > [!WARNING]
-> Все версии до версии SQL пакета SDK для Java **1.0.0** заменены на **29 февраля 2016 г.**
+> Поддержка всех версий пакета SDK SQL для Java версии ниже **1.0.0** была прекращена **29 февраля 2016 года**.
 > 
 > 
 

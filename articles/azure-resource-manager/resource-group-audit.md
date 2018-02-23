@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Просмотр журналов действий для аудита действий с ресурсами
 С помощью журналов действий можно определить:
@@ -29,7 +29,11 @@ ms.lasthandoff: 12/08/2017
 * состояние операции;
 * значения других свойств, которые могут помочь в изучении операции.
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Журнал изменений содержит все операции записи (PUT, POST, DELETE), выполненные с ресурсами. Он не содержит операции чтения (GET). Список действий ресурсов см. в статье [Операции поставщиков ресурсов Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). Журналы аудита можно использовать для поиска ошибки при устранении неполадок, а также для наблюдения за тем, как пользователь в вашей организации изменяет ресурс.
+
+Журналы изменений сохраняются в течение 90 дней. Вы можете запросить любой диапазон дат, при условии, что дата начала не старше 90 дней в прошлом.
+
+
 
 Сведения из журналов действий можно получить с помощью портала, PowerShell, интерфейса командной строки Azure, API REST Insights или с помощью [библиотеки .NET для Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -38,10 +42,10 @@ ms.lasthandoff: 12/08/2017
    
     ![просмотр журналов действий](./media/resource-group-audit/select-monitor.png)
 
-   Чтобы автоматически отфильтровать журнал действий для определенного ресурса или группы ресурсов, выберите **журнал действий**. Обратите внимание, что журнал действий автоматически фильтруется по выбранному ресурсу.
+   Или, чтобы автоматически отфильтровать журнал действий по определенному ресурсу или группе ресурсов, выберите **Журнал действий**. Обратите внимание, что журнал действий автоматически фильтруется по выбранному ресурсу.
    
     ![фильтрация по ресурсам](./media/resource-group-audit/filtered-by-resource.png)
-2. В **журнал действий**, просмотреть сводку последних операций.
+2. В колонке **Журнал действий** можно просмотреть сводку последних операций.
    
     ![отображение действий](./media/resource-group-audit/audit-summary.png)
 3. Чтобы ограничить количество отображаемых операций, выберите различные условия. Например, на следующем рисунке показано, как изменение полей **Временной диапазон** и **Кем инициировано событие** позволяет просмотреть действия конкретного пользователя или приложения за прошлый месяц. Выберите **Применить** для просмотра результатов запроса.
@@ -142,10 +146,10 @@ ms.lasthandoff: 12/08/2017
 ## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 Операции REST для работы с журналом действий включены в интерфейс [REST API Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Получение событий журнала действий описано в статье [Список событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Чтобы получить больше информации о действиях в вашей подписке, можно использовать журналы аудита Azure совместно с Power BI. Дополнительные сведения см. в записи блога [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Журналы аудита Azure в Power BI: просмотр, анализ и другие возможности).
 * Дополнительные сведения о настройке политик безопасности см. в статье о [контроле доступа на основе ролей Azure](../active-directory/role-based-access-control-configure.md).
 * Чтобы узнать о командах для просмотра операций развертывания, ознакомьтесь с разделом [View deployment operations with Azure Resource Manager](resource-manager-deployment-operations.md) (Просмотр операций развертывания с помощью Azure Resource Manager).
 * Вы можете запретить всем пользователям операции удаления для определенного ресурса, как описано в статье [Блокировка ресурсов с помощью Azure Resource Manager](resource-group-lock-resources.md).
-* Список операций, доступных для каждого поставщика Microsoft Azure Resource Manager см. в разделе [операций поставщика ресурсов диспетчера ресурсов Azure](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Список операций, доступных для каждого поставщика Microsoft Azure Resource Manager, см. в статье [Операции поставщиков ресурсов Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md).
 

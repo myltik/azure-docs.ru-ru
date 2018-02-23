@@ -1,6 +1,6 @@
 ---
-title: "Код аналитики Озера данных Azure в Visual Studio при разработке U-SQL и Python, R и C# | Документы Microsoft"
-description: "Сведения об использовании кода Python, R и C# для отправки заданий в Озера данных Azure."
+title: "Разработка U-SQL с помощью Python, R и C# для Azure Data Lake Analytics в Visual Studio Code | Документация Майкрософт"
+description: "Сведения об использовании кода программной части Python, R и C# для отправки заданий в Azure Data Lake."
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -15,12 +15,12 @@ ms.date: 11/22/2017
 ms.author: jejiang
 ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Разработка U-SQL с Python, R и C# для аналитики Озера данных Azure в Visual Studio Code
-Сведения об использовании Visual Studio Code (VSCode) для записи Python, R и C# кода программной части с помощью U-SQL и отправки заданий службы Озера данных Azure. Дополнительные сведения об использовании Средств Azure Data Lake для VSCode см. в статье [Использование средств Azure Data Lake для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Разработка U-SQL с помощью Python, R, и C# для Azure Data Lake Analytics в Visual Studio Code
+Сведения об использовании Visual Studio Code (VSCode) для записи кода программной части Python, R и C# с помощью U-SQL и отправки заданий в службу Azure Data Lake. Дополнительные сведения об использовании Средств Azure Data Lake для VSCode см. в статье [Использование средств Azure Data Lake для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Перед написанием пользовательского кода программной части необходимо открыть папку или рабочую области в VSCode.
 
@@ -182,7 +182,7 @@ ms.lasthandoff: 12/07/2017
     ```
 5. Для выполнения задания щелкните файл **USQL** правой кнопкой мыши и выберите **Compile Script** (Компиляции сценария) или **Отправить задание**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Использование средств Azure Data Lake для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [Локальный запуск и локальная отладка U-SQL в Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 * [Разработка сборок U-SQL для заданий Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)

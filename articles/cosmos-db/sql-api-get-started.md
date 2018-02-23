@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Учебник по API-Интерфейсы SQL началу работы | Документы Microsoft"
-description: "Учебник, в котором создает консольное приложение на C#, с помощью API-Интерфейсы SQL и базы данных в сети."
+title: "Azure Cosmos DB. Руководство по началу работы с API SQL | Документация Майкрософт"
+description: "В этом руководстве описывается создание оперативной базы данных и консольного приложения C# с помощью API SQL."
 keywords: "руководство nosql, оперативная база данных, консольное приложение c#"
 services: cosmos-db
 documentationcenter: .net
@@ -17,11 +17,11 @@ ms.date: 08/16/2017
 ms.author: anhoh
 ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Учебник по API-Интерфейсы SQL началу работы
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB. Руководство по началу работы с API SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Добро пожаловать в базы данных SQL Azure Cosmos API Приступая к работе учебника! После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
+Давайте приступим к обзору API SQL службы Azure Cosmos DB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
 
 Темы, рассматриваемые в этом руководстве:
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/18/2017
 
 А теперь приступим к работе!
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/18/2017
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Шаг 1. Создание учетной записи Azure Cosmos DB
-Давайте создадим учетную запись Azure Cosmos DB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка решения Visual Studio](#SetupVS). Если вы используете эмулятор Azure Cosmos DB, следуйте указаниям в [DB эмулятор Azure Cosmos](local-emulator.md) установки эмулятора и сразу перейти к [установки решения Visual Studio](#SetupVS).
+Давайте создадим учетную запись Azure Cosmos DB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка решения Visual Studio](#SetupVS). Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](local-emulator.md), чтобы его настроить и сразу перейти к [настройке решения Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -73,9 +73,9 @@ ms.lasthandoff: 12/18/2017
 4. В **обозревателе решений** щелкните правой кнопкой мыши новое консольное приложение (оно находится в решении Visual Studio). Затем щелкните **Управление пакетами NuGet...**
     
     ![Снимок экрана: меню «Проект», вызванное щелчком правой кнопки мыши](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. В **NuGet** щелкните **Обзор**и тип **azure documentdb** в поле поиска.
+5. На вкладке **NuGet** щелкните **Обзор** и в поле поиска введите **azure documentdb**.
 6. В результатах найдите **Microsoft.Azure.DocumentDB** и нажмите кнопку **Установить**.
-   Идентификатор пакета для клиентской библиотеки API SQL Azure Cosmos DB [клиентской библиотеки Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   Идентификатором пакета для клиентской библиотеки API SQL Azure Cosmos DB является [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
    ![Снимок экрана: меню NuGet для поиска пакета SDK для клиента Azure Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Если появится сообщение о просмотре изменений в решении, нажмите кнопку **ОК**. Если появится сообщение о принятии условий лицензионного соглашения, щелкните **Принимаю**.
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/18/2017
 
 Скопируйте универсальный код ресурса (URI) с портала и вставьте его в параметр `<your endpoint URL>` в файле program.cs. Затем скопируйте на портале значение поля "Первичный ключ" и вставьте его в параметр `<your primary key>`.
 
-![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Показывает учетную запись Azure Cosmos DB, с общаются выделен, кнопка ключи, выделенная на странице учетной записи Azure Cosmos DB и значений URI, первичный ключ и ВТОРИЧНЫЙ ключ, выделенная на странице «ключи»][keys]
+![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображается учетная запись Azure Cosmos DB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" на странице учетной записи Azure Cosmos DB, а также значения универсального кода ресурса, первичного и вторичного ключей на странице "Ключи".][keys]
 
 Теперь мы запустим приложение, создав экземпляр **DocumentClient**.
 
@@ -542,7 +542,7 @@ Azure Cosmos DB поддерживает удаление документов J
 Теперь все готово. Выполните сборку и начинайте работу с решением.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Требуется более подробное руководство по ASP.NET MVC? См. [Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB](sql-api-dotnet-application.md).
 * Хотите выполнять проверку масштабирования и производительности с помощью Azure Cosmos DB? См. [Проверка производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md)
 * Узнайте, как организовать [мониторинг запросов, использования и хранилища Azure Cosmos DB](monitor-accounts.md).

@@ -16,7 +16,7 @@ ms.date: 10/18/2016
 ms.author: ccompy
 ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/11/2017
 > 
 
 ## <a name="CreateHybridConnection"></a>Создание гибридного подключения
-Гибридное подключение может быть создано в [гибридные подключения служб приложения Azure](../app-service/app-service-hybrid-connections.md) **или** с помощью [API REST служб BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+Гибридное подключение может быть создано с помощью функции [гибридных подключений к Службе приложений Azure](../app-service/app-service-hybrid-connections.md) **или** с использованием [REST API служб BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/11/2017
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
  
-[Гибридные подключения служб Azure приложение](../app-service/app-service-hybrid-connections.md) также является ценным ресурсом.
+Рекомендуем воспользоваться [гибридными подключениями к Службе приложений Azure](../app-service/app-service-hybrid-connections.md).
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -95,13 +95,13 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Гибридные подключения служб Azure приложение](../app-service/app-service-hybrid-connections.md) также является ценным ресурсом.
+Рекомендуем воспользоваться [гибридными подключениями к Службе приложений Azure](../app-service/app-service-hybrid-connections.md).
 
 #### <a name="copyregenerate-the-hybrid-connection-strings"></a>Копирование или повторное создание строк гибридных подключений
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Гибридные подключения служб Azure приложение](../app-service/app-service-hybrid-connections.md) также является ценным ресурсом.
+Рекомендуем воспользоваться [гибридными подключениями к Службе приложений Azure](../app-service/app-service-hybrid-connections.md).
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Применение групповой политики для контроля локальных ресурсов, используемых гибридным подключением
 1. Скачайте [административные шаблоны диспетчера гибридных подключений](http://www.microsoft.com/download/details.aspx?id=42963).

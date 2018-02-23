@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/12/2018
 Ниже описаны шаги, которые помогут вам добавить в лабораторию репозиторий, используя портал Azure. 
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
+1. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите нужную лабораторию.   
 1. В области **Обзор** лаборатории выберите **Конфигурация и политики**.
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 01/12/2018
 После настройки в лаборатории репозитория шаблонов Azure Resource Manager пользователи лаборатории могут создать среду, выполнив следующие действия на портале Azure:
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
+1. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите нужную лабораторию.   
 1. В области лаборатории щелкните **Добавить+**.
 1. В области **Выбор базы** в начале списка отображаются базовые образы, которые можно использовать с шаблонами Azure Resource Manager. Выберите нужный шаблон Azure Resource Manager.

@@ -15,7 +15,7 @@ ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="examples"></a>Примеры
 
-### <a name="apply-policies-specified-at-different-scopes"></a>Применение политики, определенные в разных областях.
+### <a name="apply-policies-specified-at-different-scopes"></a>Применение политик, заданных в разных областях
 
 Если у вас есть политика на глобальном уровне и политика, настроенная для API, то при каждом использовании этого API будут применяться обе политики. API Management позволяет детерминированным образом упорядочивать объединенные операторы политик через основной элемент. 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/02/2018
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о работе с политиками см. в следующих статьях:
 

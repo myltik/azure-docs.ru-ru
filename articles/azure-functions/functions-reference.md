@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Руководство для разработчиков по Функциям Azure
 Некоторые из Функций Azure имеют ряд общих технических особенностей и компонентов вне зависимости от используемого языка или привязки. Прежде чем приступать к детальному изучению особенностей, характерных для определенного языка или привязки, ознакомьтесь с этими общими сведениями.
@@ -117,6 +117,8 @@ ms.lasthandoff: 02/01/2018
 В таблице ниже приведены все поддерживаемые привязки.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Проблемы с ошибками, поступающими от привязок? См. документацию по [кодам ошибок Функций Azure](functions-bindings-error-pages.md).
 
 ## <a name="reporting-issues"></a>Создание отчетов о проблемах
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

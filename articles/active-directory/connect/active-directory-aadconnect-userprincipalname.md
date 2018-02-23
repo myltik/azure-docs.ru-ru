@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Указание атрибута UserPrincipalName в Azure AD
 
@@ -67,9 +67,10 @@ UserPrincipalName — это атрибут, который является и�
 При синхронизации объекта пользователя с клиентом Azure AD в первый раз, Azure AD проверяет следующие значения в определенном порядке и задает первое имеющееся значение для атрибута MailNickName:
 
 - атрибут mailNickName в локальной среде;
-- префикс атрибута mail в локальной среде;
 - префикс основного SMTP-адреса;
+- префикс атрибута mail в локальной среде;
 - префикс локального атрибута userPrincipalName или альтернативного имени пользователя.
+- префикс дополнительного SMTP-адреса.
 
 Когда обновления пользовательского объекта синхронизируются с клиентом Azure AD, значение атрибута MailNickName обновляется, только если в локальной среде обновляется значение атрибута mailNickName.
 
@@ -85,12 +86,12 @@ UserPrincipalName — это атрибут, который является и�
 
 Объект пользователя в локальной среде:
 - mailNickName      : &lt;не задан&gt;
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us3@contoso.com`
 
 Синхронизация объекта пользователя с клиентом Azure AD в первый раз
-- Задайте для атрибута MailNickName Azure AD префикс атрибута mail в локальной среде.
+- Задайте для атрибута Azure AD MailNickName основной префикс SMTP-адреса.
 - Задайте MOERA в формате &lt;MailNickName&gt;@&lt;исходный домен&gt;.
 - Задайте для атрибута userPrincipalName в Azure AD значение MOERA.
 
@@ -103,8 +104,8 @@ UserPrincipalName — это атрибут, который является и�
 
 Объект пользователя в локальной среде:
 - mailNickName      : us4
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us3@contoso.com
 
 Синхронизация обновления атрибута mailNickName в локальной среде и клиента Azure AD
@@ -119,8 +120,8 @@ UserPrincipalName — это атрибут, который является и�
 
 Объект пользователя в локальной среде:
 - mailNickName      : us4
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Синхронизация обновления атрибута userPrincipalName в локальной среде и клиента Azure AD
@@ -132,16 +133,16 @@ UserPrincipalName — это атрибут, который является и�
 - MailNickName      : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Сценарий 4. Непроверенный суффикс имени участника-пользователя. Обновление атрибута mail в локальной среде и основного адреса SMTP
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Сценарий 4. Непроверенный суффикс имени участника-пользователя. Обновление локального атрибута mail и основного SMTP-адреса
 
 Объект пользователя в локальной среде:
 - mailNickName      : us4
-- mail          : us6@contoso.com
-- proxyAddresses        : {SMTP:us7@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Синхронизация обновления атрибута mail в локальной среде и основного адреса SMTP с клиентом Azure AD
-- После начальной синхронизации объекта пользователя обновление атрибута mail в локальной среде и основного адреса SMTP не затронут атрибуты MailNickName и UserPrincipalName Azure AD.
+- После начальной синхронизации объекта-пользователя обновление локального атрибута mail и основного SMTP-адреса не затронут атрибуты Azure AD MailNickName и UserPrincipalName.
 
 Объект пользователя клиента Azure AD:
 - MailNickName      : us4
@@ -151,8 +152,8 @@ UserPrincipalName — это атрибут, который является и�
 
 Объект пользователя в локальной среде:
 - mailNickName      : us4
-- mail          : us6@contoso.com
-- proxyAddresses        : {SMTP:us7@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
 - serPrincipalName  : us5@verified.contoso.com
 
 Синхронизация обновления атрибута userPrincipalName в локальной среде и клиента Azure AD

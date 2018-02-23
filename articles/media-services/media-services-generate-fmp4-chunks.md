@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>Обзор
 
-В этой статье показано, как создать задачу кодирования, которая приводит к возникновению ошибки фрагментированный MP4 (fMP4) блоки вместо ISO MP4-файлов. Чтобы создать блоки fMP4, используйте кодировщик **Media Encoder Standard** или **Media Encoder Premium Workflow** для создания задачи кодирования и укажите параметр **AssetFormatOption.AdaptiveStreaming**, как показано в приведенном фрагменте кода.  
+В этой статье показано, как создать задачу кодирования, которая создает фрагментированные блоки MP4 (fMP4) вместо MP4-файлов (ISO). Чтобы создать блоки fMP4, используйте кодировщик **Media Encoder Standard** или **Media Encoder Premium Workflow** для создания задачи кодирования и укажите параметр **AssetFormatOption.AdaptiveStreaming**, как показано в приведенном фрагменте кода.  
     
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 

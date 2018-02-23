@@ -15,7 +15,7 @@ ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="modify-cluster-configuration"></a>Изменение конфигурации кластера
 Чтобы создать изолированный кластер, для него необходимо создать файл конфигурации ClusterConfig.json, описывающий характеристики кластера. Можно создать этот файл на основе шаблонов, доступных по ссылке ниже. <br>
-[Автономный кластерных конфигураций](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[Конфигурации изолированного кластера](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 Сведения о разделах в этом файле см. в статье [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md).
 
@@ -165,5 +165,5 @@ Passed                     : True
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Создание изолированного кластера под управлением Windows Server](service-fabric-cluster-creation-for-windows-server.md)

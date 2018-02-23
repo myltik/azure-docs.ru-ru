@@ -16,7 +16,7 @@ ms.date: 01/02/2018
 ms.author: billmath
 ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/05/2018
 >
 >
 
-Следующая документация содержит сведения о том, как включить функцию обратной записи устройств в службе Azure AD Connect. Обратной записи устройства используется в следующих сценариях:
+Следующая документация содержит сведения о том, как включить функцию обратной записи устройств в службе Azure AD Connect. Обратная запись устройств используется в следующих ситуациях:
 
 * когда необходимо включить условный доступ на основе устройств служб ADFS (2012 R2 или более поздней версии) к защищенным приложениям (отношения доверия с проверяющей стороной).
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/05/2018
 
 > [!IMPORTANT]
 > <li>Устройства должны находиться в том же лесу, что и пользователи. Поскольку обратная запись устройств должна производиться в один лес, эта функция в настоящий момент не поддерживает развертывание с несколькими лесами пользователей.</li>
-> <li>В локальный лес Active Directory можно добавить только один объект конфигурации регистрации. Эта функция не совместим с топологией, где синхронизации локальной Active Directory для нескольких клиентов Azure AD.</li>
+> <li>В локальный лес Active Directory можно добавить только один объект конфигурации регистрации. Эта функция несовместима с топологией, в которой локальный каталог Active Directory синхронизируется в несколько клиентов Azure AD.</li>
 >
 
 ## <a name="part-1-install-azure-ad-connect"></a>Часть 1. Установка Azure AD Connect
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/05/2018
 Выполните следующие действия для подготовки к использованию функции обратной записи устройств.
 
 1. На компьютере, где устанавливается служба Azure AD Connect, запустите PowerShell с повышенными правами.
-2. Если модуль Active Directory PowerShell не установлен, установите средства удаленного администрирования сервера, содержащего модуль AD PowerShell и dsacls.exe, который необходим для выполнения скрипта. Выполните следующую команду:
+2. Если модуль PowerShell для Active Directory НЕ установлен, установите средства удаленного администрирования сервера, содержащие модуль PowerShell для AD и файл dsacls.exe. Это необходимо для выполнения скрипта. Выполните следующую команду:
 
    ``` powershell
    Add-WindowsFeature RSAT-AD-Tools
@@ -87,13 +87,13 @@ ms.lasthandoff: 01/05/2018
 3. На странице обратной записи вы увидите указанный домен в качестве леса обратной записи устройств по умолчанию.
    ![Выборочная установка: целевой лес обратной записи устройства](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4. Завершите установку в мастере, не изменяя другие параметры. При необходимости см. статью [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-5. Если вы включили [фильтрации](active-directory-aadconnectsync-configure-filtering.md) в Azure AD Connect, затем убедитесь, что только что созданном контейнере CN = RegisteredDevices включается в данной области.
+5. Если вы включили [фильтрацию](active-directory-aadconnectsync-configure-filtering.md) в Azure AD Connect, убедитесь, что только что созданный контейнер CN=RegisteredDevices входит в нужную область.
 
-## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Часть 4: Проверка устройства синхронизируются с Active Directory
-Функция обратной записи устройств должна теперь работать правильно. Имейте в виду, что обратная запись объектов устройств в AD может выполняться до 3 часов. Чтобы убедиться, что устройства синхронизированные правильно, выполните следующие после завершения синхронизации.
+## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Часть 4. Проверка синхронизации устройств с Active Directory
+Функция обратной записи устройств должна теперь работать правильно. Имейте в виду, что обратная запись объектов устройств в AD может выполняться до 3 часов. Проверить, правильно ли синхронизированы устройства, по окончании синхронизации можно так:
 
 1. Запустите центр администрирования Active Directory.
-2. Расширение RegisteredDevices, в рамках домена, который был настроен в [часть 2](#part-2-prepare-active-directory).  
+2. Разверните раздел RegisteredDevices в домене, который вы настроили в [части 2](#part-2-prepare-active-directory).  
 
    ![Центр администрирования Active Directory: зарегистрированные устройства](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
    
@@ -119,11 +119,11 @@ ms.lasthandoff: 01/05/2018
   * В разделе **Действия** выберите **Свойства**.
   * Выберите **Подключиться к лесу Active Directory**. Убедитесь, что домен и имя пользователя, указанные в этом окне, совпадают с учетной записью, указанной в сценарии.  
   
-    ![Соединитель учетной записи в диспетчере службы синхронизации](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
+    ![Учетная запись соединителя в диспетчере службы синхронизации](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Проверьте конфигурацию Active Directory.
 
-* Убедитесь, что службы регистрации устройств находится в расположение (CN DeviceRegistrationService, CN = = службы регистрации устройств, CN = Device Registration Configuration, CN = Services, CN = Configuration) в контексте именования конфигурации.
+* Убедитесь, что служба регистрации устройств расположена в контексте именования конфигурации ниже (CN=DeviceRegistrationService,CN=Device Registration Services,CN=Device Registration Configuration,CN=Services,CN=Configuration).
 
 ![Устранение неполадок, служба регистрации устройств в пространстве имен конфигурации](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
 
@@ -149,5 +149,5 @@ ms.lasthandoff: 01/05/2018
 * [Управление рисками с помощью условного доступа](../active-directory-conditional-access-azure-portal.md)
 * [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

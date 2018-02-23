@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/23/2017
 ---
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/23/2017
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="troubleshoot-user-accounts"></a>Устранение неполадок, связанных с учетными данными пользователей
 
@@ -106,9 +106,9 @@ ms.lasthandoff: 12/23/2017
 
 Если вам требуется дополнительная помощь, обратитесь к службе поддержки, используя [поддержку сервера Многофакторной идентификации Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Вы можете облегчить нам задачу, если при обращении предоставите максимально полные сведения о проблеме. Вы можете сообщить нам, на какой странице возникла ошибка, а также точный код ошибки, идентификатор сеанса и идентификатор пользователя, получившего эту ошибку, и журналы отладки.
 
-Чтобы собирать журналы отладки для поддержки диагностики, выполните следующие действия на сервере политики сети:
+Чтобы собрать журналы отладки для помощи в диагностике, выполните следующие инструкции на сервере NPS:
 
-1. Откройте редактор реестра и перейдите к набору HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** для **значение TRUE**
+1. Откройте редактор реестра и перейдите по пути HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. Установите для **VERBOSE_LOG** значение **TRUE**.
 2. Откройте командную строку администратора и выполните следующие команды:
 
    ```
@@ -132,7 +132,7 @@ ms.lasthandoff: 12/23/2017
    Start .
    ```
 
-5. Откройте редактор реестра и перейдите к набору HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** для **FALSE**
+5. Откройте редактор реестра и перейдите по пути HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. Установите для **VERBOSE_LOG** значение **FALSE**.
 6. Выполните архивацию содержимого папки C:\NPS и прикрепите ZIP-файл к запросу в службу поддержки.
 
 

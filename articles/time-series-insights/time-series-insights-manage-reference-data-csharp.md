@@ -1,5 +1,5 @@
 ---
-title: "Управление ссылочных данных в среде Azure Insights ряда времени, с помощью C# | Документы Microsoft"
+title: "Управление эталонными данными для среды \"Аналитика временных рядов Azure\" с помощью C# | Документация Майкрософт"
 description: "Из этой статьи вы узнаете, как управлять эталонными данными для среды службы \"Аналитика временных рядов Azure\", создав пользовательское приложение на C# (c-sharp) .NET."
 services: time-series-insights
 ms.service: time-series-insights
@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -233,5 +233,5 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [API эталонных данных](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

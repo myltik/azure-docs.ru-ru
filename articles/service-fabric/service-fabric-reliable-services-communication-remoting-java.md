@@ -15,7 +15,7 @@ ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -101,7 +101,7 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ServiceProxy обрабатывает все исключения отработки отказа для секции службы, для которого он создан. Он повторно разрешает конечные точки в случае исключений отработки отказа (повторяющихся исключений) и повторяет вызов к правильной конечной точке. Число повторных попыток для исключения отработки отказа не ограничено.
 В случае исключений TransientException только повторяется попытка вызова.
 
-Параметры повтора по умолчанию определяются [OperationRetrySettings] (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Пользователь может настроить эти значения, передавая объект OperationRetrySettings ServiceProxyFactory конструктору.
+Параметры повтора по умолчанию определяются [OperationRetrySettings] (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Пользователь может настроить эти значения, передав объект OperationRetrySettings в конструктор ServiceProxyFactory.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Защита обмена данными для Reliable Services](service-fabric-reliable-services-secure-communication.md)

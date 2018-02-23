@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: iainfou
 ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -207,7 +207,7 @@ ManagedImageLocation: eastus
 
 
 ## <a name="create-vm-from-azure-image"></a>Создание виртуальной машины на основе образа Azure
-Теперь можно создать виртуальную машину из образа с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Во-первых, набор администратору имя пользователя и пароль для виртуальной Машины с [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+Теперь можно создать виртуальную машину из образа с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Сначала укажите имя и пароль администратора для виртуальной машины с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
@@ -277,7 +277,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-Он занимает несколько минут для создания виртуальной Машины из образа Packer.
+Создание виртуальной машины из образа Packer занимает несколько минут.
 
 
 ## <a name="test-vm-and-iis"></a>Тестирование виртуальной машины и служб IIS
@@ -294,7 +294,7 @@ Get-AzureRmPublicIPAddress `
 ![Сайт IIS по умолчанию](./media/build-image-with-packer/iis.png) 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом примере вы создали образ виртуальной машины с уже установленными службами IIS с помощью Packer. Этот образ виртуальной машины можно использовать наряду с имеющимися рабочими процессами развертывания, как например развертывание приложений на виртуальных машинах, созданных из образа с помощью Team Services, Ansible, Chef или Puppet.
 
 Дополнительный пример шаблонов Packer для других дистрибутивов Windows см. в этом [репозитории GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

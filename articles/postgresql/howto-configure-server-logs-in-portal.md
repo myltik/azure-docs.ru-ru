@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -19,7 +19,7 @@ ms.lasthandoff: 01/04/2018
 
 Чтобы настроить [журналы сервера в базе данных Azure для PostgreSQL](concepts-server-logs.md), получить их список и скачать их, можно воспользоваться порталом Azure.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
 - [сервер базы данных Azure для PostgreSQL](quickstart-create-server-database-portal.md).
 
@@ -72,8 +72,8 @@ ms.lasthandoff: 01/04/2018
 
    ![Щелчок значка "Скачать"](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Ознакомьтесь с разделом [Настройка журналов сервера и получение к ним доступа с помощью Azure CLI](howto-configure-server-logs-using-cli.md), чтобы узнать, как скачать журналы программно.
 - Узнайте больше о [журналах сервера](concepts-server-logs.md) в базе данных Azure для PostgreSQL. 
-- Дополнительные сведения о PostgreSQL ведения журнала и определения параметров см. в документации PostgreSQL на [отчеты об ошибках и ведение журнала](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Дополнительные сведения об определениях параметров и ведении журнала PostgreSQL см. в документации PostgreSQL по [отчетам об ошибках и ведению журнала](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

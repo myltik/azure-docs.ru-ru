@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Управление сервером конфигурации
 
@@ -72,6 +72,22 @@ ms.lasthandoff: 01/17/2018
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Обновление сервера конфигурации
+
+Для обновления сервера конфигурации запускаются накопительные пакеты обновления. Обновления применимы к версиям вплоть до N-4. Например: 
+
+- Если вы используете версии 9.7, 9.8, 9.9 или 9.10, можно обновить их непосредственно до версии 9.11.
+- Если вы используете версию 9.6 или ниже и хотите обновить ее до версии 9.11, сначала выполните обновление до версии 9.7, а затем — до версии 9.11.
+
+Ссылки на накопительные пакеты обновления для всех версий сервера конфигурации доступны на [вики-странице обновлений](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Инструкции по обновлению сервера:
+
+1. Скачайте файл установщика обновлений на сервер конфигурации.
+2. Дважды щелкните, чтобы запустить установщик.
+3. Установщик определит текущую версию на компьютере.
+4. Нажмите кнопку **ОК** для подтверждения и запустите обновление. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Отмена регистрации или удаление сервера конфигурации
 

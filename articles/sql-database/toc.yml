@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Управление схемой для нескольких клиентов
               href: saas-tenancy-schema-management.md
-            - name: Выполнение ad-hoc-запросов
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Отчеты по всем клиентам
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: 'Извлечение, преобразование и загрузка для анализа'
               href: saas-tenancy-tenant-analytics.md
         - name: Мультитенантная база данных

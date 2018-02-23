@@ -1,4 +1,4 @@
-**[Коллекции Azure AI](http://gallery.cortanaintelligence.com)**  — это сайт сообщество ведет обнаружение и решения для управления доступом созданного с помощью пакета аналитики Cortana.
+**[Коллекция решений ИИ Azure](http://gallery.cortanaintelligence.com)** — это управляемый сообществом сайт для поиска и обмена решениями, созданными с помощью Cortana Intelligence Suite.
 В коллекции есть множество ресурсов, которые вы можете использовать для разработки собственных аналитических решений.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.

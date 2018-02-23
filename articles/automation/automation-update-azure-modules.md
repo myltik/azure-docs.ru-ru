@@ -16,7 +16,7 @@ ms.date: 06/13/2017
 ms.author: magoedte
 ms.openlocfilehash: f5e7c66cfd26bd6927d48ffd8bc0f82e9a3e2d13
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -28,11 +28,11 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="updating-azure-modules"></a>Обновление модулей Azure
 
-1. На странице "Модули" ваша учетная запись автоматизации является средство **модули Azure обновления**. Он всегда включен.<br><br> ![Обновить параметр модули Azure на странице модулей](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. На странице "Модули" вашей учетной записи службы автоматизации есть параметр **Обновить модули Azure**. Он всегда включен.<br><br> ![Параметр "Обновить модули Azure" на странице "Модули"](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Нажмите кнопку **модули Azure обновления** и появится подтверждение с вопросом, следует ли продолжать.<br><br> ![Уведомление об обновлении модулей Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Щелкните **Обновить модули Azure**, после чего появится уведомление с запросом о продолжении.<br><br> ![Уведомление об обновлении модулей Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Нажмите кнопку **Да** и начинает процесс обновления модуля. Процесс обновления следующих модулей занимает около 15–20 минут:
+3. Щелкните **Да**, чтобы начать процесс обновления модулей. Процесс обновления следующих модулей занимает около 15–20 минут:
 
   * Таблицы Azure
   * Azure.Storage;
@@ -43,14 +43,14 @@ ms.lasthandoff: 12/14/2017
   * AzureRm.Sql;
   * AzureRm.Storage.
 
-    Модули, уже в актуальном состоянии, процесс завершается через несколько секунд. После завершения процесса обновления, вы получите уведомление.<br><br> ![Состояние обновления Update Azure Modules (Обновление модулей Azure)](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Если модули уже обновлены, процесс будет завершен через несколько секунд. После завершения процесса обновления вы получите уведомление.<br><br> ![Состояние обновления Update Azure Modules (Обновление модулей Azure)](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
 > При запуске нового запланированного задания служба автоматизации Azure использует модули последней версии в вашей учетной записи службы автоматизации.    
 
-При использовании командлетов из этих модулей Azure PowerShell модули Runbook для управления ресурсами Azure, затем требуется для выполнения этого процесса обновления каждый месяц или таким образом обеспечить наличие последних модулей.
+При использовании командлетов из этих модулей Azure PowerShell в модулях runbook для управления ресурсами Azure этот процесс обновления необходимо выполнять примерно каждый месяц, чтобы гарантировать наличие последних модулей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о модулях интеграции и создании настраиваемых модулей для дальнейшей интеграции службы автоматизации с другими системами, службами и решениями см. в статье [Модули интеграции службы автоматизации Azure](automation-integration-modules.md).
 

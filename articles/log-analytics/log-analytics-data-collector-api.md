@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Отправка данных в Log Analytics c помощью API сборщика данных HTTP (общедоступная предварительная версия)
 В этой статье показано, как с помощью API сборщика данных HTTP отправить данные в Log Analytics из клиента REST API.  Здесь также описано, как отформатировать данные, собранные сценарием или приложением, добавить их в запрос и авторизовать этот запрос в Log Analytics.  В этой статье приведены примеры для PowerShell, C# и Python.
@@ -49,7 +49,7 @@ API сборщика данных HTTP можно использовать, чт
 ### <a name="request-uri-parameters"></a>Параметры URI запроса
 | Параметр | ОПИСАНИЕ |
 |:--- |:--- |
-| CustomerID |Уникальный идентификатор для рабочей области Microsoft Operations Management Suite. |
+| CustomerID |Уникальный идентификатор для рабочей области Log Analytics. |
 | Ресурс |Имя ресурса API: /api/logs. |
 | Версия API |Версия API для использования с этим запросом. В настоящее время это версия 2016-04-01. |
 
@@ -70,7 +70,7 @@ API сборщика данных HTTP можно использовать, чт
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* — это уникальный идентификатор для рабочей области Operations Management Suite. *Signature* — это [код проверки подлинности сообщения на основе хэша (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx), созданный из запроса и вычисленный с помощью [алгоритма SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Затем его можно закодировать с помощью кодировки Base64.
+*WorkspaceID* — это уникальный идентификатор для рабочей области Log Analytics. *Signature* — это [код проверки подлинности сообщения на основе хэша (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx), созданный из запроса и вычисленный с помощью [алгоритма SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Затем его можно закодировать с помощью кодировки Base64.
 
 Используйте этот формат для кодирования строки подписи **SharedKey**:
 
@@ -204,7 +204,8 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Для каждого примера выполните следующие действия, чтобы задать переменные в заголовке авторизации:
 
-1. На портале Operations Management Suite выберите плитку **Параметры**, а затем перейдите на вкладку **Подключенные источники**.
+1. На портале Azure перейдите в свою рабочую область Log Analytics.
+2. Выберите **Расширенные параметры**, а затем — **Подключенные источники**.
 2. Справа от **идентификатора рабочей области** щелкните значок копирования и вставьте идентификатор как значение переменной **CustomerID**.
 3. Справа от **первичного ключа** щелкните значок копирования и вставьте идентификатор как значение переменной **SharedKey**.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

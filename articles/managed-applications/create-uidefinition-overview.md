@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Создание пользовательского интерфейса портала Azure для управляемого приложения
 В этом документе описывается файл createUiDefinition.json. На основе этого файла портал Azure создает пользовательский интерфейс для создания управляемого приложения.
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
    "handler": "Microsoft.Compute.MultiVm",
    "version": "0.1.2-preview",
    "parameters": {
@@ -58,7 +58,7 @@ CreateUiDefinition всегда содержит три свойства:
 ## <a name="outputs"></a>outputs
 Портал Azure использует свойство `outputs` для сопоставления элементов `basics` и `steps` с параметрами шаблона развертывания Azure Resource Manager. Ключами являются имена параметров шаблона, а значениями — свойства выходных объектов из элементов, на которые даются ссылки.
 
-Чтобы задать имя ресурса управляемого приложения, необходимо включить значение с именем `applicationResourceName` в свойстве выходные данные. Если это значение не задано, приложение назначает идентификатор GUID для имени. В пользовательском интерфейсе, который запрашивает имя пользователя может включать текстовое поле.
+Чтобы задать имя ресурса управляемого приложения, необходимо включить значение `applicationResourceName` в свойство outputs. Если это значение не задано, приложение назначает идентификатор GUID для имени. В пользовательский интерфейс, запрашивающий имя пользователя, можно включить текстовое поле.
 
 ```json
 "outputs": {
@@ -73,7 +73,7 @@ CreateUiDefinition всегда содержит три свойства:
 ## <a name="functions"></a>Functions
 Аналогично функциям шаблонов в Azure Resource Manager (и синтаксис, и функции) CreateUiDefinition предоставляет функции для работы с входными и выходными данными элементов, а также условные выражения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Файл createUiDefinition.json имеет простую схему. Его реальные возможности основаны на поддерживаемых элементах и функциях. Эти элементы более подробно описаны здесь:
 
 - [CreateUiDefinition elements](create-uidefinition-elements.md) (Элементы CreateUiDefinition)
@@ -81,4 +81,4 @@ CreateUiDefinition всегда содержит три свойства:
 
 Текущая схема JSON для createUiDefinition доступна здесь: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Пример файла интерфейса пользователя, в разделе [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).
+Пример файла пользовательского интерфейса: [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

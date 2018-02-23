@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Масштабирование кластера Службы контейнеров Azure (AKS)
 
-Вы можете легко масштабировать кластер AKS до различного количества узлов.  Выберите требуемое число узлов и запустите команду `az aks scale`.  При масштабировании с уменьшением, узлы будут использовать тщательно [cordoned и постепенно завершается] [ kubernetes-drain] чтобы свести к минимуму время простоя для выполнения приложений.  При увеличении масштаба `az` команда ожидает, пока кластер Kubernetes не задаст для узлов состояние `Ready`.
+Вы можете легко масштабировать кластер AKS до различного количества узлов.  Выберите требуемое число узлов и запустите команду `az aks scale`.  При уменьшении масштаба узлы будут тщательно [заблокированы и остановлены][kubernetes-drain], чтобы свести к минимуму время простоя работающих приложений.  При увеличении масштаба `az` команда ожидает, пока кластер Kubernetes не задаст для узлов состояние `Ready`.
 
 ## <a name="scale-the-cluster-nodes"></a>Масштабирование узлов кластера
 
-Используйте команду `az aks scale`, чтобы масштабировать узлы кластера. В следующем примере масштабируется кластер *myK8SCluster* к одному узлу.
+Используйте команду `az aks scale`, чтобы масштабировать узлы кластера. В следующем примере кластер *myAKSCluster* масштабируется до одного узла.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
+az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
 Выходные данные:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -48,7 +48,7 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -83,12 +83,12 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Узнайте больше о развертывании AKS и управлении ею из руководств по AKS.
 
 > [!div class="nextstepaction"]
-> [Учебник по AKS][aks-tutorial]
+> [Руководство по AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

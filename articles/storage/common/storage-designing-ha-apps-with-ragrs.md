@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: tamram
 ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/02/2018
 
 Служба хранилища Azure предоставляет четыре варианта обеспечения избыточности данных для учетной записи хранения:
 
-- LRS (локально избыточное хранилище)
+- LRS (локально избыточное хранилище);
 - ZRS (хранилище, избыточное в пределах зоны); 
 - GRS (геоизбыточное хранилище);
 - RA-GRS (геоизбыточное хранилище с доступом на чтение). 
@@ -238,7 +238,7 @@ static function OnBeforeResponse(oSession: Session) {
 
 Если вы сделали настраиваемыми пороговые значения для переключения приложения в режим только для чтения, то вам будет проще тестировать его поведение на определенных объемах непроизводственных транзакций.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о геоизбыточном хранилище с доступом на чтение, включая еще один пример настройки LastSyncTime, см. в записи блога [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Варианты обеспечения избыточности службы хранилища Microsoft Azure и геоизбыточное хранилище с доступом на чтение).
 

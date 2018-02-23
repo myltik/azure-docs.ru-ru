@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Вопросы о службе архивации Azure
 Эта статья содержит ответы на часто задаваемые вопросы о компонентах службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Вы можете задать вопросы о службе архивации Azure, щелкнув **Комментарии** (справа). Комментарии отображаются в конце статьи. Чтобы оставлять комментарии, нужна учетная запись Livefyre. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,7 +132,8 @@ ms.lasthandoff: 02/01/2018
 | Microsoft Exchange |Общее количество баз данных Exchange на сервере Exchange, для которого выполняется резервное копирование |
 | Восстановление исходного состояния системы и состояние системы |Каждая отдельная копия восстановления исходного состояния системы или состояния системы компьютера, для которого выполняется резервное копирование |
 
-При резервном копировании виртуальных машин Azure допускается наличие максимум 16 дисков размером до 1023 ГБ на каждой виртуальной машине. 
+При резервном копировании виртуальных машин Azure допускается наличие максимум 16 дисков размером до 1024 ГБ на каждой виртуальной машине. <br>
+Существует [закрытая предварительная версия решения](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0), поддерживающего диски объемом до 4 ТБ. 
 
 ## <a name="retention-policy-and-recovery-points"></a>Политика хранения и точки восстановления
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Есть ли отличия между политикой хранения DPM и Windows Server или клиента Windows (т. е. на сервере Windows Server без DPM)?<br/>

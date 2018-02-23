@@ -17,7 +17,7 @@ ms.date: 05/30/2017
 ms.author: gunegatybo
 ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/20/2017
 * Изменение ссылки на образ масштабируемого набора, созданного с помощью управляемых дисков Azure.
 * Обновление операционной системы на виртуальной машине (например, установка исправления безопасности или запуск центра обновления Windows). Этот сценарий поддерживается, но не описан в данной статье.
 
-В этой статье не рассматриваются наборы масштабирования виртуальных машин, которые развернуты как часть кластера [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) . Дополнительные сведения о Service Fabric исправления см. в разделе [ОС Windows исправления кластера Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
+В этой статье не рассматриваются наборы масштабирования виртуальных машин, которые развернуты как часть кластера [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) . Дополнительные сведения об исправлении Service Fabric см. в статье [Установка исправлений операционной системы Windows в кластере Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application).
 
 Далее представлена базовая процедура при изменении версии или SKU операционной системы для стандартного образа или универсального кода ресурса (URI) для пользовательского образа.
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-При обновлении URI для пользовательского изображения вместо изменения указана версия образа платформы, замените строку «установить новую версию» команды, которая обновляет URI источника изображения. Например, если масштабируемый набор был создан без использования управляемых дисков Azure, обновление будет выглядеть следующим образом.
+Если вы обновляете универсальный код ресурса (URI) для пользовательского образа, а не изменяете версию образа платформы, замените строку "set the new version" командой, которая обновляет исходный образ URI. Например, если масштабируемый набор был создан без использования управляемых дисков Azure, обновление будет выглядеть следующим образом.
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Если набор пользовательских масштабирования на основе образа был создан с помощью управляемых дисков Azure, ссылку на изображение будет обновлено. Например: 
+Если масштабируемый набор на основе пользовательского образа был создан с помощью управляемых дисков Azure, ссылка на образ будет обновляться. Например: 
 
 ```powershell
 # set the new version in the model data

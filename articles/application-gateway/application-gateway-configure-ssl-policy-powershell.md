@@ -15,7 +15,7 @@ ms.date: 07/19/2017
 ms.author: davidmu
 ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -110,7 +110,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Настройка пользовательской политики SSL
 
-При настройке пользовательской политики SSL, передается со следующими параметрами: PolicyType, MinProtocolVersion, CipherSuite и шлюза приложения. При попытке передачи других параметров, возникает сообщение об ошибке при создании или обновлении шлюз приложений. 
+При настройке пользовательской политики SSL передаются следующие параметры: PolicyType, MinProtocolVersion, CipherSuite и ApplicationGateway. Если вы попытаетесь передать другие параметры, поступит сообщение об ошибке создания или обновления шлюза приложений. 
 
 Ниже представлен пример задания пользовательской политики SSL на шлюзе приложений. В качестве минимальной версии протокола она задает версию `TLSv1_1` и включает следующие комплекты шифров.
 
@@ -142,7 +142,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Создание шлюза приложений со стандартной политикой SSL
 
-При настройке политики предопределенные SSL, передается со следующими параметрами: PolicyType, PolicyName и шлюза приложения. При попытке передачи других параметров, возникает сообщение об ошибке при создании или обновлении шлюз приложений.
+При настройке предопределенной политики SSL передаются следующие параметры: PolicyType, PolicyName и ApplicationGateway. Если вы попытаетесь передать другие параметры, поступит сообщение об ошибке создания или обновления шлюза приложений.
 
 В следующем примере создается шлюз приложений со стандартной политикой SSL.
 
@@ -181,11 +181,11 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Обновление шлюза приложения предварительно определена политика SSL
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Обновление шлюза приложений со стандартной политикой SSL
 
-Чтобы задать пользовательскую политику SSL, передайте следующие параметры: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, и **шлюзаприложения**. Чтобы задать политику предопределенные SSL, передайте следующие параметры: **PolicyType**, **PolicyName**, и **шлюза приложения**. При попытке передачи других параметров, возникает сообщение об ошибке при создании или обновлении шлюз приложений.
+Чтобы настроить пользовательскую политику SSL, передайте следующие параметры: **PolicyType**, **MinProtocolVersion**, **CipherSuite** и **ApplicationGateway**. Чтобы настроить предопределенную политику SSL, передайте следующие параметры: **PolicyType**, **PolicyName** и **ApplicationGateway**. Если вы попытаетесь передать другие параметры, поступит сообщение об ошибке создания или обновления шлюза приложений.
 
-В следующем примере имеются образцы кода для настраиваемой политики и стандартных политик. Раскомментируйте политику, которую вы хотите использовать.
+Ниже приводятся примеры кода для настраиваемой и предопределенной политик. Раскомментируйте политику, которую нужно использовать.
 
 ```powershell
 # You have to change these parameters to match your environment.

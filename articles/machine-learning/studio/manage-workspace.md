@@ -16,7 +16,7 @@ ms.date: 02/27/2017
 ms.author: garye
 ms.openlocfilehash: 2e4b2869b6eac9670853832d58bc37f1cb0ed001
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/14/2017
 > 
 > 
 
-Вы можете управлять рабочих областей машинного обучения на портале Azure.
+Рабочими областями машинного обучения можно управлять с помощью портала Azure.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/14/2017
 > [!NOTE]
 > Для развертывания новых веб-служб или управления ими необходимо назначить роль участника или администратора той подписке, в которую развертывается веб-служба. Чтобы пригласить в рабочую область машинного обучения других пользователей, необходимо назначить им роли участников или администраторов подписки, чтобы они могли развертывать веб-службы или управлять ими. 
 > 
->Дополнительные сведения о задании разрешений доступа см. в разделе [Просмотр назначений доступ для пользователей и групп на портале Azure](../../active-directory/role-based-access-control-manage-assignments.md).
+>См. дополнительные сведения о [просмотре назначенных прав доступа для пользователей и групп на портале Azure](../../active-directory/role-based-access-control-manage-assignments.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения о [развертывание машинного обучения с помощью шаблонов диспетчера ресурсов Azure](deploy-with-resource-manager-template.md). 
+## <a name="next-steps"></a>Дополнительная информация
+* См. дополнительные сведения о [развертывании машинного обучения с использованием шаблонов Azure Resource Manager](deploy-with-resource-manager-template.md). 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Привязки концентраторов событий Azure для службы "Функции Azure"
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/02/2018
 1. 10 разделов;
 1. 1000 событий, равномерно распределенных между всеми разделами, со 100 сообщениями в каждом разделе.
 
-При включении функции может быть только 1 экземпляр функции. Назовем его Function_0. У экземпляра Function_0 будет один экземпляр EPH, который может использовать все десять разделов. Он начнет считывать события из разделов 0–9. При этом возможно следующее:
+При первом включении у функции будет только один экземпляр. Назовем его Function_0. У экземпляра Function_0 будет один экземпляр EPH, который может использовать все десять разделов. Он начнет считывать события из разделов 0–9. При этом возможно следующее:
 
 * **Требуется только один экземпляр функции**. Экземпляр Function_0 может обработать все 1000 событий, прежде чем запустится логика масштабирования службы "Функции Azure". Другими словами, все 1000 сообщений будут обрабатываться экземпляром Function_0.
 
@@ -60,13 +60,13 @@ ms.lasthandoff: 01/02/2018
 Языковой пример см. в разделах:
 
 * [C#](#trigger---c-example)
-* [Скрипт C# (.csx)](#trigger---c-script-example)
+* [Скрипт C# (CSX)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , регистрирующее текста триггера концентратора событий.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая записывает в журнал текст сообщений триггера концентратора событий.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Атрибуты триггера
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Конструктор атрибута принимает имя концентратора событий, имя группы потребителей и имя параметра приложения, содержащего строку подключения. Дополнительные сведения об этих параметрах см. в разделе [Привязки концентраторов событий функций Azure](#trigger---configuration). Ниже приведен пример атрибута `EventHubTriggerAttribute`.
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Полный пример см. в разделе [триггер - пример на C#](#trigger---c-example).
+Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Конфигурация триггера
 
@@ -243,13 +243,13 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 Языковой пример см. в разделах:
 
 * [C#](#output---c-example)
-* [Скрипт C# (.csx)](#output---c-script-example)
+* [Скрипт C# (CSX)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Пример выходных данных C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , записывает сообщение в концентратор событий с помощью возвращаемого значения метода в качестве результата:
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая записывает сообщение в концентратор событий, используя возвращаемое значение метода в качестве выходных данных.
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-Для [библиотеки классов C#](functions-dotnet-class-library.md), используйте [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Конструктор атрибута принимает имя концентратора событий и имя параметра приложения, содержащего строку подключения. Дополнительные сведения об этих параметрах см. в разделе [Привязки концентраторов событий функций Azure](#output---configuration). Ниже приведен пример атрибута `EventHub`.
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Полный пример см. в разделе [выходные данные - пример на C#](#output---c-example).
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
@@ -406,7 +406,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 В JavaScript для доступа к выходному событию можно использовать `context.bindings.<name>`. `<name>` — это значение, заданное в свойстве `name` файла *function.json*.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="exceptions-and-return-codes"></a>Коды возврата и исключений
+
+| Привязка | Справочные материалы |
+|---|---|
+| Концентратор событий | [Руководство по операциям](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

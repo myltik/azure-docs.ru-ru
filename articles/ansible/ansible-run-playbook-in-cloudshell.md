@@ -1,35 +1,37 @@
 ---
-title: "Запуск Ansible в Azure Cloud Shell"
-description: "Узнайте, как выполнять разные задачи Ansible в Azure Cloud Shell"
+title: "Запуск Ansible с помощью Bash в Azure Cloud Shell"
+description: "Узнайте, как выполнять разные задачи Ansible с использованием Bash в Azure Cloud Shell."
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: "ansible, azure, devops, bash, cloudshell, сборник тренировочных заданий, bash"
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Запуск Ansible в Azure Cloud Shell
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Запуск Ansible с помощью Bash в Azure Cloud Shell
 
-Из этого руководства вы узнаете, как выполнять разные задачи Ansible в Azure Cloud Shell. Эти задачи включают подключение к виртуальной машине и создание модулей playbook Ansible для создания и удаления группы ресурсов Azure.
+Из этого руководства вы узнаете, как выполнять разные задачи Ansible из Bash в Cloud Shell. Эти задачи включают подключение к виртуальной машине и создание модулей playbook Ansible для создания и удаления группы ресурсов Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 - **Подписка Azure.** Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), прежде чем начинать работу.
 
 - **Учетные данные Azure.** - [ См. сведения о создании учетных данных Azure и настройке Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials).
 
-- **Настройте Azure Cloud Shell.** Если вы еще не работали с Azure Cloud Shell, в статье [Краткое руководство по Bash в Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) объясняется, как запустить и настроить Cloud Shell.
+- **Настройте Azure Cloud Shell.** Если вы еще не работали с Azure Cloud Shell, в статье [Краткое руководство по Bash в Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) объясняется, как запустить и настроить Cloud Shell. Запустите выделенный веб-сайт для Cloud Shell:
+
+[![Запуск Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Подключение к виртуальной машине с помощью Ansible
 В ПО Ansible создан скрипт Python с названием [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py), который создает динамический список ресурсов Azure, отправляя запросы API к Azure Resource Manager. Ниже объясняется, как с помощью скрипта `azure_rm.py` подключиться к виртуальной машине Azure.
 
-1. Откройте Azure Cloud Shell.
+1. Откройте Bash в Cloud Shell. Тип оболочки указан в левой части окна Cloud Shell.
 
 1. Если у вас нет виртуальной машины, введите следующие команды в Cloud Shell, чтобы создать виртуальную машину для тестирования:
 

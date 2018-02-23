@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Создание среды ASE с помощью шаблона Azure Resource Manager
 
@@ -40,7 +40,7 @@ ASE можно создать на портале Azure или с помощью
 
 2. После создания ASE с внутренним балансировщиком нагрузки отправляется SSL-сертификат, соответствующий домену ASE с внутренним балансировщиком нагрузки.
 
-3. Переданный SSL-сертификат назначается ASE с внутренним балансировщиком нагрузки в качестве SSL-сертификата по умолчанию.  Этот сертификат используется для передачи трафика SSL в приложения в среде службы приложений с внутренним балансировщиком нагрузки, если они используют общий корневой домен, назначенный этой среде (например, https://someapp.mycustomrootcomain.com).
+3. Переданный SSL-сертификат назначается ASE с внутренним балансировщиком нагрузки в качестве SSL-сертификата по умолчанию.  Этот сертификат используется для передачи трафика SSL в приложения в среде службы приложений с внутренним балансировщиком нагрузки, если они используют общий корневой домен, назначенный этой среде (например, https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Создание ASE

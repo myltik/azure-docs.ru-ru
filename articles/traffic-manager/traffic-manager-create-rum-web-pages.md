@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Как отправить измерения на стороне пользователей в диспетчер трафика Azure с использованием веб-страниц
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/23/2018
 
     **Рис. 3. Простая HTML-страница с внедренным кодом JavaScript функции измерений на стороне пользователей**
 
-3.  Сохраните HTML-файл.
+3.  Сохраните HTML-файл и узел на веб-сервере, подключенном к Интернету. 
 4. При следующем отображении этой страницы в веб-браузере загрузится соответствующий код JavaScript и с его помощью будут выполнены операции измерения и создания отчетов.
 
 

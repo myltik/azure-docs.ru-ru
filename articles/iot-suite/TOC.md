@@ -17,7 +17,6 @@
 #### [Разрешения для azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Пошаговое руководство по решению для удаленного мониторинга](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Подключение устройства Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [Подключение MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Использование C
 ###### [Смоделированные данные](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Использование реальных датчиков](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Смоделированные данные](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Использование реальных датчиков](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Реализация обновления встроенного ПО](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Подключение MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Практические руководства
 #### Подключение виртуального устройства
@@ -99,5 +99,7 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Часто задаваемые вопросы](iot-suite-faq.md)
+## [Удаленный мониторинг: часто задаваемые вопросы](iot-suite-faq-rm-v2.md)
 ## [Подключенная фабрика: вопросы и ответы](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Схема обучения работе с IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

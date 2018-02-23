@@ -16,11 +16,11 @@ ms.date: 11/20/2017
 ms.author: jeedes
 ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Учебник: Интеграция Azure Active Directory с [Teamwork.com](https://www.teamwork.com/projects)
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Руководство по интеграции Azure Active Directory с [Teamwork.com](https://www.teamwork.com/projects)
 
 В этом руководстве описано, как интегрировать Teamwork.com с Azure Active Directory (Azure AD).
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 12/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Teamwork.com, вам потребуется следующее:
 
 - подписка Azure AD;
-- Объект [Teamwork.com](https://www.teamwork.com/projects) подписки на план Pro или более поздней версии
+- подписка [Teamwork.com](https://www.teamwork.com/projects) с планом обслуживания Pro или выше.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.

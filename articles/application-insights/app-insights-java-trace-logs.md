@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Просмотр журналов трассировки Java в Application Insights
 Если вы используете Logback или Log4J (версия 1.2 или 2.0) для трассировки, можно настроить автоматическую пересылку журналов в Application Insights, где вы сможете их изучить.
 
 ## <a name="install-the-java-sdk"></a>Установка пакета SDK для Java
 
-Установите пакет [SDK Application Insights для Java][java], если это еще не сделано.
-
-(Если не нужно отслеживать HTTP-запросы, можно опустить большую часть XML-файла конфигурации, но необходимо по крайней мере добавить элемент `InstrumentationKey`. Кроме того, следует вызвать метод `new TelemetryClient()` для инициализации пакета SDK.)
-
+Выполните инструкции по установке [пакета SDK Application Insights для Java][java], если это еще не сделано.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Добавление в проект библиотеки ведения журналов
 *Выберите подходящий метод для проекта.*
@@ -101,13 +98,14 @@ ms.lasthandoff: 11/01/2017
 ```
 
 #### <a name="otherwise-"></a>В противном случае...
-Загрузите и извлеките соответствующий аппендер, а затем добавьте подходящую библиотеку в проект:
+Следуйте указаниям, чтобы вручную установить пакет SDK Application Insights для Java, скачайте JAR-файл (после перехода на страницу центра Maven щелкните ссылку JAR в разделе загрузок) для соответствующего аппендера и добавьте скачанный JAR-файл аппендера в проект.
 
-| Средство ведения журнала | Загрузить | Библиотека |
+| Средство ведения журнала | Загрузка | Библиотека |
 | --- | --- | --- |
-| Logback |[Пакет SDK с аппендером Logback](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J версии 2.0 |[Пакет SDK с аппендером Log4J версии 2.0](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4J версии 1.2 |[Пакет SDK с аппендером Log4J версии 1.2](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[JAR-файл аппендера Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J версии 2.0 |[JAR-файл аппендера Log4J версии 2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J версии 1.2 |[JAR-файл аппендера Log4J версии 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Добавление аппендера в платформу ведения журнала
 Чтобы начать трассировку, добавьте соответствующий фрагмент кода в файл конфигурации Log4J или Logback: 
@@ -128,7 +126,7 @@ ms.lasthandoff: 11/01/2017
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -158,9 +156,11 @@ ms.lasthandoff: 11/01/2017
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Просмотр данных трассировки на портале Application Insights
 После настройки проекта для передачи данных трассировки в Application Insights можно выполнять поиск и просмотр этих данных на портале Application Insights в колонке [Поиск][diagnostic].
 
+Исключения, отправленные с помощью средств ведения журнала, будут отображаться на портале в разделе телеметрии исключений.
+
 ![На портале Application Insights откройте колонку "Поиск".](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Поиск по журналу диагностики][diagnostic]
 
 <!--Link references-->

@@ -1,6 +1,6 @@
 ---
 title: "Элементы управления условным доступом в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как работают элементы управления условным доступом Azure Active Directory."
+description: "Узнайте, как работают элементы управления условным доступом в Azure Active Directory."
 services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Элементы управления условным доступом в Azure Active Directory 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Элементы управления условным доступом в Azure Active Directory 
 
-С помощью [условного доступа Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно контролировать доступ авторизованных пользователей к облачным приложениям. В политике условного доступа определяется реакция ("сделать это") на конкретное условие ("в этом случае"). В контексте условного доступа 
+С помощью [условного доступа Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно контролировать доступ авторизованных пользователей к облачным приложениям. В политике условного доступа определяется реакция ("сделать это") на конкретное условие, при котором активируется политика ("в этом случае"). 
 
-- элемент "**если происходит это**" называется **инструкцией условия**;
+![Контроль](./media/active-directory-conditional-access-controls/10.png)
 
-- а "**следует сделать это**" называется **элементами управления**.
 
-![Контроль](./media/active-directory-conditional-access-controls/11.png)
+В контексте условного доступа 
+
+- элемент "**в этом случае**" называется **условиями**;
+
+- а "**следует сделать это**" называется **элементом управления доступом**.
+
 
 Сочетание инструкции условия с элементами управления представляет собой политику условного доступа.
 
-![Контроль](./media/active-directory-conditional-access-controls/12.png)
+![Контроль](./media/active-directory-conditional-access-controls/61.png)
 
 Каждый элемент управления определяет либо требование, которое должно быть выполнено осуществляющим вход пользователем или системой, либо ограничение действий пользователя после входа. 
 

@@ -207,7 +207,7 @@ East US
 | CDN | applicationanalytics.azureedge.net | Динамический | 80, 443 |
 | Мультимедиа CDN | applicationanalyticsmedia.azureedge.net | Динамический | 80, 443 |
 
-Примечание. Домен applicationinsights.io принадлежит команде Application Insights.
+Примечание. *Домен applicationinsights.io принадлежит команде Application Insights.
 
 ## <a name="log-analytics-portal"></a>Портал Log Analytics
 

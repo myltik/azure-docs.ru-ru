@@ -61,6 +61,7 @@
 # Практическое руководство
 ## [Мониторинг VPN-шлюза с помощью службы автоматизации Azure](network-watcher-monitor-with-azure-automation.md)
 ## [Диагностика локальных подключений через VPN-шлюз](network-watcher-diagnose-on-premises-connectivity.md)
+## [Мониторинг сетевых подключений](connection-monitor.md)
 ## [Выполнение аудита в сети с помощью PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Анализ журналов шлюза приложений в Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Запись пакетов

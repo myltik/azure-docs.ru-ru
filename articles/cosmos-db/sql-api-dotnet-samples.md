@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Примеры .NET для API-Интерфейсы SQL | Документы Microsoft"
-description: "Найти примеры C# .NET на github для типичных задач с помощью SQL API DB Cosmos Azure, включая операции CRUD."
+title: "Azure Cosmos DB. Примеры .NET для API SQL | Документация Майкрософт"
+description: "Найти примеры C# .NET на GitHub для типичных задач с помощью API SQL для Azure Cosmos DB, включая операции CRUD."
 keywords: "Пример NoSQL"
 services: cosmos-db
 author: rnagpal
@@ -17,11 +17,11 @@ ms.date: 02/22/2017
 ms.author: rnagpal
 ms.openlocfilehash: 42cdb21276886c9b728a2bf23ece946fa025a87d
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Примеры .NET для API-Интерфейсы SQL
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB. Примеры .NET для API SQL
 > [!div class="op_single_selector"]
 > * [Примеры .NET](sql-api-dotnet-samples.md)
 > * [Примеры Node.js](sql-api-nodejs-samples.md)

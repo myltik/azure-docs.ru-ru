@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: API-интерфейса Node.js SQL SDK и ресурсы | Документы Microsoft"
-description: "Узнайте о SQL Node.js API и пакета SDK, включая даты выхода, даты выбытия и изменения, выполняемые на каждой версии пакета SDK для Node.js DB Azure Cosmos."
+title: "Интерфейсы API, пакет SDK и ресурсы для SQL Node.js (Azure Cosmos DB) | Документация Майкрософт"
+description: "Сведения об API и пакете SDK для SQL Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для Node.js для Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Cosmos DB Node.js для API-Интерфейсы SQL: заметки о выпуске и ресурсы
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для Node.js для API-интерфейса SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Веб-канал изменений в .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -64,11 +64,11 @@ ms.lasthandoff: 01/05/2018
 ## <a name="release-notes"></a>Заметки о выпуске
 
 ### <a name="1.14.2"/>1.14.2</a>
-* Обновленная документация к ссылке Azure DB Cosmos вместо Azure DocumentDB.
-* Добавлена поддержка proxyUrl параметр в ConnectionPolicy.
+* Обновленная документация для Azure DB Cosmos вместо Azure DocumentDB.
+* Добавлена поддержка параметра proxyUrl в ConnectionPolicy.
 
 ### <a name="1.14.1"/>1.14.1</a>
-* Небольшие исправления регистра файловых систем.
+* Внесены незначительные исправления для файловых систем с учетом регистра.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Добавлена поддержка согласованности сеанса.

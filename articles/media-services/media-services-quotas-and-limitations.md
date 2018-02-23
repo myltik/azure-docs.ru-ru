@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: juliako
 ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/05/2018
 Чтобы запросить указанные изменения в квотах по умолчанию, можно открыть запрос в службу поддержки. Укажите в запросе подробную информацию о необходимых изменениях квоты, сценариях использования и регионах.
 
 ### <a name="how-to-open-a-support-ticket"></a>Как открыть запрос в службу поддержки
-На портале Azure перейдите к [Справка и поддержка](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Если вы не вошли в Azure, вам будет предложено ввести учетные данные.
+На портале Azure перейдите к разделу [Справка и поддержка](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Если вы не вошли в Azure, будет предложено ввести учетные данные.
 
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа

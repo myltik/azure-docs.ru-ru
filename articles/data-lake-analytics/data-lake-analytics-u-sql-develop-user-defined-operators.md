@@ -16,7 +16,7 @@ ms.date: 12/05/2016
 ms.author: edmaca
 ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -130,5 +130,5 @@ ms.lasthandoff: 12/11/2017
 2. Разверните узлы «Примеры» и «Выходные данные», а затем дважды щелкните **Drivers.csv**.
 
 ## <a name="see-also"></a>См. также
-* [Расширение выражения U-SQL с помощью пользовательского кода](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx) (Расширение выражений U-SQL с помощью пользовательского кода)
 * [Использование инструментов озера данных для Visual Studio для разработки приложений U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

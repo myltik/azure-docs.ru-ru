@@ -16,15 +16,15 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
 ---
-# <a name="use-service-bus-from-net-with-amqp-10"></a>Использование служебной шины из .NET с помощью AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Использование служебной шины на платформе .NET с протоколом AMQP 1.0
 
-Поддержка AMQP 1.0 доступна в версии пакета Service Bus 2.1 или более поздней версии. Чтобы гарантировать использование последней версии, скачайте части служебной шины с [NuGet][NuGet].
+Поддержка AMQP 1.0 доступна в пакете служебной шины версии 2.1 или более поздней. Чтобы гарантировать использование последней версии, скачайте части служебной шины с [NuGet][NuGet].
 
-## <a name="configure-net-applications-to-use-amqp-10"></a>Настройка приложений .NET для использования AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>Настройка приложений .NET для использования протокола AMQP 1.0
 
 По умолчанию клиентская библиотеке служебной шины .NET взаимодействует со службой служебной шины, используя специализированный протокол на базе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, необходимо явно настроить строку подключения служебной шины, как описано в следующем разделе. Помимо этих изменений, код приложения остается без изменений при использовании AMQP 1.0.
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="configuration-using-appconfig"></a>Настройка с помощью файла App.config
 
-Рекомендуется для приложений, чтобы использовать файл конфигурации App.config для хранения параметров. Для приложений служебной шины строку подключения служебной шины можно хранить в файле App.config. Ниже приводится пример файла App.config:
+Рекомендуется, чтобы приложения использовали для хранения настроек файл конфигурации App.config. Для приложений служебной шины строку подключения служебной шины можно хранить в файле App.config. Ниже приводится пример файла App.config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/22/2017
 * `MessageReceiver.Receive(TimeSpan.Zero)` реализуется в виде `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Завершать сообщения с помощью маркеров блокировки могут только получатели сообщений, первоначально получившие эти сообщения.
 
-## <a name="control-amqp-protocol-settings"></a>Параметры протокола AMQP управления
+## <a name="control-amqp-protocol-settings"></a>Параметры управления протоколом AMQP
 
 [API-интерфейсы .NET](/dotnet/api/) предоставляют несколько параметров для управления поведением протокола AMQP.
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/22/2017
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)** если передачу данных можно разбить на пакеты, это значение определяет максимальную задержку отправки стратегий обработки. По умолчанию наследуется отправителями и получателями. Отдельные отправители или получатели могут переопределить значение по умолчанию, составляющее 20 миллисекунд.
 * **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)** определяет, устанавливаются ли AMQP-подключения с использованием протокола SSL. Значение по умолчанию — **true**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Хотите узнать больше? Перейдите по следующим ссылкам:
 

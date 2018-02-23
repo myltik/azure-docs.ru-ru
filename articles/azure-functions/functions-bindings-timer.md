@@ -19,7 +19,7 @@ ms.author: tdykstra
 ms.custom: 
 ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -34,13 +34,13 @@ ms.lasthandoff: 01/02/2018
 Языковой пример см. в разделах:
 
 * [C#](#trigger---c-example)
-* [Скрипт C# (.csx)](#trigger---c-script-example)
+* [Скрипт C# (CSX)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>Пример C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , которое будет выполняться каждые пять минут:
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая выполняется каждые пять минут.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Атрибуты
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
 Конструктор атрибута принимает выражение CRON, как показано в следующем примере.
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 Можно указать `TimeSpan` вместо выражения CRON, если ваше приложение-функция запускается в рамках плана службы приложений (а не плана потребления).
 
-Полный пример см. в разделе [пример на C#](#c-example).
+Полный пример см. в разделе [Пример C#](#c-example).
 
 ## <a name="configuration"></a>Параметр Configuration
 
@@ -251,7 +251,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 Триггер с таймером поддерживает развертывание с несколькими экземплярами. Один экземпляр функции конкретного таймера выполняется для всех экземпляров.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Перейдите к краткому руководству по использованию триггера таймера](functions-create-scheduled-function.md)

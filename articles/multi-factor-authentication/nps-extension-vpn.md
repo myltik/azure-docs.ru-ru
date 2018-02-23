@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Интеграция инфраструктуры VPN с Azure MFA с помощью расширения сервера политики сети для Azure
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/04/2018
 
 8. Пользователю предоставляется доступ к виртуальному порту на VPN-сервере, и создается зашифрованный VPN-туннель.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 В этом разделе описаны предварительные условия, которые необходимо выполнить для интеграции MFA и шлюза удаленных рабочих столов. Прежде чем приступить к работе, следует подготовить приведенные ниже необходимые компоненты:
 
 * Инфраструктура VPN
@@ -300,7 +300,7 @@ ms.lasthandoff: 01/04/2018
 
     ![Окно "Свойства события"](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-radius"></a>Устранение неполадок RADIUS
+## <a name="troubleshooting-radius"></a>Устранение неполадок с RADIUS
 
 Предположим, конфигурация VPN работала до того, как вы настроили VPN-сервер для использования центрального сервера RADIUS для аутентификации и авторизации. Если конфигурация работала, вероятнее всего, проблема заключается в неправильной настройке сервера RADIUS либо использовании недействительного имени пользователя или пароля. Например, если вы указали альтернативный суффикс имени участника-пользователя в имени пользователя, попытка входа может завершиться сбоем. Используйте одно и то же имя учетной записи для получения наилучших результатов. 
 
@@ -310,7 +310,7 @@ ms.lasthandoff: 01/04/2018
  
 ## <a name="configure-multi-factor-authentication"></a>Настройка Многофакторной идентификации
 
-Для получения помощи при настройке многофакторной проверки подлинности пользователей см. в статьях [требование двухшаговую проверку для пользователя или группы](multi-factor-authentication-get-started-user-states.md) и [настроить учетную запись для двухшаговой проверки](multi-factor-authentication-end-user-first-time.md)
+Дополнительные сведения о многофакторной проверке подлинности пользователей см. в руководствах по [настройке двухфакторной проверки подлинности для пользователей и групп](multi-factor-authentication-get-started-user-states.md) и [настройке учетной записи для двухфакторной проверки подлинности](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Установка и настройка расширения NPS
 
@@ -376,7 +376,7 @@ ms.lasthandoff: 01/04/2018
 
 1. Запустите Windows PowerShell от имени администратора.
 
-2. В командной строке PowerShell введите команду **cd c:\Program Files\Microsoft\AzureMfa\Config** и нажмите клавишу ВВОД.
+2. В командной строке PowerShell введите команду **cd "c:\Program Files\Microsoft\AzureMfa\Config"** и нажмите клавишу ВВОД.
 
 3. В следующей командной строке введите **.\AzureMfsNpsExtnConfigSetup.ps1** и нажмите клавишу ВВОД. Сценарий проверяет, установлен ли модуль PowerShell для Azure Active Directory. Если он не установлен, сценарий автоматически установит этот модуль.
  
@@ -453,7 +453,7 @@ ms.lasthandoff: 01/04/2018
 
 Дополнительные сведения см. в разделе [Интеграция существующей инфраструктуры NPS с Многофакторной идентификацией Azure](multi-factor-authentication-nps-extension.md). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Как получить службу Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
 [Шлюз удаленных рабочих столов и сервер Многофакторной идентификации Azure, использующие проверку подлинности RADIUS](multi-factor-authentication-get-started-server-rdg.md)

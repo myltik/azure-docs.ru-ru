@@ -1,6 +1,6 @@
 ---
 title: "Затраты на программное обеспечение Windows в зарезервированных экземплярах виртуальных машин Azure | Документация Майкрософт"
-description: "Узнайте, какие единицы измерения применяются для программного обеспечения в виртуальных машинах Windows в соответствии с условиями резервирования экземпляров."
+description: "Узнайте, какие счетчики программного обеспечения Windows не учитываются в затратах на зарезервированный экземпляр виртуальной машины."
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров
 
-Если не применяется преимущество гибридного использования Azure для зарезервированного экземпляра виртуальной машины, плата будет взиматься за единицы измерения программного обеспечения Windows, приведенные в таблице ниже.
+Если не применяется преимущество гибридного использования Azure для зарезервированного экземпляра виртуальной машины, плата будет взиматься за единицы измерения программного обеспечения Windows, приведенные в разделе ниже.
+
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Счетчики программного обеспечения Windows, не учитываемые в затратах на зарезервированный экземпляр
 
 | Значение MeterId | Значение MeterName в файле использования | Какой виртуальной машиной используется |
 | ------- | ------------------------| --- |
@@ -48,3 +50,13 @@ ms.lasthandoff: 11/16/2017
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Зарезервированные экземпляры с Windows Server (96 ядер) | Все, кроме серии B |
 
 Стоимость каждой из этих единиц измерения можно узнать с помощью API Azure RateCard. Сведения о том, как узнать тарифы на единицы измерения в Azure, см. в статье [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004) (Получение сведений о ценах и метаданных для ресурсов, используемых в подписке Azure).
+
+## <a name="next-steps"></a>Дополнительная информация
+Дополнительные сведения о зарезервированных экземплярах виртуальных машин см. в следующих статьях.
+
+- [Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
+- [Сокращение затрат с помощью зарезервированных экземпляров виртуальных машин Azure](billing-save-compute-costs-reservations.md)
+- [Сведения о применении скидки на зарезервированный экземпляр виртуальной машины](billing-understand-vm-reservation-charges.md)
+- [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](billing-understand-reserved-instance-usage.md)
+- [Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Enterprise](billing-understand-reserved-instance-usage-ea.md)

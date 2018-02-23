@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 12/14/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2c179c3b0704a6e88d718ba9f102e71c0ee1d6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Управление ресурсами отдельной базы данных в Базе данных SQL Azure
 
@@ -35,9 +35,9 @@ ms.lasthandoff: 12/15/2017
 
 ![Настройка уровня служб и производительности](./media/sql-database-single-database-resources/change-service-tier.png)
 
-Нажмите кнопку **Обзор** для мониторинга и отменить текущую операцию.
+Щелкните **Обзор** для мониторинга и (или) отмены текущей операции.
 
-![Отменить операцию](./media/sql-database-single-database-resources/cancel-operation.png)
+![Отмена операции](./media/sql-database-single-database-resources/cancel-operation.png)
 
 > [!IMPORTANT]
 > Выбирая уровень служб P11 или P15, ознакомьтесь с разделом [Текущие ограничения баз данных P11 и P15 с максимальным размером 4 ТБ](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
@@ -52,8 +52,8 @@ ms.lasthandoff: 12/15/2017
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Создает базу данных. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Получает одну или несколько баз данных.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Определяет свойства базы данных или перемещает ее в эластичный пул. Например, можно использовать свойство **MaxSizeBytes**, чтобы задать максимальный размер базы данных.|
-|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Возвращает состояние операции с базой данных. |
-|[STOP-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Отменяет операцию асинхронного обновления в базе данных.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Получение состояния операций базы данных. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Отмена асинхронной операции обновления базы данных.|
 
 
 > [!TIP]
@@ -70,8 +70,8 @@ ms.lasthandoff: 12/15/2017
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Отображает сведения о правиле брандмауэра.|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Обновляет правило брандмауэра.|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Удаляет правило брандмауэра.|
-|[Список op AZ sql db](/cli/azure/sql/db/op?#az_sql_db_op_list)|Возвращает список операций, выполняемых в базе данных.|
-|[Отмена op db sql AZ](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Отменяет асинхронную операцию в базе данных.|
+|[az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)|Получение списка операций, выполняемых с базой данных.|
+|[az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Отмена асинхронной операции с базой данных.|
 
 > [!TIP]
 > В этом примере скрипт Azure CLI масштабирует отдельную базу данных SQL Azure до другого уровня производительности после запроса на получение сведений о размере базы данных. См. дополнительные сведения об [использовании CLI для мониторинга и масштабирования отдельной базы данных SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -109,11 +109,11 @@ ALTER DATABASE <myDatabaseName>
 |[Базы данных: вывод списка по рекомендуемому эластичному пулу](/rest/api/sql/databases/listbyrecommendedelasticpool)|Возвращает список баз данных в рекомендуемом эластичном пуле.|
 |[Базы данных: вывод списка по серверу](/rest/api/sql/databases/listbyserver)|Возвращает список баз данных на сервере.|
 |[Базы данных: обновление](/rest/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
-|[Операции — список](/rest/api/sql/Operations/List)|Список всех доступных операций SQL Rest API.|
+|[Operations - List](/rest/api/sql/Operations/List)|Отображение списка всех доступных операций REST API SQL.|
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения об уровнях служб, уровнях производительности и объемах хранилища см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
 - Узнайте об [эластичных пулах](sql-database-elastic-pool.md).

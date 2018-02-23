@@ -16,7 +16,7 @@ ms.date: 12/22/2017
 ms.author: genli
 ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/23/2017
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/23/2017
 . Если подписка отключена из-за превышения установленной суммы расходов, щелкните уведомление "Для подписки достигнут расходный лимит, и она была отключена для предотвращения расходов". В противном случае в области **Состояние подписки** щелкните **Снять предельную сумму расходов**.
 1. Выберите нужный вам вариант.
 
-![Выбрав параметр для удаления лимита оплаты](./media/billing-spending-limit/remove-spending-limit.PNG)
+![Выбор параметра для удаления предельной суммы расходов](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Параметр|Результат|
 |-------|-----|
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/23/2017
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Влияет ли предельная сумма расходов на все расходы в Azure?
 
-[Некоторые внешние службы публикации в Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) не может использоваться с кредиты подписки и могут повлечь за собой отдельный плата, даже в том случае, если значение предельная сумма расходов. Примеры включают лицензии Visual Studio, Azure Active Directory premium, планы поддержки и большинство сторонних типизированной службы. При подготовке новой внешней службы, отображается предупреждение, чтобы можно было узнать, что выставляется отдельно:
+[Некоторые внешние службы, опубликованные в Azure Marketplace,](billing-understand-your-azure-marketplace-charges.md) нельзя использовать с кредитами подписок. Работа с ними может дополнительно тарифицироваться, даже если установлена предельная сумма расходов. Примером таких служб могут быть лицензии на Visual Studio, служба Azure Active Directory Premium, планы поддержки и большинство сторонних служб. При подготовке новой внешней службы или ресурса отображается предупреждение о дополнительной тарификации:
 
 ![Предупреждение о покупке Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 

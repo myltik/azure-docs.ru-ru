@@ -1,7 +1,7 @@
 ---
 title: "Руководство по разработке приложений Java с использованием Azure Cosmos DB | Документация Майкрософт"
-description: "Это Java web приложения учебнике способы использования базы данных Azure Cosmos и API-Интерфейсы SQL для хранения и доступа к данным из приложения Java, размещенных на веб-сайтов Azure."
-keywords: "Разработка приложений, учебник по базе данных, приложение java, учебник по приложения java web, azure, Microsoft azure"
+description: "В этом руководстве по разработке веб-приложения Java показано, как использовать службу Azure Cosmos DB и API SQL для хранения данных и доступа к ним из приложения Java, размещенного на веб-сайтах Azure."
+keywords: Application development, database tutorial, java application, java web application tutorial, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -17,11 +17,11 @@ ms.date: 08/22/2017
 ms.author: denlee
 ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Построение веб-приложения Java, используя Azure Cosmos DB и API-Интерфейсы SQL
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Создание веб-приложения Java с использованием Azure Cosmos DB и API SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -88,8 +88,8 @@ ms.lasthandoff: 12/18/2017
    
     ![Привет, мир! — учебник по разработке приложений Java](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Шаг 3: Установка SQL Java SDK
-Самый простой способ получить пакет SDK для Java SQL и ее зависимостей является через [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Шаг 3. Установка пакета Java SDK для SQL
+Самый простой способ извлечь данные из пакета Java SDK для SQL и его зависимости — использовать [Apache Maven](http://maven.apache.org/).
 
 Для этого необходимо преобразовать проект в проект Maven, выполнив следующие действия.
 
@@ -103,12 +103,12 @@ ms.lasthandoff: 12/18/2017
    * В поле **Artifact Id** (Идентификатор артефакта) введите azure-documentdb.
    * В поле **Version** (Версия) введите 1.5.1.
      
-   ![Установить пакет SDK приложения Java SQL](./media/sql-api-java-application/image13.png)
+   ![Установка пакета Java Application SDK для SQL](./media/sql-api-java-application/image13.png)
      
    * Либо добавьте зависимость XML для идентификаторов группы и артефакта непосредственно в pom.xml в текстовом редакторе:
      
         <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
-6. Нажмите кнопку **ОК** и Maven установит пакет SDK для Java SQL.
+6. Нажмите кнопку **ОК**, и Maven установит пакет Java SDK для SQL.
 7. Сохраните файл pom.xml.
 
 ## <a id="UseService"></a>Шаг 4. Использование службы Azure Cosmos DB в приложении Java
@@ -281,7 +281,7 @@ ms.lasthandoff: 12/18/2017
                 return null;
             }
         }
-7. Можно также использовать DocumentClient для получения коллекции или список TodoItems, с помощью SQL:
+7. Можно также использовать DocumentClient для получения коллекции или перечня элементов TodoItems с помощью SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

@@ -17,7 +17,7 @@ ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -122,7 +122,7 @@ ms.lasthandoff: 12/08/2017
 При использовании проводника или перетаскивании объектов во время сеанса RDP может наблюдаться снижение скорости копирования файлов. Обычно эта проблема вызвана одним или обоими следующими факторами:
 
 - Приложения для копирования файлов, такие как проводник и RDP, не используют несколько потоков при копировании. Для повышения производительности используйте многопоточное приложение, например [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), которое копирует файлы с помощью 16 или 32 потоков. Чтобы изменить число используемых потоков в Richcopy, выберите **Action** (Действие) > **Copy options** (Параметры копирования) > **File copy** (Копирование файлов).<br><br>
-![Проблемы копирования файла низкая](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+![Проблемы с низкой скоростью при копировании файлов](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Недостаточная скорость чтения и записи виртуальной машины. Дополнительные сведения см. в статье [Устранение неполадок службы хранилища Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Внешний интерфейс для локального устройства
@@ -134,7 +134,7 @@ ms.lasthandoff: 12/08/2017
 Из локальной сети запустите *tracert* для виртуального IP-адреса шлюза или виртуальной машины Azure. Если возвращается лишь знак *, значит вы достигли края Azure. Когда возвращаются DNS-имена, содержащие "MSN", значит вы достигли магистрали Майкрософт.<br><br>
 ![Проверка задержки](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения доступны в следующих источниках:
 
 - [Оптимизации пропускной способности сети для виртуальной машины Azure](../virtual-network/virtual-network-optimize-network-bandwidth.md)

@@ -16,7 +16,7 @@ ms.date: 09/27/2017
 ms.author: seguler
 ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/02/2018
 
 Эта библиотека также использует .NET Core, а это означает, что ее можно применять при создании приложений .NET для Windows, Linux и MacOS. Дополнительные сведения о .NET Core см. [документации по .NET Core](https://dotnet.github.io/). Эта библиотека также подходит для традиционных приложений .NET Framework для Windows. 
 
-В этом документе показано, как создать консольное приложение .NET Core, который выполняется в Windows, Linux и macOS и выполняет следующие сценарии:
+В этом документе показано, как создать консольное приложение .NET Core, которое работает в Windows, Linux и MacOS и выполняет приведенные ниже функции.
 
 - Передача файлов и каталогов в хранилище BLOB-объектов.
 - Определение количества параллельных операций при передаче данных.
@@ -565,7 +565,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 ## <a name="conclusion"></a>Заключение
 Приложение для перемещения данных готово. [Полный пример кода можно найти на сайте GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В данном руководстве по началу работы мы создали приложение, которое взаимодействует со службой хранилища Azure и работает в Windows, Linux и MacOS. Данное руководство ориентировано на хранилище BLOB-объектов. Тем не менее полученные знания можно применить и к хранилищу файлов. Чтобы узнать больше, ознакомьтесь со [справочной документацией по библиотеке перемещения данных службы хранилища Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

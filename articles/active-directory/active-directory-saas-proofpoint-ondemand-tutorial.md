@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: jeedes
 ms.openlocfilehash: 55479406487bf445c5f449b13663c0bfaee751fd
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,12 +27,12 @@ ms.lasthandoff: 12/14/2017
 Интеграция Azure AD с приложением Proofpoint on Demand обеспечивает следующие преимущества:
 
 - С помощью Azure AD вы можете контролировать доступ к Proofpoint on Demand.
-- Позволяет пользователям автоматически получить вошедшего в Proofpoint по требованию (Single Sign-On) с помощью своих учетных записей Azure AD.
+- Вы можете включить автоматический вход пользователей в Proofpoint on Demand (единый вход) с использованием учетных записей Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Proofpoint on Demand, вам потребуется:
 
@@ -70,23 +70,23 @@ ms.lasthandoff: 12/14/2017
 
     ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Proofpoint по требованию**выберите **Proofpoint по требованию** из панели результатов щелкните **добавить** кнопку, чтобы добавить приложение.
+4. В поле поиска введите **Proofpoint on Demand**, выберите **Proofpoint on Demand** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Proofpoint по запросу в списке результатов](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
+    ![Proofpoint on Demand в списке результатов](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-В этом разделе настройки и тестирования в Azure AD единого входа с Proofpoint по требованию, основываясь на тестового пользователя с именем «Britta Simon».
+Из этого раздела вы узнаете, как настроить и проверить единый вход Azure AD в Proofpoint on Demand с использованием данных тестового пользователя Britta Simon.
 
 Чтобы настроить единый вход в Azure AD, необходимо знать, какой пользователь в Proofpoint on Demand соответствует пользователю в Azure AD. Иными словами, нужно установить связь между пользователем Azure AD и соответствующим пользователем в Proofpoint on Demand.
 
-В Proofpoint по требованию, присвойте значение **имя пользователя** в Azure AD в качестве значения **Username** для установления связи.
+Чтобы установить эту связь, укажите **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Proofpoint on Demand.
 
 Чтобы настроить и проверить единый вход Azure AD в Proofpoint on Demand, вам потребуется выполнить действия в следующих стандартных блоках:
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создать Proofpoint для тестового пользователя запросу](#create-a-proofpoint-on-demand-test-user)**  — на аналог Саймон Britta в Proofpoint по требованию, связанного с представлением Azure AD пользователя.
+3. **[Создание тестового пользователя Proofpoint on Demand](#create-a-proofpoint-on-demand-test-user)** нужно для того, чтобы в Proofpoint on Demand также существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/14/2017
 
 3. В разделе **Домены и URL-адреса приложения Proofpoint on Demand** выполните следующие действия:
 
-    ![Proofpoint по запросу доменов и URL-адреса единого входа сведения](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Proofpoint on Demand](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
 
     a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
@@ -127,9 +127,9 @@ ms.lasthandoff: 12/14/2017
     
 7. В разделе **Конфигурация Proofpoint on Demand** щелкните **Настроить Proofpoint on Demand**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Proofpoint запросу конфигурации](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
+    ![Конфигурация Proofpoint on Demand](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
 
-8. Чтобы настроить единый вход на **Proofpoint по требованию** стороны, необходимо отправить загруженного **Certificate(Base64)**, **URL-адрес выхода, идентификатор сущности SAML и SAML единого входа URL-адрес службы** для [Proofpoint в службу поддержки по запросу](https://www.proofpoint.com/us/support-services). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+8. Чтобы настроить единый вход на стороне **Proofpoint on Demand**, нужно отправить скачанный **сертификат (Base64)**, **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** в [группу поддержки Proofpoint on Demand](https://www.proofpoint.com/us/support-services). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -184,7 +184,7 @@ ms.lasthandoff: 12/14/2017
 
 2. В списке приложений выберите **Proofpoint on Demand**.
 
-    ![Proofpoint по запросу из каналов в список приложений](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
+    ![Ссылка на Proofpoint on Demand в списке приложений](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 12/14/2017
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-При нажатии кнопки Proofpoint по запросу плитки на панели доступа, вы должны получить автоматически вошедшего в вашей Proofpoint по запросу приложения.
+Щелкнув плитку Proofpoint on Demand на панели доступа, вы автоматически войдете в приложение Proofpoint on Demand.
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы

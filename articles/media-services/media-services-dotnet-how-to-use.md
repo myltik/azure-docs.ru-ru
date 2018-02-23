@@ -16,21 +16,21 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>Разработка служб мультимедиа с помощью .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-В этой статье описывается приступить к разработке приложений служб мультимедиа с помощью .NET.
+В этой статье описано, как приступить к разработке приложений Служб мультимедиа с помощью .NET.
 
 Библиотека **пакета SDK служб мультимедиа Azure для .NET** позволяет программировать для служб мультимедиа с помощью .NET. Чтобы упростить разработку с помощью .NET, предоставляется библиотека **расширений пакета SDK служб мультимедиа Azure для .NET** . Эта библиотека содержит набор методов расширения и вспомогательные функции, упрощающие код .NET. Обе библиотеки доступны в **NuGet** и на **GitHub**.
 
-## <a name="prerequisites"></a>Технические условия
-* Учетная запись служб мультимедиа в новой или существующей подписке Azure. См. в статье [Создание учетной записи Media Services](media-services-portal-create-account.md).
+## <a name="prerequisites"></a>предварительным требованиям
+* Учетная запись служб мультимедиа в новой или существующей подписке Azure. См. дополнительные сведения о [создании учетной записи Служб мультимедиа Azure](media-services-portal-create-account.md).
 * Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
-* .NET framework 4.5 или более поздней версии.
+* .NET Framework 4.5 или более поздней версии.
 * приведенному.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/11/2017
     3. В списке сборок платформы .NET найдите и выберите сборку System.Configuration, а затем нажмите кнопку **ОК**.
 6. Откройте файл App.config и добавьте в него раздел **appSettings**. Укажите необходимые значения для подключения к API служб мультимедиа. Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-Набор значений, которые требуются для подключения с помощью **участника-службы** метод проверки подлинности.  
+Набор значений, которые требуются для подключения с использованием аутентификации с помощью **субъекта-службы**.  
 
         <configuration>
         ...
@@ -73,8 +73,8 @@ ms.lasthandoff: 12/11/2017
                 <add key="AMSClientSecret" value="secret"/>
             </appSettings>
         </configuration>
-7. Добавить **System.Configuration** ссылку на проект.
-7. Перезаписать существующий **с помощью** операторы в начале файла Program.cs на следующий код:
+7. Добавьте в проект ссылку на сборку **System.Configuration**.
+7. Замените существующие инструкции **using** в начале файла Program.cs следующим кодом:
            
         using System;
         using System.Configuration;
@@ -123,7 +123,7 @@ ms.lasthandoff: 12/11/2017
     
         }
 
-##<a name="next-steps"></a>Дальнейшие действия
+##<a name="next-steps"></a>Дополнительная информация
 
 Теперь вы готовы [подключиться к API AMS](media-services-use-aad-auth-to-access-ams-api.md) и [начать разработку](media-services-dotnet-get-started.md).
 

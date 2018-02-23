@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Обслуживание агента Log Analytics для Windows и Linux и управление им
 
-После первоначального развертывания агента Windows или Linux для Log Analytics вам в зависимости от ситуации может понадобиться перенастроить его или удалить из компьютера после завершения жизненного цикла (стадия прекращения применения и списания).  Вы можете легко управлять этими задачами обслуживания вручную или автоматизировать этот процесс, сократив при этом эксплуатационные расходы и количество ошибок.
+После первоначального развертывания агента Windows или Linux для Log Analytics вам может понадобиться перенастроить его или удалить из компьютера после завершения жизненного цикла (стадия прекращения применения и списания).  Вы можете легко управлять этими задачами обслуживания вручную или автоматизировать этот процесс, сократив при этом эксплуатационные расходы и количество ошибок.
 
 ## <a name="adding-or-removing-a-workspace"></a>Добавление или удаление рабочей области 
 
@@ -148,12 +148,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 3. В командной строке введите следующую команду: `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Агент Linux
-Чтобы удалить агент, выполните указанные ниже действия.
+Чтобы удалить агент, выполните следующую команду на компьютере Linux.  Аргумент *--purge* полностью удаляет агент и его конфигурацию.
 
-1. Скачайте [универсальный сценарий](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) агента Linux на компьютер.
-2. Запустите SH-файл пакета с аргументом *--purge* на компьютере. Агент и его конфигурация будут полностью удалены.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Настройка передачи агентом отчетов в группу управления Operations Manager
 

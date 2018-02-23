@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Восстановление данных с сервера Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Общие папки Azure
+      items:
+        - name: Резервное копирование общих папок Azure
+          href: backup-azure-files.md
+        - name: 'Резервное копирование общих папок Azure: часто задаваемые вопросы'
+          href: backup-azure-files-faq.md
+        - name: Устранение неполадок резервного копирования общих папок Azure
+          href: troubleshoot-azure-files.md
     - name: Виртуальные машины Azure
       items:
         - name: Подготовка виртуальной машины

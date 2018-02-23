@@ -131,7 +131,7 @@ az iot hub update --name {your iot hub name} --set properties.messagingEndpoints
 az iot hub show --name {your iot hub name}
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о возможностях Центра Интернета вещей, касающихся отправки файлов, см. в разделе об [отправке файлов с устройства][lnk-upload].
 
@@ -144,7 +144,7 @@ az iot hub show --name {your iot hub name}
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
-* [Развертывание Azure IoT Edge на имитированном устройстве в Linux (предварительная версия)][lnk-iotedge]
+* [Развертывание ИИ на пограничных устройствах с использованием Azure IoT Edge][lnk-iotedge]
 * [Все аспекты безопасности решения Центра Интернета вещей][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Как планировать запуск и остановку среды выполнения интеграции Azure SSIS 
 Запуск среды выполнения интеграции (IR) Azure SSIS (SQL Server Integration Services) связан с издержками. Поэтому следует запускать IR только в том случае, когда требуется выполнение пакетов SSIS в Azure, и останавливать ее при ненадобности. Вы можете [запустить или остановить IR Azure SSIS вручную](manage-azure-ssis-integration-runtime.md) с помощью пользовательского интерфейса фабрики данных или Azure PowerShell. В этой статье описан процесс планирования запуска и остановки IR Azure SSIS с помощью службы автоматизации Azure и фабрики данных Azure. Ниже приведены общие шаги, описанные в этой статье:
@@ -44,8 +44,9 @@ ms.lasthandoff: 02/01/2018
 ### <a name="create-an-azure-automation-account"></a>Создание учетной записи службы автоматизации Azure
 Если у вас нет учетной записи службы автоматизации Azure, создайте ее, следуя инструкциям в этом шаге. Подробные инструкции см. в статье [Создание учетной записи службы автоматизации Azure](../automation/automation-quickstart-create-account.md). Кроме того, на этом шаге вы создаете учетную запись **запуска от имени Azure** (субъект-службу в Azure Active Directory) и добавляете ее в роль **участника** подписки Azure. Это должна быть подписка, которая содержит фабрику данных с IR Azure SSIS. В службе автоматизации Azure эта учетная запись используется для проверки подлинности Azure Resource Manager и работы с вашими ресурсами. 
 
-1. Войдите на [портал Azure](https://portal.azure.com/).    
-2. В меню слева выберите **Создать**, **Мониторинг и управление** и **Служба автоматизации**. 
+1. Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
+2. Войдите на [портал Azure](https://portal.azure.com/).    
+3. В меню слева выберите **Создать**, **Мониторинг и управление** и **Служба автоматизации**. 
 
     ![Создать -> Мониторинг и управление -> Служба автоматизации](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. В окне **Добавление учетной записи службы автоматизации** сделайте следующее: 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
 
@@ -493,6 +493,9 @@ module.exports = function (context, req) {
 ### <a name="authorization-keys"></a>Ключи авторизации
 
 Триггеры HTTP позволяют повышать безопасность с помощью ключей. Стандартный триггер HTTP может использовать их в качестве ключа API, то есть требовать наличия ключа в запросе. Вызовы webhook могут использовать ключи для проверки подлинности запросов различными способами, в зависимости от поддерживаемых поставщиком технологий.
+
+> [!NOTE]
+> При локальном запуске функций авторизация отключена независимо от значения `authLevel`, установленного в `function.json`. `authLevel` применяется сразу же после публикации в решении "Функции Azure".
 
 Ключи хранятся в Azure в составе приложения-функции в зашифрованном виде. Чтобы просмотреть ключи, создать новые или сменить значения ключей, откройте на портале нужную функцию и выберите "Управление". 
 

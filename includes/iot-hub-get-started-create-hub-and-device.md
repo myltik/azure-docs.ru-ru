@@ -1,4 +1,4 @@
-## <a name="create-an-iot-hub"></a>Создание центра IoT
+## <a name="create-an-iot-hub"></a>Создание Центра Интернета вещей
 
 [!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
 
@@ -28,14 +28,13 @@
 
    **Auto Generate Keys** (Автоматическое создание ключей). Установите флажок.
 
-   
-            **Подключить устройство к Центру Интернета вещей**. Щелкните **Включить**.
+   **Подключите устройство к центру IoT**. Щелкните **Включить**.
 
    ![Добавление устройства в Device Explorer Центра Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Щелкните **Сохранить**.
+4. Выберите команду **Сохранить**.
 5. Создав устройство, откройте его в области **Обозреватель устройств**.
 6. Запишите первичный ключ строки подключения.
 

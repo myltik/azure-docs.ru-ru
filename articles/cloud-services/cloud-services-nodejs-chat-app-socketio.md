@@ -1,5 +1,5 @@
 ---
-title: "С помощью Socket.io - Azure приложение node.js"
+title: "Использование приложения Node.js с Socket.IO в Azure"
 description: "Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -16,19 +16,19 @@ ms.date: 08/17/2017
 ms.author: cshoe
 ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Построение приложения Node.js разговора с Socket.IO на облачную службу Azure
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Создание приложения чата Node.js с помощью Socket.IO в облачной службе Azure
 
-Socket.IO обеспечивает обмен данными в реальном времени между node.js сервером и клиентами. Этот учебник поможет выполнить размещение сокета. Операции ввода-ВЫВОДА на основе чата приложения в Azure. Дополнительные сведения о Socket.IO см. в разделе [socket.io](http://socket.io).
+Socket.IO обеспечивает связь в режиме реального времени между клиентами и сервером Node.js. В этом руководстве описано, как разместить приложения чата на основе Socket.IO в Azure. См. дополнительные сведения о [socket.io](http://socket.io).
 
 Снимок экрана завершенного приложения приведен ниже:
 
 ![Окно браузера со службой, размещенной в Azure][completed-app]  
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Убедитесь, что следующие продукты и версии установлены для успешного завершения примера, описанного в этой статье.
 
 * установить [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx);
@@ -148,7 +148,7 @@ Socket.IO обеспечивает обмен данными в реальном
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом учебнике было рассмотрено создание базового приложения для разговора, размещаемого в облачной службе Azure. Чтобы узнать, как разместить это приложение на веб-сайте Azure, см. статью [Создание приложения для разговора Node.js с Socket.IO на веб-сайте Azure][chatwebsite].
 
 Дополнительные сведения см. также в [центре по разработке для Node.js](/develop/nodejs/).

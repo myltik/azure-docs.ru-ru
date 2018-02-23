@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Устранение неполадок при активации виртуальных машин Windows в Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Если при активации виртуальной машины Windows, созданной из пользовательского образа, в Azure возникли проблемы, то для их устранения можно воспользоваться сведениями, приведенными в этом документе. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Основные сведения о конечных точках сервера управления ключами Azure для активации продуктов Windows для виртуальных машин Azure
+Azure использует различные конечные точки для активации сервера управления ключами в зависимости от облачного региона, в котором размещается виртуальная машина. При работе с этим руководством по устранению неполадок используйте соответствующую конечную точку сервера управления ключами для своего региона.
+
+* Регионы общедоступного облака Azure: kms.core.windows.net:1688.
+* Регионы национального облака Azure для Китая: kms.core.chinacloudapi.cn:1688.
+* Регионы национального облака Azure для Германии: kms.core.cloudapi.de:1688.
+* Регионы национального облака Azure для государственных организаций США: kms.core.usgovcloudapi.net:1688.
 
 ## <a name="symptom"></a>Симптом
 

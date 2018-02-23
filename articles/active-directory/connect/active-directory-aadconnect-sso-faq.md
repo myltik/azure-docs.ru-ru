@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -32,23 +32,23 @@ ms.lasthandoff: 01/05/2018
 
 Это бесплатный компонент, и для его использования не требуются платные выпуски Azure AD.
 
-## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Доступен прозрачную единого входа в [облако Microsoft Azure Германия](http://www.microsoft.de/cloud-deutschland) и [облако Microsoft Azure для государственных](https://azure.microsoft.com/features/gov/)?
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Доступен ли компонент "Простой единый вход" в облаке [Microsoft Azure — Германия](http://www.microsoft.de/cloud-deutschland) и [Azure для государственных организаций](https://azure.microsoft.com/features/gov/)?
 
-Нет. Эффективная SSO доступна только в глобальный экземпляр Azure AD.
+Нет. Компонент "Простой единый вход" доступен только в международном экземпляре Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Какие приложения используют возможность параметра `domain_hint` или `login_hint` простого единого входа?
 
-В настоящее время мы готовим список приложений, которые отправляют эти параметры, а также приложений, которые их не отправляют. Если у вас есть приложения, которые вас интересуют, свяжитесь с нами в разделе "Примечания".
+В настоящее время мы готовим список приложений, которые отправляют эти параметры, а также приложений, которые их не отправляют. Если вас интересуют конкретные приложения, свяжитесь с нами в разделе "Примечания".
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Поддерживает ли простой единый вход `Alternate ID` в качестве имени пользователя, а не `userPrincipalName`?
 
 Да. Поддерживает ли простой единый вход `Alternate ID` в качестве имени пользователя, если это настроено в Azure AD Connect, как показано [здесь](active-directory-aadconnect-get-started-custom.md). Не все приложения Office 365 поддерживают `Alternate ID`. Заявление о поддержке см. в документации на приложения.
 
-## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>То, что разница между единого входа предоставляется [присоединения Azure AD](../active-directory-azureadjoin-overview.md) и эффективная единого входа?
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>В чем разница между технологией единого входа, предоставленной после [присоединения к Azure AD](../active-directory-azureadjoin-overview.md), и простым единым входом?
 
-[Соединения Azure AD](../active-directory-azureadjoin-overview.md) обеспечивает единый вход для пользователей, если их устройства зарегистрированы в Azure AD. Эти устройства не должны входить в домен. SSO обеспечивается с помощью *токенов обновления основного* или *PRTs*, а не Kerberos. Взаимодействие с пользователем является наиболее оптимальным на устройствах Windows 10. Единый вход выполняется автоматически в браузере Edge. Она также работает Chrome с использованием расширение браузера.
+После [присоединения к Azure AD](../active-directory-azureadjoin-overview.md) пользователи могут воспользоваться возможностями единого входа, если их устройства зарегистрированы в Azure AD. Эти устройства не должны быть присоединены к домену. Возможность единого входа обеспечивается с помощью *основных токенов обновления* (*PRT*), а не протокола Kerberos. Лучше всего эта возможность работает на устройствах с Windows 10. В браузере Edge единый вход выполняется автоматически. Эта возможность также работает в Chrome с использованием расширения браузера.
 
-Можно использовать присоединения Azure AD и эффективная единого входа для клиента. Эти две возможности дополняют друг друга. Если включены обе эти функции единого входа из присоединения Azure AD имеет приоритет над прозрачную единого входа.
+В клиенте можно настроить и технологию единого входа, предоставленную после присоединения к Azure AD, и простой единый вход. Эти две возможности дополняют друг друга. Если включены обе эти технологии, приоритет имеет единый вход, предоставленный после присоединения к Azure AD.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Я хочу зарегистрировать устройства, на которых не применяется Windows 10, с помощью Azure AD, без использования AD FS. Можно вместо этого использовать простой единый вход?
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Шаг 2. Вручную удалите учетную запись компьютера `AZUREADSSOACCT` из каждого леса AD в списке, упомянутом выше.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [**Краткое руководство**](active-directory-aadconnect-sso-quick-start.md). Настройка и подготовка к работе простого единого входа Azure AD.
 - [**Техническое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-sso-how-it-works.md). Сведения о том, как работает эта функция.

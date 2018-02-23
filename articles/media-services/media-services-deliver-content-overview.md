@@ -125,7 +125,7 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Прогрессивное скачивание
-Поэтапная загрузка позволяет начать воспроизведение мультимедиа до окончания скачивания всего файла. ISMV-, ISMA-, ISMT- и ISMC-файлы не могут быть загружены поэтапно.
+Поэтапная загрузка позволяет начать воспроизведение мультимедиа до окончания скачивания всего файла. ISMV-, ISMA \* , ISMT- и ISMC-файлы не могут быть загружены поэтапно.
 
 Для последовательной загрузки содержимого используйте тип указателя OnDemandOrigin. В следующем примере показан URL-адрес, основанный на типе указателя OnDemandOrigin.
 

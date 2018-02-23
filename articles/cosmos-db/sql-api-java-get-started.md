@@ -1,6 +1,6 @@
 ---
-title: "Учебник NoSQL: API-Интерфейсы SQL для пакета SDK для Java DB Cosmos Azure | Документы Microsoft"
-description: "Учебник NoSQL, создает консольное приложение Java с помощью API-Интерфейсы SQL для Azure Cosmos DB и базы данных в сети. Azure SQL — база данных NoSQL JSON."
+title: "Руководство по NoSQL. Пакет SDK для создания приложения Java с помощью API-интерфейса SQL для Azure Cosmos DB | Документация Майкрософт"
+description: "Руководство по NoSQL, в котором создается оперативная база данных и консольное приложение Java с помощью API-интерфейса SQL для Azure Cosmos DB. Azure SQL — это база данных NoSQL для JSON."
 keywords: "руководство nosql, оперативная база данных, консольное приложение java"
 services: cosmos-db
 documentationcenter: Java
@@ -17,11 +17,11 @@ ms.date: 05/22/2017
 ms.author: arramac
 ms.openlocfilehash: 9714234411e96074daae17b4711a52991768bd7b
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Учебник NoSQL: построение консольного приложения SQL API Java
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Руководство по NoSQL. Создание консольного приложения Java с помощью API-интерфейса SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Добро пожаловать в учебник NoSQL для API-Интерфейсы SQL для пакета SDK для Java DB Cosmos Azure! После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
+Приветствуем вас в разделе руководства по NoSQL, посвященного пакету SDK для создания консольного приложения Java с помощью API-интерфейса SQL для Azure Cosmos DB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
 
 Мы рассмотрим:
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/18/2017
 
 А теперь приступим к работе!
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Вам потребуются:
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/18/2017
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-В этом каталоге находится файл проекта `pom.xml` и папка с исходным кодом Java, `src`. Кроме того, здесь также находится файл `Program.java` с инструкциями по выполнению простых операций с Azure Cosmos DB, таких как создание документов и запрос данных в коллекции. `pom.xml` Зависимость на [Azure SDK для Java Cosmos DB на Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+В этом каталоге находится файл проекта `pom.xml` и папка с исходным кодом Java, `src`. Кроме того, здесь также находится файл `Program.java` с инструкциями по выполнению простых операций с Azure Cosmos DB, таких как создание документов и запрос данных в коллекции. В файле `pom.xml` содержится зависимость от [пакета Java SDK для Azure Cosmos DB в Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -190,7 +190,7 @@ Azure Cosmos DB поддерживает обновление документо
 
 Поздравляем! Вы завершили работу с руководством по NoSQL и создали работающее консольное приложение Java.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о создании веб-приложения Java См. сведения в статье о [создании веб-приложения Java с использованием Azure Cosmos DB](sql-api-java-application.md).
 * Узнайте, как выполнять [мониторинг учетной записи Azure Cosmos DB](monitor-accounts.md).
 * Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).

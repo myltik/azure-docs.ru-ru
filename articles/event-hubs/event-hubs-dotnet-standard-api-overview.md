@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
@@ -24,8 +24,8 @@ ms.lasthandoff: 12/20/2017
 
 В этой статье перечислены некоторые ключевые клиентские API концентраторов событий для .NET Standard. В настоящее время существует две клиентские библиотеки .NET Standard:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): предоставляет все основные операции.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): добавляет дополнительные функции, позволяющей позволяет отслеживать их обработанные события и является самым простым способом для чтения из концентратора событий.
+* [Microsoft.Azure.EventHubs.](/dotnet/api/microsoft.azure.eventhubs) Предоставляет все основные операции среды выполнения.
+* [Microsoft.Azure.EventHubs.Processor.](/dotnet/api/microsoft.azure.eventhubs.processor) Расширяет функциональные возможности, позволяя отслеживать обработанные события. Это самый простой способ чтения из концентратора событий.
 
 ## <a name="event-hubs-client"></a>Клиент концентраторов событий
 
@@ -65,11 +65,11 @@ await eventHubClient.SendAsync(data);
 
 ### <a name="receive-events"></a>Получение событий
 
-Используя способ, рекомендуемый для получения событий из концентраторов событий [узел обработчика событий](#event-processor-host-apis), который предоставляет функциональные возможности, чтобы автоматически отслеживать сведения о смещение и разделе концентратора событий. Однако, существуют определенные ситуации, в которых для получения событий может потребоваться гибкость основной библиотеки концентраторов событий.
+Для получения событий из службы "Концентраторы событий" рекомендуем использовать узел [Event Processor Host](#event-processor-host-apis), который позволяет автоматически отслеживать смещение и сведения о секциях концентратора событий. Однако, существуют определенные ситуации, в которых для получения событий может потребоваться гибкость основной библиотеки концентраторов событий.
 
 #### <a name="create-a-receiver"></a>Создание приемника
 
-Приемники привязаны к конкретным разделам таким образом для получения всех событий в концентратор событий, необходимо создать несколько экземпляров. Это хороший способ для получения сведений о секции программным путем, вместо жестко запрограммированного идентификаторы секций. Для этого можно использовать метод [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
+Приемники связаны с определенными секциями. Поэтому для получения всех событий в концентраторе событий необходимо создать несколько экземпляров. Рекомендуем получать сведения о секциях программными средствами без жесткого программирования идентификаторов секций. Для этого можно использовать метод [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
 
 ```csharp
 // Create a list to keep track of the receivers
@@ -86,7 +86,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-Поскольку события никогда не удаляются из концентратора событий (и только срок действия), необходимо указать правильную отправной точки. Ниже приведен пример возможных сочетаний.
+Так как события никогда не удаляются из концентратора событий (только истекает их срок действия), правильно укажите начальную точку. В следующем примере показаны возможные комбинации:
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
@@ -184,7 +184,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о сценариях концентраторов событий см. в разделах, ссылки на которые указаны ниже.
 
 * [Что такое концентраторы событий Azure?](event-hubs-what-is-event-hubs.md)

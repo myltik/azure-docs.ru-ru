@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -249,7 +249,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ## <a name="monitoring-and-diagnostics"></a>Мониторинг и диагностика.
 
-Расширение функции устойчивых автоматически создает структурированных отслеживаемые данные [Application Insights](functions-monitoring.md) после настройки приложения функции с помощью ключа инструментирования Application Insights. Эти данные отслеживания могут использоваться для мониторинга поведения и хода выполнения ваших оркестраций.
+Расширение устойчивых функций автоматически отправляет структурированные данные отслеживания в [Application Insights](functions-monitoring.md), если приложение-функция настроено с помощью ключа инструментирования Application Insights. Эти данные отслеживания могут использоваться для мониторинга поведения и хода выполнения ваших оркестраций.
 
 Ниже приведен пример того, как выглядят события отслеживания устойчивых функций на портале Application Insights с использованием [аналитики Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
@@ -278,7 +278,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 В целом следует отслеживать все известные проблемы в списке [проблем на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Если вы столкнулись с проблемой и не можете найти ее решение на GitHub, откройте новую проблему и укажите ее подробное описание. Даже если вы хотите просто задать вопрос, вы можете открыть проблему GitHub и пометить ее как вопрос.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Bindings for Durable Functions (Azure Functions)](durable-functions-bindings.md) (Привязки устойчивых функций (Функции Azure))

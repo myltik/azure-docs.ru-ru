@@ -16,7 +16,7 @@ ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: db4cfe91b8d27b5336763eff7c6f22f0f345caf2
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 >
 >
 
-Можно просмотреть с помощью команды PowerShell IssuerUri `Get-MsolDomainFederationSettings -DomainName <your domain>`.
+Для просмотра IssuerUri можно воспользоваться командой PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`.
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 01/03/2018
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-Последнее число в регулярном выражении задает количество родительских доменов в корневом домене. Так как здесь используется bmcontoso.com, необходимы два родительских домена. Если бы нужно было сохранить три родительских домена (т. е. corp.bmcontoso.com), использовалось бы число три. В конечном итоге диапазона могут сообщать о, соответствие всегда направляются соответствует максимально допустимое количество доменов. "{2,3}" означает, что два домена будут сопоставлены с тремя (т. е. bmfabrikam.com и corp.bmcontoso.com).
+Последнее число в регулярном выражении задает количество родительских доменов в корневом домене. Так как здесь используется bmcontoso.com, необходимы два родительских домена. Если бы нужно было сохранить три родительских домена (т. е. corp.bmcontoso.com), использовалось бы число три. Впоследствии может быть задан диапазон. Совпадение всегда будет выполняться для соответствия максимальному количеству доменов. "{2,3}" означает, что два домена будут сопоставлены с тремя (т. е. bmfabrikam.com и corp.bmcontoso.com).
 
 Используйте следующие шаги для добавления пользовательского утверждения для поддержки поддоменов.
 

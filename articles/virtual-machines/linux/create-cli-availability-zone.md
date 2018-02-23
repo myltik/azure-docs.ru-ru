@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Создание виртуальной машины Linux в зоне доступности с помощью Azure CLI
 
@@ -28,19 +28,19 @@ ms.lasthandoff: 01/05/2018
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Проверка доступности SKU ВМ
-Доступность размеры виртуальных Машин или номера SKU, зависит от региона и зоны. Сведения о планировании для использования доступность зон, можно составить список доступных SKU ВМ, регион Azure и зоны. Эта возможность гарантирует, выберите соответствующий размер виртуальной Машины и получить нужный устойчивости различных зон. Дополнительные сведения о разных типах ВМ и размеры см. в разделе [Общие сведения о размерах виртуальных Машин](sizes.md).
+## <a name="check-vm-sku-availability"></a>Проверка доступности SKU виртуальной машины
+Доступность размеров или номеров SKU виртуальных машин зависит от региона и зоны. Чтобы спланировать использование с учетом зон доступности, можно составить список доступных SKU виртуальных машин по регионам и зонам Azure. Так вы сможете выбрать нужный размер виртуальной машины и получить требуемую степень устойчивости в разных зонах. См. дополнительные сведения о разных типах и [размерах виртуальных машин](sizes.md).
 
-Можно просмотреть доступные номера SKU ВМ с [az ВМ список-номеров SKU](/cli/azure/vm#az_vm_list_skus) команды. В следующем примере перечисляются доступные номера SKU ВМ в *eastus2* область:
+Доступные номера SKU виртуальной машины можно просмотреть с помощью команды [az vm list-skus](/cli/azure/vm#az_vm_list_skus). В следующем примере перечислены доступные номера SKU виртуальных машин в регионе *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-Вывод команды будет примерно в следующем примере сокращенный, показывающий доступность зон, в которой доступно каждого размера виртуальной Машины:
+Вывод команды будет примерно таким, как в следующем сокращенном примере с отображением размеров виртуальных машин, используемых в пределах разных зон доступности:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones
@@ -197,7 +197,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
  
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этой статье вы узнали, как создать виртуальную машину в зоне доступности. Узнайте о [регионах и доступности](regions-and-availability.md) виртуальных машин Azure.
 

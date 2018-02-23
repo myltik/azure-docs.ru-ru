@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 65eab09a1fcf7e1c2411ee4b96d21ba22e3519b2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Копирование данных из Square с помощью фабрики данных Azure (бета-версия)
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/19/2018
 | Тип | Для свойства type необходимо задать значение **Square** | Yes |
 | host | URL-адрес экземпляра Square. (т. е. mystore.mysquare.com)  | Yes |
 | clientid | Идентификатор клиента, связанный с приложением Square.  | Yes |
-| clientSecret | Секрет клиента, связанный с приложением Square. Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в ADF, или сохранить пароль в Azure Key Vault и передавать его оттуда в действие копирования при фактическом копировании данных. Подробнее это описано в статье [о хранении учетных данных в Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | Секрет клиента, связанный с приложением Square. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | redirectUri | URL-адрес перенаправления, назначенный на панели мониторинга приложения Square. (т. е. http://localhost:2500)  | Yes |
 | useEncryptedEndpoints | Указывает, шифруются ли конечные точки источника данных с помощью протокола HTTPS. По умолчанию используется значение true.  | Нет  |
 | useHostVerification | Указывает, следует ли требовать, чтобы имя узла в сертификате сервера совпадало с именем узла сервера при подключении по протоколу SSL. По умолчанию используется значение true.  | Нет  |

@@ -16,7 +16,7 @@ ms.date: 12/06/2016
 ms.author: roastala
 ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/06/2018
 
 В данном учебнике эти действия демонстрируются на примере модели анализа мнений с использованием набора данных Amazon Book Reviews (Обзоры книг на Amazon). См. исследовательскую работу "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" (Биографии, Болливуд, бум-боксы и блендеры: адаптация домена для классификации мнений пользователей), авторы — Джон Блитцер (John Blitzer), Марк Дредзе (Mark Dredze) и Фернандо Перейра (Fernando Pereira); Ассоциация компьютерной лингвистики (ACL), 2007 г. Этот набор данных состоит из оценок в обзоре (1-2 или 4-5) и текста в произвольной форме. Целью является прогнозирование оценки в обзоре: низкая (1-2) или высокая (4-5).
 
-Можно найти экспериментов освещены в учебнике по коллекции AI Azure:
+Эксперименты, рассматриваемые в этом руководстве, можно найти в коллекции решений ИИ Azure.
 
 [Predict Book Reviews (Прогнозирование оценок в обзоре книг).](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -88,6 +88,6 @@ ms.lasthandoff: 01/06/2018
 
 Теперь у нас готов эксперимент, который можно опубликовать как веб-службу и вызывать с помощью интерфейсов API "запрос-ответ" или пакетного выполнения.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о модулях текстовой аналитики см. в [документации MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

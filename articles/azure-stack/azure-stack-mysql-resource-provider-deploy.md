@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/01/2018
 
     - В DependencyFilesLocalPath имеется только один файл сертификата.
     
-    - Имя файла не должно содержать специальные знаки.
+    - Имя файла не должно содержать специальные знаки или пробелы.
 
 
 5. Откройте **новую** консоль PowerShell с повышенными правами (администратора). Затем перейдите в каталог, в который были извлечены файлы. Откройте новое окно, чтобы избежать проблем с неправильными модулями PowerShell, уже загруженными в систему.

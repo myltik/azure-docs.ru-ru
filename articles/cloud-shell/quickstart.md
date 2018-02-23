@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Краткое руководство по Bash в Azure Cloud Shell
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/15/2017
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Открытый и закрытый ключи, используемые для проверки подлинности виртуальной машины, помещаются в `/User/.ssh/id_rsa` и `/User/.ssh/id_rsa.pub` с помощью Azure CLI 2.0 по умолчанию. Папка в формате SSH сохраняется в образе размером 5 ГБ, размещенном в подключенной общей папке службы файлов Azure.
+> Открытый и закрытый ключи, используемые для проверки подлинности виртуальной машины, помещаются в `/home/<user>/.ssh/id_rsa` и `/home/<user>/.ssh/id_rsa.pub` с помощью Azure CLI 2.0 по умолчанию. Папка в формате SSH сохраняется в образе размером 5 ГБ, размещенном в подключенной общей папке службы файлов Azure.
 
 Имя пользователя на этой виртуальной машине будет использоваться в Cloud Shell ($User@Azure:).
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/15/2017
 Удалите группу ресурсов и все ее ресурсы. <br>
 Запустите `az group delete -n MyRG`
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Дополнительные сведения о сохранении файлов для Bash в Cloud Shell.](persisting-shell-storage.md) <br>
 [Справочник команд Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Общие сведения о службе файлов Azure](../storage/files/storage-files-introduction.md) <br>

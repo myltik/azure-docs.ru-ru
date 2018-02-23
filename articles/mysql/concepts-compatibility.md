@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.openlocfilehash: 7578ae710a3d6c81fdfa2952c53a20c2cdccb6d0
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
 ---
@@ -24,8 +24,8 @@ ms.lasthandoff: 01/06/2018
 | **Драйвер** | **Ссылки** | **Совместимые версии** | **Несовместимые версии** | **Примечания** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | http://php.net/downloads.php | 5.5 5.6 7.x | 5,3 | Для подключения PHP 7.0 с SSL MySQLi добавьте MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT в строке подключения. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Набор PDO: параметр ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` имеет значение False.|
-| .Net | [MySqlConnector на GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Установочного пакета Nuget](https://www.nuget.org/packages/MySqlConnector/) | Версия 0.27 и более поздние версии | Версия 0.26.5 и предыдущие версии | |
-| NodeJS |  [MySQLjs на GitHub](https://github.com/mysqljs/mysql/releases) <br> Установочного пакета NPM:<br> Запустите `npm install mysql` из NPM | 2.15 | Версия 2.14.1 и предыдущие версии | |
+| .Net | [MySqlConnector на GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Пакет установки из Nuget](https://www.nuget.org/packages/MySqlConnector/) | Версия 0.27 и более поздние версии | Версия 0.26.5 и предыдущие версии | |
+| NodeJS |  [MySQLjs на GitHub](https://github.com/mysqljs/mysql/releases) <br> Пакет установки из NPM:<br> Запустите команду `npm install mysql` из NPM | 2.15 | Версия 2.14.1 и предыдущие версии | |
 | GO | https://github.com/go-sql-driver/mysql/releases | 1,3 | Версия 1.2 и предыдущие версии | Введите allowNativePasswords=true в строке подключения |
 | Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | Версия 1.2.2 и предыдущие версии | |
 | Java | https://downloads.mariadb.org/connector-java/ | 2.1 2.0 1.6 | Версия 1.5.5 и предыдущие версии | |

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 55379add493224770ca7e0e26fd607cd0a2cf892
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Копирование данных с SFTP-сервера с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/29/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | userName | Пользователь, имеющий доступ к SFTP-серверу. |Yes |
-| password | Пароль пользователя (userName). Пометьте это поле в качестве SecureString. | Yes |
+| password | Пароль пользователя (userName). Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Пример.**
 
@@ -104,11 +104,11 @@ ms.lasthandoff: 01/29/2018
 |:--- |:--- |:--- |
 | userName | Пользователь, имеющий доступ к SFTP-серверу. |Yes |
 | privateKeyPath | Укажите доступный для среды выполнения интеграции абсолютный путь к файлу закрытого ключа. Применяется, только если в connectVia задан тип среды выполнения интеграции. | Должно быть указано одно из свойств: `privateKeyPath` или `privateKeyContent`.  |
-| privateKeyContent | Содержимое закрытого ключа SSH в кодировке Base64. Закрытый ключ SSH должен быть в формате OpenSSH. Пометьте это поле в качестве SecureString. | Должно быть указано одно из свойств: `privateKeyPath` или `privateKeyContent`. |
-| passPhrase | Укажите пароль или парольную фразу для расшифровки закрытого ключа, если они используются для защиты файлы ключа. Пометьте это поле в качестве SecureString. | Да, если файл закрытого ключа защищен парольной фразой. |
+| privateKeyContent | Содержимое закрытого ключа SSH в кодировке Base64. Закрытый ключ SSH должен быть в формате OpenSSH. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Должно быть указано одно из свойств: `privateKeyPath` или `privateKeyContent`. |
+| passPhrase | Укажите пароль или парольную фразу для расшифровки закрытого ключа, если они используются для защиты файлы ключа. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Да, если файл закрытого ключа защищен парольной фразой. |
 
 > [!NOTE]
-> Соединитель SFTP поддерживает только ключ OpenSSH. Убедитесь, что файл ключа имеет правильный формат. Для преобразования из формата PPK в OpenSSH можно использовать средство Putty.
+> Соединитель SFTP поддерживает только ключ OpenSSH RSA/DSA. Содержимое файла ключа должно начинаться с текста "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Если файл закрытого ключа имеет формат PPK, используйте средство Putty для преобразования из формата PPK в OpenSSH. 
 
 **Пример 1. Проверка подлинности с закрытым ключом SSH, для которого указан путь к файлу**
 

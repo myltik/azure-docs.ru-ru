@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/03/2018
 *На моем веб-сервере установлено приложение, но данные телеметрии сервера не отображаются. На компьютере разработки все работало хорошо.*
 
 * Возможно, проблема в брандмауэре. [Установите исключения брандмауэра для отправки данных Application Insights](app-insights-ip-addresses.md).
-* Сервер IIS могут отсутствовать некоторые предварительные условия: расширяемость .NET 4.5 и ASP.NET 4.5.
+* На сервере IIS могут отсутствовать некоторые предварительные условия: расширяемость .NET 4.5 и ASP.NET 4.5.
 
 *На моем веб-сервере [установлен монитор состояния](app-insights-monitor-performance-live-website-now.md) для мониторинга существующих приложений. Я не вижу никаких результатов.*
 

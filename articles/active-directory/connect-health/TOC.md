@@ -14,6 +14,7 @@
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
+## [Azure AD Connect Health и соответствие требованиям GDPR](active-directory-aadconnect-health-gdpr.md)
 
 # Сопутствующие материалы
 ## [Интеграция локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md)

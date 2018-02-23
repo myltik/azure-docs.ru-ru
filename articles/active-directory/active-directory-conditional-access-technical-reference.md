@@ -1,6 +1,6 @@
 ---
-title: "Справочник по параметрам Azure Active Directory условного доступа | Документы Microsoft"
-description: "Обзор поддерживаемых параметров в политике условного доступа Azure Active Directory."
+title: "Справочник по параметрам условного доступа в Azure Active Directory | Документация Майкрософт"
+description: "Эта статья содержит обзор поддерживаемых параметров в политике условного доступа Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Справочник по параметрам условного доступа Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Справочник по параметрам условного доступа в Azure Active Directory
 
-Можно использовать [условного доступа Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) для управления как авторизованные пользователи имеют доступ к ресурсам.   
+Благодаря [условному доступу Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно контролировать доступ авторизованных пользователей к своим ресурсам.   
 
-В этой статье предоставляются сведения о поддержке для следующих параметров конфигурации в политику условного доступа: 
+Эта статья содержит информацию о поддержке следующих параметров конфигурации в политике условного доступа: 
 
 - назначения облачных приложений;
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 12/23/2017
 - требование утвержденных клиентских приложений.
 
 
-Если это не информацию, которую вы ищете, оставьте комментарий в конце этой статьи.
+Если это не та информация, которую вы ищете, оставьте комментарий в конце этой статьи.
 
 ## <a name="cloud-apps-assignments"></a>Назначения облачных приложений
 
-С помощью политик условного доступа можно управлять доступом пользователей к [облачным приложениям](active-directory-conditional-access-azure-portal.md#who). При настройке политики условного доступа необходимо выбрать как минимум одно облачное приложение, к которому она применяется. 
+С помощью политик условного доступа можно управлять доступом пользователей к [облачным приложениям](active-directory-conditional-access-conditions.md#cloud-apps). При настройке политики условного доступа необходимо выбрать как минимум одно облачное приложение, к которому она применяется. 
 
 ![Выбор облачных приложений для политики](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/23/2017
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (включает в себя OneDrive для бизнеса и Project Online)
+- Microsoft Office 365 SharePoint Online (включая OneDrive для бизнеса и Project Online)
 
 - Microsoft Power BI 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/23/2017
 
 ## <a name="client-apps-condition"></a>Условие клиентских приложений 
 
-В политике условного доступа можно настроить условие [Клиентские приложения](active-directory-conditional-access-azure-portal.md#client-apps), чтобы привязать ее к клиентскому приложению, которое инициировало попытку доступа. Условие клиентских приложений можно задать, чтобы предоставить или заблокировать доступ, если была предпринята попытка доступа из приведенных ниже типов клиентских приложений:
+В политике условного доступа можно настроить условие [Клиентские приложения](active-directory-conditional-access-conditions.md#client-apps), чтобы привязать ее к клиентскому приложению, которое инициировало попытку доступа. Условие клиентских приложений можно задать, чтобы предоставить или заблокировать доступ, если была предпринята попытка доступа из приведенных ниже типов клиентских приложений:
 
 - "Обзор"
 - мобильные и классические приложения.
@@ -169,10 +169,9 @@ ms.lasthandoff: 12/23/2017
 |Outlook 2016 (Office для macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Приложение Outlook Mobile|Office 365 Exchange Online|Android, iOS|
-|Приложение PowerBI. Приложение Power BI для Android в настоящее время не поддерживает условный доступ на основе устройств.|Служба PowerBI|Windows 10, Windows 8.1, Windows 7 и iOS.|
+|Приложение PowerBI|Служба PowerBI|Windows 10, Windows 8.1, Windows 7 и iOS.|
 |Skype для бизнеса|Office 365 Exchange Online|Android, iOS |
 |Приложение Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS и Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Требование утвержденного клиентского приложения 
@@ -186,6 +185,7 @@ ms.lasthandoff: 12/23/2017
 
 - Microsoft Azure Information Protection.
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote;
 - Microsoft Outlook
@@ -193,6 +193,7 @@ ms.lasthandoff: 12/23/2017
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype для бизнеса;
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio;
 - Microsoft Word
@@ -212,7 +213,7 @@ ms.lasthandoff: 12/23/2017
     - переопределяет параметр **Мобильные приложения и настольные клиенты** для [условия клиентских приложений](#supported-mobile-apps-and-desktop-clients), если этот параметр выбран.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Общие сведения об условном доступе см. в статье [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Если вы готовы к настройке политик условного доступа для своей среды, прочитайте статью [Рекомендации по работе с условным доступом в Azure Active Directory](active-directory-conditional-access-best-practices.md).

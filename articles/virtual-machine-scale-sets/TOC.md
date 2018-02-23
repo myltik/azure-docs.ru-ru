@@ -30,6 +30,9 @@
 #### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Приложения в масштабируемых наборах](virtual-machine-scale-sets-deploy-app.md)
 ### [Использование дисков данных с масштабируемыми наборами](virtual-machine-scale-sets-attached-disks.md)
+### Шифрование дисков в масштабируемых наборах
+#### [Использование PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Использование Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Работа с большими масштабируемыми наборами](virtual-machine-scale-sets-placement-groups.md)
 ### [Преобразование шаблона масштабируемого набора для использования управляемого диска](virtual-machine-scale-sets-convert-template-to-md.md)
 

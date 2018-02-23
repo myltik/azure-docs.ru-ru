@@ -79,7 +79,7 @@ azure --version
 > [!TIP]
 > Дополнительные сведения об управлении ресурсами и группами ресурсов Azure с помощью Azure CLI см. в [этой статье][lnk-CLI-arm].
 
-## <a name="create-an-iot-hub"></a>Создание центра IoT
+## <a name="create-an-iot-hub"></a>Создание центра Интернета вещей
 
 Ниже перечислены необходимые параметры:
 
@@ -90,7 +90,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. Имя группы ресурсов. Может содержать 1–64 знака (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
 * **name**. Имя создаваемого Центра Интернета вещей. Может содержать 3–50 знаков (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
 * **location**. Расположение (регион или центр обработки данных Azure) для подготовки Центра Интернета вещей.
-* **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Наиболее актуальный и полный список доступен на странице цен а Центр Интернета вещей.
+* **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Наиболее актуальный и полный список доступен на странице цен на Центр Интернета вещей.
 * **units**. Количество подготовленных единиц. Диапазон: F1 [1]; S1, S2 [1–200]; S3 [1–10]. Единицы Центра Интернета вещей зависят от общего количества сообщений и количества устройств, к которым требуется подключаться.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
@@ -101,7 +101,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 azure iothub create -h
 ```
 
-Быстрый пример. Чтобы создать Центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, выполните следующую команду.
+Быстрый пример. Чтобы создать центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, выполните следующую команду.
 
 ```azurecli
 azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
@@ -114,15 +114,15 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
 > ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о разработке для Центра Интернета вещей см. в следующей статье:
 
 * [Пакеты SDK для Центра Интернета вещей][lnk-sdks]
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* [Создание Центра Интернета вещей через портал Azure][lnk-portal]
+* [Управление Центром Интернета вещей с помощью портала Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

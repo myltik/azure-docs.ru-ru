@@ -18,7 +18,7 @@ ms.author: curtand
 ms.reviewer: nigu
 ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/13/2017
 
 В основе Cloud App Discovery в Azure AD теперь лежит интеграция с данными, доступными в Microsoft Cloud App Security. Чтобы предоставить вам актуальные сведения об использовании облачных и теневых ИТ, Cloud App Discovery сравнивает журналы трафика с каталогом Cloud App Security из более чем 15 000 облачных приложений. В этой статье описывается процедура настройки и содержатся ссылки на подробные сведения о каждом шаге. Здесь также предоставлены сведения о реализации поддержки данных брандмауэра и прокси-сервера, а также файлов журнала.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Для использования этого продукта ваша организация должна иметь лицензию Azure AD Premium P1. Дополнительные сведения см. в разделе [Цены на Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 * Для настройки Cloud App Discovery вам нужно быть глобальным администратором или читателем безопасности в Azure Active Directory.
@@ -79,7 +79,7 @@ Cloud App Discovery не может отображать или анализир
 * Barracuda — брандмауэр веб-приложений (W3C)
 * Blue Coat Proxy SG — журнал доступа (W3C)
 * Check Point
-* Мощь этих средств есть Cisco ASA
+* Cisco ASA FirePOWER
 * Брандмауэр Cisco ASA (для брандмауэров Cisco ASA установите уровень информации 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe
@@ -132,7 +132,7 @@ Cloud App Discovery не может отображать или анализир
 | Zscaler                                 | **Да**        | **Да**       | **Да**  | **Да**   | **Да**       | **Да**        |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Используйте следующие ссылки, чтобы продолжить настройку системы Cloud App Discovery в Azure AD.
 
 * [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)

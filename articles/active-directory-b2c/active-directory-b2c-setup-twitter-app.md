@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: организация регистрации и входа для потребителей с учетными записями Twitter
-
-> [!NOTE]
-> Эта функция предоставляется в предварительной версии.
-> 
 
 ## <a name="create-a-twitter-application"></a>Создание приложения Twitter
 Чтобы использовать Twitter в качестве поставщика удостоверений в Azure Active Directory (Azure AD) B2C, нужно сначала создать приложение Twitter и задать в нем правильные параметры. Для этого потребуется учетная запись разработчика Twitter. Если у вас ее нет, вы можете создать такую учетную запись на сайте [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ ms.lasthandoff: 12/11/2017
 6. Щелкните **Настроить этот поставщик удостоверений** и введите **ключ потребителя** в поле **Идентификатор клиента** и **секрет потребителя** Twitter в поле **Секрет клиента**.
 7. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Twitter.
 
+## <a name="next-steps"></a>Дополнительная информация
+
+Создайте или измените [встроенную политику](active-directory-b2c-reference-policies.md) и добавьте Twitter в качестве поставщика удостоверений.

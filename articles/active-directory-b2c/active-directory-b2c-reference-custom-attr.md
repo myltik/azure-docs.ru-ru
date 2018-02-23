@@ -16,7 +16,7 @@ ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 4. Введите **имя** настраиваемого атрибута (например, ShoeSize) и, при необходимости, его **описание**. Нажмите кнопку **Создать**.
    
    > [!NOTE]
-   > Только «String», «Boolean» и «Int» **типы данных** в настоящее время доступны.
+   > В настоящее время доступны только такие **типы данных**: "Строка", "Логическое значение", "Целое число".
    > 
    > 
 

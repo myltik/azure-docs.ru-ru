@@ -17,7 +17,7 @@ ms.date: 05/01/2017
 ms.author: liamca
 ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/11/2017
 Поля id, name и company можно легко сопоставить друг с другом как поля в индексе Поиска Azure. Однако поле locations содержит массив расположений с набором идентификаторов и описаниями расположений. С учетом того, что в Поиске Azure нет типа данных, поддерживающего такое поле, нужно подобрать другой способ моделирования в Поиске Azure. 
 
 > [!NOTE]
-> Этот способ также представлено Evans Кирк в записи блога [индексирования Cosmos базу данных Azure с поиском Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), который демонстрирует метод, называемый «объединение данных», когда имеется поле с именем `locationsID` и `locationsDescription` которые оба [коллекций](https://msdn.microsoft.com/library/azure/dn798938.aspx) (или массив строк).   
+> Эта технология также описана в записи блога Кирка Эванса (Kirk Evans) [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Индексирование Azure Cosmos DB с помощью службы "Поиск Azure"). В ней показан способ преобразования данных в плоскую структуру с получением полей `locationsID` и `locationsDescription`, которые являются [коллекциями](https://msdn.microsoft.com/library/azure/dn798938.aspx) (или массивом строк).   
 > 
 > 
 

@@ -1,23 +1,22 @@
 # [Обзор](overview.md)
 
 # Быстрый запуск
-## [Краткое руководство по Bash](quickstart.md)
-## [Краткое руководство по PowerShell](quickstart-powershell.md)
+## [Bash: краткое руководство](quickstart.md)
+## [PowerShell: краткое руководство](quickstart-powershell.md)
 
 # Основные понятия
-## [Функции и инструменты в Bash](features.md)
-## [Функции и инструменты в PowerShell](features-powershell.md)
+## [Bash: функции и средства](features.md)
+## [PowerShell: функции и средства](features-powershell.md)
 ## [Ограничения](limitations.md)
 
 # Инструкции
-## [Сохраняемое хранилище в Bash](persisting-shell-storage.md)
-## [Сохраняемое хранилище в PowerShell](persisting-shell-storage-powershell.md)
+## [Bash: постоянное хранилище](persisting-shell-storage.md)
+## [PowerShell: постоянное хранилище](persisting-shell-storage-powershell.md)
 ## [Использование окна](using-the-shell-window.md)
 
 # Примеры
-## [Развертывание ресурсов Azure с помощью Terraform в Bash](example-terraform-bash.md)
-
-## [Запуск Ansible в Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash: создание ресурсов с помощью Terraform](example-terraform-bash.md)
+## [Bash: запуск модулей playbook Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Внедрение Cloud Shell](embed-cloud-shell.md)
 

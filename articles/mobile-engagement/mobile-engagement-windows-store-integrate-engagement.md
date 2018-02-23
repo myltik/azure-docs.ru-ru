@@ -16,7 +16,7 @@ ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -88,7 +88,7 @@ NuGet автоматически развертывает ресурсы пак�
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-Строка подключения для приложения отображается на портале Azure.
+Теперь строка подключения для приложения отображается на портале Azure.
 
 ### <a name="engagement-initialization"></a>Инициализация Engagement
 При создании проекта создается файл `App.xaml.cs` . Этот класс наследуется из `Application` и содержит множество важных методов. Он также будет использоваться для инициализации пакета SDK для Engagement.

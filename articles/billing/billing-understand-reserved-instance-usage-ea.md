@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Enterprise
 Научитесь понимать данные об использовании зарезервированного экземпляра с помощью ReservationId со [страницы резервирования](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) и использовать файл с [портала EA](https://ea.azure.com). Вы можете также просмотреть данные об использовании резервирования в разделе сводки на [портале EA](https://ea.azure.com).
@@ -30,14 +30,14 @@ ms.lasthandoff: 11/16/2017
 
 | Поле | Значение |
 |---| --- |
-|ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
+|Идентификатор резервирования |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Количество |1|
 |SKU | Standard_D1|
 |Регион | eastus |
 
-## <a name="reservation-application"></a>Приложения в резервировании
+## <a name="reservation-application"></a>Применение резервирования
 
-Аппаратная часть виртуальной машины рассматривается, так как развертываемая виртуальная машина соответствует атрибутам резервирования. Чтобы узнать, какое программное обеспечение Windows не входит в состав зарезервированного экземпляра, перейдите к разделу [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md) (Затраты на программное обеспечение Windows, не входящее в состав зарезервированных экземпляров).
+Аппаратная часть виртуальной машины рассматривается, так как развертываемая виртуальная машина соответствует атрибутам резервирования. Чтобы узнать, какое программное обеспечение Windows не входит в состав зарезервированного экземпляра, перейдите к разделу c описанием [затрат на программное обеспечение Windows, не входящее в состав Azure Reserved VM Instances](billing-reserved-instance-windows-software-costs.md).
 
 
 ### <a name="reservation-usage-in-csv"></a>Данные о резервировании в формате CSV
@@ -56,6 +56,16 @@ ms.lasthandoff: 11/16/2017
 
 1. Плата за аппаратный компонент виртуальной машины не взимается, так как она входит в стоимость зарезервированного экземпляра. 
 2. Взимается плата за программное обеспечение Windows, так как преимущество гибридного использования Azure не применяется. 
+
+## <a name="next-steps"></a>Дополнительная информация
+Дополнительные сведения о зарезервированных экземплярах виртуальных машин см. в следующих статьях.
+
+- [Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
+- [Сокращение затрат с помощью зарезервированных экземпляров виртуальных машин Azure](billing-save-compute-costs-reservations.md)
+- [Сведения о применении скидки на зарезервированный экземпляр виртуальной машины](billing-understand-vm-reservation-charges.md)
+- [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](billing-understand-reserved-instance-usage.md)
+- [Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 

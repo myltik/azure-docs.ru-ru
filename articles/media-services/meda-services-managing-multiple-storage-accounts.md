@@ -15,7 +15,7 @@ ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 * балансирование нагрузки ваших ресурсов-контейнеров между несколькими учетными записями хранения;
 * масштабирование служб мультимедиа для больших объемов обработки содержимого (сейчас действует ограничение в 500 ТБ на одну учетную запись хранения). 
 
-В этой статье демонстрируется подключение нескольких учетных записей хранилища для учетной записи служб мультимедиа с помощью [API диспетчера ресурсов Azure](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](/powershell/module/azurerm.media). Здесь также описывается, как указывать другие учетные записи хранения при создании файлов с помощью пакета SDK служб мультимедиа. 
+В этой статье показано, как подключить несколько учетных записей хранения к учетной записи служб мультимедиа с помощью [интерфейсов API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](/powershell/module/azurerm.media). Здесь также описывается, как указывать другие учетные записи хранения при создании файлов с помощью пакета SDK служб мультимедиа. 
 
 ## <a name="considerations"></a>Рекомендации
 При подключении нескольких учетных записей хранения к своей учетной записи служб мультимедиа обратите внимание на следующее.
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="to-attach-storage-accounts"></a>Присоединение учетных записей хранения  
 
-Чтобы присоединить учетные записи хранения для вашей учетной записи AMS, воспользуйтесь [API диспетчера ресурсов Azure](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](/powershell/module/azurerm.media), как показано в следующем примере:
+Чтобы присоединить учетные записи хранения к учетной записи AMS, используйте [интерфейсы API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](/powershell/module/azurerm.media), как показано в следующем примере.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

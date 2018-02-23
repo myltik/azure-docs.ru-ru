@@ -17,7 +17,7 @@ ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/21/2017
 ### <a name="view-effective-routes-for-a-network-interface"></a>Просмотр эффективных маршрутов сетевого интерфейса
 Для просмотра агрегированных маршрутов, которые применяются к сетевому интерфейсу, выполните описанные ниже действия.
 
-1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* операции для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей, в разделе [Создание пользовательских ролей для контроля доступа](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Следующая команда возвращает все маршруты, применяемые к сетевому интерфейсу с именем *VM1-NIC1* в группе ресурсов *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

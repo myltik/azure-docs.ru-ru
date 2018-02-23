@@ -16,14 +16,14 @@ ms.date: 07/07/2017
 ms.author: juliako
 ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Основные понятия служб мультимедиа Azure
 В этом разделе приводится обзор наиболее важных понятий служб мультимедиа.
 
-## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Активы и хранилища
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Ресурсы и хранилища
 ### <a name="assets"></a>Активы
 Сущность [Ресурс](https://docs.microsoft.com/rest/api/media/operations/asset) содержит цифровые файлы (в том числе видео, аудио, изображения, коллекции эскизов, текстовые дорожки и файлы скрытых титров), а также метаданные об этих файлах. После загрузки цифровых файлов в ресурс их можно использовать в рабочих процессах кодирования и потоковой передачи служб мультимедиа.
 

@@ -16,24 +16,24 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Настройка телеметрии служб мультимедиа Azure с использованием .NET
 
-В этой статье описаны общие шаги, которые может потребоваться при настройке телеметрии служб мультимедиа Azure (AMS), с помощью пакета SDK для .NET. 
+В этой статье описываются общие действия по настройке телеметрии служб мультимедиа Azure (AMS) с помощью пакета SDK для .NET. 
 
 >[!NOTE]
->Подробное описание того, что является AMS телеметрии и как использовать его, см. в разделе [Обзор](media-services-telemetry-overview.md) статьи.
+>Подробные сведения о том, что такое телеметрия AMS и как ее использовать, см. в этом [обзоре](media-services-telemetry-overview.md).
 
 Данные телеметрии можно использовать одним из следующих способов.
 
-- Чтение данных непосредственно из табличного хранилища Azure (например, с помощью SDK хранилища). Описание телеметрии хранилища таблиц см. **потребляет данные телеметрии** в [это](https://msdn.microsoft.com/library/mt742089.aspx) статьи.
+- Можно считывать данные непосредственно из хранилища таблиц Azure (например, с помощью пакета SDK для хранилища). Описание таблиц хранилища телеметрии см. в разделе об **использовании данных телеметрии** [этой](https://msdn.microsoft.com/library/mt742089.aspx) статьи.
 
 или
 
-- Для чтения данных из хранилища можно использовать поддержку, реализованную в пакете SDK служб мультимедиа для .NET. В этой статье показано, как включить данные телеметрии для указанной учетной записи AMS и способ запроса метрик, с помощью пакета SDK .NET служб мультимедиа Azure.  
+- Для чтения данных из хранилища можно использовать поддержку, реализованную в пакете SDK служб мультимедиа для .NET. В этой статье показано, как включить телеметрию для указанной учетной записи AMS и как запросить метрики с помощью пакета SDK служб мультимедиа Azure для .NET.  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>Настройка данных телеметрии для учетной записи служб мультимедиа
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/11/2017
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
-- Создание конфигурации мониторинга для службы, которые вы хотите отслеживать. Допускается не более одного параметра конфигурации для мониторинга. 
+- Создайте параметр конфигурации мониторинга служб, которые требуется отслеживать. Разрешено создать не более одного параметра конфигурации мониторинга. 
   
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="consuming-telemetry-information"></a>Использование данных телеметрии
 
-Сведения о потребителе данные телеметрии, в разделе [это](media-services-telemetry-overview.md) статьи.
+Сведения об использовании данных телеметрии см. в [этой](media-services-telemetry-overview.md) статье.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
 
@@ -219,7 +219,7 @@ namespace AMSMetrics
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

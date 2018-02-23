@@ -12,15 +12,15 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Установка среды выполнения Azure IoT Edge в ОС Windows IoT Базовая (предварительная версия)
 
-Azure IoT Edge и [Windows IoT базовая](https://docs.microsoft.com/windows/iot-core/) действуют совместно, чтобы включить edge вычислительные ресурсы даже небольшие устройства. Среда выполнения Azure IoT Edge может работать даже на крошечных одноплатных устройствах (SBC), которые весьма распространены в отрасли Интернета вещей. 
+Azure IoT Edge и [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) поддерживают взаимодействие, обеспечивая граничные вычисления данных даже с небольших устройств. Среда выполнения Azure IoT Edge может работать даже на крошечных одноплатных устройствах (SBC), которые весьма распространены в отрасли Интернета вещей. 
 
-В этой статье мы рассмотрим подготовку среды выполнения на плате разработки [MinnowBoard Turbot][lnk-minnow] под управлением Windows IoT Базовая. Windows IoT базовая поддерживает Azure IoT края только в x64-разрядных процессоров Intel. 
+В этой статье мы рассмотрим подготовку среды выполнения на плате разработки [MinnowBoard Turbot][lnk-minnow] под управлением Windows IoT Базовая. В Windows IoT Core предусмотрена поддержка Azure IoT Edge только при использовании x64-разрядных процессоров Intel. 
 
 ## <a name="install-the-runtime"></a>Установка среды выполнения
 
@@ -54,7 +54,7 @@ Azure IoT Edge и [Windows IoT базовая](https://docs.microsoft.com/window
 
 В окне удаленной консоли PowerShell могут появиться информационные выходные данные средства iotedgectl.exe, отображаемые зеленым цветом. Это не обязательно свидетельствует об ошибках. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда на устройстве запущена среда выполнения IoT Edge, узнайте, как [развертывать и отслеживать модули IoT Edge в нужном масштабе][lnk-deploy].
 

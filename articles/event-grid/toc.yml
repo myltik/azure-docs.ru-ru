@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Практические руководства
   items:
+    - name: Получение событий через конечную точку HTTP
+      href: receive-events.md
     - name: Потоковая передача данных из концентраторов событий в хранилище данных
       href: event-grid-event-hubs-integration.md
     - name: Отправка уведомлений о событиях Центра Интернета вещей

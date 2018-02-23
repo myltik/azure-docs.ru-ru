@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 458ad702b510c0fd01ab63541b2026b8a9a06e91
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Копирование данных из Xero с помощью фабрики данных Azure (бета-версия)
 
@@ -32,6 +32,11 @@ ms.lasthandoff: 01/19/2018
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Данные из Xero можно скопировать в любое поддерживаемое хранилище данных, используемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
+
+В частности, этот соединитель Xero поддерживает:
+
+- [частное приложение](https://developer.xero.com/documentation/getting-started/api-application-types) Xero (не общедоступное);
+- все таблицы Xero (конечные точки API), кроме таблицы "Отчеты". 
 
 Фабрика данных Azure имеет встроенный драйвер для настройки подключения. Поэтому с использованием этого соединителя вам не нужно устанавливать драйверы вручную.
 
@@ -48,9 +53,9 @@ ms.lasthandoff: 01/19/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Xero**. | Yes |
-| host | Конечная точка сервера Xero (это api.xero.com).  | Yes |
-| consumerKey | Ключ пользователя, связанный с приложением Xero. Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или сохранить пароль в Azure Key Vault и передавать его оттуда в действие копирования при фактическом копировании данных. Подробнее это описано в руководстве по [хранению учетных данных в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | Закрытый ключ из PEM-файла, созданный для частного приложения Xero. Включает весь текст из PEM-файла, в том числе окончания строк Unix (\n). Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или сохранить пароль в Azure Key Vault и передавать его оттуда в действие копирования при фактическом копировании данных. Подробнее это описано в руководстве по [хранению учетных данных в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| host | Конечная точка сервера Xero (`api.xero.com`).  | Yes |
+| consumerKey | Ключ пользователя, связанный с приложением Xero. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | Закрытый ключ из PEM-файла, созданный для частного приложения Xero. Дополнительные сведения см. в статье [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key) (Создание открытого и закрытого ключей). Включает весь текст из PEM-файла, в том числе окончания строк Unix (\n). Пример см. ниже.<br/>Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Указывает, шифруются ли конечные точки источника данных с помощью протокола HTTPS. По умолчанию используется значение true.  | Нет  |
 | useHostVerification | Указывает, нужно ли, чтобы имя узла в сертификате сервера совпадало с именем узла сервера при подключении по протоколу SSL. По умолчанию используется значение true.  | Нет  |
 | usePeerVerification | Указывает, следует ли проверять удостоверение сервера при подключении по протоколу SSL. По умолчанию используется значение true.  | Нет  |
@@ -75,6 +80,14 @@ ms.lasthandoff: 01/19/2018
         }
     }
 }
+```
+
+**Пример значения закрытого ключа**
+
+Включает весь текст из PEM-файла, в том числе окончания строк Unix (\n).
+
+```
+"-----BEGIN RSA PRIVATE KEY-----\nMII***************************************************P\nbu****************************************************s\nU/****************************************************B\nA*****************************************************W\njH****************************************************e\nsx*****************************************************l\nq******************************************************X\nh*****************************************************i\nd*****************************************************s\nA*****************************************************dsfb\nN*****************************************************M\np*****************************************************Ly\nK*****************************************************Y=\n-----END RSA PRIVATE KEY-----"
 ```
 
 ## <a name="dataset-properties"></a>Свойства набора данных
@@ -102,7 +115,7 @@ ms.lasthandoff: 01/19/2018
 
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md). В этом разделе содержится список свойств, поддерживаемых источником Xero.
 
-### <a name="xerosource-as-source"></a>XeroSource в качестве источника
+### <a name="xero-as-source"></a>Xero в качестве источника
 
 Чтобы копировать данные из HTTP, установите тип источника **XeroSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
@@ -142,6 +155,60 @@ ms.lasthandoff: 01/19/2018
     }
 ]
 ```
+
+При указании запроса Xero обратите внимание на следующее:
+
+- Таблицы со сложными элементами необходимо разделять на несколько. Например, банковские переводы имеют сложную структуру данных LineItems. Поэтому данные перевода сопоставляются с таблицами `Bank_Transaction` и `Bank_Transaction_Line_Items`, где `Bank_Transaction_ID` — это внешний ключ, который связывает их.
+
+- Данные Xero имеют две схемы: `Minimal` (по умолчанию) и `Complete`. Полная схема содержит необходимые таблицы вызовов, которые требуют дополнительные данные (например, столбец идентификатора) перед выполнением запроса.
+
+Ниже приведены таблицы с одинаковой информацией в полной и минимальной схеме. Чтобы уменьшить число вызовов API, используйте минимальную схему (по умолчанию).
+
+- Bank_Transactions
+- Contact_Groups 
+- Контакты 
+- Contacts_Sales_Tracking_Categories 
+- Contacts_Phones 
+- Contacts_Addresses 
+- Contacts_Purchases_Tracking_Categories 
+- Credit_Notes 
+- Credit_Notes_Allocations 
+- Expense_Claims 
+- Expense_Claim_Validation_Errors
+- Счета 
+- Invoices_Credit_Notes
+- Invoices_ Prepayments 
+- Invoices_Overpayments 
+- Manual_Journals 
+- Overpayments 
+- Overpayments_Allocations 
+- Prepayments 
+- Prepayments_Allocations 
+- Receipts 
+- Receipt_Validation_Errors 
+- Tracking_Categories
+
+Следующие таблицы можно запрашивать только с использованием полной схемы:
+
+- Complete.Bank_Transaction_Line_Items 
+- Complete.Bank_Transaction_Line_Item_Tracking 
+- Complete.Contact_Group_Contacts 
+- Complete.Contacts_Contact_ Persons 
+- Complete.Credit_Note_Line_Items 
+- Complete.Credit_Notes_Line_Items_Tracking 
+- Complete.Expense_Claim_ Payments 
+- Complete.Expense_Claim_Receipts 
+- Complete.Invoice_Line_Items 
+- Complete.Invoices_Line_Items_Tracking
+- Complete.Manual_Journal_Lines 
+- Complete.Manual_Journal_Line_Tracking 
+- Complete.Overpayment_Line_Items 
+- Complete.Overpayment_Line_Items_Tracking 
+- Complete.Prepayment_Line_Items 
+- Complete.Prepayment_Line_Item_Tracking 
+- Complete.Receipt_Line_Items 
+- Complete.Receipt_Line_Item_Tracking 
+- Complete.Tracking_Category_Options
 
 ## <a name="next-steps"></a>Дополнительная информация
 Список источников данных, которые поддерживает действие копирования, приведен в таблице [поддерживаемых хранилищ данных и форматов](copy-activity-overview.md#supported-data-stores-and-formats).

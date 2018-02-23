@@ -13,13 +13,13 @@ ms.date: 09/15/2017
 ms.author: adhurwit
 ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Использование хранилища ключей Azure из веб-приложения
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 
 В этом учебнике показано, как использовать хранилище ключей Azure из веб-приложения Azure. В нем рассматривается процесс доступа к секрету в хранилище ключей Azure для его использования в веб-приложении.
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 
 Общие сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим учебником требуется:
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/08/2017
 * Веб-приложение. Мы покажем действия для приложения ASP.NET MVC, развернутого в Azure в качестве веб-приложения.
 
 >[!IMPORTANT]
->* В этом примере показан старый способ подготовки удостоверений AAD вручную. Сейчас доступна предварительная версия новой возможности [Управляемое удостоверение службы (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), которая автоматически подготавливает удостоверения AAD. См. следующий пример на [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) для получения дополнительных сведений.
+>* В этом примере показан старый способ подготовки удостоверений AAD вручную. Сейчас доступна предварительная версия новой возможности [Управляемое удостоверение службы (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), которая автоматически подготавливает удостоверения AAD. Дополнительные сведения см. в примерах в репозитории [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/).
 
 > [!NOTE]
 >* Необходимо выполнить действия, описанные в разделе [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) , чтобы получить URI секрета, идентификатор клиента и секрет клиента для веб-приложения.
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Запишите дату окончания и пароль для PFX-файла (в этом примере: 07/31/2017 г. и test123). Они вам потребуются позднее.
+Запишите дату окончания и пароль для PFX-файла (в этом примере: 07/31/2017 и test123). Они вам потребуются позднее.
 
 Дополнительные сведения о создании тестового сертификата см. в [этом практическом руководстве](https://msdn.microsoft.com/library/ff699202.aspx).
 

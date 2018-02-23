@@ -16,7 +16,7 @@ ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -198,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Не удается восстановить данные из Azure без этой парольной фразы.
+> После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без этой парольной фразы нельзя.
 >
 >
 
@@ -419,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Чтобы просмотреть сведения о существующей политике резервного копирования, воспользуйтесь командлетом [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . Можно выполнить детализацию дальше с помощью [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) командлет расписания резервного копирования и [Get OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) командлета для политики хранения
+Чтобы просмотреть сведения о существующей политике резервного копирования, воспользуйтесь командлетом [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . Чтобы получить подробные сведения, воспользуйтесь командлетом [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) для расписания резервного копирования и командлетом [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) для политик хранения.
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -459,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Выполнение нерегламентированного резервного копирования
-После настройки соответствующей политики резервное копирование будет выполняться по расписанию. Активация Нерегламентированное резервное копирование — также можно с помощью [OBBackup начала](https://technet.microsoft.com/library/hh770426) командлета:
+### <a name="performing-an-ad-hoc-backup"></a>Выполнение внепланового резервного копирования
+После настройки соответствующей политики резервное копирование будет выполняться по расписанию. Вы также можете выполнить внеплановое резервное копирование с помощью командлета [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -500,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Выбор точки резервного копирования для восстановления
-Получить список точек резервного копирования, выполнив [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) командлет с соответствующими параметрами. В нашем примере мы выберем последнюю точку резервного копирования для исходного тома *D:* и используем его для восстановления определенного файла.
+Чтобы получить список точек резервного копирования, выполните командлет [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) с соответствующими параметрами. В нашем примере мы выберем последнюю точку резервного копирования для исходного тома *D:* и используем его для восстановления определенного файла.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -649,7 +649,7 @@ PS C:\> $s = New-PSSession -ComputerName REMOTESERVER01
 PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePath $d $a -Wait } -ArgumentList $agent $args
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительная информация о службе архивации Azure для сервера или клиента Windows
 
 * [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)

@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 * [Федеративный единый вход (со службами федерации Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 > [!NOTE] 
-> Важно помнить, что настроив федерации для Azure AD, установки доверия между клиентом Azure AD и федеративных доменов. С этим доменом федеративного доверия пользователи будут иметь доступ к облачным ресурсам Azure AD в рамках клиента.  
+> Важно помнить, что при настройке федерации для Azure AD между клиентом Azure AD и вашими федеративными доменами устанавливаются отношения доверия. Такой федеративный домен предоставляет пользователям доступ к облачным ресурсам Azure AD в рамках клиента.  
 >
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Выбор способа входа пользователя для организации
@@ -176,6 +176,6 @@ ms.lasthandoff: 12/11/2017
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Дополнительные сведения об интеграции локальных удостоверений см. в статье [Подключение Active Directory к Azure Active Directory](active-directory-aadconnect.md).
 - Дополнительные сведения об принципах проектирования см. в статье [Azure AD Connect: принципы проектирования](active-directory-aadconnect-design-concepts.md).

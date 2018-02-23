@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Как использовать записную книжку Jupyter в Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench поддерживает интерактивные эксперименты по обработке и анализу данных путем интеграции записной книжки Jupyter. В этой статье описывается, как эффективно использовать этот компонент, чтобы ускорить проведение интерактивных экспериментов по обработке и анализу данных и повысить их качество.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 - [Установите службу "Машинное обучение Azure" и создайте проект](quickstart-installation.md).
 - Ознакомьтесь с [записной книжкой Jupyter](http://jupyter.org/), так как в этой статье нет сведений о том, как ее использовать.
 
@@ -42,15 +42,15 @@ Azure Machine Learning Workbench поддерживает интерактивн
 >Дополнительные сведения о конфигурациях запуска и целевых объектах вычислений см. в статье [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
 
 ### <a name="kernel-naming-convention"></a>Соглашение об именовании ядер
-Имена ядер обычно имеют формат "\<имя проекта> \<имя конфигурации запуска>". Например, если у вас есть конфигурация запуска с именем _docker python_ в проекте _myIris_, при открытии записной книжки Jupyter можно найти ядро с именем myIris docker-python в списке ядер.
-
+Azure ML Workbench создает пользовательские ядра Jupyter.  Имя для них создается в формате "\<имя проекта> \<имя конфигурации запуска>". Например, если у вас есть конфигурация запуска с именем _docker-python_ в проекте с именем _myIris_, в службе "Машинное обучение Azure" будет доступно ядро с именем myIris docker-python.  Выполняющееся ядро задается в подменю Change kernel (Изменение ядра) меню "Ядра" записной книжки Jupyter. Имя ядра выполнения отображается в правом углу строки меню.
+ 
 Сейчас Workbench поддерживает следующие типы ядер.
 
 ### <a name="local-python-kernel"></a>Локальное ядро Python
 Это ядро Python поддерживает выполнение на локальном компьютере. В нем интегрирована поддержка журнала выполнения службы "Машинное обучение Azure". Как правило, имя ядра — my_project_name local.
 
 >[!NOTE]
->Не используйте ядро Python 3. Это изолированное ядро, которое Jupyter предоставляет по умолчанию. Оно не интегрировано с возможностями службы "Машинное обучение Azure".
+>Не используйте ядро Python 3. Это изолированное ядро, которое Jupyter предоставляет по умолчанию. Оно не интегрировано с возможностями службы "Машинное обучение Azure". Например, контрольные команды Jupyter _%azureml_ возвращают ошибки типа "не найдено". 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Ядро Python в Docker (локальный или удаленный компьютер)
 Это ядро Python выполняется в контейнере Docker на локальном компьютере или на удаленной виртуальной машине Linux. Как правило, имя ядра — my_project docker. В связанном файле `docker.runconfig` для поля `Framework` задано значение `Python`.

@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 Задания Stream Analytics поддерживают несколько методов вывода, одним из которых является [хранилище озера данных Azure](https://azure.microsoft.com/services/data-lake-store/). Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Авторизация учетной записи хранения озера данных Azure
-1. При выборе хранилища Озера данных как выходные данные на портале Azure вы будет предложено авторизовать использование существующего хранилища Озера данных или для запроса доступа к хранилищу Озера данных.
+1. Если на портале Azure для вывода данных выбран вариант Data Lake Store, вам будет предложено авторизовать существующую службу Data Lake Store или подать запрос на доступ к Data Lake Store.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    

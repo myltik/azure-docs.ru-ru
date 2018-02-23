@@ -1,6 +1,6 @@
 ---
 title: "Управление конечными точками потоковой передачи с помощью пакета SDK для .NET | Документация Майкрософт"
-description: "В этой статье показано, как управлять конечных точек потоковой передачи с помощью портала Azure."
+description: "В этой статье рассказывается, как управлять конечными точками потоковой передачи с помощью портала Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -17,16 +17,16 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Управление конечными точками потоковой передачи с помощью пакета SDK для .NET
 
 >[!NOTE]
->Убедитесь в том просмотреть [Обзор](media-services-streaming-endpoints-overview.md) статьи. Просмотрите также статью [Конечная точка потоковой передачи](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Обязательно просмотрите [обзорную статью](media-services-streaming-endpoints-overview.md). Просмотрите также статью [Конечная точка потоковой передачи](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Код в этой статье показано, как выполнить следующие задачи с помощью Azure Media Services .NET SDK:
+В этой статье приведен код, в котором показано, как выполнить следующие задачи с помощью пакета SDK служб мультимедиа Azure для .NET:
 
 - изучить конечную точку потоковой передачи по умолчанию;
 - создать и добавить конечную точку потоковой передачи.
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/11/2017
     >[!NOTE]
     >Конечную точку потоковой передачи по умолчанию удалить нельзя.
 
-Сведения о том, как масштабировать конечной точки потоковой передачи см. в разделе [это](media-services-portal-scale-streaming-endpoints.md) статьи.
+Сведения о том, как масштабировать конечную точку потоковой передачи, см. в [этой](media-services-portal-scale-streaming-endpoints.md) статье.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
 
@@ -142,7 +142,7 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Просмотрите схемы обучения работе со службами мультимедиа.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

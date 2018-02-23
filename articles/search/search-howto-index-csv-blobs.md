@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: eugenesh
 ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -52,12 +52,12 @@ ms.lasthandoff: 01/02/2018
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Можно настроить разделителя символ с помощью `delimitedTextDelimiter` параметр конфигурации. Например: 
+Можно настроить символ разделителя с помощью параметра конфигурации `delimitedTextDelimiter`. Например: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> Сейчас поддерживается только кодирование UTF-8. Если требуется поддержка для других кодировок, сообщите нам о [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Сейчас поддерживается только кодирование UTF-8. Если вам нужна поддержка других форматов кодирования, сообщите нам об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Когда вы используете режим анализа текста с разделителями, служба поиска Azure предполагает, что все BLOB-объекты в источнике данных являются CSV-объектами. Если необходима поддержка как CSV-объектов, так и других больших двоичных объектов в одном источнике данных, сообщите нам об этом на [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
