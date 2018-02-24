@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Создание функции, исполняемой в Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Развертывание веб-приложений Docker в Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Развертывание веб-приложений Docker в Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Примеры
 ## Инфраструктура CLI Azure
