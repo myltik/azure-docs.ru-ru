@@ -4,7 +4,7 @@
   items:
     - name: Сведения о веб-приложениях
       href: app-service-web-overview.md
-    - name: Сведения о функции "Веб-приложение для контейнеров"
+    - name: Сведения о службе приложений в Linux
       href: containers/app-service-linux-intro.md
     - name: Сведения о средах службы приложений
       href: environment/intro.md
