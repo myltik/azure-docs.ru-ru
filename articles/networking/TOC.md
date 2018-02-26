@@ -23,6 +23,7 @@
 ### [VPN-подключение к локальной среде](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Выделенное подключение к локальной среде](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # Начало работы
 ## [Создание первой собственной виртуальной сети](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [Управление захватом пакетов](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Определение следующего прыжка маршрута](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Проверка IP-потоков для виртуальной машины](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Общие сведения о мониторинге сетей](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Примеры сценариев
 ### [интерфейс командной строки Azure](cli-samples.md)

@@ -42,7 +42,7 @@
 #### [Использование Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Вертикальное масштабирование в масштабируемом наборе](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Автоматические обновления ОС](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Обновления для масштабируемых наборов](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Изменение масштабируемого набора](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Использование DSC и масштабируемых наборов](virtual-machine-scale-sets-dsc.md)
 ### [Работа в сети для масштабируемых наборов](virtual-machine-scale-sets-networking.md)
 ### [Преобразование шаблона в управляемый диск](virtual-machine-scale-sets-convert-template-to-md.md)

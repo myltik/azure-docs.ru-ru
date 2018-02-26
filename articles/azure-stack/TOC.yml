@@ -57,8 +57,12 @@
         - name: Требования к инфраструктуре открытых ключей (PKI) для развертывания Azure Stack
           href: azure-stack-pki-certs.md
           items:
-            - name: Получение сертификатов PKI для развертывания Azure Stack
+            - name: Получение сертификатов PKI Azure Stack
               href: azure-stack-get-pki-certs.md
+            - name: Подготовка сертификатов PKI Azure Stack
+              href: prepare-pki-certs.md
+            - name: Проверка сертификатов PKI Azure Stack
+              href: validate-pki-certs.md
         - name: Интеграция удостоверений
           href: azure-stack-integrate-identity.md
         - name: Регистрация Azure Stack
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: Удостоверение
           items:
+            - name: Общие сведения об удостоверениях
+              href: azure-stack-identity-overview.md
+            - name: Архитектура удостоверений
+              href: azure-stack-identity-architecture.md
             - name: Управление RBAC
               href: azure-stack-manage-permissions.md
             - name: "Добавление пользователей для Azure\_AD"
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: Ресурсы
   items:
-    - name: Стратегия развития Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Форум MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: План выхода продуктов Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Форум MSDN по Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Отзывы о документации по Azure Stack
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Сведения о ценах
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Переполнение стека
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Обучение и сертификация
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

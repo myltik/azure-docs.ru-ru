@@ -33,21 +33,23 @@
       href: tutorial-virtual-network.md
     - name: 9. Резервное копирование виртуальных машин
       href: tutorial-backup-vms.md
-    - name: 10. Мониторинг и обновление виртуальных машин
+    - name: "10.\_Управление виртуальными машинами"
+      href: tutorial-govern-resources.md
+    - name: "11.\_Мониторинг и обновление виртуальных машин"
       href: tutorial-monitoring.md
-    - name: 11. Управление безопасностью виртуальных машин
+    - name: "12.\_Управление безопасностью виртуальных машин"
       href: tutorial-azure-security.md
-    - name: "12.\_Развертывание Jenkins"
+    - name: "13.\_Развертывание Jenkins"
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13. Непрерывная интеграция и непрерывное развертывание с помощью Team Services
+    - name: "14.\_Непрерывная интеграция и непрерывное развертывание с помощью Team Services"
       href: tutorial-build-deploy-jenkins.md
-    - name: 14а. Создание стека LAMP
+    - name: "15а.\_Создание стека LAMP"
       href: tutorial-lamp-stack.md
-    - name: 14б. Создание стека LEMP
+    - name: "15б.\_Создание стека LEMP"
       href: tutorial-lemp-stack.md
-    - name: 14в. Создание стека MEAN
+    - name: "15в.\_Создание стека MEAN"
       href: tutorial-mean-stack.md
-    - name: 15. Защита веб-сервера с помощью SSL
+    - name: "16.\_Защита веб-сервера с помощью SSL"
       href: tutorial-secure-web-server.md
 - name: Примеры
   items:

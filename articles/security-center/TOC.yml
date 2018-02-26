@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Политики безопасности на основе политики Azure
           href: security-center-azure-policy.md
-    - name: Отслеживание состояния системы безопасности
-      href: security-center-monitoring.md
-    - name: Удостоверение и доступ
-      href: security-center-identity-access.md
     - name: Реализация рекомендаций по вопросам безопасности
       href: security-center-recommendations.md
-    - name: Защита вычислений
-      href: security-center-virtual-machine-recommendations.md
+    - name: Отслеживание состояния системы безопасности
+      href: security-center-monitoring.md
       items:
-        - name: Применение шифрования дисков
-          href: security-center-apply-disk-encryption.md
-        - name: Применение обновлений системы
-          href: security-center-apply-system-updates.md
-        - name: Включение шифрования для учетной записи хранения
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Включение агента виртуальной машины
-          href: security-center-enable-vm-agent.md
-        - name: Установка Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Перезагрузка после завершения обновлений системы
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Исправление конфигураций системы безопасности
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Обновление версии ОС
-          href: security-center-update-os-version.md
-        - name: Решение для оценки уязвимостей не установлено
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Безопасность сети
-      href: security-center-network-recommendations.md
-      items:
-        - name: Добавление брандмауэра следующего поколения
-          href: security-center-add-next-generation-firewall.md
-        - name: Включение групп безопасности сети
-          href: security-center-enable-network-security-groups.md
-        - name: Ограничение доступа через подключенные к Интернету конечные точки
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Маршрутизация трафика только через NGFW
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Защита хранилища и данных
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: Включение аудита и обнаружения угроз в базах данных SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Включение аудита и обнаружения угроз на серверах SQL Server
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Включение прозрачного шифрования данных
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Безопасность приложения
-      href: security-center-application-recommendations.md
-      items:
-        - name: Добавление брандмауэра веб-приложения
-          href: security-center-add-web-application-firewall.md
-        - name: Завершение подготовки защиты приложений
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Средства защиты в облаке
+        - name: Защита вычислений
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Применение шифрования дисков
+              href: security-center-apply-disk-encryption.md
+            - name: Применение обновлений системы
+              href: security-center-apply-system-updates.md
+            - name: Включение шифрования для учетной записи хранения
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: Включение агента виртуальной машины
+              href: security-center-enable-vm-agent.md
+            - name: Установка Endpoint Protection
+              href: security-center-install-endpoint-protection.md
+            - name: Перезагрузка после завершения обновлений системы
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Исправление конфигураций системы безопасности
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: Обновление версии ОС
+              href: security-center-update-os-version.md
+            - name: Решение для оценки уязвимостей не установлено
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Безопасность сети
+          href: security-center-network-recommendations.md
+          items:
+            - name: Добавление брандмауэра следующего поколения
+              href: security-center-add-next-generation-firewall.md
+            - name: Включение групп безопасности сети
+              href: security-center-enable-network-security-groups.md
+            - name: Ограничение доступа через подключенные к Интернету конечные точки
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Маршрутизация трафика только через NGFW
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Защита хранилища и данных
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: Включение аудита и обнаружения угроз в базах данных SQL
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: Включение аудита и обнаружения угроз на серверах SQL Server
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Включение прозрачного шифрования данных
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Безопасность приложения
+          href: security-center-application-recommendations.md
+          items:
+            - name: Добавление брандмауэра веб-приложения
+              href: security-center-add-web-application-firewall.md
+            - name: Завершение подготовки защиты приложений
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Удостоверение и доступ
+          href: security-center-identity-access.md
+    - name: Применение средств защиты в облаке
       items:
         - name: JIT-доступ
           href: security-center-just-in-time.md
@@ -136,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Исследование
           href: security-center-investigation.md
-    - name: Автоматизация и оркестрация
+    - name: Автоматизация рабочих процессов безопасности
       items:
         - name: Модули Playbook в Logic Apps
           href: security-center-playbooks.md

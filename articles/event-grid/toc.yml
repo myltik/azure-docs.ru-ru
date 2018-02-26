@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Практические руководства
   items:
+    - name: Публикация в пользовательском разделе
+      href: post-to-custom-topic.md
     - name: Получение событий через конечную точку HTTP
       href: receive-events.md
     - name: Потоковая передача данных из концентраторов событий в хранилище данных
       href: event-grid-event-hubs-integration.md
     - name: Отправка уведомлений о событиях Центра Интернета вещей
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Публикация в пользовательском разделе
-      href: post-to-custom-topic.md
+    - name: Прослушивание событий служебной шины с помощью Функций Azure и Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Шаблоны для подписок на события
       href: event-subscription-template.md
     - name: Мониторинг доставки событий

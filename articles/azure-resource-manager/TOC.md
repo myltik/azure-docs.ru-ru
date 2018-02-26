@@ -3,6 +3,7 @@
 ## [Поставщики и типы ресурсов](resource-manager-supported-services.md)
 ## [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](resource-manager-deployment-model.md)
 ## [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md)
+## [Упорядочение ресурсов с помощью групп управления](management-groups-overview.md)
 
 # Начало работы
 ## [Создание и развертывание шаблона](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
-### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Создание групп управления](management-groups-create.md)
+### [Администрирование групп управления](management-groups-manage.md)
 ### [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md)
 ### [Управляемые приложения](../managed-applications/overview.md)
 

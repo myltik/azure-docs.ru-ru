@@ -19,6 +19,8 @@
 ### [интерфейс командной строки Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Загрузка скриптов конфигурации VPN-устройства](vpn-gateway-download-vpndevicescript.md)
+
 ## Настройка подключений "точка — сеть". Собственная проверка подлинности Azure на основе сертификата
 ### Настройка VPN для подключений "точка — сеть"
 #### [портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

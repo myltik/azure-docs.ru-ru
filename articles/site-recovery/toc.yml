@@ -197,7 +197,7 @@
           items:
             - name: "Исходная среда: из VMware\_в Azure"
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: Развертывание сервера конфигурации для VMware и физических серверов
+            - name: Развертывание сервера конфигурации для аварийного восстановления VMware
               href: how-to-deploy-configuration-server.md
             - name: "Исходная среда: физический компьютер\_в Azure"
               href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
       items:
         - name: Управление серверами обработки в Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: Управление сервером конфигурации
+        - name: Управление сервером конфигурации для аварийного восстановления VMware
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: Управление сервером конфигурации для аварийного восстановления физичесих компьютеров
+          href: physical-manage-configuration-server.md
         - name: Управление серверами vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Управление мультитенантностью с помощью поставщиков облачных решений

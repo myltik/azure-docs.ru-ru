@@ -55,6 +55,8 @@
       items:
         - name: Статический IP-адрес
           href: static-ip.md
+        - name: Входящий трафик с поддержкой TLS
+          href: ingress.md
     - name: Безопасность и проверка подлинности
       items:
         - name: Создание субъекта-службы
