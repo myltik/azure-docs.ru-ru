@@ -3,18 +3,19 @@ title: "Краткое руководство по Azure Stack: создание
 description: "Краткое руководство по Azure Stack: создание виртуальной машины Linux c помощью портала"
 services: azure-stack
 cloud: azure-stack
-author: vhorne
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
-ms.author: victorh
+ms.date: 12/11/2017
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d4aef23e2de327fabb1f0304d8a3db1497d55827
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Создание виртуальной машины Linux с помощью портала Azure Stack
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="create-the-virtual-machine"></a>Создание виртуальной машины
 
-1. Щелкните кнопку **Создать** в верхнем левом углу портала Azure Stack.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure Stack.
 
 2. Выберите **Вычисления**, а затем — **Сервер Ubuntu 16.04 LTS**.
 3. Нажмите кнопку **Создать**.

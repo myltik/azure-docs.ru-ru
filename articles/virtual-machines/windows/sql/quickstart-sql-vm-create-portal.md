@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной машины SQL Server на платформе Windows с помощью портала Azure | Документация Майкрософт"
+title: "Создание виртуальной машины SQL Server на платформе Windows с помощью портала | Документация Майкрософт"
 description: "Это руководство содержит сведения о создании виртуальной машины SQL Server 2017 на базе Windows на портале Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Создание виртуальной машины SQL Server 2017 на платформе Windows с помощью портала Azure
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Краткое руководство по созданию виртуальной машины SQL Server 2017 на платформе Windows с помощью портала Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 В этом кратком руководстве перечислены основные действия по созданию виртуальной машины SQL Server с помощью портала Azure.
 
+> [!TIP]
+> В этом кратком руководстве приводятся инструкции по быстрой подготовке виртуальной машины SQL Server и подключению к ней. Дополнительные сведения о других вариантах подготовки виртуальных машин SQL Server см. в [руководстве по подготовке виртуальных машин SQL Server на платформе Windows с помощью портала Azure](virtual-machines-windows-portal-sql-server-provision.md).
+
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a id="select"></a> Выбор образа виртуальной машины SQL Server
 
 1. Войдите на [портал Azure](https://portal.azure.com) , используя свою учетную запись.
 
-1. На портале Azure нажмите кнопку **Создать**. На портале откроется окно **Создать** .
+1. На портале Azure щелкните **Создать ресурс**. 
 
 1. В поле поиска введите **SQL Server 2017 Developer on Windows Server 2016** и нажмите клавишу ВВОД.
 

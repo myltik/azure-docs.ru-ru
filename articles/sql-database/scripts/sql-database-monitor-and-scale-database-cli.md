@@ -18,7 +18,7 @@ ms.date: 12/14/2017
 ms.author: janeng
 ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/15/2017
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/15/2017
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Используйте [список op az sql db](/cli/azure/sql/db/op?#az_sql_db_op_list) для получения списка операций, выполняемых в базе данных и используйте [az sql db op Отмена](/cli/azure/sql/db/op#az_sql_db_op_cancel) для отмены операции обновления в базе данных.
+> Список операций, выполняемых в базе данных, можно получить при помощи [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list). Чтобы отменить операцию обновления в базе данных, воспользуйтесь [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel).
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
@@ -60,7 +60,7 @@ az group delete --name myResourceGroup
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 |||
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

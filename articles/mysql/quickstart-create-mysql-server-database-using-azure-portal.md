@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: f427b23ca4b48da79759584bdcc98c1002c054c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Создание базы данных Azure для сервера MySQL с помощью портала Azure
 База данных Azure для MySQL — это управляемая служба, которая позволяет запускать, администрировать и масштабировать высокодоступные базы данных MySQL в облаке. В этом кратком руководстве описывается, как за пять минут создать базу данных Azure для сервера MySQL с помощью портала Azure.  
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 Чтобы создать базу данных Azure для сервера MySQL, сделайте следующее:
 
-1. Щелкните **Создать** (+) в левом верхнем углу портала.
+1. Нажмите кнопку **Создать ресурс** (+) в левом верхнем углу окна портала.
 
 2. Выберите **Базы данных** > **База данных Azure для MySQL**. Чтобы найти службу, вы также можете ввести в поле поиска **MySQL**.
 

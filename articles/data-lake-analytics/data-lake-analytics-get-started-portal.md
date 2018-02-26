@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Начало работы с Azure Data Lake Analytics с помощью портала Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 Теперь мы одновременно создадим учетные записи Data Lake Analytics и Data Lake Store.  Этот простой шаг занимает около минуты.
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. Щелкните **Создать** >  **Данные+аналитика** > **Data Lake Analytics**.
+2. Последовательно выберите **Создать ресурс** >  **Данные и аналитика** > **Data Lake Analytics**.
 3. Выберите значения для следующих параметров:
    * **Имя**: имя учетной записи Data Lake Analytics (разрешены только строчные буквы и цифры).
    * **Подписка**: выберите подписку Azure, которая используется для учетной записи аналитики.

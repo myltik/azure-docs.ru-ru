@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Windows в виртуальной сети Azure
 Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric на платформе Windows в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md) и [группе безопасности сети](../virtual-network/virtual-networks-nsg.md) с помощью шаблона и PowerShell. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.  Создание кластера Linux с помощью Azure CLI описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Linux в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/09/2018
 Из этого цикла руководств вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
 > * создание защищенного кластера в Azure;
-> * [свертывание и развертывание кластера](/service-fabric-tutorial-scale-cluster.md);
+> * [свертывание и развертывание кластера](service-fabric-tutorial-scale-cluster.md);
 > * [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
 > * [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/09/2018
 
 Хранилище ключей Azure используется для управления сертификатами кластеров Service Fabric в Azure.  При развертывании кластера в Azure поставщик ресурсов Azure, ответственный за создание кластеров Service Fabric, извлекает сертификаты из хранилища ключей и устанавливает их на виртуальные машины кластера.
 
-В этом руководстве мы развернем кластер с пятью узлами одного типа. Однако при развертывании любого рабочего кластера важно правильно [спланировать его загрузку](service-fabric-cluster-capacity.md). Вот несколько моментов, которые необходимо учесть:
+В этом руководстве рассматривается кластер с пятью узлами одного типа. Однако при развертывании любого рабочего кластера важно правильно [спланировать его загрузку](service-fabric-cluster-capacity.md). Вот несколько моментов, которые необходимо учесть:
 
 - Количество узлов и их типов для создания кластера. 
 - Свойства каждого типа узлов (например, размер, основной тип, возможность подключения из Интернета, количество виртуальных машин и др.).

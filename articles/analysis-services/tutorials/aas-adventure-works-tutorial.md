@@ -15,17 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3bc0ed965aea043fd5c105752ec39d07c4af818f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services — учебник по Adventure Works
 
 Это руководство описывает, как создать и развернуть табличную модель на уровне совместимости 1400 с помощью Visual Studio и [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Если ранее вы не работали со службами Analysis Services и табличным моделированием, с помощью этого руководства вы быстро научитесь создавать и развертывать простые табличные модели с использованием Visual Studio. После установки всех необходимых компонентов прохождение руководства займет около 2–3 часов.  
+Если вы ранее не работали со службами Analysis Services и табличным моделированием, при помощи этого руководства вы быстро научитесь создавать и развертывать простые табличные модели с использованием Visual Studio. После установки всех необходимых компонентов прохождение руководства займет около 2–3 часов.  
   
 ## <a name="what-you-learn"></a>Что вы узнаете   
   
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/13/2018
   
 -   Защита объектов и данных посредством создания ролей с членами в виде пользователей.  
   
--   Развертывание табличной модели на сервере **служб Azure Analysis Services** или на локальном сервере SQL Server 2017 Analysis Services.  
+-   Как развернуть табличную модель на сервере **Azure Analysis Services** или **SQL Server 2017 Analysis Services** при помощи SSDT.  
   
 ## <a name="prerequisites"></a>предварительным требованиям  
 Для работы с этим учебником необходимы указанные ниже компоненты.  

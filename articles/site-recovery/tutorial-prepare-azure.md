@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Подготовка ресурсов Azure для репликации локальных компьютеров
 
@@ -60,8 +60,7 @@ ms.lasthandoff: 01/17/2018
 
 ## <a name="create-a-vault"></a>Создание хранилища
 
-1. В меню портала Azure щелкните **Создать** > **Monitoring & Management** (Мониторинг и управление) >
-   **Backup and Site Recovery** (Служба архивации и Site Recovery).
+1. На портале Azure последовательно выберите **Создать ресурс** > **Мониторинг и управление** > **Backup and Site Recovery**.
 2. В поле **Имя**укажите понятное имя для идентификации хранилища. В этом руководстве мы используем **ContosoVMVault**.
 3. Выберите имеющуюся группу ресурсов с названием **contosoRG**.
 4. В качестве региона Azure укажите **Западная Европа**, который используется в этой серии руководств.
@@ -75,8 +74,7 @@ ms.lasthandoff: 01/17/2018
 
 При создании виртуальных машин Azure из хранилища после отработки отказа они присоединяются к сети.
 
-1. В меню [портала Azure](https://portal.azure.com) щелкните **Создать**>**Сети**>
-   **Виртуальная сеть**.
+1. На [портале Azure](https://portal.azure.com) последовательно выберите **Создать ресурс** > **Сети** > **Виртуальная сеть**.
 2. Оставьте **Resource Manager** в качестве модели развертывания. Resource Manager является предпочтительной моделью развертывания.
    - Укажите имя сети. Имя должно быть уникальным в пределах группы ресурсов Azure. Мы будем использовать имя **ContosoASRnet**.
    - Используйте имеющуюся группу ресурсов под названием **contosoRG**.

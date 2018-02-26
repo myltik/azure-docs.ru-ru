@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 248f26c0562b636caf74409fd76334601931d035
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Подключение веб-приложения к кэшу Redis
 
-Этот образец скрипта создает кэш redis для Azure и Azure веб-приложение. Кэш redis связывает веб-приложения с помощью параметров приложения.
+При помощи этого примера скрипта создается кэш Redis для Azure и веб-приложение Azure. Затем кэш Redis связывается с веб-приложением при помощи параметров приложения.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Если вы решили установить и использовать CLI локально, необходимо Azure CLI версии 2.0 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Если вы решили установить и использовать CLI локально, вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="script-explanation"></a>Описание скрипта
 
-Этот скрипт использует следующие команды для создания группы ресурсов, веб-приложения, кэш redis и все связанные ресурсы. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
+Для создания группы ресурсов, веб-приложения, кэша Redis и всех связанных ресурсов в этом скрипте используются приведенные ниже команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
 | Get-Help | Заметки |
 |---|---|
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/12/2017
 | [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Создает список ключей доступа для экземпляра кэша Redis. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Создает или обновляет параметр приложения для веб-приложения Azure. Параметры приложения представляются в качестве переменных среды для приложения. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

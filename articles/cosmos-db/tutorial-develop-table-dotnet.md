@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Разработка с помощью API таблицы базы данных Azure Cosmos DB на языке .NET
 
@@ -55,7 +55,7 @@ Azure Cosmos DB — это глобально распределенная мн
 - доступность уровня 99,99 % в отдельном регионе и возможность добавлять дополнительные регионы для более высокого уровня доступности, а также [ведущие в отрасли исчерпывающие Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) в общедоступной версии;
 - поддержка имеющегося пакета SDK .NET для службы хранилища Azure и устранение необходимости изменять код приложения.
 
-В этом руководстве описывается API таблиц Azure Cosmos DB с использованием пакета SDK для .NET. Скачать [предварительную версию пакета SDK для хранилища Azure](https://aka.ms/tableapinuget) можно с помощью NuGet.
+В этом руководстве описывается API таблиц Azure Cosmos DB с использованием пакета SDK для .NET. Вы можете скачать [пакет SDK .NET для API таблиц Azure Cosmos DB](https://aka.ms/tableapinuget) из NuGet.
 
 Дополнительные сведения о сложных задачах Хранилища таблиц Azure см. здесь:
 

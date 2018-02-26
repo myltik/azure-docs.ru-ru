@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Создание и фильтрация индекса службы "Поиск Azure", а также отправка запросов к нему
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/05/2017
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. Откройте служебную панель службы поиска Azure. Если вы не закрепили плитку службы на панели мониторинга, ее можно найти следующим образом: 
    
-   * В области навигации слева внизу щелкните **Больше служб**.
+   * В области навигации слева щелкните **Все службы**.
    * В поле поиска введите *поиск*, чтобы получить список служб поиска в своей подписке. Служба появится в списке. 
 
 ## <a name="check-for-space"></a>Проверка доступного пространства

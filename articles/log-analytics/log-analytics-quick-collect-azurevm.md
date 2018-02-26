@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be43701f96a71ad5cd9239c4ec7b3eea7fd6db21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Сбор данных о виртуальных машинах Azure
 [Azure Log Analytics](log-analytics-overview.md) может собирать данные напрямую c виртуальных машин Azure и других ресурсов в среде в один репозиторий для подробного анализа и корреляции.  В этом кратком руководстве показано, как настроить и собирать данные c виртуальных машин под управлением Linux или Windows с помощью нескольких простых действий.  
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Создание рабочей области
-1. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.<br> ![портал Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. На портале Azure щелкните **Все службы**. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.<br> ![портал Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Щелкните **Создать** и задайте следующие параметры:
 
   * Введите имя для новой **рабочей области OMS**, например *DefaultLAWorkspace*. 

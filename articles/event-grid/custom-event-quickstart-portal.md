@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Создание и перенаправление пользовательских событий с помощью портала Azure и службы "Сетка событий"
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/01/2018
 
 Тема содержит определяемую пользователем конечную точку, в которой можно размещать свои события. 
 
-1. Чтобы создать раздел в группе ресурсов, выберите **Больше служб** и выполните поиск *сетки событий*. Выберите **Event Grid Topics** (Разделы сетки событий) из доступных вариантов.
+1. Чтобы создать раздел в группе ресурсов, выберите **Все службы** и выполните поиск по фразе *сетка событий*. Выберите **Event Grid Topics** (Разделы сетки событий) из доступных вариантов.
 
    ![Создание раздела сетки событий](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/01/2018
 
 Подпишитесь на тему, чтобы определить в сетке событий Azure, какие события вам необходимо отслеживать. 
 
-1. Чтобы создать подписку службы "Сетка событий", снова выберите **Больше служб** и выполните поиск *сетки событий*. Выберите **Event Grid Subscriptions** (Подписки службы "Сетка событий") из доступных вариантов.
+1. Чтобы создать подписку службы "Сетка событий", снова выберите **Все службы** и выполните поиск по фразе *сетка событий*. Выберите **Event Grid Subscriptions** (Подписки службы "Сетка событий") из доступных вариантов.
 
    ![Создание подписки для службы "Сетка событий"](./media/custom-event-quickstart-portal/create-subscription.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Основные сведения о получении сообщений с помощью узла EventProcessorHost в .NET Standard
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/03/2018
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure  
 
 1. Войдите на [портале Azure](https://portal.azure.com).  
-2. В области навигации слева на странице портала щелкните **Создать** > **Хранилище** > **Учетная запись хранения**.  
+2. В области навигации слева на странице портала последовательно выберите **Создать ресурс**, **Хранилище** и **Учетная запись хранения**.  
 3. Заполните поля в окне учетной записи хранения и нажмите кнопку **Создать**.
 
     ![Создать учетную запись хранения][1]

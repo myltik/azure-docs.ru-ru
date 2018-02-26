@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Начало работы с Azure Data Lake Store с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/10/2018
 ## <a name="create-an-azure-data-lake-store-account"></a>Создание учетной записи хранения озера данных Azure
 
 1. Войдите на новый [портал Azure](https://portal.azure.com).
-2. Щелкните **СОЗДАТЬ**, щелкните **Данные + хранилище**, а затем — **Azure Data Lake Store**. Ознакомьтесь со сведениями в колонке **Azure Data Lake Store** и нажмите кнопку **Создать** в левом нижнем углу колонки.
+2. Последовательно выберите **Создать ресурс**, **Данные+хранилище** и **Azure Data Lake Store**. Ознакомьтесь со сведениями в колонке **Azure Data Lake Store** и нажмите кнопку **Создать** в левом нижнем углу колонки.
 3. В колонке **Создать Data Lake Store** задайте значения, как показано на следующем снимке экрана:
    
     ![Создание учетной записи Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Создание учетной записи Azure Data Lake")

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-container-service-aks"></a>Мониторинг Службы контейнеров Azure (AKS)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="configure-the-monitoring-solution"></a>Настройка решения для мониторинга
 
-На портале Azure щелкните **Создать** и выполните поиск `Container Monitoring Solution`. Найдя это решение, щелкните **Создать**.
+На портале Azure выберите **Создать ресурс** и выполните поиск по фразе `Container Monitoring Solution`. Найдя это решение, щелкните **Создать**.
 
 ![Добавление решения](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 

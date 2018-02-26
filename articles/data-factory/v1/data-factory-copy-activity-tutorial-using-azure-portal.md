@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Руководство по создания конвейера фабрики данных для копирования данных с помощью портала Azure 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/23/2018
 
 Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования данных из исходного хранилища в целевое или действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные в выходные данные продукта. Начнем с создания фабрики данных.
 
-1. Войдите на [портал Azure](https://portal.azure.com/), нажмите кнопку **Создать** в меню слева, откройте раздел **Данные+аналитика** и щелкните **Фабрика данных**. 
+1. Войдите на [портал Azure](https://portal.azure.com/), нажмите кнопку **Создать ресурс** в меню слева, откройте раздел **Данные и аналитика** и щелкните **Фабрика данных**. 
    
    ![Создать -> Фабрика данных](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. В колонке **Создать фабрику данных** выполните следующие действия.

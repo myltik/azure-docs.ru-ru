@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Мониторинг и диагностика приложения ASP.NET Core в Service Fabric
 Это руководство представляет собой четвертую часть цикла. В нем описывается настройка мониторинга и диагностики приложения ASP.NET Core, запущенного в кластере Service Fabric, с помощью Application Insights. Мы будем собирать данные телеметрии из приложения, разработанного в первой части цикла, [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="set-up-an-application-insights-resource"></a>Настройка ресурса Application Insights
-Application Insights — это платформа для управления производительностью приложений Azure, которую рекомендуется использовать для мониторинга и диагностики приложений в Service Fabric. Чтобы создать ресурс Application Insights, перейдите на [портал Azure](https://portal.azure.com). Щелкните **Создать** в меню навигации слева, чтобы открыть Azure Marketplace. Щелкните **Мониторинг и управление** и выберите **Application Insights**.
+Application Insights — это платформа для управления производительностью приложений Azure, которую рекомендуется использовать для мониторинга и диагностики приложений в Service Fabric. Чтобы создать ресурс Application Insights, перейдите на [портал Azure](https://portal.azure.com). Щелкните **Создать ресурс** в меню навигации слева, чтобы открыть Azure Marketplace. Щелкните **Мониторинг и управление** и выберите **Application Insights**.
 
 ![Создание ресурса Application Insights](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 

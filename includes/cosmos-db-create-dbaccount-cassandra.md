@@ -1,5 +1,5 @@
 1. В новом окне браузера войдите на [портал Azure](https://portal.azure.com/).
-2. Последовательно выберите элементы **Создать** > **Базы данных** > **Azure Cosmos DB**.
+2. Последовательно выберите **Создать ресурс** > **Базы данных** > **Azure Cosmos DB**.
    
    ![Область "Базы данных" на портале Azure](./media/cosmos-db-create-dbaccount-cassandra/create-nosql-db-databases-json-tutorial-1.png)
 

@@ -17,7 +17,7 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 | |  |
 |---|---|
 |**Создание учетной записи, базы данных и контейнеров Azure Cosmos DB**||
-|[Создание учетной записи SQL API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Создает одной учетной записи Azure Cosmos DB API, базы данных и контейнер для использования с API-Интерфейсы SQL. |
+|[Создание учетной записи API SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Создание одной учетной записи, базы данных и контейнера с помощью API Azure Cosmos DB для использования с API SQL. |
 | [Создание учетной записи API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Создание отдельной учетной записи, базы данных и коллекции API MongoDB в Azure Cosmos DB. |
 |**Масштабирование Azure Cosmos DB**||
 | [Масштабирование пропускной способности контейнера](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Изменение подготовленной пропускной способности контейнера.|

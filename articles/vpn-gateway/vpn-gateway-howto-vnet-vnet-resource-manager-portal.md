@@ -4,7 +4,7 @@ description: "Создайте подключение VPN-шлюза между 
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Настройка подключения VPN-шлюза между виртуальными сетями на портале Azure
 
-В этой статье объясняется, как подключить одну виртуальную сеть к другой, используя подключение "виртуальная сеть — виртуальная сеть". Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. При подключении виртуальных сетей из разных подписок подписки не обязательно должны быть связаны с одним и тем же клиентом Active Directory. 
+Эта статья поможет установить подключение "виртуальная сеть — виртуальная сеть" между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. При подключении виртуальных сетей из разных подписок подписки не обязательно должны быть связаны с одним и тем же клиентом Active Directory. 
 
 Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager и используют портал Azure. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 

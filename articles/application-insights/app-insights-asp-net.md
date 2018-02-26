@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8922759295928a59114fcea55470d113d59b9387
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Настройка Application Insights для веб-сайта ASP.NET
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/22/2018
 ## <a name="prerequisites"></a>предварительным требованиям
 Чтобы добавить Application Insights для веб-сайта ASP.NET, сделайте следующее:
 
-- Установите [Visual Studio 2017](https://www.visualstudio.com/downloads/) с указанными ниже рабочими нагрузками:
+- Установите [Visual Studio 2017 для Windows](https://www.visualstudio.com/downloads/) со следующими рабочими нагрузками:
     - ASP.NET и веб-разработка.
     - разработка Azure;
 

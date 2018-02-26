@@ -5,7 +5,7 @@
 
 1. Войдите на [портал Azure](https://portal.azure.com/) с помощью данных своей учетной записи Майкрософт.
 
-2. На портале Azure щелкните **+**, а затем в Marketplace выберите **Просмотреть все**.
+2. На портале Azure щелкните **Создать ресурс**, а затем в Marketplace выберите **See all** (Просмотреть все).
 
     ![Создание диспетчера устройств StorSimple](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

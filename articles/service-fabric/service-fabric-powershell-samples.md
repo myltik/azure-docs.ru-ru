@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: 1825b2a58e1022f22c71395477a5fca54c715455
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/14/2017
 |-|-|
 | **Создать кластер** ||
 | [Создание кластера (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Создает кластер Azure Service Fabric. |
-|[Создание кластера теста (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Создает кластер Service Fabric тестов с тремя узлами в Azure.|
+|[Создание тестового кластера (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Создание в Azure тестового кластера Service Fabric с тремя узлами.|
 | **Управление кластером, узлами и инфраструктурой** ||
 | [Добавление сертификата приложения](./scripts/service-fabric-powershell-add-application-certificate.md)| Добавляет сертификат X.509 приложения на все узлы в кластере. |
 | [Обновление диапазона портов RDP на виртуальных машинах кластера](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Изменяет диапазон портов RDP на виртуальных машинах узла кластера в развернутом кластере.|

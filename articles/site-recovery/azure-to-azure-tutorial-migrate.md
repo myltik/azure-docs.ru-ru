@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
-ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Перенос виртуальных машин Azure в другой регион
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/13/2018
 Создайте хранилище в любом регионе, за исключением исходного.
 
 1. Войдите на [портал Azure](https://portal.azure.com) > **Службы восстановления**.
-2. Щелкните **Создать** > **Мониторинг и управление** > **Backup and Site Recovery** (Служба архивации и Site Recovery).
+2. Последовательно выберите **Создать ресурс** > **Мониторинг и управление** > **Backup and Site Recovery**.
 3. В поле **Имя** укажите понятное имя **ContosoVMVault**. Если у вас есть несколько подписок, выберите нужную.
 4. Создайте группу ресурсов **ContosoRG**.
 5. Укажите регион Azure. Сведения о поддерживаемых регионах см. в разделе "Географическая доступность" на странице [цен на службу Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

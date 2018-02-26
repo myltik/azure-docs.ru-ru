@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Создание балансировщика нагрузки для Интернета на портале Azure
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/18/2017
 > В этом примере предполагается, что у вас уже есть виртуальная сеть с именем **myVNet**. Если нет, то см. статью о [создании виртуальной сети](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Также предполагается, что в сети **myVNet** есть подсеть с именем **LB-Subnet-BE**, а также есть две виртуальные машины **web1** и **web2**, которые входят в одну группу доступности **myAvailSet** в сети **myVNet**. Чтобы создать виртуальные машины, перейдите по [этой ссылке](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 1. В браузере откройте портал Azure ( [http://portal.azure.com](http://portal.azure.com) ) и войдите, используя учетную запись Azure.
-2. В верхней левой части экрана щелкните **Создать** > **Сети** > **Балансировщик нагрузки**.
+2. В верхней части экрана слева последовательно выберите **Создать ресурс** > **Сети** > **Подсистема балансировки нагрузки**.
 3. В колонке **Создание подсистемы балансировки нагрузки** введите имя для балансировщика нагрузки. Здесь он назван **myLoadBalancer**.
 4. В разделе **Тип** выберите **Общедоступный**.
 5. В разделе **Общедоступный IP-адрес** создайте общедоступный IP-адрес с именем **myPublicIP**.

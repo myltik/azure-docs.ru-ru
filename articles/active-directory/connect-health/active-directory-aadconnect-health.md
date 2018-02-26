@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Мониторинг локальной инфраструктуры идентификации и служб синхронизации в облаке.
 Служба Azure Active Directory (Azure AD) Connect Health помогает отслеживать локальную инфраструктуру идентификации и службы синхронизации. Она обеспечивает надежное подключение к службам Office 365 и Microsoft Online Services и предоставляет возможности мониторинга ключевых компонентов идентификации, таких как серверы служб федерации Active Directory (AD FS), серверы Azure AD Connect (также называемые модулями синхронизации), контроллеры домена Active Directory и т. п. С помощью этой службы пользователи могут с легкостью получить доступ к общим сведениям о компонентах, в частности к информации об использовании и другим важным данным, необходимым для принятия обоснованных решений.
@@ -110,7 +110,7 @@ Azure AD Connect Health для доменных служб Active Directory (AD 
 На портале Azure AD Connect Health можно просматривать оповещения, отслеживать производительность и аналитику использования. URL-адрес https://aka.ms/aadconnecthealth перенаправит вас в главную колонку Azure AD Connect Health. Ее можно считать окном. В главной колонке отображается элемент **быстрого запуска**, раздел со службами Azure AD Connect Health и дополнительные параметры конфигурации. Просмотрите снимок экрана колонки ниже и ознакомьтесь с кратким описанием содержащихся в ней элементов. После развертывания агентов служба работоспособности автоматически определит службы, отслеживаемые в Azure AD Connect Health.
 
 > [!NOTE]
-> Сведения о лицензировании см. в статье [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md) или [на странице цен на Azure AD](https://aka.ms/aadpricing).
+> Сведения о лицензировании см. в статье [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md) или [на странице с ценами на Azure AD](https://aka.ms/aadpricing).
     
 ![Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 

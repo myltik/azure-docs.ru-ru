@@ -2,23 +2,19 @@
 title: "Обеспечение высокой доступности данных приложений в Azure | Документация Майкрософт"
 description: "Использование геоизбыточного хранилища с доступом на чтение для обеспечения высокой доступности данных приложений"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Обеспечение высокой доступности данных приложений в хранилище Azure
 
@@ -64,7 +60,7 @@ ms.lasthandoff: 02/13/2018
 
 Выполните следующие действия, чтобы создать учетную запись хранения геоизбыточного хранилища с доступом на чтение:
 
-1. Нажмите кнопку **Создать** в верхнем левом углу портала Azure.
+1. Нажмите кнопку **Создать ресурс** в верхнем левом углу окна портала Azure.
 
 2. Щелкните **Хранилище** на странице **Создать** и выберите **Учетная запись хранения — BLOB-объект, файл, таблица, очередь** на вкладке **Избранные**.
 3. Заполните форму учетной записи хранения следующей информацией, как показано в изображении ниже, и нажмите кнопку **Создать**:

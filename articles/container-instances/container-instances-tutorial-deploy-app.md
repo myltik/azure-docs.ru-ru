@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Развертывание контейнера в службе "Экземпляры контейнеров Azure"
 
@@ -50,13 +50,15 @@ az acr show --name <acrName> --query loginServer
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Чтобы развернуть образ контейнера из реестра контейнеров с запросом ресурсов (одно ядро ЦП и 1 ГБ памяти), выполните следующую команду. Замените `<acrLoginServer>` и `<acrPassword>` значениями, полученными посредством предыдущих двух команд.
+Чтобы развернуть образ контейнера из реестра контейнеров с запросом ресурсов (одно ядро ЦП и 1 ГБ памяти), выполните следующую команду. Замените `<acrLoginServer>` и `<acrPassword>` значениями, полученными посредством предыдущих двух команд. Замените `<acrName>` именем реестра контейнеров.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-В течение нескольких секунд вы получите исходный ответ Azure Resource Manager. Чтобы просмотреть состояние развертывания, используйте команду [az container show][az-container-show]:
+В течение нескольких секунд вы получите исходный ответ Azure Resource Manager. Значение `--dns-name-label` должно быть уникальным в пределах региона Azure, в котором создается экземпляр контейнера. Если при выполнении команды появится сообщение об ошибке **Метка DNS-имени**, обновите значение в предыдущем примере.
+
+Чтобы просмотреть состояние развертывания, используйте команду [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
@@ -66,15 +68,15 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 ## <a name="view-the-application-and-container-logs"></a>Просмотр приложения и журналов контейнера
 
-После успешного развертывания отобразите общедоступный IP-адрес контейнера командой [az container show][az-container-show]:
+После успешного развертывания отобразите полное доменное имя контейнера (FQDN) с помощью команды [az container show][az-container-show]:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Пример выходных данных: `"13.88.176.27"`
+Пример выходных данных: `"aci-demo.eastus.azurecontainer.io"`
 
-Чтобы увидеть работающее приложение, перейдите по общедоступному IP-адресу в своем браузере.
+Чтобы увидеть работающее приложение, перейдите к полученному DNS-имени в любом браузере:
 
 ![Приложение Hello World в браузере][aci-app-browser]
 

@@ -17,7 +17,7 @@ ms.date: 10/16/2017
 ms.author: mimig
 ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 | |  |
 |---|---|
 |**Создание учетной записи Azure Cosmos DB**||
-|[Создание учетной записи SQL API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создается одна учетная запись Azure Cosmos DB для использования с API-Интерфейсы SQL. |
+|[Создание учетной записи API SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создание одной учетной записи Azure Cosmos DB для использования с API SQL. |
 |**Масштабирование Azure Cosmos DB**||
 |[Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using PowerShell](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Репликация учетной записи базы данных Azure Cosmos DB в нескольких регионах и настройка приоритетов отработки отказа с помощью PowerShell)|Глобально реплицирует данные учетной записи в нескольких регионах с указанным приоритетом отработки отказа.|
 |**Безопасность базы данных Azure Cosmos DB**||

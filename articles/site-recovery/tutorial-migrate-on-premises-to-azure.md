@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Миграция локальных компьютеров в Azure
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
 
 1. Войдите на [портал Azure](https://portal.azure.com) > **Службы восстановления**.
-2. Щелкните **Создать** > **Мониторинг и управление** > **Backup and Site Recovery** (Служба архивации и Site Recovery).
+2. Последовательно выберите **Создать ресурс** > **Мониторинг и управление** > **Backup and Site Recovery**.
 3. В поле **Имя** укажите понятное имя **ContosoVMVault**. Если у вас есть несколько подписок, выберите нужную.
 4. Создайте группу ресурсов **ContosoRG**.
 5. Укажите регион Azure. Сведения о поддерживаемых регионах см. в разделе "Географическая доступность" на странице [цен на службу Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/18/2018
 
 - [Настройте](tutorial-vmware-to-azure.md#set-up-the-source-environment) исходную среду для виртуальных машин VMware.
 - [Настройте](tutorial-physical-to-azure.md#set-up-the-source-environment) исходную среду для физических серверов.
-- [Настройте](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) исходную среду для виртуальных машин Hyper-V.
+- [Настройте](hyper-v-azure-tutorial.md#set-up-the-source-environment) исходную среду для виртуальных машин Hyper-V.
 
 ## <a name="set-up-the-target-environment"></a>Настройка целевой среды
 
@@ -86,14 +86,14 @@ ms.lasthandoff: 01/18/2018
 
 - [Настройте политику репликации](tutorial-vmware-to-azure.md#create-a-replication-policy) для виртуальных машин VMware.
 - [Настройте политику репликации](tutorial-physical-to-azure.md#create-a-replication-policy) для физических серверов.
-- [Настройте политику репликации](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) для виртуальных машин Hyper-V.
+- [Настройте политику репликации](hyper-v-azure-tutorial.md#set-up-a-replication-policy) для виртуальных машин Hyper-V.
 
 
 ## <a name="enable-replication"></a>Включение репликации
 
 - [Включите репликацию](tutorial-vmware-to-azure.md#enable-replication) виртуальных машин VMware.
 - [Включите репликацию](tutorial-physical-to-azure.md#enable-replication) для физических серверов.
-- [Включите репликацию](tutorial-hyper-v-to-azure.md#enable-replication) для виртуальных машин Hyper-V.
+- [Включите репликацию](hyper-v-azure-tutorial.md#enable-replication) для виртуальных машин Hyper-V.
 
 
 ## <a name="run-a-test-migration"></a>Выполнение тестовой миграции

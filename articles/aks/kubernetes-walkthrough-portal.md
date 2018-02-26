@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="create-aks-cluster"></a>Создание кластера AKS
 
-Выберите **Создать** > **Контейнеры** > **Служба контейнеров Azure — AKS (предварительная версия)**.
+Выберите **Создать ресурс** > **Контейнеры** > **Azure Container Service - AKS (preview)** (Служба контейнеров Azure — AKS (предварительная версия)).
 
 Укажите данные для кластера: имя, префикс DNS, имя группы ресурсов, расположение и версию Kubernetes. Запишите имя кластера и имя группы ресурсов. Они понадобятся вам при подключении к кластеру.
 

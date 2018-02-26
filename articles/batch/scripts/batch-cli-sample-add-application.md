@@ -1,60 +1,61 @@
 ---
-title: "Пример сценария Azure CLI для добавления приложения в пакетную службу | Документация Майкрософт"
-description: "Пример сценария Azure CLI для добавления приложения в пакетную службу."
+title: "Пример скрипта Azure CLI для добавления приложения в пакетную службу | Документация Майкрософт"
+description: "Пример скрипта Azure CLI для добавления приложения в пакетную службу"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: 348e94e745350173196aeb64df3a814a05dd9144
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Добавление приложений в пакетную службу Azure с помощью Azure CLI
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Пример использования CLI: добавление приложения в учетную запись пакетной службы Azure
 
-Этот сценарий демонстрирует настройку приложения для использования в пуле или задаче пакетной службы Azure. Чтобы настроить приложение, упакуйте его исполняемый файл и зависимые компоненты в ZIP-файл. В этом примере ZIP-файл с исполняемым файлом называется my-приложения-exe.zip.
+В этом скрипте показано, как добавить приложение для использования в пуле или задаче пакетной службы Azure. Чтобы настроить приложение для его добавления в учетную запись пакетной службы, упакуйте его исполняемый файл и зависимые компоненты в ZIP-файл. 
 
-## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Установите Azure CLI с помощью инструкций, приведенных в [руководстве по установке Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), если вы этого еще не сделали.
-- Создайте учетную запись пакетной службы, если у вас ее еще нет. Пример скрипта создания учетной записи см. в статье [Создание учетной записи пакетной службы с помощью Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account).
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0.20 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Пример скрипта
+## <a name="example-script"></a>Пример сценария
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
-## <a name="clean-up-application"></a>Очистка приложения
+## <a name="clean-up-deployment"></a>Очистка развертывания
 
-После запуска приведенного выше примера сценария выполните следующие команды, чтобы удалить приложение и все его переданные пакеты приложения.
+Выполните следующую команду, чтобы удалить группу ресурсов и все связанные с ней ресурсы.
 
-```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Описание скрипта
 
-Этот сценарий использует приведенные ниже команды для создания приложения и передачи пакета приложения.
+Этот скрипт использует следующие команды.
 Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Создает приложение.  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Обновляет свойства приложения.  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Добавляет пакет приложения в указанное приложение.  |
+| [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Создание учетной записи хранения. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Создает учетную запись пакетной службы. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Выполняет проверку подлинности с помощью указанной учетной записи пакетной службы для дальнейшего взаимодействия с интерфейсом командной строки.  |
+| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Создает приложение.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Добавляет пакет приложения в указанное приложение.  |
+| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Обновляет свойства приложения.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Дополнительные примеры скриптов для интерфейса командной строки пакетной службы см. в [документации по интерфейсу командной строки пакетной службы Azure](../batch-cli-samples.md).

@@ -18,7 +18,7 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/12/2017
 | | |
 |-|-|
 |**Создание приложения**||
-| [Создание веб-приложения и развертывание файлов по протоколу FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Создает веб-приложение Azure и развертывает файл с помощью FTP. |
+| [Создание веб-приложения и развертывание файлов с помощью протокола FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Создание веб-приложения Azure и развертывание файла с использованием протокола FTP. |
 | [Создание веб-приложения и развертывание кода из GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Создает веб-приложение Azure и развертывает код из общедоступного репозитория GitHub. |
 | [Создание веб-приложения с непрерывным развертыванием из GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Создает веб-приложение Azure с непрерывной публикацией из репозитория GitHub, владельцем которого вы являетесь. |
 | [Создание веб-приложения и развертывание кода из локального репозитория Git](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Создает веб-приложение Azure и настраивает отправку кода из локального репозитория Git. |
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/12/2017
 |**Резервное копирование и восстановление приложения**||
 | [Резервное копирование веб-приложения](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Создание веб-приложения Azure и однократное создание его резервной копии. |
 | [Создание резервной копии веб-приложения по расписанию](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Создание веб-приложения Azure и запланированное создание его резервной копии. |
-| [Восстановление из резервной копии веб-приложения](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Восстановление веб-приложение Azure из резервной копии. |
+| [Восстановление веб-приложения из резервной копии](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Восстановление веб-приложения Azure из резервной копии. |
 |**Мониторинг приложения**||
 | [Мониторинг веб-приложения с помощью журналов веб-сервера](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Создает веб-приложение Azure, включает ведение журналов и скачивает их на локальный компьютер. |
 | | |

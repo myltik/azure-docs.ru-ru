@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 0f60c4cd03a5728dc81cb43e02c8486b15221851
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-storage-account"></a>Подключение веб-приложения к учетной записи хранения
 
-Этот образец скрипта создает учетную запись хранилища Azure и Azure веб-приложение. Учетная запись хранения связывает веб-приложения с помощью параметров приложения.
+При помощи этого примера скрипта создается учетная запись хранения Azure и веб-приложение Azure. Затем учетная запись хранения связывается с веб-приложением при помощи параметров приложения.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать CLI локально, необходимо Azure CLI версии 2.0 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Если вы решили установить и использовать CLI локально, вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="sample-script"></a>Пример скрипта
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="script-explanation"></a>Описание скрипта
 
-Этот скрипт использует следующие команды для создания группы ресурсов, веб-приложения, учетной записи хранилища и все связанные ресурсы. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
+Для создания группы ресурсов, веб-приложения, учетной записи хранения и всех связанных ресурсов в этом скрипте используются приведенные ниже команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
 | Get-Help | Заметки |
 |---|---|
@@ -49,10 +49,10 @@ ms.lasthandoff: 12/12/2017
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Создает план службы приложений. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Создает веб-приложение Azure. |
 | [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) | Создание учетной записи хранения. |
-| [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string) | Получите строку подключения для учетной записи хранения. |
+| [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string) | Получение строки подключения для учетной записи хранения. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Создает или обновляет параметр приложения для веб-приложения Azure. Параметры приложения представляются в качестве переменных среды для приложения. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 11b5d1bc4e931ad902b623fe55e62097ae40d8ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Приступая к использованию Azure AD Privileged Identity Management
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com/) как глобальный администратор нужного каталога.
 2. Если в организации имеется несколько каталогов, выберите свое имя пользователя в правом верхнем углу на портале Azure. Выберите каталог, где необходимо использовать PIM.
-3. Выберите **Другие службы** и в текстовое поле "Фильтр" введите **Azure AD Privileged Identity Management**.
+3. Выберите **Все службы** и введите **Azure AD Privileged Identity Management** в текстовом поле "Фильтр".
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Откроется приложение Privileged Identity Management.
 
 Если вы первый пользователь, использующий Azure Active Directory Privileged Identity Management в каталоге, вам автоматически назначаются роли **Администратор безопасности** и **Администратор привилегированных ролей** в этом каталоге. Только администраторы привилегированных ролей могут управлять назначением ролей в каталоге Azure AD для пользователей. Кроме того, вы можете запустить [мастер защиты](active-directory-privileged-identity-management-security-wizard.md), который поможет вам выполнить первое обнаружение и назначение.

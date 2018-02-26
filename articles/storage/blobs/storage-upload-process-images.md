@@ -3,22 +3,20 @@ title: "Передача данных изображений в облако с 
 description: "Использование хранилища больших двоичных объектов Azure с веб-приложением для хранения данных приложения"
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Передача данных изображений в облако с помощью службы хранилища Azure
 
@@ -67,7 +65,7 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Создание контейнеров хранилища BLOB-объектов
  
-Приложение использует два типа контейнеров в учетной записи хранилища больших двоичных объектов. Контейнеры похожи на папки и используются для хранения больших двоичных объектов. Контейнер _изображений_ — это контейнер, в который отправляются изображения с высоким разрешением. На более поздних этапах этой серии приложение-функция Azure будет отправлять измененный эскиз изображения в контейнер _эскизов_. 
+Приложение использует два типа контейнеров в учетной записи хранилища больших двоичных объектов. Контейнеры похожи на папки и используются для хранения больших двоичных объектов. Контейнер _изображений_ — это контейнер, в который отправляются изображения с высоким разрешением. В одной из последующих статей этой серии приложение-функция Azure будет отправлять эскизы изображений измененного размера в контейнер _эскизов_. 
 
 Получите ключи своей учетной записи хранения с помощью команды [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Затем используйте этот ключ для создания двух контейнеров с помощью команды [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ az webapp deployment source config --name <web_app> \
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,11 +194,11 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 Для проверки просмотра эскизов отправьте изображение в контейнер эскизов, чтобы убедиться, что приложение может считывать контейнер эскизов.
 
-Войдите на [портале Azure](https://portal.azure.com). В меню слева выберите **Учетные записи хранения**, а затем имя своей учетной записи хранения. Выберите **Контейнеры** в разделе **Blob Service** (Служба BLOB-объектов) и выберите контейнер **эскизов**. Щелкните **Отправить**, чтобы открыть область **Передать BLOB-объект**.
+Войдите на [портале Azure](https://portal.azure.com). В меню слева выберите **Учетные записи хранения**, а затем имя своей учетной записи хранения. В разделе **Служба BLOB-объектов** щелкните **Контейнеры**, а затем выберите контейнер **эскизов**. Щелкните **Отправить**, чтобы открыть область **Передать BLOB-объект**.
 
 С помощью средства выбора файлов выберите файл и щелкните **Отправить**.
 
-Вернитесь к своему приложению и убедитесь, что изображение, отправленное в контейнер **эскизов**, видимое.
+Вернитесь к своему приложению и убедитесь, что изображение, отправленное в контейнер **эскизов**, отображается.
 
 ![Представление контейнера изображений](media/storage-upload-process-images/figure2.png)
 

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Проектирование первой базы данных Azure для PostgreSQL с помощью портала Azure
 
@@ -40,9 +40,9 @@ ms.lasthandoff: 11/06/2017
 
 Сервер базы данных Azure для PostgreSQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](./concepts-compute-unit-and-storage.md). Он создается в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md).
 
-Чтобы создать сервер базы данных Azure для PostgreSQL, сделайте следующее:
-1.  Щелкните **+ Создать** в верхнем левом углу портала Azure.
-2.  Выберите **Базы данных** на странице **создания** и щелкните **Azure Database for PostgreSQL** (База данных Azure для PostgreSQL) на странице **Базы данных**.
+Чтобы создать базу данных Azure для сервера PostgreSQL, сделайте следующее:
+1.  Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
+2.  На странице **создания** выберите **Базы данных**, а на странице **Базы данных** щелкните **Azure Database for PostgreSQL** (База данных Azure для PostgreSQL).
  ![База данных Azure для PostgreSQL. Создание базы данных](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  Заполните форму сведений о новом сервере, указав следующую информацию, как показано на предыдущем рисунке.

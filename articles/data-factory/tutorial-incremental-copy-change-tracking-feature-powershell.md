@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d2cf578d6328e6e53d1081b9ab4de3ad262390df
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Добавочная загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure с использованием сведений об отслеживания изменений 
 Из этого руководстве вы узнаете, как создать фабрику данных Azure с конвейером, который копирует разностные данные на основе сведений об **отслеживании изменений** в базе данных-источнике SQL Azure в хранилище BLOB-объектов Azure.  
@@ -26,8 +26,8 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * подготовите исходное хранилище данных;
-> * Создадите фабрику данных.
-> * создание связанных служб. 
+> * создадите фабрику данных;
+> * создадите связанные службы; 
 > * создадите источник, приемник и наборы данных отслеживания изменений;
 > * создадите, запустите и начнете мониторинг конвейера полного копирования;
 > * добавите или обновите данные в исходной таблице;
@@ -150,7 +150,7 @@ ms.lasthandoff: 01/23/2018
 ### <a name="azure-powershell"></a>Azure PowerShell
 Чтобы установить модули Azure PowerShell, выполните инструкции из статьи [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
    
      ```powershell
@@ -445,7 +445,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 ### <a name="monitor-the-full-copy-pipeline"></a>Мониторинг конвейера полного копирования
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Щелкните **Другие службы**, выполните поиск по ключевому слову `data factories` и выберите **Фабрики данных**. 
+2. Щелкните **Все службы**, выполните поиск по ключевому слову `data factories` и выберите **Фабрики данных**. 
 
     ![Меню "Фабрики данных"](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
 3. Найдите и выберите в списке свою **фабрику данных**, чтобы открыть страницу "Фабрика данных". 

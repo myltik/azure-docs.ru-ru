@@ -18,20 +18,20 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 9412b7175cc8e6879779bc923aa6b40d01125df7
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>Создание веб-приложения ASP.NET Core в контейнере Docker из реестра контейнеров Azure
 
-Этот образец скрипта создает группу ресурсов, план служб приложений Linux и веб-приложения. Затем он развертывает приложения ASP.NET Core с помощью контейнера Docker из реестра контейнера Azure.
+При помощи этого примера скрипта создается группа ресурсов, план службы приложений Linux и веб-приложение. Затем приложение ASP.NET Core развертывается с использованием контейнера Docker из реестра контейнеров Azure.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать CLI локально, необходимо Azure CLI версии 2.0 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Если вы решили установить и использовать CLI локально, вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/12/2017
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Создает веб-приложение Azure. |
 | [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) | Настраивает контейнер Docker для веб-приложения Azure. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

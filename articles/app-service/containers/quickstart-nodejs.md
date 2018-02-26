@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0013b3b1e95d733191aeafcffcda078a352d034f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 33889e391d3060f08294f81b35f180c1318d9f4c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Создание веб-приложения Node.js в службе приложений Azure в Linux
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/03/2018
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-Выполните инструкции, приведенные в этом руководстве, на компьютере Mac, Windows или Linux.
+Выполните инструкции, приведенные в этом руководстве, на компьютере Mac, Windows или Linux. Или вы можете следовать указаниям в [видео](#video) по этой теме.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -180,6 +180,10 @@ git push azure master
 В меню слева доступно несколько страниц для настройки приложения. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="video"></a>Видео
+
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## <a name="next-steps"></a>Дополнительная информация
 

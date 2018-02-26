@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Начало работы с разделами служебной шины
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/03/2018
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Создание раздела с помощью портала Azure
 
 1. Войдите на [портал Azure][azure-portal].
-2. В левой области навигации портала щелкните **Служебная шина**. Если элемент **Служебная шина** не отображается, щелкните **Больше служб** или **Все ресурсы**. Щелкните пространство имен, в котором хотите создать раздел. 
+2. В левой области навигации портала щелкните **Служебная шина**. Если элемент **Служебная шина** не отображается, щелкните **Все службы** или **All resources** (Все ресурсы). Щелкните пространство имен, в котором хотите создать раздел. 
 3. Откроется окно обзора пространства имен. Щелкните **Разделы**.
    
     ![Создание раздела][createtopic1]

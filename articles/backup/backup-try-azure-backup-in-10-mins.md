@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Первое знакомство. Резервное копирование файлов и папок с использованием модели развертывания с помощью Resource Manager
 В этой статье описывается, как выполнить резервное копирование файлов и папок Windows Server (на компьютере с Windows) в Azure с помощью службы архивации Azure, используя модель развертывания с помощью Resource Manager. В этом руководстве приведены общие сведения, и с помощью него вы сможете опробовать службу архивации Azure.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="to-create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
 1. Используя подписку Azure, войдите на [портал Azure](https://portal.azure.com/) (если вы еще этого не сделали).
-2. В главном меню щелкните **Другие службы**, а затем в списке ресурсов введите **Службы восстановления** и щелкните **Хранилища служб восстановления**.
+2. В главном меню щелкните **Все службы**, а затем в списке ресурсов введите **Службы восстановления** и щелкните **Хранилища служб восстановления**.
 
     ![Создание хранилища служб восстановления — шаг 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

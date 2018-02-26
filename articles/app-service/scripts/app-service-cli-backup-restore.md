@@ -1,6 +1,6 @@
 ---
-title: "Пример сценария Azure CLI - восстановление из резервной копии веб-приложения | Документы Microsoft"
-description: "Пример сценария Azure CLI - восстановление из резервной копии веб-приложения"
+title: "Пример сценария Azure CLI. Восстановление веб-приложения из резервной копии | Документация Майкрософт"
+description: "Пример сценария Azure CLI. Восстановление веб-приложения из резервной копии"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,7 +16,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: bec915f3e321cf2422f7cc2cad3ce1dfb6b3317a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать CLI локально, необходимо Azure CLI версии 2.0 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать CLI локально, вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/08/2017
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Получение списка резервных копий веб-приложения. |
 | [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Восстановление веб-приложения из резервной копии. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

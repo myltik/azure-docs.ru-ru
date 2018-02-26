@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell скрипт-создать учетную запись базы данных SQL Azure Cosmos API | Документы Microsoft"
-description: "Сценарий Azure PowerShell пример — создание учетной записи базы данных SQL Azure Cosmos API"
+title: "Создание учетной записи API SQL для Azure Cosmos DB с помощью скрипта Azure PowerShell | Документация Майкрософт"
+description: "Пример скрипта Azure PowerShell для создания учетной записи API SQL для Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -18,11 +18,11 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: Создайте учетную запись SQL API с помощью PowerShell
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: создание учетной записи API SQL с помощью PowerShell
 
 Этот пример сценария PowerShell создает учетную запись API для Azure Cosmos DB. 
 
@@ -51,7 +51,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 |||
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о Azure PowerShell см. в [документации по Azure PowerShell](https://docs.microsoft.com/powershell/).
 

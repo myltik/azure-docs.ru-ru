@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Запуск мониторинга веб-приложения Node.js
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 12/13/2017
 
 В Application Insights можно собирать данные телеметрии из любого подключенного к Интернету приложения, независимо от того, работает оно локально или в облаке. Чтобы просмотреть эти данные, сделайте следующее.
 
-1. Выберите **Создать** > **Monitoring + Management** (Мониторинг + управление)  > **Application Insights**.
+1. Последовательно выберите **Создать ресурс** > **Мониторинг и управление** > **Application Insights**.
 
    ![Добавления ресурса Application Insights](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   Появится окно настроек. Используйте таблицу ниже для заполнения полей ввода.
+   Откроется окно настроек, в котором нужно заполнить все поля в соответствии с приведенной ниже таблицей.
 
     | Параметры        | Значение           | ОПИСАНИЕ  |
    | ------------- |:-------------|:-----|

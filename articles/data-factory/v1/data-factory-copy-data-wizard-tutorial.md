@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 462038d21ea061e7cff8322ab4ce12f45844dca7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/23/2018
 На этом шаге с помощью портала Azure создается фабрика данных с именем **ADFTutorialDataFactory**.
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. В верхнем левом углу нажмите кнопку **+ Создать**, выберите **Данные+аналитика** и щелкните **Фабрика данных**. 
+2. В верхнем левом углу нажмите кнопку **Создать ресурс**, выберите **Данные и аналитика** и щелкните **Фабрика данных**. 
    
    ![Создать -> Фабрика данных](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. В колонке **Создать фабрику данных** выполните следующие действия.

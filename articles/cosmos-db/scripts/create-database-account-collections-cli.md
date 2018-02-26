@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI-Создание скрипта базы данных SQL Azure Cosmos API учетную запись базы данных и коллекции | Документы Microsoft"
-description: "Сценарий Azure CLI пример — создание базы данных SQL Azure Cosmos API учетной записи, базы данных и коллекции"
+title: "Создание учетной записи, базы данных и коллекции API SQL для Azure Cosmos DB с помощью скрипта Azure CLI | Документация Майкрософт"
+description: "Пример скрипта Azure CLI для создания учетной записи, базы данных и коллекции API SQL в Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 3e66515c88b5b2a24d72ff5f40cd822521a71bcf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: Создайте учетную запись SQL API с использованием интерфейса CLI
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: создание учетной записи API SQL с помощью интерфейса командной строки
 
-Этот пример скрипта CLI создает учетную запись базы данных SQL Azure Cosmos API, базы данных и коллекции.  
+При помощи этого примера скрипта CLI создается учетная запись, база данных и коллекция API SQL в Azure Cosmos DB.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -48,11 +48,11 @@ az group delete --name myResourceGroup
 
 | Get-Help | Заметки |
 |---|---|
-| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az cosmosdb create](/cli/azure/cosmosdb#create) | Создает учетную запись Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+| [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Создает учетную запись Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

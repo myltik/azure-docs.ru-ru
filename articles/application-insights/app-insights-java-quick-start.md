@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Запуск мониторинга веб-приложения Java
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 12/08/2017
 
 В Application Insights можно собирать данные телеметрии из любого подключенного к Интернету приложения, независимо от того, работает оно локально или в облаке. Чтобы просмотреть эти данные, сделайте следующее.
 
-1. Выберите **Создать** > **Monitoring + Management** (Мониторинг + управление)  > **Application Insights**.
+1. Последовательно выберите **Создать ресурс** > **Мониторинг и управление** > **Application Insights**.
 
    ![Добавления ресурса Application Insights](./media/app-insights-java-quick-start/001-j.png)
 
-   Появится окно настроек. Используйте таблицу ниже для заполнения полей ввода.
+   Откроется окно настроек, в котором нужно заполнить все поля в соответствии с приведенной ниже таблицей.
 
     | Параметры        | Значение           | ОПИСАНИЕ  |
    | ------------- |:-------------|:-----|

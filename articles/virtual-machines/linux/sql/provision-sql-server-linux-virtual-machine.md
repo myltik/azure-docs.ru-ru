@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Подготовка виртуальной машины SQL Server на базе Linux на портале Azure
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 12/18/2017
 
 1. Войдите на [портале Azure](https://portal.azure.com/).
 
-1. В левой области щелкните **Создать**.
+1. В области слева щелкните **Создать ресурс**.
 
-1. В области **Создать** выберите **Вычисления**.
+1. В области **Создать ресурс** щелкните **Вычисления**.
 
 1. Щелкните **Просмотреть все** рядом с заголовком **Избранные**.
 

@@ -1,6 +1,6 @@
 ---
 title: "Пример сценария Azure PowerShell. Создание кластера Service Fabric | Документы Майкрософт"
-description: "Сценарий Azure PowerShell пример — создание кластера Service Fabric теста трех узлов."
+description: "Пример скрипта Azure PowerShell для создания кластера Service Fabric с тремя узлами"
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -12,20 +12,20 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 03348efa4ebdaed987df73756c6b57da0cc76fb5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-three-node-test-service-fabric-cluster"></a>Создание тестов с тремя узлами кластера Service Fabric
+# <a name="create-a-three-node-test-service-fabric-cluster"></a>Создание тестового кластера Service Fabric с тремя узлами
 
-Этот образец скрипта создает тестов с тремя узлами кластера Service Fabric, защищен с помощью сертификата X.509. Три узла конфигурации кластера поддерживается для разработки и тестирования, так как можно выполнять обновление и остались после сбоев отдельных узлов (при условии, что они не осуществляется одновременно). Для устойчивость к отказам одновременных производственного кластера требуется пять или более узлов.  
+В этом примере скрипта создается кластер Service Fabric с тремя узлами, защищенный с помощью сертификата X.509. Кластер с тремя узлами можно использовать для разработки и тестирования, так как в этом случае можно безопасно выполнять обновления и справляться со сбоями отдельных узлов, если они не происходят одновременно. Для устойчивости к одновременным сбоям рабочий кластер должен включать не менее пяти узлов.  
 
-Команда создает самозаверяющий сертификат и передает его в новый хранилища ключей, который создается в той же группе ресурсов кластера. Сертификат также копируется в локальный каталог.  Укажите параметр *-OS* для выбора версии Windows или Linux, которая запущена на узлах кластера.  Измените параметры, если это необходимо.
+Команда создает самозаверяющий сертификат и передает его в новое хранилище ключей, которое создается в той же группе ресурсов, что и кластер. Сертификат также копируется в локальный каталог.  Укажите параметр *-OS* для выбора версии Windows или Linux, которая запущена на узлах кластера.  Измените параметры, если это необходимо.
 
 При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве по Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
 
@@ -50,7 +50,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 |---|---|
 | [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Создает кластер Service Fabric. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
