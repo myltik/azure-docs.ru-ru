@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Мониторинг выполнения приложений логики и получение аналитических сведений о них с помощью Operations Management Suite (OMS) и Log Analytics
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Включение ведения журнала диагностики при создании приложений логики
 
-1. На [портале Azure](https://portal.azure.com) создайте приложение логики. Выберите **Создать** > **Интеграция Enterprise** > **Приложение логики** > **Создать**.
+1. На [портале Azure](https://portal.azure.com) создайте приложение логики. Последовательно выберите **Создать ресурс** > **Enterprise Integration** (Корпоративная интеграция) > **Приложение логики**.
 
    ![Создайте приложение логики](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 

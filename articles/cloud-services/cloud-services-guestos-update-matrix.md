@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 2/27/2018
 ms.author: raiye
-ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK
 В данном разделе предоставляются новейшие сведения о последних выпусках гостевых ОС Azure для облачных служб. Эта информация поможет вам спланировать обновление до того, как гостевая ОС будет отключена. Если роли настроены для *автоматического* обновления гостевой ОС, как описано в разделе [Параметры обновления гостевой ОС Azure][Azure Guest OS Update Settings], ознакомление с этой страницей необязательно.
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/09/2018
 
 | Строка конфигурации | Дата выпуска | Дата отключения | Дата истечения срока действия |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_2017801-01 |29 января 2018 г. |Post 3.59 |ПОДЛЕЖИТ УТОЧНЕНИЮ |
+| WA-GUEST-OS-3.57_201801-01 |29 января 2018 г. |Post 3.59 |ПОДЛЕЖИТ УТОЧНЕНИЮ |
 | WA-GUEST-OS-3.56_201712-01 |4 января 2018 г. |Post 3.58 |ПОДЛЕЖИТ УТОЧНЕНИЮ |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 декабря 2017 г. |29 января 2018 г. |ПОДЛЕЖИТ УТОЧНЕНИЮ |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 ноября 2017 г. |4 января 2018 г. |ПОДЛЕЖИТ УТОЧНЕНИЮ |

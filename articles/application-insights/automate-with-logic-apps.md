@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Автоматизация процессов Application Insights с помощью Logic Apps
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 
 ### <a name="step-1-create-a-logic-app"></a>Шаг 1. Создание приложения логики
 1. Войдите на [портале Azure](https://portal.azure.com).
-2. На панели **Создать** выберите **Интернет+мобильные устройства**, а затем — **Приложение логики**.
+2. Щелкните **Создать ресурс**, выберите **Интернет и мобильные устройства**, а затем — **Logic App**.
 
     ![Окно создания приложения логики](./media/automate-with-logic-apps/logicapp1.png)
 

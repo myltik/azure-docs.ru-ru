@@ -1,3 +1,5 @@
+# [Документация по каталогам данных](index.md)
+
 # Обзор
 ## [Что такое каталог данных?](data-catalog-what-is-data-catalog.md)
 ## [Распространенные сценарии](data-catalog-common-scenarios.md)

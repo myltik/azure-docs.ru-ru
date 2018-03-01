@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 317adaac1551cf00e25640f1d99429ad76d598a2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -85,7 +85,7 @@ ms.lasthandoff: 02/01/2018
 ### <a name="use-nuget-to-install-the-required-packages"></a>Установка необходимых пакетов с помощью NuGet
 Для работы с этим руководством вам нужно указать в проекте три пакета:
 
-* [Общая библиотека службы хранилища Azure для .NET (предварительная версия)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Общая библиотека службы хранилища Azure для .NET (предварительная версия 8.6.0)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
 * [Библиотека таблиц Microsoft Azure Cosmos DB для .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Этот пакет предоставляет программный доступ к ресурсам данных в вашей учетной записи хранилища таблиц или API таблиц Azure Cosmos DB.
 * [Библиотека Microsoft Azure Configuration Manager для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) — этот пакет предоставляет класс для анализа строки подключения в файле конфигурации независимо от среды выполнения приложения.
 

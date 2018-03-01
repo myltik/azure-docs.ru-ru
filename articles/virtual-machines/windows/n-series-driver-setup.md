@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49e367d4bf1ae2e060b77b0259771403c81a56d6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 72c46efdb5ccddde59660d49d323d79de8d87050
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Установка драйверов GPU для виртуальных машин серии N под управлением Windows Server
 Чтобы воспользоваться преимуществами возможностей GPU виртуальных машин Azure серии N под управлением Windows Server 2016 или Windows Server 2012 R2, необходимо установить графические драйверы NVIDIA. В этой статье приводятся действия по установке драйверов после развертывания виртуальных машин серии N. Сведения об установке драйверов также доступны для [виртуальных машин Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -57,10 +57,6 @@ ms.lasthandoff: 01/13/2018
 ## <a name="rdma-network-connectivity"></a>Сетевое подключение RDMA
 
 Сетевое подключение RDMA можно включить на виртуальных машинах серии N с поддержкой RDMA, таких как NC24r, развернутых в одной группе доступности. Необходимо добавить расширение HpcVmDrivers для установки драйверов сетевых устройств Windows, обеспечивающих подключения RDMA. Чтобы в виртуальную машину серии N с поддержкой RDMA добавить расширение виртуальной машины, используйте командлеты [Azure PowerShell](/powershell/azure/overview) для Azure Resource Manager.
-
-> [!NOTE]
-> В настоящее время только Windows Server 2012 R2 поддерживает сеть RDMA на виртуальных машинах серии N.
-> 
 
 Чтобы установить последнюю версию расширения HpcVMDrivers 1.1 на существующую виртуальную машину myVM с поддержкой RDMA, размещенную в регионе "Западная часть США", выполните следующее.
   ```PowerShell

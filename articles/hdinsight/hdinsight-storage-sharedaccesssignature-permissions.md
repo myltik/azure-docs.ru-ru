@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Использование подписанных URL-адресов хранилища Azure для ограничения доступа к данным в HDInsight
 
@@ -216,7 +216,7 @@ HDInsight имеет полный доступ к данным в учетных
    > [!IMPORTANT]
    > Чтобы изменения вступили в силу, необходимо перезапустить несколько служб.
 
-6. В пользовательском веб-интерфейсе Ambari выберите **HDFS** в списке слева, а затем щелкните **Restart All Affected** (Перезапустить все затронутые) в раскрывающемся списке **Service Actions** (Действия службы) справа. При появлении запроса выберите __Conform Restart All__ (Подтвердить перезапуск).
+6. В пользовательском веб-интерфейсе Ambari выберите **HDFS** в списке слева, а затем щелкните **Restart All Affected** (Перезапустить все затронутые) в раскрывающемся списке **Service Actions** (Действия службы) справа. Когда появится запрос, выберите __Conform Restart All__ (Подтвердить перезапуск всех).
 
     Повторите эту процедуру для MapReduce2 и YARN.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Приобретение имени личного домена для веб-приложений Azure
 
@@ -220,7 +220,7 @@ ms.lasthandoff: 01/16/2018
 
 ### <a name="open-app-service-domain"></a>Открытие домена службы приложений
 
-На портале Azure в меню слева выберите **Больше служб** > **Домены службы приложений**.
+На портале Azure в меню слева выберите **Все службы** > **Домены службы приложений**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ ms.lasthandoff: 01/16/2018
 
 ### <a name="open-app-service-domain"></a>Открытие домена службы приложений
 
-На портале Azure в меню слева выберите **Больше служб** > **Домены службы приложений**.
+На портале Azure в меню слева выберите **Все службы** > **Домены службы приложений**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

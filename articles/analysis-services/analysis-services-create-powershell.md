@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 02/14/2018
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: 99798af8cb0a2b13f2c3c3808222113656a5a388
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 083c5a9bb5c57f3287c259900e6a23d6f0a886de
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Создание сервера Azure Analysis Services с помощью PowerShell
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 > [!NOTE]
 > При создании сервера вам могут выставляться счета за новую службу. Дополнительные сведения см. в разделе [цен на службы Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## <a name="prerequisites"></a>предварительным требованиям
+## <a name="before-you-begin"></a>Перед началом работы
 Для работы с этим кратким руководством вам понадобится:
 
 * **Подписка Azure**: откройте ссылку на [бесплатную пробную версию Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), чтобы создать учетную запись.

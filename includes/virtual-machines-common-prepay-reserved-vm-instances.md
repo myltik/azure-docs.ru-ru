@@ -8,7 +8,7 @@
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Покупка зарезервированного экземпляра виртуальной машины
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Выберите **Больше служб** > **Резервирования**.
+2. Выберите **Все службы** > **Резервирование**.
 3. Выберите **Добавить**, чтобы купить новое резервирование.
 4. Заполните обязательные поля. Работающие экземпляры виртуальной машины, соответствующие выбранным атрибутам, подходят для получения скидки на резервирование. Фактическое число экземпляров виртуальной машины, получающих скидку, зависит от области и выбранного количества.
 
@@ -30,8 +30,15 @@
 
     ![Снимок экрана перед отправкой данных приобретаемого резервирования](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Дальнейшие действия после покупки резервирования
+## <a name="next-steps"></a>Дополнительная информация 
 Скидка на резервирование автоматически применяется к количеству работающих виртуальных машин, которые соответствуют области и атрибутам резервирования. Можно обновить область резервирования с помощью [портала Azure](https://portal.azure.com), PowerShell, интерфейса командной строки или API. 
 
-Чтобы узнать, как управлять резервированием, перейдите на страницу [Зарезервированные экземпляры виртуальных машин Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Чтобы узнать, как управлять резервированием, перейдите на страницу [Управление службой Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Дополнительные сведения об Azure Reserved Virtual Machine Instances см. в следующих статьях.
+
+- [Сокращение затрат с помощью службы Azure Reserved Virtual Machine Instances](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Сведения о применении скидки на использование службы Azure Reserved Virtual Machine Instances](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Общие сведения об использовании зарезервированных экземпляров с Соглашением о регистрации Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров](../articles/billing/billing-reserved-instance-windows-software-costs.md)

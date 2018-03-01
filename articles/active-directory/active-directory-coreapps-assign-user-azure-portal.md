@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: daveba
 ms.reviewer: luleon
-ms.openlocfilehash: 827d5c8669eb54630adbaba0306e73b5de6a7137
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b65284f799eca956c30db21d5d4171d0495297ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Назначение пользователя или группы корпоративному приложению в Azure Active Directory
 Чтобы назначить пользователя или группу в корпоративном приложении, необходимо иметь соответствующие разрешения для управления корпоративным приложением, а также права глобального администратора для доступа к каталогу.
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Как назначить пользователю доступ к корпоративному приложению на портале Azure?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
-2. Выберите **Другие службы**, в текстовом поле введите Azure Active Directory, а затем нажмите клавишу **ВВОД**.
+2. Выберите **Все службы**, в текстовом поле введите Azure Active Directory, а затем нажмите клавишу **ВВОД**.
 3. В колонке **Azure Active Directory — *имя_каталога*** (то есть в колонке Azure AD для каталога, которым вы управляете) выберите **Корпоративные приложения**.
 
     ![Открытие колонки "Корпоративные приложения"](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)

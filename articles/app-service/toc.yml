@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Шаблоны диспетчера ресурсов
+      href: app-service-rm-template-samples.md
 - name: Основные понятия
   items:
     - name: Принцип работы службы приложений
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Создание промежуточных сред
           href: web-sites-staged-publishing.md
+        - name: Руководство по шаблонам Resource Manager
+          href: web-sites-rm-template-guidance.md
     - name: Сопоставление пользовательского домена
       items:
         - name: Приобретение домена

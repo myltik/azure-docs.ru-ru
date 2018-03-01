@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Просмотр назначенных прав доступа для пользователей и групп на портале Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="view-access-assignments"></a>Просмотр назначений доступа
 Чтобы найти назначения доступа отдельного пользователя или группы, начните со страницы Azure Active Directory на [портале Azure](http://portal.azure.com).
 
-1. Выберите **Azure Active Directory**. Если этот параметр не отображается в списке переходов, выберите **Больше служб** и прокрутите страницу вниз к пункту **Azure Active Directory**.
+1. Выберите **Azure Active Directory**. Если этот параметр не отображается в списке переходов, выберите **Все службы** и прокрутите страницу вниз к пункту **Azure Active Directory**.
 2. Выберите **Пользователи и группы**, а затем щелкните **Все пользователи** или **Все группы**. В этом примере мы рассмотрим отдельных пользователей.
     ![Снимок экрана: управление пользователями и группами в Azure Active Directory](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Найдите пользователя по его имени или назначенному ему имени пользователя.

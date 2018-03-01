@@ -1,20 +1,20 @@
 ---
-title: "Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью Azure CLI | Документация Майкрософт"
+title: "Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью Azure CLI"
 description: "В этой статье описывается, как создать базу данных Azure для правил брандмауэра MySQL и управлять ею с помощью интерфейса командной строки Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 77254d91bcfa7cbd6070e3baeb98fd7cc5ad44cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью Azure CLI
 Правила брандмауэра уровня сервера позволяют администраторам управлять доступом к серверу базы данных Azure для MySQL с помощью определенного IP-адреса или диапазона IP-адресов. С помощью удобных команд Azure CLI можно создавать, обновлять, удалять, выводить список и отображать правила брандмауэра для управления сервером. Обзор брандмауэров базы данных Azure для MySQL приведен в разделе [Правила брандмауэра сервера базы данных Azure для MySQL](./concepts-firewall-rules.md).
@@ -54,39 +54,38 @@ az login
 5. Выведите список серверов базы данных Azure для MySQL для своей подписки и группы ресурсов, если вы не уверены, что знаете нужные имена. Введите команду [az mysql server list](/cli/azure/mysql/server#az_mysql_server_list).
 
    ```azurecli-interactive
-   az mysql server list --resource-group myResourceGroup
+   az mysql server list --resource-group myresourcegroup
    ```
 
    Обратите внимание на атрибут name (имя) в списке, который потребуется для указания сервера MySQL для дальнейшей работы. При необходимости подтвердите данные этого сервера с помощью атрибута name, чтобы гарантировать, что имя указано правильно. Введите команду [az mysql server show](/cli/azure/mysql/server#az_mysql_server_show).
 
    ```azurecli-interactive
-   az mysql server show --resource-group myResourceGroup --name mydemoserver
+   az mysql server show --resource-group myresourcegroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Вывод списка правил брандмауэра для сервера базы данных Azure для MySQL 
 Используя имя сервера и имя группы ресурсов, выведите список существующих правил брандмауэра на сервере. Введите команду [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list).  Обратите внимание, что атрибут имени сервера указан в параметре **--server**, а не в параметре **--name**. 
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver
+az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
 Выходные данные будут содержать правила, если они имеются, в формате JSON (по умолчанию). Параметр **--output table** позволяет вывести результаты в более удобном для чтения табличном формате.
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver --output table
+az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Создание правила брандмауэра для сервера базы данных Azure для MySQL
 Используя имя сервера Azure MySQL и имя группы ресурсов, создайте правило брандмауэра на сервере. Введите команду [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Введите имя правила, а также начальный IP-адрес и конечный IP-адрес (чтобы предоставить доступ к диапазону IP-адресов) для правила.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
 Чтобы разрешить доступ с отдельного IP-адреса, укажите один и тот же начальный и конечный IP-адрес, как показано в этом примере.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
+az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
 
 Чтобы разрешить приложениям подключаться с IP-адресов Azure к серверу базы данных Azure для MySQL, укажите в качестве начального и конечного IP-адресов 0.0.0.0, как показано в примере.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup  
---server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az mysql server firewall-rule create --resource-group myresourcegroup --server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]
@@ -98,7 +97,7 @@ az mysql server firewall-rule create --resource-group myResourceGroup
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Обновление правила брандмауэра для сервера базы данных Azure для MySQL 
 Используя имя сервера Azure MySQL и имя группы ресурсов, измените правило брандмауэра на сервере. Введите команду [az mysql server firewall update](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update). В качестве входных данных укажите имя существующего правила брандмауэра, а также атрибуты начального и конечного IP-адресов, которые нужно обновить.
 ```azurecli-interactive
-az mysql server firewall-rule update --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 При успешном выполнении команды ее выходные данные будут содержать сведения об обновленном правиле брандмауэра в формате JSON (по умолчанию). Если возникнет сбой, выходные данные будут содержать вместо этого текст сообщения об ошибке.
 
@@ -108,14 +107,14 @@ az mysql server firewall-rule update --resource-group myResourceGroup --server-n
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Отображение сведений о правиле брандмауэра для сервера базы данных Azure для MySQL
 Используя имя сервера Azure MySQL и имя группы ресурсов, отобразите сведения о правиле брандмауэра на сервере. Введите команду [az mysql server firewall show](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show). Укажите имя существующего правила брандмауэра в качестве входных данных.
 ```azurecli-interactive
-az mysql server firewall-rule show --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
+az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 При успешном выполнении команды ее выходные данные будут содержать сведения об указанном правиле брандмауэра в формате JSON (по умолчанию). Если возникнет сбой, выходные данные будут содержать вместо этого текст сообщения об ошибке.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Удаление правила брандмауэра для сервера базы данных Azure для MySQL
 Используя имя сервера Azure MySQL и имя группы ресурсов, удалите правило брандмауэра с сервера. Введите команду [az mysql server firewall delete](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete). Укажите имя существующего правила брандмауэра.
 ```azurecli-interactive
-az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
+az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 При успешном выполнении выходные данные отсутствуют. В случае сбоя отображается текст сообщения об ошибке.
 

@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Управление параметрами единого входа для корпоративных приложений
 
 В этой статье описывается управление параметрами единого входа для корпоративных приложений с помощью [портала Azure](https://portal.azure.com). Корпоративные приложения — это приложения, развертываемые и используемые в вашей организации. Эта статья в частности касается приложений, которые были добавлены из [коллекции приложений Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Поиск приложений на портале
-Все корпоративные приложения, для которых был настроен единый вход, можно просматривать и администрировать на портале Azure. Приложения можно найти в разделе **Дополнительные службы** &gt; **Корпоративные приложения** портала. 
+Все корпоративные приложения, для которых был настроен единый вход, можно просматривать и администрировать на портале Azure. Приложения можно найти в разделе портала **Все службы** &gt; **Корпоративные приложения**. 
 
 ![колонка "Корпоративные приложения"][1]
 

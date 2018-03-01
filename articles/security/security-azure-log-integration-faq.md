@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Часто задаваемые вопросы об интеграции журналов Azure
-В этой статье содержатся ответы на некоторые часто задаваемые вопросы о службе интеграции журналов Azure. 
+
+В этой статье содержатся ответы на некоторые часто задаваемые вопросы о службе интеграции журналов Azure.
+
+>[!IMPORTANT]
+>Предпочтительным методом интеграции журналов Azure является использование соединителя Azure Monitor от поставщика SIEM и выполнение следующих [инструкций](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Тем не менее, если поставщик SIEM не предоставляет соединитель для Azure Monitor, в качестве временного решения можно использовать службу "Интеграция журналов данных Azure" (если она поддерживает вашу систему SIEM).
 
 Служба интеграции журналов Azure (служба ОС Windows) позволяет интегрировать необработанные журналы из ресурсов Azure с локальными системами SIEM. Такая интеграция обеспечивает единую панель мониторинга для всех локальных и облачных ресурсов. Интеграция также позволяет выполнять статистическое вычисление, сопоставление и анализ, а также предупреждать о событиях безопасности, связанных с приложениями.
 
@@ -74,7 +78,7 @@ XML-файл события содержит следующие метаданн
 ![XML-файл события][1]
 
 ## <a name="error-messages"></a>Сообщения об ошибках
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Почему при выполнении команды **azlog createazureid** возникает следующая ошибка?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Почему при выполнении команды ```AzLog createazureid``` возникает следующая ошибка?
 Ошибка:
 
   *Не удалось создать приложение AAD - Клиент 72f988bf-86f1-41af-91ab-2d7cd011db37 - Причина = 'Запрещено' - Сообщение = 'Недостаточно привилегий для выполнения операции.'*

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Передача сертификата управления службами Azure
 Сертификаты управления позволяют выполнять аутентификацию с помощью классической модели развертывания Azure. Многие программы и инструменты (например, Visual Studio или пакет SDK Azure) будут использовать эти сертификаты для автоматизации настройки и развертывания разных служб Azure. 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/29/2018
 Создав сертификат управления (CER-файл только с открытым ключом), передайте его на портал. Когда сертификат доступен на портале, любой пользователь с соответствующим сертификатом (закрытым ключом) сможет подключаться через API управления и работать с ресурсами связанной подписки.
 
 1. Войдите на [портал Azure](http://portal.azure.com).
-2. Щелкните **Больше служб** внизу списка служб Azure и выберите **Подписки** в группе служб _Общие_.
+2. Щелкните **Все службы** внизу списка служб Azure и выберите **Подписки** в группе служб _Общие_.
 
     ![Меню "Подписка"](./media/azure-api-management-certs/subscriptions_menu.png)
 

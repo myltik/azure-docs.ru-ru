@@ -24,13 +24,13 @@
         - name: Подготовка Azure
           href: tutorial-prepare-azure.md
         - name: Подготовка локальной среды VMware
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Настройка аварийного восстановления
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Выполнение отработки аварийного восстановления
           href: tutorial-dr-drill-azure.md
         - name: Выполнение отработки отказа и восстановления размещения
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Виртуальные машины Hyper-V
       items:
         - name: Подготовка Azure
@@ -50,9 +50,9 @@
         - name: Подготовка Azure для репликации в локальной среде
           href: tutorial-prepare-azure.md
         - name: Миграция локальных компьютеров в Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: Перенос экземпляров AWS в Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Перенос виртуальных машин Azure в другой регион
           href: azure-to-azure-tutorial-migrate.md
 - name: Основные понятия
@@ -62,11 +62,11 @@
         - name: "Архитектура: репликация из Azure\_в Azure"
           href: azure-to-azure-architecture.md
         - name: "Архитектура: репликация из VMware\_в Azure"
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: "Архитектура: репликация из Hyper-V\_в Azure"
           href: hyper-v-azure-architecture.md
         - name: 'Архитектура: репликация физических компьютеров в Azure'
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: 'Архитектура: репликация Hyper-V на дополнительный сайт'
           href: hyper-v-vmm-architecture.md
     - name: Матрица требований к поддержке
@@ -114,11 +114,11 @@
         - name: Аварийное восстановление виртуальных машин Azure после миграции в Azure
           href: azure-to-azure-replicate-after-migration.md
         - name: Аварийное восстановление физических серверов в Azure
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Аварийное восстановление виртуальных машин Hyper-V на дополнительный сайт
           href: hyper-v-vmm-disaster-recovery.md
         - name: Аварийное восстановление виртуальных машин и физических серверов VMware на дополнительный сайт
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Выполнение отработки аварийного восстановления в Azure
           href: site-recovery-test-failover-to-azure.md
         - name: Отработка аварийного восстановления виртуальных машин Hyper-V на дополнительный сайт
@@ -236,7 +236,7 @@
         - name: Настройка репликации Hyper-V в Azure (без VMM) с помощью PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Настройка репликации Hyper-V в Azure (с VMM) с помощью PowerShell
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: Настройка репликации Hyper-V на дополнительный сайт VMM с помощью PowerShell
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: Рабочие нагрузки
@@ -290,7 +290,7 @@
         - name: Проблемы с отработкой отказа в Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Проблемы с повторным включением защиты и восстановлением размещения
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Мониторинг Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Справочные материалы

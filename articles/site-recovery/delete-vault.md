@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 02/22/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 77bc7e068629c5dbf650b39844912b1b7a6155b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Удаление хранилища Site Recovery
 Зависимости не позволяют удалить хранилище Azure Site Recovery. Действия, которые необходимо выполнить, различаются в зависимости от типа сценария Site Recovery: VMware в Azure, Hyper-V (с System Center Virtual Machine Manager и без него) в Azure и Azure Backup. Чтобы удалить хранилище, используемое в Azure Backup, см. сведения в статье [Удаление резервного хранилища в Azure](../backup/backup-azure-delete-vault.md).

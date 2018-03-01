@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Балансировка нагрузки в конфигурациях с несколькими IP-адресами с помощью портала Azure
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/21/2017
 
 1. Войдите на портал Azure по адресу http://portal.azure.com. Войдите в систему с использованием учетной записи Azure.
 
-2. В верхней левой части экрана щелкните **Создать** > **Сети** > **Подсистема балансировки нагрузки**. Далее выберите **Создать**.
+2. Вверху слева последовательно выберите **Создать ресурс** > **Сети** > **Load Balancer**. Далее выберите **Создать**.
 
 3. В разделе **Create load balancer** (Создание подсистемы балансировки нагрузки) введите имя для балансировщика нагрузки. В этом сценарии мы используем имя **mylb**.
 

@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: cbe2f2d17f309e01e831aa9ee31e01e044896d10
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Краткое руководство. Масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью портала Azure
 
-Масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью портала Azure Масштабируйте вычислительные ресурсы, чтобы повысить производительность, или выполняйте обратное масштабирование, чтобы сократить расходы. 
+Масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью портала Azure [Горизонтально масштабируйте вычислительные ресурсы](sql-data-warehouse-manage-compute-overview.md), чтобы повысить производительность, или уменьшайте их масштаб, чтобы сократить затраты. 
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 

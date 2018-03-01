@@ -1,4 +1,4 @@
-- name: Jenkins в Azure
+- name: Jenkins в документации по Azure
   href: index.yml
 - name: Обзор
   items:

@@ -1,9 +1,11 @@
+# [Документация по Центру Интернета вещей](index.md)
+
 # Обзор
 ## [Azure и Интернет вещей](iot-hub-what-is-azure-iot.md)
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Приступите к работе](iot-hub-get-started.md)
+# [Начало работы](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)

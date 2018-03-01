@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Использование настраиваемых действий в конвейере фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 ### <a name="step-1-create-the-data-factory"></a>Шаг 1. Создание фабрики данных
 1. Войдите на портал Azure и выполните следующие действия:
-   1. В меню слева нажмите кнопку **Создать** .
+   1. В меню слева выберите **Создать ресурс**.
    2. В колонке **Создание** щелкните **Данные и аналитика**.
    3. Щелкните **Фабрика данных** в колонке **Аналитика данных**.
    

@@ -3,7 +3,7 @@ title: "Как установить главный целевой сервер L
 description: "Для повторного включения защиты виртуальной машины Linux необходим главный целевой сервер Linux. Узнайте, как его установить."
 services: site-recovery
 documentationcenter: 
-author: rajani-janaki-ram
+author: nsoneji
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/22/2017
-ms.author: rajanaki
-ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: nisoneji
+ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
 После отработки отказа виртуальных машин в Azure для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. 

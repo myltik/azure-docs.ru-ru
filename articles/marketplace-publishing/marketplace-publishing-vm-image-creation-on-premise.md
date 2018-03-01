@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Локальная разработка образа виртуальной машины для Azure Marketplace
 Настоятельно рекомендуется разрабатывать виртуальные жесткие диски (VHD) Azure прямо в облаке, используя для этого протокол удаленного рабочего стола. Однако при необходимости вы можете загрузить VHD и выполнить разработку в локальной инфраструктуре.  
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/11/2017
 
 **Создание учетной записи хранения на портале Microsoft Azure**
 
-1. Нажмите кнопку **Создать**.
+1. Щелкните **Создать ресурс**.
 2. Выберите **Хранилище**.
 3. Введите имя учетной записи хранения и выберите расположение.
    

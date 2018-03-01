@@ -1,20 +1,20 @@
 ---
-title: "Настройка SSL-соединения в базе данных Azure для PostgreSQL | Документация Майкрософт"
+title: "Настройка SSL-соединения в базе данных Azure для PostgreSQL"
 description: "Инструкции и сведения о настройке базы данных Azure для PostgreSQL и связанных приложений для правильного использования SSL-соединений."
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Настройка SSL-соединения в базе данных Azure для PostgreSQL
 База данных Azure для PostgreSQL предпочитает подключать клиентские приложения к службе PostgreSQL с помощью SSL (Secure Sockets Layer). Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 Вы также можете включить или отключить параметр **ssl-enforcement** с помощью Azure CLI, используя значения `Enabled` и `Disabled` соответственно.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Проверка поддержки SSL-соединений в приложении или платформе
@@ -116,11 +116,11 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 С помощью интерфейса командной строки PostgreSQL выполните следующую команду:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 В случае успешного выполнения отобразится следующий результат:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

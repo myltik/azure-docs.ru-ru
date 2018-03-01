@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Создание, удаление развертываний Docker Compose и управление ими.
@@ -160,10 +160,9 @@ ms.lasthandoff: 01/18/2018
 | --- | --- |
 |   --debug                      | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 |    --help -h                    | Отображение этого справочного сообщения и выход.|
- |   --output -o                  | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.
-                                   Значение по умолчанию: json.|
- |   --query                      | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
- |   --verbose                    | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
+|   --output -o                  | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv. Значение по умолчанию: json.|
+|   --query                      | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+|   --verbose                    | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="next-steps"></a>Дополнительная информация
 - [Настройте](service-fabric-cli.md) интерфейс командной строки Service Fabric.

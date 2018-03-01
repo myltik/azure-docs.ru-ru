@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Узнайте о сертификатах и пакете интеграции Enterprise
 ## <a name="overview"></a>Обзор
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 Ниже приведены подробные инструкции по передаче открытых сертификатов в учетную запись интеграции после входа на портал Azure.
 
-1. Выберите **Больше служб** и в поле фильтра поиска введите **интеграции**. В списке результатов выберите **Учетные записи интеграции**.     
+1. Выберите **Все службы** и в поле фильтра поиска введите **интеграция**. В списке результатов выберите **Учетные записи интеграции**.     
 ![Щелкните "Обзор"](media/logic-apps-enterprise-integration-certificates/overview-1.png).  
 2. Выберите учетную запись интеграции, в которую необходимо добавить сертификат.  
 ![Выберите учетную запись интеграции, в которую необходимо добавить сертификат.](media/logic-apps-enterprise-integration-certificates/overview-3.png)  

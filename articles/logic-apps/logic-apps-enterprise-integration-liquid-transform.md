@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Выполнение сложных преобразований JSON с помощью шаблона Liquid
 
@@ -110,7 +110,46 @@ Azure Logic Apps поддерживает основные преобразов�
 
 Передайте в приложение логики входные данные JSON через [Postman](https://www.getpostman.com/postman) или аналогичное средство. Из приложения логики вы получите преобразованные выходные данные JSON примерно такого вида:
   
-![Пример выходных данных](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Пример выходных данных](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Дополнительные примеры действия Liquid
+Liquid не ограничивается преобразованием формата JSON. Ниже указаны другие действия преобразования, для которых используется Liquid:
+
+* Преобразование JSON в текст.
+  
+  Шаблон Liquid, используемый в этом примере:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Примеры входных и выходных данных:
+  
+   ![Пример выходных данных преобразования JSON в текст](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Преобразование XML в JSON.
+  
+  Шаблон Liquid, используемый в этом примере:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Примеры входных и выходных данных:
+
+   ![Пример выходных данных преобразования XML в JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Преобразование XML в текст.
+  
+  Шаблон Liquid, используемый в этом примере:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Примеры входных и выходных данных:
+
+   ![Пример выходных данных преобразования XML в текст](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Памятка для хранилища данных SQL Azure
 В этой памятке предоставляются полезные советы и рекомендации по созданию решений хранилища данных SQL Azure. Прежде чем приступить к работе, подробно ознакомьтесь с каждым из шагов в записи блога [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Шаблоны и антишаблоны рабочих нагрузок хранилища данных SQL Azure), где объясняется, что такое хранилище данных SQL и чем оно не является.
@@ -121,7 +121,7 @@ ms.lasthandoff: 01/23/2018
 Подробнее о работе с [классами ресурсов и параллелизмом].
 
 ## <a name="lower-your-cost"></a>Сокращение расходов
-В хранилище данных SQL предоставляется возможность приостановить действие ресурсов, которые не используются. Счет выставляется только за используемые вычислительные ресурсы. Еще одной ключевой возможностью выступает масштабирование ресурсов. Приостановить работу и выполнить масштабирование ресурсов можно с помощью портала Azure или команд PowerShell.
+Основная функция хранилища данных SQL — возможность [управлять вычислительными ресурсами](sql-data-warehouse-manage-compute-overview.md). Вы можете приостанавливать работу хранилища данных, когда оно не используется. Счет выставляется только за используемые вычислительные ресурсы. Вы можете масштабировать ресурсы в соответствии со своими требованиями к производительности. Приостановить выполнение можно на [портале Azure](pause-and-resume-compute-portal.md) или при помощи [PowerShell](pause-and-resume-compute-powershell.md). Для масштабирования используйте [портал Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), или [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Выполняйте автоматическое масштабирование с помощью службы "Функции Azure" в любое время.
 

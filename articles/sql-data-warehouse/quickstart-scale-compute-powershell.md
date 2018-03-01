@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Краткое руководство. Масштабирование вычислительных ресурсов в хранилище данных SQL Azure в PowerShell
 
-Масштабируйте вычислительные ресурсы в хранилище данных SQL Azure в PowerShell. Масштабируйте вычислительные ресурсы, чтобы повысить производительность, или выполняйте обратное масштабирование, чтобы сократить расходы. 
+Масштабируйте вычислительные ресурсы в хранилище данных SQL Azure в PowerShell. [Горизонтально масштабируйте вычислительные ресурсы](sql-data-warehouse-manage-compute-overview.md), чтобы повысить производительность, или уменьшайте их масштаб, чтобы сократить затраты. 
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 

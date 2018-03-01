@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Создание моментального снимка 
 
@@ -65,7 +65,7 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Создание моментального снимка с помощью портала Azure 
 
 1. Войдите на [портале Azure](https://portal.azure.com).
-2. В левом верхнем углу щелкните **Создать** и найдите **моментальный снимок**.
+2. В левом верхнем углу щелкните **Создать ресурс** и выполните поиск фразы **моментальный снимок**.
 3. В колонке "Моментальный снимок" щелкните **Создать**.
 4. Заполните поле **Имя** для моментального снимка.
 5. Выберите существующую [группу ресурсов](../../azure-resource-manager/resource-group-overview.md#resource-groups) или укажите имя, чтобы создать новую. 

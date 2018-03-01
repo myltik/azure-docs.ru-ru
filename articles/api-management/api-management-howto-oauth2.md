@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Авторизация учетных записей разработчиков с помощью протокола OAuth 2.0 в службе управления Azure API
 Многие интерфейсы API поддерживают протокол [OAuth 2.0](http://oauth.net/2/) , позволяющий защитить API, а также и предоставлять доступ только действительным пользователям и только к ресурсам, на которые эти пользователи имеют право. Чтобы использовать интерактивную  консоль разработчика управления API Azure с такими API, служба позволяет настроить экземпляр службы для работы с API с поддержкой OAuth 2.0.
@@ -134,9 +134,6 @@ ms.lasthandoff: 12/04/2017
 ## <a name="next-steps"></a>Дополнительная информация
 Для получения дополнительных сведений об использовании OAuth 2.0 и службы управления API см. следующий видеоролик и эту [статью](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

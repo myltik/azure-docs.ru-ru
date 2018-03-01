@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Сведения о единицах вычислений в базе данных Azure для MySQL
 В этом разделе дается определение понятия "единица вычислений", а также описывается, что происходит, когда для рабочей нагрузки достигается максимальное значение этих единиц.

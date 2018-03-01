@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Резервное копирование состояния системы Windows с использованием модели развертывания Resource Manager
 В этой статье описано, как выполнить резервное копирование состояния системы Windows Server в Azure. В этом руководстве приведены общие сведения,
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/11/2017
 
 ### <a name="to-create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
 1. Используя подписку Azure, войдите на [портал Azure](https://portal.azure.com/) (если вы еще этого не сделали).
-2. В главном меню щелкните **Другие службы**, а затем в списке ресурсов введите **Службы восстановления** и щелкните **Хранилища служб восстановления**.
+2. В главном меню выберите **Все службы**, а затем в списке ресурсов введите **Службы восстановления** и щелкните **Хранилища служб восстановления**.
 
     ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 

@@ -7,8 +7,10 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Настройка автоматической подготовки
+    - name: Настройка автоматической подготовки на портале
       href: quick-setup-auto-provision.md
+    - name: Настройка автоматической подготовки на портале
+      href: quick-setup-auto-provision-rm.md
     - name: Создание виртуального устройства
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Отмена подготовки устройств
       href: how-to-unprovision-devices.md
+    - name: Подтверждение владения сертификатами ЦС X.509
+      href: how-to-verify-certificates.md
     - name: Использование HSM с пакетом SDK
       href: use-hsm-with-sdk.md
     - name: Управление доступом к службе подготовки
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Разработка с помощью инструментов пакета SDK
       href: how-to-use-sdk-tools.md
+    - name: Подключение к MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Справочные материалы
   items:
     - name: REST

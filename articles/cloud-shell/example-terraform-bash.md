@@ -1,6 +1,6 @@
 ---
-title: "Развертывание с помощью Terraform с Bash в Azure Cloud Shell | Документация Майкрософт"
-description: "Развертывание ресурсов Azure с помощью Terraform в Bash."
+title: "Развертывание с помощью Terraform и Bash в Azure Cloud Shell | Документация Майкрософт"
+description: "Развертывание с помощью Terraform и Bash в Azure Cloud Shell"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform и Bash в Cloud Shell
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Развертывание с помощью Terraform и Bash в Azure Cloud Shell
 В этой статье описывается создание группы ресурсов с помощью [поставщика Terraform AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) — это средство с открытым кодом, которое кодифицирует API в декларативные файлы конфигурации, которые участники команды могут совместно использовать для редактирования, просмотра и управления версиями. Поставщик Microsoft AzureRM позволяет взаимодействовать с ресурсами, поддерживаемыми Azure Resource Manager через AzureRM API. 
@@ -188,4 +188,4 @@ Destroy complete! Resources: 1 destroyed.
 
 ## <a name="next-steps"></a>Дополнительная информация
 [Microsoft AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/#) (Поставщик Microsoft AzureRM)<br>
-[Краткое руководство по Bash в Azure Cloud Shell](quickstart.md)
+[Краткое руководство по использованию Bash в Azure Cloud Shell](quickstart.md)

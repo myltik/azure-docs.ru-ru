@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Регистрация для подписки Office 365 с помощью учетной записи Azure
 Если вы являетесь подписчиком Azure, то вы можете использовать учетную запись Azure для регистрации подписки Office 365. Если вы работаете в организации, которая имеет подписку Azure, то вы можете создать подписку Office 365 для пользователей в существующей службе Azure Active Directory (Azure AD). Подпишитесь на Office 365, используя учетную запись, которая имеет разрешения глобального администратора или администратора выставления счетов в клиенте Azure Active Directory. Дополнительные сведения см. в разделе [Проверка разрешений учетной записи в Azure AD](#RoleInAzureAD) и в статье [Назначение ролей администратора в Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a id="RoleInAzureAD"></a>Проверка разрешений учетной записи в Azure AD
 1. Войдите на [портале Azure](https://portal.azure.com/).
-2. Щелкните **Больше служб** и найдите **Active Directory**.
+2. Щелкните **Все службы** и найдите **Active Directory**.
 
     ![Снимок экрана с Active Directory на портале Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Щелкните **Пользователи и группы** > **Все пользователи**.

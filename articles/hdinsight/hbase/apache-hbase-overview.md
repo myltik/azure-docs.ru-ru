@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 82e37646678b437950db229d39267e99b69fe042
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9b1453828c61d9944938b695b329aebec5ab06e4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Что такое HBase в HDInsight: база данных NoSQL, которая предоставляет возможности, схожие BigTable, для Hadoop
 Apache HBase — это база данных NoSQL с открытым кодом, созданная на основе Hadoop и смоделированная после Google BigTable. HBase обеспечивает прямой доступ и строгую согласованность для больших объемов неструктурированных и слабоструктурированных данных, упорядоченных в семейства столбцов.

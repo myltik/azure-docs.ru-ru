@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Добавление владельцев и пользователей в Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/02/2018
 Ниже описана процедура добавления владельца или пользователя в лабораторию в Azure DevTest Labs.
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+2. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 3. Из списка лабораторий выберите нужную лабораторию.
 4. В колонке лаборатории выберите **Конфигурация**. 
 5. В колонке **Конфигурация** выберите **Пользователи**.
@@ -118,7 +118,7 @@ ms.lasthandoff: 01/02/2018
 Чтобы добавить владельца подписки Azure, сделайте следующее:
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Щелкните **Больше служб**, а затем в списке выберите **Подписки**.
+2. Щелкните **Все службы**, а затем в списке выберите **Подписки**.
 3. Выберите нужную подписку.
 4. Щелкните значок **Доступ** . 
    

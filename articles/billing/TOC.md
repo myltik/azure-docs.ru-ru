@@ -1,3 +1,5 @@
+# [Документация по выставлению счетов в Azure](index.md)
+
 # Начало работы
 ## [Предотвращение непредвиденных расходов](billing-getting-started.md)
 ## [Создание служб, доступных в бесплатной учетной записи](billing-create-free-services-included-free-account.md)

@@ -83,9 +83,9 @@
 
 ## [интерфейс командной строки Azure](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.js](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Пакетная служба](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [Событие завершения выполнения задачи](batch-task-complete-event.md)
 ### [Событие сбоя выполнения задачи](batch-task-fail-event.md)
 ## [Переменные среды вычислительного узла пакетной службы Azure](batch-compute-node-environment-variables.md)
-### [Шаблон Resource Manager](/templates/microsoft.batch/batchaccounts)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [Решения HPC в Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Цены](https://azure.microsoft.com/pricing/details/batch/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
+## [Шаблон Resource Manager](/azure/templates/microsoft.batch/batchaccounts)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=batch)

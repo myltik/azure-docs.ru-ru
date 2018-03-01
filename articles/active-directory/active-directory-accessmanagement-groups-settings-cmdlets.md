@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
-Эта статья содержит инструкции по использованию командлетов PowerShell в Azure Active Directory (Azure AD) для создания и изменения групп. Это содержимое применяется только к группам Office 365. 
+Эта статья содержит инструкции по использованию командлетов PowerShell в Azure Active Directory (Azure AD) для создания и изменения групп. Это содержимое относится только к группам Office 365, также известным как единые группы. 
 
 > [!IMPORTANT]
 > Для доступа к некоторым параметрам требуется лицензия Azure Active Directory Premium P1. Дополнительные сведения см. [здесь](#template-settings).
@@ -42,7 +41,7 @@ ms.lasthandoff: 12/11/2017
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Создание параметров на уровне каталога
-Далее приведены действия, необходимые для создания параметров на уровне каталога, которые применяются ко всем группам Office 365 в каталоге.
+Далее приведены действия, необходимые для создания параметров на уровне каталога, применимые ко всем группам Office 365 в каталоге.
 
 1. В командлетах DirectorySettings необходимо указать идентификатор объекта SettingsTemplate, который вы хотите использовать. Если он вам неизвестен, выполните приведенный ниже командлет, чтобы отобразить все шаблоны параметров.
   
@@ -55,7 +54,7 @@ ms.lasthandoff: 12/11/2017
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ ms.lasthandoff: 12/11/2017
 
 | **Параметр** | **Описание** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Тип: логический<li>значение по умолчанию: True |Флаг, указывающий, разрешено ли пользователям без прав администратора создание объединенной группы в каталоге. Для этого параметра не требуется лицензия Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Тип: строка<li>Default: “” |Идентификатор GUID группы безопасности, участникам которой разрешено создавать единые группы, даже когда EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Тип: логический<li>значение по умолчанию: True |Флаг, указывающий, разрешено ли пользователям без прав администратора создание группы Office 365 в каталоге. Для этого параметра не требуется лицензия Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Тип: строка<li>Default: “” |Идентификатор GUID группы безопасности, участникам которой разрешено создавать группы Office 365, даже когда EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Тип: строка<li>Default: “” |Ссылка на правила использования группы. |
 |  <ul><li>ClassificationDescriptions<li>Тип: строка<li>Default: “” | Разделенный запятыми список описаний классификаций. |
 |  <ul><li>DefaultClassification<li>Тип: строка<li>Default: “” | Классификация, которая должна использоваться по умолчанию для группы, если не была указана иная классификация.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Тип: строка<li>Default: “” | Не используйте. Не реализован. |
-| <ul><li>CustomBlockedWordsList<li>Тип: строка<li>Default: “” | Не используйте. Не реализован. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Тип: строка<li>Default: “” | Строка с максимальной длиной 64 символа, которая определяет соглашение об именовании, настроенное для групп Office 365. Дополнительные сведения см. в статье [Enforce a naming policy for Office 365 groups in Azure Active Directory (preview)](groups-naming-policy.md) (Принудительное применение политики именования для групп Office 365 (предварительная версия)). |
+| <ul><li>CustomBlockedWordsList<li>Тип: строка<li>Default: “” | Строка фраз с разделителями-запятыми, которые не разрешено использовать в именах или псевдонимах групп. Дополнительные сведения см. в статье [Enforce a naming policy for Office 365 groups in Azure Active Directory (preview)](groups-naming-policy.md) (Принудительное применение политики именования для групп Office 365 (предварительная версия)). |
 | <ul><li>EnableMSStandardBlockedWords<li>Тип: логический<li>Значение по умолчанию: False. | Не используйте.
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Тип: логический<li>значение по умолчанию: False | Логическое значение, указывающее, может ли гостевой пользователь быть владельцем группы. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Тип: логический<li>значение по умолчанию: True | Логическое значение, указывающее, может ли гостевой пользователь иметь доступ к содержимому единой группы.  Для этого параметра не требуется лицензия Azure Active Directory Premium P1.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Тип: логический<li>значение по умолчанию: True | Логическое значение, указывающее, может ли гостевой пользователь иметь доступ к содержимому групп Office 365.  Для этого параметра не требуется лицензия Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Тип: строка<li>Default: “” | URL-адрес ссылки на правила использования гостя. |
 |  <ul><li>AllowToAddGuests<li>Тип: логический<li>значение по умолчанию: True | Логическое значение, указывающее, разрешено ли добавлять гостей в этот каталог.|
-|  <ul><li>ClassificationList<li>Тип: строка<li>Default: “” |Разделенный запятыми список допустимых значений классификации, которые можно применять к объединенным группам. |
-
+|  <ul><li>ClassificationList<li>Тип: строка<li>Default: “” |Разделенный запятыми список допустимых значений классификации, которые можно применять к группам Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Чтение параметров на уровне каталога
 Далее приведены действия, необходимые для чтения параметров на уровне каталога, применимые ко всем группам Office в каталоге.
@@ -138,6 +136,7 @@ ms.lasthandoff: 12/11/2017
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ ms.lasthandoff: 12/11/2017
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="update-settings-at-the-directory-level"></a>Обновление параметров на уровне каталога
 
-Далее приведены действия, необходимые для обновления параметров на уровне каталога, которые применяются ко всем единым группам в каталоге. В этих примерах предполагается, что в каталоге уже существует объект Settings.
+Далее приведены действия, необходимые для обновления параметров на уровне каталога, применимые ко всем группам Office 365 в каталоге. В этих примерах предполагается, что в каталоге уже существует объект Settings.
 
 1. Найдите существующий объект Settings.
   ```

@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Приступая к работе с пакетом SDK для пакетной службы для Node.js
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-Изучите основы создания клиента пакетной службы в Node.js с помощью [пакета SDK для пакетной службы Azure для Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Мы определим ключевые аспекты приложения пакетной службы, а затем настроим его с помощью клиента Node.js.  
+Изучите основы создания клиента пакетной службы в Node.js с помощью [пакета SDK для пакетной службы Azure для Node.js](/javascript/api/overview/azure/batch). Мы определим ключевые аспекты приложения пакетной службы, а затем настроим его с помощью клиента Node.js.  
 
 ## <a name="prerequisites"></a>предварительным требованиям
 В этой статье предполагается, что вы уже работали с Node.js и знаете, как работать в Linux. Также предполагается, что у вас есть настроенная учетная запись Azure с правами доступа для создания пакетной службы и службы хранилища.
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/18/2017
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Шаг 2. Создание учетной записи пакетной службы Azure
 
-Ее можно создать на портале [Azure](batch-account-create-portal.md) или с помощью командной строки ([PowerShell](batch-powershell-cmdlets-get-started.md)  / [Azure CLI](https://docs.microsoft.com/cli/azure/overview)).
+Ее можно создать на портале [Azure](batch-account-create-portal.md) или с помощью командной строки ([PowerShell](batch-powershell-cmdlets-get-started.md)  / [Azure CLI](/cli/azure/overview)).
 
 Ниже перечислены команды для создания учетной записи пакетной службы Azure с помощью Azure CLI.
 
@@ -360,5 +360,5 @@ var container_list = ["con1","con2","con3","con4"]
 ## <a name="next-steps"></a>Дополнительная информация
 
 - Если вы недавно используете пакетную службу, рекомендуем прочитать статью [с обзором функций пакетной службы Azure](batch-api-basics.md) .
-- Сведения об API пакетной службы см. в статье [Microsoft Azure SDK for Node.js - Batch Service](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) (Пакет Microsoft Azure SDK для Node.js. Пакетная служба).
+- Сведения об API пакетной службы см. в статье [Microsoft Azure SDK for Node.js - Batch Service](/javascript/api/overview/azure/batch) (Пакет Microsoft Azure SDK для Node.js. Пакетная служба).
 

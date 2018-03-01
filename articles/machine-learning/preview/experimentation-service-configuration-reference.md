@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Файлы конфигурации службы экспериментирования в машинном обучении Azure
 
@@ -166,8 +166,8 @@ $ az ml computetarget attach cluster -n <compute target name> -a <IP address or 
 **EnvironmentVariables**. Этот раздел позволяет пользователям определить переменные среды для запуска. Переменные среды указываются в виде списка пар "имя — значение" в следующем формате:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Эти переменные среды затем можно использовать в пользовательском коде. Например, такой код Phyton выводит значение переменной среды с именем EXAMPLE_ENV_VAR:

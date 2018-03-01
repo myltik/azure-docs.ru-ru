@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Создание виртуальной сети с помощью интерфейса командной строки Azure
 

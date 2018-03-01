@@ -1,3 +1,5 @@
+# [Документация по Помощнику по Azure](index.md)
+
 # Обзор
 ## [Что такое Azure Advisor?](advisor-overview.md)
 

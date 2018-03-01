@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a0e352efb05890d824842acf2c75d8836750546f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Windows
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/03/2018
 
 В рамках этого руководства мы создадим виртуальную машину Windows.  Вы также можете активировать MSI на имеющейся виртуальной машине.
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 2. Выберите **Вычисления**, а затем — **Windows Server 2016 Datacenter**. 
 3. Введите сведения о виртуальной машине. **Имя пользователя** и **пароль**, созданные здесь, используются для входа на виртуальную машину.
 4. В раскрывающемся списке выберите нужную **подписку** для виртуальной машины.

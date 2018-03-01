@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.

@@ -1,3 +1,5 @@
+# [Документация по VPN-шлюзам](index.md)
+
 # Обзор
 ## [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md)
 ## [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md)

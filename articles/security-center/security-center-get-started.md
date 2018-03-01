@@ -9,16 +9,17 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: ac4e3b36b08223f7e3b54850ed53a8185e85f0d2
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Краткое руководство. Переход подписки Azure на ценовую категорию центра безопасности "Стандартный"
 Центр безопасности Azure обеспечивает унифицированное управление безопасностью и защиту от угроз для гибридных облачных рабочих нагрузок. Уровень "Бесплатный" предлагает ограниченные возможности безопасности только для ресурсов Azure, тогда как уровень "Стандартный" расширяет эти возможности на локальную среду и другие облака. Ценовая категория "Стандартный" центра безопасности помогает находить и исправлять уязвимости системы безопасности, применять средства управления доступом и приложениями для блокировки вредоносных действий, обнаруживать угрозы с помощью аналитики и интеллектуальных средств и быстро реагировать на атаки. Вы можете использовать центр безопасности категории "Стандартный" бесплатно в течение первых 60 дней.

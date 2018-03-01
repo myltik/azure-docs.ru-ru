@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API службы совместной работы Azure Active Directory B2B и настройка
 
@@ -77,7 +77,7 @@ API можно запустить в следующих режимах авто�
 В этом режиме приложение или пользователь, использующий API, должен иметь разрешения на создание приглашений в службу B2B.
 
 ### <a name="app-only-mode"></a>Только приложение
-В контексте "только приложение" для успешного выполнения приглашения приложению требуется область User.ReadWrite.All или Directory.ReadWrite.All.
+В контексте "только приложение" для успешного выполнения приглашения приложению требуется область User.Invite.All.
 
 Дополнительные сведения: https://graph.microsoft.io/docs/authorization/permission_scopes
 

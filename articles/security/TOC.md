@@ -1,4 +1,3 @@
-
 # [Документация по системе безопасности Azure](index.md)
 # [Архитектура и разработка](azure-security.md)
 ## [Расширенное обнаружение угроз](azure-threat-detection.md)
@@ -110,9 +109,9 @@
 ### [Требование 10. Мониторинг](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Требование 11. Тестирование](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Требование 12. Политика безопасности](./blueprints/pci-dss-requirement-12-policy.md)
-
 ## [Для служебного пользования (Соединенное Королевство)](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [Обзор принципов безопасности](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+## [ИИ и данные о работоспособности HIPAA/HITRUST](./blueprints/azure-health.md)
 
 # [Технические документы](security-white-papers.md)
 # [Технические обзоры](security-overviews.md)
@@ -139,5 +138,4 @@
 #### [Проверка входных данных](azure-security-threat-modeling-tool-input-validation.md)
 #### [Конфиденциальные данные](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Управление сеансом](azure-security-threat-modeling-tool-session-management.md)
-
 

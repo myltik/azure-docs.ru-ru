@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9f773a8dfe772864fc9fc437052ac766a87623d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Создание моментального снимка
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Использование портала Azure для создания моментальных снимков 
 
 1. Войдите на [портале Azure](https://portal.azure.com).
-2. В левом верхнем углу щелкните **Создать** и найдите **моментальный снимок**.
+2. В левом верхнем углу щелкните **Создать ресурс** и найдите **моментальный снимок**.
 3. В колонке "Моментальный снимок" щелкните **Создать**.
 4. Заполните поле **Имя** для моментального снимка.
 5. Выберите существующую [группу ресурсов](../../azure-resource-manager/resource-group-overview.md#resource-groups) или укажите имя, чтобы создать новую. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Сбор и использование данных журнала из ресурсов Azure
 
@@ -163,7 +163,7 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 
 ![Колонка "Журналы диагностики" на портале](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Чтобы найти раздел "Мониторинг", может понадобиться щелкнуть "Больше служб".
+Раздел "Монитор" можно найти, щелкнув меню "Все службы".
 
 Здесь можно просматривать и фильтровать все ресурсы, поддерживающие журналы диагностики. Таким образом можно проверить, включена ли для них диагностика. Вы также можете детально просмотреть сведения, чтобы проверить, задано ли для ресурса несколько параметров, в какую учетную запись хранения, пространство имен концентраторов событий и/или рабочую область Log Analytics передаются данные.
 

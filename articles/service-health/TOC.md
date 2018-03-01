@@ -1,3 +1,5 @@
+# [Служба "Работоспособность служб Azure"](index.md)
+
 # Обзор
 ## [Что такое служба работоспособности служб Azure?](service-health-overview.md)
 ## [Что такое служба работоспособности ресурсов Azure?](resource-health-overview.md)

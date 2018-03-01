@@ -1,6 +1,6 @@
 ---
-title: "Служба автоматизации проектов Azure FedRAMP: приобретение систем и служб"
-description: "Веб-приложения для FedRAMP: приобретение систем и служб"
+title: "Схема безопасности и соответствия требованиям Azure. Автоматизация веб-приложений для FedRAMP. Приобретение систем и служб"
+description: "Автоматизация веб-приложений для FedRAMP. Приобретение систем и служб"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Приобретение систем и служб (SA)
 

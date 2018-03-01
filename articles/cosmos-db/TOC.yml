@@ -258,6 +258,8 @@
               href: mongodb-robomongo.md
             - name: Использование Mongoose
               href: mongodb-mongoose.md
+            - name: Использование параметров чтения
+              href: mongodb-readpreference.md
             - name: Поддержка функций MongoDB
               href: mongodb-feature-support.md
             - name: Серия руководств по Angular

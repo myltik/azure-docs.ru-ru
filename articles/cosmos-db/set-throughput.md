@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Настройка пропускной способности для коллекций Azure Cosmos DB
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/24/2018
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Настройка пропускной способности с помощью портала Azure
 
 1. В новом окне откройте [портал Azure](https://portal.azure.com).
-2. На панели слева щелкните **Azure Cosmos DB** или выберите внизу пункт **Больше служб**, перейдите к разделу **Базы данных** и выберите **Azure Cosmos DB**.
+2. На панели слева щелкните **Azure Cosmos DB** или выберите внизу пункт **Все службы**, перейдите к разделу **Базы данных** и выберите **Azure Cosmos DB**.
 3. Выберите учетную запись Cosmos DB.
 4. В новом окне в меню навигации щелкните **Обозреватель данных**.
 5. В новом окне разверните узел базы данных и контейнера и щелкните **Scale & Settings** (Параметры масштабирования).

@@ -1,5 +1,5 @@
 ---
-title: "Azure AD операций ввода-вывода Приступая к работе | Документы Microsoft"
+title: "Приступая к работе с Azure AD для iOS | Документация Майкрософт"
 description: "Практическое руководство по созданию приложения для iOS, которое интегрируется с Azure AD для входа в систему и вызывает программные интерфейсы приложения, защищенные Azure AD, по протоколу OAuth."
 services: active-directory
 documentationcenter: ios
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-ios-getting-started"></a>Azure AD операций ввода-вывода Приступая к работе
+# <a name="azure-ad-ios-getting-started"></a>Приступая к работе с Azure AD для iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 Клиентские приложения для iOS, которым необходим доступ к защищенным ресурсам, могут использовать библиотеку проверки подлинности Azure AD (ADAL), предоставляемую Azure Active Directory (Azure AD). ADAL упрощает процесс, который приложение использует для получения маркера доступа. Чтобы показать, насколько это просто, в этом руководстве описывается создание приложения "Список дел" на Objective, которое:
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/03/2018
 ```
 
 * Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
-* **Идентификатор пакета** — это идентификатор пакета, найти в разделе «удостоверение» в параметрах проекта XCode.
+* **bundle-id** — это идентификатор пакета, который можно найти в разделе identity параметров проекта XCode.
 
 Пример для рассматриваемого проекта QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 01/03/2018
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Active Directory для регистрации приложения.
-3. В области навигации слева щелкните **Дополнительные службы**, а затем выберите **Azure Active Directory**.
+3. В области навигации слева выберите **Все службы**, а затем — **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуйте инструкциям на экране, чтобы создать **собственное клиентское приложение**.
   * **Имя** приложения служит его описанием для конечных пользователей.
@@ -232,7 +232,7 @@ ms.lasthandoff: 01/03/2018
 
 Для справки следует отметить, что готовый пример (без ваших значений конфигурации) находится на [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь можно приступить к изучению других сценариев.  Можно попробовать:
 
 * [Безопасность веб-API с Azure AD для Node.JS](active-directory-devquickstarts-webapi-nodejs.md)

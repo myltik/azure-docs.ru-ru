@@ -9,28 +9,28 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Панель мониторинга Kubernetes со Службой контейнеров Azure (AKS)
 
-Для запуска панели мониторинга Kubernetes можно использовать Azure CLI. В этом документе рассматривается запуск панели мониторинга Kubernetes с помощью Azure CLI и также некоторые основные операции с ней. Дополнительные сведения о панели мониторинга Kubernetes см [Kubernetes пользовательский Интерфейс панели мониторинга][kubernetes-dashboard].
+Для запуска панели мониторинга Kubernetes можно использовать Azure CLI. В этом документе рассматривается запуск панели мониторинга Kubernetes с помощью Azure CLI и также некоторые основные операции с ней. Дополнительные сведения о панели мониторинга Kubernetes см. в статье [Web UI (Dashboard)][kubernetes-dashboard] (Панель мониторинга веб-интерфейса).
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В действиях, описанных в этом документе, предполагается, что кластер AKS создан и с ним установлено соединение kubectl. При необходимости эти элементы в разделе, [краткое руководство AKS][aks-quickstart].
+В действиях, описанных в этом документе, предполагается, что кластер AKS создан и с ним установлено соединение kubectl. Если вам требуются эти компоненты, см. статью [Развертывание кластера Службы контейнеров Azure (AKS)][aks-quickstart].
 
-Кроме того, нужно установить и настроить Azure CLI версии 2.0.21 или более поздней. Чтобы узнать версию, выполните команду az --version. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][install-azure-cli].
+Кроме того, нужно установить и настроить Azure CLI 2.0.27 или более поздней версии. Чтобы узнать версию, выполните команду az --version. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Запуск панели мониторинга Kubernetes
 
 Выполните команду `az aks browse` для запуска панели мониторинга Kubernetes. При выполнении этой команды замените имя группы ресурсов и кластера.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Эта команда создает прокси-сервер между системой разработки и API Kubernetes и открывает панель мониторинга Kubernetes в веб-браузере.
@@ -71,12 +71,12 @@ az aks browse --resource-group myResourceGroup --name myK8SCluster
 
 ![Окно изменения в Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о панели мониторинга Kubernetes см. в документации по Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Панель мониторинга Kubernetes Web пользовательского интерфейса][kubernetes-dashboard]
+> [Web UI (Dashboard)][kubernetes-dashboard] (Панель мониторинга веб-интерфейса)
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Защита личных данных документа с помощью средств создания отчетов Azure
 
@@ -144,7 +144,7 @@ Microsoft Azure предоставляет комплексные средств
 
 - Вы можете запрашивать данные с помощью Azure Monitor REST API, команд интерфейса командной строки, командлетов [PowerShell](https://docs.microsoft.com/powershell/) или пакета SDK для .NET.
 
-Чтобы начать работу с Azure Monitor, выберите **Больше служб** на портале Azure.
+Чтобы начать работу с Azure Monitor, выберите **Все службы** на портале Azure.
 
 1. Прокрутите вниз до области **Мониторинг** в разделе **Monitoring and Managing** (Мониторинг и управление).
 

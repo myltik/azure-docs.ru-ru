@@ -1,3 +1,5 @@
+# [Документация по Наблюдателю за сетями Azure](index.md)
+
 # Обзор
 ## [Что такое Наблюдатель за сетями?](network-watcher-monitoring-overview.md)
 ## [Топология](network-watcher-topology-overview.md)

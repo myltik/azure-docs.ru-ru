@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/21/2018
 ms.author: owend
-ms.openlocfilehash: 870d430d1926859894f452e0af812d794272a9e6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Клиентские библиотеки для подключения к службам Azure Analysis Services
 
@@ -29,10 +29,23 @@ ms.lasthandoff: 12/14/2017
 
 |Загрузка  |Version (версия)  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[Объекты AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
+|[Объекты AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+
+## <a name="amo-and-adomd-on-nuget"></a>ADOMD и AMO на сайте NuGet
+
+Клиентские библиотеки AMO (объекты управления Analysis Services) и ADOMD доступны в качестве устанавливаемых пакетов на сайте [NuGet.org](https://www.nuget.org/). 
+
+|Package  |Version (версия)  | 
+|---------|---------|
+|[Объекты AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
+
+Мы рекомендуем использовать ссылки на пакеты NuGet вместо установщика MSI. 
+
+Сборки пакетов NuGet AssemblyVersion следуют семантической организации номера версии — "Главная.Второстепенная.Исправление". Ссылки на пакеты NuGet загружают ожидаемую версию, даже при наличии другой версии в глобальном кэше сборок (в результате установки MSI). Номер исправления увеличивается с каждым выпуском. Версии ADOMD и AMO синхронизируются.
 
 ## <a name="understanding-client-libraries"></a>Основные сведения о клиентских библиотеках
 
@@ -72,9 +85,10 @@ ms.lasthandoff: 12/14/2017
   
 1.  Перейдите на сайт `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. Если здесь несколько папок, выберите папку с самым большим номером.
   
-2.  Щелкните правой кнопкой мыши файл **msolap140.dll** и выберите  > **Свойства** > **Сведения**.  
+2.  Щелкните правой кнопкой мыши файл **msolap.dll** и выберите  > **Свойства** > **Сведения**. Если DLL-файл называется msolap140.dll, это более ранняя версия. Его необходимо обновить.
     
     ![Сведения о клиентской библиотеке](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### <a name="amo"></a>AMO
 
@@ -87,6 +101,6 @@ ms.lasthandoff: 12/14/2017
 2. Щелкните правой кнопкой мыши **Microsoft.AnalysisServices.AdomdClient** > **Свойства** > **Сведения**.  
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Подключение с помощью Excel](analysis-services-connect-excel.md)    
 [Подключение с помощью Power BI](analysis-services-connect-pbi.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Настройка Postman для вызовов REST API служб мультимедиа
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="configure-the-environment"></a>Настройка среды 
 
-1. Создайте JSON-файл, содержащий переменные среды, используемые в руководствах по AMS. Назовите файл **AzureMediaServices.postman_environment.json**. Откройте файл и вставьте код, который определяет среду Postman из [этого примера кода](postman-environment.md). 
+1. Создайте JSON-файл, содержащий переменные среды, используемые в руководствах по AMS. Назовите файл (например, **AzureMediaServices.postman_environment.json**). Откройте файл и вставьте код, который определяет среду Postman из [этого примера кода](postman-environment.md). 
 2. Откройте **Postman**.
 3. В правой части экрана выберите параметр **Управление средой**.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="configure-the-collection"></a>Настройка коллекции
 
-1. Создайте JSON-файл, содержащий коллекцию **Postman** со всеми операциями, которые необходимы для передачи файла в службы мультимедиа. Назовите файл **AzureMediaServicesOperations.postman_collection.json**. Откройте файл и вставьте код, который определяет коллекцию **Postman** из этого [примера кода](postman-collection.md).
+1. Создайте JSON-файл, содержащий коллекцию **Postman** со всеми операциями, которые необходимы для передачи файла в службы мультимедиа. Назовите файл (например, **AzureMediaServicesOperations.postman_collection.json**). Откройте файл и вставьте код, который определяет коллекцию **Postman** из этого [примера кода](postman-collection.md).
 2. Нажмите кнопку **импорта**, чтобы импортировать файл коллекции.
 3. Выберите файл **AzureMediaServicesOperations.postman_collection.json**.
 

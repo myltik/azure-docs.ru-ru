@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7013cb48738d4dccb328728fe1e47b3f43bff4f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Получение доступа к Azure Resource Manager с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/03/2018
 
 В рамках этого руководства мы сначала создадим виртуальную машину Linux. Вы также можете использовать существующую виртуальную машину.
 
-1. Щелкните **Создать** в верхнем левом углу портала Azure.
+1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 2. Выберите **Вычисления**, а затем — **Сервер Ubuntu 16.04 LTS**.
 3. Введите сведения о виртуальной машине. Для параметра **Тип проверки подлинности** выберите значение **Открытый ключ SSH** или **Пароль**. Созданные учетные данные позволят вам выполнить вход на виртуальную машину.
 

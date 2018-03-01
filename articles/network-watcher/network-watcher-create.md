@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb1e3f9a93d18e949cb42ac0a4e09129cfe414f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Создание экземпляра Наблюдателя за сетями Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Создание Наблюдателя за сетями на портале
 
-Выберите **Больше служб** > **Сети** > **Наблюдатель сети**. Можно выбрать все подписки, для которых необходимо включить Наблюдатель за сетями. Это действие создаст экземпляр Наблюдателя за сетями в каждом регионе, который доступен.
+Последовательно выберите **Все службы** > **Сети** > **Наблюдатель за сетями**. Можно выбрать все подписки, для которых необходимо включить Наблюдатель за сетями. Это действие создаст экземпляр Наблюдателя за сетями в каждом регионе, который доступен.
 
 ![Создание Наблюдателя за сетями][1]
 

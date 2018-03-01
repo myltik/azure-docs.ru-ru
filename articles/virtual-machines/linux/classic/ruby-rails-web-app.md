@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Веб-приложение Ruby on Rails на виртуальной машине Azure
 В этом учебнике описано, как разместить веб-сайт Ruby on Rails в Azure с помощью виртуальной машины Linux.  
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="azure-portal"></a>Портал Azure
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Щелкните **Создать**, затем в поле поиска введите "Ubuntu Server 14.04". Щелкните запись, полученную в результате поиска. Чтобы указать модель развертывания, выберите **Классическая**, и нажмите кнопку "Создать".
+2. Щелкните **Создать ресурс**, затем в поле поиска введите "Ubuntu Server 14.04". Щелкните запись, полученную в результате поиска. Чтобы указать модель развертывания, выберите **Классическая**, и нажмите кнопку "Создать".
 3. В колонке "Основные" укажите следующие значения в обязательных полях: имя (для виртуальной машины), имя пользователя, тип аутентификации и соответствующие учетные данные, подписку Azure, группу ресурсов и расположение.
 
    ![Создание нового образа Ubuntu](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

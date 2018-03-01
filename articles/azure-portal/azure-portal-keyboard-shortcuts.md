@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Сочетания клавиш на портале Azure
 В этой статье описываются сочетания клавиш, которые можно использовать на портале Azure. У определенных служб могут быть свои сочетания клавиш.
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 |Требуемое действие |Нажмите клавишу |
 | --- | --- |
 |Создать новый ресурс|G+N|
-|Открыть панель "Дополнительные службы"|G+B|
+|Открыть панель "Все службы"|G+B|
 |Поиск ресурсов|G+/| 
 |Искать элементы в меню "Ресурсы"|CTRL+/ |
 |Переместить выбранную левую панель элементов вверх |ALT + SHIFT + стрелка вверх|

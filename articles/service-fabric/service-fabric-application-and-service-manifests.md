@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Манифесты службы и приложения Service Fabric
 В этой статье описывается, как с помощью файлов ApplicationManifest.xml и ServiceManifest.xml определяются приложения и службы Service Fabric и выполняется управление их версиями.  Сведения о схеме XML для этих файлов манифеста см. в статье [Документация по схеме ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

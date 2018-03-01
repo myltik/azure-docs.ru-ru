@@ -1,3 +1,5 @@
+# [Документация по IoT Suite](index.md)
+
 # Обзор
 ## [Общие сведения об архитектуре Интернета вещей](iot-suite-what-is-azure-iot.md)
 ## [Сравнение параметров Azure IoT](iot-suite-options.md)

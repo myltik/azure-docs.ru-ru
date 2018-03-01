@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Аутентификация решений по управлению пакетной службой с помощью Active Directory
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 На портале Azure сделайте следующее:
 
-1. В левой области навигации портала Azure выберите **Больше служб**, щелкните **Регистрация приложений**, а затем нажмите кнопку **Добавить**.
+1. В области навигации слева на портале Azure выберите **Все службы**, щелкните **Регистрация приложений**, а затем нажмите кнопку **Добавить**.
 2. Найдите имя приложения в списке зарегистрированных приложений:
 
     ![Поиск имени приложения](./media/batch-aad-auth-management/search-app-registration.png)

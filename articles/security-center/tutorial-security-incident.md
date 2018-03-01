@@ -9,17 +9,17 @@ editor:
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: b6adf4bec2d9f92ee3cde9c73a03beb5a58c3f3f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 2eb6a2ea2cd9aa70c5b4f60ab2786b21d8996c29
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Руководство. Реагирование на инциденты безопасности.
 Центр безопасности постоянно анализирует ваши рабочие нагрузки в гибридном облаке, используя расширенные инструменты аналитики и анализа угроз, чтобы оповещать вас о вредоносных действиях. Кроме того, вы можете интегрировать в центр безопасности оповещения от других продуктов и служб безопасности, а также создать настраиваемые оповещения на основе индикаторов или источников аналитики. Создав оповещение, выполните действие, необходимое для анализа и исправления. Из этого учебника вы узнаете следующее:

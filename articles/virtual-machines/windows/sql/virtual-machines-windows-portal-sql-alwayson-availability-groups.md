@@ -4,7 +4,7 @@ description: "В этом руководстве показано, как соз
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Автоматическая настройка групп доступности AlwaysOn на виртуальных машинах Azure с использованием Resource Manager
 
@@ -63,8 +63,8 @@ ms.lasthandoff: 10/11/2017
 В Azure есть коллекция образов для всего решения. Найти шаблон можно так:
 
 1. Войдите на портал Azure, используя свои учетные данные.
-2. На портале Azure щелкните **+Создать**, чтобы открыть колонку**Создать**.
-3. В колонке **Создать** выполните поиск по строке **AlwaysOn**.
+2. На портале Azure щелкните **Создать ресурс**, чтобы открыть область **Создать**.
+3. В области **Создать** выполните поиск **AlwaysOn**.
    ![Поиск шаблона AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. В результатах поиска найдите **SQL Server AlwaysOn Cluster**.
    ![Шаблон AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Основы](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
-Нажмите кнопку **ОК**.
+Последовательно выберите **ОК**.
 
 ### <a name="domain-and-network-settings"></a>Параметры домена и сети
 Этот шаблон из коллекции Azure создает домен и контроллеры домена. Он также создает сеть c двумя подсетями. Шаблон не может создавать серверы в существующем домене или виртуальной сети. На следующем шаге мы настроим параметры домена и сети.
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Параметры группы доступности](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
-Нажмите кнопку **ОК**.
+Последовательно выберите **ОК**.
 
 ### <a name="virtual-machine-size-storage-settings"></a>Размер виртуальной машины и параметры хранилища
 В разделе **Размер виртуальной машины и параметры хранилища** выберите размер виртуальной машины SQL Server и проверьте другие параметры.
@@ -185,7 +185,7 @@ ms.lasthandoff: 10/11/2017
 Проверьте значения параметров и щелкните **ОК**.
 
 ### <a name="summary"></a>Сводка
-На странице сводных данных можно просмотреть параметры Azure, а также загрузить шаблон. Проверьте сводные данные. Нажмите кнопку **ОК**.
+На странице сводных данных можно просмотреть параметры Azure, а также загрузить шаблон. Проверьте сводные данные. Последовательно выберите **ОК**.
 
 ### <a name="buy"></a>Купить
 Эта последняя колонка содержит **условия использования** и **политику конфиденциальности**. Просмотрите эту информацию. Когда вы подготовите все необходимое для создания виртуальных машин в Azure, в том числе ресурсы для группы доступности, щелкните **Создать**.

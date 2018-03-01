@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Управление доступом на основе ролей с помощью REST API
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager помогает очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
+С помощью механизма управления доступом на основе ролей (RBAC) можно определить доступ для пользователей, групп и субъектов-служб, назначая роли для определенной области. В этой статье описывается, как управлять доступом с помощью REST API.
 
 ## <a name="list-all-role-assignments"></a>Вывод списка всех назначений ролей
 Здесь описывается вывод списка всех назначений ролей в указанной области и внутренних областях.

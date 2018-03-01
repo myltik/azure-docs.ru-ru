@@ -3,7 +3,7 @@ title: "Создание среды выполнения интеграции Az
 description: "Узнайте, как создать среду выполнения интеграции Azure в фабрике данных Azure, используемую для копирования данных и подготовки к отправке действий преобразования."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: spelluru
-ms.openlocfilehash: b48e08233fb6457c180b280af1076838845fcc94
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: douglasl
+ms.openlocfilehash: 5d665206989ebf41c9ecb2f9fea0134e2e4f52cc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Создание и настройка среды выполнения интеграции Azure
 Среда выполнения интеграции (IR) — это инфраструктура вычислений, которую фабрика данных Azure использует для обеспечения интеграции данных в разных сетевых средах. Дополнительные сведения о среде выполнения интеграции см. в статье [Integration runtime in Azure Data Factory](concepts-integration-runtime.md) (Среда выполнения интеграции в фабрике данных Azure).

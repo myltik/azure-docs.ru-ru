@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Схема событий службы "Сетка событий Azure"
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/01/2018
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/01/2018
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Свойства события
 
 Все события содержат следующие одинаковые данные верхнего уровня:
@@ -85,14 +85,16 @@ ms.lasthandoff: 02/01/2018
 | eventTime | строка | Время создания события с учетом времени поставщика в формате UTC. |
 | id | строка | Уникальный идентификатор события. |
 | data | object | Данные события, относящиеся к поставщику ресурсов. |
-| dataVersion | строка | Версия схемы объекта данных. Версию схемы определяет издатель. |
-| metadataVersion | строка | Версия схемы метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
+| dataVersion | строка | Версия схемы для объекта данных. Версию схемы определяет издатель. |
+| metadataVersion | строка | Версия схемы для метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
 
 Дополнительные сведения о свойствах в объекте данных см. в источнике события:
 
 * [Подписки Azure (операции управления)](event-schema-subscriptions.md)
 * [Хранилище BLOB-объектов](event-schema-blob-storage.md)
 * [Концентраторы событий](event-schema-event-hubs.md)
+* [Служебная шина](event-schema-service-bus.md)
+* [Центр Интернета вещей](event-schema-iot-hub.md)
 * [Группы ресурсов (операции управления)](event-schema-resource-groups.md)
 
 Для настраиваемых разделов объект данных определяет издатель. Данные верхнего уровня должны содержать те же поля, что и стандартные определенные события ресурса. При публикации событий в настраиваемые разделы рекомендуется моделировать субъект событий для маршрутизации и фильтрации.

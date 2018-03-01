@@ -1,10 +1,11 @@
-- name: Azure Time Series Insights
+- name: Документация по Azure Time Series Insights
   href: index.yml
 - name: Обзор
   items:
     - name: Сведения о службе "Аналитика временных рядов"
       href: time-series-insights-overview.md
 - name: Быстрое начало работы
+  expanded: true
   items:
     - name: Знакомство со службой "Аналитика временных рядов"
       href: time-series-quickstart.md

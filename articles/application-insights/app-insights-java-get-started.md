@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Приступая к работе с Application Insights в веб-проекте Java
 
@@ -70,12 +70,12 @@ ms.lasthandoff: 11/01/2017
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>2.0.n</version>`. Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
 #### <a name="if-youre-using-gradle"></a>Если вы используете Gradle...
@@ -90,19 +90,19 @@ ms.lasthandoff: 11/01/2017
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'1.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'2.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
   * Обновите зависимости проекта.
 
 #### <a name="otherwise-"></a>В противном случае...
 Вручную добавьте пакет SDK.
 
-1. Загрузите [пакет SDK Application Insights для Java](https://aka.ms/aijavasdk).
+1. Загрузите [пакет SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Извлеките из ZIP-файла двоичные файлы и добавьте их в проект.
 
 ### <a name="questions"></a>Вопросы
@@ -112,7 +112,7 @@ ms.lasthandoff: 11/01/2017
   * Компонент `applicationinsights-web` предоставляет метрики для отслеживания количества запросов HTTP и значений времени ответа. Его можно опустить, если автоматический сбор данных телеметрии не требуется, например, если вы хотите написать собственный код сбора данных.
 * *Чтобы обновить пакет SDK после появления новой версии:*
 
-  * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://aka.ms/qqkaq6) и установите ее вместо более старых версий.
+  * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и установите ее вместо более старых версий.
   * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Добавление XML-файла Application Insights

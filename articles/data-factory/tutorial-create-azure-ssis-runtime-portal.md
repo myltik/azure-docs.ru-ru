@@ -3,7 +3,7 @@ title: "Подготовка среды выполнения интеграци�
 description: "В этой статье описывается создание среды выполнения интеграции Azure SSIS с помощью фабрики данных Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: spelluru
-ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 2e3e1fff385de87e69ea36d8ffec128f662f6e50
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Подготовка среды выполнения интеграции Azure SSIS с помощью пользовательского интерфейса фабрики данных Azure
 В этом руководстве представлены шаги по подготовке с помощью портала Azure среды выполнения интеграции Azure SSIS в фабрике данных Azure. Затем можно использовать SQL Server Data Tools (SSDT) ​​или SQL Server Management Studio (SSMS) для развертывания пакетов служб SSIS для этой среды выполнения в Azure. См. дополнительные сведения о [среде выполнения интеграции Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

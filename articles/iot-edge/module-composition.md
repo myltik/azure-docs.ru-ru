@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Сведения об использовании, настройке и повторном использовании модулей Azure IoT Edge (предварительная версия)
 
@@ -28,7 +28,7 @@ Azure IoT Edge позволяет составить несколько моду
 
 В руководствах по Azure IoT Edge манифест развертывания создается с помощью мастера на портале Azure IoT Edge. Также с помощью REST или пакета SDK службы Центра Интернета вещей можно применить манифест развертывания программно. Дополнительные сведения о развертывании IoT Edge см. в статье [Understand IoT Edge deployments for single devices or at scale - preview][lnk-deploy] (Основные сведения о развертываниях IoT Edge для одного устройства или в требуемом масштабе (предварительная версия)).
 
-На высоком уровне манифест развертывания настраивает требуемые свойства модулей IoT Edge, развернутых на устройстве IoT Edge. Два из этих модулей всегда присутствуют: агент Edge и концентратор Edge.
+На высоком уровне манифест развертывания настраивает требуемые свойства двойника модуля для развернутых модулей IoT Edge на устройстве IoT Edge. Два из этих модулей всегда присутствуют: агент Edge и концентратор Edge.
 
 Манифест имеет следующую структуру:
 
@@ -112,6 +112,8 @@ Azure IoT Edge позволяет составить несколько моду
 Если требуемые свойства заданы в манифесте развертывания, они перезаписывают любые требуемые свойства, находящиеся на данный момент в двойнике модуля.
 
 Если не указать требуемые свойства двойника модуля в манифесте развертывания, Центр Интернета вещей не будет никоим образом изменять двойник модуля. Вы сможете задать требуемые свойства программно.
+
+Для изменения двойников модуля используются те же механизмы, что и для двойников устройства. Дополнительные сведения см. в статье [Общие сведения о двойниках устройств и их использование в Центре Интернета вещей](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins).   
 
 ### <a name="deployment-manifest-example"></a>Пример манифеста развертывания
 
@@ -240,9 +242,9 @@ Azure IoT Edge позволяет составить несколько моду
 | configurationHealth.{ИД_развертывания}.health | Имеет значение `healthy`, если состояние среды выполнения всех модулей, установленное развертыванием {ИД_развертывания}, имеет значение `running` или `stopped`, в противном случае — `unhealthy`. |
 | runtime.platform.OS | Сообщает ОС, выполняющуюся на устройстве. |
 | runtime.platform.architecture | Сообщает архитектуру ЦП на устройстве. |
-| systemModules.edgeAgent.runtimeStatus | Состояние агента Edge : {"running" \| "unhealthy"} |
+| systemModules.edgeAgent.runtimeStatus | Состояние агента Edge: {"running" \| "unhealthy"} |
 | systemModules.edgeAgent.statusDescription | Текстовое описание сообщаемого состояния агента Edge. |
-| systemModules.edgeHub.runtimeStatus | Текущее состояние концентратора Edge: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| systemModules.edgeHub.runtimeStatus | Текущее состояние центра Edge: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | systemModules.edgeHub.statusDescription | Текстовое описание текущего состояния концентратора Edge, если он неработоспособен. |
 | systemModules.edgeHub.exitCode | Если выполнен выход, код завершения, сообщаемый контейнером концентратора Edge. |
 | systemModules.edgeHub.startTimeUtc | Время последнего запуска концентратора Edge. |

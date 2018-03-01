@@ -1,4 +1,4 @@
-Нажмите кнопку **Создать**. В поле **Поиск по Marketplace** введите `Azure Active Directory B2C`.
+Нажмите кнопку **Создать ресурс**. В поле **Поиск по Marketplace** введите `Azure Active Directory B2C`.
 
 ![Выделенная кнопка добавления и поле "Поиск по Marketplace" с текстом Azure Active Directory B2C](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

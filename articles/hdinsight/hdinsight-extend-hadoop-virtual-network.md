@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 30536d240bfd967bee0b3c91b71c7e772288464f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Расширение возможностей HDInsight с помощью виртуальной сети Azure
 
@@ -296,8 +296,10 @@ HDInsight предоставляет службы на нескольких по
     | Великобритания | Западная часть Великобритании | 51.141.13.110</br>51.141.7.20 | 443 | Входящий трафик |
     | &nbsp; | Южная часть Великобритании | 51.140.47.39</br>51.140.52.16 | 443 | Входящий трафик |
     | США | Центральный регион США | 13.67.223.215</br>40.86.83.253 | 443 | Входящий трафик |
+    | &nbsp; | Восток США | 13.82.225.233</br>40.71.175.99 | 443 | Входящий трафик |
     | &nbsp; | Северо-центральный регион США | 157.56.8.38</br>157.55.213.99 | 443 | Входящий трафик |
     | &nbsp; | Западно-центральная часть США | 52.161.23.15</br>52.161.10.167 | 443 | Входящий трафик |
+    | &nbsp; | Запад США | 13.64.254.98</br>23.101.196.19 | 443 | Входящий трафик |
     | &nbsp; | Западный регион США 2 | 52.175.211.210</br>52.175.222.222 | 443 | Входящий трафик |
 
     Сведения об IP-адресах для Azure для государственных организаций см. в документе [Аналитика Azure для государственных организаций](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).

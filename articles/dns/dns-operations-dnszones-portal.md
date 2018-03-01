@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Как управлять зонами DNS с помощью портала Azure
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="create-a-dns-zone"></a>Создание зоны DNS
 
 1. Выполните вход на портал Azure.
-2. В главном меню щелкните **Создать > Сети**, а затем щелкните **Зона DNS**, чтобы открыть колонку "Создать зону DNS".
+2. В главном меню последовательно выберите **Создать ресурс > Сети**, а затем щелкните **Зона DNS**, чтобы открыть колонку "Создание зоны DNS".
 
     ![Зона DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 

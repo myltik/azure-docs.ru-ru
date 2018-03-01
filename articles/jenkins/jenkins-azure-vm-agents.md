@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Масштабирование развертываний Jenkins в соответствии с требованиями агентов виртуальных машин Azure
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/26/2017
             }
      ```
 
-    Готовый субъект-служба должен использовать поле `id` для **идентификатора подписки**, значение `appId` для **идентификатора клиента**, `password` для **секрета клиента** и URL-адрес `https://login.windows.net/<tenant_value>` для **конечной точки маркера OAuth 2.0**. Щелкните **Add** (Добавить), чтобы добавить субъект-службу, а затем настроить подключаемый модуль для использования созданных учетных данных.
+    Готовый субъект-служба должен использовать поле `id` для **идентификатора подписки**, значение `appId` для **идентификатора клиента**, `password` для **секрета клиента** и `tenant` для **идентификатора клиента**. Щелкните **Add** (Добавить), чтобы добавить субъект-службу, а затем настроить подключаемый модуль для использования созданных учетных данных.
 
     ![Настройка субъекта-службы Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 

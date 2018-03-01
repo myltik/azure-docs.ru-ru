@@ -1,3 +1,5 @@
+# [Документация по Azure Active Directory](index.md)
+
 # Обзор
 ## [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 ## [Об управлении удостоверениями Azure](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [Конфигурация](active-directory-application-config-content-map.md)
 ##### [Вход](active-directory-application-sign-in-content-map.md)
 ##### [Подготовка](active-directory-application-provisioning-content-map.md)
+###### [Проверка подготовки пользователя](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Подготовка выполняется слишком долго](application-provisioning-when-will-provisioning-finish.md)
+###### [Как настроить подготовку пользователей](application-provisioning-config-how-to.md)
+###### [Проблемы с подготовкой пользователей](application-provisioning-config-problem.md)
+###### [Проблема с сохранением учетных данных администратора](application-provisioning-config-problem-storage-limit.md)
+###### [Подготовка пользователей не выполняется](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Выполняется подготовка ненадлежащих пользователей](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Управление доступом](active-directory-application-access-content-map.md)
 ##### [Панель доступа](active-directory-application-access-panel-content-map.md)
 ##### [Прокси приложения](active-directory-application-proxy-content-map.md)

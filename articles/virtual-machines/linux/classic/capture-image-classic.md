@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Запись классической виртуальной машины Linux в виде образа
 > [!IMPORTANT]
@@ -98,7 +98,7 @@ Azure хранит образ в папке **Images** (Образы) вмест
    azure vm image list
    ```
 
-   На [портале Azure](http://portal.azure.com) в окне **Образы VM (классика)**, которое относится к службам **Вычисления**, отобразится новый образ. Чтобы открыть окно **Образы VM (классика)**, в нижней части списка служб Azure выберите _Больше служб_ и найдите службы **Вычисления**.   
+   На [портале Azure](http://portal.azure.com) в окне **Образы VM (классика)**, которое относится к службам **Вычисления**, отобразится новый образ. Чтобы открыть окно **Образы VM (классика)**, в нижней части списка служб Azure выберите **Все службы** и найдите службы **Вычисления**.   
 
    ![Успешная запись образа](./media/capture-image/VMCapturedImageAvailable.png)
 

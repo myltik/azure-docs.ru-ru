@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Настройка аварийного восстановления виртуальных машин Azure в дополнительный регион Azure (предварительная версия)
 
@@ -39,7 +42,7 @@ ms.lasthandoff: 02/09/2018
 Создайте хранилище в любом регионе, за исключением исходного.
 
 1. Войдите на [портал Azure](https://portal.azure.com) > **Службы восстановления**.
-2. Щелкните **Создать** > **Мониторинг и управление** > **Backup and Site Recovery** (Служба архивации и Site Recovery).
+2. Последовательно выберите **Создать ресурс** > **Мониторинг и управление** > **Backup and Site Recovery**.
 3. В поле **Имя**укажите понятное имя для идентификации хранилища. Если у вас есть несколько подписок, выберите нужную.
 4. Создайте группу ресурсов или выберите существующую. Укажите регион Azure. Сведения о поддерживаемых регионах см. в разделе "Географическая доступность" на странице [цен на службу Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Для быстрого доступа к хранилищу из панели мониторинга щелкните **Закрепить на панели мониторинга**, а затем — **Создать**.

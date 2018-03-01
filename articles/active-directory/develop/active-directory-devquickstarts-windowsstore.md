@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b8bfbfca8daf506df083555d3046433b63e6bffe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Универсальная платформа Windows (UWP и XAML) для Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/24/2018
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. Затем в списке **Каталог** выберите клиент Active Directory для регистрации приложения.
-3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
+3. В области слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуя инструкциям, создайте **собственное клиентское приложение**.
   * **Имя** — это описание приложения для пользователей.

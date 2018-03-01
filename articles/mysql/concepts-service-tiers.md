@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Параметры и производительность базы данных Azure для MySQL: возможности разных ценовых категорий
 При создании базы данных Azure для сервера MySQL выделяемые этому серверу ресурсы определяются тремя основными настройками. Эти настройки влияют на производительность и масштаб сервера.

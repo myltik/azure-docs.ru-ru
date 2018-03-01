@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b1f5c10fe294b44a9853f16e1866b77cf74a1479
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Краткое руководство. Приостановка и возобновление вычислений в хранилище данных SQL Azure в PowerShell
-Используйте PowerShell, чтобы приостановить вычисления для хранилища данных SQL Azure для снижения расходов. Возобновите вычисления, когда вы готовы к использованию хранилища данных.
+Используйте PowerShell, чтобы приостановить вычисления для хранилища данных SQL Azure для снижения расходов. [Возобновите работу вычислительных ресурсов](sql-data-warehouse-manage-compute-overview.md), когда будете готовы к использованию хранилища данных.
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
@@ -63,7 +63,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
     ![Имя сервера и группа ресурсов](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Запишите имя хранилища данных, которое является именем базы данных. Также запишите имя сервера и группу ресурсов.   
+4. Запишите имя хранилища данных, которое является именем базы данных. Также запишите имя сервера и группу ресурсов. Вы 
 5.  Они будут использоваться в командах приостановки и возобновления работы.
 6. Если вашим сервером является foo.database.windows.net, то в командлетах PowerShell в качестве -ServerName используйте только первую часть имени сервера. На предыдущем рисунке полное имя сервера — newserver-20171113.database.windows.net. Не указывая суффикс, укажите **newserver-20171113** в качестве имени сервера в командлете PowerShell.
 

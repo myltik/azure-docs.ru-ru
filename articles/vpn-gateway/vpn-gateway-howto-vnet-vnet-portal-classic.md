@@ -1,10 +1,10 @@
 ---
 title: "Создание подключения между виртуальными сетями. Классический портал Azure | Документация Майкрософт"
-description: "Подключение виртуальных сетей Azure с помощью PowerShell и портала Azure."
+description: "Подключение виртуальных сетей Azure между собой с помощью PowerShell и портала Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Настройка подключения между виртуальными сетями (классическая модель)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-В этой статье показано, как создать подключение VPN-шлюза между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. Приведенные в этой статье инструкции относятся к классической модели развертывания и порталу Azure. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
+В этой статье описывается, как создать подключение VPN-шлюза между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. Приведенные в этой статье инструкции относятся к классической модели развертывания и порталу Azure. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 
 > [!div class="op_single_selector"]
 > * [портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

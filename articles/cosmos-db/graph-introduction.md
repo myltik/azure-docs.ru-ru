@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Знакомство с базой данных Azure Cosmos DB. API Graph
 
@@ -107,22 +107,14 @@ API Graph для базы данных Azure Cosmos DB предоставляе�
 
 В таблице ниже приведены распространенные драйверы Gremlin, которые вы можете использовать для базы данных Azure Cosmos DB.
 
-| Загрузка | Документация |
-| --- | --- |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) |[Документация по Gremlin для Java](http://tinkerpop.apache.org/javadocs/current/full/) |
-| [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin для JavaScript в Github](https://github.com/jbmusso/gremlin-javascript) |
-| [Консоль Gremlin](https://tinkerpop.apache.org/downloads.html) |[Документация по TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
-
-База данных Azure Cosmos DB также предоставляет библиотеку .NET с методами расширения Gremlin на основе [пакетов SDK базы данных Azure Cosmos DB](sql-api-sdk-dotnet.md) через NuGet. Эта библиотека предлагает "внутрипроцессный" сервер Gremlin, который может использоваться для подключения напрямую к секциям данных.
-
-| Загрузка | Документация |
-| --- | --- |
-| [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
-
-С помощью [эмулятора Azure Cosmos DB](local-emulator.md) вы можете выполнять разработку и тестирование локально с помощью .NET API Graph, не создавая подписку Azure и без каких-либо затрат. Если приложение в эмуляторе работает правильно, вы можете использовать учетную запись базы данных Azure Cosmos DB в облаке.
-
-> [!NOTE]
-> Поддержка проверки запросов Gremlin к [эмулятору Azure Cosmos DB](local-emulator.md) предоставляется только через .NET API Graph.
+| Загрузка | Документация | Приступая к работе |
+| --- | --- | --- |
+| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET в GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Создание приложения Graph с помощью .NET](create-graph-dotnet.md) |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Документация по Gremlin для Java](http://tinkerpop.apache.org/javadocs/current/full/) | [Создание приложения Graph с помощью Java](create-graph-java.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin для JavaScript в Github](https://github.com/jbmusso/gremlin-javascript) | [Создание приложения Graph с помощью Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python в Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Создание приложения Graph с помощью Python](create-graph-python.md) |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP в GitHub](https://github.com/PommeVerte/gremlin-php) | [Создание приложения Graph с помощью PHP](create-graph-php.md) |
+| [Консоль Gremlin](https://tinkerpop.apache.org/downloads.html) | [Документация по TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Создание приложения Graph с помощью консоли Gremlin](create-graph-gremlin-console.md) |
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Сценарии для поддержки Graph базы данных Azure Cosmos DB
 Ниже приведены некоторые примеры использования поддержки графа базы данных Azure Cosmos DB:

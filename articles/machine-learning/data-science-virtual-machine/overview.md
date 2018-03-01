@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Общие сведения о виртуальных машинах Linux и Windows для обработки и анализа данных
 
-Виртуальная машина для анализа и обработки данных (DSVM) — это настроенный образ в облаке Microsoft Azure. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Она доступна на платформах Windows Server и Linux. Версия DSVM для операционных систем Windows работает в Windows Server 2016 и Windows Server 2012. Версия DSVM для Linux предлагается в Ubuntu 16.04 LTS и в дистрибутивах Linux на базе OpenLogic 7.2 CentOS. 
+Виртуальная машина для анализа и обработки данных (DSVM) — это настроенный образ в облаке Microsoft Azure. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Она доступна на платформах Windows Server и Linux. Версия DSVM для операционных систем Windows работает в Windows Server 2016 и Windows Server 2012. Версия DSVM для операционных систем Linux работает в Ubuntu 16.04 LTS и CentOS 7.4.
 
 В этом разделе обсуждаются возможности, которые предоставляет виртуальная машина для анализа и обработки данных. Здесь также описаны некоторые основные сценарии ее использования, перечислены ее ключевые функции, доступные в версиях Windows и Linux, а также инструкции о том, как приступить к работе с ними.
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/31/2017
 Виртуальную машину для обработки и анализа данных можно использовать для оценки таких средств, как Microsoft ML Server, SQL Server, инструментов Visual Studio, Jupyter, наборов средств глубокого и машинного обучения, новых средств, популярных в сообществе, а также обучения им при минимальной необходимости в настройке. Так как виртуальную машину для обработки и анализа данных можно быстро настроить, ее можно использовать и в других краткосрочных сценариях, к примеру для репликации опубликованных экспериментов, демонстрации, выполнения пошаговых учебников в рамках онлайн-сеансов или руководств на конференциях.
 
 ### <a name="deep-learning"></a>Глубокое обучение
-ВМ для обработки и анализа данных можно применять в модели обучения, использующей алгоритмы глубокого обучения на оборудовании с GPU (графическими процессорами). DSVM использует возможности облака Azure по масштабированию виртуальных машин, что позволяет предоставлять вам оборудование GPU в таких объемах, которые требуются в конкретный момент. Вы можете переключаться на виртуальные машины с GPU, когда обучаете большие модели или выполняете высокоскоростные вычисления, не меняя диск операционной системы.  Версия DSVM для Windows Server 2016 содержит предустановленные драйверы GPU, платформы и версии GPU для алгоритмов глубокого обучения. В Linux глубокое обучение на GPU включено только в [выпуске виртуальной машины для анализа и обработки данных для Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Версию DSVM для Ubuntu или Windows 2016 можно развернуть на виртуальной машине Azure без GPU. В этом случае все платформы глубокого обучения будут переведены в режим ЦП. Ранее мы публиковали [набор инструментов для глубокого обучения](http://aka.ms/dsvm/deeplearning) для Windows Server 2012. Теперь же мы рекомендуем использовать Windows Server 2016 для рабочих нагрузок глубокого обучения на платформе Windows. Выпуск DSVM для Linux на основе CentOS содержит сборки некоторых инструментов глубокого обучения, использующих только ЦП (Microsoft Cognitive Toolkit (CNTK), TensorFlow, MXNet), но в нем отсутствуют предварительно установленные платформы и драйверы GPU. 
+ВМ для обработки и анализа данных можно применять в модели обучения, использующей алгоритмы глубокого обучения на оборудовании с GPU (графическими процессорами). DSVM использует возможности облака Azure по масштабированию виртуальных машин, что позволяет предоставлять вам оборудование GPU в таких объемах, которые требуются в конкретный момент. Вы можете переключаться на виртуальные машины с GPU, когда обучаете большие модели или выполняете высокоскоростные вычисления, не меняя диск операционной системы.  Версия DSVM для Windows Server 2016 содержит предустановленные драйверы GPU, платформы и версии GPU платформ глубокого обучения. В ОС Linux глубокое обучение на GPU включено во все версии DSVM, как для CentOS, так и для Ubuntu. Версию DSVM для Ubuntu, CentOS или Windows 2016 можно развернуть на виртуальной машине Azure без GPU. В этом случае все платформы глубокого обучения будут переведены в режим ЦП. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Что предусмотрено в виртуальной машине для обработки и анализа данных?
 В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных, а также глубокого обучения. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft ML Server (R, Python) или SQL Server 2017. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
@@ -92,6 +92,7 @@ ms.lasthandoff: 10/31/2017
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/overview) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Да | Нет |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Драйвер больших двоичных объектов FUSE](https://github.com/Azure/azure-storage-fuse) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (служба хранилища Azure Data Lake)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Да | Нет |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Инструмент переноса данных DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Да | Нет |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Шлюз управления данными Майкрософт](https://msdn.microsoft.com/library/dn879362.aspx): перемещение данных между локальным хранилищем и облаком | Да | Нет |
@@ -105,7 +106,7 @@ ms.lasthandoff: 10/31/2017
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | Нет | Да (только Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | Нет | Да (только Ubuntu) |
-| **Инструменты глубокого обучения на основе GPU** |Версия для Windows Server 2016  |Версия для Ubuntu |
+| **Инструменты глубокого обучения на основе GPU** |Версия для Windows Server 2016  | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (ранее известный как CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Да | Да|
@@ -113,7 +114,10 @@ ms.lasthandoff: 10/31/2017
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Сервер модели MXNet ](https://github.com/awslabs/mxnet-model-server) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, драйвер Nvidia](https://developer.nvidia.com/cuda-toolkit) | Да | Да |
 | **Платформа для больших данных (только Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Локальный изолированный экземпляр [Spark](http://spark.apache.org/) | Нет | Да |
@@ -137,7 +141,7 @@ ms.lasthandoff: 10/31/2017
 
   или
 
-  * [DSVM на платформе OpenLogic CentOS](http://aka.ms/dsvm/centos).
+  * [DSVM на платформе CentOS](http://aka.ms/dsvm/centos)
 
   
 * Нажмите кнопку **Получить сейчас**.

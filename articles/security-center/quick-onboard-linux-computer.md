@@ -9,16 +9,17 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 365afd2199b1b8b2e70d882f6a729384edbdffbc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Краткое руководство: подключение компьютеров Linux к центру безопасности Azure
 После подключения подписок Azure можно включить центр безопасности для ресурсов под управлением Linux, работающих вне среды Azure, например в локальной среде или в других облаках, подготовив агент Linux.

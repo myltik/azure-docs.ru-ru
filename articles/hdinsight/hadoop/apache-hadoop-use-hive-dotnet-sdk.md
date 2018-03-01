@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 642b02b06caaa7f2c5df71227d75281c0778a483
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 93649c51c6dd6c158e3870a2fa75d92ae4579b7e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/21/2017
 
 * **Visual Studio 2013, Visual Studio 2015, Visual Studio 2017**.
 
-## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Отправка запросов Hive с помощью пакета SDK HDInsight для .NET
+## <a name="run-a-hive-query"></a>Выполнение запроса Hive
 Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. 
 
 **Отправка заданий**

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Приступая к работе с Windows Phone Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/24/2018
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните учетную запись и в списке **Каталог** выберите клиент Active Directory, в котором хотите зарегистрировать приложение.
-3. В левой области навигации щелкните **Другие службы** и выберите **Azure Active Directory**.
+3. В меню навигации слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений** и нажмите кнопку **Добавить**.
 5. Следуйте инструкциям на экране, а затем создайте новое **Собственное клиентское приложение**.
   * **Имя** приложения отображает его описание конечным пользователям.

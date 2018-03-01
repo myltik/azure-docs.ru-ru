@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Управляемое удостоверение службы (MSI) для ресурсов Azure
 
@@ -87,12 +87,12 @@ ms.lasthandoff: 01/29/2018
 
 | Service | Идентификатор ресурса | Status | Дата | Назначение доступа |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Диспетчер ресурсов Azure | https://management.azure.com/ | Доступна | Сентябрь 2017 г. | [портал Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[интерфейс командной строки Azure](msi-howto-assign-access-CLI.md) |
-| Хранилище ключей Azure | https://vault.azure.net/ | Доступна | Сентябрь 2017 г. | |
-| Azure Data Lake; | https://datalake.azure.net/ | Доступна | Сентябрь 2017 г. | |
-| Azure SQL | https://database.windows.net/ | Доступна | Октябрь 2017 г. | |
-| Концентраторы событий Azure | https://eventhubs.azure.net/ | Доступна | Декабрь 2017 г. | |
-| Azure Service Bus | https://servicebus.azure.net/ | Доступна | Декабрь 2017 г. | |
+| Диспетчер ресурсов Azure | https://management.azure.com | Доступна | Сентябрь 2017 г. | [портал Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[интерфейс командной строки Azure](msi-howto-assign-access-CLI.md) |
+| Хранилище ключей Azure | https://vault.azure.net | Доступна | Сентябрь 2017 г. | |
+| Azure Data Lake; | https://datalake.azure.net | Доступна | Сентябрь 2017 г. | |
+| Azure SQL | https://database.windows.net | Доступна | Октябрь 2017 г. | |
+| Концентраторы событий Azure | https://eventhubs.azure.net | Доступна | Декабрь 2017 г. | |
+| Azure Service Bus | https://servicebus.azure.net | Доступна | Декабрь 2017 г. | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Сколько стоит использование управляемого удостоверения службы?
 

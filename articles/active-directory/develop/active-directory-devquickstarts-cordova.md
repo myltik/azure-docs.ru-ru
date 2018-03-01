@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova, в начало работы
+# <a name="azure-ad-cordova-getting-started"></a>Начало работы с Azure AD для Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/20/2017
 3. Добавить код, использующий маркер для запросов Graph API и отображения результатов.
 4. Создать проект развертывания Cordova на всех целевых платформах, добавить подключаемый модуль Cordova ADAL и протестировать решение в эмуляторах.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Клиент Azure AD с учетной записью с правами на разработку приложений.
@@ -88,7 +88,7 @@ Azure AD выдает маркеры только для знакомых при
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD, в котором будет зарегистрировано приложение.
-3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
+3. В области слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуя инструкциям, создайте **собственное клиентское приложение**. (Хотя приложения Cordova основаны на HTML, мы создаем собственное клиентское приложение. Чтобы оно работало, должен быть выбран параметр **Собственное клиентское приложение**.)
   * **Имя** приложения является его описанием для пользователей.
@@ -285,7 +285,7 @@ var authority = "https://login.microsoftonline.com/common",
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Готовый пример (для которого лишь осталось задать конфигурацию) можно найти в [репозитории GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Теперь вы можете приступить к более сложным и содержательным сценариям. Дополнительные сведения см. в статье [Приступая к работе с веб-интерфейсом API для узла](active-directory-devquickstarts-webapi-nodejs.md).

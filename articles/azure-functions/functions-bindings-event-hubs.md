@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Привязки концентраторов событий Azure для службы "Функции Azure"
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/14/2018
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
@@ -80,7 +80,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
 {
     log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
 }
@@ -89,7 +89,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
@@ -110,7 +110,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 Ниже приведен код скрипта C#.
@@ -161,7 +161,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -184,7 +184,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -205,7 +205,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     ...
 }
@@ -224,7 +224,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**name** | Недоступно | Имя переменной, представляющей элемент события в коде функции. | 
 |**path** |**EventHubName** | Имя концентратора событий. | 
 |**consumerGroup** |**ConsumerGroup** | Необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-features.md#event-consumers), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`. | 
-|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.|
+|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для [пространства имен](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -253,7 +253,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -272,7 +272,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -313,7 +313,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -338,7 +338,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -377,7 +377,7 @@ module.exports = function(context) {
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     ...
@@ -406,7 +406,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 В JavaScript для доступа к выходному событию можно использовать `context.bindings.<name>`. `<name>` — это значение, заданное в свойстве `name` файла *function.json*.
 
-## <a name="exceptions-and-return-codes"></a>Коды возврата и исключений
+## <a name="exceptions-and-return-codes"></a>Исключения и коды возврата
 
 | Привязка | Справочные материалы |
 |---|---|

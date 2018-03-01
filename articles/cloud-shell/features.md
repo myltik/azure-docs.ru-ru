@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Функции и инструменты для Bash в Azure Cloud Shell
 
@@ -47,6 +47,10 @@ Bash в Cloud Shell безопасно и автоматически выпол�
 Файлы вне `$Home` и состояние компьютера не сохраняются между сеансами.
 
 [Дополнительные сведения о сохранении файлов для Bash в Cloud Shell.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Глубокая интеграция со средствами с открытым кодом
+
+В оболочке Bash в Cloud Shell предварительно настроена аутентификация для таких средств с открытым кодом, как Terraform и Ansible. Попробуйте поработать с ней при помощи пошаговых руководств с примерами.
 
 ## <a name="tools"></a>Средства
 

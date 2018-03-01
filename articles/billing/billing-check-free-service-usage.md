@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Проверка использования бесплатных служб, включаемых в бесплатную учетную запись Azure 
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 1.  Войдите на [портал Azure]( http://portal.azure.com).
 
-2.  В нижней части левой области навигации выберите **Дополнительные службы**.
+2.  В меню навигации слева выберите **Все службы**.
 
 3.  Выберите **Подписки**.
 

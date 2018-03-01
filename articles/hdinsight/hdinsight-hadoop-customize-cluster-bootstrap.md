@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Настройка кластеров HDInsight с помощью начальной загрузки
 
@@ -86,7 +86,7 @@ New-AzureRmHDInsightCluster `
 **Чтобы проверить изменения, выполните следующие действия:**
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. В меню слева щелкните **Кластеры HDInsight**. Если вы не видите этот пункт, сначала щелкните **Больше служб**.
+2. В меню слева щелкните **Кластеры HDInsight**. Если вы не видите этот пункт, сначала щелкните **Все службы**.
 3. Щелкните кластер, созданный с помощью сценария PowerShell.
 4. Щелкните **Панель мониторинга** в верхней части колонки, чтобы открыть пользовательский интерфейс Ambari.
 5. Щелкните **Hive** в меню слева.

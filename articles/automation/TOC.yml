@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Управление обновлениями для виртуальной машины
       href: automation-tutorial-update-management.md
-    - name: Подключение решений по обновлению и отслеживанию изменений
+    - name: Подключение решений по обновлению и отслеживанию изменений с использованием runbook
       href: automation-onboard-solutions.md
     - name: Идентификация программного обеспечения на виртуальной машине
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Практическое руководство
   items:
-    - name: Управление обновлениями
+    - name: Переход
       items:
-        - name: Обзор
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Подключение из виртуальной машины Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Подключение из учетной записи службы автоматизации
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: управление обновлениями;
+      items:
+        - name: Общие сведения о службе "Управление обновлениями"
+          href: automation-update-management.md
         - name: Управление обновлениями для нескольких виртуальных машин
           href: manage-update-multi.md
-        - name: Интеграция SCCM со службой управления обновлениями OMS
+        - name: Интеграция SCCM со службой "Управление обновлениями"
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Отслеживание изменений
       items:
-        - name: Обзор
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Отслеживание изменений в виртуальных машинах
-          href: automation-vm-change-tracking.md
+        - name: Общие сведения о службе "Отслеживание изменений"
+          href: automation-change-tracking.md
     - name: Список
       items:
         - name: Управление виртуальной машиной с помощью сбора данных инвентаризации

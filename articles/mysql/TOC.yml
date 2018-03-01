@@ -66,9 +66,7 @@
     - name: Ресурсы
       items:
         - name: Ценовые категории
-          href: concepts-service-tiers.md
-        - name: Единицы вычислений
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Ограничения
           href: concepts-limits.md
     - name: Доступ к данным и безопасность
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: Настройка SSL
           href: concepts-ssl-connection-security.md
+    - name: Непрерывность бизнес-процессов
+      items:
+        - name: Обзор
+          href: concepts-business-continuity.md
+        - name: Архивация и восстановление
+          href: concepts-backup.md
     - name: Мониторинг
       href: concepts-monitoring.md
     - name: Разработка
@@ -137,6 +141,12 @@
       items:
         - name: Создание оповещений на основе метрик
           href: howto-alert-on-metric.md
+    - name: Устранение неполадок
+      items:
+        - name: Решение проблем с производительностью запросов
+          href: howto-troubleshoot-query-performance.md
+        - name: Как использовать представления в схеме sys
+          href: howto-troubleshoot-sys-schema.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

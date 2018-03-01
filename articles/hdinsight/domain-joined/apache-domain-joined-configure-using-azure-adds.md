@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory
 
@@ -36,9 +36,11 @@ ms.lasthandoff: 01/24/2018
 Перед созданием кластера HDInsight необходимо создать службу Azure AD DS. Дополнительные сведения о создании службы Azure AD DS см. в статье [Включение доменных служб Azure Active Directory с помощью портала Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Только администраторы клиентов имеют разрешения на создание доменных служб. Если вы используете Хранилище Azure Data Lake (ADLS) в качестве стандартного хранилища для HDInsight, убедитесь, что стандартный клиент Azure AD для ADLS совпадает с доменом для кластера HDInsight. 
+> Только администраторы клиентов имеют разрешения на создание доменных служб. Если вы используете Хранилище Azure Data Lake (ADLS) в качестве стандартного хранилища для HDInsight, убедитесь, что стандартный клиент Azure AD для ADLS совпадает с доменом для кластера HDInsight. Чтобы эта установка работала с Azure Data Lake Store, нужно отключить многофакторную проверку подлинности для пользователей, у которых будет доступ к кластеру.
 
 После подготовки доменной службы необходимо создать учетную запись службы в группе **администраторов контроллера домена Azure AD** для создания кластера HDInsight. У учетной записи службы должны быть права глобального администратора Azure AD.
+
+Необходимо включить защищенный протокол LDAP для управляемого домена доменных служб Azure AD. Инструкции по включению защищенного протокола LDAP см. в статье [Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Создание присоединенного к домену кластера HDInsight
 

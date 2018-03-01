@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Приостановка и запуск емкости Power BI Embedded на портале Azure
 
@@ -35,9 +35,9 @@ ms.lasthandoff: 10/11/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 
-2. Выберите **Больше служб** > **Power BI Embedded**, чтобы просмотреть доступные емкости.
+2. Выберите **Все службы** > **Power BI Embedded**, чтобы просмотреть доступные емкости.
 
-    ![Раздел "Больше служб" на портале Azure](media/pause-start/azure-portal-more-services.png)
+    ![Раздел "Все службы" на портале Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Выберите емкость, которую нужно приостановить.
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 10/11/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 
-2. Выберите **Больше служб** > **Power BI Embedded**, чтобы просмотреть доступные емкости.
+2. Выберите **Все службы** > **Power BI Embedded**, чтобы просмотреть доступные емкости.
 
-    ![Раздел "Больше служб" на портале Azure](media/pause-start/azure-portal-more-services.png)
+    ![Раздел "Все службы" на портале Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Выберите емкость, которую нужно запустить.
 

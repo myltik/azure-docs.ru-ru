@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Сохранение сообщений Центра Интернета вещей, которые содержат данные датчиков, в хранилище BLOB-объектов Azure
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 
-1. На [портале Azure](https://portal.azure.com/) щелкните **Создать** > **Хранилище** > **Учетная запись хранения** > **Создать**.
+1. На [портале Azure](https://portal.azure.com/) последовательно выберите **Создать ресурс** > **Storage** (Хранилище) > **Учетная запись хранения** > **Создать**.
 
 2. Введите необходимые сведения для учетной записи хранения:
 

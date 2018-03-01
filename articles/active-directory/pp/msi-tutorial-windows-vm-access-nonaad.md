@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6730679f055dd0ccbb32e4185e4bfcae9cd49d41
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 151a0a1fee72c7bd7adcda8e23ebb06d96e822ae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows 
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/03/2018
 
 В рамках этого руководства мы создадим виртуальную машину Windows. Вы также можете активировать MSI на имеющейся виртуальной машине.
 
-1.  Щелкните **Создать** в верхнем левом углу портала Azure.
+1.  Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
 2.  Выберите **Вычисления**, а затем — **Windows Server 2016 Datacenter**. 
 3.  Введите сведения о виртуальной машине. **Имя пользователя** и **пароль**, созданные здесь, используются для входа на виртуальную машину.
 4.  В раскрывающемся списке выберите нужную **подписку** для виртуальной машины.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 16b206b97f71eeffbb4fddb9e447649034998672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Включение доменных служб Azure Active Directory с помощью портала Azure.
 В этой статье показано, как включить доменные службы Azure Active Directory (Azure AD DS) с помощью портала Azure.
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 Чтобы запустить мастер **включения доменных служб Azure AD**, выполните указанные ниже действия.
 
 1. Перейдите на [портал Azure](https://portal.azure.com).
-2. В левой области щелкните **Создать**.
+2. В области слева щелкните **Создать ресурс**.
 3. На странице **Создать** введите на панели поиска текст **Доменные службы**.
 
     ![Поиск доменных служб](./media/getting-started/search-domain-services.png)

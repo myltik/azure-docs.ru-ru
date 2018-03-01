@@ -1,26 +1,10 @@
+title: Создание приложения .NET для платформы Service Fabric | Документация Майкрософт description: Узнайте, как создать приложение с клиентской частью ASP.NET Core и серверной частью в виде надежной службы с отслеживанием состояния и развернуть приложение в кластер.
+services: service-fabric documentationcenter: .net author: rwike77 manager: timlt editor: '''
+
+ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
+
 ---
-title: "Создание приложения .NET для Service Fabric | Документы Майкрософт"
-description: "Узнайте, как создать приложение с клиентской частью ASP.NET Core и серверной частью в виде надежной службы с отслеживанием состояния и развернуть приложение в кластер."
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/29/2018
-ms.author: ryanwi
-ms.custom: mvc
-ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
----
+
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Создание и развертывание приложения с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния
 Это руководство представляет первую часть цикла.  Здесь описывается, как создать приложение Azure Service Fabric с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния для хранения данных. После завершения этого руководства вы получите приложение для голосования с клиентской частью в виде веб-приложения ASP.NET Core, которое сохраняет результаты голосования во внутренней службе с отслеживанием состояния в кластере. Если вы не хотите вручную создавать приложение для голосования, вы можете [скачать исходный код](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) для завершенного приложения и сразу перейти к [описанию примера приложения для голосования](#walkthrough_anchor).
 
@@ -43,7 +27,7 @@ ms.lasthandoff: 02/01/2018
 ## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы с этим руководством выполните следующие действия:
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Установите Visual Studio 2017](https://www.visualstudio.com/) версии 15.3 или более поздней версии, а также рабочие нагрузки **разработка Azure** и **ASP.NET и веб-разработка**.
+- [Установите Visual Studio 2017](https://www.visualstudio.com/) версии 15.5 или более поздней версии, а также рабочие нагрузки **разработка Azure** и **ASP.NET и веб-разработка**.
 - [Установка пакета SDK для Service Fabric](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Создание службы веб-API ASP.NET как надежной службы

@@ -1,3 +1,5 @@
+# [Документация по Центрам уведомлений](index.md)
+
 # Обзор
 ## [Что такое Центры уведомлений](notification-hubs-push-notification-overview.md)
 # Начало работы

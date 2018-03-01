@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Межклиентская аналитика с помощью извлеченных данных
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/28/2017
 - [Исходный код](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) и сценарии приложения SaaS Wingtip Tickets можно скачать с сайта GitHub. *Разблокируйте ZIP-файл*, а затем извлеките его содержимое. Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 - Установите Power BI Desktop. [Загрузить Power BI Desktop.](https://powerbi.microsoft.com/downloads/)
 - Подготовьте пакет дополнительных клиентов, используя рекомендации в руководстве по [**подготовке новых клиентов**](saas-multitenantdb-provision-and-catalog.md).
-- Создайте учетную запись задания и базу данных в ней. Соответствующие шаги см. в [**этом разделе**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Агент задания и его база данных созданы. Соответствующие шаги см. в [**этом разделе**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Создание данных для демонстрации
 

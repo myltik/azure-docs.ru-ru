@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/06/2017
+ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6dca032c8611ac4f7e66eb6f7e22e53f49209143
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Мониторинг и устранении неполадок Azure Site Recovery
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 01/23/2018
 
 ### <a name="8-jobs"></a>8. Задания
 
-Задания Azure Site Recovery отслеживают состояние операций Azure Site Recovery. Большинство операций в Azure Site Recovery выполняется асинхронно, и для мониторинга хода выполнения операции используется задание отслеживания.  Чтобы узнать, как осуществлять мониторинг состояния операции, прочитайте раздел [Мониторинг заданий и операций Azure Site Recovery.](#monitor-azure-site-recovery-jobsoperations).
+Задания Azure Site Recovery отслеживают состояние операций Azure Site Recovery. Большинство операций в Azure Site Recovery выполняется асинхронно, и для мониторинга хода выполнения операции используется задание отслеживания.  Чтобы узнать, как осуществлять мониторинг состояния операции, прочитайте раздел [Мониторинг заданий и операций Azure Site Recovery](#monitor-azure-site-recovery-jobsoperations).
 
 В этом разделе "Задания" панели мониторинга отображаются следующие сведения.
 
