@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с избыточным в пределах зоны интерфейсным общедоступным IP-адресом с помощью портала Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-zone-redundant-load-balancer"></a>Создание избыточной в пределах зоны подсистемы балансировки нагрузки
 
 1. В браузере откройте портал Azure ( [http://portal.azure.com](http://portal.azure.com) ) и войдите, используя учетную запись Azure.
-2. В верхней левой части экрана щелкните **Создать** > **Сети** > **Подсистема балансировки нагрузки**.
+2. Вверху слева последовательно выберите **Создать ресурс** > **Сети** > **Load Balancer**.
 3. В окне **Create load balancer (Создание подсистемы балансировки нагрузки) в поле **Имя** введите **myPublicLB**.
 4. В разделе **Тип** выберите **Общедоступный**.
 5. В разделе "Номер SKU" выберите **Стандартный (предварительная версия)**.

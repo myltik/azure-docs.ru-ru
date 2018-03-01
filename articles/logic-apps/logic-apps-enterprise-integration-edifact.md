@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Обмен сообщениями EDIFACT для интеграции с предприятием с помощью приложений логики
 
@@ -42,12 +42,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-an-edifact-agreement"></a>Создание соглашения EDIFACT 
 
-1.  Войдите на [портал Azure](http://portal.azure.com "Портал Azure"). В меню слева выберите **Больше служб**.
+1.  Войдите на [портал Azure](http://portal.azure.com "Портал Azure"). В меню слева выберите **Все службы**.
 
     > [!TIP]
-    > Если вы не видите раздел **Больше служб**, разверните меню. В верхней области свернутого меню выберите **Показать меню**.
+    > Если раздел **Все службы** не отображается, разверните меню. В верхней области свернутого меню выберите **Показать меню**.
 
-    ![В меню слева выберите "Больше служб".](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+    ![В меню слева выберите Все службы.](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. Введите "интеграция" в поле поиска для фильтрации. В списке результатов выберите **Учетные записи интеграции**.
 

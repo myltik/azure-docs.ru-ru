@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-java-web-app-getting-started"></a>Azure веб-приложения AD Java Приступая к работе
+# <a name="azure-ad-java-web-app-getting-started"></a>Начало работы с Azure AD для веб-приложения Java
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory (Azure AD) позволяет легко выполнять функции управления удостоверением веб-приложения, обеспечивая единый вход и выход с помощью всего лишь нескольких строк кода. Пользователи могут входить в веб-приложения Java и выходить из них с помощью реализованной корпорацией Майкрософт библиотеки проверки подлинности Azure Active Directory для Java (ADAL4J), поддерживаемой сообществом.
@@ -44,7 +44,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните имя учетной записи. В списке **Каталог** выберите клиент Active Directory для регистрации приложения.
-3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
+3. В области слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуйте инструкциям на экране, чтобы создать **веб-приложение и (или) веб-API**.
   * **Имя** — это описание приложения для пользователей.
@@ -1713,7 +1713,7 @@ public class BasicFilter implements Filter {
 > WAR-файлы очень просто развертывать с помощью последних версий серверов Tomcat. Перейдите на сайт http://localhost:8080/manager/ и следуйте инструкциям по отправке файла adal4jsample.war. Он будет автоматически развернут с правильной конечной точкой.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь у вас есть рабочее приложение Java, которое позволяет проверять подлинность пользователей, безопасно вызывать методы веб-API по протоколу OAuth 2.0 и получать основные сведения о пользователях. Если в клиент пользователи еще не добавлены, сейчас самое время это сделать.
 
 Для дополнительной справки вы можете получить готовый пример (без ваших значений конфигурации) одним из следующих способов:

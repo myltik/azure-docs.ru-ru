@@ -1,3 +1,5 @@
+# [Документация по обмену сообщениями через служебную шину](index.md)
+
 # Обзор
 ## [Что такое обмен сообщениями с помощью служебной шины?](service-bus-messaging-overview.md)
 ## [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)

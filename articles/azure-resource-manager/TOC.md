@@ -1,3 +1,5 @@
+# [Документация по Azure Resource Manager](index.md)
+
 # Обзор
 ## [Что такое Resource Manager?](resource-group-overview.md)
 ## [Поставщики и типы ресурсов](resource-manager-supported-services.md)
@@ -43,13 +45,11 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [портал Azure](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Создание групп управления](management-groups-create.md)
 ### [Администрирование групп управления](management-groups-manage.md)
 ### [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md)
-### [Управляемые приложения](../managed-applications/overview.md)
 
 ## Контроль доступа
 ### Создание субъекта-службы

@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с Azure AD для Android | Документация Майкрософт"
-description: "Как создать приложение Android, которое интегрируется с Azure AD для входа в систему и вызовы Azure AD защищенных API-интерфейсы, с помощью OAuth2.0."
+description: "Практическое руководство по созданию приложения для Android, которое интегрируется с Azure AD для входа в систему и вызывает программные интерфейсы приложения, защищенные Azure AD, с помощью протокола OAuth2.0."
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-android-getting-started"></a>Azure AD Android, в начало работы
+# <a name="azure-ad-android-getting-started"></a>Начало работы с Azure AD для Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 При разработке классического приложения служба Azure Active Directory позволяет разработчику упростить аутентификацию локальных учетных записей пользователей в Active Directory. Это также позволяет вашему приложению безопасно использовать любые веб-интерфейсы API, защищаемые с помощью Azure AD, например интерфейсы Office 365 API или Azure API.
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/20/2017
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD, в котором будет зарегистрировано приложение.
-3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
+3. В области слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Введите понятное имя для приложения, например **TodoListService**, выберите **Веб-приложение и/или веб-API** и нажмите кнопку **Далее**.
 6. В качестве URL-адреса единого входа введите базовый URL-адрес для образца. По умолчанию это `https://localhost:8080`.
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/20/2017
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD, в котором будет зарегистрировано приложение.
-3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
+3. В области слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Введите понятное имя для приложения, например **TodoListService**, выберите **Собственное клиентское приложение** и нажмите кнопку **Далее**.
 6. В качестве URI переадресации введите `http://TodoListClient`. Нажмите кнопку **Готово**

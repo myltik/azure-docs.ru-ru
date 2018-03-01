@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Обнаружение, идентификация и классификация персональных данных в Microsoft Azure
 
@@ -59,22 +59,22 @@ ms.lasthandoff: 12/14/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 
-2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+2. Выберите **Все службы**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
    ![поиск профиля пользователя и сведений о работе](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. В колонке **Пользователи и группы** выберите **Пользователи**.
 
-  ![Открытие колонки пользователей и групп](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Открытие колонки пользователей и групп](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. В колонке **пользователей и групп** выберите из списка пользователя, а затем в колонке выбранного пользователя выберите **Профиль** для просмотра соответствующих сведений, которые могут содержать персональные данные.
 
-  ![выбрать пользователя](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![выбрать пользователя](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Если вам необходимо добавить или изменить сведения профиля пользователя, то после внесения необходимых изменений выберите на панели команду **Сохранить**.
 6. В колонке для выбранного пользователя выберите **Сведения о работе**, чтобы просмотреть сведения о работе пользователя, которые могут содержать персональные данные.
 
- ![просмотр сведений о работе](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![просмотр сведений о работе](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Если вам необходимо добавить или изменить сведения о работе пользователя, то после внесения необходимых изменений выберите на панели команду **Сохранить**.
 
@@ -185,9 +185,9 @@ Hadoop является хранилищем Apache с открытым кодо
 
 Чтобы получить более подробные сведения о создании запросов SQL, ознакомьтесь со статьей [SQL-запросы для API DocumentDB в Azure Cosmos DB](../cosmos-db/sql-api-sql-query.md).
 
-Если вы не знакомы к базе данных Cosmos Azure и хотите узнать, как создать базу данных, добавить коллекцию и добавить данные, посетите [Azure Cosmos DB: сборки SQL API веб-приложения](../cosmos-db/create-sql-api-dotnet.md) краткого руководства. Если же вас интересует другой язык, отличный от .NET, например Java или Python, вам просто нужно его указать.
+Если вы еще не знакомы с Azure Cosmos DB и хотите узнать, как создать базу данных, добавить коллекцию и данные, ознакомьтесь с кратким руководством [Azure Cosmos DB. Создание веб-приложения API SQL с использованием языка .NET и портала Azure](../cosmos-db/create-sql-api-dotnet.md). Если же вас интересует другой язык, отличный от .NET, например Java или Python, вам просто нужно его указать.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [база данных SQL Azure;](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Использование клиента Beeline с Apache Hive
 
@@ -44,7 +44,7 @@ Beeline — это клиент Hive, установленный на голо�
 
 ## <a id="prereq"></a>Предварительные требования
 
-* Hadoop в кластере HDInsight на платформе Linux.
+* Hadoop в кластере HDInsight версии 3.4 или выше на платформе Linux.
 
   > [!IMPORTANT]
   > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -53,7 +53,7 @@ Beeline — это клиент Hive, установленный на голо�
 
     Дополнительные сведения об использовании SSH см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Использование Beeline
+## <a id="beeline"></a>Выполнение запроса Hive
 
 1. При запуске Beeline необходимо указать строку подключения к HiveServer2 в кластере HDInsight:
 
@@ -116,10 +116,19 @@ Beeline — это клиент Hive, установленный на голо�
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Эти операторы выполняют следующие действия:
@@ -167,7 +176,7 @@ Beeline — это клиент Hive, установленный на голо�
 
 5. Чтобы выйти из Beeline, используйте инструкцию `!exit`.
 
-## <a id="file"></a>Запуск файла HiveQL с помощью Beeline
+### <a id="file"></a>Запуск файла HiveQL с помощью Beeline
 
 Чтобы создать файл, а затем запустить его с помощью Beeline, выполните следующие действия.
 

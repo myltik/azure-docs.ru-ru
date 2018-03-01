@@ -1,4 +1,4 @@
-- name: Служба "Сетка событий Azure"
+- name: Документация по службе "Сетка событий"
   href: index.yml
 - name: Обзор
   items:
@@ -7,6 +7,7 @@
     - name: Сравнение служб обмена сообщениями
       href: compare-messaging-services.md
 - name: Быстрое начало работы
+  expanded: true
   items:
     - name: Маршрутизация событий хранилища BLOB-объектов с помощью Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json

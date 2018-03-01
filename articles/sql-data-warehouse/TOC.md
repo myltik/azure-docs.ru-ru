@@ -1,3 +1,5 @@
+# [Документация по хранилищу данных SQL](index.md)
+
 # Обзор
 
 ## [Сведения о хранилище данных SQL Azure](sql-data-warehouse-overview-what-is.md)

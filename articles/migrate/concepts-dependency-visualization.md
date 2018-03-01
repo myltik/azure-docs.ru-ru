@@ -4,13 +4,13 @@ description: "Эта статья содержит обзор вычислени
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Визуализация зависимостей
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="do-i-need-to-pay-for-it"></a>Будет ли взиматься плата за это?
 
-Да. По умолчанию создается рабочая область Log Analytics, но она не используется, если вы не используете визуализацию зависимостей в службе "Миграция Azure". Если вы используете визуализацию зависимостей (или используете рабочую область вне службы "Миграция Azure"), с вас будет взиматься плата за использование рабочей области.  [Узнайте больше](https://azure.microsoft.com/pricing/details/insight-analytics/) о ценах на решение "Сопоставление служб". 
+См. дополнительные сведения о [ценах на Миграцию Azure](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Как управлять рабочей областью?
 

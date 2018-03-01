@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Экспорт шаблона Azure Resource Manager из существующих ресурсов
 В этой статье вы узнаете, как экспортировать шаблон Resource Manager из имеющихся в подписке ресурсов. Вы можете использовать этот готовый шаблон, чтобы лучше понять синтаксис шаблона.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="deploy-resources"></a>Развертывание ресурсов
 Начнем с развертывания ресурсов в Azure, которые можно использовать для экспорта в качестве шаблона. Если у вас уже есть группа ресурсов в подписке, которую вы хотите экспортировать в шаблон, этот раздел можно пропустить. В оставшейся части этой статьи предполагается, что вы развернули веб-приложение и решение базы данных SQL, приведенные в этом разделе. При использовании другого решения выполняемые действия могут немного отличаться, но действия для экспорта шаблона такие же. 
 
-1. На [портале Azure](https://portal.azure.com) щелкните **Создать**.
+1. На [портале Azure](https://portal.azure.com) выберите **Создать ресурс**.
    
       ![Выбор нового](./media/resource-manager-export-template/new.png)
 2. Выполните поиск по запросу **Веб-приложение и SQL** и выберите его из списка результатов.

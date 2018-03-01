@@ -5,6 +5,7 @@
     - name: Сведения о службе "Поиск Azure"
       href: search-what-is-azure-search.md
 - name: Быстрое начало работы
+  expanded: true
   items:
     - name: создание службы;
       href: search-create-service-portal.md

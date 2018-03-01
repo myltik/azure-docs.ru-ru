@@ -1,3 +1,5 @@
+# [Документация по Data Lake Store](index.md)
+
 # Обзор
 ## [Обзор Azure Data Lake Store](data-lake-store-overview.md)
 ## [Сравнение Azure Data Lake Store со службой хранилища Azure](data-lake-store-comparison-with-blob-storage.md)

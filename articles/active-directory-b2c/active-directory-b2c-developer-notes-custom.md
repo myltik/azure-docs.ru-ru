@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Заметки о выпуске общедоступной предварительной версии настраиваемой политики Azure Active Directory B2C
 Набор функций настраиваемой политики теперь доступен для оценки в общедоступной предварительной версии для всех клиентов Azure Active Directory B2C (Azure AD B2C). Этот набор функций предназначен для опытных разработчиков удостоверений, создающих самые сложные решения удостоверений.  
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="features-by-stage-and-known-issues"></a>Доступность функций на различных стадиях и известные проблемы
 Пользовательские возможности Identity Experience Framework и инфраструктуры политики постоянно и быстро разрабатываются.  Эта таблица содержит индекс доступности функций и компонентов.
 
-Задавайте вопросы на сайте Stack Overflow по адресу [aka.ms/aadb2cso](http://aka.ms/aadb2cso).
+Задавайте вопросы на сайте Stack Overflow по адресу [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Поставщики удостоверений, токены и протоколы

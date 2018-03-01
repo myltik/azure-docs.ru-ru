@@ -1,3 +1,5 @@
+# [Документация по диспетчеру трафика](index.md)
+
 # Обзор
 ## [Что такое диспетчер трафика](traffic-manager-overview.md)
 ## [Методы маршрутизации трафика](traffic-manager-routing-methods.md)

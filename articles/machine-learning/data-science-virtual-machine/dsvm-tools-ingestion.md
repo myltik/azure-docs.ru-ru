@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Средства приема данных виртуальных машин для обработки и анализа данных
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Импорт нескольких больших двоичных объектов из службы хранилища Azure в Azure Data Lake Store.      |
 |  Запуск и использование    |   Откройте командную строку и введите `adlcopy` для получения справки.    |
-| Ссылки на примеры      | Https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob [с помощью AdlCopy])      |
+| Ссылки на примеры      | [С использованием AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AzCopy, командная строка Azure     |
 
 ## <a name="azure-command-line"></a>Командная строка Azure
@@ -62,11 +62,11 @@ ms.lasthandoff: 12/11/2017
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-data-migration-tool"></a>Средство переноса данных DB Cosmos Azure
+## <a name="azure-cosmos-db-data-migration-tool"></a>Средство переноса данных Azure Cosmos DB
 
 |    |           |
 | ------------- | ------------- |
-| Что это такое?   | Средство для импорта данных из различных источников, включая файлы JSON, CSV-файлы, SQL, MongoDB, хранилище таблиц Azure, Amazon DynamoDB и базы данных SQL Azure Cosmos API коллекций в базе данных Azure Cosmos.      |
+| Что это такое?   | Средство для импорта данных из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, хранилище таблиц Azure, Amazon DynamoDB и коллекции API SQL для базы данных Azure Cosmos DB, в Azure Cosmos DB.      |
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Импорт файлов из виртуальной машины в CosmosDB, импорт данных из хранилища таблиц Azure в CosmosDB или импорт данных из базы данных SQL Server в CosmosDB.     |
 |  Запуск и использование    |   Чтобы использовать версию для командной строки, откройте командную строку и введите `dt`. Чтобы использовать средство графического пользовательского интерфейса, откройте командную строку и введите `dtui`.    |
@@ -84,6 +84,17 @@ ms.lasthandoff: 12/11/2017
 |  Запуск и использование    |   Откройте командную строку и введите `bcp` для получения справки.    |
 | Ссылки на примеры      | [Программа bcp](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | SQL Server, SQLCMD      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Что это такое?   | Инструмент для подключения контейнера больших двоичных объектов Azure в файловой системе Linux.      |
+| Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Linux      |
+| Распространенные способы применения      | Чтение и запись больших двоичных объектов в контейнере      |
+|  Запуск и использование    |   В окне терминала запустите _blobfuse_.    |
+| Ссылки на примеры      | blobfuse на GitHub [https://github.com/Azure/azure-storage-fuse]      |
+| Дополнительные средства на виртуальной машине для обработки и анализа данных      | Командная строка Azure      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Шлюз управления данными Майкрософт

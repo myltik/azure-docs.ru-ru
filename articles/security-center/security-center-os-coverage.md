@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Поддерживаемые платформы в центре безопасности Azure
-Мониторинг состояния работоспособности системы безопасности и рекомендации доступны для виртуальных машин, созданных посредством классической модели развертывания и модели развертывания Resource Manager.
+Мониторинг состояния работоспособности системы безопасности и рекомендации доступны для компьютеров и виртуальных машин, созданных посредством классической модели развертывания и модели развертывания Resource Manager.
 
 > [!NOTE]
 > Узнайте больше о [классической модели развертывания и модели развертывания Resource Manager](../azure-classic-rm.md) для ресурсов Azure.
 >
 >
 
-## <a name="supported-platforms-for-windows-vms"></a>Поддерживаемые платформы для виртуальных машин Windows
+## <a name="supported-platforms-for-windows-computers-and-vms"></a>Поддерживаемые платформы для компьютеров и виртуальных машин Windows
 Поддерживаемые операционные системы Windows:
 
 * Windows Server 2008
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/08/2017
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-vms"></a>Поддерживаемые платформы для виртуальных машин Linux
+## <a name="supported-platforms-for-linux-computers-and-vms"></a>Поддерживаемые платформы для компьютеров и виртуальных машин Linux
 Поддерживаемые операционные системы Linux:
 
 * Ubuntu версии 12.04, 14.04, 16.04, 16.10.

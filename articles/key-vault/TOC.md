@@ -1,3 +1,5 @@
+# [Документация по хранилищу ключей](index.md)
+
 # Обзор
 ## [Что такое хранилище ключей?](key-vault-whatis.md)
 ## [Обзор службы](https://azure.microsoft.com/services/key-vault/)

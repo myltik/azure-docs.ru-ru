@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Выполнение анализа тональности с помощью Azure Stream Analytics и Машинного обучения Azure
 В этой статье описывается, как быстро настроить простое задание Azure Stream Analytics, интегрированное с Машинным обучением Azure. Вы используете модель машинного обучения для анализа тональности из коллекции Cortana Intelligence для анализа потока текстовых данных, а также определения оценки тональности в реальном времени. С помощью Cortana Intelligence Suite вы сможете выполнить эту задачу, не вникая в особенности создания модели анализа тональности.
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Создание контейнера хранилища и передача входного CSV-файла
 Для этого шага можно использовать любой CSV-файл, например файл, доступный на GitHub.
 
-1. На портале Azure щелкните **Создать** &gt; **Хранилище** &gt; **Учетная запись хранения**.
+1. На портале Azure последовательно выберите **Создать ресурс** &gt; **Хранилище**  &gt; **Учетная запись хранения**.
 
    ![создание новой учетной записи хранения](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Перейдите на [портал Azure](https://portal.azure.com).  
 
-2. Щелкните **Создать** > **"Интернет вещей"** > **Задание Stream Analytics**. 
+2. Щелкните **Создать ресурс** > **Интернет вещей** > **Задание Stream Analytics**. 
 
    ![Путь на портале Azure для перехода к новому заданию Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    

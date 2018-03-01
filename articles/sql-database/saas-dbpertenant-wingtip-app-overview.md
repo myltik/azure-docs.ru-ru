@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Общие сведения о примере мультитенантного приложения SaaS для базы данных SQL
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Общие сведения о мультитенантном приложении SaaS на основе базы данных SQL, в котором используется отдельная база данных для каждого клиента
 
-Приложение *SaaS Wingtip* — это пример многопользовательского приложения, демонстрирующего уникальные преимущества базы данных SQL. Для обслуживания нескольких клиентов приложение использует шаблон приложения SaaS, в котором на один клиент используется одна база данных. Приложение разработано для демонстрации возможностей базы данных SQL Azure, которые позволяют работать со сценариями SaaS, включая несколько моделей проектирования и управления SaaS. Приложение SaaS Wingtip развертывается менее чем за пять минут, поэтому вы сможете быстро приступить к работе.
+Приложение *Wingtip SaaS* — это пример мультитенантного приложения. Для обслуживания нескольких клиентов приложение использует шаблон приложения SaaS, в котором на один клиент используется одна база данных. Приложение демонстрирует возможности базы данных SQL Azure, которые позволяют работать со сценариями SaaS, используя несколько моделей проектирования и управления SaaS. Приложение SaaS Wingtip развертывается менее чем за пять минут, поэтому вы сможете быстро приступить к работе.
 
-Исходный код приложения и сценарии управления доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
+Исходный код приложения и сценарии управления доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Прежде чем начать, ознакомьтесь с инструкциями по скачиванию и разблокированию сценариев управления Wingtip Tickets в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 
 ## <a name="application-architecture"></a>Архитектура приложения
 
@@ -48,13 +48,13 @@ ms.lasthandoff: 11/28/2017
 |[Мониторинг производительности примера приложения SaaS Wingtip](saas-dbpertenant-performance-monitoring.md)| Узнайте, как использовать функции мониторинга базы данных SQL и как настроить оповещения при превышении пороговых значений производительности. |
 |[Настройка и использование Log Analytics (OMS) с примером приложения SaaS WTP](saas-dbpertenant-log-analytics.md) | Узнайте больше об использовании [Log Analytics](../log-analytics/log-analytics-overview.md) для мониторинга большого количества ресурсов в нескольких пулах. |
 |[Восстановление базы данных отдельного клиента](saas-dbpertenant-restore-single-tenant.md)| Узнайте, как восстановить базу данных клиента до предыдущей точки во времени. Кроме того, включены шаги для восстановления в параллельную базу данных путем выхода из имеющейся базы данных клиента через Интернет. |
-|[Управление схемой для нескольких клиентов в приложении SaaS Wingtip](saas-tenancy-schema-management.md)| Узнайте, как обновить схему и обновить эталонные данные во всех клиентах SaaS Wingtip. |
-|[Выполнение запросов ad-hoc-аналитики по всем клиентам SaaS Wingtip](saas-tenancy-adhoc-analytics.md) | Создание базы данных аналитики ad-hoc и выполнение распределенных запросов в реальном времени по всем клиентам.  |
-|[Выполнение распределенных запросов в нескольких базах данных SQL Azure](saas-tenancy-tenant-analytics.md) | Извлечение данных клиента в базу данных аналитики или хранилище данных для выполнения автономных аналитических запросов. |
+|[Manage schema for multiple tenants in the WTP SaaS application](saas-tenancy-schema-management.md) (Управление схемой нескольких клиентов в SaaS-приложении WTP)| Узнайте, как обновить схему и эталонные данные во всех базах данных клиента. |
+|[Отчеты по всем клиентам с использованием распределенных запросов](saas-tenancy-cross-tenant-reporting.md) | Создание базы данных аналитики ad-hoc и выполнение распределенных запросов в реальном времени по всем клиентам.  |
+|[Межклиентская аналитика с помощью извлеченных данных](saas-tenancy-tenant-analytics.md) | Извлечение данных клиента в базу данных аналитики или хранилище данных для автономных аналитических запросов. |
 
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- [Рекомендации и советы по использованию примера мультитенантного приложения SaaS для базы данных SQL Azure](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Развертывание и изучение мультитенантного приложения SaaS, использующего базу данных SQL Azure](saas-dbpertenant-get-started-deploy.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Операции Azure Active Directory Connect Health
 В этой статье описаны различные операции, которые можно выполнить с помощью Azure Active Directory (Azure AD) Connect Health.
@@ -42,6 +42,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="delete-a-server-or-service-instance"></a>Удаление экземпляра службы или сервера
 
+>[!NOTE] 
+> Чтобы выполнить удаление, нужна лицензия Azure AD Premium.
+
 В некоторых случаях может потребоваться удалить сервер из списка отслеживаемых серверов. Здесь приведены сведения по удалению сервера из службы Azure AD Connect Health.
 
 При удалении сервера учитывайте следующее:
@@ -51,7 +54,11 @@ ms.lasthandoff: 12/11/2017
 * При выполнении этого действия данные, предварительно собранные с этого сервера, не удаляются. Эти данные удаляются в соответствии с политикой хранения данных Azure.
 * Если после выполнения этого действия вам потребуется возобновить наблюдение за этим сервером, удалите и повторно установите на нем агент работоспособности.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Удаление сервера из службы Azure AD Connect Health
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Удаление сервера из службы Azure AD Connect Health
+
+>[!NOTE] 
+> Чтобы выполнить удаление, нужна лицензия Azure AD Premium.
+
 Azure AD Connect Health для службы федерации Active Directory (AD FS) и Azure AD Connect (синхронизация):
 
 1. В колонке **Список серверов** откройте колонку **Сервер**, щелкнув имя сервера, который нужно удалить.
@@ -114,7 +121,7 @@ Azure AD Connect Health поддерживает управление досту
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Шаг 2. Добавление пользователей и групп, а также назначение ролей
 1. В разделе **Настройка** щелкните **Пользователи**.<br>
-   ![Снимок экрана Azure AD RBAC работоспособности подключения главной колонке с пользователями, которые выделены](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Снимок экрана главной колонки компонента управления доступом на основе ролей в Azure AD Connect Health с выделенным элементом "Пользователи"](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Выберите **Добавить**.
 3. В области **Выбор роли** выберите роль (например, **Владелец**).<br>
    ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
@@ -122,7 +129,7 @@ Azure AD Connect Health поддерживает управление досту
    ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Нажмите кнопку **ОК**.<br>
 6. После назначения ролей пользователи и группы отобразятся в списке.<br>
-   ![Окно подключения пользователей RBAC работоспособности экрана Azure AD, с новыми пользователями выделен](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+   ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health с выделенными новыми пользователями](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Теперь указанные пользователи и группы имеют доступ в соответствии с назначенными им ролями.
 
@@ -133,9 +140,9 @@ Azure AD Connect Health поддерживает управление досту
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Шаг 3. Общий доступ к расположению колонки для пользователей или групп
-1. После назначения разрешений пользователь может получить доступ к Azure AD Connect Health, перейдя по [этому адресу](http://aka.ms/aadconnecthealth).
+1. После назначения разрешений пользователь может получить доступ к Azure AD Connect Health, перейдя по [этому адресу](https://aka.ms/aadconnecthealth).
 2. В этой колонке пользователь может закрепить ее или различные элементы на панели мониторинга. Для этого нужно просто щелкнуть значок **Закрепить колонку на панели мониторинга**.<br>
-   ![Колонка ПИН-код подключения RBAC работоспособности экрана Azure AD с значок булавки выделен](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+   ![Снимок экрана колонки закрепления компонента управления доступом на основе ролей в Azure AD Connect Health с выделенным значком "Закрепить колонку на панели мониторинга"](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Пользователь с ролью "Читатель" не получает расширения Azure AD Connect Health из Azure Marketplace, так как он не может выполнить необходимую операцию create. Однако этот пользователь по-прежнему может перейти к колонке, воспользовавшись приведенной выше ссылкой. Для дальнейшего использования колонки пользователь может закрепить ее на панели мониторинга.
@@ -144,11 +151,11 @@ Azure AD Connect Health поддерживает управление досту
 
 ### <a name="remove-users-or-groups"></a>Удаление пользователей или групп
 Вы можете удалить пользователя или группу, добавленных в компонент управления доступом на основе ролей Azure AD Connect Health. Для этого просто щелкните пользователя или группу правой кнопкой мыши и выберите команду **Удалить**.<br>
-![Окно подключения пользователей RBAC работоспособности экрана Azure AD, с выделенной Remove](./media/active-directory-aadconnect-health/RBAC_remove.png)
+![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health с выделенной командой "Удалить"](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)

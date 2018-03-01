@@ -1,3 +1,5 @@
+# [Документация по Power BI Embedded](index.md)
+
 # Обзор
 ## [О службе Power BI Embedded](what-is-power-bi-embedded.md)
 

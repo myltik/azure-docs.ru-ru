@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight 
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/11/2017
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Выполняет запрос Hive к sqlContext. Если передан параметр `-o` , результат запроса сохраняется в контексте Python %%local в качестве таблицы данных [Pandas](http://pandas.pydata.org/) . |
    | local |`%%local`<br>`a=1` |Весь код в последующих строках выполняется локально. В качестве кода должен быть указан допустимый код на языке Python2 (вне зависимости от используемого ядра). Таким образом, даже если при создании объекта Notebook было выбрано ядро **PySpark3** или **Spark**, то при использовании в ячейке магической команды `%%local` в этой ячейке должен содержаться только допустимый код Python2. |
    | журналы |`%%logs` |Выводит журналы для текущего сеанса Livy. |
-   | удалить |`%%delete -f -s <session number>` |Удаляет указанный сеанс для текущей конечной точки Livy. Обратите внимание, что нельзя удалить сеанс, который был инициирован самим ядром. |
+   | удалить |`%%delete -f -s <session number>` |Удаляет указанный сеанс для текущей конечной точки Livy. Удалить сеанс, который был инициирован самим ядром, невозможно. |
    | cleanup |`%%cleanup -f` |Удаляет все сеансы для текущей конечной точки Livy, включая сеанс этой записной книжки. Флаг -f является обязательным. |
 
    > [!NOTE]
@@ -160,7 +160,6 @@ ms.lasthandoff: 12/11/2017
 * [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](apache-spark-use-bi-tools.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](apache-spark-machine-learning-mllib-ipython.md)
-* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Создание и запуск приложений

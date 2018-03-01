@@ -5,6 +5,7 @@
     - name: Сведения об Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Быстрое начало работы
+  expanded: true
   items:
     - name: Развертывание в пограничной зоне — Linux/Mac
       href: quickstart-linux.md

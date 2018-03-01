@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами
 В этой статье описывается, как настроить в Log Analytics связь между продуктами или службами ITSM и соединителем управления ИТ-службами (ITSM), чтобы централизованно управлять рабочими элементами ITSM. Дополнительные сведения об ITSMC см. в [этом обзоре](log-analytics-itsmc-overview.md).
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/24/2018
 
 1. На портале Azure перейдите к разделу **Все ресурсы** и найдите элемент **ServiceDesk(имя_вашей_рабочей_области)**
 
-2.  В области **Источники данных рабочей области** щелкните **подключения ITSM**.
+2.  В области **Источники данных рабочей области** щелкните **Подключения ITSM**.
 
     ![Новое подключение](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
@@ -185,11 +185,12 @@ ms.lasthandoff: 01/24/2018
 ### <a name="prerequisites"></a>предварительным требованиям
 Выполните указанные ниже предварительные требования.
 - ITSMC установлен. Дополнительные сведения см. в разделе [Добавление соединителя управления ИТ-службами](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Установлена поддерживаемая версия ServiceNow: Jakarta, Istanbul, Helsinki, Geneva
+- Установлена поддерживаемая версия ServiceNow: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **Администраторы ServiceNow должны выполнить в экземплярах ServiceNow следующие действия:**
 - Создать идентификатор и секрет клиента для продукта ServiceNow. Дополнительные сведения о том, как создать идентификатор и секрет клиента, см. в соответствующих разделах:
 
+    - [Настройка OAuth для версии Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Настройка OAuth для версии Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Настройка OAuth для версии Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Настройка OAuth для версии Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -205,7 +206,7 @@ ms.lasthandoff: 01/24/2018
 
 1. На портале Azure перейдите к разделу **Все ресурсы** и найдите элемент **ServiceDesk(имя_вашей_рабочей_области)**
 
-2.  В области **Источники данных рабочей области** щелкните **подключения ITSM**.
+2.  В области **Источники данных рабочей области** щелкните **Подключения ITSM**.
     ![Новое подключение](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. Вверху справа щелкните **Добавить**.
@@ -300,7 +301,7 @@ ms.lasthandoff: 01/24/2018
 
 1. На портале Azure перейдите к разделу **Все ресурсы** и найдите элемент **ServiceDesk(имя_вашей_рабочей_области)**
 
-2.  В области **Источники данных рабочей области** щелкните **подключения ITSM**.
+2.  В области **Источники данных рабочей области** щелкните **Подключения ITSM**.
     ![Новое подключение](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. Вверху справа щелкните **Добавить**.

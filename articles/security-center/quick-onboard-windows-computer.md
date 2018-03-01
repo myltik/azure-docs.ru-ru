@@ -9,16 +9,17 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Краткое руководство. Подключение компьютеров Windows к центру безопасности Azure
 После подключения подписок Azure можно включить центр безопасности для ресурсов, работающих вне среды Azure, например в локальной среде или в других облаках, подготовив агент Microsoft Monitoring Agent.
@@ -73,7 +74,7 @@ ms.lasthandoff: 01/08/2018
 
 После завершения установки на **панели управления** появится **Microsoft Monitoring Agent**. Здесь вы можете просмотреть конфигурацию и проверить, подключен ли агент.
 
-Дополнительные сведения об установке и настройке агента см. в разделе [Подключение компьютеров Windows](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
+Дополнительные сведения об установке и настройке агента см. в разделе [Подключение компьютеров Windows](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
 
 Теперь можно осуществлять мониторинг виртуальных машин Azure и компьютеров, не относящихся к Azure, из одного расположения. В разделе **Вычисления** перечислены все виртуальные машины и компьютеры наряду с рекомендациями. В каждом столбце представлен один набор рекомендаций. Цвет соответствует текущему состоянию безопасности виртуальной машины или компьютера и указывает на определенную рекомендацию. Центр безопасности также предоставляет доступ к обнаруженным угрозам для этих компьютеров в оповещениях системы безопасности.
 

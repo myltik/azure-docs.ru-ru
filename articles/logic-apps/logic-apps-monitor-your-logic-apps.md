@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Мониторинг состояния, настройка ведения журнала диагностики и включение предупреждений для Azure Logic Apps
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Просмотр сведений о выполнении и журнале триггеров для приложения логики
 
-1. Чтобы найти приложение логики на [портале Azure](https://portal.azure.com), в главном меню Azure выберите **Больше служб**. В поле поиска введите "logic apps", а затем нажмите кнопку **Logic Apps**.
+1. Чтобы найти приложение логики на [портале Azure](https://portal.azure.com), в главном меню Azure выберите **Все службы**. В поле поиска введите "logic apps", а затем выберите **Logic Apps**.
 
    ![Поиск приложения логики](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/19/2018
 
 Чтобы найти и просмотреть события в приложении логики, такие как события триггера, события выполнения и события действия, выполните следующие действия.
 
-1. На [портале Azure](https://portal.azure.com) щелкните **Больше служб**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
+1. На [портале Azure](https://portal.azure.com) щелкните **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
 
    ![Выберите "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

@@ -1,27 +1,14 @@
----
-title: "Импорт коллекции Postman"
-description: "В этой статье приведено определение коллекции Postman для вызовов REST в службах мультимедиа Azure."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Импорт коллекции Postman
+ ---
+title: Импорт коллекции Postman с помощью операций потокового воспроизведения по запросу Azure, description: В этой статье предоставляется определение коллекции Postman для вызовов REST в Службах мультимедиа Azure.
+services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
 
-Эта статья содержит определение коллекции **Postman**, содержащей сгруппированные HTTP-запросы для вызова REST API служб мультимедиа. Это определение используется в руководстве [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) (Настройка Postman для вызовов REST API служб мультимедиа).
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Импорт коллекции Postman с помощью операций потокового воспроизведения по запросу
+
+Эта статья содержит определение коллекции **Postman**, содержащей сгруппированные HTTP-запросы для вызова REST API Служб мультимедиа Azure. Дополнительные сведения о настройке **Postman** для вызова API REST Служб мультимедиа см. в [этой статье](media-rest-apis-with-postman.md).
 
 ```
 {

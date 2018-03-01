@@ -1,3 +1,5 @@
+# [Документация по службам BizTalk](index.md)
+
 # Обзор
 ## [Выпуски](biztalk-editions-feature-chart.md)
 

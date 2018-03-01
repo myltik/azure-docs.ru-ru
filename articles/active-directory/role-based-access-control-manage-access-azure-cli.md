@@ -11,195 +11,446 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 1995cb34595fa9195e176e9ee341d551162f8ea5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c099a7fd8848c2934603ec9b2db8947885226f9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Управление доступом на основе ролей с помощью интерфейса командной строки Azure
+
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager позволяет очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью. 
+С помощью механизма управления доступом на основе ролей (RBAC) можно определить доступ для пользователей, групп и субъектов-служб, назначая роли для определенной области. В этой статье описывается управление доступом с помощью интерфейса командной строки Azure (CLI).
 
-> [!NOTE] 
-> Последняя версия документации роли теперь доступна для [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+## <a name="prerequisites"></a>предварительным требованиям
 
+Чтобы использовать Azure CLI для управления RBAC, вам понадобится следующее.
 
- 
-+> Последняя версия документации роли для [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) Чтобы использовать интерфейс командной строки (CLI) Azure для управления RBAC, вам понадобятся следующие компоненты:
-
-* Интерфейс командной строки Azure версии 0.8.8 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Установка Azure CLI](../cli-install-nodejs.md).
-* Azure Resource Manager в Azure CLI. Дополнительные сведения см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../xplat-cli-azure-resource-manager.md).
+* [Azure CLI 2.0](/cli/azure/overview). Его можно использовать в браузере с [Azure Cloud Shell](../cloud-shell/overview.md) или [установить](/cli/azure/install-azure-cli) в macOS, Linux или Windows и запускать из командной строки.
 
 ## <a name="list-roles"></a>Вывод списка ролей
-### <a name="list-all-available-roles"></a>Вывод списка всех доступных ролей
-Для вывода списка всех доступных ролей используйте следующую команду:
 
-        azure role list
+### <a name="list-role-definitions"></a>Вывод списка определений роли
 
-В следующем примере показан список *всех доступных ролей*.
+Чтобы получить список всех доступных определений роли, используйте команду [az role definition list](/cli/azure/role/definition#az_role_definition_list):
 
-```
-azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+```azurecli
+az role definition list
 ```
 
-![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
+В следующем примере показан список имен доступных определений роли вместе с описанием.
 
-### <a name="list-actions-of-a-role"></a>Вывод списка действий роли
-Для вывода списка действий роли используйте следующую команду:
-
-    azure role show "<role name>"
-
-В следующем примере показаны действия ролей *Участник* и *Участник виртуальной машины*.
-
-```
-azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
-
-azure role show "virtual machine contributor" --json | jq '.[] | .properties.permissions[0].actions'
+```azurecli
+az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
 ```
 
-![Снимок экрана: командная строка RBAC Azure — отображение ролей Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
+```Output
+{
+  "roleName": "API Management Service Contributor",
+  "description": "Can manage service and the APIs"
+}
+{
+  "roleName": "API Management Service Operator Role",
+  "description": "Can manage service but not the APIs"
+}
+{
+  "roleName": "API Management Service Reader Role",
+  "description": "Read-only access to service and APIs"
+}
+
+...
+```
+
+В следующем примере перечислены все определения встроенной роли.
+
+```azurecli
+az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description, "type":.properties.type}'
+```
+
+```Output
+{
+  "roleName": "API Management Service Contributor",
+  "description": "Can manage service and the APIs",
+  "type": "BuiltInRole"
+}
+{
+  "roleName": "API Management Service Operator Role",
+  "description": "Can manage service but not the APIs",
+  "type": "BuiltInRole"
+}
+{
+  "roleName": "API Management Service Reader Role",
+  "description": "Read-only access to service and APIs",
+  "type": "BuiltInRole"
+}
+
+...
+```
+
+### <a name="list-actions-of-a-role-definition"></a>Вывод списка разрешенных действий, относящихся к определению роли
+
+Чтобы получить список разрешенных действий определения роли (свойства actions), используйте команду [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+
+```azurecli
+az role definition list --name <role_name>
+```
+
+В следующем примере показано определение роли *Участник*.
+
+```azurecli
+az role definition list --name "Contributor"
+```
+
+```Output
+[
+  {
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "properties": {
+      "additionalProperties": {
+        "createdBy": null,
+        "createdOn": "0001-01-01T08:00:00.0000000Z",
+        "updatedBy": null,
+        "updatedOn": "2016-12-14T02:04:45.1393855Z"
+      },
+      "assignableScopes": [
+        "/"
+      ],
+      "description": "Lets you manage everything except access to resources.",
+      "permissions": [
+        {
+          "actions": [
+            "*"
+          ],
+          "notActions": [
+            "Microsoft.Authorization/*/Delete",
+            "Microsoft.Authorization/*/Write",
+            "Microsoft.Authorization/elevateAccess/Action"
+          ]
+        }
+      ],
+      "roleName": "Contributor",
+      "type": "BuiltInRole"
+    },
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+В следующем примере показаны *разрешенные* и *не разрешенные действия* (свойства notActions) роли *Участник*.
+
+```azurecli
+az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.properties.permissions[0].actions, "notActions":.properties.permissions[0].notActions}'
+```
+
+```Output
+{
+  "actions": [
+    "*"
+  ],
+  "notActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action"
+  ]
+}
+```
+
+В следующем примере показаны разрешенные действия роли *Участник виртуальных машин*.
+
+```azurecli
+az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .properties.permissions[0].actions'
+```
+
+```Output
+[
+  "Microsoft.Authorization/*/read",
+  "Microsoft.Compute/availabilitySets/*",
+  "Microsoft.Compute/locations/*",
+  "Microsoft.Compute/virtualMachines/*",
+  "Microsoft.Compute/virtualMachineScaleSets/*",
+  "Microsoft.Insights/alertRules/*",
+  "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
+  "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+
+  ...
+
+  "Microsoft.Storage/storageAccounts/listKeys/action",
+  "Microsoft.Storage/storageAccounts/read"
+]
+```
 
 ## <a name="list-access"></a>Вывод списка доступа
-### <a name="list-role-assignments-effective-on-a-resource-group"></a>Вывод списка назначений ролей, действующих в группе ресурсов
-Чтобы вывести список назначений ролей в группе ресурсов, используйте следующую команду.
-
-    azure role assignment list --resource-group <resource group name>
-
-В следующем примере показаны назначения ролей в группе *pharma-sales-projecforcast* .
-
-```
-azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
-```
-
-![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ### <a name="list-role-assignments-for-a-user"></a>Список назначений ролей для пользователя
-Чтобы получить список назначений ролей для конкретного пользователя и назначений для групп пользователя, используйте следующую команду:
 
-    azure role assignment list --signInName <user email>
+Чтобы вывести список назначений ролей для конкретного пользователя, используйте команду [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list).
 
-Также вы можете просмотреть назначения ролей, которые наследуются от групп, изменив эту команду:
-
-    azure role assignment list --expandPrincipalGroups --signInName <user email>
-
-В следующем примере показаны назначения ролей, предоставленные пользователю *sameert@aaddemo.com* . Сюда входят роли, непосредственно назначенные пользователю, а также роли, унаследованные от групп.
-
-```
-azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
-
-azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```azurecli
+az role assignment list --assignee <assignee>
 ```
 
-![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
+По умолчанию отображаются только назначения в пределах подписки. Чтобы просмотреть назначения в пределах ресурсов или группы, используйте `--all`.
 
-## <a name="grant-access"></a>Предоставление доступа
-После определения роли, которую вы хотите назначить, воспользуйтесь следующей командой для предоставления доступа:
+В следующем примере показаны назначения ролей, напрямую присвоенные пользователю *patlong@contoso.com*.
 
-    azure role assignment create
+```azurecli
+az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.properties.principalName, "roleDefinitionName":.properties.roleDefinitionName, "scope":.properties.scope}'
+```
 
-### <a name="assign-a-role-to-group-at-the-subscription-scope"></a>Назначение роли для группы в области действия подписки
-Для назначения роли для группы в области действия подписки воспользуйтесь следующей командой:
+```Output
+{
+  "principalName": "patlong@contoso.com",
+  "roleDefinitionName": "Backup Operator",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
+{
+  "principalName": "patlong@contoso.com",
+  "roleDefinitionName": "Virtual Machine Contributor",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
+```
 
-    azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+### <a name="list-role-assignments-for-a-resource-group"></a>Вывод списка назначений ролей для группы ресурсов
 
-В следующем примере роль *Читатель* назначается *Команде Кристины Кох* в области действия *подписки*.
+Чтобы вывести список назначений ролей, имеющихся в группе ресурсов, используйте команду [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list).
 
-![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
+```azurecli
+az role assignment list --resource-group <resource_group>
+```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Назначение роли для приложения в области действия подписки
-Для назначения роли для приложения в области действия подписки воспользуйтесь следующей командой:
+В следующем примере перечисляются назначения ролей для группы ресурсов *pharma-sales-projectforecast*.
 
-    azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+```azurecli
+az role assignment list --resource-group pharma-sales-projectforecast --output json | jq '.[] | {"roleDefinitionName":.properties.roleDefinitionName, "scope":.properties.scope}'
+```
 
-В следующем примере роль *Участник* предоставляется приложению *Azure AD* в выбранной подписке.
+```Output
+{
+  "roleDefinitionName": "Backup Operator",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
+{
+  "roleDefinitionName": "Virtual Machine Contributor",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
 
- ![Командная строка RBAC Azure — создание назначений ролей Azure по приложениям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
+...
+```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Назначение роли пользователю в области действия группы ресурсов
-Для назначения роли пользователю в области действия группы ресурсов воспользуйтесь следующей командой:
+## <a name="assign-access"></a>Назначение доступа
 
-    azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
+### <a name="assign-a-role-to-a-user"></a>Назначение роли пользователю
 
-В следующем примере роль *Участник виртуальной машины* предоставляется пользователю *samert@aaddemo.com* в области действия группы ресурсов *Pharma-Sales-ProjectForcast*.
+Для назначения роли пользователю в пределах группы ресурсов используйте команду [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create).
 
-![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
+```azurecli
+az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
+```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Назначение роли для группы в области действия ресурса
-Для назначения роли для группы в области действия ресурса воспользуйтесь следующей командой:
+В следующем примере роль *Участник виртуальной машины* назначается пользователю *patlong@contoso.com* в пределах группы ресурсов *pharma-sales-projectforecast*.
 
-    azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
+```
 
-В следующем примере роль *Участник виртуальной машины* предоставляется группе *Azure AD* в *подсети*.
+### <a name="assign-a-role-to-a-group"></a>Назначение роли группе
 
-![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
+Чтобы назначить роль группе, используйте команду [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create).
+
+```azurecli
+az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+В следующем примере роль *Читатель* присваивается группе *Ann Mack Team* с идентификатором 22222222-2222-2222-2222-222222222222 в пределах подписки. Чтобы получить идентификатор группы, можно использовать команду [az ad group list](/cli/azure/ad/group#az_ad_group_list) или [az ad group show](/cli/azure/ad/group#az_ad_group_show).
+
+```azurecli
+az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
+```
+
+В следующем примере роль *Участник виртуальной машины* присваивается группе *Ann Mack Team* с идентификатором 22222222-2222-2222-2222-222222222222 в пределах ресурса для виртуальной сети с именем *pharma-sales-project-network*.
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+```
+
+### <a name="assign-a-role-to-an-application"></a>Назначение роли приложению
+
+Чтобы назначить роль приложению, используйте команду [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create).
+
+```azurecli
+az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+В следующем примере роль *Участник виртуальной машины* присваивается приложению с идентификатором объекта 44444444-4444-4444-4444-444444444444 в пределах группы ресурсов *pharma-sales-projectforecast*. Чтобы получить идентификатор объекта приложения, можно использовать команду [az ad app list](/cli/azure/ad/app#az_ad_app_list) или [az ad app show](/cli/azure/ad/app#az_ad_app_show).
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
+```
 
 ## <a name="remove-access"></a>Запрет доступа
-Чтобы удалить назначение роли, воспользуйтесь командой:
 
-    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
+### <a name="remove-a-role-assignment"></a>Удаление назначения ролей
 
-В следующем примере удаляется назначение роли *Участник виртуальной машины* пользователя *sammert@aaddemo.com* в группе ресурсов *Pharma-Sales-ProjectForcast*.
-После этого выполняется удаление назначения ролей из группы в подписке.
+Чтобы удалить назначение ролей, используйте команду [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete).
 
-![Снимок экрана: командная строка RBAC Azure — удаление назначений ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
-
-## <a name="create-a-custom-role"></a>Создание настраиваемой роли
-Чтобы создать настраиваемую роль, используйте следующую команду:
-
-    azure role create --inputfile <file path>
-
-В следующем примере показано создание настраиваемой роли *Оператор виртуальной машины*. Настраиваемая роль предоставляет доступ ко всем операциям чтения поставщиков ресурсов *Microsoft.Compute*, *Microsoft.Storage* и *Microsoft.Network*, а также доступ для запуска, перезапуска и мониторинга виртуальных машин. Эту настраиваемую роль можно использовать в двух подписках. В этом примере в качестве входных данных используется JSON-файл.
-
-![Снимок экрана: JSON — определение пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
-
-![Снимок экрана: командная строка RBAC Azure — создание ролей Azure](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
-
-## <a name="modify-a-custom-role"></a>Изменение настраиваемой роли
-Чтобы изменить настраиваемую роль, сначала используйте команду `azure role list` для получения определения роли. Затем внесите необходимые изменения в файл определения роли. Наконец, с помощью `azure role set` сохраните измененное определение роли.
-
-    azure role set --inputfile <file path>
-
-В следующем примере операция *Microsoft.Insights/diagnosticSettings/* добавляется в раздел **Actions**, а подписка Azure — в раздел **AssignableScopes** настраиваемой роли "Оператор виртуальной машины".
-
-![Снимок экрана: JSON — изменение определения пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
-
-![Снимок экрана: командная строка RBAC Azure — настройка ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
-
-## <a name="delete-a-custom-role"></a>Удаление настраиваемой роли
-Чтобы удалить настраиваемую роль, сначала используйте команду `azure role list` для определения **идентификатора** роли. Затем с помощью команды `azure role delete` удалите роль, указав ее **идентификатор**.
-
-В следующем примере показано удаление настраиваемой роли *Оператор виртуальной машины* .
-
-![Снимок экрана: командная строка RBAC Azure — удаление ролей Azure](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
-
-## <a name="list-custom-roles"></a>Вывод списка настраиваемых ролей
-Чтобы получить список ролей, доступных для назначения в области, используйте команду `azure role list` .
-
-Следующая команда перечисляет все роли, доступные для назначения в выбранной подписке.
-
-```
-azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+```azurecli
+az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+В следующем примере удаляется назначение роли *Участник виртуальной машины* пользователя *patlong@contoso.com* в группе ресурсов *pharma-sales-projectforecast*.
 
-В следующем примере настраиваемая роль *Оператор виртуальной машины* не доступна в подписке *Production4*, так как эта подписка не входит в **AssignableScopes** роли.
-
-```
-azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+```azurecli
+az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-![Снимок экрана: командная строка RBAC Azure — список пользовательских ролей Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+В следующем примере роль *Читатель* удаляется для группы *Ann Mack Team* с идентификатором 22222222-2222-2222-2222-222222222222 в пределах подписки. Чтобы получить идентификатор группы, можно использовать команду [az ad group list](/cli/azure/ad/group#az_ad_group_list) или [az ad group show](/cli/azure/ad/group#az_ad_group_show).
+
+```azurecli
+az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
+```
+
+## <a name="custom-roles"></a>Пользовательские роли
+
+### <a name="list-custom-roles"></a>Вывод списка настраиваемых ролей
+
+Чтобы получить список ролей, доступных для назначения в области, используйте команду [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+
+В следующих примерах перечислены все пользовательские роли в текущей подписке.
+
+```azurecli
+az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.properties.roleName, "type":.properties.type}'
+```
+
+```azurecli
+az role definition list --output json | jq '.[] | if .properties.type == "CustomRole" then {"roleName":.properties.roleName, "type":.properties.type} else empty end'
+```
+
+```Output
+{
+  "roleName": "My Management Contributor",
+  "type": "CustomRole"
+}
+{
+  "roleName": "My Service Operator Role",
+  "type": "CustomRole"
+}
+{
+  "roleName": "My Service Reader Role",
+  "type": "CustomRole"
+}
+
+...
+```
+
+### <a name="create-a-custom-role"></a>Создание настраиваемой роли
+
+Чтобы создать пользовательскую роль, используйте команду [az role definition create](/cli/azure/role/definition#az_role_definition_create). Определением роли может быть описание JSON или путь к файлу, содержащему описание JSON.
+
+```azurecli
+az role definition create --role-definition <role_definition>
+```
+
+В следующем примере показано создание пользовательской роли *Оператор виртуальной машины*. Пользовательская роль предоставляет доступ ко всем операциям чтения поставщиков ресурсов *Microsoft.Compute*, *Microsoft.Storage* и *Microsoft.Network*, а также доступ для запуска, перезапуска и мониторинга виртуальных машин. Эту настраиваемую роль можно использовать в двух подписках. В этом примере в качестве входных данных используется JSON-файл.
+
+vmoperator.json
+
+```json
+{
+  "Name": "Virtual Machine Operator",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/11111111-1111-1111-1111-111111111111",
+    "/subscriptions/33333333-3333-3333-3333-333333333333"
+  ]
+}
+```
+
+```azurecli
+az role definition create --role-definition ~/roles/vmoperator.json
+```
+
+### <a name="update-a-custom-role"></a>Обновление пользовательской роли
+
+Чтобы обновить пользовательскую роль, сначала используйте команду [az role definition list](/cli/azure/role/definition#az_role_definition_list) для получения определения роли. Затем внесите необходимые изменения в определение роли. И наконец, сохраните обновленное определение роли с помощью команды [az role definition update](/cli/azure/role/definition#az_role_definition_update).
+
+```azurecli
+az role definition update --role-definition <role_definition>
+```
+
+В следующем примере операция *Microsoft.Insights/diagnosticSettings/* добавляется в раздел *Actions* пользовательской роли *Оператор виртуальной машины*.
+
+vmoperator.json
+
+```json
+{
+  "Name": "Virtual Machine Operator",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/11111111-1111-1111-1111-111111111111",
+    "/subscriptions/33333333-3333-3333-3333-333333333333"
+  ]
+}
+```
+
+```azurecli
+az role definition update --role-definition ~/roles/vmoperator.json
+```
+
+### <a name="delete-a-custom-role"></a>Удаление настраиваемой роли
+
+Чтобы удалить пользовательскую роль, используйте команду [az role definition delete](/cli/azure/role/definition#az_role_definition_delete). Чтобы указать роль, которую необходимо удалить, используйте имя или идентификатор роли. Чтобы определить идентификатор роли, используйте команду [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+
+```azurecli
+az role definition delete --name <role_name or role_id>
+```
+
+В следующем примере показано удаление пользовательской роли *Оператор виртуальной машины*.
+
+```azurecli
+az role definition delete --name "Virtual Machine Operator"
+```
 
 ## <a name="next-steps"></a>Дополнительная информация
+
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

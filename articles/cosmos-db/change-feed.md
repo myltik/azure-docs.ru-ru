@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: rafats
-ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
 
@@ -70,7 +70,6 @@ ms.lasthandoff: 02/03/2018
 
 * Обновление кэша, индекса поиска или хранилища данными, хранящимися в Azure Cosmos DB.
 * Реализация распределения данных по уровням и их архивирование на уровне приложений, то есть хранение "горячих данных" в Azure Cosmos DB и удаление "холодных данных" в [хранилище BLOB-объектов Azure](../storage/common/storage-introduction.md) или [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Реализация пакетной аналитики для данных с помощью [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Выполнение переносов в другую учетную запись Azure Cosmos DB с использованием другой схемы секционирования без простоев.
 * Реализация [лямбда-конвейеров в Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) с помощью Azure Cosmos DB. Azure Cosmos DB предоставляет масштабируемое решение базы данных, которое может обрабатывать операции приема и запроса, а также реализовывать лямбда-архитектуры с низкой совокупной стоимостью владения. 
 * Получение и хранение данных о событиях с устройств, датчиков, инфраструктуры и приложений и обработка этих событий в реальном времени с помощью [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md) или [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 

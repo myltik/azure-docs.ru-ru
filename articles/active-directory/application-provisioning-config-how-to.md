@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Как настроить подготовку пользователей для приложения из коллекции Azure AD
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 
 Если для приложения отображается только ручной режим, это означает, что для приложения еще не был создан соединитель для подготовки в Azure AD. Это также может означать, что приложение не поддерживает необходимый API-интерфейс управления пользователями, на основании которого создается автоматический соединитель для развертывания.
 
-Если вы хотите запросить поддержку автоматической подготовки приложения, отправьте запрос на веб-сайт <http://aka.ms/aadapprequest>.
+Чтобы получить возможность автоматической подготовки приложения, отправьте запрос при помощи функции [запросов на приложения Azure Active Directory](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Настройка приложения для автоматической подготовки
 

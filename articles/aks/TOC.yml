@@ -77,6 +77,10 @@
       items:
         - name: Использование панели мониторинга Kubernetes
           href: kubernetes-dashboard.md
+    - name: Устранение неполадок
+      items:
+        - name: Доступ к узлам SSH
+          href: aks-ssh.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Обзор мониторинга сети Azure
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 * **[Устранение неполадок шлюза виртуальной сети и подключений](network-watcher-troubleshoot-manage-rest.md)**. Дает возможность устранять неполадки шлюза виртуальной сети и подключений.
 * **[Ограничения сетевых ресурсов подписки](#network-subscription-limits)**. Возможность просмотреть данные об использовании сетевых ресурсов относительно установленных ограничений.
 * **[Настройка журналов диагностики](#diagnostic-logs)**. Предоставляет отдельную область для включения или отключения журналов диагностики сетевых ресурсов в группе ресурсов.
-* **[Возможность подключения (предварительная версия)](network-watcher-connectivity-overview.md)**. Позволяет проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой.
+* **[Устранение неполадок с подключением.](network-watcher-connectivity-overview.md)** Позволяет проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой с предоставлением контекста Azure.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Управление доступом на основе ролей (RBAC) в Наблюдателе за сетями
 

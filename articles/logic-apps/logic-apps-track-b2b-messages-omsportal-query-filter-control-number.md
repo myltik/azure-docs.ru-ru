@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Запрос сообщений AS2, X 12 и EDIFACT в Microsoft Operations Management Suite (OMS)
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/19/2018
 > [!TIP] 
 > Если известно имя рабочей области OMS, перейдите на домашнюю страницу рабочей области (`https://{your-workspace-name}.portal.mms.microsoft.com`) и перейдите к шагу 4. В противном случае начните с шага 1.
 
-1. На [портале Azure](https://portal.azure.com) щелкните **Больше служб**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
+1. На [портале Azure](https://portal.azure.com) выберите **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
 
    ![Поиск Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 

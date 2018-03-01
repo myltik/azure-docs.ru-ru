@@ -1,19 +1,19 @@
 ---
-title: "Мониторинг в базе данных Azure для MySQL | Документация Майкрософт"
+title: "Мониторинг в базе данных Azure для MySQL"
 description: "В этой статье описываются метрики для мониторинга и создания предупреждений в базе данных Azure для MySQL, включая ЦП, ограничения, хранилище и статистику подключений."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Мониторинг в базе данных Azure для MySQL
 Мониторинг данных о серверах помогает устранять неполадки и оптимизировать рабочую нагрузку. База данных Azure для MySQL предоставляет различные метрики, позволяющие понять действия ресурсов, поддерживающих сервер MySQL. 
@@ -41,9 +41,6 @@ ms.lasthandoff: 10/25/2017
 |active_connections|Общее количество активных подключений|Count|Число активных подключений к серверу.|
 |connections_failed|Общее количество неудачных подключений|Count|Число неудачных попыток подключения к серверу.|
 
-
-> [!NOTE]
-> Вычислительная единица состоит из памяти и ЦП. Процент использования единиц вычислений рассчитывается по формуле max(memory%, cpu%). Просмотрите диаграммы памяти и ЦП, чтобы точно определить происхождение изменений процента использования единиц вычислений. Дополнительные сведения см. в статье [Сведения о единицах вычислений в базе данных Azure для PostgreSQL](concepts-compute-unit-and-storage.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
 - Пошаговые инструкции см. в статье [Использование портала Azure для настройки оповещений на основе метрик для базы данных Azure для MySQL](howto-alert-on-metric.md). 

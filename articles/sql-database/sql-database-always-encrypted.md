@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище сертификатов Windows
 
@@ -48,7 +48,7 @@ Always Encrypted — это новая технология шифровани�
 
 ## <a name="create-a-blank-sql-database"></a>Создание пустой базы данных SQL
 1. Войдите на [портале Azure](https://portal.azure.com/).
-2. Выберите **Создать** > **Данные+хранилище** > **База данных SQL**.
+2. Выберите **Создать ресурс** > **Данные+хранилище** > **База данных SQL**.
 3. Создайте **пустую** базу данных **Clinic** на новом или имеющемся сервере. Подробные инструкции по созданию базы данных на портале Azure см. в статье [Краткое руководство. Начало работы с базой данных SQL Azure](sql-database-get-started-portal.md).
    
     ![Создание пустой базы данных](./media/sql-database-always-encrypted/create-database.png)

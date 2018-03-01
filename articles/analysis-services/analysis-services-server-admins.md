@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 6a42baf9fd880264e4130c009f27935a4743de21
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-server-administrators"></a>Управление администраторами серверов
-Администраторами сервера должны быть допустимые пользователи или группы в Azure Active Directory (Azure AD) для клиента, в котором размещен сервер. Для управления администраторами сервера можно использовать элемент **Администраторы служб Analysis Services** в колонке управления сервером на портале Azure или свойства сервера в SSMS. 
+Администраторами сервера должны быть допустимые пользователи или группы в Azure Active Directory (Azure AD) для клиента, в котором размещен сервер. Для управления администраторами сервера можно использовать элемент **Администраторы служб Analysis Services** для сервера на портале Azure или свойств сервера в SSMS. 
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Добавление администраторов на портале Azure
-1. В колонке управления сервером щелкните **Администраторы служб Analysis Services**.
-2. В колонке **\<имя_сервера> - Администраторы служб Analysis Services** щелкните **Добавить**.
-3. В колонке **добавления администраторов сервера** выберите учетные записи пользователей из Azure AD или пригласите внешних пользователей по электронной почте.
+1. На портале выберите для сервера **Администраторы служб Analysis Services**.
+2. В области **\<имя_сервера> — Администраторы служб Analysis Services** щелкните **Добавить**.
+3. В области **добавления администраторов сервера** выберите учетные записи пользователей из Azure AD или пригласите внешних пользователей по электронной почте.
 
     ![Администраторы сервера на портале Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 

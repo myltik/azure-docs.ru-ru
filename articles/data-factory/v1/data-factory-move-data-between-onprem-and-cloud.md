@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/23/2018
 На этом этапе вы с помощью портала Azure создадите экземпляр фабрики данных Azure с именем **ADFTutorialOnPremDF**.
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Щелкните **+ New** (+ Создать), **Аналитика**, а затем — **Фабрика данных**.
+2. Щелкните **Создать ресурс**, **Аналитика**, а затем — **Фабрика данных**.
 
    ![Создать -> Фабрика данных](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. На странице **Новая фабрика данных** введите **ADFTutorialOnPremDF** в поле "Имя".

@@ -1,3 +1,5 @@
+# [Документация по CDN](index.md)
+
 # [Обзор](cdn-overview.md)
 ## [Что такое Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 

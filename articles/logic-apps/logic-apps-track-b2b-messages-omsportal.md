@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Отслеживание взаимодействия B2B в Microsoft Operations Management Suite (OMS)
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/19/2018
 
 Чтобы организовать отслеживание сообщений B2B для приложения логики с помощью OMS, необходимо добавить решение **Logic Apps B2B** на портал OMS. Узнайте подробнее о [добавлении решений в OMS](../log-analytics/log-analytics-get-started.md).
 
-1. На [портале Azure](https://portal.azure.com) щелкните **Больше служб**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
+1. На [портале Azure](https://portal.azure.com) выберите **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
 
    ![Поиск Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 

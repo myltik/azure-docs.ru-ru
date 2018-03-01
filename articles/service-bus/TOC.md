@@ -1,3 +1,4 @@
+# [Документация по служебной шине](index.md)
 # [Служебная шина](/azure/service-bus-messaging)
 # [Ретрансляция](/azure/service-bus-relay)
 # Ресурсы

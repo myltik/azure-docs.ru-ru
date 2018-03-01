@@ -1,3 +1,5 @@
+# [Документация по StorSimple](index.md)
+
 # Виртуальный массив StorSimple
 
 ## Обзор

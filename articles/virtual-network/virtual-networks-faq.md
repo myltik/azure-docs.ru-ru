@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Виртуальная сеть Azure: часто задаваемые вопросы
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 Нет. Технологии многоадресной или широковещательной рассылки не поддерживаются.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Какие протоколы можно использовать в рамках виртуальных сетей?
-Вы можете использовать в виртуальных сетях протоколы TCP, UDP и ICMP, относящиеся к стеку TCP/IP. В виртуальных сетях блокируются многоадресные и широковещательные рассылки, инкапсулированные пакеты IP in IP и пакеты, передаваемые по протоколу GRE (Generic Routing Encapsulation). 
+Вы можете использовать в виртуальных сетях протоколы TCP, UDP и ICMP, относящиеся к стеку TCP/IP. Между виртуальными сетями поддерживается одноадресная передача. Исключением является одноадресная передача по протоколу DHCP (исходный порт UDP/68, конечный порт UDP/67). В виртуальных сетях блокируются многоадресные и широковещательные рассылки, инкапсулированные пакеты IP in IP и пакеты, передаваемые по протоколу GRE (Generic Routing Encapsulation). 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Можно ли в виртуальной сети проверять связь с маршрутизаторами по умолчанию?
 Нет.

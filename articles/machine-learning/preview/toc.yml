@@ -9,15 +9,15 @@
       href: model-management-overview.md
 - name: Быстрое начало работы
   items:
-    - name: Установка и создание
+    - name: Установка и запуск
       href: quickstart-installation.md
 - name: Учебники
   items:
     - name: 1. Подготовка данных
       href: tutorial-classifying-iris-part-1.md
-    - name: 2. Сборка модели
+    - name: 2. Сборка моделей
       href: tutorial-classifying-iris-part-2.md
-    - name: 3. Развертывание модели
+    - name: 3. Развертывание моделей
       href: tutorial-classifying-iris-part-3.md
     - name: 4. Расширенная подготовка данных
       href: tutorial-bikeshare-dataprep.md

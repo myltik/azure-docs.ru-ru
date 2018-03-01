@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Перенос ресурсов IaaS из классической модели в модель Azure Resource Manager с помощью Azure PowerShell
 Ниже последовательно описано, как использовать команды Azure PowerShell для переноса ресурсов IaaS из классической модели развертывания в модель развертывания с помощью Azure Resource Manager.
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/17/2017
 Чтобы выполнить миграцию, вас нужно добавить как соадминистратора подписки на [портале Azure](https://portal.azure.com).
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. В главном меню выберите **Подписка**. Если вы не видите этот пункт, щелкните **Больше служб**.
+2. В главном меню выберите **Подписка**. Если вы не видите этот пункт, щелкните **Все службы**.
 3. Найдите нужную запись подписки, а затем посмотрите на поле **Моя роль**. Для соадминистратора значение должно быть _Администратор учетной записи_.
 
 Если вам не удалась добавить соадминистратора, обратитесь к администратору или соадминистратору служб для подписки, чтобы вас добавили.   

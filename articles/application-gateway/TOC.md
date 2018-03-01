@@ -1,3 +1,5 @@
+# [Документация по шлюзу приложений](index.md)
+
 # Обзор
 ## [Что такое шлюз приложений?](application-gateway-introduction.md)
 ## [Шлюз приложений: часто задаваемые вопросы](application-gateway-faq.md)

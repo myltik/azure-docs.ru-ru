@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Настройка среды с присоединенной к домену песочницей HDInsight
 
-Узнайте, как настроить кластер Azure HDInsight с изолированной службой Active Directory и [Apache Ranger](http://hortonworks.com/apache/ranger/), чтобы воспользоваться преимуществами политик строгой проверки подлинности и управления доступа на основе ролей (RBAC) с широкими возможностями. Дополнительные сведения см. в статье [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Введение в присоединенные к домену кластеры HDInsight).
+Узнайте, как настроить кластер Azure HDInsight с изолированной службой Active Directory и [Apache Ranger](http://hortonworks.com/apache/ranger/), чтобы воспользоваться преимуществами политик строгой проверки подлинности и управления доступа на основе ролей (RBAC) с широкими возможностями. Дополнительные сведения см. в статье [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Введение в присоединенные к домену кластеры HDInsight). 
+
+> [!IMPORTANT]
+> По умолчанию эту установку можно использовать только с учетными записями хранения Azure. Чтобы использовать установку с Azure Data Lake Store, синхронизируйте Active Directory с новой версией Azure Active Directory.
 
 Без присоединенного к домену кластера HDInsight каждый кластер может иметь только учетную запись пользователя Hadoop HTTP и SSH.  Многофакторную проверку подлинности пользователей можно выполнить с помощью:
 
@@ -40,6 +43,7 @@ ms.lasthandoff: 01/25/2018
     - Создание кластера HDInsight
 
 > [!IMPORTANT]
+> 
 > Диспетчер Oozie не включен в присоединенном к домену кластере HDInsight.
 
 ## <a name="prerequisite"></a>Предварительные требования

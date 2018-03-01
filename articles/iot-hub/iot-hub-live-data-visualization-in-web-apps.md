@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью веб-приложений службы приложений Azure
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-web-app"></a>Создание веб-приложения
 
-1. На [портале Azure](https://ms.portal.azure.com/) щелкните **Создать** > **Интернет+мобильные устройства** > **Веб-приложение**.
+1. На [портале Azure](https://portal.azure.com/) последовательно выберите **Создать ресурс** > **Интернет+мобильные устройства** > **Веб-приложение**.
 2. Введите уникальное имя задания, проверьте подписку, укажите группу ресурсов и расположение, а затем выберите **Закрепить на панели мониторинга** и нажмите кнопку **Создать**.
 
    Мы рекомендуем выбрать то расположение, в котором находится группа ресурсов. Это позволит оптимизировать скорость обработки и снизить затраты на передачу данных.

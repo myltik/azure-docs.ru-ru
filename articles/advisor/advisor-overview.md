@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Общие сведения об Azure Advisor
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/08/2017
 * повысить производительность, безопасность и уровень доступности ресурсов, выявляя при этом любые возможности сократить общие затраты на Azure;
 * получить рекомендации о доступных встроенных действиях.
 
-Воспользоваться Advisor можно с помощью [портала Azure](https://aka.ms/azureadvisordashboard). Войдите на [портал](https://portal.azure.com), в меню навигации найдите **Помощник** или выполните поиск в меню **Больше служб**.
+Воспользоваться Advisor можно с помощью [портала Azure](https://aka.ms/azureadvisordashboard). Войдите на [портал](https://portal.azure.com), в меню навигации найдите **Помощник** или выполните поиск в меню **Все службы**.
 
 Панель мониторинга Помощника отображает персонализированные рекомендации для всех ваших подписок.  Вы можете применить фильтры, чтобы рекомендации отображались для определенных подписок и типов ресурсов.  Эти рекомендации разделены на четыре категории. 
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/08/2017
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
 ### <a name="how-do-i-access-advisor"></a>Как воспользоваться Advisor?
-Воспользоваться Advisor можно с помощью [портала Azure](https://aka.ms/azureadvisordashboard). Войдите на [портал](https://portal.azure.com), в меню навигации найдите **Помощник** или выполните поиск в меню **Больше служб**.
+Воспользоваться Advisor можно с помощью [портала Azure](https://aka.ms/azureadvisordashboard). Войдите на [портал](https://portal.azure.com), в меню навигации найдите **Помощник** или выполните поиск в меню **Все службы**.
 
 Рекомендации Помощника можно также просмотреть через интерфейс ресурса виртуальной машины. Выберите виртуальную машину и прокрутите меню до рекомендаций Advisor. 
 

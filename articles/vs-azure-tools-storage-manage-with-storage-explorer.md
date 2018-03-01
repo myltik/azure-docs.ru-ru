@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Приступая к работе с обозревателем службы хранилища (предварительная версия)
 ## <a name="overview"></a>Обзор
@@ -28,6 +28,16 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 * [Скачайте и установите обозреватель службы хранилища (предварительная версия).](http://www.storageexplorer.com)
+
+> [!NOTE]
+> В дистрибутивах Linux, отличных от Ubuntu 16.04, может потребоваться вручную установить некоторые зависимости. Как правило, требуются следующие пакеты:
+> * libgconf-2-4;
+> * libsecret;
+> * актуальная версия GCC.
+>
+> В зависимости от дистрибутива может возникнуть необходимость установить дополнительные пакеты. В [примечаниях к выпуску](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) обозревателя службы хранилища содержатся конкретные действия для некоторых дистрибутивов.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Подключение к учетной записи хранения или к службе
 Обозреватель службы хранилища (предварительная версия) предоставляет несколько способов подключения к учетным записям хранения. Например, вы можете просматривать:
@@ -239,6 +249,20 @@ ms.lasthandoff: 02/01/2018
 
     ![Строка подключения][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Подключение Azure Data Lake Store по URI
+Если вы хотите получить доступ к ресурсам, которых нет в вашей подписке, но при этом у вас есть разрешение на получение URI для ресурсов, вы можете подключиться к Data Lake Store с помощью URI после входа в систему. Выполните действия ниже.
+1. Откройте обозреватель хранилищ (предварительная версия).
+2. В левой области разверните узел **Local and Attached** (Локальные и присоединенные).
+3. Щелкните правой кнопкой мыши **Хранилище озера данных** и в контекстном меню выберите команду **подключения к Data Lake Store**.
+
+    ![команда контекстного меню: подключение к Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Введите URI, и инструмент перейдет в расположение введенного URL-адреса.
+
+    ![диалоговое окно после выбора команды контекстного меню: подключение к Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![результат подключения к Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Поиск учетных записей хранилищ
 Если вам нужно найти ресурс хранилища, но вы не знаете, где он находится, можно воспользоваться полем поиска в верхней части области слева.
 
@@ -254,6 +278,7 @@ ms.lasthandoff: 02/01/2018
 ## <a name="next-steps"></a>Дополнительная информация
 * [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия)](vs-azure-tools-storage-explorer-blobs.md)
 * [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия)](./cosmos-db/storage-explorer.md)
+* [Управление ресурсами Azure Data Lake Store с помощью обозревателя службы хранилища (предварительная версия)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

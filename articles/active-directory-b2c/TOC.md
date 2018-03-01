@@ -1,3 +1,5 @@
+# [Документация по Azure AD B2C](index.md)
+
 # [Обзор](active-directory-b2c-overview.md)
 
 # Начало работы

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C. Использование API Graph Azure AD
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/24/2018
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. Выберите клиент Azure AD B2C, щелкнув имя своей учетной записи в правом верхнем углу страницы.
-3. На панели навигации слева выберите **Другие службы**, щелкните **Регистрация приложений**, а затем нажмите кнопку **Добавить**.
+3. На панели навигации слева выберите **Все службы**, щелкните **Регистрация приложений**, а затем нажмите кнопку **Добавить**.
 4. Следуйте инструкциям на экране, а затем создайте новое приложение. 
     1. Выберите в качестве типа приложения **Веб-приложение или API**.    
     2. Укажите **любой URI перенаправления** (например, https://B2CGraphAPI), так как он неважен в этом примере.  
@@ -99,13 +99,13 @@ Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMembe
 ## <a name="download-configure-and-build-the-sample-code"></a>Скачивание, настройка и создание примера кода
 Сначала скачайте и запустите пример кода. После этого мы сможем рассмотреть его подробнее.  Вы можете [скачать пример кода в виде ZIP-файла](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Его можно клонировать в необходимый каталог.
 
-```
+```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
 Откройте решение Visual Studio `B2CGraphClient\B2CGraphClient.sln` в Visual Studio. В проекте `B2CGraphClient` откройте файл `App.config`. Замените три параметра приложения собственными значениями.
 
-```
+```xml
 <appSettings>
     <add key="b2c:Tenant" value="{Your Tenant Name}" />
     <add key="b2c:ClientId" value="{The ApplicationID from above}" />
@@ -120,9 +120,9 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ## <a name="build-user-crud-operations-by-using-the-graph-api"></a>Создание операций CRUD пользователя с помощью API Graph
 Чтобы использовать B2CGraphClient, откройте командную строку Windows (`cmd`) и замените свой каталог каталогом `Debug`. Затем выполните команду `B2C Help` .
 
-```
-> cd B2CGraphClient\bin\Debug
-> B2C Help
+```cmd
+cd B2CGraphClient\bin\Debug
+B2C Help
 ```
 
 Появится краткое описание каждой команды. Каждый раз, когда вы вызываете одну из этих команд, клиент `B2CGraphClient` создает запрос к службе API Graph Azure AD.
@@ -179,8 +179,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Чтобы увидеть, как работает этот запрос, выполните следующую команду:
 
- ```
- > B2C Get-User
+ ```cmd
+ B2C Get-User
  ```
 
 При этом необходимо обратить внимание на два важных момента.
@@ -245,9 +245,9 @@ Content-Length: 338
 
 Чтобы просмотреть запрос, выполните следующие команды:
 
-```
-> B2C Create-User ..\..\..\usertemplate-email.json
-> B2C Create-User ..\..\..\usertemplate-username.json
+```cmd
+B2C Create-User ..\..\..\usertemplate-email.json
+B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
 Команда `Create-User` принимает JSON-файл в качестве входного параметра. Он содержит представление JSON объекта пользователя. Пример кода содержит два примера JSON-файла: `usertemplate-email.json` и `usertemplate-username.json`. Вы можете изменить эти файлы с учетом своих требований. Помимо указанных выше можно использовать и другие поля, включенные в эти файлы. Дополнительные сведения о других необязательных полях см. в [справочнике по сущностям API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
@@ -279,9 +279,9 @@ Content-Length: 37
 
 Для обновления пользователя можно добавить в JSON-файлы новые данные. Можно использовать `B2CGraphClient`, чтобы выполнить одну из следующих команд:
 
-```
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
+```cmd
+B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
+B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 
 Сведения о том, как отправить этот запрос, см. в методе `B2CGraphClient.SendGraphPatchRequest(...)`.
@@ -291,16 +291,16 @@ Content-Length: 37
 
 Выполните одну из следующих команд для поиска конкретного пользователя.
 
-```
-> B2C Get-User <user-object-id>
-> B2C Get-User <filter-query-expression>
+```cmd
+B2C Get-User <user-object-id>
+B2C Get-User <filter-query-expression>
 ```
 
 Вот несколько примеров.
 
-```
-> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```cmd
+B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
 ```
 
 ### <a name="delete-users"></a>Удаление пользователей
@@ -313,8 +313,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Чтобы увидеть пример, выполните следующую команду и просмотрите запрос delete, который будет выведен на консоль.
 
-```
-> B2C Delete-User <object-id-of-user>
+```cmd
+B2C Delete-User <object-id-of-user>
 ```
 
 Сведения о том, как отправить этот запрос, см. в методе `B2CGraphClient.SendGraphDeleteRequest(...)`.
@@ -328,14 +328,14 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Для просмотра пользовательских атрибутов, определенных в клиенте B2C, можно использовать `B2CGraphClient`.
 
-```
-> B2C Get-B2C-Application
-> B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
+```cmd
+B2C Get-B2C-Application
+B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
 Выходные данные этих функций содержат сведения о каждом пользовательском атрибуте, например:
 
-```JSON
+```json
 {
       "odata.type": "Microsoft.DirectoryServices.ExtensionProperty",
       "objectType": "ExtensionProperty",
@@ -353,8 +353,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Полное имя, например `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, можно использовать как свойство объектов пользователей.  Для этого достаточно добавить в JSON-файл новое свойство, указать значение для него и запустить указанный ниже код.
 
-```
-> B2C Update-User <object-id-of-user> <path-to-json-file>
+```cmd
+B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
 Использование `B2CGraphClient`позволяет получить приложение-службу, которое обеспечивает управление пользователями клиента B2C программным путем. `B2CGraphClient` проходит аутентификацию в API Graph Azure AD по собственному удостоверению приложения. Кроме того, B2CGraphClient получает маркеры, используя секрет клиента. Добавляя эту функцию в свое приложение, учитывайте некоторые ключевые особенности приложений B2C.

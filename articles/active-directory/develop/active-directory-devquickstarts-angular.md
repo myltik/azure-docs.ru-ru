@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS Приступая к работе
+# <a name="azure-ad-angularjs-getting-started"></a>Приступая к работе с Azure AD на AngularJS
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/20/2017
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. Если вы вошли в несколько каталогов, убедитесь, что вы просматриваете правильный каталог. Для этого на верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD для регистрации приложения.
-3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
+3. В области слева щелкните **Все службы** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуйте инструкциям на экране, а затем создайте новое веб-приложение и (или) веб-API.
   * **Имя** приложения является его описанием для пользователей.
@@ -156,7 +156,7 @@ Adal.js позволяет легко добавлять в приложение
 
 Готовый пример (для которого лишь осталось задать конфигурацию) можно найти в [репозитории GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь можно приступить к изучению других сценариев. Попробуйте осуществить [вызов веб-интерфейса API CORS из одностраничного приложения](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

@@ -1,3 +1,5 @@
+# [Документация по кэшу Redis](index.md)
+
 # Обзор
 ##[Зачем использовать кэш Redis](https://azure.microsoft.com/services/cache/)
 ##[Изучение функций уровня "Премиум"](cache-premium-tier-intro.md)

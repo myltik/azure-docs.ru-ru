@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Пакет SDK для устройств Azure IoT для C
 
@@ -27,6 +27,10 @@ ms.lasthandoff: 01/18/2018
 Пакет SDK для устройств Azure IoT для C написан на языке ANSI C (C99), что обеспечивает максимальную переносимость. Таким образом, библиотеки можно использовать с разными платформами и устройствами, особенно в условиях ограниченных ресурсов (дискового пространства и оперативной памяти).
 
 Этот пакет SDK протестирован на множестве платформ (подробные сведения см. в [каталоге устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)). В этой статье приведены пошаговые инструкции с примерами кода, выполняемого на платформе Windows. Для других поддерживаемых платформ код будет аналогичным.
+
+В следующем видео представлен обзор пакета SDK Azure IoT для C:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 Из этой статьи вы узнаете об архитектуре пакета SDK для устройств Azure IoT для C. Вы узнаете, как инициализировать библиотеку устройств, отправлять данные в Центр Интернета вещей и получать сообщения из него. Приведенной здесь информации достаточно, чтобы вы могли начать работу с пакетом SDK. Также вы найдете здесь ссылки для получения дополнительных сведений о библиотеках.
 

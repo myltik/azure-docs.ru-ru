@@ -1,7 +1,7 @@
 ---
 title: "Часто задаваемые вопросы по Azure IoT Suite | Документация Майкрософт"
 description: "Часто задаваемые вопросы об IoT Suite"
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Часто задаваемые вопросы об IoT Suite
 
-Дополнительные сведения см. также в статье [Часто задаваемые вопросы о предварительно настроенном решении для подключенной фабрики IoT Suite](iot-suite-faq-cf.md).
+См. также ответы на часто задаваемые вопросы по [подключенной фабрике](iot-suite-faq-cf.md) и [удаленному мониторингу](iot-suite-faq-rm-v2.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Где можно найти исходный код для предварительно настроенных решений?
 
@@ -33,17 +33,6 @@ ms.lasthandoff: 02/01/2018
 * [Remote Monitoring preconfigured solution with Azure IoT](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) (Предварительно настроенное решение для удаленного мониторинга с Центром Интернета вещей Azure) (Java)
 * [Microsoft Azure IoT Suite](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Предварительно настроенное решение для подключенной фабрики](https://github.com/Azure/azure-iot-connected-factory)
-
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Сколько стоит подготовка нового решения для удаленного мониторинга?
-
-Предусмотрено два варианта развертывания нового предварительно настроенного решения:
-
-* *Базовый* вариант предназначен для разработчиков, которым нужно сократить затраты на разработку, или для клиентов, которые хотят создать демонстрационную версию или решение для подтверждения концепции.
-* *Стандартный* вариант предназначен для предприятий, желающих развернуть производственную инфраструктуру.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Как обеспечить сокращение расходов при разработке решения?
-
-Помимо двух разных вариантов развертывания в новом решении для удаленного мониторинга предусмотрена возможность включения и отключения всех виртуальных устройств по требованию. При отключении виртуальных устройств уменьшается объем данных, принимаемых решением, и, следовательно, сокращаются расходы.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>Доступна ли новая архитектура микрослужб для всех трех типов предварительно настроенных решений?
 
@@ -57,18 +46,14 @@ ms.lasthandoff: 02/01/2018
 
 Да, новое решение для удаленного мониторинга доступно в том же географическом регионе.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Какая разница между базовым и стандартным вариантами развертывания? Какой из них стоит выбрать?
-
-Каждый вариант развертывания предназначен для разных целей. Базовый вариант развертывания предназначен для начала работы и разработки решений для подтверждения концепции и небольших демонстрационных версий. В этом варианте вы получаете оптимизированную архитектуру с минимально необходимым набором ресурсов и низкой стоимостью. Стандартный вариант развертывания предназначен для сборки и настройки рабочего решения. Этот вариант предоставляет необходимые для развертывания компоненты, позволяющие достичь этой цели. Чтобы обеспечить надежность и масштабирование, микрослужбы приложения создаются как контейнеры Docker и развертываются с помощью оркестратора (по умолчанию Kubernetes). Оркестратор выполняет развертывание, масштабирование и управление приложением. Выберите вариант исходя из своих нужд. В зависимости от этапа вашего проекта вы можете выбрать первый, второй или оба.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Можно ли продолжить использовать имеющиеся ресурсы в Azure IoT Suite?
-
-Да. Любое имеющееся решение продолжает работать в подписке Azure, а исходный код остается доступным на GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>В чем разница между удалением группы ресурсов на портале Azure и нажатием кнопки "Удалить" в предварительно настроенном решении на сайте azureiotsuite.com?
 
 * Если удалить предварительно настроенное решение на сайте [azureiotsuite.com](https://www.azureiotsuite.com/), будут удалены все ресурсы, подготовленные при его создании. Если вы добавляли в группу ресурсов дополнительные ресурсы, они также будут удалены.
 * Если удалить группу ресурсов на [портале Azure](https://portal.azure.com), будут удалены ресурсы в этой группе. Вам также придется удалить приложение Azure Active Directory, связанное с предварительно настроенным решением.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Можно ли продолжить использовать имеющиеся ресурсы в Azure IoT Suite?
+
+Да. Любое имеющееся решение продолжает работать в подписке Azure, а исходный код остается доступным на GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров центров Интернета вещей можно подготовить в рамках одной подписки?
 
@@ -77,10 +62,6 @@ ms.lasthandoff: 02/01/2018
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров Azure Cosmos DB можно подготовить в рамках одной подписки?
 
 Пятьдесят. Вы можете отправить [запрос в службу поддержки Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade), чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только 50 экземпляров Cosmos DB.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Как настроить динамическую карту на панели мониторинга?
-
-Дополнительные сведения см. в разделе [Обновление ключа карты для отображения устройств на динамической карте](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Сколько бесплатных API-интерфейсов Карт Bing можно подготовить в рамках одной подписки?
 
@@ -105,6 +86,7 @@ ms.lasthandoff: 02/01/2018
 
 Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
+* [Обзор возможностей предварительно настроенного решения удаленного мониторинга](iot-suite-remote-monitoring-explore.md)
 * [Обзор предварительно настроенного решения прогнозируемого обслуживания](iot-suite-predictive-overview.md)
 * [Начало работы с предварительно настроенным решением для подключенной фабрики](iot-suite-connected-factory-overview.md)
 * [Комплексная защита в Интернете вещей](securing-iot-ground-up.md)

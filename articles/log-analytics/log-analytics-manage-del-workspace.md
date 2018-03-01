@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3d99f9869dfdfbe18f82e873bd367cc85f9414f1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4f455e26f078360f17f8118f8b5b1db5bd75d473
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Удаление рабочей области Azure Log Analytics на портале Azure
 В этом разделе показано, как использовать портал Azure для удаления рабочей области Log Analytics, которая больше не нужна. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/01/2017
 Если вы являетесь администратором и с рабочей областью связано несколько пользователей, связь между этими пользователями и рабочей областью тоже прекратится. Если пользователи связаны с другими рабочими областями, они смогут продолжить использовать Log Analytics в этих рабочих областях. Но если они не связаны с другими рабочими областями, им необходимо создать рабочую область для использования Log Analytics. 
 
 1. Войдите на [портал Azure](http://portal.azure.com). 
-2. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
+2. На портале Azure щелкните **Все службы**. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
 3. В области подписок Log Analytics выберите рабочую область, а затем щелкните **Удалить** вверху средней области.<br><br> ![Параметр "Удалить" в области свойств рабочей области](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace.png)<br>  
 4. Когда отобразится окно с запросом подтверждения удаления рабочей области, щелкните **Да**.<br><br> ![Подтверждение удаления рабочей области](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace-confirm.png)
 

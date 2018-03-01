@@ -17,12 +17,12 @@
   items:
     - name: 1. Просмотр использования и затрат
       href: tutorial-review-usage.md
-    - name: 2. Контроль доступа к данным
-      href: tutorial-user-access.md
-    - name: 3. Прогнозирование затрат
+    - name: 2. Прогнозирование расходов
       href: tutorial-forecast-spending.md
-    - name: 4. Управление затратами
+    - name: 3. Управление затратами
       href: tutorial-manage-costs.md
+    - name: 4. Управление доступом к данным
+      href: tutorial-user-access.md
 - name: Основные понятия
   items:
     - name: Интерпретация отчетов о затратах

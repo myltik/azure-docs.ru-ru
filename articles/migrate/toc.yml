@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Основные понятия
   items:
+    - name: Общие сведения о сборщиках
+      href: concepts-collector.md
     - name: Вычисление оценок
       href: concepts-assessment-calculation.md
     - name: Визуализация зависимостей

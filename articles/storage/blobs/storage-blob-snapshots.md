@@ -2,23 +2,17 @@
 title: "Создание моментального снимка большого двоичного объекта только для чтения в службе хранилища Azure | Документация Майкрософт"
 description: "Узнайте, как создать моментальный снимок большого двоичного объекта для резервного копирования данных BLOB-объектов в конкретный момент времени. Узнайте, как выставляются счета за моментальные снимки и как их можно использовать для сокращения расходов емкости."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
-ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Создание моментального снимка BLOB-объекта
 

@@ -1,3 +1,5 @@
+# [Документация по облачным службам](index.md)
+
 # Обзор
 ## [Что такое облачные службы](cloud-services-choose-me.md)
 ## [Упаковка и файлы конфигурации облачной службы](cloud-services-model-and-package.md)

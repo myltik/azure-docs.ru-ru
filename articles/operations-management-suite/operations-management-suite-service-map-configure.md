@@ -1,6 +1,6 @@
 ---
-title: "Настройка схемы услуги в Operations Management Suite | Документы Майкрософт"
-description: "Схема услуги — это решение Operations Management Suite, которое автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. В этой статье содержатся подробные сведения о развертывании схемы услуги в вашей среде и приведены разнообразные сценарии ее использования."
+title: "Настройка решения \"Сопоставление служб\" в Azure | Документация Майкрософт"
+description: "\"Сопоставление служб\" — это решение Azure, которое автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. В этой статье содержатся подробные сведения о развертывании схемы услуги в вашей среде и приведены разнообразные сценарии ее использования."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Настройка схемы услуги в Operations Management Suite
+# <a name="configure-service-map-in-azure"></a>Настройка решения "Сопоставление служб" в Azure
 Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. Она позволяет рассматривать серверы как взаимосвязанные системы, предоставляющие важные службы. Схема услуги отображает сведения о подключениях между серверами, процессами и портами в любой подключенной по протоколу TCP архитектуре без дополнительной настройки. Пользователям требуется только установить агент.
 
-В этой статье подробно описывается настройка схемы услуги и подключение агентов. Сведения об использовании схемы услуги см. в статье [Использование решения схемы услуги в Operations Management Suite](operations-management-suite-service-map.md).
+В этой статье подробно описывается настройка схемы услуги и подключение агентов. Сведения об использовании решения "Сопоставление служб" см. в статье [Использование решения схемы услуги в Operations Management Suite](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Скачиваемые файлы агента зависимостей
 | Файл | ОС | Version (версия) | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Подключенные источники
-Схема услуги получает данные от агента зависимостей Майкрософт. Агент зависимостей является зависимым от агента OMS в плане подключений к Operations Management Suite. Это означает, что сначала на сервере нужно установить и настроить агент OMS, после чего можно будет установить агент зависимостей. В приведенной ниже таблице описаны подключенные источники, которые поддерживаются решением схемы услуги.
+Схема услуги получает данные от агента зависимостей Майкрософт. Агент зависимостей является зависимым от агента OMS ввиду подключений к Log Analytics. Это означает, что сначала на сервере нужно установить и настроить агент OMS, после чего можно будет установить агент зависимостей. В приведенной ниже таблице описаны подключенные источники, которые поддерживаются решением схемы услуги.
 
 | Подключенный источник | Поддерживаются | ОПИСАНИЕ |
 |:--|:--|:--|
 | Агенты Windows | Yes | Служба схемы услуги анализирует и собирает данные с компьютеров с агентами Windows. <br><br>Помимо [агента OMS](../log-analytics/log-analytics-windows-agent.md) для агентов Windows необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](#supported-operating-systems). |
 | Агенты Linux | Yes | Служба схемы услуги анализирует и собирает данные с компьютеров с агентами Linux. <br><br>Помимо [агента OMS](../log-analytics/log-analytics-linux-agents.md) для агентов Linux необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](#supported-operating-systems). |
-| Группа управления System Center Operations Manager | Yes | Служба схемы услуги анализирует и собирает данные из агентов Windows и Linux в подключенной [группе управления System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Требуется прямое подключение из агента System Center Operations Manager к Operations Management Suite. Данные пересылаются из группы управления в репозиторий Operations Management Suite.|
+| Группа управления System Center Operations Manager | Yes | Служба схемы услуги анализирует и собирает данные из агентов Windows и Linux в подключенной [группе управления System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Требуется прямое подключение из агента System Center Operations Manager к Log Analytics. Данные пересылаются из группы управления в рабочую область Log Analytics.|
 | Учетная запись хранения Azure. | Нет  | Служба схемы услуги собирает данные с компьютеров с агентом, поэтому данные из службы хранилища Azure не собираются. |
 
 Схема услуги поддерживает только 64-разрядные платформы.
 
-В ОС Windows System Center Operations Manager и Operations Management Suite используют Microsoft Monitoring Agent (MMA) для сбора и отправки данных мониторинга. (В зависимости от контекста этот агент называется агентом System Center Operations Manager, агентом OMS, агентом Log Analytics, MMA или прямым агентом.) System Center Operations Manager и Operations Management Suite предоставляют различные готовые к использованию версии MMA. В каждой из этих версий предусмотрена возможность отправлять отчеты в System Center Operations Manager, Operations Management Suite или в оба решения.  
+В ОС Windows System Center Operations Manager и Log Analytics используют Microsoft Monitoring Agent для сбора и отправки данных мониторинга. (В зависимости от контекста этот агент называется агентом System Center Operations Manager, агентом OMS, агентом Log Analytics, MMA или прямым агентом.) System Center Operations Manager и Log Analytics предоставляют разные версии MMA. В каждой из этих версий предусмотрена возможность отправлять отчеты в System Center Operations Manager, Log Analytics или в оба решения.  
 
-В ОС Linux агент OMS для Linux собирает и отправляет данные мониторинга в Operations Management Suite. Схему услуги можно использовать на серверах с прямыми агентами OMS или на серверах, подключенных к Operations Management Suite через группы управления System Center Operations Manager.  
+В ОС Linux агент OMS для Linux собирает и отправляет данные мониторинга в Log Analytics. Решение "Сопоставление служб" можно использовать на серверах с прямыми агентами OMS или на серверах, подключенных к Log Analytics через группы управления System Center Operations Manager.  
 
-В этой статье мы будем называть все эти агенты — как в Linux, так и в Windows, подключенные к группе управления System Center Operations Manager или непосредственно к Operations Management Suite — агентами OMS. Имя конкретного развернутого агента будет использоваться, только если оно требуется в контексте.
+В этой статье мы будем называть все эти агенты — как в Linux, так и в Windows, подключенные к группе управления System Center Operations Manager или непосредственно к Log Analytics — агентами OMS. Имя конкретного развернутого агента будет использоваться, только если оно требуется в контексте.
 
-Агент схемы услуги самостоятельно не передает данные и не требует внесения изменений в брандмауэры или порты. Данные схемы услуги всегда передаются агентом OMS в Operations Management Suite напрямую или через шлюз OMS.
+Агент схемы услуги самостоятельно не передает данные и не требует внесения изменений в брандмауэры или порты. Данные решения "Сопоставление служб" всегда передаются агентом OMS в Log Analytics напрямую или через шлюз OMS.
 
 ![Агенты схемы услуги](media/oms-service-map/agents.png)
 
-Если вы являетесь пользователем System Center Operations Manager с группой управления, подключенной к Operations Management Suite:
+Если вы являетесь клиентом System Center Operations Manager с группой управления, подключенной к Log Analytics:
 
-- Если у ваших агентов System Center Operations Manager есть доступ к Operations Management Suite через Интернет, никаких дополнительных настроек не требуется.  
-- Если у агентов System Center Operations Manager нет доступа к Operations Management Suite через Интернет, необходимо настроить шлюз OMS для работы с System Center Operations Manager.
+- Если у ваших агентов System Center Operations Manager есть доступ к Log Analytics через Интернет, никаких дополнительных настроек не требуется.  
+- Если у агентов System Center Operations Manager нет доступа к Log Analytics через Интернет, необходимо настроить шлюз OMS для работы с System Center Operations Manager.
   
-При использовании прямого агента OMS необходимо настроить агент OMS для подключения к Operations Management Suite или шлюзу OMS. Шлюз OMS можно скачать в [Центре загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=52666).
+При использовании прямого агента OMS необходимо настроить агент OMS для подключения к Log Analytics или шлюзу OMS. Шлюз OMS можно скачать в [Центре загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Пакеты управления
-Если схема услуги активирована в рабочей области Operations Management Suite, то на все серверы в этой рабочей области отправляется пакет управления размером 300 КБ. Если агенты System Center Operations Manager используются в [подключенной группе управления](../log-analytics/log-analytics-om-agents.md), то пакет управления схемы услуги развертывается из System Center Operations Manager. Если агенты подключены напрямую, пакет управления доставляется с помощью Operations Management Suite.
+Если решение "Сопоставление служб" активировано в рабочей области Log Analytics, то на все серверы в этой рабочей области отправляется пакет управления размером 300 КБ. Если агенты System Center Operations Manager используются в [подключенной группе управления](../log-analytics/log-analytics-om-agents.md), то пакет управления схемы услуги развертывается из System Center Operations Manager. Если агенты подключены напрямую, пакет управления доставляется с помощью Log Analytics.
 
 Пакет управления называется Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Он записывается в папку %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. Источник данных, используемый пакетом управления, — %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<Автоматически_созданный_идентификатор>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -147,7 +147,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ ForEach-Object {
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -235,7 +235,7 @@ sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent
+sudo apt -y purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>Устранение неполадок
 Если при установке или запуске схемы услуги возникли проблемы, в этом разделе приводятся сведения, которые могут помочь вам. Если по-прежнему не удается устранить проблему, обратитесь в службу поддержки Майкрософт.
@@ -267,11 +267,11 @@ sudo dpkg --purge dependency-agent
 
 * Используете ли вы [ценовую категорию "Бесплатный" Operations Management Suite и Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? План "Бесплатный" предусматривает использование пяти уникальных серверов решения "Схема услуги". Все последующие серверы не будут отображаться в решении "Схема услуги", даже если предыдущие пять больше не отправляют данные.
 
-* Отправляет ли сервер данные журналов и данные по производительности в Operations Management Suite? Перейдите к поиску по журналам и выполните следующий запрос для своего компьютера: 
+* Отправляет ли сервер данные журналов и данные о производительности в Log Analytics? Перейдите к поиску по журналам и выполните следующий запрос для своего компьютера: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Вы получили множество событий в результатах? Это последние данные? В этом случае агент OMS работает правильно и обменивается данными со службой Operations Management Suite. В противном случае проверьте агент OMS на сервере. См. статью [Устранение неполадок агента OMS для Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) или [Устранение неполадок агента OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Вы получили множество событий в результатах? Это последние данные? В этом случае агент OMS работает правильно и обменивается данными со службой Log Analytics. В противном случае проверьте агент OMS на сервере. См. статью [Устранение неполадок агента OMS для Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) или [Устранение неполадок агента OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Сервер отображается в решении "Схема услуги", но для него нет процессов
 Если сервер отображается в решении "Схема услуги", но для него нет процессов или данных о подключении, это означает, что агент зависимостей установлен и запущен, но не удалось загрузить драйвер ядра. 
@@ -350,8 +350,8 @@ sudo dpkg --purge dependency-agent
 
 | Версия ОС | Версия ядра |
 |:--|:--|
-| 16.04 | 4.4.0-103<br>4.11.0-1016 |
-| 14.04 | 3.13.0-137<br>4.4.0-103 |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux с Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6

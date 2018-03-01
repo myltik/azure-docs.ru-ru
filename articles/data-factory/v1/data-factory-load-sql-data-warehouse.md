@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Загрузка 1 ТБ в хранилище данных SQL Azure с помощью фабрики данных менее чем за 15 минут
 > [!NOTE]
@@ -114,8 +114,8 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="launch-copy-wizard"></a>Запуск мастера копирования
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Нажмите кнопку **+ Создать** в верхнем левом углу, выберите **Аналитика** и щелкните **Фабрика данных**.
-3. В колонке **Создать фабрику данных** выполните следующие действия.
+2. В верхнем левом углу щелкните **Создать ресурс**, выберите **Data + Analytics** (Данные и аналитика), а затем — **Фабрика данных**.
+3. На панели **Новая фабрика данных** сделайте следующее:
 
    1. В поле **Имя** введите **LoadIntoSQLDWDataFactory**.
        Имя фабрики данных Azure должно быть глобально уникальным. При возникновении ошибки **Имя фабрики данных LoadIntoSQLDWDataFactory недоступно** измените имя этой фабрики данных (например, на <ваше_имя>LoadIntoSQLDWDataFactory) и попробуйте создать ее снова. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.  

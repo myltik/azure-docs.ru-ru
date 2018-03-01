@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 Создав группу ресурсов, вы можете развернуть в ней ресурсы из Marketplace. Marketplace предоставляет предварительно определенные решения для распространенных сценариев использования.
 
-1. Чтобы начать развертывание, выберите **Новый**.
+1. Чтобы начать развертывание, выберите **Создать ресурс**.
 
    ![Новый ресурс](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 Если вы хотите выполнить развертывание без использования шаблонов из Marketplace, создайте настраиваемый шаблон, определяющий инфраструктуру для вашего решения. Дополнительные сведения о создании шаблонов см. в статье [Описание структуры и синтаксиса шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Чтобы развернуть настроенный шаблон на портале, выберите **Создать** и начните поиск по словам **Развертывание шаблона**, пока не появится соответствующий пункт.
+1. Чтобы развернуть настроенный шаблон на портале, выберите **Создать ресурс** и начните поиск по словам **Развертывание шаблона**, пока не появится соответствующий пункт.
 
    ![Поиск развертывания шаблона](./media/resource-group-template-deploy-portal/search-template.png)
 

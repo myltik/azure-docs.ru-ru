@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1b3da4d6e4593f3c71995ef9331fcea2d5b6ec19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Использование записи пакетов для упреждающего мониторинга сети с помощью оповещений и функций Azure
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 
 Первым делом нам нужно создать функцию Azure для обработки оповещения и создания записи пакетов.
 
-1. На [портале Azure](https://portal.azure.com) последовательно выберите **Создать** > **Вычисления** > **Приложение-функция**.
+1. На [портале Azure](https://portal.azure.com) последовательно выберите **Создать ресурс** > **Вычисление** > **Приложение-функция**.
 
     ![Создание приложения-функции][1-1]
 

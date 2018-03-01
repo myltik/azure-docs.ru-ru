@@ -1,6 +1,6 @@
 ---
 title: "Настройка политики IPsec/IKE для VPN-подключений типа \"сеть — сеть\" или \"виртуальная сеть — виртуальная сеть\". Azure Resource Manager: PowerShell | Документация Майкрософт"
-description: "В этой статье описана настройка политики IPsec/IKE для подключений типа \"сеть — сеть\" или \"виртуальная сеть — виртуальная сеть\" с VPN-шлюзами Azure с помощью Azure Resource Manager и PowerShell."
+description: "Настройка политики IPsec/IKE для подключений типа \"сеть — сеть\" или \"виртуальная сеть — виртуальная сеть\" с VPN-шлюзами Azure с помощью Azure Resource Manager и PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Настройка политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть"
 

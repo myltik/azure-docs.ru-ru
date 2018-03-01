@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f66ddecd6b999400b05a4b00aa781ffef3f7887d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Копирование данных в хранилище BLOB-объектов Azure и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,8 +184,8 @@ ms.lasthandoff: 01/05/2018
     ```
 ### <a name="create-the-data-factory"></a>Создание фабрики данных
 1. Войдите на [портале Azure](https://portal.azure.com).
-2. Нажмите кнопку **+ Создать** в верхнем левом углу, выберите **Аналитика** и щелкните **Фабрика данных**.
-3. В колонке **Создать фабрику данных** выполните следующие действия.   
+2. В верхнем левом углу щелкните **Создать ресурс**, выберите **Data + Analytics** (Данные и аналитика), а затем — **Фабрика данных**.
+3. На панели **Новая фабрика данных** сделайте следующее:   
     1. Введите **ADFBlobConnectorDF** в качестве **имени**. Имя фабрики данных Azure должно быть глобально уникальным. При возникновении ошибки `*Data factory name “ADFBlobConnectorDF” is not available` измените имя фабрики данных (например, на ваше_имя_ADFBlobConnectorDF) и попробуйте создать фабрику данных снова. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
     2. Выберите свою **подписку Azure**.
     3. Для группы ресурсов выберите **Использовать существующий**, чтобы выбрать существующую группу ресурсов, или **Создать** для ввода имени группы ресурсов.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Добавление решений для управления Azure Log Analytics в рабочую область
 
@@ -46,8 +46,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="add-a-management-solution"></a>Добавление решения для управления
 1. Войдите на [портал Azure](https://portal.azure.com), используя подписку Azure, если вы еще этого не сделали.
-2. В колонке **Создать** выберите **Marketplace** > **Мониторинг и управление**.
-3. В колонке **Мониторинг и управление** щелкните **See all** (Просмотреть все).  
+2. Последовательно выберите **Создать ресурс** > **Monitoring + Management** (Мониторинг и управление) > **Показать все**.  
     ![Колонка "Мониторинг и управление"](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. Справа от элемента **Решения для управления** щелкните **More** (Дополнительные).
 5. В колонке **Решения для управления** выберите решение для управления, которое вы хотите добавить в рабочую область.  

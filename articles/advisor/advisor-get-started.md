@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Приступая к работе с Azure Advisor
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/08/2017
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 
-2. В левой области щелкните **Помощник**.  Если Помощник не отображается, на панели слева щелкните **Больше служб**.  В области меню служб в разделе **Мониторинг и управление** щелкните **Помощник**.
+2. В левой области щелкните **Помощник**.  Если пункт Advisor (Помощник) не отображается на панели слева, щелкните **Все службы**.  В области меню служб в разделе **Мониторинг и управление** щелкните **Помощник**.
  Отображается панель мониторинга Помощника.
 
    ![Как воспользоваться Azure Advisor с помощью портала Azure](./media/advisor-get-started/advisor-portal-menu.png) 

@@ -1,4 +1,4 @@
-Чтобы создать кэш уровня "Премиум", войдите на [портал Azure](https://portal.azure.com) и выберите **Создать** > **Базы данных** > **Кэш Redis**.
+Чтобы создать кэш уровня Премиум, войдите на [портал Azure](https://portal.azure.com) и щелкните **Создать ресурс** > **Базы данных** > **Кэш Redis**.
 
 ![Создание кэша](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

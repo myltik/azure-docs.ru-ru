@@ -58,9 +58,7 @@
     - name: Ресурсы
       items:
         - name: Ценовые категории
-          href: concepts-service-tiers.md
-        - name: Единицы вычислений
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Ограничения
           href: concepts-limits.md
     - name: Доступ к данным и безопасность
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Настройка SSL
           href: concepts-ssl-connection-security.md
+    - name: Непрерывность бизнес-процессов
+      items:
+        - name: Обзор
+          href: concepts-business-continuity.md
+        - name: Архивация и восстановление
+          href: concepts-backup.md
     - name: Мониторинг
       href: concepts-monitoring.md
     - name: Разработка
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Практические руководства
   items:
-    - name: Правила файрволла
+    - name: Создание пользователей
+      href: howto-create-users.md
+    - name: Управление брандмауэром
       items:
         - name: Портал Azure
           href: howto-manage-firewall-using-portal.md

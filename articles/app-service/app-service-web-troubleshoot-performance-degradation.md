@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Устранение причин низкой производительности веб-приложения в службе приложений Azure
 Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -83,18 +83,14 @@ Microsoft Azure информирует о каждом случае прерыв
 Кроме того, вы можете посмотреть видео, посвященное контролю конечных точек: [Поддержка работы веб-сайтов Azure с помощью мониторинга конечных точек (со Стефаном Щаковым ((Stefan Schackow))](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) .
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Контроль производительности приложений с помощью расширений
-Вы можете также отслеживать производительность приложения через *расширения сайта*.
+Кроме того, вы можете отслеживать производительность приложения через *расширение сайта*.
 
 Каждое веб-приложение службы приложений дает возможность использовать расширяемую конечную точку управления, которая позволяет применять набор мощных инструментов, развернутых в виде расширений сайта. Расширения включают в себя: 
 
 - редакторы исходного кода, например [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx); 
 - инструменты управления для подключенных ресурсов, таких как база данных MySQL, подключенная к веб-приложению.
 
-Для контроля производительности можно использовать расширения [Azure Application Insights](/services/application-insights/) и [New Relic](/marketplace/partners/newrelic/newrelic/). Чтобы использовать New Relic, необходимо установить агент в среде выполнения. Чтобы использовать Application Insights, перестройте код с помощью пакета SDK. Кроме того, вы можете установить расширение для доступа к дополнительным данным. Пакет SDK позволяет писать код для более подробного отслеживания использования и производительности приложения.
-
-Использование Application Insights описано в статье [Отслеживание производительности в веб-приложениях](../application-insights/app-insights-web-monitor-performance.md).
-
-Использование New Relic описано в статье [Инструмент управления производительностью приложений New Relic для Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+Также доступно расширение сайта для мониторинга производительности [Azure Application Insights](/services/application-insights/). Чтобы использовать Application Insights, перестройте код с помощью пакета SDK. Кроме того, вы можете установить расширение, которое предоставляет доступ к дополнительным данным. Пакет SDK позволяет писать код для более подробного отслеживания использования и производительности приложения. Дополнительные сведения см. в разделе о [мониторинге производительности в веб-приложениях](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

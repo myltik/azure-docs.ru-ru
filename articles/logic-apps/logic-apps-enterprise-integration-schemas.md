@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Проверка XML с помощью схем для Azure Logic Apps и пакета интеграции Enterprise
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-a-schema"></a>Добавление схемы
 
-1. На портале Azure щелкните **Другие службы**.
+1. На портале Azure щелкните **Все службы**.
 
-    ![Портал Azure, "Другие службы"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Портал Azure, меню "Все службы"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. Введите **интеграции** в поле фильтра поиска и выберите **Учетные записи интеграции** в списке результатов.
 

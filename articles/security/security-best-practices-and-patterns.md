@@ -1,6 +1,6 @@
 ---
 title: "Рекомендации и шаблоны для обеспечения безопасности в Azure | Документация Майкрософт"
-description: "В статье содержатся общие сведения о рекомендациях и шаблонах для обеспечения безопасности в Azure и проверенный список рекомендаций по безопасности при работе с различными ресурсами Azure."
+description: "В этой статье приводятся рекомендации и шаблоны решений по обеспечению безопасности Azure для разных ресурсов Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -12,38 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: terrylan
-ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.date: 2/16/2018
+ms.author: 
+ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Рекомендации и шаблоны для обеспечения безопасности в Azure
-Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.  
 
-* [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
+* [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
+* [Рекомендации по обеспечению безопасности базы данных Azure](azure-database-security-best-practices.md)
 * [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
 * [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
-* [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
-* [Security best practices for IaaS workloads in Azure] (Рекомендации по безопасности рабочих нагрузок IaaS в Azure) (azure-security-iaas.md)
-* [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
+* [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
+* [Рекомендации по обеспечению операционной безопасности Azure](azure-operational-security-best-practices.md)
+* [Защита развернутых служб PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments) 
+* [Рекомендации по безопасности Azure Service Fabric](security-best-practices-and-patterns.md)
+* [Рекомендации по обеспечению безопасности виртуальных машин Azure](azure-service-fabric-security-best-practices.md)
 * [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS рекомендациям] (https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)* [Защита баз данных PaaS в Azure](security-paas-applications-using-sql.md)
+* [Защита мобильных приложений и веб-приложений PaaS с помощью службы приложений Azure](security-paas-applications-using-app-services.md)
+* [Защита мобильных приложений и веб-приложений PaaS с помощью службы хранилища Azure](security-paas-applications-using-storage.md)
+* [Рекомендации по безопасности для рабочих нагрузок IaaS в Azure](azure-security-iaas.md)
 
-Azure — это безопасная платформа для создания пользовательских решений. Кроме того, для защиты ваших решений в Azure мы дополнительно предоставляем разные службы и технологии. Так как доступно множество параметров, многие пользователи интересуются способами защиты, рекомендуемыми специалистами Майкрософт.
 
-Поэтому мы создали коллекцию документов с описанием разных способов обеспечения безопасности. Эти знания помогут вам эффективно защищать развертывания Azure.
 
-В этих практических рекомендациях мы рассматриваем разные способы защиты с учетом разных ситуаций и условий. Эти рекомендации основываются на нашем опыте работы с описываемыми технологиями и учитывают отзывы пользователей.
-
-В рамках каждой рекомендации объясняется следующее:
-
-* суть рекомендации;
-* почему необходимо применять эту рекомендацию;
-* что может случиться, если не применить эту рекомендацию;
-* возможные альтернативы рекомендации;
-* как научиться применять эту рекомендацию.
-
-Мы надеемся в скором времени добавить еще много статей со сведениями и рекомендациями об архитектуре безопасности Azure. Если вы хотите увидеть статьи на те или иные темы, сообщите нам об этом в дискуссионном разделе в нижней части этой страницы.

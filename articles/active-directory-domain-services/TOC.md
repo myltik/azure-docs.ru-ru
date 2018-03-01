@@ -1,8 +1,11 @@
+# [Документация по доменным службам Azure AD](index.md)
+
 # Обзор
 ## [Что такое доменные службы Azure AD?](active-directory-ds-overview.md)
 ## Вам это подходит?
 ### [Сравнение с Windows Server AD](active-directory-ds-comparison.md)
 ### [Сравнение с присоединением Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
+## [Новые возможности](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Функции](active-directory-ds-features.md)
 ## [Сценарии](active-directory-ds-scenarios.md)
 ## [Как работает синхронизация](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
 
 # Практическое руководство
+## [Проверка работоспособности управляемого домена](active-directory-ds-check-health.md)
 ## [Использование доменных служб Azure AD в подписках Azure CSP](active-directory-ds-csp.md)
 ## [Включение доменных служб Azure AD с помощью PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Присоединение к управляемому домену
@@ -28,7 +32,7 @@
 ## Администрирование управляемого домена
 ### [Администрирование управляемого домена](active-directory-ds-admin-guide-administer-domain.md)
 ### [Администрирование DNS на управляемом домене](active-directory-ds-admin-guide-administer-dns.md)
-### [Проверка работоспособности домена](active-directory-ds-check-health.md)
+
 ### Настройка защищенного протокола LDAP для управляемого домена
 #### [Задача 1. Получение сертификата для защищенного протокола LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Задача 2. Экспорт сертификата защищенного протокола LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

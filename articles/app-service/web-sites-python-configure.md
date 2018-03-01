@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Настройка Python в веб-приложениях службы приложений Azure
 В этом учебнике описываются возможности создания и настройки в [веб-приложениях службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714)базового приложения Python, совместимого с интерфейсом шлюза веб-сервера (WSGI).
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="web-app-creation-on-azure-portal"></a>Создание веб-приложения на портале Azure
 В этом руководстве предполагается, что у вас есть подписка Azure и доступ к порталу Azure.
 
-Если у вас нет веб-приложения, его можно создать на [портале Azure](https://portal.azure.com).  В верхнем левом углу нажмите кнопку "Создать", а затем щелкните **Интернет + мобильные устройства** > **Веб-приложение**.
+Если у вас нет веб-приложения, его можно создать на [портале Azure](https://portal.azure.com). Вверху слева последовательно выберите **Создать ресурс** > **Интернет и мобильные устройства** > **Веб-приложение**.
 
 ## <a name="git-publishing"></a>Публикация с использованием Git
 Настройте публикацию Git для вновь созданного веб-приложения, следуя инструкциям из статьи [Развертывание локального репозитория Git в службе приложений Azure](app-service-deploy-local-git.md). В этом руководстве для создания, изменения и публикации веб-приложения Python в службе приложений Azure мы будем использовать Git.

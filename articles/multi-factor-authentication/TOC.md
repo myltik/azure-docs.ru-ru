@@ -1,3 +1,5 @@
+# [Документация по многофакторной проверке подлинности](index.md)
+
 # Обзор
 ## [Что такое Многофакторная идентификация Azure?](multi-factor-authentication.md)
 ## [Принцип работы](multi-factor-authentication-how-it-works.md)

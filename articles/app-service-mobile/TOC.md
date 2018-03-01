@@ -1,3 +1,5 @@
+# [Документация по мобильным приложениям](index.md)
+
 # Обзор
 ## [Что представляют собой мобильные приложения?](app-service-mobile-value-prop.md)
 ## [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

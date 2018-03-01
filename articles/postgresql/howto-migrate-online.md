@@ -1,19 +1,19 @@
 ---
-title: "Миграция в базу данных Azure для PostgreSQL с минимальным временем простоя | Документация Майкрософт"
+title: "Миграция в базу данных Azure для PostgreSQL с минимальным временем простоя"
 description: "В этой статье объясняется, как выполнить миграцию с минимальным временем простоя, используя извлечение данных PostgreSQL в файл дампа, восстановление базы данных PostgreSQL из файла архива, созданного с помощью команды pg_dump, в базе данных Azure для PostgreSQL, а также настройку начальной загрузки и непрерывную синхронизацию данных из базы данных-источника в целевую базу данных с помощью Attunity Replicate for Microsoft Migrations."
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Миграция в базу данных Azure для PostgreSQL с минимальным временем простоя
 Вы можете перенести существующую базу данных PostgreSQL в Базу данных Azure для PostgreSQL с помощью Attunity Replicate for Microsoft Migrations. Attunity Replicate — это совместное предложение от компании Attunity и корпорации Майкрософт. Клиентам Майкрософт это предложение предоставляется вместе со службой Azure Database Migration Service без дополнительной платы. 
@@ -32,7 +32,7 @@ Attunity Replicate — это средство репликации данных
 * **Настройка начальной загрузки данных из базы данных-источника в целевую базу данных и их непрерывной синхронизации** с помощью Attunity Replicate for Microsoft Migrations. Это позволяет сократить время на настройку базы данных-источника только для чтения, так как вы готовитесь перенести свои приложения в целевую базу данных PostgreSQL в Azure.
 
 Дополнительные сведения о предложении Attunity Replicate for Microsoft Migrations см. в следующих материалах:
- - Перейдите не веб-страницу [Attunity Replicate for Microsoft Migrations](https://aka.ms/attunity-replicate).
+ - Откройте страницу службы [Attunity Replicate for Microsoft Migrations](https://aka.ms/attunity-replicate).
  - Скачайте [Attunity Replicate for Microsoft Migrations](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
  - Чтобы получить краткие инструкции по началу работы, руководства и поддержку, посетите [сообщество Attunity Replicate](https://aka.ms/attunity-community/).
  - Пошаговые инструкции по использованию Attunity Replicate для миграции из PostgreSQL в Базу данных Azure для PostgreSQL см. в [руководстве по переносу базы данных](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Обеспечение безопасности в хранилище озера данных Azure
 Многие предприятия используют аналитику больших данных, чтобы получать информацию, которая поможет принимать обоснованные решения. В организациях могут быть сложные управляемые среды с растущим числом разных пользователей. Поэтому для предприятий крайне важно, чтобы ценные бизнес-данные хранились в надежном месте и определенным пользователям можно было назначать надлежащий уровень доступа к этим данным. Azure Data Lake Store разработано с учетом этих требований к безопасности. Из этой статьи вы узнаете о том, как обеспечить безопасность Data Lake Store с помощью следующих функций:

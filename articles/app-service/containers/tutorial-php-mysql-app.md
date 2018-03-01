@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Разработка веб-приложения на основе PHP и MySQL в службе приложений Azure на платформе Linux
 
@@ -320,7 +320,7 @@ git commit -m "database.php updates"
 Приложение Laravel запускается в каталоге _/public_. Образ PHP Docker по умолчанию для службы приложений использует Apache и не позволяет настраивать `DocumentRoot` для Laravel. Тем не менее вы можете использовать `.htaccess` для повторного создания всех запросов к точке в каталоге _/public_ вместо корневого каталога. В корне репозитория для этой цели уже добавлен `.htaccess`. С ним приложение Laravel будет готово к развертыванию.
 
 > [!NOTE] 
-> Если вы предпочитаете не использовать повторное создание с помощью _.htaccess_, вместо него приложение Laravel можно развернуть из [пользовательского образа Docker](quickstart-custom-docker-image.md).
+> Если вы предпочитаете не использовать повторное создание с помощью _.htaccess_, вместо него приложение Laravel можно развернуть из [пользовательского образа Docker](quickstart-docker-go.md).
 >
 >
 

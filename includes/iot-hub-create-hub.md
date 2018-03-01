@@ -1,7 +1,7 @@
 1. Войдите на [портал Azure][lnk-portal].
-1. Выберите **Создать** > **Интернет вещей** > **Центр Интернета вещей**.
+1. Выберите **Создать ресурс** > **Интернет вещей** > **Центр Интернета вещей**.
    
-    ![Навигационная панель портала Azure][1]
+    ![Снимок экрана с переходом к Центру Интернета вещей на портале Azure][1]
 
 1. В области **Центр Интернета вещей** введите следующие сведения для создания Центра Интернета вещей:
 
@@ -21,8 +21,8 @@
 
 1. Нажмите кнопку **Создать**. Создание Центра Интернета вещей может занять несколько минут. Ход создания можно отслеживать на панели **уведомлений**.
 <!-- Images -->
-[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
 <!-- Links -->
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/

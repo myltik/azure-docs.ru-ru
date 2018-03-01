@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Подключение к локальным источникам данных из приложений логики с помощью локального шлюза данных
 
@@ -63,21 +63,19 @@ ms.lasthandoff: 10/11/2017
   > [!NOTE]
   > Учетная запись службы Windows отличается от учетной записи, которая использовалась для подключения к локальным источникам данных, и от рабочей или учебной учетной записи, которая использовалась для входа в облачные службы.
 
-## <a name="set-up-the-data-gateway-connection"></a>Настройка подключения к шлюзу данных
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Установка локального шлюза данных
+## <a name="install-the-on-premises-data-gateway"></a>Установка локального шлюза данных
 
 Если это еще не сделано, выполните следующие [действия, чтобы установить локальный шлюз данных](logic-apps-gateway-install.md). Перед тем как продолжить, убедитесь, что шлюз данных установлен на локальном компьютере.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Создание ресурса для локального шлюза данных Azure
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Создание ресурса для локального шлюза данных Azure
 
 После установки шлюза на локальном компьютере вам необходимо создать шлюз данных в качестве ресурса в Azure. На этом шаге также связывается ресурс шлюза с подпиской Azure.
 
 1. Войдите на [портал Azure](https://portal.azure.com "Портал Azure"). Убедитесь, что используете тот же рабочий или учебный адрес электронной почты Azure, что и при установке шлюза.
 
-2. В главном меню в Azure выберите **Создать** > **Интеграция с предприятием** > **Локальный шлюз данных**, как показано ниже:
+2. В главном меню в Azure выберите **Создать ресурс** > **Интеграция с предприятием** > **Локальный шлюз данных**:
 
    ![Поиск элемента "Локальный шлюз данных"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -115,7 +113,7 @@ ms.lasthandoff: 10/11/2017
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Подключение приложения логики к локальному шлюзу данных
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Подключение приложения логики к локальному шлюзу данных
 
 Теперь, когда вы создали ресурс шлюза данных и связали свою подписку Azure с этим ресурсом, создайте подключение между приложением логики и шлюзом данных.
 
@@ -157,6 +155,7 @@ ms.lasthandoff: 10/11/2017
    > Если ваши обновления не вступают в силу, попробуйте [остановить и перезапустить службу Windows шлюза](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Переключение или ресурса локального шлюза данных
 
 Чтобы создать другой ресурс шлюза, связать ваш шлюз с другим ресурсом или удалить ресурс шлюза, вы можете удалить его, не затрагивая установку шлюза. 
@@ -166,6 +165,7 @@ ms.lasthandoff: 10/11/2017
 3. Выберите **Локальный шлюз данных** и на панели инструментов ресурсов щелкните **Удалить**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Средства разработки виртуальных машин для обработки и анализа данных
 
@@ -47,11 +47,20 @@ ms.lasthandoff: 10/11/2017
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
-| Что это такое?   | Интегрированная среда разработки клиента для языка R    |
+| Что это такое?   | Клиентская интегрированная среда разработки для R    |
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows, Linux      |
 | Распространенные способы применения      |  Разработка на языке R     |
 | Запуск и использование      | С помощью ярлыка на рабочем столе (`C:\Program Files\RStudio\bin\rstudio.exe`) в Windows или ярлыка на рабочем столе (`/usr/bin/rstudio`) в Linux      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>RStudio Server 
+|    |           |
+| ------------- | ------------- |
+| Что это такое?   | Интегрированная веб-среда разработки для R    |
+| Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Linux      |
+| Распространенные способы применения      |  Разработка на языке R     |
+| Запуск и использование      | Включите службу с помощью _systemctl enable rstudio-server_, а затем запустите службу с помощью _systemctl start rstudio-server_. Затем можно войти на сервер RStudio Server по адресу http://your-vm-ip:8787.       |
+| Дополнительные средства на виртуальной машине для обработки и анализа данных      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
