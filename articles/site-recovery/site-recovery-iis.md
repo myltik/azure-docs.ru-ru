@@ -12,13 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
+<<<<<<< HEAD
 ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+=======
+ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 02/24/2018
+>>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Репликация многоуровневого веб-приложения на основе IIS с помощью Site Recovery
 
@@ -36,11 +44,19 @@ ms.lasthandoff: 02/21/2018
 
 Прежде чем начать, необходимо знать, как выполнять следующие задачи:
 
+<<<<<<< HEAD
 * [Реплицирование виртуальной машины в Azure](site-recovery-vmware-to-azure.md).
 * [Проектирование сети для аварийного восстановления](site-recovery-network-design.md).
 * [Выполнение тестовой отработки отказа в Azure](site-recovery-test-failover-to-azure.md).
 * [Выполнение отработки отказа в Azure](site-recovery-failover.md).
 * [Реплицирование контроллера домена](site-recovery-active-directory.md).
+=======
+* [Репликация виртуальной машины в Azure](site-recovery-vmware-to-azure.md).
+* [Проектирование сети для аварийного восстановления](site-recovery-network-design.md).
+* [Выполнение тестовой отработки отказа в Azure](site-recovery-test-failover-to-azure.md).
+* [Выполнение отработки отказа в Azure](site-recovery-failover.md).
+* [Репликация контроллера домена](site-recovery-active-directory.md).
+>>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
 * [Репликация SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Модели развертывания

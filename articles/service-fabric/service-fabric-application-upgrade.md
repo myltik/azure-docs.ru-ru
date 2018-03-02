@@ -12,6 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+<<<<<<< HEAD
 ms.date: 2/13/2018
 ms.author: subramar
 ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
@@ -19,6 +20,15 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/21/2018
+=======
+ms.date: 2/23/2018
+ms.author: subramar
+ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 02/24/2018
+>>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
 ---
 # <a name="service-fabric-application-upgrade"></a>Обновление приложения Service Fabric
 Приложение Azure Service Fabric представляет собой коллекцию служб. Во время обновления структура служб сравнивает новый [манифест приложения](service-fabric-application-and-service-manifests.md) с предыдущей версией и определяет, каким службам в приложении требуется обновление. Service Fabric сравнивает номера версий в манифестах служб с номерами версий для предыдущей версии. Если служба не была изменена, эта служба не обновляется.
