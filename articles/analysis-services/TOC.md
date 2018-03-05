@@ -33,7 +33,7 @@
 ### [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
 ### [Создание ODC-файла](analysis-services-odc.md)
 ## Учебники
-### [1. Создание примера модели](analysis-services-create-sample-model.md)
+### [1. Добавление примера модели](analysis-services-create-sample-model.md)
 ### [Моделирование данных. Руководство по Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 #### [1. Создание проекта табличной модели](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2. Получение данных](tutorials/aas-lesson-2-get-data.md)

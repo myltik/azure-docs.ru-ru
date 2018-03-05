@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Использование Python и PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1. Создание REST API
+    - name: "1.\_Размещение REST API"
       href: app-service-web-tutorial-rest-api.md
     - name: 2. Сопоставление пользовательского домена
       href: app-service-web-tutorial-custom-domain.md
@@ -230,7 +230,7 @@
     - name: Учебники
       items:
         - name: Эталонные образцы архитектуры
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Скрипты развертывания
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Устранение неполадок

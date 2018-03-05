@@ -194,25 +194,15 @@
   items:
     - name: Часто задаваемые вопросы
       href: frequently-asked-questions.md
-    - name: Устранение неполадок и описание известных проблем
+    - name: Устранение неполадок и описание проблем
       href: known-issues-and-troubleshooting-guide.md
-    - name: Документация по процессу обработки и анализа данных группы
-      href: ../team-data-science-process/overview.md
-    - name: Документация по виртуальной машине для обработки и анализа данных
-      href: ../data-science-virtual-machine/overview.md
+    - name: Поддержка и обучение
+      href: support-for-aml-services.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Цены
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: Форум MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Переполнение стека
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Видеоролики
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Форум отзывов и предложений
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: Регионы доступности
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Варианты поддержки
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Процесс обработки и анализа данных группы
+      href: ../team-data-science-process/overview.md

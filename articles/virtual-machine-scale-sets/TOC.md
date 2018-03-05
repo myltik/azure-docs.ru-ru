@@ -14,6 +14,7 @@
 # Практическое руководство
 ## Планирование и проектирование
 ### [Рекомендации по проектированию](virtual-machine-scale-sets-design-overview.md)
+### [Общие сведения об идентификаторах экземпляров](virtual-machine-scale-sets-instance-ids.md)
 
 ## Создание шаблона
 ### [Сведения о шаблонах масштабируемых наборов](virtual-machine-scale-sets-mvss-start.md)

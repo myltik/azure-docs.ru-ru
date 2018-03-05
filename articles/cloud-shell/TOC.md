@@ -4,10 +4,9 @@
 ## [Bash: краткое руководство](quickstart.md)
 ## [PowerShell: краткое руководство](quickstart-powershell.md)
 
-# Основные понятия
+# Функции и средства
 ## [Bash: функции и средства](features.md)
 ## [PowerShell: функции и средства](features-powershell.md)
-## [Ограничения](limitations.md)
 
 # Инструкции
 ## [Bash: постоянное хранилище](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [Внедрение Cloud Shell](embed-cloud-shell.md)
 
-# [Устранение неполадок](troubleshooting.md)
+# [Устранение неполадок и ограничения](troubleshooting.md)
 
 # Справочные материалы
 ## [интерфейс командной строки Azure](/cli/azure)
