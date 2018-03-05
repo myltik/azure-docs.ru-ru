@@ -18,4 +18,5 @@
 ## [Цены](https://aka.ms/dms-pricing)
 ## [Обзор предварительных требований](pre-reqs.md)
 ## [Часто задаваемые вопросы](faq.md)
+## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=database-migration)
 

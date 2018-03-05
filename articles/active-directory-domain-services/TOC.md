@@ -22,6 +22,7 @@
 ## [Проверка работоспособности управляемого домена](active-directory-ds-check-health.md)
 ## [Использование доменных служб Azure AD в подписках Azure CSP](active-directory-ds-csp.md)
 ## [Включение доменных служб Azure AD с помощью PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Проверка работоспособности домена](active-directory-ds-check-health.md)
 ## Присоединение к управляемому домену
 ### [Присоединение виртуальной машины Windows Server к управляемому домену с помощью портала](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Виртуальная машина Windows Server на основе шаблона](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Администрирование управляемого домена
 ### [Администрирование управляемого домена](active-directory-ds-admin-guide-administer-domain.md)
 ### [Администрирование DNS на управляемом домене](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Настройка защищенного протокола LDAP для управляемого домена
 #### [Задача 1. Получение сертификата для защищенного протокола LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Задача 2. Экспорт сертификата защищенного протокола LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
