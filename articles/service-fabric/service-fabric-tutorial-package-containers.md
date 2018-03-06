@@ -1,6 +1,6 @@
 ---
 title: "Упаковка и развертывание приложения-контейнера Service Fabric | Документация Майкрософт"
-description: "Узнайте, как создать определение приложения Azure Service Fabric с помощью Yeoman и упаковать приложение."
+description: "Из этого руководства вы узнаете, как создать определение приложения Azure Service Fabric с помощью Yeoman и упаковать приложение."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Упаковка и развертывание контейнеров в виде приложения Service Fabric
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Руководство. Упаковка и развертывание контейнеров в виде приложения Service Fabric
 
 Это руководство представляет собой вторую часть цикла. В нем описывается, как с помощью инструмента создания шаблонов (Yeoman) создать определение приложения Service Fabric. Это приложение затем можно использовать для развертывания контейнеров в Service Fabric. Из этого руководства вы узнали, как выполнять такие задачи: 
 

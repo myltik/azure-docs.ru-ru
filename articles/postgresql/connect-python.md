@@ -1,24 +1,24 @@
 ---
-title: "Подключение к базе данных Azure для PostgreSQL с помощью Python | Документация Майкрософт"
+title: "Подключение к базе данных Azure для PostgreSQL с помощью Python"
 description: "В этом кратком руководстве представлен пример кода Python, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Python
-Это краткое руководство демонстрирует, как использовать [Python](https://python.org) для подключения к базе данных Azure для PostgreSQL. Здесь также используются инструкции по использованию инструкций SQL для вставки, обновления и удаления данных в базе данных с платформ Windows, Mac OS и Ubuntu Linux. В этой статье предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с базой данных Azure для PostgreSQL. Дополнительные сведения о пакете SDK см. в документации по [библиотекам Azure PostgreSQL для пакета SDK для Python](/python/api/overview/azure/postgresql) и в [примере psycopg](http://initd.org/psycopg/docs/usage.html).
+Это краткое руководство демонстрирует, как использовать [Python](https://python.org) для подключения к базе данных Azure для PostgreSQL. Здесь также используются инструкции по использованию инструкций SQL для вставки, обновления и удаления данных в базе данных с платформ Windows, Mac OS и Ubuntu Linux. В этой статье предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с базой данных Azure для PostgreSQL.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 В качестве отправной точки в этом кратком руководстве используются ресурсы, созданные в соответствии со следующими материалами:
@@ -50,11 +50,10 @@ ms.lasthandoff: 02/14/2018
 Получите сведения, необходимые для подключения к базе данных Azure.для PostgreSQL. Вам потребуется полное имя сервера и учетные данные для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
-2. В меню слева на портале Azure щелкните **Все ресурсы** и выполните поиск созданного сервера **mypgserver-20170401**.
-3. Щелкните имя сервера **mypgserver-20170401**.
-4. Выберите страницу сервера **Обзор**, а затем запишите **имя сервера** и **имя входа администратора сервера**.
- ![База данных Azure для PostgreSQL. Учетные данные администратора сервера для входа](./media/connect-python/1-connection-string.png)
-5. Если вы забыли данные для входа на сервер, перейдите на страницу **Обзор**, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.
+2. В меню слева на портале Azure щелкните **Все ресурсы** и выполните поиск по имени созданного сервера (например, **mydemoserver**).
+3. Щелкните имя сервера.
+4. Запишите **имя сервера** и **имя для входа администратора сервера** с панели сервера **Обзор**. Если вы забыли свой пароль, можно также сбросить пароль с помощью этой панели.
+ ![Имя сервера службы "База данных Azure для PostgreSQL"](./media/connect-python/1-connection-string.png)
 
 ## <a name="how-to-run-python-code"></a>Как выполнять код Python
 В этой статье содержится всего четыре образца кода, каждый из которых выполняет определенную функцию. В приведенной ниже инструкции объясняется, как создать текстовый файл, вставить блок кода и затем сохранить файл, чтобы запустить его позже. Не забудьте создать четыре отдельных файла, по одному для каждого блока кода.
@@ -75,8 +74,8 @@ ms.lasthandoff: 02/14/2018
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -119,8 +118,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -153,8 +152,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -183,8 +182,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"

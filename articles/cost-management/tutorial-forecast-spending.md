@@ -1,27 +1,34 @@
 ---
-title: "Прогнозирование затрат с помощью службы \"Управление затратами Azure\" | Документация Майкрософт"
-description: "Прогнозирование затрат с помощью исторических данных о потреблении и затратах."
+title: "Руководство. Прогнозирование затрат с помощью службы \"Управление затратами Azure\" | Документация Майкрософт"
+description: "Из этого руководства вы узнаете, как прогнозировать затраты с помощью исторических данных о потреблении и затратах."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="forecast-future-spending"></a>Прогнозирование будущих затрат
+# <a name="tutorial-forecast-future-spending"></a>Руководство. Прогнозирование будущих затрат
 
 Служба "Управление затратами Azure" от Cloudyn помогает прогнозировать будущие затраты, используя исторические данные о потреблении и затратах. В отчетах Cloudyn можно просмотреть все данные о прогнозировании затрат. В примерах этого руководства рассматривается прогнозирование затрат с использованием отчетов. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Прогнозирование будущих затрат.
+
+Если у вас еще нет подписки Azure, то прежде чем начинать работу, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="prerequisites"></a>предварительным требованиям
+
+- Необходимо иметь учетную запись Azure.
+- Необходимо иметь пробную регистрацию либо платную подписку на службу "Управление затратами Azure".
 
 ## <a name="forecast-future-spending"></a>Прогнозирование будущих затрат.
 

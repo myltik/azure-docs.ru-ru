@@ -1,6 +1,6 @@
 ---
 title: "Масштабирование кластера Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как быстро масштабировать кластер Service Fabric."
+description: "В этом руководстве вы узнаете, как быстро масштабировать кластер Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Масштабирование кластера Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Руководство. Масштабирование кластера Service Fabric
 
 Это руководство представляет собой вторую часть серии. В нем показано, как масштабировать существующий кластер. Завершив работу с этим руководством, вы будете знать, как масштабировать кластер и очистить все остающиеся ресурсы.
 

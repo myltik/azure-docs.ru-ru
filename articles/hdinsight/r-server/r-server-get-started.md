@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>Начало работы с R Server в HDInsight
 
@@ -61,7 +61,7 @@ Azure HDInsight поддерживает интеграцию R Server в кла
 4. Выберите **Тип кластера**, чтобы открыть панель **Настройка кластера**. На панели **Конфигурация кластера** выберите следующие параметры:
 
     * Для параметра **Тип кластера** выберите **R Server**.
-    * **Версия**: выберите версию R Server для установки в кластере. В данный момент доступна версия **R Server 9.1 (HDI 3.6)**. Заметки о выпуске для доступных версий R Server см. [на сайте MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
+    * **Версия**: выберите версию R Server для установки в кластере. В данный момент доступна версия **R Server 9.1 (HDI 3.6)**. Заметки о выпуске для доступных версий R Server см. на сайте [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
     * **Выпуск R Studio Community для R Server**: эта среда IDE с браузерным интерфейсом устанавливается по умолчанию на граничном узле. Если вы не хотите ее устанавливать, снимите соответствующий флажок. Если же вы решили установить среду, после ее создания вы найдете URL-адрес для входа в RStudio Server на портале, в колонке приложений для созданного кластера.
     * Для других параметров оставьте значения по умолчанию. Затем с помощью кнопки **Выбрать** сохраните тип кластера.
 
@@ -102,7 +102,7 @@ Azure HDInsight поддерживает интеграцию R Server в кла
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      Кроме того, файл закрытого ключа можно использовать в клиенте как часть определения контекста вычислений Hadoop Spark для R Server. Дополнительные сведения см. в статье [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) (Создание контекста вычислений для Spark).
+      Кроме того, файл закрытого ключа можно использовать в клиенте как часть определения контекста вычислений Hadoop Spark для R Server. Дополнительные сведения см. в статье [Create a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark) (Создание контекста вычислений для Spark).
 
 8. В процессе быстрого создания откроется панель **Служба хранилища**. Здесь следует выбрать параметры учетной записи хранения, которая будет использоваться в качестве основного расположения файловой системы HDFS для кластера. Выберите новую или существующую учетную запись хранения Azure или существующую учетную запись Azure Data Lake Store.
 
@@ -379,7 +379,7 @@ Azure HDInsight поддерживает интеграцию R Server в кла
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Использование R Server в HDI из удаленного экземпляра Microsoft R Server или клиента Microsoft R Client
 
-Доступ к контексту вычислений Hadoop Spark в HDI можно установить из удаленного экземпляра Microsoft R Server или Microsoft R Client, запущенного на персональном компьютере или ноутбуке. Дополнительные сведения см. в разделе об использовании Microsoft R Server в качестве клиента Hadoop в статье [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md) (Создание контекста вычислений для Spark). Для этого укажите следующие параметры при определении контекста вычислений RxSpark на локальном компьютере: dfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches и sshProfileScript. Ниже приведен пример:
+Доступ к контексту вычислений Hadoop Spark в HDI можно установить из удаленного экземпляра Microsoft R Server или Microsoft R Client, запущенного на персональном компьютере или ноутбуке. Дополнительные сведения см. в разделе об использовании Microsoft R Server в качестве клиента Hadoop в статье [Creating a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Создание контекста вычислений для Spark). Для этого укажите следующие параметры при определении контекста вычислений RxSpark на локальном компьютере: dfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches и sshProfileScript. Ниже приведен пример:
 
 
     myNameNode <- "default"
@@ -705,7 +705,7 @@ Azure HDInsight поддерживает интеграцию R Server в кла
     rxSparkConnect(reset = TRUE)
 
 
-Итак, вы завершили настройку для практического использования. Теперь можно применить пакет mrsdeploy на клиенте R для подключения к решению для практического использования на граничном узле. После этого вы сможете использовать его функции, например [удаленное выполнение](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) и [веб-службы](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). В зависимости от того, используется ли виртуальная сеть для настройки кластера, может потребоваться туннелирование с перенаправлением портов через сеанс SSH.
+Итак, вы завершили настройку для практического использования. Теперь можно применить пакет mrsdeploy на клиенте R для подключения к решению для практического использования на граничном узле. После этого вы сможете использовать его функции, например [удаленное выполнение](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) и [веб-службы](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). В зависимости от того, используется ли виртуальная сеть для настройки кластера, может потребоваться туннелирование с перенаправлением портов через сеанс SSH.
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>Кластер R Server в виртуальной сети
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2018
 ms.author: pareshmu
-ms.openlocfilehash: 828532dcb583dc46ecb5c9fc63e47a263ddc2a20
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fd549ff0e6753c854ce9d43cab8e3a672f6502f3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
 
@@ -100,7 +100,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[KPN](http://www.kpn.com/cloudconnect)** | Поддерживаются | Поддерживаются | Амстердам | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Поддерживаются |Поддерживаются |Амстердам, Вашингтон (округ Колумбия), Даллас, Кремниевая долина, Лас-Вегас, Лондон, Нью-Йорк, Ньюпорт, Сан-Антонио, Сан-Паулу, Сингапур, Токио, Сиэтл, Чикаго |
 | **LG CNS** |Поддерживаются |Поддерживаются |Пусан, Сеул |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Поддерживаются |Поддерживаются |Амстердам, Вашингтон (округ Колумбия), Гонконг, Даллас, Дублин, Квебек, Кремниевая долина, Лас-Вегас, Лондон, Лос-Анджелес, Майами, Мельбурн, Нью-Йорк, Сан-Антонио, Сидней, Сингапур, Сингапур 2, Сиэтл, Торонто, Чикаго |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Поддерживаются |Поддерживаются |Амстердам, Чикаго, Даллас, Денвер, Дублин, Гонконг, Лас-Вегас, Лондон, Лос-Анджелес, Мельбурн, Майами, Нью-Йорк, Квебек, Сан-Антонио, Сиэтл, Кремниевая долина, Сингапур, Сингапур 2, Сидней, Торонто, Вашингтон |
 | **MTN** |Поддерживаются |Поддерживаются |Лондон |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Поддерживаются |Поддерживаются |Майами, Сан-Паулу |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Поддерживаются |Поддерживаются |Ньюпорт (Уэльс) |

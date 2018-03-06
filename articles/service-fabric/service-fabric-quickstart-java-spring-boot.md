@@ -1,6 +1,6 @@
 ---
 title: "Развертывание приложения Spring Boot в Microsoft Azure Service Fabric | Документация Майкрософт"
-description: "Разверните приложение Spring Boot в Azure Service Fabric с помощью шаблона \"Начало работы\" для Spring Boot."
+description: "В этом кратком руководстве вы развернете приложение Spring Boot для Azure Service Fabric, используя пример приложения Spring Boot."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab860b8525bcb77d3ab35d3f649532713c661b61
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-spring-boot-application"></a>Развертывание приложения Spring Boot
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Краткое руководство: развертывание приложения Java Spring Boot в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания микрослужб и контейнеров и управления ими. 
 
 В этом руководстве описано, как развернуть приложение Spring Boot в Service Fabric. Это краткое руководство использует пример [Начало работы](https://spring.io/guides/gs/spring-boot/) с веб-сайта Spring Boot. В этом кратком руководстве приведены пошаговые инструкции по развертыванию Spring Boot в виде приложения Service Fabric с использованием знакомых средств командной строки. Когда вы завершите работу с руководством, у вас будет пример Spring Boot, работающий на Service Fabric. 

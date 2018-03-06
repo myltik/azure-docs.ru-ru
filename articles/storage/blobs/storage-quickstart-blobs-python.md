@@ -1,22 +1,22 @@
 ---
-title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Python | Документация Майкрософт"
-description: "Краткое руководство по передаче объектов в хранилище BLOB-объектов Azure и из него с помощью Python"
+title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Python | Документация Майкрософт"
+description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Python, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 02/22/2018
+ms.author: tamram
+ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Python
+# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью языка Python
+
 Из этого краткого руководства вы узнаете, как использовать Python для отправки, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
 
 ## <a name="prerequisites"></a>предварительным требованиям

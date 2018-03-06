@@ -1,19 +1,19 @@
 ---
-title: "Перенос базы данных MySQL с помощью дампа и восстановления в базе данных Azure для MySQL | Документация Майкрософт"
+title: "Перенос базы данных MySQL в службу \"База данных Azure для MySQL \" с помощью дампа и восстановления"
 description: "В этой статье описываются два распространенных способа архивации и восстановления баз данных в базе данных Azure для MySQL с помощью таких средств, как mysqldump, MySQL Workbench и PHPMyAdmin."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: e962fd65244ceebfc7544dc5a1d1956dad811fea
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Перенос базы данных MySQL в базу данных Azure для MySQL с помощью дампа и восстановления
 В этой статье описываются два распространенных способа архивации и восстановления баз данных в базе данных Azure для MySQL:
@@ -101,7 +101,7 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 В этом примере восстановите данные в созданную базу данных в целевой базе данных Azure для сервера MySQL Server.
 ```bash
-$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## <a name="export-using-phpmyadmin"></a>Экспорт с помощью PHPMyAdmin

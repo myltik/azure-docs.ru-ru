@@ -1,21 +1,21 @@
 ---
-title: "Основные понятия работы с сервером в базе данных Azure для PostgreSQL | Документация Майкрософт"
-description: "В этой статье приведены советы и рекомендации по настройке серверов Базы данных Azure для PostgreSQL и управлению ими."
+title: "Основные понятия работы со службой \"База данных Azure для PostgreSQL\""
+description: "В этой статье приведены советы и рекомендации по настройке серверов службы \"База данных Azure для PostgreSQL\" и управлению ими."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/02/2017
-ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 02/28/2018
+ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Серверы базы данных Azure для PostgreSQL
+# <a name="azure-database-for-postgresql-servers"></a>Серверы службы "База данных Azure для PostgreSQL"
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для PostgreSQL.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Что такое сервер базы данных Azure для PostgreSQL?
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 - доступен в нескольких версиях (дополнительные сведения см. в статье [Поддерживаемые версии базы данных PostgreSQL](concepts-supported-versions.md));
 - расширяется пользователями (дополнительные сведения см. в статье [Использование расширений PostgreSQL в базе данных Azure для PostgreSQL](concepts-extensions.md)).
 
-На сервере базы данных Azure для PostgreSQL можно создать одну или несколько баз данных. Можно создать по одной базе данных на каждом сервере, чтобы использовать все ресурсы, или несколько баз данных, чтобы предоставить общий доступ к ресурсам. Цена формируется для каждого сервера, исходя из конфигурации ценовой категории, единиц вычислений и хранилища (ГБ). Дополнительные сведения см. в разделе [Ценовые категории](./concepts-service-tiers.md).
+На сервере базы данных Azure для PostgreSQL можно создать одну или несколько баз данных. Можно создать по одной базе данных на каждом сервере, чтобы использовать все ресурсы, или несколько баз данных, чтобы предоставить общий доступ к ресурсам. Цена формируется для каждого сервера исходя из конфигурации ценовой категории, количества виртуальных ядер и объема хранилища (ГБ). Дополнительные сведения см. в разделе [Ценовые категории](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Как подключиться к серверу базы данных Azure для PostgreSQL и выполнить аутентификацию?
 Ниже перечислены элементы, которые помогают обеспечить безопасный доступ к базе данных.
@@ -56,6 +56,6 @@ ms.lasthandoff: 01/03/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 - Обзор службы содержится в статье [Что такое база данных Azure для PostgreSQL](overview.md).
-- Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории](concepts-service-tiers.md).
+- Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории](concepts-pricing-tiers.md).
 - Сведения о подключении к службе см. в статье [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md).
 - Просмотр и изменение параметров сервера с помощью [портала Azure](howto-configure-server-parameters-using-portal.md) или [Azure CLI](howto-configure-server-parameters-using-cli.md).

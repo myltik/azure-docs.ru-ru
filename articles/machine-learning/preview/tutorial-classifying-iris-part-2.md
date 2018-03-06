@@ -1,23 +1,23 @@
 ---
-title: "Создание модели для службы \"Машинное обучение Azure\" (предварительная версия) | Документация Майкрософт"
+title: "Руководство по созданию модели для службы \"Машинное обучение Azure\" (предварительная версия) | Документация Майкрософт"
 description: "Из этого полного руководства вы узнаете, как использовать службу \"Машинное обучение Azure\" (предварительная версия). Это вторая часть серии руководств. В ней рассматривается экспериментирование."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Часть 2. Классификация цветков ириса: создание модели
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Руководство. Часть 2. Классификация цветков ириса: создание модели
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке и анализу данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
 
 Это руководство представляет собой вторую часть серии, состоящей из трех частей. В этой части вы будете использовать службу "Машинное обучение Azure" (предварительная версия), чтобы научиться выполнять следующие задачи:
@@ -33,6 +33,8 @@ ms.lasthandoff: 01/24/2018
 > * выполнение скриптов в облачной среде Azure HDInsight.
 
 В этом руководстве используется классический [набор данных "Ирисы Фишера"](https://en.wikipedia.org/wiki/Iris_flower_data_set). Снимки экрана представляют среду Windows, но для Mac OS все процедуры практически идентичны.
+
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 Выполните инструкции из первой части этой серии руководств. Прежде чем начинать работу с этим руководством, выполните инструкции из руководства по [подготовке данных](tutorial-classifying-iris-part-1.md), чтобы создать ресурсы службы "Машинное обучение Azure" и установить приложение Azure Machine Learning Workbench.
@@ -374,6 +376,10 @@ ms.lasthandoff: 01/24/2018
    >Выполняя скрипт в удаленном кластере HDI, вы можете просмотреть подробные сведения о выполнении задания Yet Another Resource Negotiator (YARN) в `https://<cluster_name>.azurehdinsight.net/yarnui` с помощью учетной записи `admin`.
 
 
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Дополнительная информация
 Из второй части серии руководств, состоящей из трех частей, вы узнали, как с помощью службы "Машинное обучение Azure" выполнять следующие задачи:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ ms.lasthandoff: 01/24/2018
 Вы готовы перейти к третьей части этой серии руководств. Теперь, когда вы создали модель логистической регрессии, вы можете развернуть ее как веб-службу, работающую в реальном времени.
 
 > [!div class="nextstepaction"]
-> [Развертывание модели](tutorial-classifying-iris-part-3.md)
+> [Часть 3. Классификация цветков ириса: развертывание модели](tutorial-classifying-iris-part-3.md)

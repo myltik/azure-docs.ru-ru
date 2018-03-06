@@ -1,20 +1,20 @@
 ---
-title: "Резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL | Документация Майкрософт"
+title: "Резервное копирование и восстановление сервера в службе \"База данных Azure для PostgreSQL\""
 description: "Узнайте, как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 7027669597b8c1989f7baac5c5f9d997b218750a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 69dfde7e54a271caabc6d0909565165fb219c7f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI
 
@@ -26,7 +26,6 @@ ms.lasthandoff: 11/28/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
- 
 
 > [!IMPORTANT]
 > Если вы решили установить и использовать Azure CLI локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы проверить версию, в командной строке Azure CLI введите `az --version`. Чтобы выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -34,7 +33,7 @@ ms.lasthandoff: 11/28/2017
 ## <a name="backup-happens-automatically"></a>Резервное копирование выполняется автоматически
 При использовании базы данных Azure для PostgreSQL служба базы данных автоматически создает резервную копию службы каждые 5 минут. 
 
-Для уровня "Базовый" доступны резервные копии за 7 дней. Для уровня "Стандартный" — за 35 дней. Дополнительные сведения см. в статье [Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории](concepts-service-tiers.md).
+Для уровня "Базовый" доступны резервные копии за 7 дней. Для уровня "Стандартный" — за 35 дней. Дополнительные сведения см. в статье [Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории](concepts-pricing-tiers.md).
 
 С помощью этой функции автоматического резервного копирования можно восстановить сервер и его базы данных до более ранней даты или точки во времени.
 
@@ -48,16 +47,16 @@ ms.lasthandoff: 11/28/2017
 Для восстановления сервера в командной строке Azure CLI введите следующую команду:
 
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --server mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 Для команды `az postgres server restore` обязательны указанные ниже параметры.
 | Параметр | Рекомендуемое значение | ОПИСАНИЕ  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Группа ресурсов, в которой находится исходный сервер.  |
-| name | mypgserver-restored | Имя нового сервера, созданного командой restore. |
+| resource-group |  myresourcegroup |  Группа ресурсов, в которой находится исходный сервер.  |
+| name | mydemoserver-restored | Имя нового сервера, созданного командой restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Выберите точку во времени, до которой необходимо выполнить восстановление. Значения даты и времени должны находиться в пределах срока хранения резервной копии исходного сервера. Используйте формат даты и времени ISO8601. Можно использовать местный часовой пояс, например `2017-04-13T05:59:00-08:00`. Также можно использовать формат UTC Zulu, например `2017-04-13T13:59:00Z`. |
-| source-server | mypgserver-20170401 | Имя или идентификатор исходного сервера, с которого необходимо выполнить восстановление. |
+| source-server | mydemoserver | Имя или идентификатор исходного сервера, с которого необходимо выполнить восстановление. |
 
 При восстановлении сервера до более ранней точки во времени будет создан новый сервер. Исходный сервер и его базы данных, начиная с указанного момента во времени, копируются на новый сервер.
 

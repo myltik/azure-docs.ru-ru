@@ -1,6 +1,6 @@
 ---
 title: "Создание кластера Service Fabric на платформе Windows в Azure | Документация Майкрософт"
-description: "Узнайте, как развернуть кластер Service Fabric на платформе Windows в существующей виртуальной сети с помощью PowerShell."
+description: "Из этого руководства вы узнаете, как развернуть кластер Service Fabric на платформе Windows в имеющейся виртуальной сети с помощью PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7418e0420b14f044bac253046a8971d1263e45b3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Windows в виртуальной сети Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Руководство. Развертывание кластера Service Fabric на платформе Windows в виртуальной сети Azure
 Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric на платформе Windows в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md) и [группе безопасности сети](../virtual-network/virtual-networks-nsg.md) с помощью шаблона и PowerShell. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.  Создание кластера Linux с помощью Azure CLI описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Linux в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 В этом руководстве описывается рабочий сценарий.  Если вы хотите быстро создать небольшой кластер для тестирования, см. статью [Create a three-node test Service Fabric cluster](./scripts/service-fabric-powershell-create-test-cluster.md) (Создание тестового кластера Service Fabric с тремя узлами).

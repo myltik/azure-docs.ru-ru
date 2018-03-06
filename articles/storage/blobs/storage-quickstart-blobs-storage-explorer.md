@@ -1,21 +1,21 @@
 ---
-title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и из него с помощью обозревателя службы хранилища Azure| Документация Майкрософт"
-description: "Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и обратно с помощью обозревателя службы хранилища Azure"
+title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью Обозревателя службы хранилища Azure | Документация Майкрософт"
+description: "В этом руководстве вы создадите учетную запись хранения и контейнер с помощью Обозревателя службы хранилища Azure, а также отправите большой двоичный объект в службу хранилища Azure, скачаете его и составите список больших двоичных объектов в контейнере с его помощью."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью обозревателя службы хранилища Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью Обозревателя службы хранилища Azure
 
 [Обозреватель службы хранилища Azure](https://azure.microsoft.com/features/storage-explorer/) — это кроссплатформенный пользовательский интерфейс, с помощью которого можно управлять содержимым учетных записей хранения. В этом руководстве рассматривается использование обозревателя службы хранилища Azure для передачи файлов между локальным диском и хранилищем BLOB-объектов Azure.
 

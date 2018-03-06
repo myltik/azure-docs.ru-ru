@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Настройка Application Insights для веб-сайта ASP.NET
 
@@ -35,6 +35,9 @@ ms.lasthandoff: 02/22/2018
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
 ## <a name="ide"></a> Шаг 1. Добавление пакета SDK Application Insights
+
+> [!IMPORTANT]
+> Процесс добавления Application Insights зависит от типа шаблона ASP.NET. Если вы используете **пустой** шаблон или шаблон **мобильного приложения Azure**, выберите **Проект** > **Add Application Insights Telemetry** (Добавить телеметрию Application Insights). Для работы со всеми другими шаблонами ASP.NET ознакомьтесь с приведенными ниже инструкциями. 
 
 В обозревателе решений щелкните правой кнопкой мыши и выберите **Настроить Application Insights**.
 

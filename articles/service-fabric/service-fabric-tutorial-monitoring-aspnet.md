@@ -1,6 +1,6 @@
 ---
 title: "Мониторинг и диагностика служб ASP.NET Core в Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как настроить мониторинг и диагностику приложения ASP.NET Core в Azure Service Fabric."
+description: "Из этого руководства вы узнаете, как настроить мониторинг и диагностику приложения ASP.NET Core в Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Мониторинг и диагностика приложения ASP.NET Core в Service Fabric
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Руководство. Мониторинг и диагностика приложения ASP.NET Core в Service Fabric
 Это руководство представляет собой четвертую часть цикла. В нем описывается настройка мониторинга и диагностики приложения ASP.NET Core, запущенного в кластере Service Fabric, с помощью Application Insights. Мы будем собирать данные телеметрии из приложения, разработанного в первой части цикла, [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
 
 В четвертом руководстве из цикла вы узнаете, как выполнять такие задачи:

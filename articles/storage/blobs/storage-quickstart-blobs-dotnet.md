@@ -1,25 +1,21 @@
 ---
-title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью .NET | Документы Майкрософт"
-description: "Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и обратно с помощью .NET"
+title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью .NET | Документация Майкрософт"
+description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для .NET, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью .NET
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью .NET
 
 Из этого руководства вы узнаете, как использовать клиентскую библиотеку .NET для службы хранилища Azure для отправки, загрузки и перечисления блочных BLOB-объектов в контейнере.
 

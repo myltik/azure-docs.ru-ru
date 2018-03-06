@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Скачивание элементов Marketplace из Azure в Azure Stack
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/21/2018
 
 1. Откройте консоль PowerShell от имени администратора и [установите модули PowerShell для Azure Stack](azure-stack-powershell-install.md). Необходимо установить **PowerShell версии 1.2.11 или более поздней**.  
 
-2. Добавьте учетную запись Azure, которая использовалась для регистрации Azure Stack. Для этого выполните командлет **Add-AzureRmAccount** без параметров. Вам будет предложено ввести учетные данные учетной записи Azure. Также может потребоваться выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.  
+2. Добавьте учетную запись Azure, которая использовалась для регистрации Azure Stack. Чтобы добавить учетную запись, выполните командлет **Add-AzureRmAccount** без параметров. Вам будет предложено ввести учетные данные учетной записи Azure. Также может потребоваться выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.  
 
 3. Если у вас несколько подписок, выполните следующую команду, чтобы выбрать подписку, которая использовалась для регистрации:  
 
@@ -75,16 +75,16 @@ ms.lasthandoff: 02/21/2018
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/21/2018
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ ms.lasthandoff: 02/21/2018
 
    ![Всплывающее окно с элементами Azure Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Выберите образ, который нужно скачать (можно выбрать несколько образов, удерживая нажатой клавишу CTRL), и запишите его версию. Эта версия понадобится при импорте образа в следующем разделе. Затем нажмите кнопку **ОК** и примите условия использования, щелкнув **Да**. Кроме того, вы можете отфильтровать список образов с помощью параметра **Добавить условия**. Скачивание занимает некоторое время в зависимости от размера образа. После скачивания образа он будет доступен в пути назначения, который вы указали ранее. Скачанный пакет содержит VHD-файл и элементы коллекции в формате AZPKG.  
+7. Выберите образ, который необходимо скачать, и запишите его версию. Вы можете выбрать несколько образов, удерживая нажатой клавишу CTRL. Эта версия понадобится при импорте образа в следующем разделе.  Затем щелкните **ОК** и примите условия использования, щелкнув **Да**. Кроме того, вы можете отфильтровать список образов с помощью параметра **Добавить условия**. 
+
+   Скачивание занимает некоторое время в зависимости от размера образа. После скачивания образа он будет доступен в пути назначения, который вы указали ранее. Скачанный пакет содержит VHD-файл и элементы коллекции в формате AZPKG.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Импорт образа и его публикация в Azure Stack Marketplace
 
-1. Скачав пакет с образом и коллекцией, сохраните его с содержимым в папке AzureStack-Tools-vnext на съемном диске и скопируйте эту папку в среду Azure Stack (ее можно скопировать в любое локальное расположение, например C:\MarketplaceImages).   
+1. Скачав пакет с образом и коллекцией, сохраните его с содержимым в папке AzureStack-Tools-master на съемном диске и скопируйте эту папку в среду Azure Stack (ее можно скопировать в любое локальное расположение, например C:\MarketplaceImages).     
 
 2. Прежде чем импортировать образ, нужно подключиться к среде оператора Azure Stack, выполнив действия, описанные в статье [Настройка среды PowerShell оператора Azure Stack](azure-stack-powershell-configure-admin.md).  
 
-3. Импортируйте образ в Azure Stack с помощью командлета Add-AzsVMImage. При использовании этого командлета замените значения publisher, offer и других параметров значениями для импортируемого образа. Значения параметров publisher, offer и sku для образа можно получить из объекта imageReference в скачанном ранее AZPKG-файле, а значение параметра version — на шаге 6 в предыдущем разделе.
+3. Импортируйте образ в Azure Stack с помощью командлета Add-AzsVMImage. При использовании этого командлета замените значения *publisher*, *offer* и других параметров значениями для импортируемого образа. Значения параметров *publisher*, *offer* и *sku* для образа можно получить из объекта imageReference в скачанном ранее AZPKG-файле, а значение параметра *version* — на шаге 6 в предыдущем разделе.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ ms.lasthandoff: 02/21/2018
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

@@ -1,22 +1,22 @@
 ---
-title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Ruby | Документация Майкрософт"
-description: "Краткое руководство по передаче объектов в хранилище BLOB-объектов Azure и из него с помощью Ruby"
+title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью аннотации | Документация Майкрософт"
+description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для Ruby, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью аннотации
+
 Из этого краткого руководства вы узнаете, как использовать Ruby для передачи, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
 
 ## <a name="prerequisites"></a>предварительным требованиям

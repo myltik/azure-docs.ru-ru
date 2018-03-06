@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Обработка сообщений электронной почты и вложений с помощью приложения логики
 
@@ -205,7 +205,7 @@ Azure Logic Apps дает возможность автоматизироват�
 
 ## <a name="create-your-logic-app"></a>Создание приложения логики
 
-1. В главном меню Azure выберите **Создать** > **Интеграция Enterprise** > **Приложение логики**.
+1. В главном меню на портале Azure последовательно выберите **Создать ресурс** > **Enterprise Integration** (Корпоративная интеграция) > **Приложение логики**.
 
    ![Создание приложения логики](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Настройка среды разработки для Mac OS X
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ ms.lasthandoff: 12/18/2017
 
 * Не менее 4 ГБ ОЗУ.
 * Последняя версия [Docker](https://www.docker.com/).
-* Доступ к [образу универсального контейнера Docker](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) для Service Fabric.
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ ms.lasthandoff: 12/18/2017
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Создание локального контейнера и настройка Service Fabric
 Чтобы настроить локальный контейнер Docker и запустить его в кластере Service Fabric, выполните следующие действия:
 
-1. Подайте запрос на универсальный образ контейнера Service Fabric в репозиторий Docker:
+1. Извлеките универсальный образ контейнера Service Fabric из репозитория центра Docker. По умолчанию вы получите образ с последней версией Service Fabric. Сведения о конкретной версии см. на странице [центра Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Обновите конфигурацию управляющей программы Docker в узле с помощью следующих параметров и перезапустите управляющую программу Docker: 
@@ -71,14 +70,14 @@ ms.lasthandoff: 12/18/2017
 3. Запустите универсальный экземпляр контейнера Service Fabric и используйте образ, извлеченный на первом шаге:
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >Укажите имя экземпляра контейнера, которое будет более удобным для чтения. 
     >
     >Если приложение ожидает передачи данных через определенные порты, их необходимо указать с помощью дополнительных тегов `-p`. Например, если приложение ожидает передачи данных через порт 8080, добавьте следующий тег `-p`:
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. Войдите в контейнер Docker в интерактивном режиме SSH:
@@ -160,7 +159,7 @@ Azure Service Fabric предоставляет подключаемый мод�
 На последнем шаге создается экземпляр контейнера с тем же путем, что и для узла. Для подключаемого модуля требуется, чтобы экземпляр этого типа работал в контейнере Docker на компьютере Mac. Например: 
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 Атрибуты определяются следующим образом:

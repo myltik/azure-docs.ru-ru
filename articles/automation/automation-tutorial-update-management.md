@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Управление обновлениями Windows в службе автоматизации Azure
 
@@ -65,12 +65,9 @@ ms.lasthandoff: 01/23/2018
 В процессе проверки также определяется, была ли виртуальная машина подготовлена с помощью Microsoft Monitoring Agent (MMA) и гибридной рабочей роли службы автоматизации.
 Агент позволяет взаимодействовать с виртуальной машиной и получать сведения о состоянии обновления.
 
-Если предварительные условия не выполнены, появится баннер, с помощью которого можно будет включить решение.
+Чтобы включить решение, выберите рабочую область Log Analytics и учетную запись службы автоматизации, а затем щелкните **Включить**. Процесс включения решения может занять до 15 минут.
 
-![Баннер конфигурации развертывания службы управления обновлениями](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-Щелкните этот баннер, чтобы включить решение.
-Если проверка выявит, что отсутствует один из следующих компонентов, он будет автоматически добавлен:
+Если во время подключения обнаружится, что отсутствует один из следующих компонентов, он будет автоматически добавлен.
 
 * [Рабочая область Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 * [Автоматизация](./automation-offering-get-started.md)

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Портал Azure. Использование редактора SQL-запросов для подключения к данным и их запроса
 
@@ -33,18 +33,19 @@ ms.lasthandoff: 01/12/2018
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> В параметрах брандмауэра SQL Server задайте для параметра "Разрешить доступ к службам Azure" значение "Вкл". Таким образом вы предоставите редактору SQL-запросов доступ к базам и хранилищам данных.
+
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
 Войдите на [портал Azure](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Подключение с помощью аутентификации SQL
-> [!NOTE]
-> В параметрах брандмауэра SQL Server задайте для параметра "Разрешить доступ к службам Azure" значение "Вкл". Таким образом вы предоставите редактору SQL-запросов доступ к базам и хранилищам данных.
 
 1. В левой области меню щелкните **Базы данных SQL**, а затем выберите базу данных для запроса.
 
-2. На странице базы данных SQL своей базы данных найдите и выберите **Обозреватель данных (предварительная версия)** в левом меню.
+2. На странице базы данных SQL своей базы данных найдите и выберите **Редактор запросов (предварительная версия)** в левом меню.
 
     ![Поиск редактора запросов](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

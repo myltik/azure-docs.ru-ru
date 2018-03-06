@@ -1,19 +1,19 @@
 ---
-title: "Импорт и экспорт в базе данных Azure для MySQL | Документация Майкрософт"
+title: "Импорт и экспорт в службе \"База данных Azure для MySQL\""
 description: "В этой статье описываются распространенные способы импорта и экспорта баз данных в базе данных Azure для MySQL с помощью средств, таких как MySQL Workbench."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Перенос базы данных MySQL с помощью импорта и экспорта
 В этой статье описываются два обычных подхода к импорту и экспорту данных в базе данных Azure для сервера MySQL с помощью MySQL Workbench. 

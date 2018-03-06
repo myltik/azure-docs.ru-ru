@@ -1,20 +1,20 @@
 ---
-title: "Как выполнить резервное копирование и восстановление сервера в базе данных Azure для MySQL | Документация Майкрософт"
+title: "Резервное копирование и восстановление сервера в службе \"База данных Azure для MySQL\""
 description: "Как выполнить резервное копирование и восстановление сервера в базе данных Azure для MySQL с помощью Azure CLI."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для MySQL с помощью Azure CLI
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/29/2017
 ## <a name="backup-happens-automatically"></a>Резервное копирование выполняется автоматически
 При использовании базы данных Azure для MySQL служба базы данных автоматически создает резервную копию службы каждые пять минут. 
 
-Для уровня "Базовый" доступны резервные копии за 7 дней. Для уровня "Стандартный" — за 35 дней. Дополнительные сведения см. в описании для [ценовых категорий для базы данных Azure для MySQL](concepts-service-tiers.md).
+Для уровня "Базовый" доступны резервные копии за 7 дней. Для уровня "Стандартный" — за 35 дней. Дополнительные сведения см. в описании для [ценовых категорий для базы данных Azure для MySQL](concepts-pricing-tiers.md).
 
 С помощью этой функции автоматического резервного копирования можно восстановить сервер и его базы данных до более ранней даты или точки во времени.
 
@@ -46,16 +46,16 @@ ms.lasthandoff: 11/29/2017
 Для восстановления сервера в командной строке Azure CLI введите следующую команду:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 Для команды `az mysql server restore` обязательны указанные ниже параметры.
 | Параметр | Рекомендуемое значение | ОПИСАНИЕ  |
 | --- | --- | --- |
-| resource-group | myResourceGroup |  Группа ресурсов, в которой находится исходный сервер.  |
+| resource-group | myresourcegroup |  Группа ресурсов, в которой находится исходный сервер.  |
 | name | myserver-restored | Имя нового сервера, созданного командой restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Выберите точку во времени, до которой необходимо выполнить восстановление. Значения даты и времени должны находиться в пределах срока хранения резервной копии исходного сервера. Используйте формат даты и времени ISO8601. Можно использовать местный часовой пояс, например `2017-04-13T05:59:00-08:00`. Также можно использовать формат UTC Zulu, например `2017-04-13T13:59:00Z`. |
-| source-server | myserver4demo | Имя или идентификатор исходного сервера, с которого необходимо выполнить восстановление. |
+| source-server | mydemoserver | Имя или идентификатор исходного сервера, с которого необходимо выполнить восстановление. |
 
 При восстановлении сервера до более ранней точки во времени будет создан новый сервер. Исходный сервер и его базы данных, начиная с указанного момента во времени, копируются на новый сервер.
 

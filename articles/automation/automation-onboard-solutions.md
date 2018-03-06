@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Внедрение решений по обновлению и отслеживанию изменений в службу автоматизации Azure
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="onboard-an-azure-vm"></a>подключение виртуальной машины Azure;
 
-Чтобы автоматически подключить виртуальные машины Azure, необходимо подключить к существующей виртуальной машине решение по отслеживанию изменений или управлению обновлениями. На этом этапе следует подключить к виртуальной машине решения по управлению обновлениями и отслеживанию изменений.
+Существует несколько способов подключения компьютеров: можно подключать решения [из виртуальной машины](automation-onboard-solutions-from-vm.md), [из своей учетной записи службы автоматизации](automation-onboard-solutions-from-automation-account.md) или с помощью модуля runbook. В этом руководстве рассматривается включение решения "Управление обновлениями" через модуль runbook. Чтобы подключить виртуальные машины Azure в масштабе, необходимо подключить к существующей виртуальной машине решение по отслеживанию изменений или управлению обновлениями. На этом этапе следует подключить к виртуальной машине решения по управлению обновлениями и отслеживанию изменений.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Включение решения для отслеживания изменений и инвентаризации
 

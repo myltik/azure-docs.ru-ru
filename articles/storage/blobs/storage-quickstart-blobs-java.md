@@ -1,21 +1,21 @@
 ---
-title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Java | Документация Майкрософт"
-description: "Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и из него с помощью Java."
+title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Java | Документация Майкрософт"
+description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Java, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
+services: storage
 author: roygara
 manager: jeconnoc
-services: storage
+ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/01/2017
+ms.date: 02/22/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Java
+# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью языка Java
 
 Из этого краткого руководства вы узнаете, как использовать Java для передачи, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure.
 

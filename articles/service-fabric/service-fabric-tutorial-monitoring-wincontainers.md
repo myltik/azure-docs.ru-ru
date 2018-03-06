@@ -1,6 +1,6 @@
 ---
 title: "Мониторинг и диагностика контейнеров Windows в Azure Service Fabric | Документация Майкрософт"
-description: "Настройка мониторинга и диагностики контейнера Windows, управляемого в Azure Service Fabric."
+description: "В этом руководстве вы настроите мониторинг и диагностику контейнера Windows, управляемого в Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Мониторинг контейнера Windows в Service Fabric с помощью OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Руководство. Мониторинг контейнера Windows в Service Fabric с помощью OMS
 
 Это третья часть руководства, в которой описывается настройка OMS для мониторинга контейнеров Windows, управляемых в Service Fabric.
 

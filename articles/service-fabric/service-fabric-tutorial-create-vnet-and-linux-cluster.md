@@ -1,6 +1,6 @@
 ---
 title: "Создание кластера Service Fabric на платформе Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как развернуть кластер Service Fabric на платформе Linux в существующей виртуальной сети с помощью Azure CLI."
+description: "Из этого руководства вы узнаете, как развернуть кластер Service Fabric на платформе Linux в имеющейся виртуальной сети с помощью Azure CLI."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Linux в виртуальной сети Azure
+# <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Руководство. Развертывание кластера Service Fabric на платформе Linux в виртуальной сети Azure
 Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric Linux в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md) и [группе безопасности сети (NSG)](../virtual-network/virtual-networks-nsg.md) с помощью шаблона и интерфейса командной строки Azure. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения. Создание кластера Windows с помощью PowerShell описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Windows в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Из этого руководства вы узнаете, как выполнять такие задачи:

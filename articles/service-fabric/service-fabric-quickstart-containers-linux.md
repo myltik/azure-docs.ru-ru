@@ -1,6 +1,6 @@
 ---
 title: "Создание приложения-контейнера Azure Service Fabric в Linux | Документация Майкрософт"
-description: "Создание первого приложения-контейнера Linux в Azure Service Fabric.  Создание образа Docker с приложением, отправка образа в реестр контейнеров, сборка и развертывание приложения-контейнера Service Fabric."
+description: "В этом кратком руководстве вы создадите свое первое приложение-контейнер Linux в Azure Service Fabric.  Создание образа Docker с приложением, отправка образа в реестр контейнеров, сборка и развертывание приложения-контейнера Service Fabric."
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Развертывание приложения-контейнера Azure Service Fabric для Linux в Azure
+# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Краткое руководство. Развертывание приложения-контейнера Azure Service Fabric на платформе Linux в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
 
 В этом руководстве объясняется, как развертывать контейнеры Linux в кластер Service Fabric. Изучив это руководство, вы создадите приложение для голосования с веб-интерфейсом Python и серверной частью Redis, которое работает в кластере Service Fabric. 

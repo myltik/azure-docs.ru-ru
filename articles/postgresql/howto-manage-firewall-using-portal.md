@@ -1,19 +1,19 @@
 ---
-title: "Создание правил брандмауэра в Базе данных Azure для PostgreSQL и управление ими | Документация Майкрософт"
+title: "Создание правил брандмауэра в службе \"База данных Azure для PostgreSQL\" и управление ими"
 description: "Создание правил брандмауэра базы данных Azure для PostgreSQL и управление ими с помощью портала Azure"
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 137d3f7f45a1865cc7eb76ef3b066960f61d6b2f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: bef927cff49d957728a2a12362786d48d60e61b7
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Создание правил брандмауэра базы данных Azure для PostgreSQL и управление ими с помощью портала Azure
 Правила брандмауэра уровня сервера позволяют администраторам обращаться к серверу базы данных Azure для PostgreSQL с указанного IP-адреса или диапазона IP-адресов. 
