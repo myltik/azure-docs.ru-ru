@@ -5,6 +5,7 @@
 ## [Сравнение Azure Data Lake Store со службой хранилища Azure](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store для обработки больших данных](data-lake-store-data-scenarios.md)
 ## [Приложения с открытым кодом, совместимые с Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Рекомендации по использованию Data Lake Store](data-lake-store-best-practices.md)
 
 # Начало работы
 ## [Использование портала](data-lake-store-get-started-portal.md)

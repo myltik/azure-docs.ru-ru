@@ -1,0 +1,280 @@
+- name: Документация по системе безопасности Azure
+  href: index.md
+- name: Архитектура и разработка
+  href: azure-security.md
+  expanded: true
+  items:
+    - name: Расширенные возможности обнаружения угроз
+      href: azure-threat-detection.md
+    - name: Ведение журналов и аудит Azure
+      href: azure-log-audit.md
+    - name: Сетевая безопасность Azure
+      href: azure-network-security.md
+    - name: Включение функций операционной безопасности
+      href: azure-operational-security.md
+    - name: Система управления в Azure
+      href: governance-in-azure.md
+    - name: Изоляция в облаке Azure
+      href: azure-isolation.md
+    - name: Архитектура защищенной гибридной сети
+      href: 'https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json'
+    - name: Технические возможности обеспечения безопасности
+      href: azure-security-technical-capabilities.md
+- name: Шифрование и обеспечение защиты данных
+  href: security-azure-encryption-overview.md
+  items:
+    - name: Безопасность базы данных
+      href: azure-database-security-overview.md
+      items:
+        - name: Рекомендации
+          href: azure-database-security-best-practices.md
+        - name: Контрольный список безопасности
+          href: azure-database-security-checklist.md
+    - name: Шифрование дисков
+      items:
+        - name: Рекомендации
+          href: azure-security-data-encryption-best-practices.md
+        - name: Шифрование неактивных данных
+          href: azure-security-encryption-atrest.md
+        - name: Шифрование дисков для виртуальных машин IaaS
+          href: azure-security-disk-encryption.md
+          items:
+            - name: Часто задаваемые вопросы о шифровании дисков
+              href: azure-security-disk-encryption-faq.md
+            - name: Устранение неполадок
+              href: azure-security-disk-encryption-tsg.md
+        - name: Шифрование виртуальной машины Azure
+          href: ../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json
+    - name: Безопасность службы хранилища Azure
+      href: security-storage-overview.md
+    - name: Руководство по безопасности хранилища
+      href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
+- name: Платформа и инфраструктура
+  items:
+    - name: Антивредоносное ПО Майкрософт
+      href: azure-security-antimalware.md
+    - name: Безопасность IaaS
+      href: security-virtual-machines-overview.md
+      items:
+        - name: Рекомендации по виртуальным машинам Azure
+          href: azure-security-best-practices-vms.md
+        - name: Рекомендации по рабочим нагрузкам IaaS
+          href: azure-security-iaas.md
+        - name: Образы из Azure Marketplace
+          href: security-recommendations-azure-marketplace-images.md
+    - name: Управление удостоверениями
+      href: security-identity-management-overview.md
+      items:
+        - name: Рекомендации
+          href: azure-security-identity-management-best-practices.md
+    - name: Безопасность сети
+      href: security-network-overview.md
+      items:
+        - name: Рекомендации
+          href: azure-security-network-security-best-practices.md
+        - name: Защита границ
+          href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
+- name: Приложение
+  items:
+    - name: PaaS
+      href: security-paas-deployments.md
+      items:
+        - name: Служба приложений Azure для PaaS
+          href: security-paas-applications-using-app-services.md
+        - name: Служба хранилища Azure для PaaS
+          href: security-paas-applications-using-storage.md
+        - name: Рекомендации по базам данных для PaaS
+          href: security-paas-applications-using-sql.md
+        - name: Интернет вещей
+          href: security-internet-of-things-overview.md
+          items:
+            - name: Рекомендации по обеспечению безопасности Интернета вещей
+              href: ../iot-suite/iot-security-best-practices.md
+            - name: Безопасность Интернета вещей
+              href: '../iot-suite/iot-security-architecture.md#security-in-iot'
+            - name: Защита развертывания IoT
+              href: ../iot-suite/iot-suite-security-deployment.md
+    - name: Безопасность Azure Service Fabric
+      href: azure-service-fabric-security-overview.md
+      items:
+        - name: Рекомендации
+          href: azure-service-fabric-security-best-practices.md
+        - name: Контрольный список безопасности
+          href: azure-service-fabric-security-checklist.md
+- name: 'Мониторинг, аудит и операции'
+  href: security-management-and-monitoring-overview.md
+  items:
+    - name: Аудит и ведение журнала
+      items:
+        - name: Управление безопасностью
+          href: ../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json
+        - name: Безопасность удаленного управления
+          href: azure-security-management.md
+        - name: Служба интеграции журналов Azure
+          items:
+            - name: Введение
+              href: security-azure-log-integration-overview.md
+            - name: Начало работы
+              href: security-azure-log-integration-get-started.md
+            - name: Интеграция журналов аудита Azure AD
+              href: security-azure-log-integration-ad.md
+            - name: Интеграция оповещений центра безопасности
+              href: security-azure-log-integration-security-center.md
+            - name: Интеграция журналов из Key Vault
+              href: security-azure-log-integration-keyvault-eventhub.md
+            - name: Часто задаваемые вопросы
+              href: security-azure-log-integration-faq.md
+    - name: Операционная безопасность
+      href: azure-operational-security-overview.md
+      items:
+        - name: Рекомендации
+          href: azure-operational-security-best-practices.md
+        - name: Контрольный список безопасности
+          href: azure-operational-security-checklist.md
+- name: Система управления и соответствие требованиям
+  items:
+    - name: Финансовые услуги для контролируемых рабочих нагрузок
+      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: GDPR
+      items:
+        - name: Управление персональными данными
+          href: manage-personal-data-azure.md
+        - name: 'Обнаружение, определение и классификация персональных данных'
+          href: how-to-discover-classify-personal-data-azure.md
+        - name: Защита персональных данных в Azure
+          href: protect-personal-data-azure.md
+        - name: Защита персональных данных с помощью центра безопасности
+          href: protect-personal-data-azure-security-center.md
+        - name: Защита персональных данных с помощью шлюза приложений
+          href: protect-personal-data-network-security.md
+        - name: Защита персональных данных с помощью управления удостоверениями и доступом
+          href: protect-personal-data-identity-access-controls.md
+        - name: Защита неактивных персональных данных с помощью шифрования
+          href: protect-personal-data-at-rest.md
+        - name: Защита персональных данных при передаче с помощью шифрования
+          href: protect-personal-data-in-transit-encryption.md
+        - name: Защита персональных данных с помощью средств создания отчетов Azure
+          href: protection-personal-data-azure-reporting-tools.md
+    - name: FEDRAMP
+      href: ./blueprints/fedramp.md
+      items:
+        - name: Обзор средств управления безопасностью
+          href: ./blueprints/fedramp-controls-overview.md
+        - name: управление доступом;
+          href: ./blueprints/fedramp-access-controls.md
+        - name: Аудит и система отчетности
+          href: ./blueprints/fedramp-audit-accountability-controls.md
+        - name: Повышение осведомленности и обучение
+          href: ./blueprints/fedramp-awareness-training-controls.md
+        - name: Управление конфигурацией
+          href: ./blueprints/fedramp-configuration-manager-controls.md
+        - name: Планирование действий на непредвиденные случаи
+          href: ./blueprints/fedramp-contingency-planning-controls.md
+        - name: Идентификация и аутентификация
+          href: ./blueprints/fedramp-identification-authentication-controls.md
+        - name: реагирование на инциденты.
+          href: ./blueprints/fedramp-incident-response-controls.md
+        - name: 'Обслуживание, '
+          href: ./blueprints/fedramp-maintenance-controls.md
+        - name: Защита данных на носителях
+          href: ./blueprints/fedramp-media-protection-controls.md
+        - name: Безопасность персонала
+          href: ./blueprints/fedramp-personnel-security-controls.md
+        - name: Физическая безопасность и защита от неблагоприятного воздействия окружающей среды
+          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
+        - name: Планирование
+          href: ./blueprints/fedramp-planning-controls.md
+        - name: Оценка угроз для безопасности
+          href: ./blueprints/fedramp-risk-assessment-controls.md
+        - name: Оценка безопасности и авторизация
+          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
+        - name: Защита системы и средств передачи данных
+          href: ./blueprints/fedramp-system-communications-protection-controls.md
+        - name: Целостность системы и данных
+          href: ./blueprints/fedramp-system-information-integrity-controls.md
+        - name: Приобретение систем и служб
+          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+    - name: PCI DSS
+      href: ./blueprints/payment-processing-blueprint.md
+      items:
+        - name: Обзор требований
+          href: ./blueprints/pci-dss-requirements-overview.md
+        - name: "Требование\_1. Брандмауэры"
+          href: ./blueprints/pci-dss-requirement-1-firewall.md
+        - name: "Требование\_2. Пароли"
+          href: ./blueprints/pci-dss-requirement-2-password.md
+        - name: "Требование\_3. Данные держателей карт"
+          href: ./blueprints/pci-dss-requirement-3-chd.md
+        - name: "Требование\_4. Шифрование"
+          href: ./blueprints/pci-dss-requirement-4-encryption.md
+        - name: "Требование\_5. Защита от вредоносных программ"
+          href: ./blueprints/pci-dss-requirement-5-malware.md
+        - name: "Требование\_6. Безопасность систем"
+          href: ./blueprints/pci-dss-requirement-6-secure-system.md
+        - name: "Требование\_7. Предоставление доступа"
+          href: ./blueprints/pci-dss-requirement-7-access.md
+        - name: "Требование\_8. Идентификация"
+          href: ./blueprints/pci-dss-requirement-8-identity.md
+        - name: "Требование\_9. Физический доступ"
+          href: ./blueprints/pci-dss-requirement-9-physical-access.md
+        - name: "Требование\_10. Мониторинг"
+          href: ./blueprints/pci-dss-requirement-10-monitoring.md
+        - name: "Требование\_11. Тестирование"
+          href: ./blueprints/pci-dss-requirement-11-testing.md
+        - name: "Требование\_12. Политика безопасности"
+          href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: Для служебного пользования (Соединенное Королевство)
+      href: ./blueprints/uk-official-three-tier-applications-overview.md
+      items:
+        - name: Обзор принципов безопасности
+          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+    - name: ИИ и данные о работоспособности HIPAA/HITRUST
+      href: ./blueprints/azure-health.md
+- name: Технические документы
+  href: security-white-papers.md
+- name: Технические обзоры
+  href: security-overviews.md
+- name: Рекомендации
+  href: security-best-practices-and-patterns.md
+- name: Ресурсы
+  items:
+    - name: Программа специалистов MVP по вопросам обеспечения безопасности в Azure
+      href: azure-security-mvp.md
+    - name: Консультация по кибербезопасности
+      href: azure-security-cyber-services.md
+    - name: 'Регистрация поданного в службу поддержки запроса о событии, которое связано с безопасностью'
+      href: azure-security-event-support-ticket.md
+    - name: Тестирование на проникновение
+      href: azure-security-pen-testing.md
+    - name: Microsoft Threat Modeling Tool
+      href: azure-security-threat-modeling-tool.md
+      items:
+        - name: Приступая к работе
+          href: azure-security-threat-modeling-tool-getting-started.md
+        - name: Обзор возможностей
+          href: azure-security-threat-modeling-tool-feature-overview.md
+        - name: Риски
+          href: azure-security-threat-modeling-tool-threats.md
+        - name: Устранение проблем
+          href: azure-security-threat-modeling-tool-mitigations.md
+          items:
+            - name: Аудит и ведение журнала
+              href: azure-security-threat-modeling-tool-auditing-and-logging.md
+            - name: Authentication
+              href: azure-security-threat-modeling-tool-authentication.md
+            - name: Авторизация
+              href: azure-security-threat-modeling-tool-authorization.md
+            - name: Безопасность обмена данными
+              href: azure-security-threat-modeling-tool-communication-security.md
+            - name: Управление конфигурацией
+              href: azure-security-threat-modeling-tool-configuration-management.md
+            - name: Шифрование
+              href: azure-security-threat-modeling-tool-cryptography.md
+            - name: Управление исключениями
+              href: azure-security-threat-modeling-tool-exception-management.md
+            - name: проверок входных данных;
+              href: azure-security-threat-modeling-tool-input-validation.md
+            - name: Конфиденциальные данные
+              href: azure-security-threat-modeling-tool-sensitive-data.md
+            - name: Управление сеансом
+              href: azure-security-threat-modeling-tool-session-management.md

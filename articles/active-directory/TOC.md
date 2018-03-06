@@ -113,6 +113,7 @@
 #### [Настройка именованных расположений](active-directory-named-locations.md)
 #### [Поиск отчетов об активности](active-directory-reporting-migration.md)
 #### [Использование пакета содержимого Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Применение защитных мер к пользователям, находящимся в группе риска](active-directory-report-security-user-at-risk-remediation.md)
 ### Справочные материалы
 #### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies-azure-portal.md)

@@ -13,13 +13,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
-  ms.openlocfilehash: 11d900597fecce1a0f421f21d1cce231f7108fcf
-  ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+  ms.openlocfilehash: cc51070b4ff41107700585160cff8bbe41cc5d7d
+  ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 11/29/2017
+  ms.lasthandoff: 03/05/2018
 abstract:
   description: "Узнайте, как использовать Azure Databricks, из кратких руководств и других материалов, ссылки на которые приведены здесь. Azure Databricks — это платформа аналитики на основе Apache Spark, оптимизированная для платформы облачных служб Microsoft Azure. Разработанная с помощью основателей Apache Spark платформа Databricks интегрируется с Azure, предоставляя установку одним щелчком, упрощенные рабочие процессы и интерактивную рабочую область, которая обеспечивает совместную работу специалистов в области обработки и анализа данных, инжиниринга данных и бизнес-аналитики."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: "Общие сведения об Azure Databricks (3:38)"
+    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    width: 250
 sections:
 - title: "5-минутные руководства по началу работы"
   items:
