@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Копирование данных из Hive с помощью фабрики данных Azure 
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/09/2018
 | host | IP-адрес или имя узла сервера Hive, разделенные ";" для нескольких узлов (только при включенном режиме serviceDiscoveryMode).  | Yes |
 | порт | TCP-порт, используемый сервером Hive для прослушивания клиентских подключений.  | Нет  |
 | serverType | Тип сервера Hive. <br/>Допустимые значения: **HiveServer1**, **HiveServer2**, **HiveThriftServer**. | Нет  |
-| thriftTransportProtocol | Транспортный протокол для использования в слое Thrift. <br/>Допустимые значения: **Binary**, **SASL**, **HTTP **. | Нет  |
+| thriftTransportProtocol | Транспортный протокол для использования в слое Thrift. <br/>Допустимые значения: **Binary**, **SASL**, **HTTP** | Нет  |
 | authenticationType | Метод проверки подлинности, используемый для доступа к серверу Hive. <br/>Допустимые значения: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. | Yes |
 | serviceDiscoveryMode | Значение true, если служба ZooKeeper используется, значение false — если нет.  | Нет  |
 | zooKeeperNameSpace | Пространство имен на ZooKeeper, в которое добавлены 2 узла сервера Hive.  | Нет  |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Учебник. Интеграция Azure Active Directory с Hosted Graphite
 
@@ -205,7 +205,7 @@ ms.lasthandoff: 12/11/2017
 В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к Hosted Graphite (если он еще не создан).
 
 >[!NOTE]
->Чтобы создать пользователя вручную, обратитесь в службу поддержки Hosted Graphite по телефону <mailto:help@hostedgraphite.com>. 
+>Чтобы создать пользователя вручную, обратитесь в службу поддержки Hosted Graphite, отправив сообщение по адресу <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 

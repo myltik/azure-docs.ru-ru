@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Создание кластеров HDInsight с помощью интерфейса командной строки Azure
 
@@ -29,8 +29,9 @@ ms.lasthandoff: 12/11/2017
 Это пошаговое руководство содержит инструкции по созданию кластера HDInsight 3.5 с помощью Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+> В этой статье объясняется, как использовать Azure CLI 1.0 для создания кластера HDInsight. Эта версия CLI является устаревшей. В версию Azure CLI 2.0 не добавлена возможность создания кластеров HDInsight.
+>
+> Для создания кластеров HDInsight и управления ими также можно использовать Azure PowerShell. Инструкции см. в статье [Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 * **Azure CLI**. Действия, описанные в этом документе, проверены с помощью Azure CLI версии 0.10.14.
 
     > [!IMPORTANT]
-    > Инструкции, приведенные в этом документе, не подходят для Azure CLI 2.0. Azure CLI 2.0 не поддерживает создание кластера HDInsight.
+    > Azure CLI 1.0 является устаревшей версией. В версию Azure CLI 2.0 не добавлена возможность создания кластеров HDInsight.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Вход в подписку Azure
 

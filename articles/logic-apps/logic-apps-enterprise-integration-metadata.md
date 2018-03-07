@@ -13,58 +13,58 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 11/21/2016
+ms.date: 02/23/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 5eebae624ea024f2ff8c1fa4764027c05220a15f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 59cebb6c0b86f4e3c4e16a5b6d2ada7b3e7a44a2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Управление метаданными артефактов в учетных записях интеграции для приложений логики
 
-Вы можете определять пользовательские метаданные для артефактов в учетных записях интеграции и извлекать эти метаданные в среде выполнения приложений логики. Например, можно указать метаданные для артефактов (партнеры, соглашения, схемы, сопоставления и др.) и сохранить все метаданные с помощью пар "ключ — значение". В настоящее время артефакты не могут создавать метаданные через пользовательский интерфейс, но вы можете использовать для этого интерфейсы REST API. Чтобы добавить метаданные при создании или выборе партнера, соглашения или схемы на портале Azure, выберите **Редактирование**. Чтобы извлечь метаданные артефактов в приложениях логики, можно использовать функцию "Поиск артефакта учетной записи интеграции".
+Вы можете определять пользовательские метаданные для артефактов в учетных записях интеграции и извлекать эти метаданные в среде выполнения приложений логики. Например, можно указать метаданные для артефактов (партнеры, соглашения, схемы, сопоставления и др.) и сохранить все метаданные с помощью пар "ключ — значение". 
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Добавление метаданных в артефакты учетных записей интеграции
 
-1. Создайте [учетную запись интеграции](logic-apps-enterprise-integration-create-integration-account.md).
+1. На портале Azure создайте [учетную запись интеграции](logic-apps-enterprise-integration-create-integration-account.md).
 
-2. Добавьте в учетную запись интеграции артефакт, такой как [партнер](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [соглашение](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) или [схема](logic-apps-enterprise-integration-schemas.md).
+2. Добавьте в учетную запись интеграции артефакт, такой как [партнер](logic-apps-enterprise-integration-partners.md), [соглашение](logic-apps-enterprise-integration-agreements.md) или [схема](logic-apps-enterprise-integration-schemas.md).
 
-3.  Выберите артефакт, затем **Редактирование** и введите сведения о метаданных.
+3. Выберите артефакт, затем **Редактирование** и введите сведения о метаданных.
 
-    ![Ввод метаданных](media/logic-apps-enterprise-integration-metadata/image1.png)
+   ![Ввод метаданных](media/logic-apps-enterprise-integration-metadata/image1.png)
 
 ## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Извлечение метаданных из артефактов для приложений логики
 
-1. Создайте [приложение логики](quickstart-create-first-logic-app-workflow.md).
+1. На [портале Azure](quickstart-create-first-logic-app-workflow.md) создайте приложение логики.
 
 2. Затем [свяжите приложение логики с учетной записью интеграции](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 
-3. В конструкторе приложений логики добавьте в свое приложение логики триггер (*Запрос* или *HTTP*).
+3. В конструкторе приложений логики добавьте в свое приложение логики триггер (**Запрос** или **HTTP**).
 
-4.  Выберите **Следующий шаг** > **Добавить действие**. Выполните поиск по слову *интеграции*, чтобы найти и выбрать **Учетная запись интеграции > Поиск артефакта учетной записи интеграции**.
+4. В разделе триггера выберите **Новый шаг** > **Добавить действие**. Выполните поиск по запросу "учетная запись интеграции", чтобы найти и выбрать действие **Учетная запись интеграции > Поиск артефакта учетной записи интеграции**.
 
-    ![Выбор функции "Поиск артефакта учетной записи интеграции"](media/logic-apps-enterprise-integration-metadata/image2.png)
+   ![Выбор функции "Поиск артефакта учетной записи интеграции"](media/logic-apps-enterprise-integration-metadata/image2.png)
 
-5. Выберите **Типа артефакта** и укажите **Имя артефакта**.
+5. Выберите **Типа артефакта** и укажите **Имя артефакта**. Например: 
 
-    ![Выбор типа артефакта и указание имени артефакта](media/logic-apps-enterprise-integration-metadata/image3.png)
+   ![Выбор типа артефакта и указание имени артефакта](media/logic-apps-enterprise-integration-metadata/image3.png)
 
 ## <a name="example-retrieve-partner-metadata"></a>Пример: извлечение метаданных партнера
 
-Метаданные партнера содержат такие сведения о `routingUrl`:
+Предположим, метаданные этого партнера содержат сведения о `routingUrl`:
 
 ![Поиск в метаданных партнера сведений о routingURL](media/logic-apps-enterprise-integration-metadata/image6.png)
 
-1. В приложении логики добавьте триггер, действие **Учетная запись интеграции > Поиск артефакта учетной записи интеграции** для партнера, а затем — **HTTP**.
+1. В приложении логики добавьте триггер, действие **Учетная запись интеграции > Поиск артефакта учетной записи интеграции** для партнера, а затем — действие **HTTP**.
 
-    ![Добавление в приложение логики триггера, поиска артефакта и HTTP](media/logic-apps-enterprise-integration-metadata/image4.png)
+   ![Добавление в приложение логики триггера, поиска артефакта и действия HTTP](media/logic-apps-enterprise-integration-metadata/image4.png)
 
-2. Чтобы получить универсальный код ресурса (URI), перейдите в представление кода своего приложения логики. Определение приложения логики должно выглядеть примерно как в этом примере:
+2. Чтобы получить URI, на панели инструментов конструктора приложений логики выберите **Представление кода** для приложения логики. Определение приложения логики должно выглядеть примерно как в этом примере:
 
-    ![Поиск](media/logic-apps-enterprise-integration-metadata/image5.png)
-
+   ![Поиск](media/logic-apps-enterprise-integration-metadata/image5.png)
 
 ## <a name="next-steps"></a>Дополнительная информация
-* [Узнайте о соглашениях и Пакете интеграции Enterprise](logic-apps-enterprise-integration-agreements.md "Узнайте о соглашениях и Пакете интеграции Enterprise")  
+
+* [Дополнительные сведения о соглашениях](logic-apps-enterprise-integration-agreements.md).

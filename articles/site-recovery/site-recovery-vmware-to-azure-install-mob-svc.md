@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
 Служба Mobility Service Azure Site Recovery фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Разверните службу Mobility Service на каждом компьютере (виртуальная машина или физический сервер VMware), который требуется реплицировать в Azure. Службы Mobility Service можно развернуть на серверах, которые необходимо защитить, следующими способами:
@@ -27,12 +27,12 @@ ms.lasthandoff: 01/17/2018
 
 
 >[!IMPORTANT]
-> Начиная с версии 9.7.0.0, установщик службы Mobility Service также устанавливает последнюю доступную версию [агента виртуальных машин Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) на виртуальных машинах Windows. Если при отработке отказа компьютер переходит в Azure, выполняется предварительное требование агента, связанное с использованием любого расширения виртуальной машины.
+> Начиная с версии 9.7.0.0 установщик службы Mobility Service также устанавливает последнюю доступную версию [агента виртуальных машин Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) на виртуальных машинах Windows. Если при отработке отказа компьютер переходит в Azure, выполняется предварительное требование агента, связанное с использованием любого расширения виртуальной машины.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 Перед установкой службы Mobility Service вручную на сервере выполните следующие обязательные действия:
 1. Войдите на сервер конфигурации и откройте окно командной строки с правами администратора.
-2. Измените каталог на папку bin и создайте файл с парольной фразой.
+2. Откройте каталог bin и создайте файл с парольной фразой.
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/17/2018
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Установка службы Mobility Service вручную с помощью графического пользовательского интерфейса
 
 >[!IMPORTANT]
-> Если вы используете **сервер конфигурации** для репликации **виртуальных машин Azure IaaS** из одной подписки (региона) Azure в другую, **воспользуйтесь методом установки с помощью командной строки**.
+> Если вы используете сервер конфигурации для репликации виртуальных машин Azure IaaS из одной подписки (региона) Azure в другую, примените метод установки с помощью командной строки.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/17/2018
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Принудительная установка Mobility Service из Azure Site Recovery
-Для принудительной установки службы Mobility Service с использованием Site Recovery для всех целевых компьютеров следует выполнить следующие предварительные требования.
+Принудительную установку службы Mobility Service можно выполнить с помощью Site Recovery. Все целевые компьютеры должны соответствовать следующим требованиям.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -82,22 +82,23 @@ ms.lasthandoff: 01/17/2018
 
 
 > [!NOTE]
-После установки службы Mobility Service на портале Azure нажмите кнопку **Репликация**, чтобы приступить к защите виртуальных машин.
+После установки службы Mobility Service на портале Azure выберите **+ Репликация**, чтобы приступить к защите виртуальных машин.
 
 ## <a name="update-mobility-service"></a>Обновляет службу Mobility Service.
 
 > [!WARNING]
-> Убедитесь, что сервер конфигурации, серверы обработки масштабирования и все главные целевые серверы, которые являются частью развертывания, обновлены, прежде чем начать обновление службы Mobility Service на защищенных серверах.
+> Прежде чем начать обновление службы Mobility Service на защищенных серверах, убедитесь, что сервер конфигурации, серверы обработки масштабирования и все главные целевые серверы, которые являются частью развертывания, обновлены.
 
-1. На портале Azure перейдите к представлению <Your Vault> > "Реплицированные элементы".
-2. Если **сервер конфигурации** уже обновлен до последней версии, то вы увидите уведомление *Доступно обновление для агента репликации Site Recovery. Щелкните, чтобы установить его.*
+1. На портале Azure перейдите к представлению *имя вашего хранилища* > **Реплицированные элементы**.
+2. Если сервер конфигурации уже обновлен до последней версии, отобразится уведомление: "Доступно обновление для агента репликации Site Recovery. Щелкните, чтобы установить его."
 
-     ![Реплицированные элементы](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
-3. Щелкните это уведомление, чтобы открыть страницу выбора виртуальной машины.
-4. Выберите виртуальные машины, на которых нужно обновить службу Mobility Service, и нажмите кнопку "ОК".
+     ![Окно "Реплицированные элементы"](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+3. Выберите уведомление, чтобы открыть страницу выбора виртуальной машины.
+4. Выберите виртуальные машины, на которых нужно обновить службу Mobility Service, и нажмите кнопку **ОК**.
 
-     ![Список виртуальных машин реплицированных элементов](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
-5. Для каждой выбранной виртуальной машины будет запущено задание обновления службы Mobility Service.
+     ![Список виртуальных машин "Реплицированные элементы"](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+
+Для каждой выбранной виртуальной машины будет запущено задание обновления службы Mobility Service.
 
 > [!NOTE]
 > [Узнайте больше](site-recovery-vmware-to-azure-manage-configuration-server.md) о том, как обновить пароль учетной записи, используемой для установки службы Mobility Service.
@@ -113,15 +114,15 @@ ms.lasthandoff: 01/17/2018
 1. Откройте окно командной строки с правами администратора.
 2. Выполните следующую команду, чтобы удалить службу Mobility Service.
 
-```
-MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-```
+    ```
+    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+    ```
 
 ## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Удаление службы Mobility на компьютере Linux
 1. На сервере Linux войдите как **привилегированный** пользователь.
 2. В разделе "Терминал" перейдите к /user/local/ASR.
 3. Выполните следующую команду, чтобы удалить службу Mobility Service.
 
-```
-uninstall.sh -Y
-```
+    ```
+    uninstall.sh -Y
+    ```

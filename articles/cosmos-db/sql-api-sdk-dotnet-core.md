@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: fe27577b73c26731647a217c249913d8332c0c59
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для .NET Core для API-интерфейса SQL
 > [!div class="op_single_selector"]
@@ -59,7 +59,11 @@ ms.lasthandoff: 02/13/2018
 > [!NOTE] 
 > Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Исправлена ошибка, которая происходила для определенного состояния гонки, в результате чего при использовании модели согласованности на уровне сеанса периодически возникали ошибки Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token (Сеанс чтения для входного маркера сеанса недоступен).
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Исправлена регрессия, где FeedOptions.MaxItemCount = -1 вызвало исключение System.ArithmeticException: размер страницы является отрицательным значением.
 * Добавлена новая функция ToString() в QueryMetrics.
@@ -165,6 +169,7 @@ ms.lasthandoff: 02/13/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21 февраля 2018 г. |--- |
 | [1.8.1](#1.8.1) |5 февраля 2018 г. |--- |
 | [1.7.1](#1.7.1) |16 ноября 2017 г. |--- |
 | [1.7.0](#1.7.0) |10 ноября 2017 г. |--- |

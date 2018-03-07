@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c1d4eb0825d132037cc3a20a17c1f417578d35d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Поддержка cloud-init для виртуальных машин в Azure
 Из этой статьи можно узнать об имеющейся поддержке [cloud-init](https://cloudinit.readthedocs.io) для настройки виртуальной машины или масштабируемых наборов виртуальных машин во время подготовки в Azure. Эти скрипты cloud-init выполняются при первой загрузке, если в Azure подготовлены все нужные ресурсы.  
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/09/2018
 |OpenLogic |CentOS |7-CI |последняя |предварительный просмотр |
 |RedHat |RHEL |7-RAW-CI |последняя |предварительный просмотр |
 
-Предварительная версия Azure Stack не будет поддерживать подготовку RHEL 7.4 и CentOS 7.4 с помощью cloud-init.
+Сейчас Azure Stack не поддерживает подготовку RHEL 7.4 и CentOS 7.4 с помощью cloud-init.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Разница между cloud-init и агентом Linux (WALA)
 WALA — это уникальный агент платформы Azure, использующийся для подготовки и настройки виртуальных машин и обработки расширений Azure. Мы улучшили задачу настройки виртуальных машин для использования cloud-init вместо агента Linux таким образом, чтобы имеющиеся пользователи cloud-init смогли применять свои текущие скрипты cloud-init.  Если у вас уже есть скрипты cloud-init для настройки систем Linux, то для их включения **дополнительные параметры не требуются**. 

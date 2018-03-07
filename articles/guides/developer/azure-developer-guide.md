@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Руководство по началу работы для разработчиков Azure
 
@@ -151,7 +151,7 @@ Service Fabric поддерживает веб-API благодаря испол
 
     >**Когда следует использовать**. При развертывании веб-приложения на платформе Linux в образ Docker.
 
-    >**Приступая к работе**. [Используйте пользовательский образ Docker для службы приложений на платформе Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Приступая к работе**. [Используйте пользовательский образ Docker для службы приложений на платформе Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>Authentication
 

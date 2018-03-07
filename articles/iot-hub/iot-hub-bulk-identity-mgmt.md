@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Управление удостоверениями устройств Центра Интернета вещей в пакетном режиме
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Чтобы использовать класс **RegistryManager** в коде C#, добавьте в проект пакет NuGet **Microsoft.Azure.Devices**. Класс **RegistryManager** находится в пространстве имен **Microsoft.Azure.Devices**.
 
-Вы можете использовать класс **RegistryManager** для запросов состояния **задания** с помощью возвращенных метаданных **JobProperties**.
+Вы можете использовать класс **RegistryManager** для запросов состояния **задания** с помощью возвращенных метаданных **JobProperties**. Чтобы создать экземпляр класса **RegistryManager**, используйте метод **CreateFromConnectionString**.
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Чтобы найти строку подключения для Центра Интернета вещей, сделайте следующее на портале Azure:
+
+- Перейдите в Центр Интернета вещей.
+- Выберите **Политики общего доступа**.
+- Выберите политику, учитывая необходимые разрешения.
+- На панели в правой части экрана скопируйте строку подключения.
 
 В следующем фрагменте кода C# показано, как каждые пять секунд выполнять опрос, чтобы увидеть, завершено ли выполнение задания.
 

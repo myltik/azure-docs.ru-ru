@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Шифрование дисков Azure: часто задаваемые вопросы
 
@@ -49,10 +49,11 @@ ms.lasthandoff: 01/24/2018
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Диск операционной системы и данных |
 | Ubuntu | 14.04.5-DAILY-LTS | Диск операционной системы и данных |
-| RHEL | 7.3 | Диск операционной системы и данных |
-| RHEL | 7,2 | Диск операционной системы и данных |
-| RHEL | 6,8 | Диск операционной системы и данных |
-| RHEL | 6.7 | Диск данных |
+| RHEL | 7.4 | Диск данных* |
+| RHEL | 7.3 | Диск данных* |
+| RHEL | 7,2 | Диск данных* |
+| RHEL | 6,8 | Диск данных* |
+| RHEL | 6.7 | Диск данных* |
 | CentOS | 7.3 | Диск операционной системы и данных |
 | CentOS | 7.2n | Диск операционной системы и данных |
 | CentOS | 6,8 | Диск операционной системы и данных |
@@ -67,6 +68,8 @@ ms.lasthandoff: 01/24/2018
 | SLES | HPC 12 | Диск данных |
 | SLES | Приоритет: 11-SP4 | Диск данных |
 | SLES | 11 SP4 | Диск данных |
+
+*__ADE поддерживается для RHEL для дисков данных. Текущая реализация ADE будет работать для дисков ОС, но сейчас совместная поддержка не предоставляется. Корпорация Майкрософт и Red Hat работают над решением с совместной поддержкой. Тем временем вы можете ознакомиться с технической документацией ADE по шифрованию диска операционной системы Linux [здесь](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **Вопрос.** Как приступить к работе с шифрованием дисков Azure?
 

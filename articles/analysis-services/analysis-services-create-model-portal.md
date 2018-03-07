@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Создание модели на портале Azure
 
@@ -27,15 +27,19 @@ ms.lasthandoff: 02/21/2018
 
 Помните, что веб-конструктор находится на этапе **предварительной версии**. В него постоянно добавляются новые функции, но на этапе предварительной версии функциональные возможности ограничены. Для разработки и тестирования более сложных моделей лучше использовать Visual Studio (SSDT) и SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>предварительным требованиям
+## <a name="before-you-begin"></a>Перед началом работы
 
 - Сервер Azure Analysis Services уровня Standard или Developer. Новые модели, созданные с помощью конструктора веб-приложений, используют DirectQuery, что поддерживается только этими уровнями.
 - База данных SQL Azure, хранилище данных SQL Azure или PBIX-файл Power BI Desktop в качестве источника данных. Новые модели, созданные из файлов Power BI Desktop, поддерживают в качестве источников данных Базу данных SQL Azure, хранилище данных SQL Azure, Oracle и Teradata.
 - Учетная запись SQL Server и пароль для подключения к источникам данных в Базе данных SQL Azure или хранилище данных SQL Azure.
 
+## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
+
+Войдите на [портале Azure](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Создание табличной модели
 
-1. В колонке сервера **Обзор** выберите **Web designer** (Конструктор веб-приложений) и нажмите кнопку **Открыть**.
+1. На сервере последовательно выберите **Обзор** > **Дизайнер веб-страниц** и щелкните **Открыть**.
 
     ![Создание модели на портале Azure](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

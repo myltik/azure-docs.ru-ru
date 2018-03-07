@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux
 Microsoft Azure обеспечивает конфиденциальность и независимость ваших данных всеми возможными способами. К данным, размещенным в Azure, можно применять целый ряд современных технологий для шифрования данных, контроля ключей шифрования и управления ими, а также контроля и аудита доступа к данным. Благодаря этому клиенты Azure получают гибкость в выборе решения, которое лучше всего соответствует потребностям их компании. В этом документе описывается новое технологическое решение «Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux», которое защитит ваши данные в соответствии с корпоративными критериями безопасности и соответствия. Этот документ содержит подробные инструкции по использованию возможностей дискового шифрования Azure, а также описывает поддерживаемые сценарии и взаимодействие с пользователем.
@@ -141,34 +141,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 > [!NOTE]
 > Для Windows Server 2008 R2 перед включением шифрования в Azure требуется установить .NET Framework 4.5. Для этого установите необязательное обновление Microsoft .NET Framework 4.5.2 для Windows Server 2008 R2 для 64-разрядных систем ([KB2901983](https://support.microsoft.com/kb/2901983)) из Центра обновления Windows.
 
-* Шифрование дисков Azure поддерживается для следующих дистрибутивов и версий серверов Linux из коллекции Azure:
-
-| Дистрибутив Linux | Version (версия) | Тип тома, для которого поддерживается шифрование|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Диск операционной системы и данных |
-| Ubuntu | 14.04.5-DAILY-LTS | Диск операционной системы и данных |
-| Ubuntu | 12.10 | Диск данных |
-| Ubuntu | 12.04 | Диск данных |
-| RHEL | 7.4 | Диск операционной системы и данных |
-| RHEL | 7.3 | Диск операционной системы и данных |
-| RHEL | Диспетчер логических томов версии 7.3 | Диск операционной системы и данных |
-| RHEL | 7,2 | Диск операционной системы и данных |
-| RHEL | 6,8 | Диск операционной системы и данных |
-| RHEL | 6.7 | Диск данных |
-| CentOS | 7.3 | Диск операционной системы и данных |
-| CentOS | 7.2n | Диск операционной системы и данных |
-| CentOS | 6,8 | Диск операционной системы и данных |
-| CentOS | 7.1. | Диск данных |
-| CentOS | 7.0 | Диск данных |
-| CentOS | 6.7 | Диск данных |
-| CentOS | 6.6 | Диск данных |
-| CentOS | 6,5 | Диск данных |
-| openSUSE | 13.2 | Диск данных |
-| SLES | 12 с пакетом обновления 1 (SP1) | Диск данных |
-| SLES | 12-SP1 (Премиум) | Диск данных |
-| SLES | HPC 12 | Диск данных |
-| SLES | 11-SP4 (Премиум) | Диск данных |
-| SLES | 11 SP4 | Диск данных |
+* Шифрование дисков Azure поддерживается только для определенных дистрибутивов и версий серверов Linux из коллекции Azure.  Список поддерживаемых сейчас версий см. в статье [Шифрование дисков Azure: часто задаваемые вопросы](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Для шифрования дисков Azure требуется, чтобы хранилище ключей и виртуальные машины находились в одном регионе и подписке Azure.
 
@@ -1284,9 +1257,6 @@ Microsoft Azure обеспечивает конфиденциальность и
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Загрузка руководства
-Это руководство можно скачать из [коллекции TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Дополнительные сведения
 [Explore Azure Disk Encryption with Azure PowerShell](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0) (Изучение возможностей шифрования дисков Azure с помощью PowerShell)  

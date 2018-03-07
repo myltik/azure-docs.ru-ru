@@ -2,48 +2,34 @@
 title: "Настройка целевой среды (из виртуальных машин VMware в Azure) | Документация Майкрософт"
 description: "Сведения о настройке локальной среды для запуска репликации виртуальных машин VMware в Azure."
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: anoopkv
-ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b6b0e5cc95f28b5596e7e898f5f035e3647d9c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Настройка целевой среды (из виртуальных машин VMware в Azure)
 > [!div class="op_single_selector"]
 > * [VMware в VMware](./site-recovery-set-up-vmware-to-azure.md)
 > * [Из физического расположения в Azure](./site-recovery-set-up-physical-to-azure.md)
 
-В этой статье приведены сведения о настройке локальной среды для запуска репликации виртуальных машин VMware в Azure.
+В этой статье приведены сведения о настройке локальной среды для репликации виртуальных машин VMware в Azure. В ней указаны шаги для выбора сценария репликации, настройки локального компьютера в качестве сервера конфигурации Azure Site Recovery и автоматического обнаружения локальных виртуальных машин. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Для работы с руководством требуются следующие компоненты.
-- Хранилище служб восстановления на [портале Azure](http://portal.azure.com "портал Azure").
-- Специальная учетная запись на сервере VMware vCenter, которую можно использовать для [автоматического обнаружения](./site-recovery-vmware-to-azure.md).
-- Виртуальная машина для установки сервера конфигурации.
+В этой статье предполагается, что вы:
+- [настроили ресурсы](tutorial-prepare-azure.md) на [портале Azure](http://portal.azure.com);
+- [настроили локальную среду VMware](tutorial-prepare-on-premises-vmware.md), в том числе выделенную учетную запись для автоматического обнаружения.
 
-## <a name="configuration-server-minimum-requirements"></a>Минимальные требования к серверу конфигурации
-В следующей таблице перечислены минимальные требования к оборудованию, программному обеспечению и сети сервера конфигурации.
 
-> [!IMPORTANT]
-> При развертывании сервера конфигурации для защиты виртуальных машин VMware мы рекомендуем развернуть его как виртуальную машину с **высокой доступностью**.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> Сервер конфигурации не поддерживает прокси-серверы на основе HTTPS.
 
 ## <a name="choose-your-protection-goals"></a>Выбор целевых объектов для защиты
 
@@ -55,39 +41,21 @@ ms.lasthandoff: 12/21/2017
 
     ![Выбор цели](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## <a name="set-up-the-source-environment"></a>Настройка исходной среды
-Настройка исходной среды состоит из двух основных задач.
+## <a name="set-up-the-configuration-server"></a>Настройка сервера конфигурации
 
-- Установка и регистрация сервера конфигурации в службе Site Recovery.
-- Обнаружение локальных виртуальных машин при подключении Azure Site Recovery к локальному серверу VMware vCenter или узлам vSphere EXSi.
+Настройте сервер конфигурации в качестве локальной виртуальной машины VMware и используйте шаблон Open Virtualization Format (OVF). Ознакомьтесь с [дополнительными сведениями](concepts-vmware-to-azure-architecture.md) о компонентах, которые будут установлены на виртуальной машине VMware. 
 
-### <a name="step-1-install-and-register-a-configuration-server"></a>Этап 1. Установка и регистрация сервера конфигурации
+1. Изучите дополнительные сведения о [необходимых компонентах](how-to-deploy-configuration-server.md#prerequisites) для развертывания сервера конфигурации. [Проверьте значения емкости](how-to-deploy-configuration-server.md#capacity-planning) для развертывания.
+2. [Загрузите](how-to-deploy-configuration-server.md#download-the-template) и [импортируйте](how-to-deploy-configuration-server.md#import-the-template-in-vmware) шаблон OVF (how-to-deploy-configuration-server.md) для настройки локальной виртуальной машины VMware, работающей на сервере конфигурации.
+3. Включите виртуальную машину VMware и [зарегистрируйте ее](how-to-deploy-configuration-server.md#register-the-configuration-server) в хранилище служб восстановления.
 
-1. Щелкните **Шаг 1. Подготовка инфраструктуры** > **Источник**. Если у вас нет сервера конфигурации, в окне **Prepare source** (Подготовка источника) щелкните **+Configuration server** (+Сервер конфигурации).
 
-    ![Настройка источника](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. В колонке **добавления сервера** в поле **Server type** (Тип сервера) должно быть значение **Configuration Server** (Сервер конфигурации).
-4. Скачайте файл единой установки Site Recovery.
-5. Скачайте ключ регистрации хранилища. При запуске программы единой установки вам потребуется ключ регистрации. Ключ действителен в течение пяти дней после создания.
-
-    ![Настройка источника](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. На компьютере, используемом в качестве сервера конфигурации, запустите **программу единой установки Azure Site Recovery**, чтобы установить сервер конфигурации, сервер обработки и главный целевой сервер.
-
-#### <a name="run-azure-site-recovery-unified-setup"></a>Выполнение единой установки Azure Site Recovery
-
-> [!TIP]
-> Если системное время на компьютере отличается от местного более чем на 5 минут, регистрация сервера конфигурации завершается сбоем. Перед началом установки синхронизируйте системное время с [сервером времени](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service).
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> Сервер конфигурации можно установить с помощью командной строки. См. дополнительные сведения об [установке сервера конфигурации с помощью средств командной строки](http://aka.ms/installconfigsrv).
-
-#### <a name="add-the-vmware-account-for-automatic-discovery"></a>Добавление учетной записи VMware, используемой для автоматического обнаружения
+## <a name="add-the-vmware-account-for-automatic-discovery"></a>Добавление учетной записи VMware, используемой для автоматического обнаружения
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### <a name="step-2-add-a-vcenter"></a>Этап 2. Добавление сервера vCenter
+## <a name="connect-to-the-vmware-server"></a>Подключение к серверу VMware
+
 Чтобы служба Azure Site Recovery могла обнаруживать виртуальные машины, запущенные в локальной среде, сервер VMware vCenter Server или узлы vSphere ESXi необходимо подключить к этой службе.
 
 Нажмите кнопку **+vCenter** (+ vCenter Server), чтобы начать установку подключения сервера VMware vCenter Server или узла vSphere ESXi.

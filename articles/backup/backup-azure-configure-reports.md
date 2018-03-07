@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Настройка отчетов службы Azure Backup
 В этой статье рассматривается настройка отчетов службы Azure Backup с помощью хранилища служб восстановления и доступ к этим отчетам с помощью Power BI. После выполнения этих действий можно непосредственно перейти в Power BI для просмотра всех отчетов, их настройки и создания. 

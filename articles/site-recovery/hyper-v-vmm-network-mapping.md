@@ -1,25 +1,24 @@
 ---
-title: "Сведения о сетевом сопоставлении для репликации виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery | Документация Майкрософт"
+title: "Сведения о сетевом сопоставлении для репликации виртуальных машин Hyper-V в Azure с помощью Site Recovery | Документация Майкрософт"
 description: "В этой статье описано, как настроить сетевое сопоставление для репликации виртуальных машин Hyper-V, управляемых в облаках VMM, с помощью Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Сведения о сетевом сопоставлении для репликации виртуальных машин Hyper-V в облако VMM 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Подготовка сетевого сопоставления для репликации виртуальных машин Hyper-V в Azure
 
 
-Из этой статьи вы узнаете, как спланировать сопоставление сети во время репликации виртуальных машин Hyper-V в облако System Center Virtual Machine Manager (VMM) или на дополнительный сайт с помощью [службы Azure Site Recovery](site-recovery-overview.md).
+Из этой статьи вы узнаете, как подготовиться к сопоставлению сети во время репликации виртуальных машин Hyper-V в облако System Center Virtual Machine Manager (VMM) в Azure или на дополнительный сайт с помощью [службы Azure Site Recovery](site-recovery-overview.md).
 
-Сетевое сопоставление используется при репликации виртуальных машин Hyper-V (управляемых в облаке VMM) в дополнительное облако VMM или Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Подготовка сетевого сопоставления для репликации в Azure
 
@@ -123,4 +122,5 @@ VM2 (реплика VM1) | VMNetwork1-Chicago
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-[Set up IP addressing to connect to a secondary on-premises site after failover](hyper-v-vmm-networking.md) (Настройка назначения IP-адресов для подключения к дополнительному локальному сайту после отработки отказа).
+- [Set up IP addressing to connect to a secondary on-premises site after failover](hyper-v-vmm-networking.md) (Настройка назначения IP-адресов для подключения к дополнительному локальному сайту после отработки отказа).
+- [Подробнее](concepts-on-premises-to-azure-networking.md) о настройке назначения IP-адресов после отработки отказа в Azure.

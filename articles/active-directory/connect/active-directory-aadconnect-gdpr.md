@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>Azure AD Connect и соответствие требованиям GDPR 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 1.  По запросу извлекать данные для пользователя и удалять эти данные из установленных решений.
 2.  Не хранить данные больше 48 часов.
 
-Команда Azure AD Connect рекомендует второй вариант,  так как его проще реализовать и поддерживать.
+Команда Azure AD Connect рекомендует второй вариант, так как его намного проще реализовать и поддерживать.
 
 Сервер синхронизации Azure AD Connect хранит следующие данные, для которых следует обеспечить соответствие требованиям GDPR.
 1.  Данные о пользователе в **базе данных Azure AD Connect**.

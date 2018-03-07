@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: c9f5bee38772623fb79fa081be8eaece981cc8ab
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 3eceb740b8115d2eaca517017f6158744d6e8e58
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Поддерживаемые операционные системы на виртуальной машине для Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 ## <a name="windows"></a>Windows
-Azure Stack поддерживает следующие операционные системы на виртуальной машине Windows. Образы в Marketplace доступны для скачивания в Azure Stack. В Marketplace недоступны клиентские образы версий Windows.
+Azure Stack поддерживает операционные системы на виртуальной машине Windows, перечисленные в таблице ниже. Образы в Marketplace доступны для скачивания в Azure Stack. В Marketplace недоступны клиентские образы версий Windows.
 
-Во время развертывания Azure Stack гарантирует, что в образе установлена подходящая версия гостевого агента.
+Во время развертывания Azure Stack внедряет подходящую версию гостевого агента в образ.
 
 | Операционная система | ОПИСАНИЕ | ИЗДАТЕЛЬ | тип ОС; | Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -36,9 +36,7 @@ Azure Stack поддерживает следующие операционные
 | Windows Server 2012 | 64-разрядная | Microsoft | Windows | Центр обработки данных |
 | Windows Server 2012 R2 | 64-разрядная | Microsoft | Windows | Центр обработки данных |
 | Windows Server 2016 | 64-разрядная | Microsoft | Windows | Центр обработки данных, ядро центра обработки данных, центр обработки данных с контейнерами |
-| Windows 7 | 64-разрядная версия, Профессиональная и Корпоративная | Microsoft | Windows | Нет  |
-| Windows 8.1 | 64-разрядная версия, Профессиональная и Корпоративная | Microsoft | Windows | Нет  |
-| Windows 10 *(см. примечание 1)* | 64-разрядная версия, Профессиональная и Корпоративная | Microsoft | Windows | Нет  |
+| Windows 10 *(см. примечание 1)* | 64-разрядная версия, Pro и Корпоративная | Microsoft | Windows | Нет  |
 
 ***Примечание 1.*** *Чтобы развернуть клиентские операционные системы Windows 10 в Azure Stack, требуется [лицензирование Windows "на пользователя"](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx). Лицензию можно приобрести у соответствующего поставщика услуг мультитенантного размещения ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
 
@@ -49,18 +47,17 @@ Azure Stack поддерживает следующие операционные
 
 > [!NOTE]   
 > Образы, созданные с помощью WALA версии выше 2.2.3, *не* поддерживаются и вряд ли будут развернуты. Известно, что некоторые версии агента WALA не работают на виртуальных машинах Azure Stack, включая версии 2.2.12 и 2.2.13.
-
+>
+> [cloud-init](https://cloud-init.io/) поддерживается только для дистрибутивов Ubuntu в Azure Stack.
 
 | Дистрибутив | ОПИСАНИЕ | ИЗДАТЕЛЬ | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Контейнер Linux |  64-разрядная | CoreOS | Stable |
 | Версия 6.9 на основе CentOS | 64-разрядная | Rogue Wave | Yes |
-| Версия 7.3 на основе CentOS | 64-разрядная | Rogue Wave | Yes |
 | Версия 7.4 на основе CentOS | 64-разрядная | Rogue Wave | Yes |
 | Debian 8 "Jessie" | 64-разрядная | credativ |  Yes |
 | Debian 9 "Stretch" | 64-разрядная | credativ | Yes |
-| Oracle Linux | 64-разрядная | Oracle | Нет  |
-| Red Hat Enterprise Linux 7.x | 64-разрядная | Red Hat | Нет  |
+| Red Hat Enterprise Linux 7.x (ожидается) | 64-разрядная | Red Hat | Нет  |
 | SLES 11SP4 | 64-разрядная | SUSE | Yes |
 | SLES 12SP3 | 64-разрядная | SUSE | Yes |
 | Ubuntu 14.04-LTS | 64-разрядная | Canonical | Yes |

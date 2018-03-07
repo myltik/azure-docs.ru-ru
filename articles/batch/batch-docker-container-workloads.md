@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Выполнение контейнерных приложений в пакетной службе Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Версии SDK. Пакеты SDK пакетной службы поддерживают образы контейнеров в таких версиях:
+* Версии SDK. Пакеты SDK для пакетной службы поддерживают образы контейнеров в таких версиях:
     * REST API пакетной службы версии 2017-09-01.6.0;
     * пакет SDK для .NET пакетной службы версии 8.0.0;
     * пакет SDK для Python пакетной службы версии 4.0;
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/01/2018
 
     Чтобы получить этот идентификатор образа на портале Azure, откройте **Все ресурсы**, выберите пользовательский образ и в разделе **Обзор** колонки образа скопируйте путь в поле **Идентификатор ресурса**.
 
-* При использовании образа [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) предоставьте группу параметров, описывающих образ (тип предложения, издатель, номер SKU и версия образа), как указано в разделе [Список образов виртуальных машин](batch-linux-nodes.md#list-of-virtual-machine-images):
+* При использовании образа [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) предоставьте группу параметров, описывающих образ (издатель, тип предложения, номер SKU и версия образа), как указано в разделе [Список образов виртуальных машин](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* Исчерпывающий обзор пакетной службы см. в статье [Разработка решений для крупномасштабных параллельных вычислений с использованием пакетной службы](batch-api-basics.md).
+* Ознакомьтесь также с документацией по набору средств [Batch Shipyard](https://github.com/Azure/batch-shipyard), чтобы легко развертывать рабочие нагрузки контейнера в пакетной службе Azure, следуя инструкциям [Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Дополнительные сведения об установке и использовании Docker CE в Linux см. в документации [Docker](https://docs.docker.com/engine/installation/).
 

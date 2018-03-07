@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Подключение к локальным источникам данных из приложений логики с помощью локального шлюза данных
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/21/2018
 
 1. Войдите на [портал Azure](https://portal.azure.com "Портал Azure"). Убедитесь, что используете тот же рабочий или учебный адрес электронной почты Azure, что и при установке шлюза.
 
-2. В главном меню в Azure выберите **Создать ресурс** > **Интеграция с предприятием** > **Локальный шлюз данных**:
+2. В главном меню в Azure выберите **Создать ресурс** > **Интеграция с предприятием** > **On-premises data gateway** (Локальный шлюз данных).
 
    ![Поиск элемента "Локальный шлюз данных"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -107,9 +107,10 @@ ms.lasthandoff: 02/21/2018
 
     ![Предоставление сведений для создания локального шлюза данных](./media/logic-apps-gateway-connection/createblade.png)
 
-    Чтобы в любое время найти или просмотреть шлюз данных, из главного меню Azure перейдите на страницу **Другие службы**>**Интеграция с предприятием**>**Локальный шлюз данных**.
+    Чтобы в любое время найти или просмотреть шлюз данных, в главном меню в Azure выберите **Все службы**. 
+    В поле поиска введите "on-premises data gateways", а затем выберите **On-premises Data Gateways** (Локальные шлюзы данных).
 
-    ![Выбор элементов "Больше служб", "Интеграция с предприятием", "Локальный шлюз данных"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Поиск элемента On-premises Data Gateways (Локальные шлюзы данных)](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

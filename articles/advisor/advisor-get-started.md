@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Приступая к работе с Azure Advisor
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/21/2018
 
     ![Критерии фильтра поиска в Помощнике](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Отложить или закрыть рекомендации Помощника
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Откладывание или закрытие рекомендаций Помощника
 
 1. Войдите на [портал Azure](https://portal.azure.com) и откройте [Помощник](https://aka.ms/azureadvisordashboard).
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/21/2018
 
 3. Щелкните рекомендацию.
 
-4. Нажмите кнопку **Отложить**. 
+4. Щелкните **Отложить**. 
 
 5. Укажите период времени, на который откладывается рекомендация, или выберите значение **Никогда**, чтобы закрыть ее.
 

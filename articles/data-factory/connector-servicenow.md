@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Копирование данных из ServiceNow с помощью фабрики данных Azure (бета-версия)
 
@@ -114,11 +114,11 @@ ms.lasthandoff: 02/13/2018
 
 Указывая схему и столбец для ServiceNow в запросе, обратите внимание на следующее:
 
-- **Схема.** Для создания запроса к ServiceNow необходимо указать схему как `Actual` или `Display`, что можно рассматривать как параметр `sysparm_display_value` со значением true или false при вызове [REST API ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Столбец.** Имя столбца для фактического значения — это `[columne name]_value`, а отображаемое имя — это `[columne name]_display_value`.
+- **Схема.** В запросе к ServiceNow укажите схему как `Actual` или `Display`, что можно рассматривать как параметр `sysparm_display_value` со значением true или false при вызове [REST API ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Столбец.** Имя столбца для фактического значения в схеме `Actual` — это `[columne name]_value`, а отображаемое имя в `Display` — это `[columne name]_display_value`. Обратите внимание, что имя столбца должно соответствовать имени в схеме, используемой в запросе.
 
 **Пример запроса:**
-`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` или `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` или `SELECT col_display_value FROM Display.alm_asset`
 
 **Пример.**
 

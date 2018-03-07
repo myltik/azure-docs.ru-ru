@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Основные понятия триггеров и привязок в Функциях Azure
 
@@ -43,7 +43,51 @@ ms.lasthandoff: 02/09/2018
 
 Сведения о том, какие привязки доступны в предварительной версии или утверждены для использования в рабочей среде, см. в статье [Поддерживаемые языки в решении "Функции Azure"](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Пример. Триггер очередей и выходная привязка таблицы
+## <a name="register-binding-extensions"></a>Регистрация расширений привязки
+
+В версии 2.х среды выполнения решения "Функции Azure" нужно явно зарегистрировать [расширения привязки](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md), используемые в приложении-функции. 
+
+Расширения предоставляются как пакеты NuGet, имя которых обычно начинается с [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Способ установки и регистрации расширений привязки зависит от способа разработки функций: 
+
++ [локально в C# с использованием Visual Studio или VS Code](#precompiled-functions-c);
++ [локально с использованием основных инструментов решения "Функции Azure"](#local-development-azure-functions-core-tools);
++ [на портале Azure](#azure-portal-development). 
+
+В версии 2.x существует базовый набор привязок, которые не предоставляются как расширения. Для следующих триггеров и привязок не нужно регистрировать расширения: HTTP, таймер и служба хранилища Azure. 
+
+Сведения о настройке приложения-функции для использования среды выполнения Функций версии 2.x см. в статье [Выбор целевых версий среды выполнения Функций Azure](set-runtime-version.md). Версия 2.х среды выполнения решения "Функции" в настоящее время находится в предварительной версии. 
+
+Версии пакетов, упомянутые в этом разделе, приведены только в качестве примеров. Перейдите на сайт [NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions), чтобы определить, какая версия данного расширения требуется для других зависимостей в приложении-функции.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Локальная разработка на C# с помощью Visual Studio или VS Code 
+
+При использовании Visual Studio или Visual Studio Code для разработки функций в C# локально необходимо просто добавить пакет NuGet для расширения. 
+
++ **Visual Studio**. Воспользуйтесь диспетчером пакетов NuGet. Следующая команда [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) устанавливает расширение Azure Cosmos DB из консоли диспетчера пакетов:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**. Пакеты можно установить из командной строки, используя команду [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) в .NET CLI, как показано ниже.
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Локальная разработка основных инструментов решения "Функции Azure"
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Разработка на портале Azure
+
+При создании функции или добавлении привязки в имеющуюся функцию появится запрос, если для добавления триггера или привязки требуется регистрация.   
+
+Когда появится предупреждение о том, что конкретное расширение установлено, выберите **Установить**, чтобы зарегистрировать расширение. Достаточно установить каждое расширение по одному разу для конкретного приложения-функции. 
+
+>[!Note] 
+>В рамках плана потребления процесс установки на портале может занять до 10 минут.
+
+## <a name="example-trigger-and-binding"></a>Пример триггера и привязки
 
 Предположим, вам нужно, чтобы каждый раз, когда в хранилище очередей Azure появляется новое сообщение, создавалась строка в хранилище таблиц Azure. Этот сценарий можно реализовать с помощью триггера для хранилища очередей Azure и выходной привязки хранилища таблиц Azure. 
 
@@ -124,7 +168,7 @@ function generateRandomId() {
 }
 ```
 
-В библиотеке классов эта информация о триггере и привязке &mdash; имена очередей и таблиц, учетные записи хранения, входные и выходные параметры функции &mdash; передаются в виде атрибутов:
+В библиотеке классов эта информация о триггере и привязке &mdash; имена очередей и таблиц, учетные записи хранения, входные и выходные параметры функции &mdash; передаются в виде атрибутов вместо файла function.json. Ниже приведен пример:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -162,12 +206,53 @@ function generateRandomId() {
 
 Если вы используете для настройки триггеров и привязок [атрибуты в библиотеке классов](functions-dotnet-class-library.md), направление задается в конструкторе атрибута или вычисляется по типу параметра.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Использование возвращаемого функцией типа для возврата одного выходного значения
+## <a name="using-the-function-return-value"></a>Использование возвращаемого значения функции
 
-В предыдущем примере показано, как использовать возвращаемое значение функции, чтобы предоставить выходное значение привязке, указанной в файле *function.json* с помощью специального значения `$return` для свойства `name`. (это поддерживается только в языках, у которых есть возвращаемое значение, например в скриптах C#, JavaScript и F#). Если у функции несколько выходных привязок, используйте `$return` только для одной из них. 
+В языках, где есть возвращаемое значение, можно применить выходную привязку к возвращаемому значению:
+
+* В библиотеке классов C# примените атрибут выходной привязки к возвращаемому значению метода.
+* В других языках задайте для свойства `name` значение `$return` в файле *function.json*.
+
+Если вам нужно написать больше одного элемента, используйте объект [collector object](functions-reference-csharp.md#writing-multiple-output-values) вместо возвращаемого значения. При наличии нескольких выходных привязок используйте возвращаемое значение только для одной из них.
+
+Языковой пример см. в разделах:
+
+* [C#](#c-example)
+* [Скрипт C# (CSX)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>Пример C#
+
+Это код C#, который использует возвращаемое значение для выходной привязки, за которым следует пример асинхронной функции:
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Пример сценария C#
+
+Выходная привязка в файле *function.json*:
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +261,9 @@ function generateRandomId() {
 }
 ```
 
-В примерах ниже показано, как возвращаемые типы используются с выходными привязками в скрипте C#, JavaScript и F#.
+Ниже приведен код скрипта C#, за которым следует пример асинхронной функции:
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +273,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +281,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>Пример F#
+
+Выходная привязка в файле *function.json*:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Ниже показан код F#.
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>Пример JavaScript
+
+Выходная привязка в файле *function.json*:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+В JavaScript возвращаемое значение передается в качестве второго параметра в `context.done`:
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>Свойство привязки dataType
@@ -232,13 +343,32 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 Другие варианты для `dataType` — `stream` и `string`.
 
-## <a name="resolving-app-settings"></a>Разрешение параметров приложения
+## <a name="binding-expressions-and-patterns"></a>Выражения привязки и шаблоны
 
-Для управления секретами и строками подключения рекомендуется использовать параметры приложения, а не файлы конфигурации. Это ограничивает доступ к таким секретам и обеспечивает безопасное хранение файла *function.json* в общедоступном репозитории системы управления версиями.
+*Выражения привязки* — это одна из самых эффективных функций триггеров и привязок. В файле *function.json* и в параметрах функции и коде можно использовать выражения, которые разрешаются в значения из различных источников.
+
+Большинство выражений определяются путем их заключения в фигурные скобки. Например, в функции триггера очереди `{queueTrigger}` разрешается в текст сообщения очереди. Если свойство `path` для выходной привязки большого двоичного объекта — `container/{queueTrigger}`, а функция активируется сообщением очереди `HelloWorld`, создается большой двоичный объект с именем `HelloWorld`.
+
+Типы выражений привязки
+
+* [Параметры приложения](#binding-expressions---app-settings)
+* [Имя файла триггера](#binding-expressions---trigger-file-name)
+* [Метаданные триггера](#binding-expressions---trigger-metadata)
+* [Полезные данные JSON](#binding-expressions---json-payloads)
+* [Новый GUID](#binding-expressions---create-guids)
+* [Текущая дата и время](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Выражения привязки. Параметры приложения
+
+Для управления секретами и строками подключения рекомендуется использовать параметры приложения, а не файлы конфигурации. Это ограничивает доступ к таким секретам и обеспечивает безопасное хранение файлов, таких как *function.json*, в общедоступном репозитории системы управления версиями.
 
 Параметры приложений также удобно использовать при необходимости изменить конфигурации в соответствии со средой. Например, в тестовой среде можно отслеживать другую очередь или контейнер хранилища BLOB-объектов.
 
-Параметры приложения разрешаются, если значение заключено в знаки процента, например `%MyAppSetting%`. Обратите внимание, что свойство `connection` триггеров и привязок является особым случаем и автоматически разрешает значения как параметры приложения. 
+Выражения привязки параметров приложения определяются иначе, чем другие выражения привязки. Они заключены в символы процента, а не в фигурные скобки. Например, если путь выходной привязки большого двоичного объекта — `%Environment%/newblob.txt`, а значение параметра приложения `Environment` — `Development`, в контейнере `Development` будет создан большой двоичный объект.
+
+Если функция выполняется локально, значения параметра приложения поступают из файла *local.settings.json*.
+
+Обратите внимание, что свойство `connection` триггеров и привязок является особым случаем и автоматически разрешает значения как параметры приложения без знаков процента. 
 
 Следующий пример представляет собой триггер хранилища очередей Azure. Этот триггер использует параметр приложения `%input-queue-name%`, чтобы определить очередь, для которой он должен срабатывать.
 
@@ -268,9 +398,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Свойства метаданных триггера
+### <a name="binding-expressions---trigger-file-name"></a>Выражения привязки. Имя файла триггера
 
-Помимо полезных данных, предоставляемых триггером (например, сообщения очереди, инициирующего вызов функции), многие триггеры предоставляют также дополнительные значения метаданных. Эти значения можно использовать в качестве входных параметров в C# и F# или свойств объекта `context.bindings` в JavaScript. 
+`path` для триггера большого двоичного объекта может быть шаблоном, который позволяет ссылаться на имя большого двоичного объекта, активирующего триггер, в других привязках и коде функции. Шаблон может также включать критерии фильтрации, которые определяют, какие большие двоичные объекты могут активировать вызов функции.
+
+Например, в следующей привязке триггера большого двоичного объекта шаблон `path` — `sample-images/{filename}`, который создает выражение привязки с именем `filename`:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+Затем выражение `filename` можно использовать в выходной привязке для указания имени создаваемого большого двоичного объекта:
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Код функции получает доступ к тому же значению, используя `filename` в качестве имени параметра:
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+Возможность применять выражения и шаблоны привязки распространяется и на атрибуты в библиотеке классов. В следующем примере параметры конструктора атрибута совпадают со значениями `path` в предыдущих примерах *function.json*: 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+Можно также создать выражения для частей имени файла, таких как расширение. Дополнительные сведения о том, как использовать выражения и шаблоны в строке пути к большому двоичному объекту, см. в статье [Привязки хранилища BLOB-объектов Azure для службы "Функции Azure"](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Выражения привязки. Метаданные триггера
+
+Помимо полезных данных, предоставляемых триггером (например, содержимое сообщения очереди, инициирующего вызов функции), многие триггеры предоставляют также дополнительные значения метаданных. Эти значения можно использовать в качестве входных параметров в C# и F# или свойств объекта `context.bindings` в JavaScript. 
 
 Например, триггер хранилища очередей Azure поддерживает следующие свойства:
 
@@ -304,112 +500,11 @@ public static void Run(
 
 Сведения о свойствах метаданных для каждого триггера приведены в соответствующих статьях документации. Пример см. в разделе [о метаданных триггера очередей](functions-bindings-storage-queue.md#trigger---message-metadata). Документация доступна также на портале на вкладке **Интегрировать** в разделе **Документация** под областью конфигурации привязки.  
 
-## <a name="binding-expressions-and-patterns"></a>Выражения привязки и шаблоны
+### <a name="binding-expressions---json-payloads"></a>Выражения привязки. Полезные данные JSON
 
-*Выражения привязки* — это одна из самых эффективных функций триггеров и привязок. При настройке привязки вы можете определить выражения шаблонов, чтобы использовать их в других привязках или в коде. Также в выражениях привязки можно использовать метаданные триггеров, как показано в предыдущем разделе.
+Если полезные данные представлены в виде JSON, на его свойства можно ссылаться в конфигурации других привязок в той же функции и ее коде.
 
-Предположим, вам нужно изменить размер изображения в определенном контейнере хранилища BLOB-объектов, примерно как в шаблоне **изменения размера изображения** на странице **Новая функция** портала Azure (см. сценарий **Примеры**). 
-
-Ниже приведено определение *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Обратите внимание, что параметр `filename` используется в определении триггера больших двоичных объектов и в выходной привязке большого двоичного объекта. Этот параметр можно также использовать в коде функции.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-Возможность применять выражения и шаблоны привязки распространяется и на атрибуты в библиотеке классов. Ниже приведен пример функции для изменения размеров изображения из библиотеки классов.
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>Создание глобальных уникальных идентификаторов
-
-Выражение привязки `{rand-guid}` создает идентификатор GUID. В следующем примере идентификатор GUID используется для создания уникального имени большого двоичного объекта: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Текущее время
-
-Выражение привязки `DateTime` разрешается в `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Привязка к пользовательским входным свойствам
-
-Выражения привязки могут также ссылаться на свойства, определенные в самих полезных данных. Например, можно установить динамическую привязку к файлу хранилища BLOB-объектов из файла, имя которого указанно в webhook.
-
-Например, в приведенном ниже файле *function.json* используется свойство `BlobName` из полезных данных триггера.
+В следующем примере показан файл *function.json* для функции веб-перехватчика, который получает имя большого двоичного объекта в JSON: `{"BlobName":"HelloWorld.txt"}`. Входная привязка большого двоичного объекта считывает этот объект, а привязка для вывода HTTP возвращает содержимое большого двоичного объекта в ответе HTTP. Обратите внимание, что входная привязка большого двоичного объекта получает имя такого объекта, обращаясь напрямую к свойству `BlobName` (`"path": "strings/{BlobName}"`).
 
 ```json
 {
@@ -424,7 +519,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +531,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 }
 ```
 
-Для этого в C# и F# необходимо определить тип POCO, определяющий поля, которые будут десериализованы в полезные данные триггера.
+Для этого в C# и F# нужен класс, определяющий поля, которые должны быть десериализованы, как показано в следующем примере:
 
 ```csharp
 using System.Net;
@@ -458,7 +553,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-В JavaScript десериализация JSON выполняется автоматически и свойства можно использовать напрямую.
+В JavaScript десериализация JSON выполняется автоматически.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +571,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Настройка данных привязки во время выполнения
+#### <a name="dot-notation"></a>Точечная нотация
 
-В C# и других языках .NET можно использовать шаблон императивной привязки, которая отличается от декларативной привязки в файле *function.json* или в атрибутах. Императивную привязку удобно использовать, когда параметры привязки должны вычисляться не при проектировании, а во время выполнения. Дополнительные сведения см. в разделе справочника разработчика C# [Привязка в среде выполнения с помощью императивных привязок](functions-reference-csharp.md#imperative-bindings).
+Если некоторые свойства в полезных данных JSON являются объектами со свойствами, к ним можно обратиться напрямую с помощью точечной нотации. Например, ваш JSON выглядит следующим образом:
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+На `FileName` можно непосредственно ссылаться, используя формат `BlobName.FileName`. С этим форматом JSON свойство `path` из предыдущего примера будет выглядеть следующим образом:
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+В C# потребовалось бы два класса:
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Выражения привязки. Создание глобальных уникальных идентификаторов
+
+Выражение привязки `{rand-guid}` создает идентификатор GUID. Следующий путь к большому двоичному объекту в файле `function.json` создает большой двоичный объект с именем следующего вида: *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Выражения привязки. Текущее время
+
+Выражение привязки `DateTime` разрешается в `DateTime.UtcNow`. Следующий путь к большому двоичному объекту в файле `function.json` создает большой двоичный объект с именем следующего вида: *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Привязка во время выполнения
+
+В C# и других языках .NET можно использовать шаблон императивной привязки, которая отличается от декларативной привязки в файле *function.json* или в атрибутах. Императивную привязку удобно использовать, когда параметры привязки должны вычисляться не при проектировании, а во время выполнения. Дополнительные сведения см. в [справочнике разработчика C#](functions-dotnet-class-library.md#binding-at-runtime) и [справочнике разработчика скриптов C#](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>Схема файла function.json
 

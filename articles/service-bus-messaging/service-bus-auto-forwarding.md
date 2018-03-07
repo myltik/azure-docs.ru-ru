@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 6c92acee9d7609f4fedcddd40563b1a55fa08fac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Объединение в цепочки сущностей служебной шины с помощью автоматической переадресации
 
 Функция *автоматической переадресации* служебной шины позволяет привязать очередь или подписку к другой очереди или разделу, которые являются частью одного и того же пространства имен. Если включена автоматическая переадресация, служебная шина автоматически удаляет сообщения, помещенные в первую очередь или подписку (источник), и помещает их во вторую очередь или раздел (место назначения). Обратите внимание, что при этом сохраняется возможность отправить сообщение в конечную сущность напрямую. Кроме того, подочередь (например, очередь недоставленных сообщений) нельзя привязать к другой очереди или разделу.
 
 ## <a name="using-auto-forwarding"></a>Использование автоматической переадресации
-Автоматическую переадресацию можно включить, задав свойства [QueueDescription.ForwardTo][QueueDescription.ForwardTo] или [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] объектов источника [QueueDescription][QueueDescription] или [SubscriptionDescription][SubscriptionDescription], как показано в следующем примере.
+
+Автоматическую пересылку можно включить, задав свойства [QueueDescription.ForwardTo][QueueDescription.ForwardTo] или [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] объектов источника [QueueDescription][QueueDescription] или [SubscriptionDescription][SubscriptionDescription], как показано в следующем примере:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +36,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 Конечная сущность должна существовать на момент создания исходной сущности. Если конечной сущности не существует, служебная шина возвращает исключение при попытке создать исходную сущность.
 
-С помощью автоматической переадресации можно выполнить масштабирование отдельного раздела. Служебная шина ограничивает [количество подписок на определенный раздел](service-bus-quotas.md) до 2000. Создав разделы второго уровня, можно разместить дополнительные подписки. Обратите внимание: даже если вы не связаны ограничением служебной шины на количество подписок, добавление разделов второго уровня может повысить общую пропускную способность раздела.
+С помощью автоматической переадресации можно выполнить масштабирование отдельного раздела. Служебная шина ограничивает [количество подписок на определенный раздел](service-bus-quotas.md) до 2000. Создав разделы второго уровня, можно разместить дополнительные подписки. Даже при отсутствии ограничения служебной шины на количество подписок, добавление разделов второго уровня может повысить общую пропускную способность раздела.
 
 ![Сценарий автоматической пересылки][0]
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Настройка устройств и управление ими
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 12/13/2017
 
 ## <a name="add-a-simulated-device"></a>Добавление имитированного устройства
 
-Откройте страницу **Устройства** в решении и выберите **Новое устройство**. На панели **Новое устройство** выберите **Имитированное**:
+Откройте страницу **Устройства** в решении и выберите **+ Новое устройство**. На панели **Новое устройство** выберите **Имитированное**:
 
 ![Подготовка имитированного устройства](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Оставьте значение **1** для количества подготавливаемых устройств. Выберите значение **Неисправный модуль** для параметра **Модель устройства** и нажмите кнопку **Применить**, чтобы создать имитированное устройство:
+Оставьте значение **1** для количества подготавливаемых устройств. Выберите модель устройства **Неисправный модуль** и нажмите кнопку **Применить**, чтобы создать имитированное устройство:
 
 ![Подготовка имитированного устройства "Модуль"](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Копирование данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,15 @@ ms.lasthandoff: 02/13/2018
 
 Этот соединитель хранилища данных SQL Azure поддерживает:
 
-- копирование данных с использованием проверки подлинности SQL;
+- копирование данных с использованием **проверки подлинности SQL** и **проверки подлинности по маркерам приложения Azure Active Directory** с субъектом-службой или управляемым удостоверением службы (MSI);
 - извлечение данных с использованием SQL-запроса или хранимой процедуры (в качестве источника);
 - загрузку данных с использованием **PolyBase** или массовой вставки (в качестве приемника). Для лучшей производительности копирования **рекомендуется** использовать первый вариант.
+
+> [!IMPORTANT]
+> Примечание. PolyBase поддерживают только проверку подлинности SQL, но не проверку подлинности Azure Active Directory.
+
+> [!IMPORTANT]
+> При копировании данных с использованием среды Azure Integration Runtime настройте [брандмауэр Azure SQL Server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) таким образом, чтобы он [разрешал службам Azure получать доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). При копировании данных с использованием локальной среды Integration Runtime настройте брандмауэр Azure SQL Server таким образом, чтобы он разрешал соответствующий диапазон IP-адресов, включая IP-адрес компьютера, используемый для подключения к базе данных SQL Azure.
 
 ## <a name="getting-started"></a>Приступая к работе
 
@@ -52,14 +58,21 @@ ms.lasthandoff: 02/13/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **AzureSqlDW** | Yes |
-| connectionString |Укажите сведения, необходимые для подключения к экземпляру хранилища данных SQL Azure, для свойства connectionString. Поддерживается только обычная проверка подлинности. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |Укажите сведения, необходимые для подключения к экземпляру хранилища данных SQL Azure, для свойства connectionString. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| servicePrincipalId | Укажите идентификатора клиента приложения. | Значение Yes при использовании проверки подлинности AAD на основе субъекта-службы. |
+| servicePrincipalKey | Укажите ключ приложения. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Значение Yes при использовании проверки подлинности AAD на основе субъекта-службы. |
+| tenant | Укажите сведения о клиенте (доменное имя или идентификатор клиента), в котором находится приложение. Эти сведения можно получить, наведя указатель мыши на правый верхний угол страницы портала Azure. | Значение Yes при использовании проверки подлинности AAD на основе субъекта-службы. |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
 
+В разделах ниже описываются требования и приводятся примеры JSON для разных типов проверки подлинности:
 
-> [!IMPORTANT]
-> [Брандмауэр хранилища данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) необходимо настроить, чтобы разрешить [службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, когда вы с помощью локальной среды IR копируете данные в хранилище данных SQL Azure из внешнего по отношению к Azure источника, в том числе из локальных источников данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в хранилище данных SQL Azure.
+- [Использование проверки подлинности SQL](#using-sql-authentication)
+- [Использование проверки подлинности по маркеру приложения AAD — субъект-служба](#using-service-principal-authentication)
+- [Использование проверки подлинности по маркеру приложения AAD — управляемое удостоверение службы](#using-managed-service-identity-authentication)
 
-**Пример.**
+### <a name="using-sql-authentication"></a>Использование проверки подлинности SQL
+
+**Пример использования проверки подлинности SQL в связанной службе:**
 
 ```json
 {
@@ -70,6 +83,113 @@ ms.lasthandoff: 02/13/2018
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Использование аутентификации на основе субъекта-службы
+
+Чтобы использовать проверку подлинности по маркеру приложения AAD на основе субъекта-службы, выполните следующие действия:
+
+1. **[Создайте приложение Azure Active Directory на портале Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Запишите имя приложения и следующие значения, которые используются для определения связанной службы:
+
+    - Идентификатор приложения
+    - Ключ приложения
+    - Tenant ID
+
+2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD может быть пользователем AAD или группой AAD. При предоставлении группе с MSI роли администратора пропустите шаги 3 и 4, так как администратор будет иметь полный доступ к базе данных.
+
+3. **Создайте пользователя автономной базы данных для субъекта-службы**. Для этого подключитесь к хранилищу данных, из которого или в которое требуется скопировать данные, с помощью таких средств, как среда SSMS, используя идентификатор AAD по крайней мере с разрешением ALTER ANY USER, и выполните следующий сценарий T-SQL. Дополнительные сведения о пользователе автономной базы данных см. [здесь](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Предоставьте субъекту-службе необходимые разрешения** точно так же, как вы предоставляете разрешения пользователям SQL. Например, выполните эту команду:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. Настройте в ADF связанную службу хранилища данных SQL Azure.
+
+
+**Пример использования аутентификации на основе субъекта-службы в связанной службе**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Использование аутентификации на основе управляемого удостоверения службы
+
+Фабрика данных может быть связана с [управляемым удостоверением службы (MSI)](data-factory-service-identity.md), которое представляет это решение. Это удостоверение службы можно использовать для проверки подлинности хранилища данных SQL Azure, которое позволяет этой назначенной фабрике получать доступ к хранилищу данных и копировать данные из него и в него.
+
+Чтобы использовать проверку подлинности по маркеру приложения AAD на основе управляемого удостоверения службы, выполните следующие действия:
+
+1. **Создайте группу в Azure AD и сделайте MSI фабрики ее участником**.
+
+    a. Найдите удостоверение службы фабрики данных на портале Azure. Перейдите к фабрике данных, выберите "Свойства" и скопируйте **идентификатор удостоверения службы**.
+
+    Б. Установите модуль [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2), войдите в него с помощью команды `Connect-AzureAD` и выполните следующие команды, чтобы создать группу и добавить MSI фабрики данных в качестве ее участника.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали).
+
+3. **Создайте пользователя автономной базы данных для группы AAD**. Для этого подключитесь к хранилищу данных, из которого или в которое требуется скопировать данные, с помощью таких средств, как среда SSMS, используя идентификатор AAD по крайней мере с разрешением ALTER ANY USER, и выполните следующий сценарий T-SQL. Дополнительные сведения о пользователе автономной базы данных см. [здесь](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Предоставьте группе AAD необходимые разрешения** точно так же, как вы предоставляете разрешения пользователям SQL. Например, выполните эту команду:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. Настройте в ADF связанную службу хранилища данных SQL Azure.
+
+**Пример использования проверки подлинности на основе MSI в связанной службе:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -259,6 +379,9 @@ GO
 
 * Если исходные данные находятся в **хранилище BLOB-объектов Azure или в Azure Data Lake Store** и их формат соответствует требованиям PolyBase, то копирование можно выполнять напрямую в хранилище данных SQL Azure, используя PolyBase. Дополнительные сведения см. в разделе **[Прямое копирование с помощью PolyBase](#direct-copy-using-polybase)**.
 * Если хранилище и формат исходных данных изначально не поддерживаются PolyBase, то можно использовать функцию **[промежуточного копирования с помощью PolyBase](#staged-copy-using-polybase)**. Она также обеспечивает лучшую пропускную способность за счет автоматического преобразования данных в формат, совместимый с PolyBase, и хранения данных в хранилище BLOB-объектов Azure. После этого данные загружаются в хранилище данных SQL.
+
+> [!IMPORTANT]
+> Примечание. PolyBase поддерживают только проверку подлинности SQL хранилища данных SQL Azure, но не проверку подлинности Azure Active Directory.
 
 ### <a name="direct-copy-using-polybase"></a>Прямое копирование с помощью PolyBase
 

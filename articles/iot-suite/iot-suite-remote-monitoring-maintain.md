@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Устранение неполадок на устройстве
 
@@ -57,6 +57,8 @@ Contoso тестирует новый **прототип** устройства 
 Чтобы подтвердить уведомление, выберите **Alarm occurrences** (Вхождения уведомлений) и выберите **Acknowledge** (Подтвердить). Таким образом вы дадите другим операторам знать, что вы ознакомились с уведомлением и работаете над ним.
 
 ![Подтверждение уведомлений](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+
+Когда вы подтвердите уведомление, состояние экземпляра изменится на **Acknowledged** (Подтверждено).
 
 В списке вы увидите **прототип** устройства, отвечающий за уведомление о температуре:
 

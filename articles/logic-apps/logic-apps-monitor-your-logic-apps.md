@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Мониторинг состояния, настройка ведения журнала диагностики и включение предупреждений для Azure Logic Apps
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 02/21/2018
 
 Чтобы найти и просмотреть события в приложении логики, такие как события триггера, события выполнения и события действия, выполните следующие действия.
 
-1. На [портале Azure](https://portal.azure.com) щелкните **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
+1. На [портале Azure](https://portal.azure.com) выберите **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
 
    ![Выберите "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/21/2018
 
 5. В поле поиска укажите поле, которое требуется найти, и нажмите клавишу **ВВОД**. При вводе OMS предлагает возможные совпадения и операции, которые можно использовать. 
 
-   Например, чтобы найти первые 10 возникших событий, введите и выберите следующий поисковый запрос: **Category=WorkflowRuntime |top 10**
+   Например, чтобы найти первые 10 возникших событий, введите и выберите следующий поисковый запрос: **search Category == "WorkflowRuntime" | limit 10**.
 
    ![Введите строку поиска](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

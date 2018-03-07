@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Информация о нерекомендованных дистрибутивах
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Соглашение об уровне обслуживания для платформы Azure применяется для виртуальных машин с ОС Linux, только если используется один из [рекомендованных дистрибутивов](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Все дистрибутивы Linux, представленные в коллекции образов Azure, — это рекомендованные дистрибутивы, уже имеющие необходимую конфигурацию.
+Соглашение об уровне обслуживания для платформы Azure применяется для виртуальных машин с ОС Linux, только если используется один из [рекомендованных дистрибутивов](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Для рекомендованных дистрибутивов предоставляются образы Linux, представленные в коллекции в Azure Marketplace с необходимой конфигурацией.
 
 * [Linux в Azure — рекомендованные дистрибутивы](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Поддержка образов Linux в Microsoft Azure](https://support.microsoft.com/kb/2941892)

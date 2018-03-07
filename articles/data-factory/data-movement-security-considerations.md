@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,8 +150,8 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 | `*.servicebus.windows.net`    | 443, 80        | Требуется локальной среде выполнения интеграции для подключения к службам перемещения данных в фабрике данных. |
 | `*.core.windows.net`          | 443            | Используется локальной средой выполнения интеграции для подключения к учетной записи хранения Azure при помощи функции [промежуточного копирования](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Требуется локальной среде выполнения интеграции для подключения к службе фабрики данных Azure. |
-| `*.database.windows.net`      | 1433           | (Необязательно.) Требуется, если местом назначения является база данных SQL Azure или хранилище данных SQL Azure. Используйте функцию промежуточного копирования, чтобы копировать данные в базу данных SQL Azure или хранилище данных SQL Azure без необходимости открывать порт 1433. |
-| `*.azuredatalakestore.net`    | 443            | (Необязательно.) Требуется, если местом назначения является Azure Data Lake Store. |
+| `*.database.windows.net`      | 1433           | (Необязательно.) Требуется, если выполняется копирование из базы данных SQL Azure или хранилища данных SQL Azure или в них. Используйте функцию промежуточного копирования, чтобы копировать данные в базу данных SQL Azure или хранилище данных SQL Azure без необходимости открывать порт 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Необязательно.) Требуется, если выполняется копирование из репозитория Azure Data Lake Store или в него. |
 
 > [!NOTE] 
 > Вам может потребоваться управлять портами или создать утвержденный список доменов на уровне корпоративного брандмауэра в соответствии с определенными источниками данных. В этой таблице в качестве примеров используются база данных SQL Azure, хранилище данных SQL Azure и Azure Data Lake Store.   

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Условный доступ в Azure Active Directory
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Требования лицензий для использования условного доступа
 
-Для использования условного доступа необходимо иметь лицензию Azure AD Premium или Enterprise Mobility + Security. Чтобы найти нужную лицензию, соответствующую вашим требованиям, просмотрите страницу [Цены на Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+Для использования условного доступа требуется лицензия Azure AD Premium. Чтобы найти подходящую лицензию, ознакомьтесь с разделом [Сравнение общедоступных функций выпусков Free, Basic и Premium](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## <a name="next-steps"></a>Дополнительная информация

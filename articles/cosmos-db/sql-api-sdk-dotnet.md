@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b9e81bbff7c09f3bfb60fcdeda5cd3c8faf23adc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске для API SQL
 > [!div class="op_single_selector"]
@@ -53,6 +53,10 @@ ms.lasthandoff: 02/13/2018
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
+
+* Исправлена ошибка, которая происходила для определенного состояния гонки, в результате чего при использовании модели согласованности на уровне сеанса периодически возникали ошибки Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token (Сеанс чтения для входного маркера сеанса недоступен).
+
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
 * Исправлена регрессия, где FeedOptions.MaxItemCount = -1 вызвало исключение System.ArithmeticException: размер страницы является отрицательным значением.
@@ -285,6 +289,7 @@ ms.lasthandoff: 02/13/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.20.2](#1.20.2) |21 февраля 2018 г. |--- |
 | [1.20.1](#1.20.1) |5 февраля 2018 г. |--- |
 | [1.19.1](#1.19.1) |16 ноября 2017 г. |--- |
 | [1.19.0](#1.19.0) |10 ноября 2017 г. |--- |

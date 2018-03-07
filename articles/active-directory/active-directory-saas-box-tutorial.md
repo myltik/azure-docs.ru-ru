@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Руководство. Интеграция Azure Active Directory с Box
 
@@ -114,7 +114,6 @@ ms.lasthandoff: 01/10/2018
      
     > [!NOTE] 
     > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Для получения этого значения обратитесь в [службу поддержки клиентов Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
-
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
     ![Ссылка для скачивания сертификата](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ ms.lasthandoff: 01/10/2018
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки клиентов Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) и предоставьте скачанный XML-файл.
+6. Чтобы настроить единый вход для приложения, выполните действия на странице [Setting Up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) (Настройка единого входа вручную).
+
+> [!NOTE] 
+> Если не удается включить параметры единого входа для своей учетной записи Box, возможно, вам придется обратиться за помощью в [службу поддержки Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) и предоставить скачанный XML-файл.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

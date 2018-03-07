@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Использование Draft со Службой контейнеров Azure (AKS)
 
@@ -27,28 +27,7 @@ Draft является инструментом с открытым кодом, 
 
 Кроме того, необходим частный реестр Docker в реестре контейнеров Azure(ACR). Инструкции по развертыванию экземпляра ACR см. в статье [Создание реестра контейнеров с помощью Azure CLI][acr-quickstart].
 
-## <a name="install-helm"></a>Установка Helm
-
-Интерфейс командной строки Helm — это клиент, который выполняется в системе разработки и позволяет запускать и останавливать приложения с помощью чартов Helm, а также управлять ими.
-
-Чтобы установить интерфейс командной строки Helm на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки см. в статье об [установке Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Выходные данные:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Также в кластере AKS нужно установить Helm. Сведения об установке Helm см. в статье [Использование Helm со Службой контейнеров Azure (AKS)][aks-helm].
 
 ## <a name="install-draft"></a>Установка Draft
 
@@ -307,10 +286,10 @@ Hello World, I'm Java - Draft Rocks!
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

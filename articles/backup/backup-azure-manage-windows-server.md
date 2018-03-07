@@ -1,6 +1,6 @@
 ---
 title: "Управление хранилищами и серверами служб восстановления Azure | Документация Майкрософт"
-description: "Из этого руководства вы узнаете об управлении хранилищами и серверами служб восстановления Azure."
+description: "Из этой статьи вы узнаете, как управлять хранилищами и серверами служб восстановления Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Мониторинг хранилищ и серверов служб восстановления Azure для компьютеров Windows и управление ими
 

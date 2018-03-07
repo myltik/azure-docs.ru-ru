@@ -27,13 +27,13 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Параметр|type|ОПИСАНИЕ|Возможные значения|
 |-|-|-|-|
-|/Role|Обязательно|Указывает службу, которую нужно установить: Mobility Service (MS) или MasterTarget (MT)|MS </br> MT|
-|/InstallLocation|Необязательно|Расположение, в котором установлена служба Mobility Service|Любая папка на компьютере.|
-|/Platform|Обязательно|Указывает платформу, на которой будет установлена служба Mobility Service </br> </br>- **VMware.** Используйте это значение при установке службы Mobility Service на виртуальной машине под управлением *узлов VMware vSphere ESXi*, *узлов Hyper-V* или *физических серверов* </br> - **Azure.** Используйте это значение при установке агента на виртуальной машине Azure IaaS| VMware </br> Таблицы Azure|
-|/Silent|Необязательно|Используется для запуска установщика в автоматическом режиме| Нет данных|
+|/Role|Обязательно|Указывает службу, которую нужно установить: Mobility Service (MS) или Master Target (MT).|MS </br> MT|
+|/InstallLocation|Необязательно|Расположение, в котором установлена служба Mobility Service.|Любая папка на компьютере.|
+|/Platform|Обязательно|Указывает платформу, на которой будет установлена служба Mobility Service. </br> </br>- **VMware**. Используйте это значение при установке службы Mobility Service на виртуальной машине под управлением *узлов VMware vSphere ESXi*, *узлов Hyper-V* или *физических серверов*. </br> - **Azure**. Используйте это значение при установке агента на виртуальную машину Azure IaaS. | VMware </br> Таблицы Azure|
+|/Silent|Необязательно|Используется для запуска установщика в автоматическом режиме.| Недоступно|
 
 >[!TIP]
-> Журналы установки находятся в папке %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Журналы установки находятся в папке %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Аргументы командной строки регистрации службы Mobility Service
 
@@ -45,8 +45,8 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
   | Параметр|type|ОПИСАНИЕ|Возможные значения|
   |-|-|-|-|
   |/CSEndPoint |Обязательно|IP-адрес сервера конфигурации| Любой допустимый IP-адрес|
-  |/PassphraseFilePath|Обязательно|Расположение файла с парольной фразой |Любой допустимый локальный путь к файлу или UNC|
+  |/PassphraseFilePath|Обязательно|Расположение файла c парольной фразой |Любой допустимый локальный путь к файлу или UNC|
 
 
 >[!TIP]
-> Журналы AgentConfiguration находятся в папке %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> Журналы конфигурации агента находятся в папке %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

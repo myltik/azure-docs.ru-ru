@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 10/25/2017
 Включить функцию непрерывного развертывания можно с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) и выполнив следующую команду:
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 На **[портале Azure](https://portal.azure.com/)** щелкните **Служба приложений** в левой части страницы.
 
 Щелкните имя приложения, для которого вы хотите настроить непрерывное развертывание Docker Hub.
 
-В разделе **Параметры приложения** добавьте параметр приложения `DOCKER_ENABLE_CI` со значением `true`.
+Чтобы включить непрерывное развертывание в разделе **Контейнер Docker** выберите "ВКЛ.", а затем нажмите кнопку "Сохранить".
 
 ![Изображение добавления параметра приложения](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ az webapp deployment container config -n sname -g rgname -e true
 Получить URL-адрес можно с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) и выполнив следующую команду:
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 Для URL-адреса webhook необходима следующая конечная точка: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
@@ -89,6 +89,6 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 * [Реестр контейнеров Azure](https://azure.microsoft.com/services/container-registry/)
 * [Использование .NET Core в службе приложений Azure на платформе Linux](quickstart-dotnetcore.md).
 * [Использование Ruby в службе приложений Azure на платформе Linux](quickstart-ruby.md)
-* [Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров"](quickstart-custom-docker-image.md).
+* [Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров"](quickstart-docker-go.md).
 * [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](./app-service-linux-faq.md)
 * [Управление веб-приложениями для контейнеров с помощью Azure CLI 2.0](./app-service-linux-cli.md)

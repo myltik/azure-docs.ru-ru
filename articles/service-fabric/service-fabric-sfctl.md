@@ -12,16 +12,16 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>sfctl 
-Команды для управления кластерами и сущностями Service Fabric. Эта версия совместима со средой выполнения Service Fabric 6.0. Команды следуют схеме "глагол-существительное". Чтобы узнать больше, ознакомьтесь с приведенными ниже подгруппами.
+Команды для управления кластерами и сущностями Service Fabric. Эта версия совместима со средой выполнения Service Fabric 6.1. Команды следуют схеме "глагол-существительное". Чтобы узнать больше, ознакомьтесь с приведенными ниже подгруппами.
 
 ## <a name="subgroups"></a>Подгруппы
 |Подгруппа|ОПИСАНИЕ|
@@ -33,6 +33,7 @@ ms.lasthandoff: 01/18/2018
 | [is](service-fabric-sfctl-is.md)      | Запрос службы инфраструктуры и отправка команд для нее.|
 | [node](service-fabric-sfctl-node.md)    | Управление узлами, которые образуют кластер.|
 | [partition](service-fabric-sfctl-partition.md)  | Запрос секций для любой службы и управление ими.|
+| property  | Хранение и запрос свойств с именами Service Fabric.|
 | [rpm](service-fabric-sfctl-rpm.md)        | Запрос службы диспетчера восстановления и отправка команд для нее.|
 | [replica](service-fabric-sfctl-replica.md) | Управление репликами, принадлежащими секциям службы.|
 | [service](service-fabric-sfctl-service.md) | Создание и удаление служб, типов служб и пакетов службы, а также управление ими.|

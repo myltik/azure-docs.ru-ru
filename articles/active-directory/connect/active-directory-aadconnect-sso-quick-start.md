@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Простой единый вход Azure Active Directory — быстрый запуск
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 02/22/2018
    - **Имя значения**. Это URL-адрес Azure AD, на который пересылаются билеты Kerberos.
    - **Значение** (данные). **1** указывает зону интрасети.
 
-   Результат должен выглядеть следующим образом:
+    Результат должен выглядеть следующим образом:
 
     Значение: https://autologon.microsoftazuread-sso.com
   
@@ -125,11 +125,11 @@ ms.lasthandoff: 02/22/2018
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (все платформы)
 
-Mozilla Firefox не выполняет аутентификацию Kerberos автоматически. Каждый пользователь должен вручную добавить URL-адреса Azure AD в параметры Firefox, выполнив следующие действия.
+Mozilla Firefox не выполняет аутентификацию Kerberos автоматически. Каждый пользователь должен вручную добавить URL-адрес Azure AD в параметры Firefox, выполнив следующие действия:
 1. Запустите Firefox и введите `about:config` в адресной строке. Проигнорируйте все отображаемые уведомления.
 2. Найдите параметр **network.negotiate-auth.trusted-uris**. Этот параметр выводит список доверенных сайтов в Firefox для проверки подлинности Kerberos.
 3. Щелкните его правой кнопкой мыши и выберите **Изменить**.
-4. Введите в поле "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net".
+4. В поле введите https://autologon.microsoftazuread-sso.com.
 5. Нажмите кнопку **ОК** и вновь откройте браузер.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (все платформы)
 
-Если вы переопределили параметры политики [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) или [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) в своей среде, убедитесь, что к ним добавлены URL-адреса Azure AD (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net).
+Если вы переопределили параметры политики [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) или [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) в своей среде, обязательно добавьте к ним URL-адрес Azure AD (https://autologon.microsoftazuread-sso.com).
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (только Mac OS)
 

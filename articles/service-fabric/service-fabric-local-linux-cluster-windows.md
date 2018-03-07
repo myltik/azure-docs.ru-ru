@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Установка кластера Service Fabric на платформе Linux на компьютере разработчики Windows
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 12/08/2017
 
 * не менее 4 ГБ ОЗУ;
 * последняя версия [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows);
-* доступ к [образу](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) универсального контейнера Docker для Service Fabric.
 
 >[!TIP]
 > * Чтобы установить Docker в среде Windows, можно выполнить инструкции, приведенные в официальной [документации](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) Docker. 
@@ -42,7 +41,7 @@ ms.lasthandoff: 12/08/2017
 1. Извлеките образ из репозитория Docker Hub:
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Обновите конфигурацию управляющей программы Docker на узле следующим образом и перезапустите управляющую программу Docker: 
@@ -58,11 +57,11 @@ ms.lasthandoff: 12/08/2017
 3. Запустите экземпляр универсального контейнера Service Fabric, используя образ:
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * Вы можете указать имя для экземпляра контейнера, которое будет более удобным для чтения. 
-    > * Если приложение прослушивает определенные порты, их необходимо указать с помощью дополнительных тегов -p. Например, если приложение прослушивает порт 8080, выполните docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox.
+    > * Если приложение прослушивает определенные порты, их необходимо указать с помощью дополнительных тегов -p. Например, если приложение ожидает передачи данных через порт 8080, выполните docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox.
 
 4. Войдите в контейнер Docker в интерактивном режиме SSH:
 

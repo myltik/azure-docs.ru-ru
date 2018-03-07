@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)
 
-Узнайте, как работать с концентраторами событий Azure из Apache Storm в HDInsight. В этом документе для чтения и записи данных из концентраторов событий используется топология Storm на C#.
+Узнайте, как работать с концентраторами событий Azure из Apache Storm в HDInsight. В этом документе для чтения данных из концентраторов событий и записи в него используется топология Storm на C#.
 
 > [!NOTE]
 > Этот же проект на языке Java рассматривается в статье [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ ms.lasthandoff: 11/28/2017
 > Хотя действия, описанные в этой статье, зависят от среды разработки Windows и Visual Studio, готовый скомпилированный проект можно отправить в Storm в кластере HDInsight под управлением Linux. Топологии SCP.NET поддерживаются только теми кластерами под управлением Linux, которые созданы после 28 октября 2016 года.
 
 В HDInsight 3.4 и более поздних версий использует Mono для запуска топологий C#. Для примера в этом документе используется HDInsight 3.6. Если вы планируете создавать собственные решения .NET для HDInsight, вам следует просмотреть документ о [совместимости Mono](http://www.mono-project.com/docs/about-mono/compatibility/), чтобы определить потенциальные проблемы с совместимостью.
-
-> [!WARNING]
-> При возникновении проблем с созданием проектов, использующих SCP.NET версии 1.0.0.x, обратитесь в службу поддержки корпорации Майкрософт.
 
 ### <a name="cluster-versioning"></a>Управление версиями кластера
 
@@ -142,7 +140,7 @@ topologyBuilder.SetJavaBolt(
 
 Служба концентраторов событий используется в качестве источника данных для этого примера. Используйте сведения в разделе "Создание концентратора событий" блока о [начале работы с концентраторами событий](../../event-hubs/event-hubs-create.md).
 
-1. Создав **концентратор событий**, просмотрите его колонку на портале Azure и щелкните **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить**, чтобы добавить следующие политики.
+1. Создав **концентратор событий**, просмотрите его параметры на портале Azure и щелкните **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить**, чтобы добавить следующие политики.
 
    | ИМЯ | Разрешения |
    | --- | --- |

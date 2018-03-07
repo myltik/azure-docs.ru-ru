@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Управление устройствами Центра Интернета вещей Azure с помощью расширения Интернета вещей для Azure CLI 2.0
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/18/2018
 - Установите расширение Интернета вещей. Проще всего запустить `az extension add --name azure-cli-iot-ext`. В [файле сведений расширения Интернета вещей](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) описывается несколько способов установки расширения.
 
 
-## <a name="login-to-your-azure-account"></a>Вход в учетную запись Azure.
+## <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
 
 Войдите в свою учетную запись Azure с помощью следующей команды:
 
@@ -74,13 +74,13 @@ ms.lasthandoff: 01/18/2018
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>Использование расширения Интернета вещей для Azure CLI 2.0 для работы с прямыми методами
+## <a name="direct-methods"></a>Прямые методы
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>Использование расширения Интернета вещей для Azure CLI 2.0 для работы с требуемыми свойствами двойника
+## <a name="device-twin-desired-properties"></a>Требуемые свойства двойника устройства
 
 Установите для требуемого свойства интервал 3000, выполнив следующую команду:
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Устройство может прочитать это свойство.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>Использование расширения Интернета вещей для Azure CLI 2.0 для работы с сообщаемыми свойствами двойника
+## <a name="device-twin-reported-properties"></a>Сообщаемые свойства двойника устройства
 
 Получите сообщаемые свойства устройства, выполнив следующую команду:
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Одно из свойств ($metadata.$lastUpdated) указывает время последней отправки или получения сообщения устройством.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>Использование расширения Интернета вещей для Azure CLI 2.0 для работы с тегами двойника
+## <a name="device-twin-tags"></a>Теги двойника устройства
 
 Отобразите теги и свойства устройства, выполнив следующую команду:
 
@@ -114,7 +114,7 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>Использование расширения Интернета вещей для Azure CLI 2.0 для работы с запросами данных двойников устройства
+## <a name="device-twin-queries"></a>Запросы двойника устройства
 
 Отправьте запрос на предоставление данных устройств с тегом роли 'temperature&humidity', выполнив следующую команду:
 

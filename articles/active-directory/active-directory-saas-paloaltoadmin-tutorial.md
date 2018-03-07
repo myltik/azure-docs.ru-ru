@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Руководство по интеграции Azure Active Directory с Palo Alto Networks (пользовательский интерфейс администратора)
 
@@ -106,11 +106,14 @@ ms.lasthandoff: 01/19/2018
 
 3. В разделе **Домены и URL-адреса приложения Palo Alto Networks (пользовательский интерфейс администратора)** выполните следующие действия:
 
-    ![Сведения о домене и URL-адресах единого входа для приложения Palo Alto Networks (пользовательский интерфейс администратора)](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
-
+    ![Сведения о домене и URL-адресах единого входа для приложения Palo Alto Networks (пользовательский интерфейс администратора)](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    
     a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Customer Firewall FQDN>/php/login.php`
 
-    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<Customer Firewall FQDN>/SAML20/SP`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    
+    c. В текстовое поле **URL-адрес ответа** введите URL-адрес службы обработчика утверждений (ACS) в следующем формате: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`.
+    
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки Palo Alto Networks (пользовательский интерфейс администратора)](https://support.paloaltonetworks.com/support). 
@@ -163,13 +166,71 @@ ms.lasthandoff: 01/19/2018
 
 11. Сделайте следующее в окне Import (Импорт).
 
-    ![Настройка единого входа в Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Настройка единого входа в Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. Укажите имя в текстовом поле **Profile Name** (Имя профиля), например "Пользовательский интерфейс администратора Azure AD".
+    a. Укажите имя в текстовом поле **Имя профиля**, например "Пользовательский интерфейс администратора Azure AD".
     
     Б. В разделе **Identity Provider Metadata** (Метаданные поставщика удостоверений) щелкните **Browse** (Обзор) и выберите файл metadata.xml, загруженный ранее с портала Azure.
     
-    c. Щелкните **ОК**
+    c. Снимите флажок **Validate Identity Provider Certificate** (Проверить сертификат поставщика удостоверений).
+    
+    d. Щелкните **ОК**
+    
+    д. Зафиксируйте настройки брандмауэра, нажав кнопку **Зафиксировать**.
+
+12. Выберите **SAML Identity Provider** (Поставщик удостоверений SAML) на панели навигации слева и щелкните профиль поставщика удостоверений SAML (например, "Пользовательский интерфейс администратора Azure AD"), созданный на предыдущем шаге. 
+    
+  ![Настройка единого входа в Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+
+13. Выполните следующие действия в окне **SAML Identity Provider Server Profile** (Профиль сервера поставщика удостоверений SAML):
+
+  ![Настройка единого выхода из Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+  
+  a. В текстовом поле **Identity Provider SLO URL** (URL-адрес SLO поставщика удостоверений) удалите ранее импортированный URL-адрес SLO и добавьте следующий URL-адрес: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
+  
+  Б. Щелкните **ОК**
+
+
+14. В интерфейсе администратора брандмауэра Palo Alto Networks нажмите **Device** (Устройство) и выберите **Admin Roles** (Роли администратора)
+
+15. Нажмите кнопку **Add** (Добавить). В окне Admin Role Profile (Профиль роли администратора) укажите имя для роли администратора (например, fwadmin). Имя роли администратора должно соответствовать имени атрибута SAML Admin Role (Роль администратора SAML), отправленному поставщиком удостоверений. На шаге 5 были созданы имя и значение роли администратора. 
+
+  ![Настройка роли администратора Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+  
+16. В пользовательском интерфейсе администратора брандмауэра последовательно выберите **Device** (Устройство) и **Authentication Profile** (Профиль аутентификации).
+
+17. Нажмите кнопку **Add** (Добавить). В окне Authentication Profile (Профиль аутентификации) выполните следующие действия: 
+
+ ![Настройка профиля аутентификации Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+   a. Укажите имя в текстовом поле **Name** (Имя), например AzureSAML_Admin_AuthProfile.
+    
+   Б. В раскрывающемся списке **Type** (Тип) выберите **SAML**. 
+   
+   c. В раскрывающемся списке IdP Server Profile (Профиль сервера поставщика удостоверений) выберите соответствующий профиль сервера поставщика удостоверений SAML (например, "Пользовательский интерфейс администратора Azure AD").
+   
+   c. Установите флажок **Enable Single Logout** (Включить единый выход).
+    
+   d. Введите имя атрибута (например, adminrole) в текстовое поле Admin Role Attribute (Атрибут роли администратора). 
+   
+   д. Выберите вкладку Advanced (Дополнительно) и нажмите кнопку **Add** (Добавить) в области Allow List (Список разрешений). Выберите всех или отдельных пользователей и группы, которые могут проходить аутентификацию с этим профилем. При аутентификации пользователя брандмауэр сопоставляет связанное имя пользователя или группу с записями в этом списке. Если не добавить записи, пользователи н е смогут пройти аутентификацию.
+   
+   ![Настройка профиля аутентификации Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+   
+   f. Щелкните **ОК**
+
+18. Чтобы включить использование администраторами единого входа SAML с помощью Azure, последовательно выберите **Device** (Устройство) и **Setup** (Настройка). В области Setup (Настройка) выберите вкладку **Management** (Управление) и щелкните значок шестеренки в разделе **Authentication Settings** (Параметры аутентификации). 
+
+ ![Настройка параметров аутентификации Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+
+19. Выберите профиль аутентификации SAML, созданный на шаге 17 (например, AzureSAML_Admin_AuthProfile).
+
+ ![Настройка параметров аутентификации Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+
+20. Щелкните **ОК**
+
+21. Зафиксируйте настройки, нажав кнопку **Commit** (Зафиксировать).
+
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

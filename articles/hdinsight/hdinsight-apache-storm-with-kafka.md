@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Использование Apache Kafka со Storm в HDInsight
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/03/2018
 
 Чтобы скомпилировать этот проект, требуется следующая конфигурация среды разработки:
 
-* Пакет [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 1.8 или более поздней версии. Для HDInsight 3.5 или более поздней версии требуется Java 8.
+* Пакет [Java JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 1.8 или более поздней версии. Для HDInsight 3.5 или более поздней версии требуется Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -121,7 +121,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
     Эта топология записывает данные в хранилище по умолчанию для кластера Storm с помощью компонента Storm HdfsBolt.
 ### <a name="flux"></a>Flux
 
-Топологии определяются с помощью [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Решение Flux, которое впервые было представлено в версии Storm 0.10.x, позволяет отделить конфигурацию топологии от кода. Для топологий, которые используют платформу Flux, топология определяется в YAML-файле. YAML-файл можно включить в топологию или указать его как отдельный файл при отправке топологии. Flux также поддерживает подстановку переменных во время выполнения, которая используется в этом примере.
+Топологии определяются с помощью [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Решение Flux, которое впервые было представлено в версии Storm 0.10.x, позволяет отделить конфигурацию топологии от кода. Для топологий, которые используют платформу Flux, топология определяется в YAML-файле. YAML-файл можно включить в топологию или указать его как отдельный файл при отправке топологии. Flux также поддерживает подстановку переменных во время выполнения, которая используется в этом примере.
 
 Во время выполнения этих топологий задаются следующие параметры:
 
@@ -131,7 +131,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 * `${kafka.zookeeper.hosts}`: узлы, на которых работает Zookeeper.
 
-Дополнительные сведения о топологиях Flux см. на странице [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Дополнительные сведения о топологиях Flux см. на странице [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Скачивание и компиляция проекта
 
@@ -172,7 +172,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
     ```
 
     > [!IMPORTANT]
-    > В примере Bash предполагается, что `$CLUSTERNAME` содержит имя кластера HDInsight. Также предполагается, что [jq](https://stedolan.github.io/jq/) установлен. При появлении запроса введите пароль, чтобы войти на кластер.
+    > В примере Bash предполагается, что `$CLUSTERNAME` содержит имя кластера HDInsight. Также предполагается, что установлен обработчик [jq](https://stedolan.github.io/jq/) 1.5 или более поздней версии. При появлении запроса введите пароль, чтобы войти на кластер.
 
     Возвращаемое значение аналогично приведенному ниже тексту.
 
@@ -218,7 +218,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 4. Сохраните файл `dev.properties` и выполните следующую команду, чтобы передать его на кластер Storm:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Замените **USERNAME** именем пользователя SSH для кластера. Замените **BASENAME** базовым именем, которое использовалось при создании кластера.
@@ -287,6 +287,9 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
     Для остановки сценария нажмите сочетание клавиш CTRL+C.
 
 ## <a name="start-the-reader"></a>Запуск модуля чтения
+
+> [!NOTE]
+> При просмотре данных модуля чтения в пользовательском интерфейсе Storm, может отображаться раздел __Topology spouts lag error__ (Ошибка, связанная с задержкой при отображении элементов spout топологии). В нашем примере вы можете пропустить эту ошибку.
 
 1. Чтобы запустить топологию модуля чтения, выполните следующие команды из SSH-подключения к кластеру Storm.
 

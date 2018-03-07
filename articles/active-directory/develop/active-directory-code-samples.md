@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Примеры кода Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -64,8 +64,8 @@ ms.lasthandoff: 12/11/2017
 | C#/Xamarin |[NativeClient-MultiTarget-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-multitarget) |Проект Xamarin, имеющий пять целевых платформ и выполняющий вызовы веб-интерфейса API, защищенного с помощью Azure AD. |
 | C#/.NET |[NativeClient-Headless-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-headless) |Собственное приложение, имеющее пять целевых платформ и выполняющее вызовы веб-интерфейса API, защищенного с помощью Azure AD. |
 
-## <a name="web-application-to-web-api"></a>Из веб-приложения к веб-интерфейсу API
-В этих примерах кода показано, как использовать [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) для создания веб-приложений, которые вызывают веб-интерфейсы API, защищенные Azure AD.
+## <a name="web-application-to-web-api"></a>Из веб-приложения в веб-интерфейс API
+В этих примерах кода показано, как использовать [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) для создания веб-приложений, которые вызывают веб-интерфейсы API, защищенные Azure AD.
 
 | Язык или платформа | Образец | ОПИСАНИЕ |
 | --- | --- | --- |
@@ -83,15 +83,21 @@ ms.lasthandoff: 12/11/2017
 | C#/.NET |[Daemon-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) |Консольное приложение, выполняющее вызовы веб-интерфейса API. Учетные данные клиента являются паролем. |
 | C#/.NET |[Daemon-CertificateCredential-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) |Консольное приложение, выполняющее вызовы веб-интерфейса API. Учетные данные клиента являются сертификатом. |
 
+## <a name="calling-microsoft-graph-api"></a>Вызов API Microsoft Graph
+В этих примерах кода показано, как создавать приложения, которые вызывают API Microsoft Graph для чтения и записи данных каталога.
+
+| Язык или платформа | Образец | ОПИСАНИЕ |
+| --- | --- | --- |
+| C#/.NET |[WebApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/aspnet-snippets-sample) |Веб-приложение, которое использует API Microsoft Graph для доступа к данным каталога Azure AD. |
+| C#/.NET |[UWPApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/uwp-csharp-snippets-sample) |Это приложение универсальной платформы Windows показывает, как получить доступ к различным ресурсам, в том числе к Microsoft Azure Active Directory (AD) и API Office 365, с помощью запросов к API Microsoft Graph в приложении Windows 10. |
+
 ## <a name="calling-azure-ad-graph-api"></a>Вызов Graph API Azure AD
-В этих примерах кода показано, как создавать приложения, которые вызывают Graph API Azure AD для чтения и записи данных каталога.
+В этих примерах кода показано, как создавать приложения, которые вызывают API Graph Azure AD для чтения и записи данных каталога.
 
 | Язык или платформа | Образец | ОПИСАНИЕ |
 | --- | --- | --- |
 | Java |[WebApp-GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |Веб-приложение, которое использует Graph API для доступа к данным каталога Azure AD. |
 | PHP |[WebApp-GraphAPI-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |Веб-приложение, которое использует Graph API для доступа к данным каталога Azure AD. |
-| C#/.NET |[WebApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |Веб-приложение, которое использует Graph API для доступа к данным каталога Azure AD. |
-| C#/.NET |[ConsoleApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-console) |Это консольное приложение демонстрирует вызовы методов чтения и записи в Graph API, а также назначение пользовательских лицензий и обновление фото в профиле пользователя и ссылок. |
 | C#/.NET |[ConsoleApp-GraphAPI-DiffQuery-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-diffquery) |Консольное приложение, которое использует дифференциальный запрос в Graph API для получения периодических изменений объектов пользователей в клиенте Azure AD. |
 | C#/.NET |[WebApp-GraphAPI-DirectoryExtensions-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-directoryextensions-web) |Приложение MVC, запрашивающее Graph API для создания простой диаграммы организации. |
 | PHP |[WebApp-GraphAPI-DirectoryExtensions-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-directoryextensions-web) |Приложение PHP, которое вызывает Graph API для регистрации расширения, а затем чтения, обновления и удаления значений в атрибуте расширения. |

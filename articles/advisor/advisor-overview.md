@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Общие сведения об Azure Advisor
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/21/2018
 
 Помощник предлагает рекомендации для виртуальных машин, групп доступности, шлюзов приложений, служб приложений, серверов SQL Server, баз данных SQL и кэша Redis.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Можно ли отложить или закрыть рекомендацию?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Можно ли отложить или закрыть рекомендацию?
 
 Чтобы отложить или закрыть рекомендацию, щелкните ссылку **Отложить**. Можно указать период времени, на который откладывается рекомендация, или выбрать значение **Никогда**, чтобы закрыть ее.
 

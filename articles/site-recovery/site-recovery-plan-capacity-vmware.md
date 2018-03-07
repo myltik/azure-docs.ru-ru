@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Планирование загрузки и масштабирования для репликации из VMware с помощью Azure Site Recovery
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 02/09/2018
 2. В оснастке щелкните **Изменить свойства**.
 
     ![Снимок экрана с параметром оснастки MMC в службе архивации Azure для изменения свойств](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. На вкладке **Регулирование** установите флажок **Разрешить регулирование уровня использования пропускной способности канала для операций резервного копирования**. Задайте ограничения для рабочего и нерабочего времени. Допустимы значения в диапазоне от 512 Кбит/с до 102 Мбит/с.
+3. На вкладке **Регулирование** установите флажок **Разрешить регулирование уровня использования пропускной способности канала для операций резервного копирования**. Задайте ограничения для рабочего и нерабочего времени. Допустимы значения в диапазоне от 512 Кбит/с до 1023 Мбит/с.
 
     ![Снимок экрана с диалоговым окном свойства службы архивации Azure](./media/site-recovery-vmware-to-azure/throttle2.png)
 

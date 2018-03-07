@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
@@ -144,7 +144,9 @@ Azure AD Connect поддерживает установку второго се
 
 Домен DNS может быть зарегистрирован только в одном клиенте Azure AD. Кроме того, имена участников-пользователей для локальных пользователей Active Directory должны располагаться в отдельных пространствах имен. Например, на предыдущем рисунке в локальном экземпляре Active Directory регистрируется три отдельных суффикса имен участников-пользователей: contoso.com, fabrikam.com и wingtiptoys.com. Пользователи каждого локального домена Active Directory используют различные пространства имен.
 
-Между экземплярами клиентов Azure AD не применяется GALSync. В адресной книге в Exchange Online и Skype для бизнеса отображаются только пользователи из одного клиента.
+>[!NOTE]
+>Синхронизация глобального списка адресов (GalSync) не выполняется автоматически в этой топологии. Для нее требуется дополнительная пользовательская реализация MIM, чтобы у каждого клиента был полный глобальный список адресов (GAL) в Exchange Online и Skype для бизнеса Online.
+
 
 Эта топология налагает следующие ограничения на сценарии, поддерживаемые в других случаях:
 

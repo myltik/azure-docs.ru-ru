@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Подключение компьютеров Windows к службе Log Analytics в Azure
 
@@ -26,28 +26,28 @@ ms.lasthandoff: 02/21/2018
 
 На отслеживаемом компьютере Windows агент отображается как служба Microsoft Monitoring Agent. Служба Microsoft Monitoring Agent собирает события из файлов журнала, журнала событий Windows, данных о производительности и других данных телеметрии. Даже если агент не может взаимодействовать со службой Log Analytics, в которую он отправляет отчеты, он продолжает запускать и добавлять в очередь собранные данные на диске отслеживаемого компьютера. При восстановлении подключения служба Microsoft Monitoring Agent отправляет собранные данные в службу.
 
-Агент можно установить с помощью одного из указанных ниже методов. Чтобы установить разные типы компьютеров соответствующим образом, в большинстве установок используется сочетание этих методов.
+Агент можно установить с помощью одного из указанных ниже методов. Чтобы установить разные типы компьютеров соответствующим образом, в большинстве установок используется сочетание этих методов.  Подробнее об использовании каждого метода рассказывается далее в этой статье.
 
 * Установка вручную. Установка выполняется вручную на компьютере с помощью мастера установки из командной строки. Или выполняется развертывание с помощью имеющегося инструмента распространения программного обеспечения.
 * Настройка требуемого состояния службы автоматизации Azure (DSC). Использование DSC в службе автоматизации Azure с помощью сценария для компьютеров Windows, развернутых в вашей среде.  
 * Сценарий PowerShell.
 * Шаблон Resource Manager для локальных виртуальных машин под управлением Windows в Azure Stack.  
 
-Чтобы узнать сетевые и системные требования для развертывания агента Windows, см. статью о [сборе данных в среде с помощью Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
+Чтобы узнать о сетевых и системных требованиях для развертывания агента Windows, см. описание [необходимых компонентов для компьютеров Windows](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Получение идентификатора и ключа рабочей области
-Перед установкой Microsoft Monitoring Agent для Windows требуется получить идентификатор и ключ для рабочей области Log Analytics.  При любом методе установки эта информация необходима для правильной настройки агента и обеспечения его взаимодействия с Log Analytics.  
+Перед установкой Microsoft Monitoring Agent для Windows требуется получить идентификатор и ключ для рабочей области Log Analytics.  При любом методе установки эта информация необходима для правильной настройки агента и обеспечения его взаимодействия с Log Analytics в Azure для коммерческих организаций и облаке для государственных организаций США.  
 
 1. На портале Azure щелкните **Все службы**. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
 2. В списке рабочих областей Log Analytics выберите ту, в которую агент должен отправлять отчеты.
 3. Выберите **Дополнительные параметры**.<br><br> ![Дополнительные параметры Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Выберите **Подключенные источники**, а затем выберите **Серверы с Windows**.   
-5. Необходимые значения указаны справа от полей **Идентификатор рабочей области** и **Первичный ключ**. Скопируйте их и вставьте в любой удобный для вас редактор.   
+5. Скопируйте **идентификатор рабочей области** и **первичный ключ** и вставьте их в удобный для вас редактор.    
    
-## <a name="install-the-agent-using-setup"></a>Установка агента с помощью программы установки
-Ниже приведены инструкции по установке и настройке агента для Log Analytics в Azure и облаке Azure для государственных организаций с помощью программы установки для Microsoft Monitoring Agent на компьютере.  Программа установки для агента содержится в скачанном файле, и ее необходимо извлечь. 
+## <a name="install-the-agent-using-setup-wizard"></a>Установка агента с помощью мастера установки
+Ниже приведены инструкции по установке и настройке агента для Log Analytics в Azure и облаке Azure для государственных организаций с помощью мастера установки для Microsoft Monitoring Agent на компьютере.  
 
-1. На странице **Серверы с Windows** выберите соответствующую версию **агента для Windows** для скачивания в зависимости от архитектуры процессора, на котором выполняется операционная система Windows.
+1. В рабочей области Log Analyics на ранее открытой странице **Серверы Windows** выберите соответствующую версию **Скачать агент для Windows** для скачивания в зависимости от архитектуры процессора, на котором выполняется операционная система Windows.   
 2. Запустите программу установки, чтобы установить агент на компьютере.
 2. На странице **приветствия** нажмите кнопку **Далее**.
 3. На странице **Условия лицензии** прочтите лицензию и нажмите кнопку **Принимаю**.
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 После завершения установки на **панели управления** появится **Microsoft Monitoring Agent**. Чтобы убедиться, что он отправляет отчеты в Log Analytics, ознакомьтесь с разделом [Проверка подключения агента к Log Analytics](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Установка агента с помощью командной строки
-Скачанный файл агента — это автономный пакет установки, созданный IExpress.  В нем содержатся программа установки агента и вспомогательные файлы. Чтобы установить агент с помощью командной строки, содержимое этого пакета нужно извлечь. Ниже описано, как это сделать.  Этот метод поддерживает настройку агента для отправки отчетов в коммерческое облако Azure и облако для государственных организаций США.  
+Скачанный файл агента — это автономный пакет установки, созданный IExpress.  В нем содержатся программа установки агента и вспомогательные файлы. Чтобы установить агент с помощью командной строки, содержимое этого пакета нужно извлечь. Ниже описано, как это сделать.    
 
 >[!NOTE]
 >Для обновления агента необходимо использовать API сценариев службы Log Analytics. Дополнительные сведения см. в статье [Обслуживание агента Log Analytics для Windows и Linux и управление им](log-analytics-agent-manage.md).
@@ -84,13 +84,13 @@ ms.lasthandoff: 02/21/2018
 2. Чтобы автоматически установить агент и настроить его для отправки отчетов в рабочую область коммерческого облака Azure, из папки, в которую вы извлекли файлы установки, выполните следующую команду: 
    
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    Чтобы настроить агент для отправки отчетов в облако Azure для государственных организаций США, выполните следующую команду: 
 
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Установка агента с помощью DSC в службе автоматизации Azure
@@ -122,6 +122,7 @@ ms.lasthandoff: 02/21/2018
         $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
         Import-DscResource -ModuleName xPSDesiredStateConfiguration
+        Import-DscResource –ModuleName PSDesiredStateConfiguration
 
         Node OMSnode {
             Service OIService
@@ -141,7 +142,7 @@ ms.lasthandoff: 02/21/2018
                 Path  = $OIPackageLocalPath
                 Name = "Microsoft Monitoring Agent"
                 ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-                Arguments = '/C:Deploy"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+                Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
                 DependsOn = "[xRemoteFile]OIPackage"
             }
         }
@@ -154,7 +155,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Проверка подключения к Log Analytics
 
-По завершении установки агента вы можете проверить, успешно ли он подключен и отправляет ли он отчеты, двумя способами.  
+По завершении установки агента вы можете проверить, успешно ли он подключен и отправляет ли он отчеты. Есть два способа.  
 
 На **панели управления** компьютера найдите элемент **Microsoft Monitoring Agent**.  Выберите его, и на вкладке **Azure Log Analytics (OMS)** агент должен отобразить следующее сообщение: **Microsoft Monitoring Agent успешно подключен к службе Microsoft Operations Management Suite.**<br><br> ![Состояние подключения MMA к Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 

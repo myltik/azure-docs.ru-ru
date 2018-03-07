@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight и управление ими
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 11/28/2017
 
 * **Из сеанса SSH.** Из сеанса SSH в кластер примените команду `headnode -f`.
 * **Из веб-интерфейса Ambari.** В верхней части страницы выберите **Services** (Службы), а затем — **Storm**. На вкладке **Summary** (Сводка) выберите **Storm UI Server** (Сервер пользовательского интерфейса Storm). Полное доменное имя узла, на котором размещены пользовательский интерфейс Storm и REST API, отображено в верхней части страницы.
-* **Из интерфейса REST API Ambari.** Используйте команду `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"`, чтобы получить сведения об узле с выполняемыми пользовательскими интерфейсами Storm и REST API. Замените **PASSWORD** паролем администратора кластера. Замените **CLUSTERNAME** именем кластера. Запись host_name в ответе будет содержать полное доменное имя узла.
+* **Из интерфейса REST API Ambari.** Используйте команду `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"`, чтобы получить сведения об узле с выполняемыми пользовательскими интерфейсами Storm и REST API. Замените **CLUSTERNAME** именем кластера. При появлении запроса введите пароль (администратора), чтобы войти в учетную запись. Запись host_name в ответе будет содержать полное доменное имя узла.
 
 ### <a name="authentication"></a>Authentication
 

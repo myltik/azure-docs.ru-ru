@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Разработка топологий для Apache Storm на C# с помощью средств Data Lake для Visual Studio
 
@@ -42,9 +43,6 @@ ms.lasthandoff: 11/28/2017
 
 > [!IMPORTANT]
 > Для топологии C# на кластерах под управлением Linux используется .NET 4.5. В кластере HDInsight они запускаются с помощью Mono. Чтобы определить потенциальные проблемы с совместимостью, просмотрите документ о [совместимости Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
-
-> [!WARNING]
-> При возникновении проблем с созданием проектов, использующих SCP.NET версии 1.0.0.x, обратитесь в службу поддержки корпорации Майкрософт.
 
 ## <a name="install-visual-studio"></a>Установка Visual Studio
 
@@ -124,7 +122,7 @@ namespace ConsoleApplication2
 | Пример Storm |Базовая топология подсчета слов. |
 
 > [!WARNING]
-> Не все шаблоны будут работать с HDInsight под управлением Linux. Пакеты NuGet, используемые в шаблонах, могут оказаться несовместимыми с Mono. Проверьте документацию по [совместимости с Mono](http://www.mono-project.com/docs/about-mono/compatibility/) и используйте [анализатор переносимости .NET](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis), чтобы определить возможные проблемы.
+> Не все шаблоны работают с HDInsight под управлением Linux. Пакеты NuGet, используемые в шаблонах, могут оказаться несовместимыми с Mono. Проверьте документацию по [совместимости с Mono](http://www.mono-project.com/docs/about-mono/compatibility/) и используйте [анализатор переносимости .NET](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis), чтобы определить возможные проблемы.
 
 На данном этапе в этом документе используется базовый тип проекта приложения Storm для создания топологии.
 
@@ -169,7 +167,7 @@ namespace ConsoleApplication2
 
    * **Fail** (Сбой, только для транзакционной топологии) — обрабатывает кортежи, обработка которых другими компонентами топологии завершилась сбоем. Реализация метода Fail дает возможность повторно создать кортеж для повторной обработки.
 
-2. Замените содержимое класса **Spout** следующим текстом. Эта воронка случайным образом отправляет предложения в топологию.
+2. Замените содержимое класса **Spout** следующим текстом: This spout randomly emits a sentence into the topology (Этот элемент spout случайным образом выдает предложение в топологию).
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ namespace ConsoleApplication2
 
 Предложения отправляются из компонента spout и распределяются между экземплярами элемента bolt Splitter. Сито Splitter разбивает предложения на слова, которые распределяются среди экземпляров сита Counter.
 
-Так как статистика хранится локально в экземпляре Counter, нужно убедиться, что определенные слова поступают в один и тот же экземпляр сита Counter. Каждое конкретное слово отслеживается только одним экземпляром. Так как сито Splitter не поддерживает состояние, на самом деле неважно, какое предложение получает то или иное сито.
+Так как статистика хранится локально в экземпляре Counter, убедитесь, что определенные слова поступают в один и тот же экземпляр сита Counter. Каждое конкретное слово отслеживается только одним экземпляром. Так как сито Splitter не поддерживает состояние, на самом деле неважно, какое предложение получает то или иное сито.
 
 Откройте файл **Program.cs**. **GetTopologyBuilder** — важный метод, который используется, чтобы определить топологию, отправляющуюся в Storm. Чтобы реализовать описанную выше топологию, замените содержимое файла **GetTopologyBuilder** следующим кодом:
 
@@ -472,16 +470,16 @@ return topologyBuilder;
   > В этой версии также демонстрируется использование кода Clojure из текстового файла в качестве компонента Java.
 
 
-Для переключения топологии, используемой при отправке проекта, перед отправкой в кластер переместите оператор `[Active(true)]` в топологию, которую необходимо использовать.
+Чтобы изменить топологию, используемую при отправке проекта, перед отправкой в кластер переместите оператор `[Active(true)]` в топологию, которую необходимо использовать.
 
 > [!NOTE]
 > Все необходимые файлы Java предоставляются в составе этого проекта и находятся в папке **JavaDependency** .
 
 При создании и отправке гибридной топологии учитывайте указанные ниже моменты.
 
-* Для создания экземпляра класса Java для элемента spout или bolt необходимо использовать **JavaComponentConstructor**.
+* Для создания экземпляра класса Java для элемента spout или bolt используйте **JavaComponentConstructor**.
 
-* Для сериализации данных в компоненты Java и из них из объектов Java в JSON необходимо использовать **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**.
+* Для сериализации данных в компоненты Java и из них из объектов Java в JSON используйте **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**.
 
 * Отправляя топологию на сервер, необходимо использовать параметр **Дополнительные конфигурации**, чтобы задать **пути к файлам Java**. При этом следует указать путь к каталогу, содержащему JAR-файлы с классами Java.
 
@@ -703,7 +701,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 ### <a name="log-information"></a>Информация о журнале
 
-С помощью `Context.Logger`можно легко записывать информацию из компонентов топологии в журнал. Например, приведенный ниже код создаст информационную запись в журнале:
+С помощью `Context.Logger`можно легко записывать информацию из компонентов топологии в журнал. Например, приведенная ниже команда создает информационную запись журнала:
 
 ```csharp
 Context.Logger.Info("Component started");

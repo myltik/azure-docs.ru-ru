@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Руководство по интеграции Azure Active Directory с Rollbar
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Rollbar из коллекции.
+1. Добавление Rollbar из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-rollbar-from-the-gallery"></a>Добавление Rollbar из коллекции
@@ -149,11 +149,14 @@ ms.lasthandoff: 01/05/2018
 
     c. Выберите команду **Сохранить**.
 
-11. После нажатия кнопки сохранения экран будет иметь следующий вид. В этом разделе выполните следующие действия.
+11. После нажатия кнопки сохранения экран будет выглядеть так:
     
     ![Параметр Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Чтобы выполнить следующее действие, необходимо добавить себя в качестве пользователя в приложение Rollbar в Azure.
+    a. Если нужно, чтобы все пользователи проходили аутентификацию с помощью Azure, щелкните **log in via your identity provider** (вход с использованием поставщика удостоверений), чтобы повторить аутентификацию через Azure.  
 
-    a. Установите флажок **Require login via SAML Identity Provider** (Требовать вход посредством поставщика удостоверений SAML).
+    Б.  После возвращения на экран установите флажок **Require login via SAML Identity Provider** (Требовать вход с использованием поставщика удостоверений SAML).
 
     Б. Выберите команду **Сохранить**.
 

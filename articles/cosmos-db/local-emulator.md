@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/21/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Концентратор Docker](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Концентратор Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Источник Docker</strong></td>
-  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
   
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/21/2018
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Скрывает обозреватель документов при запуске.</td>
+  <td>Скрывает обозреватель данных при запуске.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>

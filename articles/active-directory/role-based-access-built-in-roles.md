@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли управления доступом на основе ролей в Azure
 Управление доступом на основе ролей Azure (RBAC) поставляется со следующими встроенными ролями, которые могут быть назначены пользователям, группам и службам. Изменить определения встроенных ролей нельзя. Однако можно создать [настраиваемые роли в Azure RBAC](role-based-access-control-custom-roles.md) в соответствии с потребностями вашей организации.
@@ -51,6 +51,7 @@ ms.lasthandoff: 02/21/2018
 | [Участник BizTalk](#biztalk-contributor) |Может управлять службами BizTalk |
 | [Участник базы данных ClearDB MySQL](#cleardb-mysql-db-contributor) |Может создавать базы данных ClearDB MySQL |
 | [Участник](#contributor) |Может управлять всем, кроме доступа |
+| [Роль читателя учетных записей Cosmos DB](#cosmos-db-account-reader-role) |Может читать данные учетных записей Azure Cosmos DB |
 | [Участник фабрики данных](#data-factory-contributor) |Вы можете создавать фабрики данных и дочерние ресурсы внутри их, а также управлять ими. |
 | [Пользователь DevTest Labs](#devtest-labs-user) |Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу |
 | [Участник зоны DNS](#dns-zone-contributor) |Может управлять зонами и записями DNS. |
@@ -311,6 +312,19 @@ ms.lasthandoff: 02/21/2018
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Не может удалять роли и назначения ролей |
 | Microsoft.Authorization/*/Write |Не может создавать роли и назначения ролей |
+
+### <a name="cosmos-db-account-reader-role"></a>Роль читателя учетных записей Cosmos DB
+Позволяет считывать данные учетных записей Azure Cosmos DB. Сведения об управлении учетными записями Azure Cosmos DB см. в разделе [Участник учетной записи DocumentDB](#documentdb-account-contributor).
+
+| **Действия** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Чтение ролей и назначений ролей. Может считывать данные о разрешениях, предоставленных каждому пользователю|
+|Microsoft.DocumentDB/*/read|Чтение любой коллекции|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Получение данных с панели ключей, доступных только для чтения|
+|Microsoft.Insights/Metrics/read|Чтение метрик учетной записи|
+|Microsoft.Insights/MetricDefinitions/read|Чтение определений метрик|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Чтение группы ресурсов|
+|Microsoft.Support/*|Создание запросов в службу поддержки и управление ими|
 
 ### <a name="data-factory-contributor"></a>Участник фабрики данных
 Создание фабрик данных и дочерних ресурсов внутри их, а также управление ими.

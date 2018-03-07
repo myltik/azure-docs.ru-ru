@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Распределенная настройка гиперпараметров с помощью Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ ms.lasthandoff: 12/20/2017
 * Установленная копия [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Чтобы установить эту программу и создать учетные записи, выполните инструкции из [краткого руководства по установке и созданию](./quickstart-installation.md).
 * В этом сценарии предполагается, что Azure ML Workbench работает в Windows 10 или MacOS с подсистемой Docker, установленной на локальном компьютере. 
 * Чтобы выполнить сценарий в удаленном контейнере Docker, подготовьте виртуальную машину для обработки и анализа данных под управлением Ubuntu, следуя этим [инструкциям](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Рекомендуем использовать виртуальную машину с как минимум 8 ядрами и 28 ГБ памяти. Такими характеристиками обладают экземпляры виртуальных машин D4. 
-* Чтобы выполнить этот сценарий в кластере Spark, подготовьте кластер Azure HDInsight, следуя этим [инструкциям](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Мы рекомендуем выделить на головном узле и рабочих узлах кластера по меньшей мере:
-    - шесть рабочих узлов;
+* Чтобы выполнить этот сценарий в кластере Spark, подготовьте кластер Spark HDInsight, следуя этим [инструкциям](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Мы рекомендуем использовать кластер с такими конфигурациями на головном и рабочем узлах:
+    - четыре рабочих узла;
     - восемь ядер;
-    - 28 ГБ памяти. Такими характеристиками обладают экземпляры виртуальных машин D4.       
-    - Мы рекомендуем изменить следующие параметры, чтобы добиться максимальной производительности кластера:
-        - spark.executor.instances;
-        - spark.executor.cores;
-        - spark.executor.memory. 
+    - 28 ГБ памяти.  
+      
+  Такими характеристиками обладают экземпляры виртуальных машин D4. 
 
-С помощью этих [инструкций](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) вы можете изменить определения в разделе custom spark defaults.
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Устранение неполадок.** В вашей подписке Azure может быть установлена квота на количество используемых ядер. Портал Azure не позволяет создать кластер с общим числом ядер, превышающим квоту. Чтобы найти квоту, на портале Azure перейдите в раздел "Подписки", щелкните подписку, которая использовалась для развертывания кластера, и выберите **Использование и квоты**. Обычно квоты определяются для каждого региона Azure, и вы можете развернуть кластер Spark в регионе с достаточным количеством свободных ядер. 
 
 * Создайте учетную запись хранения Azure для хранения набора данных. Следуйте [инструкциям](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) по созданию учетной записи хранения.
 
@@ -118,7 +113,7 @@ ms.lasthandoff: 12/20/2017
 
 Чтобы настроить среду Spark, выполните в CLI команду
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 с именем кластера, именем пользователя SSH и паролем кластера. Имя пользователя SSH по умолчанию — `sshuser`, если вы не изменили его во время подготовки кластера. Имя кластера можно найти в разделе "Свойства" страницы кластера на портале Azure:
 
@@ -126,14 +121,20 @@ ms.lasthandoff: 12/20/2017
 
 Чтобы использовать Spark как среду выполнения для распределенной настройки гиперпараметров, мы применим пакет spark-sklearn. Чтобы установить этот пакет при использовании среды выполнения Spark, мы внесли изменения в файл spark_dependencies.yml:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ ms.lasthandoff: 12/20/2017
 Так как ресурсов локальной среды недостаточно для вычисления всех наборов признаков, мы переключились на удаленную виртуальную машину для обработки и анализа данных с большим объемом памяти. Эта операция на виртуальной машине для обработки и анализа данных выполняется в контейнере Docker, управляемом с помощью AML Workbench. С помощью этой виртуальной машины для обработки и анализа данных мы смогли вычислить все признаки, а также обучить модели и настроить гиперпараметры (см. следующий раздел). Файл singleVM.py завершил вычисление признаков и моделирование кода. В следующем разделе мы покажем, как запустить файл singleVM.py на удаленной виртуальной машине для обработки и анализа данных. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Настройка гиперпараметров с помощью удаленной виртуальной машины для обработки и анализа данных
-Мы используем реализацию [xgboost](https://anaconda.org/conda-forge/xgboost) [1] градиентного бустинга деревьев. Для настройки гиперпараметров xgboost используется пакет [scikit-learn](http://scikit-learn.org/). Xgboost не входит в пакет scikit-learn, но реализует API scikit-learn и поэтому может использоваться вместе с функциями scikit-learn, предназначенными для настройки гиперпараметров. 
+Мы используем реализацию [xgboost](https://anaconda.org/conda-forge/xgboost) [1] градиентного бустинга деревьев. Для настройки гиперпараметров xgboost также используется пакет [scikit-learn](http://scikit-learn.org/). Xgboost не входит в пакет scikit-learn, но реализует API scikit-learn и поэтому может использоваться вместе с функциями scikit-learn, предназначенными для настройки гиперпараметров. 
 
-Xgboost состоит из восьми гиперпараметров:
+Xgboost состоит из восьми гиперпараметров, описанных [здесь](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators;
 * max_depth;
 * reg_alpha;
@@ -209,15 +210,14 @@ Xgboost состоит из восьми гиперпараметров:
 * colsample\_by_tree;
 * learning_rate;
 * colsample\_by_level;
-* subsample.
-* Описание цели этих гиперпараметров вы найдете в статьях
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* subsample;
+* objective.  
+ 
 Сначала мы воспользуемся удаленной виртуальной машиной для обработки и анализа данных и настроим гиперпараметры из небольшой сетки потенциальных значений:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Эта сетка содержит четыре комбинации значений гиперпараметров. Мы используем перекрестную проверку 5 сверток, в результате чего xgboost будет выполняться 4 x 5 = 20 раз. Для измерения эффективности моделей мы используем метрику функции логистических потерь с отрицательным значением. Приведенный ниже код находит в сетке значения гиперпараметров, которые максимизируют отрицательные логистические потери с перекрестной проверкой. В коде эти значения также используются для обучения итоговой модели с полным набором учебных данных:
+Эта сетка содержит четыре комбинации значений гиперпараметров. Мы используем перекрестную проверку 5 сверток, в результате чего xgboost будет выполняться 4 x 5 = 20 раз. Для измерения эффективности моделей мы используем метрику функции логистических потерь с отрицательным значением. Приведенный ниже код находит в сетке значения гиперпараметров, которые максимизируют отрицательные логистические потери с перекрестной проверкой. В коде эти значения также используются для обучения итоговой модели с полным набором учебных данных:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Xgboost состоит из восьми гиперпараметров:
 
 Эта сетка содержит 16 комбинаций значений гиперпараметров. Так как мы используем перекрестную проверку 5 сверток, xgboost будет выполняться 16 x 5 = 80 раз.
 
-В пакете scikit-learn отсутствует собственная поддержка настройки гиперпараметров с помощью кластера Spark. К счастью, пакет [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) от Databricks восполняет этот пробел. Этот пакет содержит функцию GridSearchCV, API которой практически аналогичен API функции GridSearchCV в пакете scikit-learn. Чтобы использовать пакет spark-sklearn и настроить гиперпараметры с помощью Spark, требуется подключение для создания контекста Spark.
+В пакете scikit-learn отсутствует собственная поддержка настройки гиперпараметров с помощью кластера Spark. К счастью, пакет [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) от Databricks восполняет этот пробел. Этот пакет содержит функцию GridSearchCV, API которой практически аналогичен API функции GridSearchCV в пакете scikit-learn. Чтобы использовать пакет spark-sklearn и настроить гиперпараметры с помощью Spark, требуется создать контекст Spark.
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight 
 
@@ -135,7 +135,11 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="where-are-the-notebooks-stored"></a>Где хранятся записные книжки?
 
-Записные книжки Jupyter хранятся в учетной записи хранения, связанной с кластером в папке **/HdiNotebooks** .  Доступ к объектам Notebook, текстовым файлам и папкам, создаваемым в Jupyter, можно получить через учетную запись хранения.  Например, если Jupyter используется для создания папки **myfolder** и объекта Notebook **myfolder/mynotebook.ipynb**, то доступ к этому объекту можно получить в расположении `/HdiNotebooks/myfolder/mynotebook.ipynb` в учетной записи хранения.  Верно и обратное: если вы передаете объект Notebook непосредственно в свою учетную запись хранения в `/HdiNotebooks/mynotebook1.ipynb`, то этот объект также отображается в Jupyter.  Объекты Notebook хранятся в учетной записи хранения даже после удаления кластера.
+Если кластер HDInsight использует службу хранилища Azure в качестве учетной записи хранения по умолчанию, записные книжки Jupyter сохраняются в папке **/HdiNotebooks** в учетной записи хранения.  Доступ к объектам Notebook, текстовым файлам и папкам, создаваемым в Jupyter, можно получить через учетную запись хранения.  Например, если Jupyter используется для создания папки **myfolder** и объекта Notebook **myfolder/mynotebook.ipynb**, то доступ к этому объекту можно получить в расположении `/HdiNotebooks/myfolder/mynotebook.ipynb` в учетной записи хранения.  Верно и обратное: если вы передаете объект Notebook непосредственно в свою учетную запись хранения в `/HdiNotebooks/mynotebook1.ipynb`, то этот объект также отображается в Jupyter.  Объекты Notebook хранятся в учетной записи хранения даже после удаления кластера.
+
+> [!NOTE]
+> Для кластеров HDInsight, использующих Azure Data Lake Store в качестве хранилища по умолчанию, записные книжки не сохраняются в связанном хранилище.
+>
 
 Записные книжки сохраняются в учетной записи хранения как в HDFS. Таким образом, подключаясь к кластеру по протоколу SSH, вы можете использовать команды управления файлами, как показано в следующем фрагменте:
 
@@ -143,8 +147,7 @@ ms.lasthandoff: 02/21/2018
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-Если с доступом к учетной записи хранения для кластера возникнут проблемы, то сохраненные записные книжки можно будет также найти на головном узле `/var/lib/jupyter`.
+Вне зависимости от того, использует кластер службу хранилища Azure или Azure Data Lake Store в качестве учетной записи хранения по умолчанию, записные книжки также сохраняются на головном узле кластера в `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Поддерживаемый браузер
 
