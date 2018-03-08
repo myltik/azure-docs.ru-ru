@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Использование общего динамического шифрования PlayReady и (или) Widevine DRM
 
@@ -135,6 +135,7 @@ ms.lasthandoff: 01/10/2018
 ## <a name="get-a-test-token"></a>Получение маркера тестирования
 Получите маркер тестирования в зависимости от ограничения по маркеру, заданного в политике авторизации ключа.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ ms.lasthandoff: 01/10/2018
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 Для проверки потока можно использовать [проигрыватель служб мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
@@ -155,8 +156,10 @@ ms.lasthandoff: 01/10/2018
 
 2. Добавьте следующие элементы в **appSettings**, определенные в файле app.config:
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>Пример
 
@@ -171,7 +174,7 @@ ms.lasthandoff: 01/10/2018
 
 Обязательно обновите переменные, чтобы они указывали на папки, в которых находятся входные файлы.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

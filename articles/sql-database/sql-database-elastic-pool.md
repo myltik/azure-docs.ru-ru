@@ -11,23 +11,19 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 02/12/2018
+ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: f1f74949a472818bc82b462a4679e6549a5bb9a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Управление несколькими базами данных SQL Azure и их масштабирование с помощью эластичных пулов
 
 Эластичные пулы баз данных SQL — это простое и экономичное решение для администрирования и масштабирования нескольких баз данных с отличными и непредсказуемыми требованиями к ресурсам. Базы данных в составе эластичного пула размещены на одном сервере базы данных SQL Azure и совместно используют определенный набор ресурсов ([единицы транзакций эластичных баз данных](sql-database-what-is-a-dtu.md) (eDTU)) по фиксированной цене. Пулы эластичных БД в базе данных SQL Azure позволяют разработчикам SaaS оптимизировать соотношение цены и производительности для группы баз данных с назначенным бюджетом и при этом обеспечить эластичность производительности для каждой базы данных. 
-
-> [!NOTE]
-> Пулы эластичных БД общедоступны во всех регионах Azure, кроме западной Индии, где сейчас доступна только предварительная версия. Общедоступные пулы эластичных БД появятся в этом регионе в самое ближайшее время.
->
 
 ## <a name="what-are-sql-elastic-pools"></a>Что такое эластичные пулы SQL? 
 

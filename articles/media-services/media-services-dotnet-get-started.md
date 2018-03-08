@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 98517b546fe5a00ad17d8478e94bc78a012c2de8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -95,6 +95,7 @@ ms.lasthandoff: 01/05/2018
 > [!NOTE]
 > Пока вы не добавите определения для всех функций, будут поступать сообщения об ошибках компиляции. Инструкции по определению дисков см. далее в этой статье.
 
+```csharp
     class Program
     {
         // Read values from the App.config file.
@@ -145,7 +146,7 @@ ms.lasthandoff: 01/05/2018
             Console.ReadLine();
         }
         }
-    
+```
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Создание нового актива и отправка видеофайла
 
@@ -167,6 +168,7 @@ ms.lasthandoff: 01/05/2018
 
 Добавьте следующий метод в класс Program.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -181,7 +183,7 @@ ms.lasthandoff: 01/05/2018
 
         return inputAsset;
     }
-
+```
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Кодирование исходного файла в набор MP4-файлов с адаптивным битрейтом
 После приема ресурсов-контейнеров в службы мультимедиа файлы мультимедиа можно кодировать, менять их формат, добавлять к ним водяные знаки и т. д. до их доставки клиентам. Эти действия запланированы и выполняются в нескольких экземплярах фоновых ролей для обеспечения высокой производительности и доступности. Эти действия называются заданиями, и каждое задание состоит из атомарных задач, которые выполняют фактическую работу с файлом ресурса-контейнера.
@@ -196,6 +198,7 @@ ms.lasthandoff: 01/05/2018
 
 Добавьте следующий метод в класс Program.
 
+```csharp
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
@@ -229,6 +232,7 @@ ms.lasthandoff: 01/05/2018
 
         return outputAsset;
     }
+```
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Публикация ресурса-контейнера и получение URL-адресов для потоковой передачи и поэтапного скачивания
 
@@ -261,6 +265,7 @@ ms.lasthandoff: 01/05/2018
 
 Добавьте следующий метод в класс Program.
 
+```csharp
     static public void PublishAssetGetURLs(IAsset asset)
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
@@ -325,6 +330,7 @@ ms.lasthandoff: 01/05/2018
 
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
+```
 
 ## <a name="test-by-playing-your-content"></a>Проверка посредством воспроизведения содержимого
 

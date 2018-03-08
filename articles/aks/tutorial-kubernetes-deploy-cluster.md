@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -49,59 +49,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Через несколько минут развертывание завершится и отобразятся сведения о развертывании AKS в формате JSON.
-
-```azurecli
-{
-  "additionalProperties": {},
-  "agentPoolProfiles": [
-    {
-      "additionalProperties": {},
-      "count": 1,
-      "dnsPrefix": null,
-      "fqdn": null,
-      "name": "nodepool1",
-      "osDiskSizeGb": null,
-      "osType": "Linux",
-      "ports": null,
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS1_v2",
-      "vnetSubnetId": null
-    }
-    ...
-```
-
-## <a name="getting-information-about-your-cluster"></a>Получение сведений о кластере
-
-После развертывания кластера можно использовать `az aks show`, чтобы выполнить запрос к кластеру и получить важные сведения. Эти данные можно использовать в качестве параметра при выполнении сложных операций в кластере. Например, если требуются сведения о профиле Linux, запущенном в кластере, выполните следующую команду.
-
-```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
-
-{
-  "additionalProperties": {},
-  "adminUsername": "azureuser",
-  "ssh": {
-    "additionalProperties": {},
-    "publicKeys": [
-      {
-        "additionalProperties": {},
-        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
-      }
-    ]
-  }
-}
-```
-
-С помощью этой команды вы можете просмотреть сведения об администраторе и открытых ключах SSH. Вы также можете выполнять более подробные запросы путем добавления свойств JSON в строку запроса, как показано ниже.
-
-```azurecli
-az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
-{
-  "name": "nodepool1",
-  "nodeCount": 1
-}
-```
-Таким образом можно быстро получить доступ к данным о развернутом кластере. Дополнительные сведения о запросах JMESPath см. [здесь](http://jmespath.org/tutorial.html).
 
 ## <a name="install-the-kubectl-cli"></a>Установка интерфейса командной строки kubectl
 
@@ -143,19 +90,19 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 Сначала получите идентификатор субъекта-службы, настроенного для AKS. Измените имена группы ресурсов и кластера AKS в соответствии со своей средой.
 
 ```azurecli
-$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 Получите идентификатор ресурса реестра ACR. Измените имя реестра на имя своего реестра ACR, а имя группы ресурсов — на имя той группы ресурсов, в которой находится реестр ACR.
 
 ```azurecli
-$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Создайте назначение ролей для предоставления необходимого уровня доступа.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

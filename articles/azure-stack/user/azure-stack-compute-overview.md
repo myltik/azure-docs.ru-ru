@@ -2,16 +2,17 @@
 title: "Общие сведения о виртуальных машинах Azure Stack"
 description: "Сведения о виртуальных машинах Azure Stack."
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Общие сведения о виртуальных машинах Azure Stack
 

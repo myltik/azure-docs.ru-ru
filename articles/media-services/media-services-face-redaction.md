@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Скрытие лиц с помощью аналитики мультимедиа Azure
 ## <a name="overview"></a>Обзор
@@ -57,6 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="output-example"></a>Пример выходных данных
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ ms.lasthandoff: 12/11/2017
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Режим скрытия
 Во время второго этапа рабочий процесс принимает большее количество входных данных для объединения в один ресурс-контейнер.
@@ -138,7 +140,9 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example-json"></a>Пример JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Низкий
 
@@ -172,8 +176,16 @@ ms.lasthandoff: 12/11/2017
 
 1. Создать ресурс-контейнера и отправить в него файл мультимедиа.
 2. Создание задания с задачей скрытия лиц на основе файла конфигурации, содержащего следующую предустановку JSON: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Загрузка выходных JSON-файлов. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
@@ -182,7 +194,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>Пример
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

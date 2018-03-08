@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Руководство по настройке Workday для автоматической подготовки пользователей
 
@@ -229,7 +229,7 @@ Azure Active Directory поддерживает готовые соединит�
 
 **Настройка подготовки Workday в Active Directory.**
 
-1.  Перейдите на портал <https://portal.azure.com>.
+1.  Перейдите на сайт <https://portal.azure.com>.
 
 2.  В области навигации слева выберите **Azure Active Directory**.
 
@@ -484,7 +484,7 @@ Azure Active Directory поддерживает готовые соединит�
 
 **Настройка подготовки только облачных пользователей Workday в Azure Active Directory**
 
-1.  Перейдите на портал <https://portal.azure.com>.
+1.  Перейдите на сайт <https://portal.azure.com>.
 
 2.  В области навигации слева выберите **Azure Active Directory**.
 
@@ -589,7 +589,7 @@ Azure Active Directory поддерживает готовые соединит�
 
 **Настройка подготовки Workday в Active Directory.**
 
-1.  Перейдите на портал <https://portal.azure.com>.
+1.  Перейдите на сайт <https://portal.azure.com>.
 
 2.  В области навигации слева выберите **Azure Active Directory**.
 

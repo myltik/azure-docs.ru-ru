@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3354b0122b9025c5da2fb55439620a56c6c985d9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Настройка предустановок Media Encoder Standard
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 Откройте файл **CustomPreset_JSON.json** и удалите первые три слоя из **H264Layers**, чтобы файл выглядел, как показано ниже.
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/11/2017
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>Кодирование с помощью пакета SDK служб мультимедиа для .NET
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>Пример   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

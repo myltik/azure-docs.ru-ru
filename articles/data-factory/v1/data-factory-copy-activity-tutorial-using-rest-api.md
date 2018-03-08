@@ -3,9 +3,9 @@ title: "Руководство по использованию REST API для �
 description: "В этом руководстве вы будете использовать REST API, чтобы создать конвейер с действием копирования фабрики данных Azure для копирования данных из хранилища BLOB-объектов Azure в базу данных SQL Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74f96d2712c28c8b49e0b92ee88e560193428836
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0b7383c8b984c5f9e9600c0f04be703f6bc20711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Руководство по созданию конвейера фабрики данных Azure для копирования данных с использованием REST API 
 > [!div class="op_single_selector"]

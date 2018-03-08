@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
@@ -35,14 +35,6 @@ ms.lasthandoff: 02/28/2018
 
 >[!NOTE]  
 > Прежде чем устанавливать любую из этих версий, необходимо [установить NodeJS](https://docs.npmjs.com/getting-started/installing-node), в состав которого входит npm. Для версии 2.x этих инструментов поддерживается только версия Node.js 8.5 и более поздние. 
-
-### <a name="version-1x-runtime"></a>Среда выполнения версии 1.x
-
-В исходной версии инструментов используется среда выполнения Функций 1.x. Эта версия использует .NET Framework и поддерживается только на компьютерах Windows. Чтобы установить инструменты версии 1.x, используйте следующую команду:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Среда выполнения версии 2.x
 
@@ -69,6 +61,14 @@ sudo npm install -g azure-functions-core-tools@core
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Среда выполнения версии 1.x
+
+В исходной версии инструментов используется среда выполнения Функций 1.x. Эта версия использует .NET Framework и поддерживается только на компьютерах Windows. Чтобы установить инструменты версии 1.x, используйте следующую команду:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Запуск основных инструментов службы "Функции Azure"

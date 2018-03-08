@@ -3,7 +3,7 @@ title: "Добавление пользователей службы совме�
 description: "Служба совместной работы B2B позволяет информационным работникам добавлять в Azure AD пользователей из своей организации | Документация Майкрософт"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: curtand
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 37660311d74bd6230dd6c229e4160e4d68d467a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?
 

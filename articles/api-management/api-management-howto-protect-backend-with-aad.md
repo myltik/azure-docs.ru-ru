@@ -1,9 +1,24 @@
--- title: Защита внутренней службы веб-API с помощью Azure Active Directory и управления API | Документация Майкрософт description: Узнайте, как защитить внутреннюю службу веб-API с помощью Azure Active Directory и управления API.
-services: api-management documentationcenter: '' author: juliako manager: cfowler editor: ''
-
-ms.service: api-management ms.workload: mobile ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 10/30/2017 ms.author: apimpm
 ---
-
+title: "Защита серверной части веб-API с помощью Azure Active Directory и службы управления API | Документация Майкрософт"
+description: "Информация о защите внутренней службы веб-API с помощью Azure Active Directory и управления API"
+services: api-management
+documentationcenter: 
+author: juliako
+manager: cfowler
+editor: 
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/30/2017
+ms.author: apimpm
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/02/2018
+---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Защита внутренней службы веб-API с помощью Azure Active Directory и управления API
 
 В этой статье вы узнаете, как собрать внутреннюю службу веб-API и защитить ее, используя протокол OAuth 2.0 с Azure Active Directory и управлением API.  

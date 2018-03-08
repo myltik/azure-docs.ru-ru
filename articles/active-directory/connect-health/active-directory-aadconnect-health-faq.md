@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
 Эта статья содержит ответы на часто задаваемые вопросы о расширении Azure Active Directory (Azure AD) Connect Health. Здесь представлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
@@ -128,12 +128,7 @@ ms.lasthandoff: 01/18/2018
 
 **Вопрос. Я получаю оповещения о том, что данные службы работоспособности устарели. Как решить эту проблему?**
 
-Расширение Azure AD Connect Health создает оповещение, если не получает все точки данных от сервера за последние два часа. Это оповещение может быть создано по нескольким причинам.
-
-* Агент не может подключиться к необходимым конечным точкам, так как трафик блокируется брандмауэром. Это особенно часто происходит на прокси-серверах веб-приложений. Убедитесь, что исходящие подключения к необходимым конечным точкам и портам разрешены. Дополнительные сведения см. в разделе [Требования](active-directory-aadconnect-health-agent-install.md#requirements).
-* Исходящие подключения проверяются протоколом SSL на сетевом уровне. В результате сертификат, используемый агентом, заменяется проверяющим сервером или сущностью, что делает невозможной отправку данных в службу Azure AD Connect Health.
-* Можно использовать команду подключения, встроенную в агент. [Дополнительные сведения](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Агенты также поддерживают исходящие подключения через прокси-сервер HTTP без аутентификации. [Дополнительные сведения](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Расширение Azure AD Connect Health создает оповещение, если не получает все точки данных от сервера за последние два часа. [Дополнительные сведения](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Вопросы, связанные с работой
 **Вопрос. Нужно ли включать аудит прокси-серверов веб-приложений?**
