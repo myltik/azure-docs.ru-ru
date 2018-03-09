@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Оптимизация виртуальной машины Linux в Azure
 Вы можете легко создать виртуальную машину (VM) Linux с помощью портала или командной строки. В этом руководстве показано, как при помощи настроек оптимизировать производительность VM на платформе Microsoft Azure. В этой статье описывается виртуальная машина Ubuntu Server, но вы можете также создавать виртуальные машины Linux, используя [собственные образы в качестве шаблонов](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -131,8 +131,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 Полезные ссылки на дополнительные ресурсы: 
 
-* [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальной машины Azure](../windows/premium-storage.md)
-* [Руководство пользователя агента Linux для Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Оптимизация производительности MySQL в виртуальных машинах Azure Linux](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Настройка программного RAID-массива в Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальной машины Azure](premium-storage.md)
+* [Руководство пользователя агента Linux для Azure](agent-user-guide.md)
+* [Оптимизация производительности MySQL в виртуальных машинах Azure Linux](classic/optimize-mysql.md)
+* [Настройка программного RAID-массива в Linux](configure-raid.md)

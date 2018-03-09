@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
 ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
 Служба Mobility Service Azure Site Recovery фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Разверните службу Mobility Service на каждом компьютере (виртуальная машина или физический сервер VMware), который требуется реплицировать в Azure. Службы Mobility Service можно развернуть на серверах, которые необходимо защитить, следующими способами:

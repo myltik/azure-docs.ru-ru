@@ -1,0 +1,614 @@
+- name: Документация по Service Fabric
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое Service Fabric?
+      href: service-fabric-overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание приложения .NET
+      href: service-fabric-quickstart-dotnet.md
+    - name: Развертывание приложения-контейнера Linux
+      href: service-fabric-quickstart-containers-linux.md
+    - name: Развертывание приложения-контейнера Windows
+      href: service-fabric-quickstart-containers.md
+    - name: Краткие руководства по использованию Java
+      items:
+        - name: Развертывание приложения Spring Boot
+          href: service-fabric-quickstart-java-spring-boot.md
+        - name: Развертывание приложения Reliable Services
+          href: service-fabric-quickstart-java-reliable-services.md
+- name: Учебники
+  items:
+    - name: Развертывание приложения .NET
+      items:
+        - name: 1. Создание приложения .NET
+          href: service-fabric-tutorial-create-dotnet-app.md
+        - name: 2. Развертывание приложения
+          href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+        - name: 3. Настройка непрерывной интеграции и доставки
+          href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
+        - name: 4. Мониторинг и диагностика
+          href: service-fabric-tutorial-monitoring-aspnet.md
+    - name: Контейнеризация существующего приложения .NET
+      items:
+        - name: 1. Развертывание приложения .NET с помощью Docker Compose
+          href: service-fabric-host-app-in-a-container.md
+        - name: 2. Отслеживание контейнера
+          href: service-fabric-tutorial-monitoring-wincontainers.md
+    - name: Создание приложения-контейнера Linux
+      items:
+        - name: 1. Создание образов контейнеров
+          href: service-fabric-tutorial-create-container-images.md
+        - name: 2. Упаковка и развертывание контейнеров
+          href: service-fabric-tutorial-package-containers.md
+        - name: 3. Отработка отказа и масштабирование
+          href: service-fabric-tutorial-containers-failover.md
+    - name: Создание кластера и управление им
+      items:
+        - name: 1. Создание кластера в Azure
+          items:
+            - name: 1А. Создание кластера Windows
+              href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
+            - name: 1Б. Создание кластера Linux
+              href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+        - name: 2. Масштабирование кластера
+          href: service-fabric-tutorial-scale-cluster.md
+        - name: 3. Обновление среды выполнения кластера
+          href: service-fabric-tutorial-upgrade-cluster.md
+        - name: 4. Развертывание службы управления API с помощью Service Fabric
+          href: service-fabric-tutorial-deploy-api-management.md
+- name: Примеры
+  items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+    - name: Azure PowerShell
+      href: service-fabric-powershell-samples.md
+    - name: Интерфейс командной строки Service Fabric
+      href: samples-cli.md
+- name: Основные понятия
+  items:
+    - name: Основные сведения о микрослужбах
+      href: service-fabric-overview-microservices.md
+    - name: Общее представление
+      href: service-fabric-content-roadmap.md
+    - name: Сценарии приложений
+      href: service-fabric-application-scenarios.md
+    - name: Шаблоны и сценарии
+      href: service-fabric-patterns-and-scenarios.md
+    - name: Архитектура
+      href: service-fabric-architecture.md
+    - name: Терминология
+      href: service-fabric-technical-overview.md
+    - name: Поддерживаемые модели программирования
+      href: service-fabric-choose-framework.md
+      items:
+        - name: Контейнеры
+          href: service-fabric-containers-overview.md
+          items:
+            - name: Docker Compose (предварительная версия)
+              href: service-fabric-docker-compose.md
+            - name: управление ресурсами;
+              href: service-fabric-resource-governance.md
+        - name: Надежные службы
+          href: service-fabric-reliable-services-introduction.md
+          items:
+            - name: 'Жизненный цикл Reliable Services (C#)'
+              href: service-fabric-reliable-services-lifecycle.md
+            - name: Жизненный цикл Reliable Services (Java)
+              href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Reliable Collections
+              href: service-fabric-reliable-services-reliable-collections.md
+            - name: 'Reliable Collections: инструкции и рекомендации'
+              href: service-fabric-reliable-services-reliable-collections-guidelines.md
+            - name: Работа с Reliable Collections
+              href: service-fabric-work-with-reliable-collections.md
+            - name: Транзакции и блокировки
+              href: service-fabric-reliable-services-reliable-collections-transactions-locks.md
+            - name: Надежная параллельная очередь
+              href: service-fabric-reliable-services-reliable-concurrent-queue.md
+            - name: Сериализация Reliable Collection
+              href: service-fabric-reliable-services-reliable-collections-serialization.md
+            - name: Внутренние компоненты Reliable State Manager и Reliable Collection
+              href: service-fabric-reliable-services-reliable-collections-internals.md
+            - name: Расширенное использование
+              href: service-fabric-reliable-services-advanced-usage.md
+        - name: Надежные субъекты
+          href: service-fabric-reliable-actors-introduction.md
+          items:
+            - name: Архитектура
+              href: service-fabric-reliable-actors-platform.md
+            - name: Жизненный цикл и сборка мусора
+              href: service-fabric-reliable-actors-lifecycle.md
+            - name: Управление данными о состоянии
+              href: service-fabric-reliable-actors-state-management.md
+            - name: Полиморфизм
+              href: service-fabric-reliable-actors-polymorphism.md
+            - name: Повторный вход
+              href: service-fabric-reliable-actors-reentrancy.md
+            - name: Сериализация типа
+              href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+    - name: Приложения и службы
+      items:
+        - name: Модель приложения
+          href: service-fabric-application-model.md
+        - name: Манифесты приложений и служб
+          href: service-fabric-application-and-service-manifests.md
+        - name: Модель размещения
+          href: service-fabric-hosting-model.md
+        - name: Состояние службы
+          href: service-fabric-concepts-state.md
+        - name: Секционирование службы
+          href: service-fabric-concepts-partitioning.md
+        - name: Масштабируемость приложений
+          href: service-fabric-concepts-scalability.md
+        - name: Доступность служб
+          href: service-fabric-availability-services.md
+        - name: Жизненный цикл реплики и экземпляра
+          href: service-fabric-concepts-replica-lifecycle.md
+        - name: Reconfiguration
+          href: service-fabric-concepts-reconfiguration.md
+        - name: Взаимодействие служб
+          href: service-fabric-connect-and-communicate-with-services.md
+          items:
+            - name: Служба DNS
+              href: service-fabric-dnsservice.md
+            - name: Обратный прокси-сервер.
+              href: service-fabric-reverseproxy.md
+            - name: Настройка обратного прокси-сервера для безопасного подключения
+              href: service-fabric-reverseproxy-configure-secure-communication.md
+            - name: Диагностика обратного прокси-сервера
+              href: service-fabric-reverse-proxy-diagnostics.md
+            - name: ASP.NET Core;
+              href: service-fabric-reliable-services-communication-aspnetcore.md
+        - name: Жизненный цикл приложения
+          href: service-fabric-application-lifecycle.md
+          items:
+            - name: Обновление приложения
+              href: service-fabric-application-upgrade.md
+              items:
+                - name: Параметр Configuration
+                  href: service-fabric-visualstudio-configure-upgrade.md
+                - name: Параметры обновления приложений
+                  href: service-fabric-application-upgrade-parameters.md
+                - name: Сериализация данных при обновлении приложения
+                  href: service-fabric-application-upgrade-data-serialization.md
+                - name: 'Обновление приложения: более сложные темы'
+                  href: service-fabric-application-upgrade-advanced.md
+            - name: Управление приложениями для использования в нескольких средах
+              href: service-fabric-manage-multiple-environment-app-configuration.md
+            - name: Тестирование приложений с помощью анализа сбоев
+              href: service-fabric-testability-overview.md
+            - name: Параметр ImageStoreConnectionString
+              href: service-fabric-image-store-connection-string.md
+        - name: Ресурсы службы
+          href: service-fabric-service-manifest-resources.md
+    - name: Кластеры
+      href: service-fabric-deploy-anywhere.md
+      items:
+        - name: Безопасность кластера
+          href: service-fabric-cluster-security.md
+        - name: Различия между функциями для Linux и Windows
+          href: service-fabric-linux-windows-differences.md
+        - name: Кластеры в Azure
+          items:
+            - name: Типы узлов и Масштабируемые наборы виртуальных машин
+              href: service-fabric-cluster-nodetypes.md
+            - name: Шаблоны сети кластера
+              href: service-fabric-patterns-networking.md
+        - name: Диспетчер кластерных ресурсов
+          href: service-fabric-cluster-resource-manager-introduction.md
+          items:
+            - name: Архитектура
+              href: service-fabric-cluster-resource-manager-architecture.md
+            - name: Описание кластера
+              href: service-fabric-cluster-resource-manager-cluster-description.md
+            - name: Обзор групп приложений
+              href: service-fabric-cluster-resource-manager-application-groups.md
+            - name: Настройка параметров диспетчера кластерных ресурсов
+              href: service-fabric-cluster-resource-manager-configure-services.md
+            - name: Метрики потребления ресурсов
+              href: service-fabric-cluster-resource-manager-metrics.md
+            - name: Использование сходства служб
+              href: service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md
+            - name: Политики размещения служб
+              href: service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md
+            - name: Управление кластером
+              href: service-fabric-cluster-resource-manager-management-integration.md
+            - name: Дефрагментация кластера
+              href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
+            - name: Балансировка кластера
+              href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Регулирование
+              href: service-fabric-cluster-resource-manager-advanced-throttling.md
+            - name: Перемещение служб
+              href: service-fabric-cluster-resource-manager-movement-cost.md
+    - name: Мониторинг и диагностика.
+      items:
+        - name: Приложения мониторинга и диагностики
+          href: service-fabric-diagnostics-overview.md
+        - name: Создание событий
+          items:
+            - name: Создание событий на уровне платформы
+              href: service-fabric-diagnostics-event-generation-infra.md
+              items:
+                - name: Операционный канал
+                  href: service-fabric-diagnostics-event-generation-operational.md
+                - name: События Reliable Services
+                  href: service-fabric-reliable-services-diagnostics.md
+                - name: События Reliable Actors
+                  href: service-fabric-reliable-actors-diagnostics.md
+                - name: Метрики производительности
+                  href: service-fabric-diagnostics-event-generation-perf.md
+                - name: Мониторинг удаленного взаимодействия со службой
+                  href: service-fabric-reliable-serviceremoting-diagnostics.md
+            - name: Создание событий на уровне приложения
+              href: service-fabric-diagnostics-event-generation-app.md
+        - name: Проверка работоспособности приложения и кластера
+          items:
+            - name: Отслеживание работоспособности Service Fabric
+              href: service-fabric-health-introduction.md
+            - name: Проверка работоспособности службы и оповещение о проблемах
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Добавление настраиваемых отчетов о работоспособности
+              href: service-fabric-report-health.md
+            - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Просмотр отчетов о работоспособности
+              href: service-fabric-view-entities-aggregated-health.md
+        - name: Статистическая обработка событий
+          items:
+            - name: Статистическая обработка событий с помощью EventFlow
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
+            - name: Статистическая обработка событий с помощью системы диагностики Azure
+              items:
+                - name: Windows
+                  href: service-fabric-diagnostics-event-aggregation-wad.md
+                - name: Linux
+                  href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Анализ событий
+          items:
+            - name: Анализ событий с помощью Application Insights
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Анализ событий с помощью OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: Устранение неполадок локального кластера
+          href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Интеграция со службой управления API
+      href: service-fabric-api-management-overview.md
+- name: Практические руководства
+  items:
+    - name: Настройка среды разработки
+      items:
+        - name: Windows
+          href: service-fabric-get-started.md
+        - name: Linux
+          href: service-fabric-get-started-linux.md
+        - name: MacOS
+          href: service-fabric-get-started-mac.md
+        - name: Настройка интерфейса командной строки Service Fabric
+          href: service-fabric-cli.md
+    - name: Планирование и подготовка
+      items:
+        - name: Планирование емкости кластера
+          href: service-fabric-cluster-capacity.md
+        - name: Планирование развертывания изолированного кластера
+          href: service-fabric-cluster-standalone-deployment-preparation.md
+        - name: Подготовка к аварийному восстановлению
+          href: service-fabric-disaster-recovery.md
+        - name: Планирование емкости приложения
+          href: service-fabric-capacity-planning.md
+    - name: Создайте первое...
+      items:
+        - name: 'Приложение C# в Visual Studio'
+          href: service-fabric-create-your-first-application-in-visual-studio.md
+        - name: Приложение-контейнер Windows
+          href: service-fabric-get-started-containers.md
+        - name: Приложение-контейнер Linux
+          href: service-fabric-get-started-containers-linux.md
+        - name: 'C#-приложение Reliable Services в Windows'
+          href: service-fabric-reliable-services-quick-start.md
+        - name: Java-приложение Reliable Services в Linux
+          href: service-fabric-reliable-services-quick-start-java.md
+        - name: 'C#-приложение Reliable Services в Linux'
+          href: service-fabric-create-your-first-linux-application-with-csharp.md
+        - name: 'C#-приложение Reliable Actors в Windows'
+          href: service-fabric-reliable-actors-get-started.md
+        - name: Java-приложение Reliable Actors в Linux
+          href: service-fabric-create-your-first-linux-application-with-java.md
+        - name: Гостевое исполняемое приложение в Windows
+          href: quickstart-guest-app.md
+        - name: Изолированный кластер
+          href: service-fabric-get-started-standalone-cluster.md
+    - name: Создание приложения
+      items:
+        - name: Создание гостевой исполняемой службы
+          items:
+            - name: Развертывание гостевого исполняемого файла
+              href: service-fabric-deploy-existing-app.md
+            - name: Развертывание нескольких пользовательских приложений
+              href: service-fabric-deploy-multiple-apps.md
+        - name: Создание службы контейнеров
+          items:
+            - name: Безопасность контейнера
+              href: service-fabric-securing-containers.md
+            - name: Docker Compose (предварительная версия)
+              href: service-fabric-docker-compose.md
+            - name: управление ресурсами для контейнеров и служб;
+              href: service-fabric-resource-governance.md
+            - name: Драйверы томов и драйверы ведения журналов
+              href: service-fabric-containers-volume-logging-drivers.md
+            - name: Службы в контейнерах
+              href: service-fabric-services-inside-containers.md
+            - name: Cетевые режимы контейнеров
+              href: service-fabric-networking-modes.md
+        - name: Создание службы Reliable Services
+          items:
+            - name: Reliable Collections
+              items:
+                - name: Работа с Reliable Collections
+                  href: service-fabric-work-with-reliable-collections.md
+                - name: Надежная параллельная очередь
+                  href: service-fabric-reliable-services-reliable-concurrent-queue.md
+                - name: Сериализация Reliable Collection
+                  href: service-fabric-reliable-services-reliable-collections-serialization.md
+            - name: Обмен данными со службами
+              items:
+                - name: Обмен данными с помощью Reliable Services
+                  href: service-fabric-reliable-services-communication.md
+                - name: 'Удаленное взаимодействие со службой (C#)'
+                  href: service-fabric-reliable-services-communication-remoting.md
+                - name: Удаленное взаимодействие со службой (Java)
+                  href: service-fabric-reliable-services-communication-remoting-java.md
+                - name: WCF
+                  href: service-fabric-reliable-services-communication-wcf.md
+                - name: "Безопасные подключения\_— C#"
+                  href: service-fabric-reliable-services-secure-communication.md
+                - name: "Безопасные подключения\_— Java"
+                  href: service-fabric-reliable-services-secure-communication-java.md
+            - name: Настройка
+              href: service-fabric-reliable-services-configuration.md
+            - name: Отправка уведомлений
+              href: service-fabric-reliable-services-notifications.md
+            - name: Архивация и восстановление
+              href: service-fabric-reliable-services-backup-restore.md
+        - name: Создание службы Reliable Actors
+          items:
+            - name: Отправка уведомлений
+              href: service-fabric-reliable-actors-events.md
+            - name: Настройка таймеров и напоминаний
+              href: service-fabric-reliable-actors-timers-reminders.md
+            - name: Настройка KvsActorStateProvider
+              href: service-fabric-reliable-actors-kvsactorstateprovider-configuration.md
+            - name: Настройка параметров подключения
+              href: service-fabric-reliable-actors-fabrictransportsettings.md
+            - name: Настройка ReliableDictionaryActorStateProvider
+              href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
+        - name: Перенос старого приложения Java для поддержки Maven
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
+        - name: Настройка обратного прокси-сервера для безопасного подключения
+          href: service-fabric-reverseproxy-configure-secure-communication.md
+        - name: Создание службы ASP.NET Core
+          href: service-fabric-add-a-web-frontend.md
+        - name: Настройка безопасности
+          items:
+            - name: Управление секретами приложений
+              href: service-fabric-application-secret-management.md
+            - name: Настройка политик безопасности для приложения
+              href: service-fabric-application-runas-security.md
+    - name: Работа в среде разработки Windows или Visual Studio
+      items:
+        - name: Управление приложениями в Visual Studio
+          href: service-fabric-manage-application-in-visual-studio.md
+        - name: Настройка безопасных соединений в Visual Studio
+          href: service-fabric-visualstudio-configure-secure-connections.md
+        - name: Отладка службы .NET в Visual Studio
+          href: service-fabric-debugging-your-application.md
+        - name: Распространенные ошибки и исключения
+          href: service-fabric-errors-and-exceptions.md
+        - name: Локальные мониторинг и диагностика
+          href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+        - name: Настройка кластера Linux в Windows
+          href: service-fabric-local-linux-cluster-windows.md
+    - name: Работа в среде разработки Linux или Eclipse
+      items:
+        - name: Начало работы с подключаемым модулем Eclipse для разработки приложений Java
+          href: service-fabric-get-started-eclipse.md
+        - name: Отладка службы на Java в Eclipse
+          href: service-fabric-debugging-your-application-java.md
+        - name: Локальные мониторинг и диагностика
+          href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Миграция из облачных служб
+      items:
+        - name: Сравнение облачных служб и Service Fabric
+          href: service-fabric-cloud-services-migration-differences.md
+        - name: Переход к использованию Service Fabric
+          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
+        - name: Рекомендации
+          href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Управление жизненным циклом приложения
+      items:
+        - name: Создание пакета приложения
+          href: service-fabric-package-apps.md
+        - name: Использование параметров в файлах конфигурации
+          href: service-fabric-how-to-parameterize-configuration-files.md
+        - name: Указание номеров портов с помощью параметров
+          href: service-fabric-how-to-specify-port-number-using-parameters.md
+        - name: Указание переменных среды
+          href: service-fabric-how-to-specify-environment-variables.md
+        - name: Развертывание или удаление приложений
+          items:
+            - name: Развертывание приложений в локальном кластере
+              href: service-fabric-get-started-with-a-local-cluster.md
+            - name: Диспетчер ресурсов Azure
+              href: service-fabric-application-arm-resource.md
+            - name: Azure PowerShell
+              href: service-fabric-deploy-remove-applications.md
+            - name: Интерфейс командной строки Service Fabric
+              href: service-fabric-application-lifecycle-sfctl.md
+            - name: API FabricClient
+              href: service-fabric-deploy-remove-applications-fabricclient.md
+        - name: Обновление приложений
+          items:
+            - name: Обновление с помощью Azure PowerShell
+              href: service-fabric-application-upgrade-tutorial-powershell.md
+            - name: Обновление с помощью Visual Studio
+              href: service-fabric-application-upgrade-tutorial.md
+            - name: Устранение неполадок при обновлениях приложений
+              href: service-fabric-application-upgrade-troubleshooting.md
+        - name: Тестирование приложений и служб
+          items:
+            - name: Тестирование обмена данными между службами
+              href: service-fabric-testability-scenarios-service-communication.md
+            - name: Моделирование сбоев
+              items:
+                - name: Использование инструмента Chaos для вызова контролируемого сбоя
+                  href: service-fabric-controlled-chaos.md
+                - name: Использование тестовых действий
+                  href: service-fabric-testability-actions.md
+                - name: При выполнении рабочих нагрузок
+                  href: service-fabric-testability-workload-tests.md
+                - name: Использование тестовых сценариев
+                  href: service-fabric-testability-scenarios.md
+                - name: Использование API для изменения состояния узла
+                  href: service-fabric-node-transition-apis.md
+        - name: Настройка непрерывной интеграции
+          items:
+            - name: Настройка непрерывной интеграции с помощью VSTS
+              href: service-fabric-set-up-continuous-integration.md
+            - name: Развертывание приложений Linux с помощью Jenkins
+              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+    - name: Создание кластеров и управление ими
+      items:
+        - name: Кластеры в Azure
+          items:
+            - name: Создание
+              items:
+                - name: Портал Azure
+                  href: service-fabric-cluster-creation-via-portal.md
+                - name: Диспетчер ресурсов Azure
+                  href: service-fabric-cluster-creation-via-arm.md
+            - name: Масштаб
+              items:
+                - name: Вручную
+                  href: service-fabric-cluster-scale-up-down.md
+                - name: Программным образом
+                  href: service-fabric-cluster-programmatic-scaling.md
+            - name: Обновление
+              href: service-fabric-cluster-upgrade.md
+            - name: Настройка управления доступом
+              href: service-fabric-cluster-security-roles.md
+            - name: Настройка
+              href: service-fabric-cluster-fabric-settings.md
+            - name: Открытие порта в подсистеме балансировки нагрузки
+              href: create-load-balancer-rule.md
+            - name: Управление сертификатами кластера
+              href: service-fabric-cluster-security-update-certs-azure.md
+            - name: Delete
+              href: service-fabric-cluster-delete.md
+        - name: Изолированные кластеры
+          items:
+            - name: Создание
+              items:
+                - name: Создание локальной среды
+                  href: service-fabric-cluster-creation-for-windows-server.md
+                - name: Безопасное использование сертификатов
+                  href: service-fabric-windows-cluster-x509-security.md
+                - name: Защита кластера с помощью системы безопасности Windows
+                  href: service-fabric-windows-cluster-windows-security.md
+                - name: Содержимое изолированного пакета
+                  href: service-fabric-cluster-standalone-package-contents.md
+            - name: Масштаб
+              href: service-fabric-cluster-windows-server-add-remove-nodes.md
+            - name: Настройка управления доступом
+              href: service-fabric-cluster-security-roles.md
+            - name: Настройка
+              href: service-fabric-cluster-manifest.md
+            - name: Обновление
+              href: service-fabric-cluster-upgrade-windows-server.md
+        - name: Визуализация кластера
+          href: service-fabric-visualizing-your-cluster.md
+        - name: Безопасное подключение к кластеру
+          href: service-fabric-connect-to-secure-cluster.md
+        - name: Установка исправлений для узлов кластера
+          href: service-fabric-patch-orchestration-application.md
+    - name: Мониторинг и диагностика
+      items:
+        - name: OMS
+          items:
+            - name: Настройка OMS Log Analytics
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Добавление агента OMS
+              href: service-fabric-diagnostics-oms-agent.md
+            - name: Мониторинг контейнеров
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Мониторинг производительности
+          items:
+            - name: Мониторинг производительности с помощью WAD
+              href: service-fabric-diagnostics-perf-wad.md
+- name: Справочные материалы
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.servicefabric/
+    - name: PowerShell
+      href: /powershell/module/servicefabric/?view=azureservicefabricps
+    - name: Azure CLI (az sf)
+      href: /cli/azure/sf
+    - name: Интерфейс командной строки Service Fabric (sfctl)
+      href: service-fabric-sfctl.md
+      items:
+        - name: sfctl application
+          href: service-fabric-sfctl-application.md
+        - name: sfctl chaos
+          href: service-fabric-sfctl-chaos.md
+        - name: sfctl cluster
+          href: service-fabric-sfctl-cluster.md
+        - name: sfctl compose
+          href: service-fabric-sfctl-compose.md
+        - name: sfctl is
+          href: service-fabric-sfctl-is.md
+        - name: sfctl node
+          href: service-fabric-sfctl-node.md
+        - name: sfctl partition
+          href: service-fabric-sfctl-partition.md
+        - name: sfctl replica
+          href: service-fabric-sfctl-replica.md
+        - name: sfctl rpm
+          href: service-fabric-sfctl-rpm.md
+        - name: sfctl service
+          href: service-fabric-sfctl-service.md
+        - name: sfctl store
+          href: service-fabric-sfctl-store.md
+    - name: API Java
+      href: /java/api/overview/azure/servicefabric
+    - name: .NET
+      href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
+    - name: REST
+      href: /rest/api/servicefabric
+    - name: Схема XML для модели службы
+      href: service-fabric-service-model-schema.md
+    - name: Переменные среды
+      href: service-fabric-environment-variables-reference.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Часто задаваемые вопросы
+      href: service-fabric-common-questions.md
+    - name: Схема обучения
+      href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Пример кода
+      href: 'http://aka.ms/servicefabricsamples'
+    - name: Варианты поддержки
+      href: service-fabric-support.md
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

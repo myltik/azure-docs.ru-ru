@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Создание проекта в Azure с использованием Jenkins и службы "Экземпляры контейнеров Azure"
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 > * Установить и настроить подключаемый модуль агентов контейнеров Azure для Jenkins.
 > * Использовать службу "Экземпляры контейнеров Azure" для создания [примера приложения Spring PetClinic](https://github.com/spring-projects/spring-petclinic).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 - **Подписка Azure**. Дополнительные сведения о вариантах приобретения Azure см. на страницах [Как приобрести Azure](https://azure.microsoft.com/pricing/purchase-options/) и [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Кэш Redis для Azure. Вопросы и ответы
 Ответы на часто задаваемые вопросы, шаблоны и рекомендации для кэша Redis для Azure.
@@ -246,9 +246,7 @@ StackExchange.Redis имеет много параметров. В этом ра
 * Также можно использовать программы командной строки Redis. Чтобы воспользоваться ими, выполните следующие действия:
 * Скачайте [программы командной строки Redis](https://github.com/MSOpenTech/redis/releases/).
 * Подключитесь к кэшу с помощью `redis-cli.exe`. Передайте конечную точку кэша, используя параметр -h и ключ с параметром -a, как показано в следующем примере:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > Программы командной строки Redis не работают с портом SSL, но можно использовать служебную программу, такую как `stunnel`, для безопасного подключения этих программ к порту SSL в соответствии с указаниями в записи блога [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Объявление о поставщике состояний сеансов ASP.NET для предварительной версии Redis).

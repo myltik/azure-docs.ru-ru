@@ -1,0 +1,73 @@
+- name: Удостоверение управляемой службы
+  href: overview.md
+  items:
+    - name: Настройка MSI для виртуальной машины Azure
+      items:
+        - name: Использование портала Azure
+          href: qs-configure-portal-windows-vm.md
+        - name: с использованием PowerShell.
+          href: qs-configure-powershell-windows-vm.md
+        - name: Использование Azure CLI
+          href: qs-configure-cli-windows-vm.md
+        - name: Использование шаблона Azure Resource Manager
+          href: qs-configure-template-windows-vm.md
+        - name: Использование пакета Azure SDK
+          href: qs-configure-sdk-windows-vm.md
+    - name: Настройка MSI для масштабируемого набора виртуальных машин Azure
+      items:
+        - name: Использование портала Azure
+          href: qs-configure-portal-windows-vmss.md
+        - name: Использование Azure CLI
+          href: qs-configure-cli-windows-vmss.md
+        - name: Использование шаблона Azure Resource Manager
+          href: qs-configure-template-windows-vmss.md
+    - name: Предоставление доступа MSI виртуальной машины и масштабируемого набора виртуальных машин к Resource Manager
+      items:
+        - name: Использование портала Azure
+          href: howto-assign-access-portal.md
+        - name: с использованием PowerShell.
+          href: howto-assign-access-powershell.md
+        - name: Использование Azure CLI
+          href: howto-assign-access-cli.md
+    - name: Использование удостоверения управляемой службы для виртуальной машины
+      items:
+        - name: Получение маркера доступа
+          href: how-to-use-vm-token.md
+        - name: Вход в PowerShell и Azure CLI
+          href: how-to-use-vm-sign-in.md
+        - name: Использование с пакетами Azure SDK
+          href: how-to-use-vm-sdk.md
+    - name: Использование MSI виртуальной машины для доступа к Azure Data Lake Store
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: tutorial-windows-vm-access-datalake.md
+        - name: С помощью виртуальной машины Linux
+          href: tutorial-linux-vm-access-datalake.md
+    - name: Использование виртуальной машины MSI для доступа к Azure Resource Manager
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: tutorial-windows-vm-access-arm.md
+        - name: С помощью виртуальной машины Linux
+          href: tutorial-linux-vm-access-arm.md
+    - name: Использование виртуальной машины MSI для доступа к Azure SQL
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: tutorial-windows-vm-access-sql.md
+    - name: Использование виртуальной машины MSI для доступа к хранилищу Azure
+      items:
+        - name: С помощью виртуальной машины Windows и ключа доступа
+          href: tutorial-windows-vm-access-storage.md
+        - name: С помощью виртуальной машины Windows и SAS
+          href: tutorial-windows-vm-access-storage-sas.md
+        - name: С помощью виртуальной машины Linux и ключа доступа
+          href: tutorial-linux-vm-access-storage.md
+        - name: С помощью виртуальной машины Linux и SAS
+          href: tutorial-linux-vm-access-storage-sas.md
+    - name: Использование MSI виртуальной машины для доступа к Azure Key Vault
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: tutorial-windows-vm-access-nonaad.md
+        - name: С помощью виртуальной машины Linux
+          href: tutorial-linux-vm-access-nonaad.md
+    - name: Часто задаваемые вопросы и известные проблемы
+      href: known-issues.md

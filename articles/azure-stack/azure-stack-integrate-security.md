@@ -3,17 +3,18 @@ title: "Интеграция центра обработки данных Azure 
 description: "Узнайте, как интегрировать системы безопасности Azure Stack и вашего центра обработки данных."
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 16d97765c9340555bfc0db22975a43227cc6b517
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Интеграция центра обработки данных Azure Stack. Безопасность
 При планировании и разработке инфраструктуры Azure Stack огромное внимание уделялось безопасности. Azure Stack является защищенной системой, и для нее не поддерживается установка программных агентов безопасности.

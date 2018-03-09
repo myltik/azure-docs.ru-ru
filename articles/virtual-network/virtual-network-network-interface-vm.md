@@ -4,7 +4,7 @@ description: "Узнайте, как добавлять и удалять сет
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 30e6950a976307023bd5232fa1c1f1342c1d012b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb21690865cd9384fe3d3c82e60f11e0fc64114c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Добавление и удаление сетевых интерфейсов виртуальных машин
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 02/11/2018
 
 Перед выполнением действий, описанных в любом разделе этой статьи, выполните следующие задачи.
 
-- Войдите на [портал](https://portal.azure.com) Azure, в Azure CLI или Azure PowerShell с помощью учетной записи Azure. Если у вас нет учетной записи Azure, зарегистрируйтесь для получения [бесплатной пробной версии](https://azure.microsoft.com/free).
-- Если вы используете команды PowerShell для выполнения задач в этой статье, [установите и настройте Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена последняя версия командлетов Azure PowerShell. Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`. 
-- Кроме того, можно использовать Azure Cloud Shell. Azure Cloud Shell — это бесплатный PowerShell, который можно запускать непосредственно на портале Azure. Он включает предварительно установленный PowerShell и настроен для использования с вашей учетной записью. Чтобы использовать эту службу, нажмите кнопку Cloud Shell **>_** в верхней части [портала](https://portal.azure.com) и в левом верхнем углу выберите PowerShell.
-- Чтобы использовать команды Azure CLI для выполнения задач в этой статье, [установите и настройте Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена последняя версия Azure CLI. Для получения справки по командам интерфейса командной строки введите `az <command> --help`. 
+- Если у вас нет учетной записи Azure, зарегистрируйтесь для получения [бесплатной пробной учетной записи](https://azure.microsoft.com/free).
+- При использовании портала Azure перейдите по адресу https://portal.azure.com и войдите с использованием своей учетной записи Azure.
+- При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 5.2.0. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+- При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI версии не ниже 2.0.26. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI запущен локально, необходимо также выполнить командлет `az login`, чтобы создать подключение к Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Добавление имеющихся сетевых интерфейсов к новой виртуальной машине
 

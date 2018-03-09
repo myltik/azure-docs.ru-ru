@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Использование Azure Media Packager для выполнения задач статической упаковки
 > [!NOTE]
@@ -58,6 +58,7 @@ ms.lasthandoff: 12/07/2017
 
 Чтобы проверить файлы MP4 с помощью Media Services Packager, необходимо создать собственный файл манифеста (ISM) и загрузить его вместе с исходными файлами в учетную запись служб мультимедиа. Ниже приведен пример ISM-файла, созданного стандартным кодировщиком мультимедиа. Имена файлов чувствительны к регистру. Также убедитесь, что текст в ISM-файле представлен в кодировке UTF-8.
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ ms.lasthandoff: 12/07/2017
         </switch>
       </body>
     </smil>
+```
 
 После того как у вас появится набор файлов MP4 с переменной скоростью, вы сможете воспользоваться преимуществами динамической упаковки. Динамическая упаковка позволяет доставлять потоковое содержимое с помощью указанного протокола без дальнейшей упаковки. Дополнительные сведения см. в статье [Динамическая упаковка](media-services-dynamic-packaging-overview.md).
 
 В следующем примере кода используются расширения пакета SDK служб мультимедиа Azure для .NET.  Обязательно измените код, указав каталог, в котором расположены исходные MP4-файлы и ISM-файл. Также укажите расположение файла MediaPackager_ValidateTask.xml. Этот XML-файл определяется в статье [Task Preset for Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) (Предустановка задачи для Azure Media Packager).
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ ms.lasthandoff: 12/07/2017
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Использование статического шифрования для защиты данных в формате Smooth и MPEG DASH с использованием PlayReady
 Если вы хотите защитить содержимое с помощью PlayReady, можно выполнить [динамическое шифрование](media-services-protect-with-playready-widevine.md) (рекомендуемый вариант) или статическое шифрование (как описано в этом разделе).
@@ -263,6 +267,7 @@ ms.lasthandoff: 12/07/2017
 
 В примере определяется метод UpdatePlayReadyConfigurationXMLFile, который можно использовать для динамического обновления файла MediaEncryptor_PlayReadyProtection.xml. Если начальное значение ключа доступно, можно использовать метод CommonEncryption.GeneratePlayReadyContentKey для создания ключа содержимого на основе значений keySeedValue и KeyId.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ ms.lasthandoff: 12/07/2017
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Использование статического шифрования для защиты HLSv3 с использованием AES-128
 Если вы хотите зашифровать содержимое HLS с AES-128, можно выполнить динамическое шифрование (рекомендуемый вариант) или статическое шифрование (как описано в этом разделе). Если вы решили воспользоваться динамическим шифрованием, обратитесь к разделу [Использование динамического шифрования AES-128 и службы доставки ключей](media-services-protect-with-aes128.md).
@@ -707,6 +713,7 @@ ms.lasthandoff: 12/07/2017
 
 Пример в этом разделе кодирует мезонинный файл (в данном случае MP4) в файлы MP4 с несколькими скоростями, а затем упаковывает файлы MP4 в формат Smooth Streaming. После этого он упаковывает содержимое в формате Smooth Streaming в формат HTTP Live Streaming (HLS), зашифрованный с помощью 128-разрядного шифрования потока AES. Обязательно измените следующий код, указав каталог, в котором расположен исходный файл MP4. Также укажите расположение файлов MediaPackager_MP4ToSmooth.xml и MediaPackager_SmoothToHLS.xml. Определение этих файлов можно найти в статье [Task Preset for Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) (Предустановка задачи для Azure Media Packager).
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ ms.lasthandoff: 12/07/2017
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Использование статического шифрования для защиты HLSv3 с использованием PlayReady
 Если вы хотите защитить содержимое с помощью PlayReady, можно выполнить [динамическое шифрование](media-services-protect-with-playready-widevine.md) (рекомендуемый вариант) или статическое шифрование (как описано в этом разделе).
@@ -990,6 +998,7 @@ ms.lasthandoff: 12/07/2017
 
 Обязательно измените следующий код, указав каталог, в котором расположен исходный файл MP4. Также укажите расположение файлов MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml и MediaEncryptor_PlayReadyProtection.xml. Файлы MediaPackager_MP4ToSmooth.xml и MediaPackager_SmoothToHLS.xml описаны [здесь](http://msdn.microsoft.com/library/azure/hh973635.aspx), а MediaEncryptor_PlayReadyProtection.xml — [здесь](http://msdn.microsoft.com/library/azure/hh973610.aspx).
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,6 +1461,7 @@ ms.lasthandoff: 12/07/2017
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

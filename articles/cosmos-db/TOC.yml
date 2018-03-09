@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: Использование параметров чтения
               href: mongodb-readpreference.md
+            - name: Индексация
+              href: mongodb-indexing.md
             - name: Поддержка функций MongoDB
               href: mongodb-feature-support.md
             - name: Серия руководств по Angular

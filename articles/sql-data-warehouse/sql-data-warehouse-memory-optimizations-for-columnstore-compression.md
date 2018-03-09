@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Максимальное повышение качества группы строк для индекса columnstore
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 Объем доступной для выполнения пользовательских запросов памяти определяется размером DWU и классом ресурсов пользователя. Чтобы увеличить объем выделенной для запросов загрузки памяти, можно увеличить число DWU или повысить класс ресурсов.
 
-- Сведения об увеличении числа DWU см.в разделе [Масштабирование производительности](sql-data-warehouse-manage-compute-overview.md#scale-compute).
+- Сведения об увеличении числа DWU см.в разделе [Масштабирование производительности](quickstart-scale-compute-portal.md).
 - Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Например, располагая DWU 100 и классом ресурсов smallrc, пользователь может использовать 100 МБ памяти для каждого распределения. Дополнительные сведения см. в статье [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL](sql-data-warehouse-develop-concurrency.md).
