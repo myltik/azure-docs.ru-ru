@@ -73,6 +73,7 @@
 ### [Визуализация моделей сетевого трафика с помощью средств с открытым кодом](network-watcher-using-open-source-tools.md)
 ## Анализ журналов потоков NSG
 ### [Чтение журналов потоков NSG](network-watcher-read-nsg-flow-logs.md)
+### [Использование Аналитики трафика](traffic-analytics.md)
 ### [Использование Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Использование эластичного пула](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Использование Grafana](network-watcher-nsg-grafana.md)

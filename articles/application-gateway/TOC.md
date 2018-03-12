@@ -62,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Интеграция центра безопасности Azure](application-gateway-integration-security-center.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Настройка сквозного шифрования SSL](application-gateway-end-to-end-ssl-powershell.md)
 ## Устранение неполадок
 ### [Устранение ошибок в шлюзе приложений](application-gateway-troubleshooting-502.md)
 ### [Ведение журналов диагностики и метрики](application-gateway-diagnostics.md)

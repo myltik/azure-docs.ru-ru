@@ -33,6 +33,9 @@
 #### [Создание общедоступного IP-адреса в зоне доступности с помощью PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Создание общедоступного IP-адреса в зоне доступности с помощью интерфейса командной строки](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### База данных SQL
+#### [Использование зон доступности с Базой данных SQL](../sql-database/sql-database-high-availability.md#availability-zones)
+
 ### Хранилище
 #### [Хранилище, избыточное в пределах зоны](../storage/common/storage-redundancy.md#zone-redundant-storage)
 

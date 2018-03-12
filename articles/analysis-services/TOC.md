@@ -20,6 +20,10 @@
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
 ## [Обновление с помощью REST API](analysis-services-async-refresh.md)
 ## [Настройка горизонтального масштабирования](analysis-services-scale-out.md)
+## Автоматизация административных задач
+### [Создание субъекта-службы с помощью портала Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Создание субъекта-службы с помощью PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Добавление субъекта-службы к роли администратора сервера](analysis-services-addservprinc-admins.md)
 ## Управление сервером
 ### [Настройка псевдонима имени сервера](analysis-services-server-alias.md)
 ### [Управление сервером](analysis-services-manage.md)

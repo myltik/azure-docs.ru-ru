@@ -58,13 +58,14 @@
 
 ## Устранение неполадок
 ### [Руководство по устранению неполадок](stream-analytics-troubleshooting-guide.md)
+### [Общие вопросы об устранении неполадок](stream-analytics-common-troubleshooting-issues.md)
 ### [Колонка работоспособности ресурсов](stream-analytics-resource-health.md)
 ### [Схемы и метрики заданий](stream-analytics-job-diagram-with-metrics.md)
 ### [Отладка SELECT INTO](stream-analytics-select-into.md)
 ### [Рекомендации по упорядочиванию событий](stream-analytics-out-of-order-and-late-events.md)
 ### [Ограничения на чтение в концентраторе событий](stream-analytics-event-hub-consumer-groups.md)
 ### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)
-### [Получение событий в неправильном формате](stream-analytics-malformed-events.md)
+
 
 ## Автоматизация
 ### [Использование пакета SDK для .NET для управления](stream-analytics-dotnet-management-sdk.md)

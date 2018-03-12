@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: "1.\_Проектирование базы данных с помощью .NET"
       href: sql-database-design-first-database-csharp.md
-    - name: 2. Перенос базы данных SQL Server
+    - name: 2. Перенос в базу данных SQL Server
       href: sql-database-migrate-your-sql-server-database.md
     - name: "3.\_Защита базы данных SQL"
       href: sql-database-security-tutorial.md
     - name: "4.\_Реализация географически распределенной базы данных"
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5. Создание управляемого экземпляра
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Основные понятия
   items:
-    - name: Служба баз данных
-      items:
-        - name: Серверы и базы данных
-          href: sql-database-servers-databases.md
-        - name: Уровни службы
-          href: sql-database-service-tiers.md
-        - name: Ограничения ресурсов
-          href: sql-database-resource-limits.md
-        - name: Отдельные базы данных
-          href: sql-database-single-database-resources.md
-        - name: Пулы эластичных БД
-          href: sql-database-elastic-pool.md
-        - name: Архитектура подключения
-          href: sql-database-connectivity-architecture.md
-        - name: DTU и eDTU
-          href: sql-database-what-is-a-dtu.md
-        - name: Тест производительности DTU
-          href: sql-database-benchmark-overview.md
-        - name: Общие компоненты SQL Server
-          href: sql-database-features.md
+    - name: Серверы и базы данных
+      href: sql-database-servers-databases.md
+    - name: Управляемый экземпляр
+      href: sql-database-managed-instance.md
+    - name: Уровни службы
+      href: sql-database-service-tiers.md
+    - name: Ограничения ресурсов
+      href: sql-database-resource-limits.md
+    - name: Отдельные базы данных
+      href: sql-database-single-database-resources.md
+    - name: Пулы эластичных БД
+      href: sql-database-elastic-pool.md
+    - name: Архитектура подключения
+      href: sql-database-connectivity-architecture.md
+    - name: DTU и eDTU
+      href: sql-database-what-is-a-dtu.md
+    - name: Тест производительности DTU
+      href: sql-database-benchmark-overview.md
+    - name: Общие компоненты SQL Server
+      href: sql-database-features.md
     - name: высокую доступность;
       href: sql-database-high-availability.md
     - name: Безопасность
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Аудит
           href: sql-database-auditing.md
-        - name: Обнаружение угроз
+        - name: Обнаружение угроз для Базы данных SQL
           href: sql-database-threat-detection.md
+        - name: Обнаружение угроз для управляемого экземпляра
+          href: sql-database-managed-instance-threat-detection.md
         - name: Аудит таблиц и TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Динамическое маскирование данных
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Переход на базу данных SQL
       items:
-        - name: Обзор
+        - name: Переход на базу данных SQL
           href: sql-database-cloud-migrate.md
-        - name: Изменения в T-SQL
+        - name: Перенос в управляемый экземпляр
+          href: sql-database-managed-instance-migrate.md
+        - name: Сведения о T-SQL в Базе данных SQL
           href: sql-database-transact-sql-information.md
-        - name: Управление базой данных после миграции
+        - name: Сведения о T-SQL в управляемых экземплярах
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Управление Базой данных SQL после переноса
           href: sql-database-manage-after-migration.md
     - name: Загрузка и перемещение данных
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Запрос к таблицам с разными схемами
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Управляемый экземпляр
+      items:
+        - name: Конфигурация виртуальной сети
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: Пользовательский DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Подключение приложений
+          href: sql-database-managed-instance-connect-app.md
+        - name: Синхронизация конфигурации сети
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Безопасность
       items:
         - name: "Настройка аутентификации Azure\_AD"
@@ -472,4 +490,4 @@
     - name: Центр архитектуры
       href: /azure/architecture/
     - name: Истории клиентов
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

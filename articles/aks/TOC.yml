@@ -47,9 +47,13 @@
           href: delete-cluster.md
     - name: Конфигурирование томов данных
       items:
-        - name: Диски Azure
+        - name: Том Kubernetes — диски
+          href: azure-disk-volume.md
+        - name: Том Kubernetes — файлы
+          href: azure-files-volume.md
+        - name: Постоянный том — диски
           href: azure-disks-dynamic-pv.md
-        - name: Файлы Azure
+        - name: Постоянный том — файлы
           href: azure-files-dynamic-pv.md
     - name: Настройка сети
       items:
@@ -73,6 +77,8 @@
           href: integrate-azure.md
         - name: Непрерывное развертывание с помощью Jenkins
           href: jenkins-continuous-deployment.md
+        - name: Использование OpenFaaS с AKS
+          href: openfaas.md
     - name: Базовые сведения о Kubernetes
       items:
         - name: Использование панели мониторинга Kubernetes

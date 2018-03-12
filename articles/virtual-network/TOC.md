@@ -27,7 +27,8 @@
 ### [Группы безопасности сети](virtual-networks-nsg.md)
 
 ## Развертывание
-### [Виртуальные сети](virtual-networks-create-vnet-arm-pportal.md)
+### виртуальные сети;
+#### [портал Azure](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [интерфейс командной строки Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,27 +43,25 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Определяемые пользователем маршруты
-#### [портал Azure](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+### Таблицы маршрутов
+#### [портал Azure](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [интерфейс командной строки Azure](tutorial-create-route-table-cli.md)
 #### [Шаблон](virtual-network-create-udr-arm-template.md)
 #### Классический
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [интерфейс командной строки Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Пиринг между виртуальными сетями
-#### [Одна модель развертывания — одна подписка](virtual-network-create-peering.md)
+#### Одна модель развертывания — одна подписка
+##### [портал Azure](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [интерфейс командной строки Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Одна модель развертывания — разные подписки](create-peering-different-subscriptions.md)
 #### [Разные модели развертывания — одна подписка](create-peering-different-deployment-models.md)
 #### [Разные модели развертывания — разные подписки](create-peering-different-deployment-models-subscriptions.md)
 
 ### [Конечные точки службы виртуальной сети](virtual-network-service-endpoints-configure.md)
-
-### Общедоступный IP-адрес — зона доступности
-#### [портал Azure](create-public-ip-availability-zone-portal.md)
-#### [интерфейс командной строки Azure](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Виртуальные машины
 #### [Пропускная способность сети на виртуальных машинах](virtual-machine-network-throughput.md)
@@ -147,7 +146,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## управление
-### [Виртуальные сети](virtual-network-manage-network.md)
+### [Виртуальные сети](manage-virtual-network.md)
 #### [Подсети](virtual-network-manage-subnet.md)
 #### [Пиринг](virtual-network-manage-peering.md)
 #### Классический

@@ -1,5 +1,5 @@
 # Обзор
-## [Приступая к работе с условным доступом](get-started.md)
+## [Начало работы](get-started.md)
 ## [Сертификаты](sap-certifications.md)
 # SAP HANA в Azure (большие экземпляры)
 ## [Обзор и архитектура](hana-overview-architecture.md)
@@ -14,7 +14,11 @@
 ## [Установка SAP HANA с одним экземпляром](hana-get-started.md)
 ## [Руководство по развертыванию S/4 HANA или BW/4 HANA SAP CAL](cal-s4h.md)
 ## [Руководство по использованию SAP HANA в Azure](hana-vm-operations.md)
-## [Высокий уровень доступности SAP HANA на виртуальных машинах Azure](sap-hana-high-availability.md)
+## Доступность SAP HANA в Виртуальных машинах Azure
+### [Общие сведения о доступности SAP HANA в Azure](sap-hana-availability-overview.md)
+### [Доступность SAP HANA в Azure в пределах одного региона Azure](sap-hana-availability-one-region.md)
+### [Доступность SAP HANA в Azure в разных регионах Azure](sap-hana-availability-across-regions.md)
+## [Настройка репликации системы SAP HANA в виртуальные машины Azure](sap-hana-high-availability.md)
 ## [Обзор резервного копирования SAP HANA](sap-hana-backup-guide.md)
 ## [Резервное копирование SAP HANA на уровне файлов](sap-hana-backup-file-level.md)
 ## [Резервные копии моментальных снимков хранилища SAP HANA](sap-hana-backup-storage-snapshots.md)

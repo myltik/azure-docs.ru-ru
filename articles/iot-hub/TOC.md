@@ -40,6 +40,9 @@
 ### [Управление устройствами с помощью расширения IoT для Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Удаленный мониторинг и использование уведомлений с помощью Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
+## Использование MXChip IoT DevKit
+### [Преобразование голосового сообщения Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+
 # Практические руководства
 ## План
 ### [Сравнение Центра Интернета вещей и службы "Концентраторы событий"](iot-hub-compare-event-hubs.md)

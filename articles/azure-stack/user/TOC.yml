@@ -48,7 +48,7 @@
             - name: Управление дисками виртуальной машины
               href: azure-stack-manage-vm-disks.md
             - name: Защита виртуальных машин
-              href: azure-stack-manage-vm-backup.md
+              href: azure-stack-manage-vm-protect.md
         - name: Хранилище
           items:
             - name: Обзор
@@ -124,7 +124,7 @@
     - name: PowerShell для Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Azure Stack CLI
-      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Сопутствующие материалы
   items:
     - name: Документация оператора по Azure Stack

@@ -17,6 +17,8 @@
           href: quickstart-input-bam.md
         - name: Файлы FASTQ или BAM
           href: quickstart-input-multiple.md
+    - name: Ввод маркера SAS вместо ключа учетной записи
+      href: quickstart-input-sas.md
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы
