@@ -15,18 +15,20 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60e6737533e946512ae9b8e1e251e7bd6c9d0fe5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ac5067056a49eb18c80c6078960af9189984391a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Настройка сервера Многофакторной идентификации Azure для работы с AD FS на платформе Windows Server
+
 Если вы используете службы федерации Active Directory (AD FS) и хотите защитить облачные или локальные ресурсы, вы можете настроить сервер Многофакторной идентификации Azure для работы с AD FS. Эта конфигурация активирует двухфакторную проверку подлинности для важных конечных точек.
 
 Эта статья содержит сведения об использовании сервера Многофакторной идентификации Azure с AD FS на платформе Windows Server 2012 R2 или Windows Server 2016. Дополнительные сведения см. в статье [Защита облачных и локальных ресурсов с помощью сервера Многофакторной идентификации Azure и AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Защита AD FS в Windows Server с помощью сервера Многофакторной идентификации Azure
+
 Для установки сервера Многофакторной идентификации Azure вы можете выбрать один из следующих вариантов.
 
 * Установка сервера Многофакторной идентификации Azure локально на том же сервере, на котором находятся службы AD FS.
@@ -41,6 +43,7 @@ ms.lasthandoff: 12/11/2017
 * Сведения об установке пакета SDK веб-службы с помощью пользовательского портала см. в статье [Развертывание пользовательского портала на сервере Многофакторной идентификации Azure](multi-factor-authentication-get-started-portal.md).
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Установка сервера Многофакторной идентификации Azure локально на сервере, на котором находятся службы AD FS
+
 1. Скачайте и установите сервер Многофакторной идентификации Azure на сервере AD FS. Сведения об установке см. в статье [Приступая к работе с сервером Многофакторной идентификации Azure](multi-factor-authentication-get-started-server.md).
 2. В консоли управления сервером Многофакторной идентификации Azure щелкните значок **AD FS**. Установите флажки **Разрешить регистрацию пользователей** и **Разрешить пользователям выбирать метод**.
 3. Выберите дополнительные параметры, которые вы хотите указать для своей организации.
@@ -65,6 +68,7 @@ ms.lasthandoff: 12/11/2017
 На этом этапе сервер Многофакторной идентификации уже настроен в качестве дополнительного поставщика проверки подлинности, который можно использовать с AD FS.
 
 ## <a name="install-a-standalone-instance-of-the-ad-fs-adapter-by-using-the-web-service-sdk"></a>Установка изолированного экземпляра адаптера AD FS с помощью пакета SDK веб-службы
+
 1. Установите пакет SDK веб-службы на сервере, на котором запущен сервер Многофакторной идентификации.
 2. Скопируйте следующие файлы из папки \Program Files\Multi-Factor Authentication Server на сервер, на котором вы планируете установить адаптер AD FS:
    * MultiFactorAuthenticationAdfsAdapterSetup64.msi
@@ -79,16 +83,18 @@ ms.lasthandoff: 12/11/2017
 Чтобы изменить файл MultiFactorAuthenticationAdfsAdapter.config, выполните следующие действия.
 
 1. Задайте для узла **UseWebServiceSdk** значение **true**.  
-2. В поле **WebServiceSdkUrl** укажите URL-адрес пакета SDK веб-службы многофакторной проверки подлинности. Например, *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, где *certificatename* — это имя сертификата.  
+2. В поле **WebServiceSdkUrl** укажите URL-адрес пакета SDK веб-службы многофакторной проверки подлинности. Например, *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, где *certificatename* — это имя сертификата.  
 3. Измените скрипт Register-MultiFactorAuthenticationAdfsAdapter.ps1. Для этого добавьте `-ConfigurationFilePath &lt;path&gt;` в конец команды `Register-AdfsAuthenticationProvider`, где *&lt;path&gt;* — это полный путь к файлу MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Настройка пакета SDK веб-службы с помощью имени пользователя и пароля
+
 Настройку пакета SDK веб-службы можно выполнить двумя способами. В первом случае используется имя пользователя и пароль, а во втором — сертификат клиента. Выполните следующие действия, чтобы настроить пакет SDK первым способом, или перейдите к инструкции для второго способа.  
 
 1. Для параметра **WebServiceSdkUsername** укажите учетную запись, которая является участником группы безопасности PhoneFactor Admins. Используйте формат &lt;домен&gt;&#92;&lt;имя_пользователя&gt;.  
 2. Для параметра **WebServiceSdkPassword** укажите пароль соответствующей учетной записи.
 
 ### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>Настройка пакета SDK веб-службы с помощью сертификата клиента
+
 Если вы не хотите использовать имя пользователя и пароль для настройки пакета SDK веб-службы, выполните следующие действия для настройки с помощью сертификата клиента.
 
 1. Получите в центре сертификации сертификат клиента для сервера, на котором запущен пакет SDK веб-службы. Дополнительные сведения см. в статье [о получении сертификатов клиента](https://technet.microsoft.com/library/cc770328.aspx).  
@@ -120,6 +126,7 @@ ms.lasthandoff: 12/11/2017
 Чтобы зарегистрировать адаптер, выполните в PowerShell сценарий \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1. Адаптер регистрируется как WindowsAzureMultiFactorAuthentication. Для завершения регистрации нужно перезапустить службу AD FS.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Защита ресурсов Azure AD с помощью AD FS
+
 Чтобы защитить облачный ресурс, настройте правило утверждений, чтобы при выполнении пользователем двухфакторной проверки подлинности службы федерации Active Directory выдавали утверждение multipleauthn. Это утверждение передается в Azure AD. Для этого следуйте такой процедуре:
 
 1. Откройте оснастку управления AD FS.
@@ -142,5 +149,17 @@ ms.lasthandoff: 12/11/2017
     ![Мастер добавления правила преобразования утверждений](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
 9. Нажмите кнопку **Готово** Закройте консоль управления AD FS.
 
+## <a name="troubleshooting-logs"></a>Журналы для устранения неполадок
+
+Чтобы включить дополнительное ведение журнала для устранения неполадок с адаптером AD FS сервера MFA, выполните следующие действия.
+
+1. В интерфейсе сервера MFA откройте раздел AD FS и установите флажок **Включить ведение журнала**.
+2. На каждом сервере AD FS используйте файл **regedit.exe** для создания строкового раздела реестра `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath` в каталоге `C:\Program Files\Multi-Factor Authentication Server\` (или в другом каталоге).  **Обратите внимание, что обратная косая черта обязательна.**
+3. Создайте каталог `C:\Program Files\Multi-Factor Authentication Server\Logs` (или другой каталог, указанный на **шаге 2**).
+4. Предоставьте учетной записи службы AD FS разрешение на изменение каталога хранения журналов.
+5. Перезагрузите службу AD FS.
+6. Убедитесь, что в каталоге хранения журналов был создан файл `MultiFactorAuthAdfsAdapter.log`.
+
 ## <a name="related-topics"></a>Связанные разделы
+
 Дополнительные сведения по поиску и устранению ошибок см. в статье [Часто задаваемые вопросы о службе Многофакторной идентификации Azure](multi-factor-authentication-faq.md).

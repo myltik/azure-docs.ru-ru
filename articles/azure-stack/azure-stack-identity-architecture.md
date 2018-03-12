@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Архитектура удостоверений Azure Stack
 Прежде чем выбрать поставщик удостоверений для использования с Azure Stack, ознакомьтесь с существенными различиями между вариантами Azure Active Directory (Azure AD) и службы федерации Active Directory (AD FS). 
@@ -86,7 +86,7 @@ ms.lasthandoff: 02/24/2018
 
   Для взаимодействия с Active Directory API Graph требуются учетные данные пользователя из Active Directory, имеющие разрешение только на чтение в Active Directory. 
   - Встроенные службы федерации Active Directory основаны на Server 2016. 
-  - Службы федерации Active Directory и Active Directory должны быть основаны на Server 2012 или более ранней версии. 
+  - Службы федерации Active Directory и Active Directory должны быть основаны на Server 2012 или более поздней версии.  
   
   Взаимодействие между Active Directory и встроенным AD FS не ограничено только OpenID Connect. Поэтому вы можете использовать любой поддерживаемый протокол.  
   - Учетные записи пользователей создаются и управляются в локальном Active Directory.

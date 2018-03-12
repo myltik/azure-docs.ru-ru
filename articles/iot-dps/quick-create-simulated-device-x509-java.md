@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Создание и подготовка имитированного устройства X.509 с помощью пакета Java SDK для службы подготовки устройств Центра Интернета вещей
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ ms.lasthandoff: 02/09/2018
 
         1. Введите **N** в ответ на запрос _Do you want to input Verification Code_ (Хотите ли вы ввести код проверки?) и не закрывайте окно программы, поскольку оно понадобится позднее при работе с этим руководством. Запишите значения _Client Cert_ (Сертификат клиента), _Client Cert Private Key_ (Закрытый ключ сертификата клиента), _Signer Cert_ (Сертификат подписи) и _Root Cert_ (Корневой сертификат).
 
+        > [!NOTE]
+        > Показанный выше сертификат `Root Cert` применяется только к сертификатам, выведенных в окне консоли, и не может использоваться для подписания дополнительных клиентских сертификатов. Если требуется более надежный набор сертификатов тестирования, см. пример [управления сертификатами ЦС](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>Создание записи о регистрации устройства
 
@@ -189,7 +192,7 @@ ms.lasthandoff: 02/09/2018
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - Используйте для сертификатов следующий формат:

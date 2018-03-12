@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Обеспечение высокой доступности данных приложений в хранилище Azure
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/22/2018
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Имя** | mystorageaccount | Уникальное значение учетной записи хранения. |
    | **Модель развертывания** | Диспетчер ресурсов  | Resource Manager содержит новые функции.|
-   | **Account kind** (Тип учетной записи) | Универсальные | Дополнительные сведения о типах учетных записей см. в разделе [Типы учетных записей хранения](../common/storage-introduction.md#types-of-storage-accounts). |
+   | **Account kind** (Тип учетной записи) | Хранилище версии 2 | Дополнительные сведения о типах учетных записей см. в разделе [Типы учетных записей хранения](../common/storage-introduction.md#types-of-storage-accounts). |
    | **Производительность** | Стандартная | Значения Standard достаточно для примера сценария. |
    | **Репликация**| Геоизбыточное хранилище с доступом для чтения (RA-GRS) | Это значение необходимо для работы примера. |
    |**Secure transfer required** (Требуется безопасное перемещение) | Отключено| Безопасное перемещение не является обязательным для этого сценария. |
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/22/2018
    |**ResourceGroup** | myResourceGroup |Допустимые имена групп ресурсов см. в статье о [правилах и ограничениях именования](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Местоположение.** | Восток США | Выберите расположение. |
 
-![создание учетной записи хранения](media/storage-create-geo-redundant-storage/figure1.png)
+![создание учетной записи хранения](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 
