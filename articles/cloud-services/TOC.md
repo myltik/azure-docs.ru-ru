@@ -35,6 +35,7 @@
 ### Настройка удаленного рабочего стола
 #### [Портал](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Развертывание
 ### [Создание и развертывание облачной службы на портале](cloud-services-how-to-create-deploy-portal.md)

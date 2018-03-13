@@ -26,7 +26,7 @@
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Цены
-      href: 'https://azure.microsoft.com/pricing/'
+      href: 'https://azure.microsoft.com/pricing/details/databricks/'
     - name: Переполнение стека
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Регионы доступности
