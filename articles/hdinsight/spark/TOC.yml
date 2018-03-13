@@ -91,8 +91,10 @@
           maintainContext: true
     - name: Потоковая передача Spark
       items:
-        - name: Обзор
+        - name: Общие сведения о потоковой передаче
           href: apache-spark-streaming-overview.md
+        - name: Общие сведения о структурированной потоковой передаче
+          href: apache-spark-structured-streaming-overview.md
         - name: Создание высокодоступных заданий потоковой передачи Spark в YARN
           href: apache-spark-streaming-high-availability.md
         - name: Структурированная потоковая передача с помощью концентраторов событий

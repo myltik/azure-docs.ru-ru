@@ -264,14 +264,24 @@
           items:
             - name: Обзор
               href: azure-stack-billing-and-chargeback.md
-            - name: Отчеты по данным об использовании
-              href: azure-stack-usage-reporting.md
-            - name: API использования поставщика
-              href: azure-stack-provider-resource-api.md
-            - name: API использования клиента
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Часто задаваемые вопросы об использовании
-              href: azure-stack-usage-related-faq.md
+            - name: Управление потреблением и выставлением счетов в качестве поставщика облачных служб
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Добавление клиентов для потребления и выставления счетов
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Управление регистрацией клиента
+              href: azure-stack-csp-ref-operations.md
+            - name: Справочник по потреблению и выставлению счетов
+              items:
+                - name: Отчеты по данным об использовании
+                  href: azure-stack-usage-reporting.md
+                - name: Инфраструктура отчетов о потреблении для поставщиков облачных служб
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: API использования поставщика
+                  href: azure-stack-provider-resource-api.md
+                - name: API использования клиента
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Часто задаваемые вопросы об использовании
+                  href: azure-stack-usage-related-faq.md
         - name: Подключение к Azure
           items:
             - name: Подключение с помощью виртуальной частной сети

@@ -64,21 +64,20 @@
 ### [Просмотр операций развертывания](resource-manager-deployment-operations.md)
 
 ## Устранение неполадок
-### [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md);
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md);
-#### [Проблемы с развертыванием в Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md);
-#### [NotFound](resource-manager-not-found-errors.md);
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Проблемы подготовки и распределения в Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Проблемы подготовки и распределения в Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md);
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md).
-#### [Проблемы с развертыванием в Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [Сведения об ошибках развертывания](resource-manager-troubleshoot-tips.md)
+### [Устранение ошибок развертывания](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md);
+### [InvalidTemplate](resource-manager-invalid-template-errors.md);
+### [Проблемы с развертыванием в Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md);
+### [NotFound](resource-manager-not-found-errors.md);
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Проблемы подготовки и распределения в Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Проблемы подготовки и распределения в Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md);
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md).
+### [Проблемы с развертыванием в Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Справочные материалы
 ## [Формат шаблона](/azure/templates/)

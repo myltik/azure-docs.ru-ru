@@ -76,7 +76,7 @@
 
 ## [Управление группами и членами](active-directory-manage-groups.md)
 ### Управление группами
-#### [Портал Azure](active-directory-groups-create-azure-portal.md)
+#### [портал Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Управление членами группы](active-directory-groups-members-azure-portal.md)
 ### [Управление владельцами групп](active-directory-accessmanagement-managing-group-owners.md)
@@ -95,10 +95,10 @@
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Восстановление удаленной группы Office 365](active-directory-groups-restore-azure-portal.md)
 ### Управление параметрами группы
-#### [Портал Azure](active-directory-groups-settings-azure-portal.md)
+#### [портал Azure](active-directory-groups-settings-azure-portal.md)
 #### [Командлеты](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Создание дополнительных правил
-#### [Портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 
@@ -290,9 +290,10 @@
 ### [Роли администратора](active-directory-assign-admin-roles-azure-portal.md)
 #### [Назначение роли администратора пользователю](active-directory-users-assign-role-azure-portal.md)
 #### [Сравнение пользовательских разрешений члена и гостя](users-default-permissions.md)
+### [Защита привилегированного доступа](admin-roles-best-practices.md) 
+### [Создание учетных записей администратора для аварийного доступа](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Административные единицы](active-directory-administrative-units-management.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
-### [Управление учетными записями администратора для аварийного доступа](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Проверки доступа
 ### [Обзор проверки доступа](active-directory-azure-ad-controls-access-reviews-overview.md)

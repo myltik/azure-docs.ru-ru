@@ -114,6 +114,12 @@
       items:
         - name: Подключенные решения
           href: security-center-partner-solutions.md
+        - name: Обнаруженные решения
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: Подключение внешних решений
+          href: quick-security-solutions.md
+        - name: Подключение шлюза приложений
+          href: security-center-connect-application-gateway.md
         - name: Подключение Microsoft ATA
           href: security-center-ata-integration.md
         - name: Подключение службы защиты идентификации Azure AD

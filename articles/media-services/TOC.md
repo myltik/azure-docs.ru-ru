@@ -233,7 +233,10 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)  
+## [REST](/rest/api/media/mediaservice)
+## спецификации;
+### [Прием в реальном времени: спецификация приема фрагментированного MP4 в реальном времени](media-services-fmp4-live-ingest-overview.md)
+### [Smooth Streaming для HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # Ресурсы
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)

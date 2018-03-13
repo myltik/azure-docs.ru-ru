@@ -87,6 +87,8 @@
       items:
         - name: Доступ к узлам SSH
           href: aks-ssh.md
+        - name: Получение журналов kubelet
+          href: kubelet-logs.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

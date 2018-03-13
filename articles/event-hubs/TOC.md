@@ -27,6 +27,7 @@
 ### [Обзор модели аутентификации и безопасности](event-hubs-authentication-and-security-model-overview.md)
 ### [Доступность и согласованность](event-hubs-availability-and-consistency.md)
 ### [Автоматическое масштабирование единиц пропускной способности](event-hubs-auto-inflate.md)
+### [Интеграция Apache Spark с концентраторами событий](event-hubs-spark-connector.md)
 ## Разработка
 ### [Отправка событий с помощью .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Получение событий с помощью .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

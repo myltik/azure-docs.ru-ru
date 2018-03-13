@@ -97,7 +97,7 @@
       items:
         - name: Развертывание приложения
           items:
-            - name: Развертывание ZIP-файла
+            - name: Развертывание ZIP- или WAR-файла
               href: app-service-deploy-zip.md
             - name: Развертывание через FTP
               href: app-service-deploy-ftp.md

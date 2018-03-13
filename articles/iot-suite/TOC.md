@@ -66,6 +66,7 @@
 ### [Создание имитированного устройства](iot-suite-remote-monitoring-test.md)
 ### [Настройка решения](iot-suite-remote-monitoring-customize.md)
 ### [Развертывание с помощью интерфейса командной строки](iot-suite-remote-monitoring-deploy-cli.md)
+### [Развертывание в локальной среде](iot-suite-remote-monitoring-deploy-local.md)
 ### Подключение физического устройства
 #### [C в Windows](iot-suite-connecting-devices.md)
 #### [C в Linux](iot-suite-connecting-devices-linux.md)

@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Развертывание с помощью Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
+    - name: Включение поставщика облачных служб
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Справочные материалы
   items:
     - name: PowerShell для Azure Stack
