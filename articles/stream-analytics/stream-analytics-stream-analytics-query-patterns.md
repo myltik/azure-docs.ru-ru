@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Примеры запросов для распространенных шаблонов использования Stream Analytics
 ## <a name="introduction"></a>Введение
@@ -504,6 +504,81 @@ GROUP BY
 
 
 **Объяснение.** Этот запрос создает события каждые 5 секунд и выводит последнее событие, полученное ранее. Длительность ["прыгающего"](https://msdn.microsoft.com/library/dn835041.aspx ""Прыгающее окно" — Azure Stream Analytics") окна определяет, насколько далеко в прошлое уходит запрос в поисках последнего события (300 секунд в этом примере).
+
+
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Пример запроса: корреляция двух типов событий в одном потоке
+**Описание.** Иногда требуется создавать предупреждения, которые основаны на нескольких типах событий, произошедших в определенный диапазон времени.
+Например, рассмотрим сценарий IoT для домашних печей. Предположим, нам нужно отображать оповещение, когда температура вентилятора опускается ниже 40 и максимальная мощность за последние 3 минуты не превышает 10.
+
+**Входные данные**
+
+| время | deviceId | sensorName | value |
+| --- | --- | --- | --- |
+| "2018-01-01T16:01:00" | "Oven1" (Печь 1) | "temp" (температура) |120 |
+| "2018-01-01T16:01:00" | "Oven1" (Печь 1) | "power" (питание) |15 |
+| "2018-01-01T16:02:00" | "Oven1" (Печь 1) | "temp" (температура) |100 |
+| "2018-01-01T16:02:00" | "Oven1" (Печь 1) | "power" (питание) |15 |
+| "2018-01-01T16:03:00" | "Oven1" (Печь 1) | "temp" (температура) |70 |
+| "2018-01-01T16:03:00" | "Oven1" (Печь 1) | "power" (питание) |15 |
+| "2018-01-01T16:04:00" | "Oven1" (Печь 1) | "temp" (температура) |50 |
+| "2018-01-01T16:04:00" | "Oven1" (Печь 1) | "power" (питание) |15 |
+| "2018-01-01T16:05:00" | "Oven1" (Печь 1) | "temp" (температура) |30 |
+| "2018-01-01T16:05:00" | "Oven1" (Печь 1) | "power" (питание) |8 |
+| "2018-01-01T16:06:00" | "Oven1" (Печь 1) | "temp" (температура) |20 |
+| "2018-01-01T16:06:00" | "Oven1" (Печь 1) | "power" (питание) |8 |
+| "2018-01-01T16:07:00" | "Oven1" (Печь 1) | "temp" (температура) |20 |
+| "2018-01-01T16:07:00" | "Oven1" (Печь 1) | "power" (питание) |8 |
+| "2018-01-01T16:08:00" | "Oven1" (Печь 1) | "temp" (температура) |20 |
+| "2018-01-01T16:08:00" | "Oven1" (Печь 1) | "power" (питание) |8 |
+
+**Выходные данные**:
+
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| "2018-01-01T16:05:00" | "Oven1" (Печь 1) |30 | "Short circuit heating elements" (Короткое замыкание нагревательных элементов) |15 |
+| "2018-01-01T16:06:00" | "Oven1" (Печь 1) |20 | "Short circuit heating elements" (Короткое замыкание нагревательных элементов) |15 |
+| "2018-01-01T16:07:00" | "Oven1" (Печь 1) |20 | "Short circuit heating elements" (Короткое замыкание нагревательных элементов) |15 |
+
+**Решение**
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+    t2.maxPower AS maxPowerDuringLast3mins
+    
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+    
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**Объяснение.** В первом запросе `max_power_during_last_3_mins` используется [скользящее окно](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), чтобы найти максимальное значение датчика питания для каждого устройства за последние 3 минут. Второй запрос объединяется с первым запросом, чтобы найти значение питания в последнем окне, которое связано с текущим событием. Затем, если условия выполняются, создается оповещение для устройства.
+
 
 ## <a name="get-help"></a>Получение справки
 За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

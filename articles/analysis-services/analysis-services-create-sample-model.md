@@ -1,6 +1,6 @@
 ---
-title: "Создание образца табличной модели для сервера Azure Analysis Services | Документация Майкрософт"
-description: "Сведения о том, как создать образец модели в службах Azure Analysis Services."
+title: "Добавление примера табличной модели для сервера Azure Analysis Services | Документация Майкрософт"
+description: "Сведения о том, как добавить пример модели в службах Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>Руководство. Создание образца модели
+# <a name="tutorial-add-a-sample-model"></a>Руководство. Добавление примера модели
 
-В этом руководстве вы создадите образец модели Adventure Works. Образец модели представляет собой готовую версию руководства по моделированию данных "Интернет-продажи Adventure Works" (1200). Образец модели полезен для тестирования управления моделью, соединения со средствами и клиентскими приложениями, а также для выполнения запросов к данным модели.
+В этом руководстве вы добавите пример модели Adventure Works на свой сервер. Образец модели представляет собой готовую версию руководства по моделированию данных "Интернет-продажи Adventure Works" (1200). Образец модели полезен для тестирования управления моделью, соединения со средствами и клиентскими приложениями, а также для выполнения запросов к данным модели.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 

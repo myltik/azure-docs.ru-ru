@@ -1,8 +1,8 @@
 ---
-title: "Соединитель GitHub в Azure Logic Apps | Документация Майкрософт"
-description: "Создание приложений логики с помощью службы приложений Azure. GitHub — это веб-служба размещения репозиториев Git. Она предоставляет все возможности распределенного управления редакциями и исходным кодом (SCM) Git, а также собственные функции."
+title: "Подключение к GitHub при помощи Azure Logic Apps | Документация Майкрософт"
+description: "Автоматизация рабочих процессов для GitHub при помощи Azure Logic Apps"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: 
@@ -13,34 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
-ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: cd7cd3babbfb7efc5917d3a7ec5b9d10112ba791
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="get-started-with-the-github-connector"></a>Начало работы с соединителем GitHub
-GitHub — это веб-служба размещения репозиториев Git. Она предоставляет все возможности распределенного управления редакциями и исходным кодом (SCM) Git, а также собственные функции.
+# <a name="connect-to-github"></a>Подключение к GitHub
 
-Для начала можно создать приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+GitHub — это веб-служба, где размещен репозиторий Git. Она обеспечивает все возможности распределенного управления версиями и исходным кодом (SCM) в Git, а также другие функции.
+
+Чтобы приступить к работе с соединителем GitHub, [сначала создайте приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Создание подключения к GitHub
-Для создания приложений логики с помощью GitHub необходимо создать **подключение**, а затем указать данные для следующих свойств. 
 
-| Свойство | Обязательно | ОПИСАНИЕ |
-| --- | --- | --- |
-| по маркеру |Yes |Укажите учетные данные GitHub |
+Чтобы использовать в приложении логики соединитель GitHub, сначала создайте *подключение*, а затем введите сведения для следующих свойств: 
 
-Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье. 
+| Свойство | Обязательно | ОПИСАНИЕ | 
+| -------- | -------- | ----------- | 
+| по маркеру | Yes | Укажите свои учетные данные GitHub. |
+
+Создав подключение, вы можете выполнять действия и ожидать передачи данных от триггеров, описанных в этой статье.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Сведения о соединителях
 
-Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/github/).
+Сведения о триггерах, действиях, определенных в Swagger, и всех ограничениях см. в статье о [соединителях](/connectors/github/).
 
-## <a name="more-connectors"></a>Дополнительные сведения о соединителях
-Вы можете вернуться к [списку интерфейсов API](apis-list.md).
+## <a name="find-more-connectors"></a>Другие соединители
+
+* Просмотрите [список соединителей](apis-list.md).

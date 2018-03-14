@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Устранение неполадок службы синхронизации файлов Azure (предварительная версия)
 С помощью службы синхронизации файлов Azure (предварительная версия) вы можете централизованно хранить файловые ресурсы организации в службе файлов Azure, обеспечивая гибкость, производительность и совместимость локального файлового сервера. Это достигается путем преобразования Windows Server в быстрый кэш общего файлового ресурса Azure. Для локального доступа к данным вы можете использовать любой протокол, доступный в Windows Server, в том числе SMB, NFS и FTPS. Кроме того, вы можете создать любое количество кэшей в любом регионе.
@@ -29,6 +29,9 @@ ms.lasthandoff: 02/27/2018
 2. [Форум службы хранилища Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [UserVoice службы файлов Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Служба поддержки Майкрософт. Чтобы создать запрос на поддержку на портале Azure, на вкладке **Справка** нажмите кнопку **Справка и поддержка**, а затем выберите **Новый запрос на поддержку**.
+
+## <a name="storage-sync-service-object-management"></a>Управление объектами в службе синхронизации хранилища
+Если вы перемещаете ресурсы из одной подписки в другую, ресурсы синхронизации файлов (службы синхронизации хранилища) не переносятся. 
 
 ## <a name="agent-installation-and-server-registration"></a>Установка агента и регистрация сервера
 <a id="agent-installation-failures"></a>**Устранение сбоев при установке агента**  

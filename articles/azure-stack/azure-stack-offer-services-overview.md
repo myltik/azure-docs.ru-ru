@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Общие сведения о предложении служб в Azure Stack
 
@@ -44,5 +44,5 @@ ms.lasthandoff: 02/21/2018
 **Делегируемые поставщики.** Вы можете предоставить другим возможность создавать предложения в вашей среде. Например, если вы поставщик услуг, вы можете [делегировать](azure-stack-delegated-provider.md) эту возможность торговым посредникам. Или, если вы представляете организацию, вы можете делегировать полномочия другим подразделениям и филиалам.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Дополнительные сведения о предложениях, планах, квотах и подписках](azure-stack-plan-offer-quota-overview.md)
+[Создание предложения в Azure Stack](azure-stack-create-offer.md)
 

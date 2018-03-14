@@ -4,20 +4,20 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Учебник. Интеграция Azure Active Directory с Slack
 
@@ -121,6 +121,9 @@ ms.lasthandoff: 12/11/2017
     
     ![Настройка единого входа](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Если пользователю назначен **адрес электронной почты** с помощью Office 365, то указывается только он. В противном случае в токене SAML не отобразится утверждение **адреса электронной почты**.
+
 5. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** выберите значение **user.mail** для параметра **Идентификатор пользователя**, а в каждой строке в таблице ниже выполните следующие действия:
     
     | Имя атрибута | Значение атрибута |
@@ -137,8 +140,10 @@ ms.lasthandoff: 12/11/2017
     a. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
     
     Б. Из списка **Значение** выберите значение атрибута, отображаемое для этой строки.
+
+    c. Оставьте пустым поле **Пространство имен**.
     
-    c. Щелкните **ОК**
+    d. Щелкните **ОК**
 
 6. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 

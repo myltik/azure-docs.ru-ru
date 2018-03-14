@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Использование экземпляров с поддержкой RDMA или графического процессора (GPU) в пулах пакетной службы
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="subscription-and-account-limits"></a>Ограничения подписки и учетной записи
 
-* **Квоты и ограничения.** [Выделенная квота на ядра на одну учетную запись пакетной службы](batch-quota-limit.md#resource-quotas) может ограничить количество и тип узлов, которые можно добавить в пул пакетной службы. Скорее всего, вы достигнете квоты при выборе размеров многоядерных виртуальных машин с поддержкой RDMA, графического процессора (GPU) и т. п. Отдельная квота применяется к [виртуальным машинам с низким приоритетом](batch-low-pri-vms.md) (если они используются). 
+* **Квоты и ограничения.** [Квота на ядра на одну учетную запись пакетной службы](batch-quota-limit.md#resource-quotas) может ограничивать число узлов определенного размера, которые можно добавить в пул пакетной службы. Скорее всего, вы достигнете квоты при выборе размеров многоядерных виртуальных машин с поддержкой RDMA, графического процессора (GPU) и т. п. 
 
-  Кроме того, использование определенных семейств виртуальных машин (например, NCv2 и ND) в вашей учетной записи пакетной службы ограничено из-за лимитированной емкости. Использовать эти семейства можно только после запроса на увеличение квоты с 0 ядер по умолчанию.  
+  Кроме того, использование определенных семейств виртуальных машин (например, NCv2, NCv3 и ND) в вашей учетной записи пакетной службы ограничено из-за лимитированной емкости. Использовать эти семейства можно только после запроса на увеличение квоты с 0 ядер по умолчанию.  
 
-  Если нужно увеличить квоту, [отправьте запрос в службу поддержки](../azure-supportability/how-to-create-azure-support-request.md). Это бесплатная услуга.
+  При необходимости [подайте запрос на бесплатное увеличение квоты](batch-quota-limit.md#increase-a-quota).
 
 * **Доступность в регионах.** Виртуальные машины для ресурсоемких вычислений могут быть недоступны в регионах, где вы создаете учетные записи пакетной службы. Чтобы убедиться, что размер доступен, перейдите на страницу [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/).
 
@@ -52,10 +52,10 @@ ms.lasthandoff: 02/23/2018
 | Размер | Функция | Операционные системы | Необходимое программное обеспечение | Параметры пула |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS<br/>SUSE Linux Enterprise Server 12 HPC или<br/>Экземпляр HPC на платформе CentOS<br/>(Microsoft Azure Marketplace) | Intel MPI 5 | Включение связи между узлами, отключение параллельного выполнения задач |
-| [Серия NC, NCv2, ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | Графический процессор NVIDIA Tesla (зависит от серии) | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3, 7.4 или<br/>CentOS 7.3 или 7.4<br/>(Microsoft Azure Marketplace) | Драйверы для набора средств NVIDIA CUDA Toolkit | Недоступно | 
-| [Серия NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | Графический процессор NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>CentOS 7.3<br/>(Microsoft Azure Marketplace) | Драйверы NVIDIA GRID | Недоступно |
+| [Серия NC, NCv2, NCv3 и ND*](../virtual-machines/linux/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla (зависит от серии) | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3, 7.4 или<br/>CentOS 7.3 или 7.4<br/>(Microsoft Azure Marketplace) | Драйверы для набора средств NVIDIA CUDA Toolkit | Недоступно | 
+| [Серия NV](../virtual-machines/linux/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>CentOS 7.3<br/>(Microsoft Azure Marketplace) | Драйверы NVIDIA GRID | Недоступно |
 
-* Подключение RDMA на виртуальных машинах NC24r, NC24rs_v2 и ND24r поддерживается в экземпляре HPC на платформе Ubuntu 16.04 LTS (из Azure Marketplace) с Intel MPI.
+* Возможно, для подключения RDMA виртуальных машин серии N с поддержкой RDMA потребуется [дополнительная настройка](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity). Это зависит от распространителя.
 
 
 
@@ -64,10 +64,10 @@ ms.lasthandoff: 02/23/2018
 | Размер | Функция | Операционные системы | Необходимое программное обеспечение | Параметры пула |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 или<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 или более поздней версии либо<br/> Intel MPI 5<br/><br/>Расширение виртуальных машин Azure HpcVMDrivers | Включение связи между узлами, отключение параллельного выполнения задач |
-| [Серия NC, NCv2, ND*](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla (зависит от серии) | Windows Server 2016 или <br/>2012 R2 (Azure Marketplace) | Драйверы NVIDIA Tesla или драйверы набора средств CUDA Toolkit| Недоступно | 
+| [Серия NC, NCv2, NCv3 и ND*](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla (зависит от серии) | Windows Server 2016 или <br/>2012 R2 (Azure Marketplace) | Драйверы NVIDIA Tesla или драйверы набора средств CUDA Toolkit| Недоступно | 
 | [Серия NV](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla M60 | Windows Server 2016 или<br/>2012 R2 (Azure Marketplace) | Драйверы NVIDIA GRID | Недоступно |
 
-* Подключение RDMA на виртуальных машинах NC24r, NC24rs_v2 и ND24rs поддерживается на Windows Server 2016 или Windows Server 2012 R2 (из Azure Marketplace) с расширением HpcVMDrivers и Microsoft MPI или Intel MPI.
+* Подключение RDMA на виртуальных машинах серии N с поддержкой RDMA доступно для Windows Server 2016 или Windows Server 2012 R2 (из Azure Marketplace) с расширением HpcVMDrivers и Microsoft MPI или Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Пулы Windows — конфигурация облачных служб
 
@@ -123,8 +123,8 @@ ms.lasthandoff: 02/23/2018
 
 Чтобы запустить приложения CUDA в пуле узлов NC под управлением Linux, необходимо установить на узлах набор средств CUDA Toolkit 9.0. Этот набор средств позволяет установить необходимые драйверы графического процессора NVIDIA Tesla. Далее приведены примеры действий для развертывания пользовательского образа Ubuntu 16.04 LTS с драйверами графического процессора.
 
-1. Разверните виртуальную машину Azure NC6 под управлением Ubuntu 16.04 LTS. Например, создайте виртуальную машину в юго-центральном регионе США. Виртуальная машина должна быть создана с помощью управляемого диска.
-2. Выполните соответствующие инструкции, чтобы подключить виртуальную машину и [установить драйверы CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
+1. Разверните виртуальную машину Azure серии NC под управлением Ubuntu 16.04 LTS. Например, создайте виртуальную машину в юго-центральном регионе США. Виртуальная машина должна быть создана с помощью управляемого диска.
+2. Выполните соответствующие инструкции, чтобы подключить виртуальную машину и [установить драйверы CUDA](../virtual-machines/linux/n-series-driver-setup.md).
 3. Отмените подготовку агента Linux, а затем [запишите образ виртуальной машины Linux](../virtual-machines/linux/capture-image.md).
 4. Создайте учетную запись пакетной службы в регионе, поддерживающем виртуальные машины NC.
 5. Используйте API пакетной службы или портал Azure для создания пула [с помощью пользовательского образа](batch-custom-images.md) с нужным числом узлов и в нужном масштабе. В следующей таблице приведены примеры параметров пула для образа:

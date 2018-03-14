@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Краткое руководство по развертыванию первого простого модуля IoT Edge на устройстве с Windows при помощи портала Azure (предварительная версия)
 
@@ -122,6 +122,12 @@ docker logs -f tempSensor
 
 Вы также можете просмотреть данные телеметрии, которые передает устройство, используя [обозреватель Центра Интернета вещей][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Чтобы удалить имитированное устройство, которое вы создали, а также контейнеры Docker, запущенные для каждого модуля, используйте следующую команду: 
+
+```cmd
+iotedgectl uninstall
+```
 
 Если созданный Центр Интернета вещей вам больше не нужен, используйте команду [az iot hub delete][lnk-delete], чтобы удалить этот ресурс и связанные с ним устройства.
 

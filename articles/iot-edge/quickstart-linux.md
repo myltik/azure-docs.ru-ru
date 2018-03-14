@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Краткое руководство. Развертывание первого модуля IoT Edge на устройстве Linux или Mac (предварительная версия)
 
@@ -21,7 +21,7 @@ Azure IoT Edge переносит мощь облака на ваши устро
 
 Если у вас еще нет подписки Azure, перед началом работы [создайте бесплатную учетную запись Azure][lnk-account].
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 При работе с этим кратким руководством ваш компьютер или виртуальная машина используется как устройство Интернета вещей. Чтобы преобразовать компьютер в устройство IoT Edge, требуются следующие службы:
 
@@ -70,22 +70,22 @@ Azure IoT Edge переносит мощь облака на ваши устро
 Среда выполнения IoT Edge развертывается на всех устройствах IoT Edge. Она состоит из двух модулей. Первый из них, агент IoT Edge, упрощает развертывание и мониторинг модулей на устройстве IoT Edge. Второй, центр IoT Edge, управляет взаимодействием между модулями на устройстве IoT Edge и между устройством и Центром Интернета вещей. 
 
 На компьютере, на котором вы планируете запустить устройство IoT Edge, скачайте скрипт управления IoT Edge.
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Для среды выполнения укажите строку подключения устройства IoT Edge, о которой шла речь в предыдущем разделе.
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Запустите среду выполнения.
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 В Docker убедитесь, что агент IoT Edge работает как модуль.
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ sudo docker ps
 
 Еще раз откройте командную строку на компьютере, на котором работает имитированное устройство. Убедитесь, что развернутый из облака модуль работает на вашем устройстве IoT Edge.
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 Убедитесь, что сообщения отправляются из модуля tempSensor в облако.
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 Вы также можете просмотреть данные телеметрии, которые передает устройство, используя [обозреватель Центра Интернета вещей][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Чтобы удалить имитированное устройство, которое вы создали, а также контейнеры Docker, запущенные для каждого модуля, используйте следующую команду: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 Если созданный Центр Интернета вещей вам больше не нужен, используйте команду [az iot hub delete][lnk-delete], чтобы удалить этот ресурс и связанные с ним устройства.
 

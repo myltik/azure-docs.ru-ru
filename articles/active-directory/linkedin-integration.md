@@ -9,21 +9,21 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="linkedin-integration-for-office-applications"></a>Интеграция с LinkedIn для приложений Office
 В этой статье объясняется, как ограничить число пользователей, которым предоставляется возможность интеграции с LinkedIn в Azure Active Directory (Azure AD). Интеграция с LinkedIn включается по умолчанию при ее добавлении к клиенту, благодаря чему пользователи могут обращаться к общедоступным данным LinkedIn в некоторых приложениях Майкрософт. Каждый пользователь может самостоятельно принять решение о подключении своей рабочей или учебной учетной записи к учетной записи LinkedIn.
 
 > [!IMPORTANT]
-> Интеграция с LinkedIn не развертывается одновременно для всех клиентов Azure AD. После развертывания в клиенте Azure интеграция с LinkedIn включается по умолчанию. Интеграция с LinkedIn недоступна для локальных, независимых и государственных клиентов. 
+> Интеграция с LinkedIn не развертывается одновременно для всех клиентов Azure AD. После развертывания в клиенте Azure интеграция с LinkedIn включается по умолчанию. Интеграция с LinkedIn недоступна для локальных, независимых и государственных клиентов. Актуальные сведения о выпусках см. на странице [стратегии развития Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
 
 ## <a name="linkedin-integration-from-the-user-perspective"></a>Интеграция с LinkedIn с точки зрения пользователей
 Когда пользователи в вашей организации подключают учетную запись LinkedIn к своим рабочим или учебным учетным записям, [они тем самым разрешают LinkedIn предоставлять данные](https://www.linkedin.com/help/linkedin/answer/84077) для использования в приложениях и службах Майкрософт, которые предоставляет ваша организация. [Пользователи могут отключить учетные записи](https://www.linkedin.com/help/linkedin/answer/85097) и таким образом удалить разрешение для LinkedIn на совместное использование данных с Майкрософт. При интеграции с LinkedIn используются общедоступные сведения профиля LinkedIn. С помощью параметров конфиденциальности LinkedIn [пользователи могут управлять отображением сведений профиля LinkedIn](https://www.linkedin.com/help/linkedin/answer/83), в том числе возможностью просмотра профиля в приложениях Майкрософт.
@@ -37,8 +37,8 @@ ms.lasthandoff: 02/01/2018
 ### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Включение и отключение интеграции с LinkedIn для вашей организации на портале Azure
 
 1. Войдите в [Центр администрирования Azure Active Directory](https://aad.portal.azure.com/) с помощью учетной записи глобального администратора клиента Azure AD.
-2. Выберите **Пользователи и группы**.
-3. В колонке **Пользователи и группы** выберите **Параметры пользователей**.
+2. Выберите **Пользователи**.
+3. В колонке **Пользователи** выберите **Параметры пользователей**.
 4. В разделе **Интеграция с LinkedIn** выберите **Да** или **Нет**, чтобы включить или отключить интеграцию с LinkedIn.
    ![Включение интеграции с LinkedIn](./media/linkedin-integration/LinkedIn-integration.PNG)
 

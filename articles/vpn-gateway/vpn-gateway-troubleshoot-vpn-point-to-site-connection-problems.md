@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Устранение неполадок подключения типа "точка — сеть" Azure
 
@@ -40,7 +40,9 @@ ms.lasthandoff: 02/28/2018
 
 Устранить проблему можно так:
 
-1. Убедитесь, что перечисленные ниже сертификаты находятся в правильном расположении.
+1. Откройте диспетчер сертификатов. Щелкните **Запустить**, введите **управление сертификатами компьютеров** и щелкните **Управление сертификатами компьютеров** в результатах поиска.
+
+2. Убедитесь, что перечисленные ниже сертификаты находятся в правильном расположении.
 
     | Сертификат | Расположение |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ ms.lasthandoff: 02/28/2018
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. Перейдите в каталог Users\<имя_пользователя>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, вручную установите сертификат (файл *.cer) в пользовательское хранилище и хранилище на компьютере.
+3. Перейдите в каталог Users\<имя_пользователя>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, вручную установите сертификат (файл *.cer) в пользовательское хранилище и хранилище на компьютере.
 
 Дополнительные сведения о том, как установить сертификат клиента, см. в статье [Создание и экспорт сертификатов для подключений типа "точка — сеть" с помощью PowerShell в Windows 10](vpn-gateway-certificates-point-to-site.md).
 

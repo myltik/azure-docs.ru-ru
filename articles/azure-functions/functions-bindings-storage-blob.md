@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Привязки хранилища BLOB-объектов Azure для службы "Функции Azure"
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/24/2018
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Учетные записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts) не поддерживаются. Триггерам и привязкам хранилища BLOB-объектов требуется учетная запись хранения общего назначения. 
+> Для триггеров больших двоичных объектов не поддерживаются [учетные записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts). Для триггеров хранилища BLOB-объектов требуется учетная запись хранения общего назначения. Для входных и выходных привязок можно использовать учетные записи хранения только для больших двоичных объектов.
 
 ## <a name="trigger"></a>Триггер
 

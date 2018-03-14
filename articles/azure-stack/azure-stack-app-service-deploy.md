@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Добавление поставщика ресурсов службы приложений в Azure Stack
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/21/2018
 
     ![Установщик службы приложений](media/azure-stack-app-service-deploy/image03.png)
 
-7. Введите данные для общего файлового ресурса и нажмите кнопку **Далее**. Адрес общей папки должен содержать полное доменное имя файлового сервера, например \\\appservicefileserver.local.cloudapp.azurestack.external\websites, или IP-адрес, например \\\10.0.0.1\websites.
+7. Введите данные для общего файлового ресурса и нажмите кнопку **Далее**. В адресе файлового ресурса нужно использовать полное доменное имя файлового сервера или IP-адрес. Например, \\\appservicefileserver.local.cloudapp.azurestack.external\websites или \\\10.0.0.1\websites.
 
     ![Установщик службы приложений](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 
     ![Установщик службы приложений](media/azure-stack-app-service-deploy/image05.png)
 
-9. В каждом из трех полей файла сертификата щелкните **Обзор** и перейдите к нужному файлу сертификата. Необходимо указать пароль для каждого сертификата. Это те сертификаты, которые вы создали на шаге [создания требуемых сертификатов](azure-stack-app-service-deploy.md#create-the-required-certificates). Когда вы введете всю информацию, нажмите кнопку **Далее**.
+9. В каждом из трех полей файла сертификата щелкните **Обзор** и перейдите к нужному файлу сертификата. Укажите пароль для каждого сертификата. Это те сертификаты, которые вы создали на шаге [создания требуемых сертификатов](azure-stack-app-service-deploy.md#create-the-required-certificates). Когда вы введете всю информацию, нажмите кнопку **Далее**.
 
     | Box | Пример имени файла сертификата |
     | --- | --- |

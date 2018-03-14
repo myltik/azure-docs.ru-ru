@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Использование эмулятора хранения Azure для разработки и тестирования
 
@@ -43,6 +43,14 @@ ms.lasthandoff: 10/11/2017
 Между эмулятором хранения и службой хранилища Azure есть несколько различий. Дополнительные сведения об этих различиях см. в разделе [Различия между эмулятором хранения и службами хранилища Azure](#differences-between-the-storage-emulator-and-azure-storage) ниже.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Запуск и инициализация эмулятора хранения
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Запуск эмулятора хранилища Azure в Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Использование пакета SDK
+
 Чтобы запустить эмулятор хранения Azure, сделайте следующее:
 1. Нажмите кнопку **Пуск** или клавишу **Windows**.
 1. Начните вводить текст `Azure Storage Emulator`.

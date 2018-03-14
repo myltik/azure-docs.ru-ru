@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: 488206e81e483fa2006d774cd4e7d60f7017d9cb
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Глобальное распространение операций чтения с применением параметров чтения в API MongoDB в Azure Cosmos DB 
 
@@ -39,7 +39,9 @@ ms.lasthandoff: 02/28/2018
 
 1. [Пример приложения .NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [Пример приложения NodeJS]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Пример приложения Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Пример приложения Mongoose](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference).
+4. [Пример приложения Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [Пример приложения SpringBoot](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring).
 
 
 ```bash

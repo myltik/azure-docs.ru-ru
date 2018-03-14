@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Вопросы о службе архивации Azure
 Эта статья содержит ответы на часто задаваемые вопросы о компонентах службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Вы можете задать вопросы о службе архивации Azure, щелкнув **Комментарии** (справа). Комментарии отображаются в конце статьи. Чтобы оставлять комментарии, нужна учетная запись Livefyre. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="recovery-services-vault"></a>Хранилище служб восстановления
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Существует ли ограничение на число хранилищ, которые можно создать в каждой подписке Azure? <br/>
-Да. Начиная с сентября 2016 года можно создать 25 хранилищ служб восстановления на подписку. Вы можете создать не более 25 хранилищ служб восстановления на каждый поддерживаемый регион службы архивации Azure на подписку. Если вам нужно больше хранилищ, создайте дополнительную подписку.
+Да. С января 2018 г. вы можете создать не более 25 хранилищ служб восстановления на каждый поддерживаемый регион службы Azure Backup на подписку. Если вам нужно больше хранилищ, создайте дополнительную подписку.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Существует ли ограничение на число серверов и компьютеров, которые можно зарегистрировать в каждом хранилище? <br/>
 Вы можете зарегистрировать не более 200 виртуальных машин Azure в одном хранилище. Если вы используете агент MAB, вы можете зарегистрировать не более 50 агентов в одном хранилище. Кроме того, вы можете зарегистрировать 50 серверов MAB и (или) DPM в хранилище.

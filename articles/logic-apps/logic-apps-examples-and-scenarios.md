@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Распространенные сценарии, примеры, учебники и пошаговые руководства для Azure Logic Apps
 
@@ -63,14 +63,15 @@ ms.lasthandoff: 01/19/2018
 * [Реагирование на внешние события и действия с помощью объектов webhook](../logic-apps/logic-apps-create-api-app.md)
 * [Вызов, активация или вложение рабочих процессов с использованием синхронных ответов на HTTP-запросы](../logic-apps/logic-apps-http-endpoint.md)
 * [Руководство. Создание панели мониторинга социальных сетей на базе ИИ за несколько минут с помощью Logic Apps и Power BI](http://aka.ms/logicappsdemo)
-* [Руководство. Реагирование на объекты webhook для SMS Twilio и отправка текстового ответа](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Видео по реагированию на сообщения веб-перехватчиков Twilio SMS и отправка текстового ответа](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Возможности для потока управления, обработки ошибок и ведения журнала
 
 Служба Logic Apps предоставляет широкие возможности для расширенного потока управления, в том числе условия, выключатели, циклы и области. Чтобы обеспечить устойчивость решений, в рабочих процессах можно также реализовать обработку ошибок и исключений. Для ведения журналов уведомлений и диагностики состояния рабочего процесса служба Azure Logic Apps обеспечивает средства мониторинга и уведомления.
 
-* [Обработка элементов в массивах и коллекциях с помощью циклов и пакетов в приложениях логики](../logic-apps/logic-apps-loops-and-scopes.md)
-* [Выполнение различных действий с помощью операторов switch](../logic-apps/logic-apps-switch-case.md)
+* Выполнение различных действий на основе [условных операторов](../logic-apps/logic-apps-control-flow-conditional-statement.md) и [операторов switch](../logic-apps/logic-apps-control-flow-switch-statement.md).
+* [Повторяющиеся действия или обработка элементов в массивах и коллекциях с помощью циклов](../logic-apps/logic-apps-control-flow-loops.md).
+* [Группировка действий с использованием областей](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
 * [Реализация обработки ошибок и исключений в рабочем процессе](../logic-apps/logic-apps-exception-handling.md)
 * [Вариант использования. Как компания в сфере здравоохранения использует обработку исключений в приложении логики для рабочих процессов HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Включение мониторинга, ведения журнала и оповещений для существующих приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -98,15 +99,22 @@ ms.lasthandoff: 01/19/2018
 
 * [Создание панели мониторинга сведений о клиентах в режиме реального времени с помощью Функций Azure и Azure Logic Apps](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Вызов Функций Azure из приложений логики](../logic-apps/logic-apps-azure-functions.md)
-* [Сценарий. Активация приложений логики с помощью Функций Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Руководство по активации приложений логики с помощью решения "Функции Azure"](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Руководство по отслеживанию изменений виртуальной машины с помощью Azure Logic Apps и службы "Сетка событий Azure"](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Руководство по созданию функции, которая интегрируется с Azure Logic Apps и Microsoft Cognitive Services для анализа тональности записей Twitter](../azure-functions/functions-twitter-email.md)
+* [Руководство по удаленному мониторингу и отправке уведомлений в Центре Интернета вещей с помощью службы Azure Logic Apps, обеспечивающей подключение между Центром Интернета вещей и почтовым ящиком](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Блог. Вызов конечных точек SOAP из приложения логики](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Комплексные сценарии
 
-* [End-to-end case management integration in the utilities industry with Azure services](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps) (Интеграция комплексного управления случаями в отрасли служебных программ с помощью служб Azure)
+* [Документация по интеграции комплексного управления случаями с помощью таких служб Azure, как Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>Истории клиентов
+
+Узнайте, как Azure Logic Apps, а также другие службы Azure и продукты Майкрософт помогли [этим компаниям](https://aka.ms/logic-apps-customer-stories) повысить гибкость и сосредоточиться на основных бизнес-целях благодаря упрощению, организации, автоматизации и оркестрации сложных процессов.
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* [Создание определений рабочих процессов на языке определения рабочего процесса](../logic-apps/logic-apps-author-definitions.md)
+* [Создание определений рабочих процессов для приложений логики с помощью JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Обработка ошибок и исключений в приложениях логики](../logic-apps/logic-apps-exception-handling.md)
 * [Отправка комментариев, вопросов, отзывов или предложений по улучшению Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)

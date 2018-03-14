@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Файлы конфигурации службы экспериментирования в машинном обучении Azure
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/23/2018
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
 [Файл среды conda](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) указывает версию среды выполнения Python и пакеты, от которых зависит ваш код. Если приложение Azure ML Workbench выполняет скрипт в контейнере Docker или кластере HDInsight, оно создает [среду conda](https://conda.io/docs/using/envs.html) для запуска этого скрипта. 
 
-В этом файле вы можете указать пакеты Python, необходимые для выполнения скрипта. Служба экспериментирования Azure ML создает среду conda в образе Docker с учетом этого списка зависимостей. Список пакетов должен быть доступен для подсистемы выполнения. Поэтому следует указывать пакеты в одном из таких каналов:
+В этом файле вы можете указать пакеты Python, необходимые для выполнения скрипта. Служба "Экспериментирование в Машинном обучении" создает среду conda с учетом этого списка зависимостей. Список пакетов должен быть доступен для подсистемы выполнения через следующие каналы:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo);
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/23/2018
 * другие расположения, доступные для подсистемы выполнения.
 
 >[!NOTE]
->Если приложение Azure ML Workbench работает в кластере HDInsight, оно создает отдельную среду conda для запуска вашего скрипта. Это позволяет различным пользователям использовать разные среды Python на одном кластере.  
+>Если приложение Azure ML Workbench работает в кластере HDInsight, оно создает среду conda только для запуска вашего скрипта. Это позволяет различным пользователям использовать разные среды Python на одном кластере.  
 
 Ниже приведен пример типичного файла **conda_dependencies.yml**.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML Workbench использует одну среду conda, не перестраивая ее, если файл **conda_dependencies.yml** не изменялся. Но при изменении любых параметров в этом файле перестраивается образ Docker.
+Azure ML Workbench использует одну среду conda, не перестраивая ее, если файл **conda_dependencies.yml** не изменялся. Если изменить зависимости, приложение перестроит среду.
 
 >[!NOTE]
 >Если вы направляете выполнение в _локальный_ контекст вычислений, файл **conda_dependencies.yml** **не используется**. В этом случае зависимости пакетов для локальной среды Python в Azure ML Workbench необходимо установить вручную.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Этот файл указывает имя приложения Spark, когда вы передаете сценарий PySpark и пакеты Spark, которые необходимо установить. Также вы можете указать любой открытый репозиторий Maven или пакет Spark, расположенный в открытых репозиториях Maven.
+Этот файл указывает имя приложения Spark, когда вы передаете сценарий PySpark и пакеты Spark, которые необходимо установить. Также вы можете указать открытый репозиторий Maven или пакет Spark, расположенный в открытых репозиториях Maven.
 
 Вот пример: 
 
@@ -106,10 +106,10 @@ packages:
 >Параметры настройки кластера, например размер рабочего потока и количество ядер, следует указывать в разделе configuration файла spark_dependecies.yml 
 
 >[!NOTE]
->Если вы выполняете скрипт в среде Python, файл *spark_dependencies.yml* игнорируется. Он учитывается только при запуске в среде Spark (на Docker или в кластере HDInsight).
+>Если вы выполняете скрипт в среде Python, файл *spark_dependencies.yml* игнорируется. Он используется только при запуске в среде Spark (в Docker или в кластере HDInsight).
 
 ## <a name="run-configuration"></a>Конфигурация запуска
-Чтобы определить конфигурацию запуска, нужны два файла. Обычно они создаются с помощью команды CLI. Но вы можете клонировать уже существующие файлы, переименовать их и изменить содержимое.
+Чтобы указать конкретную конфигурацию запуска, требуются файл .runconfig и .compute. Обычно они создаются с помощью команды CLI. Вы можете клонировать уже существующие файлы, переименовать их и изменить содержимое.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -129,6 +129,7 @@ $ az ml computetarget attach cluster -n <compute target name> -a <IP address or 
 
 **type**. Тип вычислительной среды. Поддерживаемые значения:
   - local
+  - remote
   - docker
   - remotedocker
   - cluster
@@ -146,6 +147,8 @@ $ az ml computetarget attach cluster -n <compute target name> -a <IP address or 
 **nvidiaDocker**. Если этот флаг имеет значение _true_, служба экспериментирования Azure ML будет использовать для запуска образа Docker команду _nvidia-docker_, а не стандартную команду _docker_. Обработчик _nvidia-docker_ разрешает контейнеру Docker использовать графический процессор. Этот параметр является обязательным, если вы хотите предоставить графический процессор для контейнера Docker. Команда _nvidia-docker_ поддерживается только в ОС Linux. Например, _nvidia-docker_ входит в поставку виртуальной машины для обработки и анализа данных на основе Linux в Azure. В ОС Windows команда _nvidia-docker_ пока не поддерживается.
 
 **nativeSharedDirectory**. Этот параметр указывает базовый каталог (например, _~/.azureml/share/_), в котором файлы будут сохраняться между последовательными запусками для одного целевого объекта вычислений. Если этот параметр используется при работе с контейнером Docker, необходимо установить значение true для параметра _sharedVolumes_. В противном случае произойдет сбой выполнения.
+
+**userManagedEnvironment.** Это свойство указывает, управляет ли этим целевым объектом вычислений непосредственно пользователь или служба экспериментов.  
 
 ### <a name="run-configuration-namerunconfig"></a>\<имя_конфигурации_запуска>.runconfig
 В файле _\<имя_конфигурации_запуска>.runconfig_ задается режим выполнения для службы экспериментирования Azure ML. Вы можете настроить поведение выполнения, например отслеживание журнала выполнения, выбор целевого объекта вычислений и множество других действий. Имена файлов конфигурации запуска будут перечислены в раскрывающемся списке контекста выполнения в приложении Azure ML Workbench для рабочего стола.
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Эти переменные среды затем можно использовать в пользовательском коде. Например, такой код Phyton выводит значение переменной среды с именем EXAMPLE_ENV_VAR:
+Эти переменные среды затем можно использовать в пользовательском коде. Например, такой код Python выводит значение переменной среды с именем EXAMPLE_ENV_VAR:
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```

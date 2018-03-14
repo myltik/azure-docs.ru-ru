@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Настройка параметров кластера Service Fabric и политики обновления структур
 В этом документе описывается, как настроить различные параметры структуры и политику обновления структур для кластера Service Fabric. Их можно настроить на [портале Azure](https://portal.azure.com) или с помощью шаблона Azure Resource Manager.
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 Ниже приведены шаги, с помощью которых можно добавить новый параметр *MaxDiskQuotaInMB* в раздел *Diagnostics*.
 
 1. Откройте страницу https://resources.azure.com.
-2. Перейдите к своей подписке. Выберите **Подписки** -> **Группы ресурсов** -> **Microsoft.ServiceFabric** -> **\<имя_кластера>**.
+2. Перейдите к подписке, развернув **subscriptions** -> **\<Ваша подписка>** -> **resourceGroups** -> **\<Ваша группа ресурсов >** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Имя вашего кластера>**
 3. В правом верхнем углу выберите пункт **Чтение и запись**.
 4. Выберите **Изменить** и обновите элемент JSON `fabricSettings`, а затем добавьте новый элемент.
 
@@ -385,6 +385,7 @@ ms.lasthandoff: 02/11/2018
 |CommonName2Ntlmx509StoreLocation|Строка, по умолчанию — L"LocalMachine"| Статическое|Расположение хранилища сертификатов X509, используемых для создания HMAC в CommonName2NtlmPasswordSecret при использовании аутентификации NTLM. |
 |CommonName2Ntlmx509StoreName|Строка, по умолчанию — L"MY"|Статическое| Имя хранилища сертификатов X509, используемых для создания HMAC в CommonName2NtlmPasswordSecret при использовании аутентификации NTLM. |
 |CommonName2Ntlmx509CommonName|Строка, значение по умолчанию — L""|Статическое|Общее имя сертификатов X509, используемых для создания HMAC в CommonName2NtlmPasswordSecret при использовании аутентификации NTLM. |
+|GenerateV1CommonNameAccount| Логическое значение, по умолчанию — true|Статическое|Указывает, следует ли создавать учетную запись при помощи алгоритма создания версии 1 для имени пользователя. Начиная с Service Fabric версии 6.1 всегда создается учетная запись при помощи алгоритма создания версии 2. Учетная запись версии 1 необходима для обновления с или до версий, которые не поддерживают алгоритм создания версии 2 (до 6.1).|
 
 ### <a name="section-name-imagestoreservice"></a>Section Name: ImageStoreService
 | **Параметр** | **Допустимые значения** | **Политика обновления** | **Рекомендация или краткое описание** |

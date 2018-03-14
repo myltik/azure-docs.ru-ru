@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bd4cee783944b0c6e0efcb7ec63c5a72bd13cc8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-адреса, используемые Application Insights и Log Analytics
 Служба [Azure Application Insights](app-insights-overview.md) использует несколько IP-адресов. Вам могут понадобиться эти адреса, если отслеживаемое приложение расположено за брандмауэром.
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/01/2018
 | Параметр Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Параметр Configuration |`auth.gfx.ms` | |`443` |
 | Параметр Configuration |`login.live.com` | |`443` |
-| Установка |`packages.nuget.org` | |`443` |
+| Установка |`packages.nuget.org`, `nuget.org`, `api.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Назначение | URL-адрес | IP-адрес | порты; |

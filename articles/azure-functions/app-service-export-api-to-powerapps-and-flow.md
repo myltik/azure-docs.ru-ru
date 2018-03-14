@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Экспорт размещенного в Azure API в PowerApps и Microsoft Flow
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 Аналогичным образом разработчикам, которым необходимо расширить возможности совместного использования API внутри организации, может потребоваться предоставить доступ к своим API создателям приложений и потоков. В этой статье показано, как экспортировать API, созданный с помощью [Функций Azure](../azure-functions/functions-overview.md) или [службы приложений Azure](../app-service/app-service-web-overview.md). Экспортированный API становится *настраиваемым соединителем*, который используется в PowerApps и Microsoft Flow так же, как встроенный соединитель.
 
 ## <a name="create-and-export-an-api-definition"></a>Создание и экспорт определения API
-Перед экспортом API нужно описать его с помощью определения OpenAPI (ранее называвшегося файлом [Swagger](http://swagger.io/)). Это определение содержит сведения о доступных операция в API и о том, как необходимо структурировать данные запросов и ответов для API. С помощью PowerApps и Microsoft Flow можно создать настраиваемые соединители для любого определения OpenAPI 2.0. Функции Azure и служба приложений Azure имеют встроенную поддержку создания и размещения определений OpenAPI, а также управления ими. Дополнительные сведения см. в статье [Создание API RESTful Node.js и его развертывание в приложении API в Azure](../app-service/app-service-web-tutorial-rest-api.md).
+Перед экспортом API нужно описать его с помощью определения OpenAPI (ранее называвшегося файлом [Swagger](http://swagger.io/)). Это определение содержит сведения о доступных операция в API и о том, как необходимо структурировать данные запросов и ответов для API. С помощью PowerApps и Microsoft Flow можно создать настраиваемые соединители для любого определения OpenAPI 2.0. Функции Azure и служба приложений Azure имеют встроенную поддержку создания и размещения определений OpenAPI, а также управления ими. Дополнительные сведения см. в статье [Размещение API-интерфейсов RESTful с поддержкой CORS в службе приложений Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Также можно создать настраиваемые соединители в пользовательских интерфейсах PowerApps и Microsoft Flow без использования определения OpenAPI. Дополнительные сведения см. в статьях [Регистрация и использование настраиваемых соединителей в PowerApps](https://powerapps.microsoft.com/tutorials/register-custom-api/) и [Регистрация и использование настраиваемых соединителей в Microsoft Flow](https://flow.microsoft.com/documentation/register-custom-api/).

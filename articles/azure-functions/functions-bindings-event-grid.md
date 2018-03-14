@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Триггер службы "Сетка событий" для службы "Функции Azure"
 
@@ -318,7 +318,7 @@ RequestBin не предназначено для использования с 
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Для параметра `functionName` нужно указать имя метода, а не имя, указанное в атрибуте `FunctionName`. Поэтому при наличии в проекте нескольких функций все они должны иметь уникальные имена методов (а не общее имя `Run`) для тестирования триггеров службы "Сетка событий" локально.
+Для параметра `functionName` нужно указать имя, заданное в атрибуте `FunctionName`.
 
 На следующих снимках экрана показаны заголовки и текст запроса в Postman:
 
@@ -379,7 +379,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Для параметра `functionName` нужно указать имя метода, а не имя, указанное в атрибуте `FunctionName`. Поэтому при наличии в проекте нескольких функций все они должны иметь уникальные имена методов (а не общее имя `Run`) для тестирования триггеров службы "Сетка событий" локально.
+Для параметра `functionName` нужно указать имя, заданное в атрибуте `FunctionName`.
 
 Ниже приведен пример с использованием Azure CLI:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Управление приложением-функцией на портале Azure 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/13/2018
 
 | | |
 |-|-|
-| ![Swagger для API приложения-функции на портале Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Компонент функции поддерживает Swagger, что позволяет упростить использование функций, активируемых по HTTP, клиентами. Дополнительные сведения о создании определений API с помощью Swagger см. в статье [Создание API RESTful Node.js и его развертывание в приложении API в Azure](../app-service/app-service-web-tutorial-rest-api.md). Можно также использовать прокси-серверы для функций, чтобы определить единую поверхность API для нескольких функций. Дополнительные сведения см. в статье [Работа с прокси-серверами для функций Azure](functions-proxies.md). |
+| ![Swagger для API приложения-функции на портале Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Компонент функции поддерживает Swagger, что позволяет упростить использование функций, активируемых по HTTP, клиентами. Дополнительные сведения о создании определений API с помощью Swagger см. в статье [Размещение API-интерфейсов RESTful с поддержкой CORS в службе приложений Azure](../app-service/app-service-web-tutorial-rest-api.md). Можно также использовать прокси-серверы для функций, чтобы определить единую поверхность API для нескольких функций. Дополнительные сведения см. в статье [Работа с прокси-серверами для функций Azure](functions-proxies.md). |
 
 ![Настройка API приложения-функции](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Источники данных, поддерживаемые в службах Azure Analysis Services
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="on-premises-data-sources"></a>Локальные источники данных
 
-Для подключения к локальным источникам данных требуется локальный шлюз. При использовании шлюза убедитесь, что установлены 64-разрядные версии поставщиков.
+Для подключения к локальным источникам данных с сервера автономной системы Azure требуется локальный шлюз. При использовании шлюза требуются 64-разрядные поставщики.
 
 ### <a name="in-memory-and-directquery"></a>Размещение в памяти и DirectQuery
 
@@ -60,31 +60,26 @@ ms.lasthandoff: 02/28/2018
 | Teradata |Поставщик OLE DB для Teradata, поставщик данных Teradata для .NET |Поставщик данных Teradata для .NET | |
 | | | |
 
-\* Только для табличных моделей 1400.
-
 ### <a name="in-memory-only"></a>Только в памяти
-
-> [!IMPORTANT]
-> Сейчас выполняется тестирование поставщиков для указанных источников данных. 
 
 |Источник данных  |  
 |---------|---------|
 |База данных Access     |  
 |Active Directory*     |  
-|службы Analysis Services     | 
+|службы Analysis Services     |  
 |Система платформы аналитики     |  
 |Dynamics CRM*     |  
-|Книга Excel     | 
+|Книга Excel     |  
 |Exchange*     |  
 |Папка*     | 
 |Документ JSON*     |  
 |Строки из двоичного файла*     | 
 |База данных MySQL     | 
-|Веб-канал OData*     | 
+|Веб-канал OData*     |  
 |Запрос ODBC     | 
-|OLE DB     |  
+|OLE DB     |   
 |База данных SQL Postgre*    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |База данных Sybase     |  

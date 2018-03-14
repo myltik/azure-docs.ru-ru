@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Управление базами данных в хранилище данных SQL Azure
 Хранилище данных SQL позволяет автоматизировать многие аспекты управления базами данных. Например, для масштабирования производительности достаточно выбрать и оплатить необходимый уровень вычислительных ресурсов, после чего всю работу по увеличению и уменьшению масштаба выполнит хранилище данных SQL.
@@ -40,14 +40,14 @@ ms.lasthandoff: 12/11/2017
 Для управления базами данных в хранилище данных SQL можно использовать различные средства. По мере накопления опыта в управлении базами данных у вас появятся свои предпочитаемые средства для различных задач.
 
 ### <a name="azure-portal"></a>Портал Azure
-[Портал Azure][Azure portal] — это веб-портал, на котором можно создавать, обновлять и удалять базы данных, а также отслеживать ресурсы базы данных. Это хороший инструмент для тех, кто только знакомится с Azure или управляет небольшим количеством баз данных хранилищ, а также для оперативного выполнения любой задачи по управлению.
+[Портал Azure][Azure portal] — это веб-портал, на котором можно создавать, обновлять и удалять базы данных, а также отслеживать ресурсы базы данных. Это хороший инструмент для тех, кто только знакомится с Azure или управляет небольшим количеством баз данных хранилищ данных, а также для оперативного выполнения любой задачи по управлению.
 
 Начало работы с порталом Azure описывается в статье [Создание хранилища данных SQL Azure][Create a SQL Data Warehouse (Azure portal)].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools в Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) в Visual Studio обеспечивают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
 
-Средства SSDT содержат обозреватель объектов сервера SQL, который позволяет визуализировать, подключать и выполнять скрипты для баз данных хранилища данных SQL. Чтобы быстро подключиться к хранилищу данных SQL, нажмите кнопку **Открыть в Visual Studio** в командной строке во время просмотра сведений базы данных на портале Azure.  
+Средства SSDT содержат обозреватель объектов SQL Server, который позволяет визуализировать, подключать и выполнять скрипты для баз данных хранилища данных SQL. Чтобы быстро подключиться к хранилищу данных SQL, нажмите кнопку **Открыть в Visual Studio** в командной строке во время просмотра сведений базы данных на портале Azure.  
 
 Начало работы с SSDT в Visual Studio описывается в статье [Подключение к хранилищу данных SQL с помощью Visual Studio и SSDT][Query Azure SQL Data Warehouse with Visual Studio].
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения об управлении безопасностью см. в статье [Защита базы данных в хранилище данных SQL][Security overview].
 
-## <a name="backup-and-restore"></a>Архивация и восстановление
+## <a name="back-up-and-restore"></a>Архивация и восстановление
 Наличие надежных резервных копий данных является важной частью любой рабочей базы данных. Хранилище данных SQL защищает ваши данные за счет автоматической архивации активных баз данных через регулярные интервалы. С помощью создаваемых резервных копий можно восстанавливать данные или базы данных в случае их повреждения или случайного удаления.  Сведения о расписании архивации данных, политике хранения и о том, как восстановить базу данных, см. в статье [Восстановление хранилища данных SQL][Restore from snapshot].
 
 ## <a name="next-steps"></a>Дополнительная информация
@@ -100,10 +100,10 @@ ms.lasthandoff: 12/11/2017
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Масштабирование производительности]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Масштабирование производительности]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

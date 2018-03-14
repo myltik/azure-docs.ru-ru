@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Обнаружение и оценка крупной среды VMware
 
@@ -30,22 +30,24 @@ ms.lasthandoff: 02/27/2018
 | **Сущность** | **Предельное число виртуальных машин** |
 | ---------- | ----------------- |
 | Project    | 1500              | 
-| Обнаружение  | 1000              |
-| Оценка | 400               |
+| Обнаружение  | 1500              |
+| Оценка | 1500               |
 
-- Если вам нужно обнаружить и оценить менее 400 компьютеров, то вам нужен один проект и один процесс обнаружения. Можно оценить все компьютеры в рамках одной оценки или разделить компьютеры на несколько оценок в зависимости от требований. 
-- Если вам необходимо обнаружить от 400 до 1000 компьютеров, то вам нужен один проект с одним процессом обнаружения. Однако по-прежнему потребуется несколько оценок для оценки этих компьютеров, так как одна оценка может охватывать до 400 компьютеров.
-- Если у вас от 1001 до 1500 компьютеров, то вам нужен один проект и два процесса обнаружения.
-- Если у вас более 1500 компьютеров, необходимо создать несколько проектов и выполнять несколько процессов обнаружения в соответствии с требованиями. Например: 
-    - Если у вас 3000 компьютеров, можно настроить два проекта с двумя процессами обнаружения или три проекта с одним процессом обнаружения в каждом.
-    - Если у вас есть 5000 компьютеров, можно настроить четыре проекта: три из которых с процессом обнаружения 1500 компьютеров и один с процессом обнаружения 500 компьютеров. Кроме того, можно настроить пять проектов с одним процессом обнаружения в каждом из них. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Планирование нескольких операций обнаружения
 
 Для выполнения нескольких операций обнаружения в одном или нескольких проектах можно использовать один и тот же сборщик службы "Миграция Azure". При планировании учитывайте следующие особенности:
  
 - При выполнении операции обнаружения с использованием сборщика службы "Миграция Azure" можно задать для области обнаружения папку, центр данных, кластер или узел vCenter Server.
-- Чтобы выполнить больше одного обнаружения в vCenter Server, убедитесь, что виртуальные машины, которые нужно обнаружить, размещены в папках, центрах обработки данных, кластерах или на узлах, поддерживающих ограничение в 1000 компьютеров.
+- Чтобы выполнить несколько обнаружений в vCenter Server, убедитесь, что виртуальные машины, которые нужно обнаружить, размещены в папках, центрах обработки данных, кластерах или на узлах, поддерживающих ограничение в 1500 компьютеров.
 - В целях оценки рекомендуется размещать взаимозависимые компьютеры в рамках одного проекта и оценки. В vCenter Server убедитесь, что зависимые компьютеры находятся в одной папке, центре обработки данных или кластере, предназначенном для оценки.
 
 
@@ -83,6 +85,14 @@ ms.lasthandoff: 02/27/2018
 
    Пример использования: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Убедитесь, что созданный хэш соответствует следующим параметрам.
+
+    Для OVA-файла версии 1.0.9.5
+
+    **Алгоритм** | **Значение хэша**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     Для OVA-файла версии 1.0.9.2
 

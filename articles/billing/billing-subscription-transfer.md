@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Передача прав владения подпиской Azure другой учетной записи
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/22/2017
 
 > [!IMPORTANT]
 > 
-> Сейчас передача прав владения для подписки бесплатной пробной версии или [Azure с открытой лицензией](https://azure.microsoft.com/offers/ms-azr-0111p/) не поддерживается. Сведения об обходном решении см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../azure-resource-manager/resource-group-move-resources.md).
+> Если вы переносите подписку в новый клиент Azure AD, все назначения ролей в механизме [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-what-is.md) удаляются из исходного клиента без возможности восстановления и не переносятся в целевой клиент.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Передача прав владения подпиской Azure
 
@@ -49,7 +49,12 @@ ms.lasthandoff: 12/22/2017
    ![Вкладка "Подписки учетной записи Azure"](./media/billing-subscription-transfer/image1.png)
 1. Укажите получателя.
 
+   > [!IMPORTANT]
+   > 
+   > Если вы переносите подписку в новый клиент Azure AD, все назначения ролей в механизме [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-what-is.md) удаляются из исходного клиента без возможности восстановления и не переносятся в целевой клиент.
+
    ![Диалоговое окно "Передача подписки"](./media/billing-subscription-transfer/image2.PNG)
+
 1. Получателю автоматически приходит сообщение электронной почты со ссылкой, по которой он может принять подписку.
 
    ![Сообщение электронной почты получателю о передаче подписки](./media/billing-subscription-transfer/image3.png)
@@ -80,7 +85,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="whats-supported"></a>Поддерживаемые функции
 
-Самостоятельная передача подписки доступна для типов предложений или подписок, перечисленных в следующей таблице. Для передачи других подписок (например [спонсорское предложение](https://azure.microsoft.com/offers/ms-azr-0036p/) или планы поддержки) [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Самостоятельная передача подписки доступна для типов предложений или подписок, перечисленных в следующей таблице. Сейчас невозможно перенести подписки на бесплатную пробную версию или [Azure с открытой лицензией (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Сведения об обходном решении см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../azure-resource-manager/resource-group-move-resources.md). Чтобы перенести другие подписки (например, [спонсорское предложение](https://azure.microsoft.com/offers/ms-azr-0036p/) или планы поддержки), [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Название предложения                                                                             | Номер предложения |
 |----------------------------------------------------------------------------------------|--------------|

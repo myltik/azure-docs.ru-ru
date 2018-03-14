@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Активация подписок и учетных записей Azure с помощью службы "Управление затратами Azure"
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="update-a-subscription"></a>Обновление подписки
 
-1. Если вы хотите обновить _не активированную_ подписку, которая уже существует в службе "Управление затратами Azure" в разделе управления учетными записями, щелкните символ редактирования справа от _GUID клиента_.
+1. Если вы хотите обновить подписку, которая _не активирована_ и уже существует в службе "Управление затратами Azure" в разделе управления учетными записями, щелкните символ редактирования справа от родительского _GUID клиента_. Подписки группируются в родительском клиенте. Поэтому не активируйте их по отдельности.
     ![Повторное обнаружение подписок](./media/activate-subs-accounts/existing-sub.png)
 2. При необходимости введите идентификатор клиента. Если вы не знаете идентификатор клиента, выполните следующие действия, чтобы найти его.
     1. Войдите на [портал Azure](https://portal.azure.com).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Использование настраиваемых действий в конвейере фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -300,7 +300,7 @@ namespace SampleApp
 
 ## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Различия между настраиваемым действием в фабрике данных Azure версии 2 и (настраиваемым) действием DotNet в фабрике данных Azure версии 1
 
-  В фабрике данных Azure версии 1 вы создавали код (настраиваемого) действия DotNet в отдельном проекте библиотеки классов .Net, используя класс, который реализует метод Execute в интерфейсе IDotNetActivity. Связанные службы, наборы данных и расширенные свойства, входящие в полезные данные JSON для (настраиваемого) действия DotNet, передавались в метод выполнения в виде строго типизированных объектов. Подробнее это описано в статье [о (настраиваемых) действиях DotNet в фабрике данных версии 1](v1/data-factory-use-custom-activities.md). По этой причине пользовательский код нужно писать на .Net Framework 4.5.2 и выполнять на узлах пула пакетной службы Azure под управлением Windows. 
+  В фабрике данных Azure версии 1 вы создавали код (настраиваемого) действия DotNet в отдельном проекте библиотеки классов .Net, используя класс, который реализует метод Execute в интерфейсе IDotNetActivity. Связанные службы, наборы данных и расширенные свойства, входящие в полезные данные JSON для (настраиваемого) действия DotNet, передавались в метод выполнения в виде строго типизированных объектов. Подробнее это описано в статье [о (настраиваемых) действиях DotNet в фабрике данных версии 1](v1/data-factory-use-custom-activities.md). Из-за такой реализации пользовательский код нужно писать на .Net Framework 4.5.2 и выполнять на узлах пула пакетной службы Azure под управлением Windows. 
 
   В настраиваемых действиях фабрики данных Azure версии 2 не нужно реализовать интерфейс .Net. Теперь все команды, скрипты и пользовательский код можно компилировать и выполнять в виде исполняемого файла. Для этого следует указать свойство Command вместе со свойством folderPath. Настраиваемое действие передает указанный исполняемый файл и зависимости в каталог folderPath и выполняет нужную команду. 
 
@@ -331,7 +331,7 @@ namespace SampleApp
    - Пакет NuGet Microsoft.Azure.Management.DataFactories больше не требуется. 
    - Скомпилируйте код, передайте исполняемый файл и зависимости в хранилище Azure и укажите путь к ним в свойстве folderPath. 
 
-Полный пример того, как повторно создать пример комплексной библиотеки DLL и конвейера, описанных в документе [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) (Использование настраиваемых действий в конвейере фабрики данных Azure) для фабрики данных версии 1, в формате настраиваемого действия фабрики данных версии 2, см. в [примере настраиваемого действия фабрики данных версии 2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Полный пример того, как повторно создать пример комплексной библиотеки DLL и конвейера, которые описаны в документе [Использование настраиваемых действий в конвейере фабрики данных Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) для фабрики данных версии 1, в формате настраиваемого действия фабрики данных версии 2, см. в [примере настраиваемого действия фабрики данных версии 2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Автомасштабирование пакетной службы Azure
 Можно также создать пул пакетной службы Azure с использованием функции **автомасштабирования** . Например, можно создать пул пакетной службы Azure с нулем выделенных виртуальных машин и формулой автоматического масштабирования на основе числа ожидающих задач. 

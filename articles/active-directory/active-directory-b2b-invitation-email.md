@@ -3,7 +3,7 @@ title: "Элементы сообщения с приглашением служ
 description: "Шаблон сообщения с приглашением в службу совместной работы Azure Active Directory B2B"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 02/01/2018
 Тема сообщения имеет следующий формат: "Вас приглашает организация &lt;имя_клиента&gt;".
 
 ### <a name="from-address"></a>Адрес отправителя
-Для адреса отправителя используется формат, аналогичный сети LinkedIn.  Вам необходимо четко указать, кто приглашает и из какой компании, а также пояснить, что сообщение поступило с адреса электронной почты Майкрософт. Получается следующий формат: &lt;Отображаемое имя приглашающего&gt; из &lt;имя_клиента&gt; (через Майкрософт) <invites@microsoft.com>.
+Для адреса отправителя используется формат, аналогичный сети LinkedIn.  Вам необходимо четко указать, кто приглашает и из какой компании, а также пояснить, что сообщение поступило с адреса электронной почты Майкрософт. Формат будет следующим: &lt;Отображаемое имя приглашающего&gt; из &lt;имя_клиента&gt; (через Майкрософт) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Ответить
 В поле обратного адреса указывается адрес электронной почты приглашающего (если доступен). Таким образом, ответ на полученное сообщение будет отправлен приглашающему клиенту.

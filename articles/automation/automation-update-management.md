@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Решение для управления обновлениями в Azure
 
@@ -56,8 +56,8 @@ ms.lasthandoff: 02/28/2018
 
 |Операционная система  |Заметки  |
 |---------|---------|
-|Windows Server 2008 и более поздней версии     | Поддерживает только оценки обновлений.         |
-|Windows Server 2008 R2 с пакетом обновления 1 и более поздней версии     |Для этой операционной системы требуется .NET Framework версии 4.5 и WMF версии 5.0 или более поздней версии.<br>Nano Server не поддерживается.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Поддерживает только оценки обновлений.         |
+|Windows Server 2008 R2 с пакетом обновления 1 и более поздней версии     |Для этой операционной системы требуется .NET Framework версии 4.5 и WMF версии 5.0 или более поздней версии.        |
 |CentOS 6 (x86 или x64) и 7 (x64)      | У агентов Linux должен быть доступ к репозиторию обновлений.        |
 |Red Hat Enterprise 6 (x86 или x64) и 7 (x64)     | У агентов Linux должен быть доступ к репозиторию обновлений.        |
 |SUSE Linux Enterprise Server 11 (x86 или x64) и 12 (x64)     | У агентов Linux должен быть доступ к репозиторию обновлений.        |
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/28/2018
 |Операционная система  |Заметки  |
 |---------|---------|
 |Клиент Windows     | Операционные системы клиента (Windows 7, Windows 10 и т. д.) не поддерживаются.        |
-|Nano Server     | Nano Server является частью Windows 2016.        |
+|Nano Server Windows Server 2016     | Не поддерживается       |
 
 ### <a name="client-requirements"></a>Требования к клиенту
 

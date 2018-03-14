@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: d91985849bd2483e8a28a01d63d253960190829d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Применение преобразования для подготовки данных в службе "Машинное обучение Azure"
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/03/2018
 Более подробное описание преобразования **Derived Column by Example** (Получение столбца по образцу) и дополнительные примеры см. в [этой статье](data-prep-derive-column-by-example.md).  
 
 ## <a name="split-column-by-example"></a>Разделение столбца по образцу
-При этом преобразовании выполняется попытка разделить имеющийся столбец на *n* столбцов с помощью механизма "по образцу". Вы можете выполнить автоматическое разделение для создаваемых столбцов.
+При этом преобразовании выполняется попытка разделить существующий столбец на *n* столбцов с помощью механизма "по образцу". Вы можете выполнить автоматическое разделение для создаваемых столбцов.
 
 Более подробное описание преобразования **Split Column by Example** (Разделение столбцов по образцу) и дополнительные примеры см. в [этой статье](data-prep-split-column-by-example.md).
 

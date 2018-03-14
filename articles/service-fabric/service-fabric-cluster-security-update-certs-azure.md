@@ -1,24 +1,8 @@
----
-title: "Управление сертификатами в кластере Azure Service Fabric | Документация Майкрософт"
-description: "В этой статье рассказывается о том, как добавить новые, а также сменить или удалить имеющиеся сертификаты в кластере Service Fabric."
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+--title: Управление сертификатами в кластере Azure Service Fabric | Документация Майкрософт description: Сведения о добавлении, смене и удалении сертификатов в кластере Service Fabric.
+services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Добавление и удаление сертификатов для кластера Service Fabric в Azure
 Рекомендуется ознакомиться с тем, как Service Fabric использует сертификаты X.509, и просмотреть раздел [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md). Необходимо понять, что такое сертификат кластера и для чего он используется, прежде чем продолжить.
@@ -49,6 +33,8 @@ Service Fabric позволяет указать в дополнение к се
 Если вы планируете удалить сертификат, который помечен как основной, необходимо сначала поменять его местами с дополнительным, а затем удалить дополнительный, когда обновление будет завершено.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Добавление дополнительного сертификата с помощью PowerShell для Resource Manager
+> [!ОБНОВЛЕНИЕ.] Теперь стало удобнее и проще добавлять дополнительные сертификаты с помощью [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Если вы используете Add-AzureRmServiceFabricClusterCertificate, выполнять оставшиеся инструкции в этом разделе не нужно.
+
 
 В этих инструкциях предполагается, что вы ознакомлены с принципами работы Resource Manager, развернули по крайней мере один кластер Service Fabric с помощью шаблона Resource Manager и у вас под рукой имеется шаблон, который использовался для настройки этого кластера. Предполагается также, что вы уверенно используете JSON.
 
