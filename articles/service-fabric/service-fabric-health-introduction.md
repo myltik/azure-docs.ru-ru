@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Общие сведения о наблюдении за работоспособностью системы в Service Fabric
 В платформе Azure Service Fabric используется модель работоспособности c широкими и гибкими возможностями оценки работоспособности и создания отчетов, которая позволяет отслеживать состояние кластера и выполняющихся в нем служб практически в реальном времени. Вы можете легко получать сведения о работоспособности и устранять потенциальные проблемы, прежде чем они приведут к серьезным перебоям в работе. Службы в рамках обычной модели отправляют отчеты на локальном уровне, а затем полученная информация агрегируется на уровне кластера.

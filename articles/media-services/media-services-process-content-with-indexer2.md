@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure 2 (предварительная версия)
 ## <a name="overview"></a>Обзор
@@ -56,6 +56,7 @@ ms.lasthandoff: 12/11/2017
 
 Следующий объект JSON задает доступные параметры.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ ms.lasthandoff: 12/11/2017
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Поддерживаемые языки
 Индексатор мультимедийных данных Azure 2 (предварительная версия) поддерживает распознавание речи для следующих языков (при указании названия языка в файле конфигурации задачи используйте 4-значный код в квадратных скобках, как показано ниже):
@@ -96,20 +98,23 @@ ms.lasthandoff: 12/11/2017
 
 1. Создать ресурс-контейнера и отправить в него файл мультимедиа.
 2. Создайте задание с задачей индексации на основе файла конфигурации, содержащего следующую предустановку JSON:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Скачивание выходных файлов. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
@@ -118,7 +123,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>Пример
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью медиа-аналитики Azure
 ## <a name="overview"></a>Обзор
@@ -51,6 +51,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="json-preset-example"></a>Пример предустановки JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ ms.lasthandoff: 12/11/2017
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Пример предустановки XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ ms.lasthandoff: 12/11/2017
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Выходные файлы OCR
 Выходными данными обработчика мультимедиа OCR является JSON-файл.
@@ -118,6 +123,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="json-output-example"></a>Пример выходных данных JSON
 В следующем примере выходных данных содержатся общие сведения о видео и несколько фрагментов видео. В каждом фрагменте видео содержится область, которая обнаружена обработчиком мультимедиа OCR; указывается язык и ориентация текста. Элемент region также содержит каждую строку в данной области, указывается текст строки, положение строки и сведения о каждом слове (содержимое слова, положение и достоверность) в этой строке. Ниже приводится пример с некоторыми сопутствующими комментариями.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ ms.lasthandoff: 12/11/2017
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Пример кода .NET
 
@@ -185,7 +192,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>Пример
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

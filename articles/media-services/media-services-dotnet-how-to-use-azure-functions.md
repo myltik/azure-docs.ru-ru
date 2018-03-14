@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Разработка Функций Azure с помощью служб мультимедиа
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/11/2017
 
 Замените содержимое существующего файла function.json следующим кодом:
 
-```
+```json
 {
   "bindings": [
     {
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/11/2017
 
 Добавьте следующее определение в файл project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -136,7 +136,7 @@ ms.lasthandoff: 12/11/2017
 
 Замените содержимое имеющегося файла run.csx следующим кодом. Определив функцию, щелкните **Сохранить и запустить**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"

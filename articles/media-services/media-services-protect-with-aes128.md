@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Использование динамического шифрования AES-128 и службы доставки ключей
 > [!div class="op_single_selector"]
@@ -126,6 +126,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="get-a-test-token"></a>Получение маркера тестирования
 Получите маркер тестирования в зависимости от ограничения по маркеру, заданного в политике авторизации ключа.
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,6 +137,7 @@ ms.lasthandoff: 01/05/2018
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
 Для проверки потока можно использовать [проигрыватель служб мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
@@ -145,6 +147,7 @@ ms.lasthandoff: 01/05/2018
 ### <a name="manifest-files"></a>Файлы манифестов
 Клиенту необходимо извлечь из файла манифеста значение URL-адреса (который также содержит идентификатор ключа "kid"). Затем клиент пытается получить ключ шифрования в службе доставки ключей. Клиенту также необходимо извлечь значение вектора инициализации и использовать его для расшифровки потока. В следующем фрагменте кода показан элемент <Protection> манифеста Smooth Streaming.
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ ms.lasthandoff: 01/05/2018
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 При использовании протокола HLS корневой манифест разбивается на файлы сегментов. 
 
@@ -191,6 +195,7 @@ ms.lasthandoff: 01/05/2018
 
 В следующем коде показано, как отправить запрос в службу доставки ключей служб мультимедиа, используя код URI доставки ключа (извлеченный из манифеста) и маркер. Получение простых веб-маркеров из службы маркеров безопасности в этой статье не рассматривается.
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,6 +235,7 @@ ms.lasthandoff: 01/05/2018
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>Защита содержимого с помощью AES-128 и .NET
 
@@ -239,8 +245,10 @@ ms.lasthandoff: 01/05/2018
 
 2. Добавьте следующие элементы в "appSettings", определенные в файле app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>Пример
 
@@ -251,7 +259,9 @@ ms.lasthandoff: 01/05/2018
 
 Обязательно обновите переменные, чтобы они указывали на папки, в которых находятся входные файлы.
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

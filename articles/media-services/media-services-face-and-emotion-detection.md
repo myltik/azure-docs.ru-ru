@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Обнаружение лиц и определение эмоций с помощью медиа-аналитики Azure
 ## <a name="overview"></a>Обзор
@@ -64,12 +64,14 @@ API обнаружения и отслеживания лиц обеспечив
 ### <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании задачи с помощью **Azure Media Face Detector**необходимо указать предустановку конфигурации. Следующая предустановка конфигурации предназначена только для обнаружения лиц.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Описания атрибутов
 | Имя атрибута | ОПИСАНИЕ |
@@ -79,6 +81,7 @@ API обнаружения и отслеживания лиц обеспечив
 ### <a name="json-output"></a>Выходные данные JSON
 Следующий пример выходных данных JSON был сокращен.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ API обнаружения и отслеживания лиц обеспечив
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Пример входных и выходных данных определения эмоций
 ### <a name="input-video"></a>Входные видеоданные
@@ -133,6 +136,7 @@ API обнаружения и отслеживания лиц обеспечив
 ### <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании задачи с помощью **Azure Media Face Detector**необходимо указать предустановку конфигурации. Следующая предустановка конфигурации используется для создания JSON на основе определения эмоций.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ API обнаружения и отслеживания лиц обеспечив
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Описания атрибутов
@@ -161,6 +166,7 @@ API обнаружения и отслеживания лиц обеспечив
 ### <a name="json-output"></a>Выходные данные JSON
 Выходные данные JSON для совокупных эмоций (сокращенные).
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ API обнаружения и отслеживания лиц обеспечив
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Ограничения
 * Поддерживаемые входные видеоформаты: MP4, MOV и WMV.
@@ -324,11 +331,13 @@ API обнаружения и отслеживания лиц обеспечив
 
 1. Создать ресурс-контейнера и отправить в него файл мультимедиа.
 2. Создать задание с задачей обнаружения лиц на основе файла конфигурации, содержащего следующую предустановку JSON: 
-   
-        {
-            "version": "1.0"
-        }
-3. Скачать выходные JSON-файлы. 
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
+3. Загрузка выходных JSON-файлов. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
 
@@ -336,7 +345,7 @@ API обнаружения и отслеживания лиц обеспечив
 
 #### <a name="example"></a>Пример
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

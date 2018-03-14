@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Копирование существующих BLOB-объектов в файл служб мультимедиа
 В этой статье демонстрируется, как копировать большие двоичные объекты из учетной записи хранения в новый ресурс Служб мультимедиа Azure (AMS) с помощью [расширений пакета SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/11/2017
 1. Настройте среду разработки, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
 2. Добавьте раздел appSettings в файл конфигурации и обновите значения в соответствии со значениями учетных записей служб мультимедиа, целевой учетной записи хранения, а также идентификатора исходного ресурса.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 В следующем коде используется метод расширения **IAsset.Copy** для копирования всех файлов из исходного ресурса (файла) в целевой с помощью одного расширения.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Настройте среду разработки, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
 2. Добавьте раздел appSettings в файл .config и обновите значения в соответствии с параметрами учетных записей AMS для исходного и целевого хранилищ.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -189,7 +189,7 @@ namespace CopyExistingBlobsIntoAsset
 >[!NOTE]
 >Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Дополнительные сведения см. в [этой статье](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,6 +371,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>Дополнительная информация
 
 Теперь можно закодировать отправленные ресурсы. Дополнительную информацию см. в статье, посвященной [кодированию ресурсов](media-services-portal-encode.md).

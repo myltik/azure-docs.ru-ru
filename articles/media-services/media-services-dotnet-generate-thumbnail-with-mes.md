@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Создание эскизов с помощью Media Encoder Standard c использованием .NET
 
@@ -34,6 +34,7 @@ Media Encoder Standard можно использовать для создани
 
 ### <a name="json-preset"></a>Предустановка JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ Media Encoder Standard можно использовать для создани
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>Предустановка XML
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ Media Encoder Standard можно использовать для создани
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Пример предустановки "несколько изображений JPEG"
 
@@ -86,6 +90,7 @@ Media Encoder Standard можно использовать для создани
 
 ### <a name="json-preset"></a>Предустановка JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ Media Encoder Standard можно использовать для создани
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Предустановка XML
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ Media Encoder Standard можно использовать для создани
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Пример предустановки "одно изображение на определенной метке времени"
 
@@ -142,6 +150,7 @@ Media Encoder Standard можно использовать для создани
 
 ### <a name="json-preset"></a>Предустановка JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ Media Encoder Standard можно использовать для создани
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>Предустановка XML
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ Media Encoder Standard можно использовать для создани
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Пример предустановки "эскизы с разными разрешениями"
 
 Эту предустановку можно использовать для создания эскизов с разными разрешениями в одной задаче. В примере в позициях входной временной шкалы 5 %, 15 %, …, 95 % кодировщик создает два изображения — один с использованием 100 % входного разрешения видео, а другой с использованием 50 %.
@@ -200,6 +211,7 @@ Media Encoder Standard можно использовать для создани
 
 ### <a name="json-preset"></a>Предустановка JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Media Encoder Standard можно использовать для создани
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Предустановка XML
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Media Encoder Standard можно использовать для создани
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Пример создания эскиза во время кодирования
 
 Во всех примерах выше рассматривались способы отправки задачи кодирования для создания изображений. Но также можно объединить кодирование видео и аудио с созданием эскизов. Предустановки JSON и XML ниже указывают **стандартному кодировщику служб мультимедиа** создавать эскиз во время кодирования.
@@ -269,6 +283,7 @@ Media Encoder Standard можно использовать для создани
 ### <a id="json"></a>Предустановка JSON
 Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Media Encoder Standard можно использовать для создани
         }
       ]
     }
+```
 
 ### <a id="xml"></a>Предустановка XML
 Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ Media Encoder Standard можно использовать для создани
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Кодирование видео и создание эскиза при помощи .NET
 
@@ -400,7 +418,7 @@ Media Encoder Standard можно использовать для создани
 
 Дополнительные сведения о настройке среды разработки см. в статье [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Разработка служб мультимедиа с помощью .NET).
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

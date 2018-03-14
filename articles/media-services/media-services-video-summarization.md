@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Использование Azure Media Video Thumbnail для формирования сводных данных видео
 ## <a name="overview"></a>Обзор
@@ -44,7 +44,11 @@ ms.lasthandoff: 12/11/2017
 ## <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании эскиза видео с помощью **Azure Media Video Thumbnails**необходимо указать предустановку конфигурации. Пример эскиза, приведенный выше, создан с помощью следующей базовой конфигурации JSON:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 В ней можно изменить следующие параметры.
 
@@ -63,6 +67,7 @@ ms.lasthandoff: 12/11/2017
 
 Следующий объект JSON задает доступные параметры.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ ms.lasthandoff: 12/11/2017
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>Пример кода .NET
 
@@ -78,15 +84,18 @@ ms.lasthandoff: 12/11/2017
 
 1. Создать ресурс-контейнера и отправить в него файл мультимедиа.
 2. Создать задание с задачей создания эскиза видео на основе файла конфигурации, содержащего следующую предустановку JSON. 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Скачивание выходных файлов. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
@@ -95,6 +104,7 @@ ms.lasthandoff: 12/11/2017
 
 #### <a name="example"></a>Пример
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ ms.lasthandoff: 12/11/2017
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Результат — эскиз видео
 [Результат — эскиз видео](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)

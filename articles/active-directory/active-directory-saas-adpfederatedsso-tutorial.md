@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с ADP Federated SSO | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в ADP Federated SSO."
+title: "Руководство по интеграции Azure Active Directory с ADP | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и ADP."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Руководство по интеграции Azure Active Directory с ADP Federated SSO
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Руководство по интеграции Azure Active Directory с ADP
 
-В этом руководстве описано, как интегрировать ADP Federated SSO с Azure Active Directory (Azure AD).
+В этом руководстве описано, как интегрировать ADP с Azure Active Directory (Azure AD).
 
-Интеграция ADP Federated SSO с Azure AD обеспечивает следующие преимущества.
+Интеграция ADP с Azure AD обеспечивает следующие преимущества:
 
-- С помощью Azure AD вы можете контролировать доступ к ADP Federated SSO.
-- Вы можете включить автоматический вход пользователей в ADP Federated SSO (единый вход) с использованием учетной записи Azure AD.
+- С помощью Azure AD вы можете контролировать доступ к ADP.
+- Вы можете организовать автоматический вход пользователей в ADP (единый вход) с использованием их учетных записей Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>предварительным требованиям
+## <a name="prerequisites"></a>Prerequisites
 
-Чтобы настроить интеграцию Azure AD с ADP Federated SSO, вам потребуется:
+Для настройки интеграции Azure AD с ADP вам потребуются:
 
 - подписка Azure AD;
-- подписка на ADP Federated SSO с поддержкой единого входа.
+- подписка ADP с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -50,13 +50,13 @@ ms.lasthandoff: 02/24/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление ADP Federated SSO из коллекции
+1. добавление ADP из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-adp-federated-sso-from-the-gallery"></a>Добавление ADP Federated SSO из коллекции
-Чтобы настроить интеграцию ADP Federated SSO с Azure AD, необходимо добавить ADP Federated SSO из коллекции в список управляемых приложений SaaS.
+## <a name="adding-adp-from-the-gallery"></a>Добавление ADP из коллекции
+Для настройки интеграции ADP с Azure AD необходимо добавить ADP из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить приложение ADP Federated SSO из коллекции, сделайте следующее:**
+**Для добавления ADP из коллекции сделайте следующее:**
 
 1.  Войдите в среду поставщика удостоверений Microsoft Azure с правами администратора.
 
@@ -72,35 +72,35 @@ ms.lasthandoff: 02/24/2018
 
     ![Кнопка "Новое приложение"][3]
 
-5. В поле поиска введите **ADP Federated SSO**, выберите **ADP Federated SSO** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+5. В поле поиска введите **ADP**, выберите **ADP** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![ADP Federated SSO в списке результатов](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![ADP в списке результатов](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-В этом разделе описана настройка и проверка единого входа Azure AD в ADP Federated SSO с использованием тестового пользователя Britta Simon.
+В этом разделе описана настройка и проверка единого входа в Azure AD с ADP с использованием тестового пользователя Britta Simon.
 
-Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в ADP Federated SSO соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ADP Federated SSO.
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в ADP соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ADP.
 
-Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в ADP Federated SSO.
+Для установления этой связи назначьте **имя пользователя**  в Azure AD в качестве значения **имени пользователя** в ADP.
 
-Чтобы настроить и проверить единый вход Azure AD в ADP Federated SSO, вам потребуется выполнить действия в следующих стандартных блоках.
+Чтобы настроить и проверить единый вход Azure AD в ADP, выполните инструкции в следующих базовых блоках.
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя ADP Federated SSO](#create-an-adp-federated-sso-test-user)** требуется для того, чтобы в ADP Federated SSO существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+3. **[Создаем тестового пользователя в ADP](#create-an-adp-test-user)** нужно для того, чтобы в ADP существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении ADP Federated SSO.
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении ADP.
 
-**Чтобы настроить единый вход Azure AD в ADP Federated SSO, сделайте следующее:**
+**Для настройки единого входа Azure AD в ADP выполните следующие действия:**
 
-1. На портале Azure на странице интеграции с приложением **ADP Federated SSO** щелкните вкладку **Свойства** и выполните следующие действия. 
+1. На портале Azure на странице интеграции с приложением **ADP** щелкните вкладку **Свойства** и выполните следующие действия. 
 
-    ![Свойства единого входа](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Свойства единого входа](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
     a. Задайте для параметра **Включен ли вход для пользователей?** значение **Да**.
 
@@ -110,25 +110,25 @@ ms.lasthandoff: 02/24/2018
 
     d. Задайте для параметра **Видно пользователям?** значение **Нет**.
 
-2. Щелкните пункт **Единый вход** на странице интеграции с приложением **ADP Federated SSO**.
+2. Щелкните **Единый вход** на странице интеграции с приложением **ADP**.
 
     ![Ссылка "Настройка единого входа"][4]
 
 3. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
 
-4. В разделе **Домены и URL-адреса приложения ADP Federated SSO** выполните следующие действия.
+4. В разделе **Домены и URL-адреса приложения ADP** выполните следующее:
 
-    ![Сведения о домене и URL-адресах единого входа для приложения ADP Federated SSO](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![Сведения о домене и URL-адресах единого входа приложения ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
     В текстовом поле **Идентификатор** введите URL-адрес: `https://fed.adp.com/` 
     
-5. Приложение ADP Federated SSO ожидает проверочные утверждения SAML в определенном формате, который требует добавить сопоставления настраиваемых атрибутов в вашу конфигурацию атрибутов токена SAML. На следующем снимке экрана приведен пример. Утверждение всегда будет носить имя **PersonImmutableID** и иметь значение, которое было сопоставлено с **employeeid**. 
+5. Приложение ADP ожидает проверочные утверждения SAML в определенном формате, поэтому следует добавить настраиваемые сопоставления атрибутов в конфигурацию атрибутов токена SAML. На следующем снимке экрана приведен пример. Утверждение всегда будет носить имя **PersonImmutableID** и иметь значение, которое было сопоставлено с **employeeid**. 
 
-    Здесь выполняется сопоставление пользователя из Azure AD с ADP Federated SSO по значению **employeeid**, однако его можно сопоставить с другим значением, учитывая параметры приложения. Обратитесь к [группе поддержки ADP](https://www.adp.com/contact-us/overview.aspx), чтобы указать правильный идентификатор пользователя и сопоставить это значение с утверждением **PersonImmutableID**.
+    Здесь выполняется сопоставление пользователя из Azure Active Directory с ADP по значению **employeeid**, однако его можно сопоставить и с другим значением в соответствии с параметрами приложения. Обратитесь к [группе поддержки ADP](https://www.adp.com/contact-us/overview.aspx), чтобы указать правильный идентификатор пользователя и сопоставить это значение с утверждением **PersonImmutableID**.
 
-    ![Настройка единого входа](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
+    ![Настройка единого входа](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
 6. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке, и выполните следующие действия.
     
@@ -153,9 +153,9 @@ ms.lasthandoff: 02/24/2018
 
 7. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
-8. Для настройки единого входа на стороне **ADP Federated SSO** необходимо передать загруженный **XML-файл метаданных** на [веб-сайт ADP Federated SSO](https://adpfedsso.adp.com/public/login/index.fcc).
+8. Для настройки единого входа в **ADP** необходимо передать загруженный **XML-файл метаданных** на [веб-сайт ADP](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
 > Это может занять несколько дней. 
@@ -178,13 +178,13 @@ ms.lasthandoff: 02/24/2018
 
     ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **ADP Federated SSO**, выберите **ADP Federated SSO** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+4. В поле поиска введите **ADP**, выберите **ADP** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![ADP Federated SSO в списке результатов](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![ADP в списке результатов](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. На портале Azure на странице интеграции с приложением **ADP Federated SSO** щелкните вкладку **Свойства** и выполните следующие действия.  
+5. На портале Azure на странице интеграции с приложением **ADP** щелкните вкладку **Свойства** и выполните следующие действия:  
 
-    ![Свойства единого входа по ссылке](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Свойства единого входа по ссылке](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Задайте для параметра **Включен ли вход для пользователей?** значение **Да**.
 
@@ -192,19 +192,19 @@ ms.lasthandoff: 02/24/2018
 
     c.  Задайте для параметра **Видно пользователям?** значение **Да**.
 
-6. Щелкните пункт **Единый вход** на странице интеграции с приложением **ADP Federated SSO**.
+6. Щелкните **Единый вход** на странице интеграции с приложением **ADP**.
 
     ![Ссылка "Настройка единого входа"][4]
 
-7. В диалоговом окне **Единый вход** для параметра **Режим** выберите значение **Вход по ссылке**, чтобы связать приложение с **федеративным единым входом ADP**.
+7. В диалоговом окне **Единый вход** для параметра **Режим** выберите значение **Вход по ссылке**. Таким образом вы связываете ваше приложение с **ADP**.
 
-    ![Единый вход по ссылке](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Единый вход по ссылке](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
 8. Перейдите в раздел **Настройка URL-адреса для единого входа** и выполните следующие действия.
 
-    ![Свойства единого входа](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Свойства единого входа](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
                                                               
-    a. Вставьте **URL-адрес пользовательского доступа**, который вы скопировали ранее на вкладке **Свойства** (из основного приложения ADP Federated SSO).
+    a. Вставьте **URL-адрес пользовательского доступа**, который вы скопировали ранее на вкладке **Свойства** (из основного приложения ADP).
                                                              
     Б. Ниже перечислены 5 приложений, которые поддерживают разные **URL-адреса состояния ретранслятора**. Необходимо вручную добавить соответствующее значение **URL-адреса состояния ретранслятора** к **URL-адресу пользовательского доступа** для конкретного приложения.
     
@@ -274,25 +274,25 @@ ms.lasthandoff: 02/24/2018
 
     d. Нажмите кнопку **Создать**.
  
-### <a name="create-an-adp-federated-sso-test-user"></a>Создание тестового пользователя приложения ADP Federated SSO
+### <a name="create-an-adp-test-user"></a>Создание тестового пользователя ADP
 
-Цель этого раздела — создать пользователя с именем Britta Simon в приложении ADP Federated SSO. Обратитесь к [команде поддержки ADP Federated SSO](https://www.adp.com/contact-us/overview.aspx), чтобы добавить пользователей в учетную запись ADP Federated SSO.
+Цель этого раздела — создать пользователя с именем Britta Simon в ADP. Обратитесь к [команде поддержки ADP](https://www.adp.com/contact-us/overview.aspx), чтобы добавить пользователей в учетную запись ADP.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как предоставить пользователю Britta Simon доступ к ADP Federated SSO, чтобы он мог использовать единый вход Azure.
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к ADP.
 
 ![Назначение роли пользователя][200] 
 
-**Чтобы назначить пользователя Britta Simon в ADP Federated SSO, сделайте следующее:**
+**Чтобы назначить пользователя Britta Simon в ADP, сделайте следующее:**
 
 1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
     ![Назначение пользователя][201] 
 
-2. Из списка приложений выберите **ADP Federated SSO**.
+2. В списке приложений выберите **ADP**.
 
-    ![Ссылка на ADP Federated SSO в списке приложений](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![Ссылка на ADP в списке приложений](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
@@ -312,15 +312,13 @@ ms.lasthandoff: 02/24/2018
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-Щелкнув плитку "ADP Federated SSO" на панели доступа, вы автоматически войдете в приложение ADP Federated SSO.
+Щелкнув плитку ADP на панели доступа, вы автоматически войдете в приложение ADP.
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

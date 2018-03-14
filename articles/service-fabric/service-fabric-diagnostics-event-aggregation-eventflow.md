@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Агрегирование и сбор событий с помощью EventFlow
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 02/09/2018
 
 Появится список различных пакетов, которые помечены как "Входные данные" и "Выходные данные". EventFlow поддерживает различные регистраторы и анализаторы журналов. Служба, в которой размещается EventFlow, должна содержать соответствующие пакеты в зависимости от источника и назначения журналов приложений. Помимо основного пакета ServiceFabric, также требуется настроить по крайней мере один ввод и один вывод. Например, можно добавить следующие пакеты для отправки событий EventSource в Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` для сбора данных из класса EventSource службы и стандартных классов EventSource, например *Microsoft-ServiceFabric-Services* и *Microsoft-ServiceFabric-Actors*
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` (мы собираемся отправлять журналы в ресурс Azure Application Insights)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` для сбора данных из класса EventSource службы и стандартных классов EventSource, например *Microsoft-ServiceFabric-Services* и *Microsoft-ServiceFabric-Actors*
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (мы собираемся отправлять журналы в ресурс Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` (позволяет инициализировать конвейер EventFlow из конфигурации службы Service Fabric и сообщать о всех проблемах отправки диагностических данных в виде отчетов о работоспособности Service Fabric)
 
 >[!NOTE]
->Для пакета `Microsoft.Diagnostics.EventFlow.Input.EventSource` требуется, чтобы в проекте службы использовалась платформа .NET Framework 4.6 или более поздняя версия. Обязательно задайте соответствующую целевую платформу в свойствах проекта, прежде чем устанавливать этот пакет.
+>Для пакета `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` требуется, чтобы в проекте службы использовалась платформа .NET Framework 4.6 или более поздняя версия. Обязательно задайте соответствующую целевую платформу в свойствах проекта, прежде чем устанавливать этот пакет.
 
 После установки всех пакетов следующим шагом является настройка и включение EventFlow в службе.
 

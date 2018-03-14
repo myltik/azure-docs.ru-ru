@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8700370dfb577cca95327caa923e2ef893165735
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-contentkeys-with-net"></a>Создание ContentKey с использованием .NET
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="contentkeytype"></a>ContentKeyType
 Одно из значений, которые необходимо задать при создания ключа содержимого — тип ключа содержимого. Выберите одно из следующих значений. 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -66,10 +67,12 @@ ms.lasthandoff: 12/21/2017
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>Создание ContentKey конвертного типа
 В следующем фрагменте кода создается ключ содержимого конвертного типа шифрования. Затем ключ связывается с указанным ресурсом.
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -98,15 +101,16 @@ ms.lasthandoff: 12/21/2017
         return randomBytes;
     }
 
-вызывает
+call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>Создание ContentKey общего типа
 В следующем фрагменте кода создается ключ содержимого общего типа шифрования. Затем ключ связывается с указанным ресурсом.
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -137,10 +141,10 @@ ms.lasthandoff: 12/21/2017
 
         return returnValue;
     }
-вызывает
+call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
-
+```
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -3,7 +3,7 @@ title: "Мониторинг конвейеров и управление ими
 description: "Сведения о том, как с помощью портала Azure и Azure PowerShell отслеживать состояние созданных конвейеров и фабрик данных Azure и управлять ими."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b361ca67ebece9ba1ced1010835eb90586dd7359
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Мониторинг конвейеров фабрики данных Azure и управление ими с помощью портала Azure и PowerShell
 > [!div class="op_single_selector"]
@@ -134,10 +134,10 @@ ms.lasthandoff: 01/23/2018
 <td>Ready</td><td>-</td><td>Срез готов к использованию.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>Срез не обрабатывается.</td>
+<td>Skipped</td><td>Нет</td><td>Срез не обрабатывается.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
+<td>Нет</td><td>-</td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
 </tr>
 </table>
 

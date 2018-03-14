@@ -2,7 +2,7 @@
 title: "Сценарий PowerShell: добавочная загрузка данных с помощью фабрики данных Azure | Документация Майкрософт"
 description: "Этот сценарий PowerShell демонстрирует, как с помощью фабрики данных Azure выполнять добавочное копирование данных из базы данных SQL Azure в хранилище BLOB-объектов Azure."
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
-ms.openlocfilehash: 36a8c8c4ed83a56dfd0f487ec4bcf030e3890ef6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: jingwang
+ms.openlocfilehash: daa7368de4b6f063f6e461909dd69eb1d79e7d62
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Сценарий PowerShell для пошаговой загрузки данных с помощью фабрики данных Azure
 Этот пример сценария PowerShell загружает в приемник только новые или обновленные записи из исходного хранилища данных после первоначального полного копирования данных из источника в приемник.  
