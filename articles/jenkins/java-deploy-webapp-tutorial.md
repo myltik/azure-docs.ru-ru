@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Настройка непрерывной интеграции и развертывания в службе приложений Azure с помощью Jenkins и GitHub
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 * [Jenkins](https://jenkins.io/) с настроенными инструментами JDK и Maven. Если у вас нет системы Jenkins, создайте ее сейчас в Azure, используя [шаблон решения Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Учетная запись [GitHub](https://github.com).
-* [Azure CLI 2.0](/cli/azure/overview) в локальной командной строке или в [Azure Cloud Shell](/azure/cloud-shell/overview).
+* [Azure CLI 2.0](/cli/azure) в локальной командной строке или в [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

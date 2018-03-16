@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Репликация многоуровневого приложения Dynamics AX с помощью Azure Site Recovery
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Включение аварийного восстановления приложения Dynamics AX с помощью Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Защита приложения Dynamics AX
-Чтобы можно было включить полные репликацию и восстановление приложения, должен быть защищен каждый компонент Dynamics AX. 
+Чтобы можно было включить полные репликацию и восстановление приложения, должен быть защищен каждый компонент Dynamics AX.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Настройка репликации Active Directory и DNS
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="perform-a-test-failover"></a>Тестовая отработка отказа
 
-Дополнительные сведения по работе с Active Directory во время тестовой обработки отказа см. в дополнительном руководстве "Решение аварийного восстановления с помощью Active Directory". 
+Дополнительные сведения по работе с Active Directory во время тестовой обработки отказа см. в дополнительном руководстве "Решение аварийного восстановления с помощью Active Directory".
 
 Дополнительные сведения по работе с SQL Server во время тестовой отработки отказа см. в статье [Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery](site-recovery-sql.md).
 

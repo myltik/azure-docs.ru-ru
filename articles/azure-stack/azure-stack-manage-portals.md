@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Использование портала администрирования в Azure Stack
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 
 | Среда | URL-адрес портала администрирования |   
 | -- | -- | 
-| Пакет разработчика| https://adminportal.local.azurestack.external  |
+| Комплект разработки| https://adminportal.local.azurestack.external  |
 | Интегрированные системы | https://adminportal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt; | 
 | | |
 

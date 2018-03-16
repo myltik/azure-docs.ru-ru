@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure
 В этой статье описываются важные различия локального развертывания доменных служб Windows Server Active Directory (AD DS) и служб федерации Active Directory (AD FS) по сравнению с их развертыванием на виртуальных машинах Microsoft Azure.
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/05/2018
 
 Рекомендуем сначала изучить руководства, рекомендации и видеоролики, охватывающие следующие темы:
 
-* [настройка виртуальной сети только для облака на портале Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [настройка виртуальной сети только для облака на портале Azure](../virtual-network/quick-create-portal.md)
 * [настройка VPN типа "cеть-сеть" на портале Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Установка нового леса Active Directory в виртуальной сети Azure](active-directory-new-forest-virtual-machine.md)
 * [установка реплики контроллера домена Active Directory в Azure;](active-directory-install-replica-active-directory-domain-controller.md)

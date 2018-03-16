@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Устранение ошибок имен учетной записи хранения
 
@@ -48,16 +48,12 @@ Message=The storage account named mystorage is already taken.
 
 ## <a name="solution"></a>Решение
 
-### <a name="solution-1"></a>Решение 1
-
 Убедитесь, что имя учетной записи хранения является уникальным. Уникальное имя можно создать, используя соглашение об именовании и результат функции [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>Решение 2
 
 Убедитесь, что имя учетной записи хранения содержит не больше 24 знаков. Функция [UniqueString](resource-group-template-functions-string.md#uniquestring) возвращает 13 знаков. Если используется сцепка префикса или постфикса с результатом **uniqueString**, то следует использовать значение, содержащие не более 11 знаков.
 
@@ -73,7 +69,5 @@ Message=The storage account named mystorage is already taken.
     }
 }
 ```
-
-### <a name="solution-3"></a>Решение 3
 
 Убедитесь, что имя учетной записи хранения не содержит буквы в верхнем регистре или специальные знаки.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Обзор Azure Cloud Shell
 Azure Cloud Shell — это интерактивная доступная браузеру оболочка для управления ресурсами Azure.
@@ -54,7 +54,7 @@ Cloud Shell предоставляет доступ к браузерному и
 Cloud Shell представляет собой гибкий инструмент, который можно использовать с помощью таких элементов:
 * [portal.azure.com](https://portal.azure.com);
 * [shell.azure.com](https://shell.azure.com);
-* [ознакомительная документация по Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest);
+* [ознакомительная документация по Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest);
 * [мобильные приложения Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/);
 * [расширение VS Code для учетной записи Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 

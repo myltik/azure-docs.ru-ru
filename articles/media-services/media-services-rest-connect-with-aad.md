@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Использование аутентификации Azure AD для доступа к API служб мультимедиа Azure с помощью REST
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 01/03/2018
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * Получение сведений об аутентификации с портала Azure.
+> * Получение сведений об аутентификации с портала Azure
 > * Получение токена доступа с помощью Postman.
-> * Проверка API **ресурсов** с помощью токена доступа.
+> * Проверка API **ресурсов** с помощью токена доступа
 
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/03/2018
 
 |Параметр|Пример|ОПИСАНИЕ|
 |---|-------|-----|
-|Домен клиента Azure Active Directory|microsoft.onmicrosoft.com|Azure AD как конечная точка службы токенов безопасности (STS) создается с использованием следующего формата: https://login.microsoftonline.com/{имя_клиента-aad.onmicrosoft.com}/oauth2/token. Azure AD выдает маркер JWT для доступа к ресурсам (маркер доступа).|
+|Домен клиента Azure Active Directory|microsoft.onmicrosoft.com|Azure AD в качестве конечной точки службы токенов безопасности (STS) создается в следующем формате: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD выдает маркер JWT для доступа к ресурсам (маркер доступа).|
 |Конечная точка REST API|https://amshelloworld.restv2.westus.media.azure.net/api/|Это конечная точка, к которой отправляются все вызовы REST API служб мультимедиа в вашем приложении.|
 |Идентификатор клиента (идентификатор приложения)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Идентификатор приложения (клиента) Azure AD. Идентификатор клиента необходим для получения токена доступа. |
 |Секрет клиента|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Ключи приложений Azure AD (секрет клиента). Секрет клиента необходим для получения токена доступа.|
@@ -123,7 +123,7 @@ ms.lasthandoff: 01/03/2018
 2. Выберите **POST**.
 3. Введите URL-адрес, содержащий имя клиента, в следующем формате: имя клиента должно заканчиваться на **.onmicrosoft.com**, а URL-адрес — на **oauth2/token**. 
 
-    https://login.microsoftonline.com/{имя_клиента_aad.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Выберите вкладку **Headers** (Заголовки).
 5. Введите данные **заголовков**, используя сетку данных "ключ — значение". 
@@ -159,7 +159,7 @@ ms.lasthandoff: 01/03/2018
 
 1. Откройте **Postman**.
 2. Выберите **GET**.
-3. Вставьте конечную точку REST API (например, https://amshelloworld.restv2.westus.media.azure.net/api/Assets).
+3. Вставьте конечную точку REST API (например, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Перейдите на вкладку **Authorization** (Авторизация). 
 5. Выберите **Bearer Token** (Токен носителя).
 6. Вставьте токен, который был создан в предыдущем разделе.

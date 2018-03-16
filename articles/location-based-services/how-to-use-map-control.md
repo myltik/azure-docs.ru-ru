@@ -3,17 +3,17 @@ title: "Использование Azure Location Based Services Map Control | �
 description: "Узнайте, как использовать клиентскую библиотеку Javascript Azure Location Based Services Map Control."
 services: location-based-services
 keywords: "Не добавляйте и не изменяйте ключевые слова, не посоветовавшись с консультантом SEO."
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Использование Azure Location Based Services Map Control
 Клиентская библиотека Javascript службы Map Control позволяет отображать карты и встроенные функциональные возможности Azure Location Based Services в вашем мобильном или веб-приложении. 

@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Диспетчер трафика Microsoft Azure и Azure Site Recovery
 
@@ -49,11 +44,11 @@ ms.lasthandoff: 02/28/2018
 
 В зависимости от бизнес-требований **компания А** может выбрать более высокий или более низкий [интервал проверки](../traffic-manager/traffic-manager-monitoring.md), чтобы перейти из локальной среды в Azure в случае аварии и сократить время простоя для пользователей.
 
-В случае аварии **компания А** может выполнить восстановление размещения из Azure в свою локальную среду ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) или [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) с использованием Azure Site Recovery. Теперь, когда диспетчер трафика обнаруживает, что **первичная** конечная точка снова работоспособна, он автоматически использует **эту** конечную точку в своих ответах DNS.
+В случае аварии **компания А** может выполнить восстановление размещения из Azure в свою локальную среду ([VMware](vmware-azure-failback.md) или [Hyper-V](hyper-v-azure-failback.md)) с использованием Azure Site Recovery. Теперь, когда диспетчер трафика обнаруживает, что **первичная** конечная точка снова работоспособна, он автоматически использует **эту** конечную точку в своих ответах DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>Перенос из локальной среды в Azure
 
-В дополнение к аварийному восстановлению Azure Site Recovery также позволяет выполнять [перенос в Azure](site-recovery-migrate-to-azure.md). Используя эффективные возможности тестовой отработки отказа Azure Site Recovery, клиенты могут оценивать производительность приложений в Azure, не затрагивая локальную среду. И когда клиенты готовы выполнить миграцию, они могут выбрать перенос всех рабочих нагрузок или постепенный перенос и масштабирование.
+В дополнение к аварийному восстановлению Azure Site Recovery также позволяет выполнять [перенос в Azure](migrate-overview.md). Используя эффективные возможности тестовой отработки отказа Azure Site Recovery, клиенты могут оценивать производительность приложений в Azure, не затрагивая локальную среду. И когда клиенты готовы выполнить миграцию, они могут выбрать перенос всех рабочих нагрузок или постепенный перенос и масштабирование.
 
 Метод [взвешенной](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) маршрутизации диспетчера трафика Azure позволяет направлять часть входящего трафика в Azure, в то время как большинство трафика направляется в локальную среду. Этот подход может помочь оценить производительность масштабирования, так как вы можете продолжать увеличивать присвоенное Azure значение веса, когда вы переносите все свои рабочие нагрузки в Azure.
 

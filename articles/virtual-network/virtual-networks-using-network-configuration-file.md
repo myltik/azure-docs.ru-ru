@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Настройка (классической) виртуальной сети с помощью файла конфигурации сети
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Создание и изменение файла конфигурации сети
 
-Файл конфигурации сети имеет формат XML (при использовании PowerShell) или JSON (при использовании Azure CLI). Файл можно изменить в любом текстовом редакторе и в редакторе XML или JSON. Сведения о параметрах схемы файла конфигурации сети см. в [этой статье](https://msdn.microsoft.com/library/azure/jj157100.aspx). Дополнительные сведения о параметрах см. в разделе [Просмотр виртуальных сетей и параметров](virtual-network-manage-network.md#view-vnet). Изменения, внесенные в файл:
+Файл конфигурации сети имеет формат XML (при использовании PowerShell) или JSON (при использовании Azure CLI). Файл можно изменить в любом текстовом редакторе и в редакторе XML или JSON. Сведения о параметрах схемы файла конфигурации сети см. в [этой статье](https://msdn.microsoft.com/library/azure/jj157100.aspx). Дополнительные сведения о параметрах см. в разделе [Просмотр виртуальных сетей и параметров](manage-virtual-network.md#view-virtual-networks-and-settings). Изменения, внесенные в файл:
 
 - Должны соответствовать схеме. В противном случае импорт файла конфигурации сети завершится ошибкой.
 - Перезапишут все имеющиеся параметры сети подписки. Поэтому соблюдайте предельную осторожность при внесении изменений. Например, просмотрите указанные ниже примеры файла конфигурации сети. Предположим, что исходный файл содержит два экземпляра **VirtualNetworkSite** и вы его изменили, как показано в примерах. При импорте файла Azure удаляет виртуальную сеть для экземпляра **VirtualNetworkSite**, удаленного в файле. Этот упрощенный сценарий предполагает, что в виртуальной сети отсутствуют ресурсы. В противном случае виртуальную сеть не удастся удалить, а импорт завершится сбоем.

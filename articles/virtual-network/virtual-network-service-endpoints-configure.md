@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ee01b83101d4ab4ee8665c32aca22a793b41ac0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Настройка конечных точек служб виртуальной сети
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 
 Предварительные требования для настройки:
-- Войдите в подписку Azure с помощью команды [az login](/cli/azure/#az_login) и следуйте инструкциям на экране. Дополнительные сведения о входе в систему см. в статье [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) (Приступая к работе с Azure CLI 2.0).
+- Войдите в подписку Azure с помощью команды [az login](/cli/azure/reference-index#az_login) и следуйте инструкциям на экране. Дополнительные сведения о входе в систему см. в статье [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) (Приступая к работе с Azure CLI 2.0).
  - Учетная запись должна предоставлять необходимые [разрешения](#provisioning) для создания виртуальной сети и конечной точки службы.
 
  См. [полный список команд для виртуальной сети Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest).

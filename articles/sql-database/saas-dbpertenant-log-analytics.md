@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Настройка и использование Log Analytics (OMS) с мультитенантным приложением SaaS для базы данных SQL Azure
 
@@ -132,7 +132,7 @@ Log Analytics — это отдельная служба, которую нео
 
 В отличие от создания оповещений для каждого ресурса на портале Azure, мониторинг и оповещения в Log Analytics и OMS основаны на запросах к данным в рабочей области. Создавая оповещения на основе запросов, вместо того чтобы определять одно оповещение для каждой базы данных, можно определить одно общее оповещение для всех баз данных. Запросы ограничиваются только данными, доступными в рабочей области.
 
-Дополнительные сведения об использовании OMS для создания запросов и настройки оповещений см. в статье [Работа с правилами генерации оповещений в Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Дополнительные сведения об использовании OMS для создания запросов и настройки оповещений см. в статье [Работа с правилами генерации оповещений в Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 За использование Log Analytics для базы данных SQL будет взиматься плата, которая зависит от потребляемого объема данных в рабочей области. В этом руководстве вы создали бесплатную рабочую область с ограничением на 500 МБ в день. При достижении лимита данные больше не будут добавляться в рабочую область.
 

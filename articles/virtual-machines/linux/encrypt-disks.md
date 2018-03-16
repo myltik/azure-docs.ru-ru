@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Как шифровать виртуальные диски на виртуальной машине Linux
 Для повышения уровня безопасности и соответствия требованиям виртуальной машины виртуальные диски и саму машину можно зашифровать. Виртуальные машины можно зашифровать с использованием криптографических ключей, защищенных в Azure Key Vault. Вы будете управлять этими криптографическими ключами и проводить аудит их использования. В этой статье описывается шифрование дисков на виртуальной машине Linux с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для шифрования виртуальных дисков на вашей виртуальной машине. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](#overview-of-disk-encryption).
 
-Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure, выполнив команду [az login](/cli/azure/#az_login). В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myKey* и *myVM*.
+Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure, выполнив команду [az login](/cli/azure/reference-index#az_login). В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myKey* и *myVM*.
 
 Сначала включите поставщик Azure Key Vault в подписке Azure, выполнив команду [az provider register](/cli/azure/provider#az_provider_register), и создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). В следующем примере создается имя группы ресурсов *myResourceGroup* в расположении *eastus*:
 
@@ -158,7 +158,7 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Создание Azure Key Vault и ключей
-Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#az_login). В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myKey* и *myVM*.
+Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/reference-index#az_login). В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myKey* и *myVM*.
 
 Первым делом создайте хранилище ключей Azure для хранения криптографических ключей. В хранилище ключей Azure можно хранить ключи, секреты или пароли, что позволяет безопасно реализовать их в приложениях и службах. Для шифрования виртуальных дисков используйте хранилище ключей, чтобы хранить криптографический ключ, используемый для шифрования или расшифровки виртуальных дисков.
 

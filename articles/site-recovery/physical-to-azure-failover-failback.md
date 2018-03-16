@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Отработка отказа и восстановление размещения физических серверов, реплицированных в Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="verify-server-properties"></a>Проверка свойств сервера
 
-Проверьте свойства сервера и убедитесь, что он соответствует [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) к виртуальным машинам Azure.
+Проверьте свойства сервера и убедитесь, что он соответствует [требованиям Azure](vmware-physical-azure-support-matrix.md#replicated-machines) к виртуальным машинам Azure.
 
 1. В разделе **Защищенные элементы** щелкните **Реплицированные элементы** и выберите виртуальную машину.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/24/2018
 
 - При наличии подключения к Azure ExpressRoute для целей тестирования можно использовать локальный сервер обработки, который автоматически устанавливается на сервере конфигурации.
 - Если имеется VPN-подключение или восстановление размещения выполняется в рабочей среде, необходимо настроить виртуальную машину Azure как сервер обработки на основе Azure.
-- Чтобы настроить сервер обработки в Azure, следуйте инструкциям в [этой статье](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Чтобы настроить сервер обработки в Azure, следуйте инструкциям в [этой статье](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Настройка главного целевого сервера
 

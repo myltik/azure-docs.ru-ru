@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Отработка отказа и восстановление размещения виртуальных машин VMware и физических серверов, реплицированных в Azure
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="verify-vm-properties"></a>Проверка свойств виртуальной машины
 
-Проверьте свойства виртуальной машины и убедитесь, что виртуальная машина соответствует [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Проверьте свойства виртуальной машины и убедитесь, что виртуальная машина соответствует [требованиям Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. В разделе **Защищенные элементы** щелкните **Реплицированные элементы** и выберите виртуальную машину.
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/28/2018
 
 - При наличии подключения к Azure ExpressRoute для целей тестирования можно использовать локальный сервер обработки, который автоматически устанавливается на сервере конфигурации.
 - Если имеется VPN-подключение или восстановление размещения выполняется в рабочей среде, необходимо настроить виртуальную машину Azure как сервер обработки на основе Azure.
-- Чтобы настроить сервер обработки в Azure, следуйте инструкциям в [этой статье](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Чтобы настроить сервер обработки в Azure, следуйте инструкциям в [этой статье](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Настройка главного целевого сервера
 

@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Уведомления по электронной почте об автоматической настройке
 
 Рекомендации по настройке базы данных SQL создает функция [автоматической настройки](sql-database-automatic-tuning.md) службы "База данных SQL Azure". Это решение постоянно отслеживает и анализирует рабочие нагрузки баз данных SQL, предоставляя для каждой отдельной базы данных специализированные рекомендации по настройке, связанные с созданием индексов, удалением индексов и оптимизацией планов выполнения запросов.
 
-Рекомендации по автоматической настройке базы данных SQL можно просмотреть на [портале Azure](sql-database-advisor-portal.md), а также получить с помощью вызовов [REST API](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) либо с помощью команд [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) и [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Эта статья основана на использовании сценария PowerShell для получения рекомендаций по автоматической настройке.
+Рекомендации по автоматической настройке базы данных SQL можно просмотреть на [портале Azure](sql-database-advisor-portal.md), а также получить с помощью вызовов [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) либо с помощью команд [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) и [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Эта статья основана на использовании сценария PowerShell для получения рекомендаций по автоматической настройке.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Автоматизация уведомлений по электронной почте о рекомендациях по автоматической настройке
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="create-azure-automation-account"></a>Создание учетной записи службы автоматизации Azure
 
-Чтобы использовать службу автоматизации Azure, сначала следует создать учетную запись службы автоматизации и настроить для нее ресурсы Azure, чтобы выполнять сценарий PowerShell. Дополнительные сведения об использовании службы автоматизации Azure см. в статье [Начало работы со службой автоматизации Azure](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Чтобы использовать службу автоматизации Azure, сначала следует создать учетную запись службы автоматизации и настроить для нее ресурсы Azure, чтобы выполнять сценарий PowerShell. Дополнительные сведения об использовании службы автоматизации Azure см. в статье [Начало работы со службой автоматизации Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Выполните следующие действия, чтобы создать учетную запись службы автоматизации Azure, выбрав и настроив приложение Automation из Marketplace.
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/09/2018
 
 - В области "Создание учетной записи автоматизации" щелкните **Создать**.
 - Укажите необходимые сведения: введите имя этой учетной записи службы автоматизации, выберите идентификатор подписки Azure и ресурсы Azure для выполнения сценария PowerShell.
-- Для параметра **Создать учетную запись запуска от имени Azure** выберите **Да**, чтобы настроить тип учетной записи, с которой сценарий PowerShell будет выполняться с помощью службы автоматизации Azure. Чтобы узнать больше о типах учетных записей, прочитайте раздел [Обновление проверки подлинности учетных записей службы автоматизации с использованием учетных записей запуска от имени](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+- Для параметра **Создать учетную запись запуска от имени Azure** выберите **Да**, чтобы настроить тип учетной записи, с которой сценарий PowerShell будет выполняться с помощью службы автоматизации Azure. Чтобы узнать больше о типах учетных записей, прочитайте раздел [Обновление проверки подлинности учетных записей службы автоматизации с использованием учетных записей запуска от имени](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 - Завершите создание учетной записи службы автоматизации, щелкнув **Создать**.
 
 > [!TIP]
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="update-azure-automation-modules"></a>Обновление модулей службы автоматизации Azure
 
-Для получения рекомендаций по автоматической настройке сценарий PowerShell использует команды [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) и [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction), требующие обновления модулей Azure до версии 4 и более поздней версии.
+Для получения рекомендаций по автоматической настройке сценарий PowerShell использует команды [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) и [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction), требующие обновления модулей Azure до версии 4 и более поздней версии.
 
 Вот как можно обновить модули Azure PowerShell.
 
@@ -195,7 +195,7 @@ Write-Output $table
 2. **Azure Automation - Get job output** (Служба автоматизации Azure — получение выходных данных задания). Используется для получения выходных данных выполненного сценария PowerShell.
 3. **Office 365 Outlook – Send an email** (Outlook Office 365 — отправка электронных сообщений). Используется для отправки электронного сообщения. Электронные сообщения отправляются с помощью учетной записи Office 365 пользователя, создавшего поток.
 
-Чтобы узнать больше о возможностях Microsoft Flow, прочитайте статью [Начало работы с Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Чтобы узнать больше о возможностях Microsoft Flow, прочитайте статью [Начало работы с Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Необходимым условием для выполнения этого шага является регистрация для получения учетной записи [Microsoft Flow](https://flow.microsoft.com) и выполнение входа с ее помощью. Перейдя в это решение, выполните следующие действия, чтобы настроить **новый поток**.
 

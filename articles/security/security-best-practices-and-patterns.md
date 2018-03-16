@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
 ms.author: 
-ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6713580325450d7548e63c78af4d44c65653f884
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Рекомендации и шаблоны для обеспечения безопасности в Azure
 
@@ -28,11 +28,12 @@ ms.lasthandoff: 02/22/2018
 * [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
 * [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
 * [Рекомендации по обеспечению операционной безопасности Azure](azure-operational-security-best-practices.md)
-* [Защита развернутых служб PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments) 
-* [Рекомендации по безопасности Azure Service Fabric](security-best-practices-and-patterns.md)
-* [Рекомендации по обеспечению безопасности виртуальных машин Azure](azure-service-fabric-security-best-practices.md)
+* [Защита развернутых служб PaaS](security-paas-deployments.md) 
+* [Рекомендации по безопасности Azure Service Fabric](azure-service-fabric-security-best-practices.md)
+* [Рекомендации по обеспечению безопасности виртуальных машин Azure](azure-security-best-practices-vms.md)
 * [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)* [Защита баз данных PaaS в Azure](security-paas-applications-using-sql.md)
+* [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
+* [Защита баз данных PaaS в Azure](security-paas-applications-using-sql.md)
 * [Защита мобильных приложений и веб-приложений PaaS с помощью службы приложений Azure](security-paas-applications-using-app-services.md)
 * [Защита мобильных приложений и веб-приложений PaaS с помощью службы хранилища Azure](security-paas-applications-using-storage.md)
 * [Рекомендации по безопасности для рабочих нагрузок IaaS в Azure](azure-security-iaas.md)

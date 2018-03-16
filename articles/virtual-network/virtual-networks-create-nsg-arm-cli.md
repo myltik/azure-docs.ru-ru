@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4827fabf1d8cde366dda8b3a782a2fefe01db8d5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Создание групп безопасности сети с помощью Azure CLI 1.0
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/09/2018
 
 Чтобы создать группу безопасности сети *NSG-FrontEnd* по описанному выше сценарию, сделайте следующее:
 
-1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#az_login). 
+1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/reference-index#az_login). 
 
 2. Создайте группу безопасности сети, выполнив команду [azure network nsg create](/cli/azure/network/nsg#az_network_nsg_create). 
 

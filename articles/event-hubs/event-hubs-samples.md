@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Примеры концентраторов событий 
 
@@ -61,10 +61,6 @@ ms.lasthandoff: 02/03/2018
 
 В [этом примере](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) демонстрируется, как с помощью [узла обработчика событий](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) распределить рабочую нагрузку потребления потока концентраторов событий. В нем показано, как реализовать объекты **EventProcessor** и **EventProcessorFactory** для управления потоком событий. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Извлечение веб-данных в концентратор событий 
-
-В [этом примере](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) показано, как извлечь данные из общедоступных веб-каналов (например, из информационного веб-канала Министерства транспорта США) и передать их в концентратор событий.
-
 ## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о версиях платформы .NET Framework см. по следующим ссылкам:
@@ -75,5 +71,5 @@ ms.lasthandoff: 02/03/2018
 Чтобы узнать больше о концентраторах событий, обратитесь к следующим статьям:
 
 - [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-- [Создание концентратора событий](event-hubs-create.md)
+- [Особенности концентраторов событий](event-hubs-features.md)
 - [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Использование Azure CLI в Windows
 
 Интерфейс командной строки Azure (CLI) представляет собой интерфейс командной строки и среду скриптов для создания ресурсов Azure и управления ими. Azure CLI доступен для операционных систем macOS, Linux и Windows. Для этих операционных систем команды CLI идентичны. Однако синтаксис конкретного скрипта операционной системы может отличаться.
 
-В этом документе представлены сведения об установке Azure CLI и его запуске в Windows, а также сведения о синтаксисе для каждого сценария. Подробную документацию по Azure CLI см. [здесь]( https://docs.microsoft.com/cli/azure/overview).
+В этом документе представлены сведения об установке Azure CLI и его запуске в Windows, а также сведения о синтаксисе для каждого сценария. Подробную документацию по Azure CLI см. [здесь]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Подсистема Windows для Linux
 

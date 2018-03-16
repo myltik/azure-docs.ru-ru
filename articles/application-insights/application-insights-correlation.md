@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Корреляция данных телеметрии в Application Insights
 
@@ -98,7 +98,7 @@ Application Insights определяет [модель данных](applicatio
 
 ASP.NET Core 2.0 поддерживает извлечение заголовков HTTP и запуск нового действия (Activity). 
 
-`System.Net.HttpClient`, начиная с версии `<fill in>`, поддерживает автоматическое внедрение заголовков HTTP корреляции и отслеживание вызова HTTP как действия.
+`System.Net.HttpClient`, начиная с версии `4.1.0`, поддерживает автоматическое внедрение заголовков HTTP корреляции и отслеживание вызова HTTP как действия.
 
 Для ASP.NET Classic доступен новый HTTP-модуль [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/). Этот модуль реализует корреляцию данных телеметрии с помощью DiagnosticsSource. Он запускает действие, исходя их заголовков входящего запроса. Он также сопоставляет данные телеметрии из разных этапов обработки запроса. Даже если каждый этап обработки IIS выполняется в разных потоках управления.
 

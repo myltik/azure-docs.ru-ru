@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске для API SQL
 > [!div class="op_single_selector"]
@@ -290,7 +290,6 @@ ms.lasthandoff: 03/02/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
-| [1.20.2](#1.20.2) |21 февраля 2018 г. |--- |
 | [1.20.1](#1.20.1) |5 февраля 2018 г. |--- |
 | [1.19.1](#1.19.1) |16 ноября 2017 г. |--- |
 | [1.19.0](#1.19.0) |10 ноября 2017 г. |--- |

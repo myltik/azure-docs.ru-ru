@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Часто задаваемые вопросы о службе "Машинное обучение Azure"
 
@@ -127,7 +127,7 @@ Azure Machine Learning Workbench — это дополнительное при
 
 **Поддерживаются ли возможности командной строки?**
 
-Да, служба "Машинное обучение Azure" предлагает полнофункциональный интерфейс CLI. CLI службы "Машинное обучение" устанавливается по умолчанию с Azure Machine Learning Workbench. Он также предоставляется в составе виртуальной машины Linux для обработки и анализа данных в Azure и будет интегрирован в [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest).
+Да, служба "Машинное обучение Azure" предлагает полнофункциональный интерфейс CLI. CLI службы "Машинное обучение" устанавливается по умолчанию с Azure Machine Learning Workbench. Он также предоставляется в составе виртуальной машины Linux для обработки и анализа данных в Azure и будет интегрирован в [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 
 **Можно ли использовать записные книжки Jupyter с Workbench?**

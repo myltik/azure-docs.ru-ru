@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Обзор облачных вычислений и Microsoft Azure
 
@@ -491,19 +491,19 @@ Resource Manager также предлагает возможности разв
 
 **Портал**
 
-Для развертывания виртуальной сети на портале Azure требуется только активная подписка Azure и доступ к веб-браузеру. Новую виртуальную сеть можно развернуть в новой или существующей группе ресурсов. При создании виртуальной машины на портале можно выбрать существующую виртуальную сеть или создать новую. Дополнительные сведения см. в статье [Создание виртуальной сети с помощью портала Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Для развертывания виртуальной сети на портале Azure требуется только активная подписка Azure и доступ к веб-браузеру. Новую виртуальную сеть можно развернуть в новой или существующей группе ресурсов. При создании виртуальной машины на портале можно выбрать существующую виртуальную сеть или создать новую. Дополнительные сведения см. в статье [Создание виртуальной сети с помощью портала Azure](../../virtual-network/quick-create-portal.md).
 
 Помимо развертывания виртуальной сети Azure на портале Azure можно развернуть шаблон Azure Resource Manager на портале. Это поможет развернуть и настроить все ресурсы, как определено в шаблоне, включая любые ресурсы виртуальной сети. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Развертывание виртуальной сети Azure с помощью PowerShell позволяет полностью автоматизировать развертывание учетной записи хранения. Дополнительные сведения см. в статье [Создание виртуальной сети с помощью PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Развертывание виртуальной сети Azure с помощью PowerShell позволяет полностью автоматизировать развертывание учетной записи хранения. Дополнительные сведения см. в статье [Создание виртуальной сети с помощью PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Помимо развертывания ресурсов Azure по отдельности, можно использовать модуль Azure PowerShell для развертывания шаблона Azure Resource Manager. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **интерфейса командной строки (CLI)**
 
-Как и в случае с модулем PowerShell, интерфейс командной строки Azure позволяет автоматизировать развертывание и может использоваться в системах Windows, Linux и OS X. С помощью команды **az network vnet create** Azure CLI можно создать виртуальную сеть. Дополнительные сведения см. в статье [Создание виртуальной сети с помощью Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Как и в случае с модулем PowerShell, интерфейс командной строки Azure позволяет автоматизировать развертывание и может использоваться в системах Windows, Linux и OS X. С помощью команды **az network vnet create** Azure CLI можно создать виртуальную сеть. Дополнительные сведения см. в статье [Создание виртуальной сети с помощью Azure CLI](../../virtual-network/quick-create-cli.md).
 
 Аналогично, Azure CLI можно использовать для развертывания шаблона Azure Resource Manager. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

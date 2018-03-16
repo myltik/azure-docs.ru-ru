@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Устранение проблем с маршрутами на портале Azure
 > [!div class="op_single_selector"]
-> * [портале Azure](virtual-network-routes-troubleshoot-portal.md)
+> * [портал Azure](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Просмотр эффективных маршрутов виртуальной машины
 Чтобы просмотреть агрегированные маршруты, которые применяются к виртуальной машине, сделайте следующее:
 
-1. Откройте портал Azure по адресу https://portal.azure.com. Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Войдите на портал Azure: https://portal.azure.com. Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Выберите **Все службы**, а затем из появившегося списка выберите **Виртуальные машины**.
 3. Откроется список, где необходимо выбрать виртуальную машину для устранения проблем, после чего отобразится колонка параметров виртуальной машины.
 4. Выберите **Диагностика и решение проблем**, а затем распространенную проблему. В этом примере — **Я не могу подключиться к виртуальной машине Windows** .
@@ -96,7 +96,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="view-effective-routes-for-a-network-interface"></a>Просмотр эффективных маршрутов сетевого интерфейса
 Если сетевой трафик относится к определенному сетевому интерфейсу, список всех эффективных маршрутов можно просмотреть непосредственно в сетевом интерфейсе. Чтобы просмотреть агрегированные маршруты, которые применяются к сетевому интерфейсу, сделайте следующее:
 
-1. Откройте портал Azure по адресу https://portal.azure.com.
+1. Войдите на портал Azure: https://portal.azure.com.
 2. Выберите **Все службы**, а затем выберите **Сетевые интерфейсы**.
 3. Найдите в списке имя сетевого интерфейса или выберите его из появившегося списка. В этом примере — **VM1-NIC1** .
 4. В колонке **Сетевой интерфейс** выберите **Эффективные маршруты**.
@@ -116,7 +116,7 @@ ms.lasthandoff: 02/21/2018
 
 Чтобы просмотреть агрегированные маршруты для таблицы маршрутов, сделайте следующее:
 
-1. Откройте портал Azure по адресу https://portal.azure.com.
+1. Войдите на портал Azure: https://portal.azure.com.
 2. Выберите **Все службы**, а затем выберите **Таблицы маршрутов**.
 3. Найдите в списке таблицу маршрутов, для которой нужно просмотреть агрегированные маршруты, и выберите ее. В этом примере — **UDRouteTable** . Откроется колонка выбранной таблицы маршрутов, как показано на следующем снимке экрана.
 

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Устранение ошибок квот ресурсов
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Квоты применяются к группам ресурсов, подпискам, учетным записям и другим областям. Например, для подписки может быть настроено ограничение числа ядер для региона. При попытке развертывания виртуальной машины с большим количеством ядер, чем разрешено, вы получите сообщение о том, что квота превышена.
 Дополнительные сведения о квотах Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Решение
+## <a name="troubleshooting"></a>Устранение неполадок
 
-### <a name="solution-1"></a>Решение 1
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
 
 Чтобы узнать квоты виртуальной машины, выполните команду `az vm list-usage` в Azure CLI.
 
@@ -73,7 +73,7 @@ az vm list-usage --location "South Central US"
 ]
 ```
 
-### <a name="solution-2"></a>Решение 2
+### <a name="powershell"></a>PowerShell
 
 Чтобы узнать квоты виртуальной машины, выполните команду **Get-AzureRmVMUsage** в PowerShell.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Решение 3
+## <a name="solution"></a>Решение
 
 Если необходимо увеличить квоту, перейдите на портал и отправьте запрос в службу поддержки. В службе поддержки запросите увеличение квоты для региона, в котором требуется осуществить развертывание.
 

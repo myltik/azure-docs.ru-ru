@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Запуск планировщика развертывания Azure Site Recovery для сценариев развертывания виртуальных машин VMware в Azure
 В этой статье приведены рекомендации по использованию планировщика развертывания Azure Site Recovery в сценариях рабочих развертываний виртуальных машин VMware в Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Режимы запуска для планировщика развертывания
-Программу командной строки (ASRDeploymentPlanner.exe) можно запустить в любом из следующих четырех режимов: 
+Программу командной строки (ASRDeploymentPlanner.exe) можно запустить в любом из следующих четырех режимов:
 
 1.  [Профилирование](#profile-vmware-vms).
 2.  [Создание отчета](#generate-report).
@@ -49,8 +49,8 @@ ms.lasthandoff: 01/16/2018
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. Если Connect-VIServer не распознается как имя командлета, вам может потребоваться выполнить следующую команду:
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Чтобы получить список всех имен виртуальных машин на сервере vCenter Server или узле vSphere ESXi и сохранить их в TXT-файле, выполните приведенные ниже команды.
 Замените значения &lsaquo;имени сервера&rsaquo;, &lsaquo;имени пользователя&rsaquo;, &lsaquo;пароля&rsaquo; и &lsaquo;выходного TXT-файла&rsaquo; собственными.
@@ -101,7 +101,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Используя параметры по умолчанию, для профилирования, например, 1500 виртуальных машин создайте два файла VMList.txt. Один файл должен содержать 1000 виртуальных машин, а второй — 500. Запустите два экземпляра планировщика развертывания ASR: один со списком VMList1.txt и второй со списком VMList2.txt. Профилируемые данные обеих виртуальных машин VMList можно хранить в одной папке. 
+Используя параметры по умолчанию, для профилирования, например, 1500 виртуальных машин создайте два файла VMList.txt. Один файл должен содержать 1000 виртуальных машин, а второй — 500. Запустите два экземпляра планировщика развертывания ASR: один со списком VMList1.txt и второй со списком VMList2.txt. Профилируемые данные обеих виртуальных машин VMList можно хранить в одной папке.
 
 Мы убедились, что в зависимости от конфигурации оборудования (особенно в зависимости от размера ОЗУ сервера, на котором запускается средство для создания отчетов), операция может завершиться ошибкой из-за нехватки памяти. При наличии хорошего оборудования можно увеличить значение параметра MaxVMsSupported.  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Анализ созданного отчета](site-recovery-vmware-deployment-planner-analyze-report.md)
-

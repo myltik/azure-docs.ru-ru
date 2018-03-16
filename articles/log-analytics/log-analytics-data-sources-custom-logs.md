@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Настраиваемые журналы в службе Log Analytics
 С помощью настраиваемых журналов, выступающих в качестве источников данных, в службе Log Analytics можно собирать события из текстовых файлов на компьютерах Windows и Linux. Во многих приложениях вместо стандартной службы ведения журнала, например журнала событий Windows или системного журнала, данные журналов записываются в текстовые файлы.  Каждую собранную запись в журнале можно преобразовать в отдельные поля с помощью функции [Настраиваемые поля](log-analytics-custom-fields.md) службы Log Analytics.

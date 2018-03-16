@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Использование Azure PowerShell со службой хранилища Azure
 
@@ -136,8 +136,6 @@ $ctx = $storageAccount.Context
 * **SKU** — это параметр репликации для учетной записи хранения (как, например, LRS для локально избыточного хранилища). Например, можно изменить Standard\_LRS на Standard\_GRS или Standard\_RAGRS. Обратите внимание, что невозможно изменить Standard\_ZRS или Premium\_LRS на другие SKU или заменить другие SKU этими.
 
 * **Уровень доступа** для учетных записей хранилища BLOB-объектов. Для уровня доступа задано значение **Горячий** или **Холодный**, что позволяет свести к минимуму затраты, выбрав уровень доступа, соответствующий использованию учетной записи хранения. Дополнительные сведения см. в статье [Хранилище BLOB-объектов Azure: "горячий", "холодный" и архивный (предварительная версия) уровни](../blobs/storage-blob-storage-tiers.md).
-
-* Параметр шифрования службы хранилища для хранилища BLOB-объектов и/или файлов. Дополнительные сведения о SSE см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](storage-service-encryption.md).
 
 * Разрешение только трафика по протоколу HTTPS. 
 

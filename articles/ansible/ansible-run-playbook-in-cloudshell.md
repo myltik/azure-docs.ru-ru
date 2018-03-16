@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Запуск Ansible с помощью Bash в Azure Cloud Shell
 
@@ -98,8 +98,8 @@ ms.lasthandoff: 02/09/2018
     tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          location: eastus
+        name: demoresourcegroup
+        location: eastus
   ```
 
 1. Сохраните файл и закройте редактор VI. Для этого введите команду `:wq` и нажмите клавишу &lt;ВВОД>.
@@ -146,8 +146,8 @@ ms.lasthandoff: 02/09/2018
     tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          state: absent
+        name: demoresourcegroup
+        state: absent
   ```
 
 1. Сохраните файл и закройте редактор VI. Для этого введите команду `:wq` и нажмите клавишу &lt;ВВОД>.

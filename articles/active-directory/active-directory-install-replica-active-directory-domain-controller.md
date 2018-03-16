@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Установка реплики контроллера домена Active Directory в виртуальной сети Azure
 В этой статье обсуждается, как устанавливать дополнительные контроллеры домена, которые будут использоваться как реплики контроллеров домена для локального домена Active Directory на виртуальных машинах Azure в виртуальной сети Azure. Также можно [ установить новый лес Windows Server Active Directory в виртуальной сети Azure](active-directory-new-forest-virtual-machine.md). Инструкции по установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в статье [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -62,7 +62,7 @@ Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddr
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Изменение конфигурации DNS-сервера для виртуальной сети
 1. Чтобы получить список имен виртуальных сетей, на [портале Azure](https://portal.azure.com) выполните поиск по тексту *Виртуальные сети*, а затем выберите **Виртуальные сети** для просмотра списка. 
-2. Откройте виртуальную сеть, которую требуется настроить. Затем [измените конфигурацию IP-адресов DNS-серверов для виртуальной сети](../virtual-network/virtual-network-manage-network.md#dns-servers), чтобы использовать статические IP-адреса, назначенные репликам контроллеров домена, вместо IP-адресов локальных DNS-серверов.
+2. Откройте виртуальную сеть, которую требуется настроить. Затем [измените конфигурацию IP-адресов DNS-серверов для виртуальной сети](../virtual-network/manage-virtual-network.md#change-dns-servers), чтобы использовать статические IP-адреса, назначенные репликам контроллеров домена, вместо IP-адресов локальных DNS-серверов.
 3. Чтобы убедиться, что на всех репликах виртуальных машин с контроллерами домена в виртуальной сети настроено использование DNS-серверов в виртуальной сети, выполните следующие действия.
   1. Выберите **Виртуальные машины**.
   2. Выберите нужные виртуальные машины, а затем щелкните **Перезапустить**. 

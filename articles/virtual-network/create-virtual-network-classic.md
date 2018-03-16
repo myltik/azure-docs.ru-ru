@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Создание (классической) виртуальной сети с несколькими подсетями
 
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). В этой статье рассматривается использование классической модели развертывания. Для создания виртуальных сетей корпорация Майкрософт рекомендует использовать модель развертывания с помощью [Resource Manager](virtual-networks-create-vnet-arm-pportal.md).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). В этой статье рассматривается использование классической модели развертывания. Для создания виртуальных сетей корпорация Майкрософт рекомендует использовать модель развертывания с помощью [Resource Manager](quick-create-portal.md).
 
 В рамках этого руководства вы узнаете, как создать базовую (классическую) виртуальную сеть Azure с отдельными общедоступной и частной подсетями. Ресурсы Azure, такие как виртуальные машины и облачные службы, можно создавать в подсети. Ресурсы, созданные в (классической) виртуальной сети, могут взаимодействовать друг с другом и с ресурсами в других сетях, подключенных к виртуальной сети.
 
-Дополнительные сведения обо всех параметрах виртуальной сети и подсети см. в [этой](virtual-network-manage-network.md) и [этой](virtual-network-manage-subnet.md) статье.
+Дополнительные сведения обо всех параметрах виртуальной сети и подсети см. в [этой](manage-virtual-network.md) и [этой](virtual-network-manage-subnet.md) статье.
 
 > [!WARNING]
 > При [отключении подписки](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit) классические виртуальные сети сразу же удаляются Azure независимо от наличия ресурсов. После повторного включения подписки необходимо повторно создать ресурсы, находившиеся в виртуальной сети.
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- Дополнительные сведения о всех параметрах виртуальной сети и подсети см. в статьях [Создание, изменение или удаление виртуальных сетей](virtual-network-manage-network.md) и [Создание, изменение и удаление подсети в виртуальной сети](virtual-network-manage-subnet.md). Доступны различные варианты использования виртуальных сетей и подсетей в рабочей среде для соответствия различным требованиям.
+- Дополнительные сведения о всех параметрах виртуальной сети и подсети см. в статьях [Создание, изменение или удаление виртуальных сетей](manage-virtual-network.md) и [Создание, изменение и удаление подсети в виртуальной сети](virtual-network-manage-subnet.md). Доступны различные варианты использования виртуальных сетей и подсетей в рабочей среде для соответствия различным требованиям.
 - Вы можете фильтровать входящий и исходящий трафик подсети, создавая и применяя к ней [группы безопасности сети](virtual-networks-nsg.md).
 - Создайте виртуальную машину [с Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [с Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json), а затем подключите ее к имеющейся виртуальной сети.
 - Чтобы подключить две виртуальные сети в одном расположении Azure, создайте [пиринг виртуальных сетей](create-peering-different-deployment-models.md) между ними. Вы можете настроить пиринг между виртуальной сетью диспетчера ресурсов и классической виртуальной сетью, но не между двумя классическими виртуальными сетями.

@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Планирование загрузки для защиты виртуальных машин Hyper-V с помощью Site Recovery
 
-Теперь доступна новая улучшенная версия программы [Планировщик развертывания Azure Site Recovery (развертывание виртуальных машин Hyper-V в Azure)](site-recovery-hyper-v-deployment-planner.md). Она используется вместо старого средства. Используйте для планирования развертывания новое средство. Это средство предоставляет указанные ниже рекомендации.
+Теперь доступна новая улучшенная версия программы [Планировщик развертывания Azure Site Recovery (развертывание виртуальных машин Hyper-V в Azure)](site-recovery-hyper-v-deployment-planner.md). Она используется вместо старого средства. Используйте для планирования развертывания новое средство.
+Это средство предоставляет указанные ниже рекомендации.
 
 * Оценка совместимости виртуальной машины в зависимости от количества дисков, их размера, числа операций ввода-вывода в секунду, активности обработки данных и некоторых характеристик виртуальной машины.
 * Оценка пропускной способности сети и RPO.
@@ -45,7 +46,7 @@ ms.lasthandoff: 02/09/2018
 
 * Соберите сведения о среде, включая информацию о виртуальных машинах, количестве дисков на виртуальную машину и объеме хранилища на диск.
 * Определите частоту ежедневных изменений (обновлений) реплицированных данных. Скачайте [инструмент планирования ресурсов Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057), чтобы получить сведения о частоте изменений. См. [дополнительные сведения](site-recovery-capacity-planning-for-hyper-v-replication.md) об этом средстве. Мы советуем использовать это средство в течение недели, чтобы получить средние значения.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Запуск средства быстрого планирования
 1. Скачайте и откройте [планировщик ресурсов Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel). Выполните макрос. Когда появится запрос, сделайте выбор, чтобы включить редактирование и содержимое.
@@ -58,7 +59,7 @@ ms.lasthandoff: 02/09/2018
 
    a. В списке **Select your scenario** (Выберите сценарий) выберите пункт **Из Hyper-V в Azure** или **Из VMware или физического сервера в Azure**.
 
-   Б. В поле **Average daily data change rate (%)** (Средняя частота ежедневного изменения данных (%)) введите данные, полученные с помощью [инструмента планирования ресурсов Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) или [планировщика ресурсов Site Recovery](./site-recovery-deployment-planner.md). 
+   Б. В поле **Average daily data change rate (%)** (Средняя частота ежедневного изменения данных (%)) введите данные, полученные с помощью [инструмента планирования ресурсов Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) или [планировщика ресурсов Site Recovery](./site-recovery-deployment-planner.md).
 
    c. Параметр **Compression** (Сжатие) не используется при репликации виртуальных машин Hyper-V в Azure. Чтобы использовать сжатие, воспользуйтесь устройством сторонних производителей, например Riverbed.
 
@@ -147,7 +148,7 @@ ms.lasthandoff: 02/09/2018
 ### <a name="submit-data-in-capacity-planner"></a>Отправка данных в планировщик ресурсов
 1. Открываемый лист **планировщика ресурсов** заполняется данными в зависимости от заданных вами параметров. В ячейке **Infra inputs source** (Исходная среда входных данных инфраструктуры) появится слово "Рабочая нагрузка", чтобы показать, что источником входных данных является лист **Workload Qualification** (Оценка рабочей нагрузки).
 
-2. Чтобы внести изменения, измените данные на листе **Workload Qualification** (Оценка рабочей нагрузки). Затем выберите **Submit data to the planner tool** (Отправить данные в средство "Планировщик") еще раз. 
+2. Чтобы внести изменения, измените данные на листе **Workload Qualification** (Оценка рабочей нагрузки). Затем выберите **Submit data to the planner tool** (Отправить данные в средство "Планировщик") еще раз.
 
    ![Планировщик ресурсов](./media/site-recovery-capacity-planner/capacity-planner.png)
 

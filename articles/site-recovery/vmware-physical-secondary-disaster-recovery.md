@@ -8,13 +8,13 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: c83f6142e70103ff4d99d9d2871c4ab747af8d99
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7d172b89a0846c8ccf19896400e127a3bec0b55e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Настройка аварийного восстановления виртуальных машин VMware и физических серверов в дополнительном расположении
 
@@ -25,8 +25,8 @@ InMage Scout в [Azure Site Recovery](site-recovery-overview.md) обеспеч�
 
 Для работы с этим руководством:
 
-- [Ознакомьтесь](site-recovery-support-matrix-to-sec-site.md) с требованиями поддержки для всех компонентов.
-- Убедитесь, что реплицируемые виртуальные машины соответствуют [требованиям поддержки реплицируемых машин](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- [Ознакомьтесь](vmware-physical-secondary-support-matrix.md) с требованиями поддержки для всех компонентов.
+- Убедитесь, что реплицируемые виртуальные машины соответствуют [требованиям поддержки реплицируемых машин](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ## <a name="create-a-vault"></a>Создание хранилища

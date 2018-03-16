@@ -3,8 +3,8 @@ title: "API использования ресурсов для клиентов 
 description: "Справочные сведения об API использования ресурсов, который получает сведения об использовании Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
 ms.service: azure-stack
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2016
-ms.author: alfredop
-ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tenant-resource-usage-api"></a>API использования ресурсов для клиентов
+
 Клиент может использовать API клиента для просмотра данных об использовании собственных ресурсов. Этот API соответствует API использования в Azure (сейчас доступен в режиме закрытой предварительной версии).
 
 Как и в Azure, чтобы получить данные об использовании, вы можете использовать командлет Windows PowerShell **Get-UsageAggregates**.
@@ -83,6 +85,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *instanceData* |Пары "ключ-значение" из сведений об экземпляре (в новом формате):<br>  *resourceUri*: полный идентификатор ресурса, включая группы ресурсов и имя экземпляра. <br>  *location*: область, в котором эта служба запущена. <br>  *tags*: теги ресурсов, указанные пользователем. <br>  *additionalInfo*: подробные сведения об используемом ресурсе, например версия ОС или тип образа. |
 | *quantity* |Объем потребления ресурса за указанный промежуток времени |
 | *meterId* |Уникальный идентификатор использованного ресурса (также обозначается *ResourceID*) |
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 [API использования ресурсов для поставщиков](azure-stack-provider-resource-api.md)
