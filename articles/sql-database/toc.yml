@@ -380,7 +380,6 @@
             - name: Подготовка клиентов
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Однотенантная база данных
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Ознакомление с руководствами
               href: saas-dbpertenant-wingtip-app-overview.md
