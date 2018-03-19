@@ -24,14 +24,12 @@
 
 ### Подсистема балансировки нагрузки
 #### [Что такое подсистема балансировки нагрузки?](../load-balancer/load-balancer-standard-overview.md)
+#### [Подсистема балансировки нагрузки уровня "Стандартный" и зоны доступности](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью портала Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Создание избыточной в пределах зоны подсистемы балансировки нагрузки уровня "Стандартный" с помощью PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью интерфейса командной строки](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Общедоступный IP-адрес
-#### [Создание общедоступного IP-адреса в зоне доступности с помощью портала Azure](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Создание общедоступного IP-адреса в зоне доступности с помощью PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Создание общедоступного IP-адреса в зоне доступности с помощью интерфейса командной строки](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Общедоступный IP-адрес](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### База данных SQL
 #### [Использование зон доступности с Базой данных SQL](../sql-database/sql-database-high-availability.md#availability-zones)

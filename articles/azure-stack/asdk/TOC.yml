@@ -1,0 +1,87 @@
+- name: Документация по пакету средств разработки Azure Stack
+  href: index.yml
+- name: Обзор
+  expanded: true
+  items:
+    - name: Что такое ASDK?
+      href: asdk-what-is.md
+    - name: Заметки о выпуске ASDK
+      href: asdk-release-notes.md
+- name: Учебники
+  items:
+    - name: 1. Развертывание пакета SDK для Azure Stack
+      items:
+        - name: Развертывание ASDK с помощью установщика
+          href: asdk-deploy.md
+        - name: Развертывание ASDK с помощью PowerShell
+          href: asdk-deploy-powershell.md
+        - name: Повторное развертывание ASDK
+          href: asdk-redeploy.md
+    - name: 2. Добавление элемента Marketplace
+      items:
+        - name: Скачивание из Azure
+          href: asdk-marketplace-item.md
+        - name: Добавление из локального источника
+          href: asdk-marketplace-item-offline.md
+    - name: 3. Предложение служб IaaS
+      href: asdk-offer-services.md
+    - name: 4. Подписка на предложение
+      href: asdk-subscribe-services.md
+    - name: 5. Обновление предложений и планов
+      href: asdk-update-offers.md
+    - name: 6. Создание виртуальной машины на основе шаблона
+      href: asdk-create-vm-template.md
+- name: Основные понятия
+  items:
+    - name: Рекомендации по планированию развертывания
+      href: asdk-deploy-considerations.md
+    - name: Архитектура пакета SDK
+      href: asdk-architecture.md
+    - name: Основы администрирования ASDK
+      href: asdk-admin-basics.md
+    - name: Расширенные задачи оценки
+      href: asdk-advanced-eval.md
+- name: Практическое руководство
+  items:
+    - name: Настройка ASDK
+      items:
+        - name: Скачивание и извлечение комплекта разработки
+          href: asdk-download.md
+        - name: Подготовка главного компьютера для ASDK
+          href: asdk-prepare-host.md
+        - name: Установка ASDK
+          href: asdk-install.md
+        - name: Настройка после развертывания
+          href: asdk-post-deploy.md
+    - name: Регистрация ASDK
+      href: asdk-register.md
+    - name: Настройка параметров телеметрии Azure Stack
+      href: asdk-telemetry.md
+    - name: Устранение неполадок
+      href: asdk-troubleshooting.md
+- name: Справочные материалы
+  items:
+    - name: PowerShell для Azure Stack
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: Azure Stack CLI
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Сопутствующие материалы
+  items:
+    - name: Документация оператора по Azure Stack
+      href: /azure/azure-stack/
+    - name: Документация пользователя по Azure Stack
+      href: /azure/azure-stack/user/
+- name: Ресурсы
+  items:
+    - name: План выхода продуктов Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Форум MSDN по Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Отзывы о документации по Azure Stack
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Сведения о ценах
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Обучение и сертификация
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

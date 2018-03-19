@@ -61,6 +61,7 @@
 ## [Настройка языка](active-directory-b2c-reference-language-customization.md)
 ## [Использование API отчетов](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Перемещение пользователей](active-directory-b2c-user-migration.md)
+## [Перенос удостоверений социальных сетей](active-directory-b2c-social-migration.md)
 
 # Инфраструктура процедур идентификации
 ## [Пользовательские политики](active-directory-b2c-overview-custom.md)

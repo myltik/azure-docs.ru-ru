@@ -38,6 +38,7 @@
 #### [Использование Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Работа с большими масштабируемыми наборами](virtual-machine-scale-sets-placement-groups.md)
 ### [Преобразование шаблона масштабируемого набора для использования управляемого диска](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Использование виртуальных машин с низким приоритетом](virtual-machine-scale-sets-use-low-priority.md)
 
 ## управление
 ### Общие задачи управления

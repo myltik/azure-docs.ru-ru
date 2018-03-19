@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Необходимые условия
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Распространение Службы приложений Azure в доменах сбоя Azure Stack
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Развертывание поставщика ресурсов службы приложений
               href: azure-stack-app-service-deploy.md
             - name: Автономное развертывание службы приложений
               href: azure-stack-app-service-deploy-offline.md
+            - name: Обновление службы приложений
+              href: azure-stack-app-service-update.md
+            - name: Автономное обновление службы приложений
+              href: azure-stack-app-service-update-offline.md
             - name: Добавление рабочих веб-ролей
               href: azure-stack-app-service-add-worker-roles.md
             - name: Настройка источников развертывания
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Заметки о выпуске обновления 1 службы приложений
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Заполнение Marketplace
           items:
             - name: Обзор Marketplace

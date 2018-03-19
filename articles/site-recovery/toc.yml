@@ -67,6 +67,8 @@
       items:
         - name: Репликация в Azure
           items:
+            - name: Часто задаваемые вопросы по репликации из VMware в Azure
+              href: vmware-azure-common-questions.md
             - name: "Матрица поддержки \"VMware или физический сервер\_— Azure\""
               href: vmware-physical-azure-support-matrix.md
             - name: "Архитектура: репликация из VMware\_в Azure"
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: Сведения о службе Mobility Service
               href: vmware-azure-install-mobility-service.md
+            - name: Варианты расположения для восстановления размещения
+              href: concepts-types-of-failback.md
         - name: Репликация на дополнительный сайт
           items:
             - name: "Матрица поддержки \"VMware или физический сервер\_— дополнительный сайт\""
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Подготовка сетевого сопоставления для аварийного восстановления виртуальных машин Azure
               href: azure-to-azure-network-mapping.md
-            - name: Настройка назначения IP-адресов после отработки отказа виртуальных машин Azure
+            - name: Настройка назначения IP-адресов для отработки отказа
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Аварийное восстановление
           items:
@@ -139,7 +143,7 @@
           items:
             - name: Управление сетевыми интерфейсами для репликации из локальной среды в Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Настройка назначения IP-адресов после отработки отказа в Azure
+            - name: Настройка назначения IP-адресов для отработки отказа
               href: concepts-on-premises-to-azure-networking.md
         - name: Планирование загрузки
           items:
@@ -241,7 +245,7 @@
           items:
             - name: Управление сетевыми интерфейсами для репликации из локальной среды в Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Настройка назначения IP-адресов после отработки отказа в Azure
+            - name: Настройка назначения IP-адресов для отработки отказа
               href: concepts-on-premises-to-azure-networking.md
         - name: Планирование загрузки
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: Анализ отчета об оценке стоимости
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: Тесты уровня производительности для репликации Hyper-V на дополнительный сайт
-              href: hyper-v-vmm-performance-results.md
         - name: Аварийное восстановление
           items:
             - name: Настройка репликации Hyper-V в Azure (без VMM) с помощью PowerShell
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Отработка аварийного восстановления виртуальных машин Hyper-V на дополнительный сайт
           href: hyper-v-vmm-test-failover.md
-        - name: Настройка назначения IP-адресов после отработки отказа на дополнительный сайт
+        - name: Настройка назначения IP-адресов для отработки отказа
           href: hyper-v-vmm-networking.md
         - name: Добавление сценариев VMM в планы восстановления
           href: hyper-v-vmm-recovery-script.md
         - name: Выполнение отработки отказа и восстановления размещения между локальными сайтами
           href: hyper-v-vmm-failover-failback.md
+        - name: Тесты уровня производительности для репликации Hyper-V на дополнительный сайт
+          href: hyper-v-vmm-performance-results.md
     - name: Репликация приложений
       items:
         - name: Active Directory и DNS

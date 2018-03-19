@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Практические руководства
   items:
+    - name: Основные задачи CLI
+      href: cli-for-azure-machine-learning.md
     - name: Использование Workbench
       items:
         - name: Работа с интегрированными средами разработки Python

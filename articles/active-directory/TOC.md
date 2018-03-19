@@ -190,11 +190,10 @@
 #### [Отчеты об автоматической подготовке пользователей](active-directory-saas-provisioning-reporting.md)
 #### [Устранение неполадок с подготовкой пользователей](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Удаленный доступ к приложениям с помощью прокси приложения](active-directory-application-proxy-get-started.md)
 #### Начало работы
 ##### [Использование прокси приложения](active-directory-application-proxy-enable.md)
+##### [Поддержка GDPR](active-directory-application-proxy-gdpr.md)
 ##### [Публикация приложений](application-proxy-publish-azure-portal.md)
 ##### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
 #### [Единый вход](application-proxy-sso-overview.md)

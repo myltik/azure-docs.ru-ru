@@ -26,9 +26,9 @@
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 с Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 с Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev с Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 с Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## Расширенные сценарии IoT
 ### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)

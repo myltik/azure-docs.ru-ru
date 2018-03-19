@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: Включение резервного копирования виртуальной машины во время ее создания
               href: backup-during-vm-creation.md
+            - name: Обновление до стека резервного копирования виртуальных машин версии 2
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: Контроль и мониторинг виртуальных машин
           items:
             - name: Управление резервным копированием виртуальных машин Azure на портале Azure

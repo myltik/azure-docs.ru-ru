@@ -64,6 +64,7 @@
 ## Инструменты Visual Studio
 ### [Установка инструментов](stream-analytics-tools-for-visual-studio-install.md)
 ### [Разработка облачного задания](stream-analytics-tools-for-visual-studio.md)
+### [Разработка задания Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Настройка конвейера CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Устранение неполадок

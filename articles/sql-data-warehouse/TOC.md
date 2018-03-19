@@ -18,7 +18,7 @@
 
 
 # Учебники
-## [1. Загрузка данных из BLOB-объекта](load-data-from-azure-blob-storage-using-polybase.md)
+## [1. Загрузка WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Основные понятия
 ## Функции службы
@@ -101,6 +101,7 @@
 
 
 ## Загрузка и перемещение данных
+### [Данные о такси Нью-Йорка](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Общедоступные данные Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

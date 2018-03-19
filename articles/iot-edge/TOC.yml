@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Создание
           href: module-composition.md
+        - name: Свойства агента и концентратора Edge
+          href: module-edgeagent-edgehub.md
     - name: Среда выполнения IoT Edge
       href: iot-edge-runtime.md
     - name: Развернутые приложения

@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3. Управление затратами
       href: tutorial-manage-costs.md
-    - name: 4. Управление доступом к данным
+    - name: 4. Оптимизация зарезервированных экземпляров
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5. Управление доступом к данным
       href: tutorial-user-access.md
 - name: Основные понятия
   items:

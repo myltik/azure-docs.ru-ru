@@ -11,6 +11,7 @@
 ## [Поддержка протокола IPv6](load-balancer-ipv6-overview.md)
 ## [Использование нескольких виртуальных IP-адресов](load-balancer-multivip-overview.md)
 ## [Общие сведения об исходящих подключениях](load-balancer-outbound-connections.md)
+## [Подсистема балансировки нагрузки уровня "Стандартный" и зоны доступности](load-balancer-standard-availability-zones.md)
 
 # Начало работы
 
@@ -49,6 +50,7 @@
 ### [Устранение неполадок Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Статьи о классической модели развертывания
+### [Исходящие подключения (классическое развертывание)](load-balancer-outbound-connections-classic.md)
 ### [Настройка внутренней подсистемы балансировки нагрузки для облачных служб](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Настройка внутренней подсистемы балансировки нагрузки для облачных служб (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Настройка внутренней подсистемы балансировки нагрузки для облачных служб (CLI)](load-balancer-get-started-ilb-classic-cli.md)
