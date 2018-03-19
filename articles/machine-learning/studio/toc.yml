@@ -235,5 +235,3 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Видеоролики
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Получение справки с помощью чата в реальном времени
-      href: live-chat.md

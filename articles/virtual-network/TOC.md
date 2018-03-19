@@ -27,11 +27,6 @@
 ### [Группы безопасности сети](virtual-networks-nsg.md)
 
 ## Развертывание
-### виртуальные сети;
-#### [портал Azure](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [интерфейс командной строки Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Группы безопасности сети
 #### [портал Azure](virtual-networks-create-nsg-arm-pportal.md)

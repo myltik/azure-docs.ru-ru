@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: f2f85dfb82e62dd60c469abfdd87faa9cad43454
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые надежные микрослужбы и контейнеры, но и управлять ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой. Узнайте, как использовать Azure Service Fabric, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
 sections:
@@ -58,6 +58,7 @@ sections:
     style: unordered
     items:
     - html: "<a href=\"service-fabric-tutorial-create-dotnet-app\">Развертывание приложения .NET</a>"
+    - html: "<a href=\"service-fabric-tutorial-create-java-app\">Развертывание приложения Java</a>"
     - html: "<a href=\"service-fabric-host-app-in-a-container\">Контейнеризация существующего приложения .NET</a>"
     - html: "<a href=\"service-fabric-tutorial-create-container-images\">Создание приложения-контейнера Linux</a>"
     - html: "Создание кластера <a href=\"service-fabric-tutorial-create-vnet-and-windows-cluster\">Windows</a> или <a href=\"service-fabric-tutorial-create-vnet-and-linux-cluster\">Linux</a> и управление им"
@@ -102,7 +103,7 @@ sections:
       html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/\">Приступая к работе</a></p><p><a href=\"https://github.com/Azure-Samples/service-fabric-dotnet-quickstart\">Голосование</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/\">Ссылка на веб-службу</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/\">Интернет вещей</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/\">Служба наблюдения</a></p>"
     - title: Java
       html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/\">Приступая к работе</a></p>"
-- title: "Ссылка"
+- title: "Справочные материалы"
   items:
   - type: list
     style: cards

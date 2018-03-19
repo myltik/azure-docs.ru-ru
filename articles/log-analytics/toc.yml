@@ -50,7 +50,7 @@
     - name: Поиск по журналам
       items:
         - name: Обзор поиска по журналу
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Порталы поиска по журналам
           href: log-analytics-log-search-portals.md
 - name: Практические руководства
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: API поиска по журналам
           href: 'https://dev.loganalytics.io/'
-    - name: Поиск по журналам прежних версий
-      items:
-        - name: Обзор поиска по журналу
-          href: log-analytics-log-searches.md
-        - name: Справочник по поиску
-          href: log-analytics-search-reference.md
-          items:
-            - name: Регулярные выражения
-              href: log-analytics-log-searches-regex.md
-        - name: API поиска по журналам
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Анализ данных
       items:
         - name: Панели мониторинга

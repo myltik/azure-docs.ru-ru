@@ -151,10 +151,6 @@
           href: security-center-events-dashboard.md
         - name: поиска
           href: security-center-search.md
-    - name: Служба интеграции журналов Azure
-      href: security-center-integrating-alerts-with-log-integration.md
-    - name: Экспорт данных в SIEM
-      href: security-center-export-data-to-siem.md
     - name: Сценарии
       items:
         - name: реагирование на инциденты.
