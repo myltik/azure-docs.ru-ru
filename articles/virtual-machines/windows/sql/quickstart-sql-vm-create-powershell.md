@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Краткое руководство по созданию виртуальной машины SQL Server под управлением Windows с помощью Azure PowerShell
 
@@ -26,7 +26,15 @@ ms.lasthandoff: 02/21/2018
 > [!TIP]
 > В этом кратком руководстве приводятся инструкции по быстрой подготовке виртуальной машины SQL Server и подключению к ней. Дополнительные сведения о других способах создания виртуальных машин SQL Server с помощью Azure PowerShell см. в статье [Как создать виртуальные машины SQL Server с помощью Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
+> [!TIP]
+> Если у вас есть вопросы по виртуальным машинам SQL Server, см. раздел [часто задаваемых вопросов](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Оформление подписки Azure
+
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+
+
+## <a id="powershell"></a> Установка Azure PowerShell
 
 Для работы с этим кратким руководством требуется модуль Azure PowerShell 3.6 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 

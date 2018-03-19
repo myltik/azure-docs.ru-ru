@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Руководство. Мониторинг и диагностика приложения ASP.NET Core в Service Fabric
 Это руководство представляет собой четвертую часть цикла. В нем описывается настройка мониторинга и диагностики приложения ASP.NET Core, запущенного в кластере Service Fabric, с помощью Application Insights. Мы будем собирать данные телеметрии из приложения, разработанного в первой части цикла, [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -104,15 +104,16 @@ Application Insights — это платформа для управления �
     При этом в данные телеметрии будет добавлен *контекст службы*, что позволит лучше понять источник данных телеметрии в Application Insights. Вложенная инструкция *return* в *VotingWeb.cs* должна выглядеть следующим образом.
     
     ```csharp
-    return new WebHostBuilder().UseWebListener()
+    return new WebHostBuilder()
+        .UseKestrel()
         .ConfigureServices(
             services => services
+                .AddSingleton<HttpClient>(new HttpClient())
+                .AddSingleton<FabricClient>(new FabricClient())
                 .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<HttpClient>())
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
-        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -126,8 +127,8 @@ Application Insights — это платформа для управления �
         .ConfigureServices(
             services => services
                 .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<IReliableStateManager>(this.StateManager))
+                .AddSingleton<IReliableStateManager>(this.StateManager)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
         .UseApplicationInsights()
@@ -233,6 +234,6 @@ public async Task<IActionResult> Delete(string name)
 > * добавление настраиваемых событий с помощью API Application Insights.
 
 Теперь, когда вы настроили мониторинг и диагностику приложения ASP.NET, попробуйте выполнить следующее:
-- [Изучение данных мониторинга и диагностики в Service Fabric](service-fabric-diagnostics-overview.md)
+- [Дальнейшее изучение данных мониторинга и диагностики в Service Fabric](service-fabric-diagnostics-overview.md)
 - [Анализ событий Service Fabric с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 - Чтобы узнать больше об Application Insights, ознакомьтесь с [документацией по Application Insights](https://docs.microsoft.com/azure/application-insights/).

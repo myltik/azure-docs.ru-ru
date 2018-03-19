@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Подготовка локальных серверов VMware для аварийного восстановления в Azure
 
@@ -86,7 +86,7 @@ Site Recovery требуется доступ к серверам VMware, что
 **Имя виртуальной машины** | От 1 до 63 символов,<br/><br/> при этом допустимы только буквы, цифры и дефисы Имя виртуальной машины должно начинаться и заканчиваться буквой или цифрой.
 **Тип виртуальной машины** | Поколение 1 — Linux или Windows<br/><br/>Поколение 2 — только для Windows
 
-Виртуальная машина также должна работать под управлением поддерживаемой операционной системы. Подробный список поддерживаемых версий см. в разделе [Поддержка версий ОС для реплицируемых виртуальных машин](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+Виртуальная машина также должна работать под управлением поддерживаемой операционной системы. Подробный список поддерживаемых версий см. в [таблице поддерживаемых виртуальных машин VMware и физических серверов](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Подготовка к подключению виртуальных машин Azure после отработки отказа
 

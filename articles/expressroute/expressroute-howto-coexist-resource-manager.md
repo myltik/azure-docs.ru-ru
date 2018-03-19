@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Настройка параллельных подключений ExpressRoute и "сайт-сайт"
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ VPN-подключение типа "сеть-сеть" можно настро�
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Создайте виртуальную сеть и подсеть шлюза. Дополнительные сведения о настройке виртуальной сети см. в статье [Создание виртуальной сети с помощью PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Создайте виртуальную сеть и подсеть шлюза. См. дополнительные сведения в статье о [создании виртуальной сети](../virtual-network/manage-virtual-network.md#create-a-virtual-network). См. дополнительные сведения в статье о [создании подсети](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet).
    
    > [!IMPORTANT]
    > Подсеть шлюза должна иметь префикс /27 или более короткий префикс (например, /26 или /25).

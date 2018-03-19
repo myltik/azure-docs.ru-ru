@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Что собой представляет SQL Server на виртуальных машинах Azure (Windows)
 
@@ -51,10 +51,7 @@ ms.lasthandoff: 02/21/2018
 Чтобы приступить к работе, выберите образ виртуальной машины SQL Server требуемой версии, выпуска и с нужной операционной системой. В следующих разделах приведены прямые ссылки на портал Azure для получения образов виртуальной машины SQL Server из коллекции.
 
 > [!TIP]
-> См. [руководство по выбору ценовой категории для виртуальных машин Azure SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-> [!TIP]
-> Сведения о политике обновления и жизненного цикла для образов коллекции виртуальных машин SQL Server см. в статье [Часто задаваемые вопросы по SQL Server на виртуальных машинах Azure (Windows)](virtual-machines-windows-sql-server-iaas-faq.md#images).
+> Дополнительные сведения о ценообразовании на образы SQL см. в [руководстве по выбору ценовой категории для виртуальных машин Azure SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Оплата по мере использования
 В следующей таблице представлена матрица для образов SQL Server с оплатой по мере использования.
@@ -86,6 +83,9 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="migrate-your-data"></a>Перенос данных
 Если у вас есть база данных, вам необходимо будет переместить ее в новую виртуальную машину SQL. Список вариантов и руководство по миграции баз данных см. в статье [Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure](virtual-machines-windows-migrate-sql.md).
+
+## <a id="lifecycle"></a> Политика обновления образа виртуальной машины SQL
+Azure поддерживает только один образ виртуальной машины для каждого сочетания поддерживаемой операционной системы, версии и выпуска. Это означает, что со временем образы обновляются, а старые образы удаляются. Дополнительные сведения см. в разделе **Образы** статьи [Часто задаваемые вопросы по SQL Server на виртуальных машинах Azure (Windows)](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Программа улучшения качества программного обеспечения (CEIP)
 Программа по улучшению качества программного обеспечения (CEIP) включена по умолчанию. Она периодически отправляет отчеты в Майкрософт, чтобы улучшить качество SQL Server. Если вы не хотите отключить CEIP после подготовки, то дополнительные задания управления не требуются. Вы можете настроить или отключить программу CEIP, подключившись к виртуальной машине с помощью удаленного рабочего стола. Затем запустите служебную программу **Служба отчетов об ошибках и использовании SQL Server** . Следуйте инструкциям в окнах этой программы, чтобы отключить создание отчетов. Дополнительные сведения о сборе данных см. в [заявлении о конфиденциальности SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).

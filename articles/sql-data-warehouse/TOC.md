@@ -52,11 +52,12 @@
 ### [Эластичные запросы в базе данных SQL](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## Мониторинг и настройка
-### [управления рабочими нагрузками](resource-classes-for-workload-management.md)
+## Производительность запросов
+### [Классы ресурсов](resource-classes-for-workload-management.md)
 ### [Сжатие ColumnStore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Мониторинг](sql-data-warehouse-manage-monitor.md)
-### [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
+
+## [Мониторинг](sql-data-warehouse-manage-monitor.md)
+
 
 ## Разработка хранилищ данных
 ### [Обзор](sql-data-warehouse-overview-develop.md)
@@ -87,6 +88,8 @@
 #### [Пользовательские схемы](sql-data-warehouse-develop-user-defined-schemas.md)
 #### [Присвоение значения переменной](sql-data-warehouse-develop-variable-assignment.md)
 #### [Представления](sql-data-warehouse-develop-views.md)
+
+## [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
 # Практические руководства
 ## Функции службы

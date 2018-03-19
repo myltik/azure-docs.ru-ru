@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Разработка решений для крупномасштабных параллельных вычислений с использованием пакетной службы
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/05/2018
 Как при разработке распределенного вычислительного приложения или службы, которая отправляет прямые вызовы [REST API][batch_rest_api], так и при использовании одного из [пакетов SDK для пакетной службы](batch-apis-tools.md#azure-accounts-for-batch-development) вам понадобятся многие ресурсы и функции, описанные в этой статье.
 
 > [!TIP]
-> Дополнительные сведения о пакетной службе Azure см. в [этой статье](batch-technical-overview.md).
+> Дополнительные сведения о пакетной службе Azure см. в [этой статье](batch-technical-overview.md). Также см. последние [обновления пакетной службы](https://azure.microsoft.com/updates/?product=batch).
 >
 >
 

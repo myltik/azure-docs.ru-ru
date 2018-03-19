@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Выполнение отработки аварийного восстановления в Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="verify-vm-properties"></a>Проверка свойств виртуальной машины
 
-Перед запуском тестовой отработки отказа проверьте свойства виртуальной машины и убедитесь, что виртуальная машина соответствует [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Прежде чем запускать тестовую отработку отказа, проверьте свойства виртуальной машины и убедитесь, что виртуальная машина Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], [виртуальная машина VMware или физический сервер](vmware-physical-azure-support-matrix.md#replicated-machines) соответствуют требованиям Azure.
 
 1. В разделе **Защищенные элементы** щелкните **Реплицированные элементы** и выберите виртуальную машину.
 2. В области **Реплицированный элемент** находятся сводные данные о виртуальной машине, включая состояние работоспособности и последние доступные точки восстановления. Щелкните **Свойства**, чтобы просмотреть дополнительные сведения.
@@ -66,4 +66,4 @@ ms.lasthandoff: 01/02/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
-> [Выполнение отработки отказа и восстановления размещения локальных виртуальных машин VMware](tutorial-vmware-to-azure-failover-failback.md).
+> [Выполнение отработки отказа и восстановления размещения локальных виртуальных машин VMware](vmware-azure-tutorial-failover-failback.md).

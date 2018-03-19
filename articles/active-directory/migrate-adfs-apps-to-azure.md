@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Перемещение локальных приложений AD FS в Azure 
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 02/01/2018
 - Утверждения в возможностях маркера
     - Назначение локальных имен группы как утверждений.
     - Утверждения из хранилищ данных, отличных от Azure AD.
-    - Комплексные правила преобразования выдачи утверждений (дополнительные сведения см. в этом руководстве, включая сведения о поддерживаемых сопоставлениях утверждений).
+    - Комплексные правила преобразования выдачи утверждений (дополнительные сведения о поддерживаемых сопоставлениях утверждений см. в [этом](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) и [этом](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) документах).
     - Назначение расширений каталога как утверждений.
     - Настраиваемая спецификация формата NameID.
     - Выдача атрибутов с несколькими значениями.

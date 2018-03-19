@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Защита базы данных SQL Azure
 

@@ -6,18 +6,18 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Создание реестра контейнеров на портале Azure
 
-Реестр контейнеров Azure — это частный реестр Docker в Azure, где можно хранить частные образы контейнеров Docker и управлять ими. В этом кратком руководстве вы создадите реестр контейнеров с помощью портала Azure.
+Реестр контейнеров Azure — это частный реестр Docker в Azure, где можно хранить частные образы контейнеров Docker и управлять ими. Из этого краткого руководства вы узнаете, как создать реестр контейнера на портале Azure, отправить образ контейнера в реестр и, наконец, развернуть контейнер из реестра в службе "Экземпляры контейнеров Azure" (ACI).
 
 Для выполнения этого краткого руководства потребуется локально установленное средство Docker. Docker предоставляет пакеты, которые позволяют быстро настроить Docker в любой системе [Mac][docker-mac], [Windows][docker-windows] или [Linux][docker-linux].
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Прежде чем отправить образ в реестр, необходимо снабдить его тегом имени сервера входа в ACR. Присвойте образу тег с помощью команды [docker tag][docker-tag]. Замените значение *login server* (сервер входа) именем сервера входа, записанным ранее.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Наконец, воспользуйтесь командой [docker push][docker-push] для принудительной отправки образа в экземпляр ACR. Замените значение *login server* именем сервера входа для вашего экземпляра ACR.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![Создание реестра контейнеров на портале Azure][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Развертывание образа в службе "Экземпляры контейнеров Azure"
+
+Чтобы развернуть образ из реестра в экземпляр, нужно перейти в репозиторий (aci helloworld), а затем щелкнуть многоточие рядом со значением v1.
+
+![Запуск экземпляра контейнера Azure на портале][qs-portal-10]
+
+Когда появится контекстное меню, выберите **Запустить экземпляр**.
+
+![Контекстное меню для запуска экземпляра контейнера Azure][qs-portal-11]
+
+Для запуска экземпляра контейнера Azure заполните поле **Имя контейнера**, выберите правильную подписку и существующую **группу ресурсов** "myResourceGroup", а затем нажмите кнопку **ОК**.
+
+![Варианты развертывания для запуска экземпляр контейнера Azure][qs-portal-12]
+
+При запуске развертывания на панели мониторинга портала отображается плитка, показывающая ход развертывания. После завершения развертывания плитка обновляется для отображения новой группы контейнеров **mycontainer**.
+
+![Состояния развертывания экземпляра контейнера Azure][qs-portal-13]
+
+Для отображения свойств группы контейнеров выберите группу контейнеров mycontainer. Обратите внимание на **IP-адрес** группы контейнеров, а также на **состояние** контейнера.
+
+![Подробная информация о контейнере ACI][qs-portal-14]
+
+## <a name="view-the-application"></a>Просмотр приложения
+
+Когда контейнер находится в состояние **Выполняется**, в своем браузере перейдите к IP-адресу, записанному на предыдущем шаге, чтобы отобразить приложение.
+
+![Приложение Hello World в браузере][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Удалите группу ресурсов **myResourceGroup**, когда она станет не нужна. При этом будут удалены группа ресурсов, экземпляр ACR и все образы контейнеров.
+Чтобы очистить ресурсы, перейдите к группе ресурсов **myResourceGroup** на портале. После загрузки группы ресурсов щелкните пункт **Удалить группу ресурсов** для удаления группы ресурсов, реестра контейнеров Azure и всех экземпляров контейнеров Azure.
 
 ![Создание реестра контейнеров на портале Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом кратком руководстве вы создали реестр контейнеров Azure с помощью портала Azure. Если вы хотите использовать реестр контейнеров Azure со службой "Экземпляры контейнеров Azure", перейдите к соответствующему руководству.
+С помощью этого краткого руководства вы создали реестр контейнеров Azure с использованием Azure CLI и запустили его экземпляр в службе "Экземпляры контейнеров Azure". Чтобы подробнее рассмотреть службу "Экземпляры контейнеров Azure", перейдите к следующему руководству.
 
 > [!div class="nextstepaction"]
 > [Руководства по использованию службы "Экземпляры контейнеров Azure"][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Общие сведения об Apache Kafka в HDInsight
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 
 Использование Kafka в HDInsight обеспечивает следующие преимущества:
 
-* __Соглашение об уровне обслуживания (SLA) с гарантией времени доступности Kafka на уровне 99 %__. Дополнительные сведения см. в документе [Соглашение об уровне обслуживания для HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __Соглашение об уровне обслуживания (SLA) с гарантией времени доступности Kafka на уровне 99,9 %__. Дополнительные сведения см. в документе [Соглашение об уровне обслуживания для HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * __Отказоустойчивость и поддержка стойки.__ Служба Kafka разработана с использованием одномерного представления стойки, которое успешно работает в некоторых средах. Однако в некоторых средах, таких как Azure, стойка разделена на два измерения: домены обновления (UD) и домены сбоя (FD). Корпорация Майкрософт предоставляет средства, обеспечивающие перебалансировку секций и реплик Kafka в доменах обновления и сбоя. 
 

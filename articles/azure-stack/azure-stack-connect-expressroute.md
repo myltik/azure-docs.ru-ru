@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Подключение Azure Stack к Azure с помощью ExpressRoute
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 02/21/2018
 3. Создайте периферийную виртуальную сеть и подсеть в диапазоне адресов 10.100.0.0/16.
 
 
-Дополнительные сведения о создании виртуальных сетей в Azure см. в статье [Создание виртуальной сети с несколькими подсетями](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Дополнительные сведения о создании виртуальной сети в Azure см. в [этой статье](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### <a name="configure-an-expressroute-circuit"></a>Настройка канала ExpressRoute
 

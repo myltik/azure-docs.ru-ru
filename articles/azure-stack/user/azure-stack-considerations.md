@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Важные аспекты использования служб и создания приложений в Azure Stack
 
@@ -48,8 +48,8 @@ Azure Stack ― это гибридная облачная платформа, 
 | Кто оператор? | Microsoft | Ваша организация или поставщик услуг.|
 | Куда обращаться для получения поддержки? | Microsoft | В интегрированной системе за поддержкой следует обращаться к оператору Azure Stack (это может быть ваша организация или поставщик услуг).<br><br>Если вы используете Пакет средств разработки Azure Stack, посетите [форумы Майкрософт](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Так как пакет разработки предлагается как среда для оценки, служба поддержки корпорации Майкрософт не предоставляет для него официальную поддержку.
 | Доступные службы | См. список [продуктов Azure](https://azure.microsoft.com/services/?b=17.04b). Выбор доступных служб зависит от региона Azure. | Azure Stack поддерживает некоторое подмножество служб Azure. Конкретный набор зависит от политики вашей организации или поставщика услуг.
-| Конечная точка Azure Resource Manager* | https://management.azure.com | При работе с интегрированной системой Azure Stack используйте конечную точку, предоставленную оператором Azure Stack.<br><br>В пакете SDK используйте адрес https://management.local.azurestack.external.
-| URL-адрес портала* | [https://portal.azure.com](https://portal.azure.com) | При работе с интегрированной системой Azure Stack используйте URL-адрес, предоставленный оператором Azure Stack.<br><br>В пакете SDK используйте адрес https://portal.local.azurestack.external.
+| Конечная точка Azure Resource Manager* | https://management.azure.com | При работе с интегрированной системой Azure Stack используйте конечную точку, предоставленную оператором Azure Stack.<br><br>Для пакета SDK используйте следующий адрес: https://management.local.azurestack.external
+| URL-адрес портала* | [https://portal.azure.com](https://portal.azure.com) | При работе с интегрированной системой Azure Stack используйте URL-адрес, предоставленный оператором Azure Stack.<br><br>Для пакета SDK используйте следующий адрес: https://portal.local.azurestack.external
 | Регион | Вы можете самостоятельно выбрать регион для развертывания. | В интегрированной системе Azure Stack используется регион, доступный в этой системе.<br><br>В пакете SDK всегда используется только **локальный** регион.
 | Группы ресурсов | Группа ресурсов может размещаться в нескольких регионах. | Как в интегрированной системе, так и в пакете SDK доступен только один регион.
 |Поддержка пространств имен, типов ресурсов и версий API | Новейшие версии (или более ранние, пока для них сохраняется поддержка). | Azure Stack поддерживает только определенные версии. См. также раздел "Требования к версиям" в этой статье.

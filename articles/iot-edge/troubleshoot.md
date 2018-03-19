@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Распространенные проблемы и их решения для Azure IoT Edge
 
@@ -30,10 +30,10 @@ ms.lasthandoff: 02/21/2018
    docker logs <container name>
    ```
 
-* Просмотрите сообщения, отправляемые через центр Edge, и соберите данные аналитики касательно обновлений свойств устройства из подробных журналов контейнеров в среде выполнения.
+* Просмотрите сообщения, отправляемые через центр Edge, и соберите данные аналитики касательно обновлений свойств устройства из подробных журналов контейнеров в среде выполнения. Если вы изучаете статьи с краткими руководствами, можете добавить параметр --auto-cert-gen-force-no-passwords.
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
 
 * Если возникают проблемы с подключением, проверьте переменные среды устройства Edge, например строку подключения устройства:
@@ -96,6 +96,23 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 
 ### <a name="resolution"></a>Способы устранения:
 Попробуйте снова выполнить команду `iotedgectl login`.
+
+## <a name="iotedgectl-cant-find-docker"></a>iotedgectl не удается найти Docker
+iotedgectl не удается выполнить команду установки или запуска. При этом в журналы записывается следующее сообщение:
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### <a name="root-cause"></a>Первопричина
+iotedgectl не удается найти среду Docker, которая является необходимым компонентом.
+
+### <a name="resolution"></a>Способы устранения:
+Установите среду Docker, убедитесь, что она работает, и повторите попытку.
 
 ## <a name="next-steps"></a>Дополнительная информация
 Считаете, что обнаружили ошибку в платформе IoT Edge? [Отправьте запрос](https://github.com/Azure/iot-edge/issues), чтобы мы как можно скорее устранили неисправность. 

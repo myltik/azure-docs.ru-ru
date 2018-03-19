@@ -1,6 +1,6 @@
 ---
 title: "Регистрация соглашения Azure Enterprise в Azure Cost Management | Документация Майкрософт"
-description: "Используйте соглашение Enterprise для регистрации в Azure Cost Management от Cloudyn."
+description: "Используйте соглашение Enterprise для регистрации в службе \"Управление затратами Azure\"."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 1b552ba5a0c3afd066e2ac62c8b3a90dd7696185
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Регистрация соглашения Azure Enterprise и просмотр данных о затратах
 
-Вы можете использовать соглашение Azure Enterprise для регистрации в Azure Cost Management от Cloudyn. Такая регистрация предоставляет доступ к порталу Cloudyn. В этом кратком руководстве описывается процесс регистрации, который необходимо пройти для создания пробной подписки Cloudyn и входа на портал Cloudyn. Здесь также показано, как начать просматривать данные о затратах.
+Вы можете использовать соглашение Azure Enterprise для регистрации в службе "Управление затратами Azure". Такая регистрация предоставляет доступ к порталу Cloudyn. В этом кратком руководстве описывается процесс регистрации, который необходимо пройти для создания пробной подписки Cloudyn и входа на портал Cloudyn. Здесь также показано, как начать просматривать данные о затратах.
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
@@ -41,13 +41,13 @@ ms.lasthandoff: 02/24/2018
 7. В разделе **Invite other stakeholders** (Пригласить других заинтересованных лиц) можно добавить пользователей, введя их адреса электронной почты. По завершении нажмите кнопку **Next** (Далее). На добавление платежных данных в Cloudyn в зависимости от размера регистрации в Azure может потребоваться до 24 часов.
 8. Щелкните **Go to Cloudyn** (Перейти к Cloudyn), чтобы открыть портал Cloudyn. Затем на странице **Cloud Accounts Management** (Управление облачными учетными записями) должны отобразиться сведения вашей зарегистрированной учетной записи EA.
 
-Руководство по регистрации соглашения Enterprise см. в видео [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management by Cloudyn](https://youtu.be/u_phLs_udig) (Как найти свой идентификатор регистрации EA и ключ API для использования в службе управления затратами Azure от Cloudyn).
+Руководство по регистрации соглашения Enterprise см. в видео [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management](https://youtu.be/u_phLs_udig) (Как найти свой идентификатор регистрации EA и ключ API для использования в службе "Управление затратами Azure").
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом кратком руководстве вы использовали данные соглашения Azure Enterprise для регистрации в решении Cost Management. Вы также вошли на портал Cloudyn и начали просматривать данные о затратах. Дополнительные сведения об Azure Cost Management от Cloudyn см. в руководстве по решению Cost Management.
+В этом кратком руководстве вы использовали данные соглашения Azure Enterprise для регистрации в решении Cost Management. Вы также вошли на портал Cloudyn и начали просматривать данные о затратах. Дополнительные сведения о службе "Управление затратами Azure" см. в руководстве по решению "Управление затратами".
 
 > [!div class="nextstepaction"]
 > [Просмотр сведений об использовании и затратах](./tutorial-review-usage.md)

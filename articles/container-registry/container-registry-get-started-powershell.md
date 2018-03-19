@@ -6,18 +6,18 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Создание реестра контейнеров Azure с помощью PowerShell
 
-Реестр контейнеров Azure — это управляемая служба реестра контейнеров Docker, используемая для хранения частных образов контейнеров Docker. В этом руководстве рассматривается создание экземпляра реестра контейнеров Azure с помощью PowerShell.
+Реестр контейнеров Azure — это управляемая служба реестра контейнеров Docker, используемая для хранения частных образов контейнеров Docker. В этом руководстве рассматривается создание экземпляра реестра контейнеров Azure с помощью PowerShell, отправление образа контейнера в реестр и, наконец, развертывание контейнера из реестра в службе "Экземпляры контейнеров Azure" (ACI).
 
 Для работы с этим кратким руководством требуется модуль Azure PowerShell 3.6 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -59,7 +59,7 @@ $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 
 Затем выполните команду [docker login][docker-login], чтобы войти в экземпляр ACR.
 
-```bash
+```powershell
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
@@ -69,31 +69,61 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 
 Чтобы отправить образ в реестр контейнеров Azure, сначала нужно получить этот образ. При необходимости выполните следующую команду, чтобы извлечь предварительно созданный образ из Docker Hub.
 
-```bash
+```powershell
 docker pull microsoft/aci-helloworld
 ```
 
-Образ должен быть снабжен тегом имени сервера для входа в ACR. Выполните команду [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry), чтобы получить имя сервера входа для экземпляра ACR.
+Образ должен быть снабжен тегом имени сервера для входа в ACR. Для этого используйте команду [docker tag][docker-tag]. 
 
 ```powershell
-Get-AzureRmContainerRegistry | Select Loginserver
+$image = $registry.LoginServer + "/aci-helloworld:v1"
+docker tag microsoft/aci-helloworld $image
 ```
 
-Присвойте образу тег с помощью команды [docker tag][docker-tag]. Замените *acrLoginServer* именем сервера входа для вашего экземпляра ACR.
+Наконец, воспользуйтесь командой [docker push][docker-push] для отправки образа в ACR.
 
-```bash
-docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
+```powershell
+docker push $image
 ```
 
-Наконец, воспользуйтесь командой [docker push][docker-push] для отправки образов в экземпляр ACR. Замените *acrLoginServer* именем сервера входа для вашего экземпляра ACR.
+## <a name="deploy-image-to-aci"></a>Развертывание образа в службе "Экземпляры контейнеров Azure"
+Для развертывания образа в виде экземпляра контейнера в службе "Экземпляры контейнеров Azure" (ACI) сначала необходимо преобразовать учетные данные реестра в объект PSCredential.
 
-```bash
-docker push <acrLoginServer>/aci-helloworld:v1
+```powershell
+$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
+$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
+
+Чтобы развернуть образ контейнера из реестра контейнеров с одним ядром ЦП и 1 ГБ памяти, выполните следующую команду:
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -MemoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+```
+
+Вы получите начальный ответ от Azure Resource Manager с дополнительными сведениями о контейнере. Чтобы отслеживать состояние контейнера и проверять, работает ли он, повторите команду [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]. Операция займет не больше минуты.
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+```
+
+Пример выходных данных: `Succeeded`
+
+## <a name="view-the-application"></a>Просмотр приложения
+После успешного развертывания в ACI получите общедоступный IP-адрес контейнера, используя команду [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup].
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
+```
+
+Пример выходных данных: `"13.72.74.222"`
+
+Чтобы увидеть работающее приложение, перейдите по общедоступному IP-адресу в своем браузере. Должно отобразиться примерно следующее:
+
+![Приложение Hello World в браузере][qs-portal-15]
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Ненужные группу ресурсов, экземпляр ACR и все образы контейнеров можно удалить с помощью команды [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Ненужные группу ресурсов, реестр контейнеров Azure и все экземпляры контейнеров Azure можно удалить с помощью команды [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup].
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +131,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом кратком руководстве вы создали реестр контейнеров Azure с помощью Azure CLI. Если вы хотите использовать реестр контейнеров Azure со службой "Экземпляры контейнеров Azure", перейдите к соответствующему руководству.
+С помощью этого краткого руководства вы создали реестр контейнеров Azure с использованием Azure CLI и запустили его экземпляр в службе "Экземпляры контейнеров Azure". Чтобы подробнее рассмотреть службу "Экземпляры контейнеров Azure", перейдите к следующему руководству.
 
 > [!div class="nextstepaction"]
 > [Руководство по использованию службы "Экземпляры контейнеров Azure"](../container-instances/container-instances-tutorial-prepare-app.md)
@@ -113,3 +143,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- Links - internal -->
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
+
+<!-- IMAGES> -->
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png

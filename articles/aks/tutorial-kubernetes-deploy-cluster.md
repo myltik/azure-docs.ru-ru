@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -85,7 +85,7 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 
 ## <a name="configure-acr-authentication"></a>Настройка проверки подлинности ACR
 
-Для проверки подлинности необходимо настроить кластер AKS и реестр ACR. Этот процесс включает в себя предоставление удостоверению ACS необходимых прав для извлечения образов из реестра ACR.
+Для проверки подлинности необходимо настроить кластер AKS и реестр ACR. Этот процесс включает в себя предоставление удостоверению AKS необходимых прав для извлечения образов из реестра ACR.
 
 Сначала получите идентификатор субъекта-службы, настроенного для AKS. Измените имена группы ресурсов и кластера AKS в соответствии со своей средой.
 

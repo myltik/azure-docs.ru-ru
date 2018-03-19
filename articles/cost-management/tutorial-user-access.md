@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Руководство по назначению доступа к данным службы управления затратами
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/28/2018
 
 ![добавление нового пользователя с правами пользователя](.\media\tutorial-user-access\new-user-access.png)
 
-Просмотрите видеоруководство по [добавлению пользователей в службу "Управление затратами Azure" от Cloudyn](https://youtu.be/Nzn7GLahx30).
+Просмотрите видеоруководство по [добавлению пользователей в службу "Управление затратами Azure"](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Создание сущностей
 
@@ -75,9 +75,9 @@ ms.lasthandoff: 02/28/2018
 Не забудьте **сохранить** сущность, когда закончите работу над ней.
 
 
-Просмотрите видеоруководство по [созданию иерархии сущностей затрат в службе "Управление затратами Azure" от Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Просмотрите видеоруководство по [созданию иерархии сущностей затрат в службе "Управление затратами Azure"](https://youtu.be/dAd9G7u0FmU).
 
-Если вы работаете на условиях соглашения Enterprise Azure, ознакомьтесь со сведениями о связывании учетных записей и подписок с сущностями в видеоруководстве по [подключению к Azure Resource Manager при помощи службы "Управление затратами Azure" от Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Если вы работаете на условиях соглашения Enterprise Azure, ознакомьтесь со сведениями о связывании учетных записей и подписок с сущностями в видеоруководстве по [подключению к Azure Resource Manager при помощи службы "Управление затратами Azure"](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

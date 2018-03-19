@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3a450e3432a629a4fae9627c0e2df58102ad3387
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Архивация виртуальных машин Azure в хранилище служб восстановления
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/02/2018
 * виртуальные машины, зашифрованные при помощи шифрования дисков Azure;
 * согласованные с состоянием приложений резервные копии виртуальных машин Windows (с помощью VSS) и Linux (с помощью пользовательских скриптов, выполняемых перед и после создания моментального снимка).
 
-Дополнительные сведения о защите виртуальных машин хранилища класса Premium см. в разделе [Использование службы архивации Azure для виртуальных машин хранилища класса "Премиум"](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Дополнительные сведения о поддержке для виртуальных машин, запущенных на управляемых дисках, см. в разделе [Использование службы архивации Azure для виртуальных машин, запущенных на управляемых дисках](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Дополнительные сведения о платформе для резервного копирования виртуальных машин Linux с помощью платформы для предварительного и последующего выполнения скриптов см. в статье о [согласованном с состоянием приложений резервном копировании виртуальных машин Azure Linux (предварительная версия)] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Дополнительные сведения о защите виртуальных машин хранилища класса Premium см. в разделе [Использование службы архивации Azure для виртуальных машин хранилища класса "Премиум"](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Дополнительные сведения о поддержке для виртуальных машин, запущенных на управляемых дисках, см. в разделе [Использование службы архивации Azure для виртуальных машин, запущенных на управляемых дисках](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Дополнительные сведения о платформе для резервного копирования виртуальных машин Linux с помощью платформы для предварительного и последующего выполнения скриптов см. в статье [Согласованное с приложениями резервное копирование виртуальных машин Linux в Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 Дополнительные сведения об объектах резервного копирования см. [здесь](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 

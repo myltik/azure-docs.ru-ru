@@ -13,7 +13,7 @@
 | **База данных** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Детализация (бета-версия)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
-| &nbsp; |[Google BigQuery (бета-версия)](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
+| &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum (бета-версия)](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
@@ -61,7 +61,7 @@
 | &nbsp; |[Облачная служба SalesForce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
-| &nbsp; |[ServiceNow (бета-версия)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
+| &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (бета-версия)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square (бета-версия)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
 | &nbsp; |[Веб-таблица (таблица HTML)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |

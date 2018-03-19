@@ -5,17 +5,15 @@ services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Безопасный доступ к данным приложения в облаке
 
@@ -147,47 +145,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 [Шифрование службы хранилища Azure (SSE)](../common/storage-service-encryption.md) помогает защитить данные. SSE шифрует данные при хранении, выполняя обработку шифрования, расшифровки и управление ключами. Используется 256-битное [шифрование AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), самая надежная технология блочного шифрования на сегодняшний день.
 
-В следующем примере показано включение шифрования для BLOB-объектов. Существующие BLOB-объекты, созданные до включения шифрования, не шифруются. В заголовке `x-ms-server-encrypted` в запросе на BLOB-объект показано состояние шифрования BLOB-объекта.
-
-```azurecli-interactive
-az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
-```
-
-Теперь, когда шифрование включено, отправьте новое изображение в веб-приложение.
-
-Используя `curl` с параметром `-I` только для извлечения заголовков, подставьте собственные значения для `<storage-account-name>`, `<container>` и `<blob-name>`.  
-
-```azurecli-interactive
-sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <blob-name> \
-    --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
-
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
-```
-
-Обратите внимание, что в ответе в заголовке `x-ms-server-encrypted` показано `true`. Этот заголовок определяет, что теперь данные зашифрованы с помощью SSE.
-
-```
-HTTP/1.1 200 OK
-Content-Length: 209489
-Content-Type: image/png
-Last-Modified: Mon, 11 Sep 2017 19:27:42 GMT
-Accept-Ranges: bytes
-ETag: "0x8D4F94B2BE76D45"
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
-x-ms-request-id: 57047db3-001e-0050-3e34-2ba769000000
-x-ms-version: 2017-04-17
-x-ms-lease-status: unlocked
-x-ms-lease-state: available
-x-ms-blob-type: BlockBlob
-x-ms-server-encrypted: true
-Date: Mon, 11 Sep 2017 19:27:46 GMT
-```
+SSE автоматически шифрует данные на всех уровнях производительности ("Стандартный" и "Премиум"), во всех моделях развертывания (Azure Resource Manager и классической) и во всех службах хранилища Azure (BLOB-объектов, очередей, таблиц и файлов). 
 
 ## <a name="enable-https-only"></a>Включение только HTTPS
 

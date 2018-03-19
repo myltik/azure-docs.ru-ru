@@ -76,10 +76,16 @@
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Преобразование данных в облаке
       items:
-        - name: Пользовательский интерфейс
-          href: tutorial-transform-data-spark-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-spark-powershell.md
+        - name: HDInsight Spark
+          items:
+            - name: Пользовательский интерфейс
+              href: tutorial-transform-data-spark-portal.md
+            - name: Azure PowerShell
+              href: tutorial-transform-data-spark-powershell.md
+        - name: Databricks Notebook
+          items:
+            - name: Пользовательский интерфейс
+              href: transform-data-using-databricks-notebook.md
     - name: 7. Преобразование данных в виртуальной сети
       items:
         - name: Пользовательский интерфейс
@@ -92,8 +98,6 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
-    - name: 9. Преобразование данных с помощью Azure Databricks
-      href: transform-data-using-databricks-notebook.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -292,6 +296,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Действие U-SQL Data Lake
           href: transform-data-using-data-lake-analytics.md
+        - name: Действие Databricks Notebook
+          href: transform-data-databricks-notebook.md
         - name: Настраиваемое действие
           href: transform-data-using-dotnet-custom-activity.md
         - name: Связанные службы вычислений

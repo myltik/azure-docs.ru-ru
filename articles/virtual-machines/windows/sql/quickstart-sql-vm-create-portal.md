@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Краткое руководство по созданию виртуальной машины SQL Server 2017 на платформе Windows с помощью портала Azure
 
@@ -29,6 +29,11 @@ ms.lasthandoff: 02/21/2018
 
 > [!TIP]
 > В этом кратком руководстве приводятся инструкции по быстрой подготовке виртуальной машины SQL Server и подключению к ней. Дополнительные сведения о других вариантах подготовки виртуальных машин SQL Server см. в [руководстве по подготовке виртуальных машин SQL Server на платформе Windows с помощью портала Azure](virtual-machines-windows-portal-sql-server-provision.md).
+
+> [!TIP]
+> Если у вас есть вопросы по виртуальным машинам SQL Server, см. раздел [часто задаваемых вопросов](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Оформление подписки Azure
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 

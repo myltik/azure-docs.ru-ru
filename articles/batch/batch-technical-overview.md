@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Что такое пакетная служба Azure?
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 02/01/2018
 
 Это всего лишь один из способов использования пакетной службы, и в этом сценарии описываются только некоторые доступные функции. Например, можно выполнить [несколько задач параллельно](batch-parallel-node-tasks.md) на каждом вычислительном узле. Для подготовки узлов для заданий и последующей очистки также [можно использовать подготовку заданий и выполнение задач](batch-job-prep-release.md). 
 
-Дополнительные сведения о пулах, узлах, заданиях, задачах и множестве функций API, которые можно использовать при создании приложения пакетной службы, см. в [этой статье](batch-api-basics.md). 
+Дополнительные сведения о пулах, узлах, заданиях, задачах и множестве функций API, которые можно использовать при создании приложения пакетной службы, см. в [этой статье](batch-api-basics.md). Также см. последние [обновления пакетной службы](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

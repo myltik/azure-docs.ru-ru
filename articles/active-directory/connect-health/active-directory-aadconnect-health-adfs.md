@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Мониторинг AD FS с помощью Azure AD Connect Health
 Приведенная ниже информация относится к мониторингу инфраструктуры AD FS с помощью Azure AD Connect Health. Сведения о мониторинге синхронизации Azure AD Connect с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health с AD DS](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ Azure AD Connect Health для AD FS предоставляет отчет о 50
 | IP-адрес последнего сбоя |Отображается IP-адрес клиента из последнего недопустимого запроса. |
 
 > [!NOTE]
-> Каждые 12 часов в этот отчет автоматически добавляются новые данные, собранные за этот период времени. Следовательно, сведения о входе в систему в рамках последнего двухчасового интервала могут отсутствовать в отчете.
+> Каждые 12 часов в этот отчет автоматически добавляются новые данные, собранные за этот период времени. Следовательно, сведения о входе в систему в рамках последнего 12-часового интервала могут отсутствовать в отчете.
 >
 >
+
+### <a name="risky-ip-report"></a>Отчет о ненадежном IP-адресе 
+Предварительная версия ожидается в ближайшее время.
 
 ## <a name="related-links"></a>Связанные ссылки
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -11,8 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Учебники
   items:
-    - name: Потоковая передача событий с помощью концентраторов событий
+    - name: Потоковая передача данных с помощью концентраторов событий
       href: databricks-stream-from-eventhubs.md
+    - name: Анализ тональности с помощью Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Практические руководства
   items:
     - name: 'Подключение с помощью Excel, R и Python'

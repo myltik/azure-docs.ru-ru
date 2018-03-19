@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Создание и подготовка имитированного устройства TPM с помощью пакета SDK устройств для Node.js для службы "Подготовка устройств к добавлению в Центр Интернета вещей"
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/05/2018
     ```
 
     > [!NOTE]
-    > При установке указанных выше пакетов могут возникнуть некоторые известные проблемы. Чтобы устранить их, выполните команду `npm install --global --production windows-build-tools` с помощью командной строки в режиме **Запуск от имени администратора**, а затем выполните `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140`, заменив путь на путь к текущей установленной версии, и повторно перезапустите указанные выше команды установки.
+    > При установке указанных выше пакетов могут возникнуть некоторые известные проблемы. Чтобы устранить их, выполните команду `npm install --global --production windows-build-tools` с помощью командной строки в режиме **Запуск от имени администратора**, а затем выполните `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140`, заменив путь на путь к текущей установленной версии, и повторно выполните указанные выше команды установки.
     >
 
 1. Установите следующие пакеты, содержащие компоненты, которые используются во время регистрации:
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/05/2018
     > В примерах ниже используются транспортные протоколы `azure-iot-provisioning-device-http` и `azure-iot-device-mqtt`.
     > 
 
-    Все это можно установить одновременно, выполнив следующую команду в командной строке в папке **registereddevice**:
+    Все эти пакеты можно установить одновременно, выполнив следующую команду в командной строке в папке **registereddevice**:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

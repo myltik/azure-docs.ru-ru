@@ -1,6 +1,6 @@
 ---
 title: "Регистрация в Azure Cost Management с помощью партнера CSP | Документация Майкрософт"
-description: "Используйте данные партнера CSP для регистрации в Azure Cost Management от Cloudyn."
+description: "Используйте данные партнера CSP для регистрации в службе \"Управление затратами Azure\"."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Регистрация в партнерской программе CSP и просмотр данных о затратах
 
-Как партнер CSP вы можете зарегистрироваться в решении Azure Cost Management от Cloudyn. Такая регистрация предоставляет доступ к порталу Cloudyn. В этом кратком руководстве описывается процесс регистрации, который необходимо пройти для создания пробной подписки Cloudyn и входа на портал Cloudyn. Здесь также показано, как начать просматривать данные о затратах.
+Как партнер CSP вы можете зарегистрироваться в службе "Управление затратами Azure". Такая регистрация предоставляет доступ к порталу Cloudyn. В этом кратком руководстве описывается процесс регистрации, который необходимо пройти для создания пробной подписки Cloudyn и входа на портал Cloudyn. Здесь также показано, как начать просматривать данные о затратах.
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом кратком руководстве вы использовали данные CSP для регистрации в решении Cost Management. Вы также вошли на портал Cloudyn и начали просматривать данные о затратах. Дополнительные сведения об Azure Cost Management от Cloudyn см. в руководстве по решению Cost Management.
+В этом кратком руководстве вы использовали данные CSP для регистрации в решении Cost Management. Вы также вошли на портал Cloudyn и начали просматривать данные о затратах. Дополнительные сведения о службе "Управление затратами Azure" см. в руководстве по решению "Управление затратами".
 
 > [!div class="nextstepaction"]
 > [Просмотр сведений об использовании и затратах](./tutorial-review-usage.md)

@@ -2,21 +2,22 @@
 title: "Приступая к работе со средствами разработки хранилища Azure Stack"
 description: "Руководство по началу работы со средствами разработки хранилища Azure Stack"
 services: azure-stack
-author: xiaofmao
-ms.author: xiaofmao
-ms.date: 9/25/2017
+author: mabriggs
+ms.author: mabrigg
+ms.date: 02/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
-ms.openlocfilehash: 5b2898c64c0f1b5d804e63fa4e4e1218fa7a672c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: femila
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 81c62fc569e9f758d08bfca0bdfc5bcc9ed5860f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Приступая к работе со средствами разработки хранилища Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
-
 
 Microsoft Azure Stack предоставляет набор служб хранилища, включая хранилище BLOB-объектов, таблиц и очередей Azure.
 
@@ -25,8 +26,37 @@ Microsoft Azure Stack предоставляет набор служб хран�
 Существуют различия между службой хранилища Azure и хранилищем Azure Stack, включая некоторые специфические требования для каждой платформы. Например, для Azure Stack существуют определенные клиентские библиотеки и определенные требования к суффиксу конечной точки. Дополнительные сведения см. в статье [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md) (Хранилище Azure Stack. Отличия и рекомендации).
 
 ## <a name="azure-client-libraries"></a>Клиентские библиотеки Azure
-Поддерживаемая версия интерфейса REST API для хранилища Azure Stack — 2015-04-05. Он не имеет полного соответствия с последней версией REST API службы хранилища Azure. Поэтому для клиентских библиотек хранилища вам необходимо знать версию, совместимую с REST API 2015-04-05.
 
+Поддерживаемые версии REST API для хранилища Azure Stack: 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 (обновление 1802 и более новые версии), а также 2015-04-05 (предыдущие версии). Конечные точки Azure Stack не имеют полного соответствия с последней версией REST API службы хранилища Azure. Для клиентских библиотек хранилища вам необходимо знать версию, совместимую с REST API.
+
+### <a name="1802-update-or-newer-versions"></a>Обновление 1802 или более новые версии
+
+| Клиентская библиотека | Поддерживаемая версия Azure Stack | Ссылка | Спецификация конечной точки |
+|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET | 8.7.0 | Пакет NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>Выпуск GitHub:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | Файл app.config |
+| Java | 6.1.0 | Пакет Maven<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>Выпуск GitHub:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Настройка строки подключения |
+| Node.js | 2.7.0 | Ссылка на NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Запуск: `npm install azure-storage@2.7.0`)<br> <br>Выпуск GitHub:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Объявление экземпляра службы |
+| C++ | 3.1.0 | Пакет NuGet:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>Выпуск GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Настройка строки подключения |
+| PHP | 1.0.0 | Выпуск GitHub:<br>Общая версия: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Большой двоичный объект: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Очередь:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Таблица: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Установка через компоновщик (дополнительные сведения см. [ниже](#install-php-client-via-composer---current)) | Настройка строки подключения |
+| Python | 1.0.0 | Выпуск GitHub:<br>Общая версия:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Большой двоичный объект:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Очередь:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Объявление экземпляра службы |
+| Ruby | 1.0.1 | Пакет RubyGems:<br>Общая версия:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Большой двоичный объект: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Очередь: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Таблица: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>Выпуск GitHub:<br>Общая версия: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Большой двоичный объект: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Очередь: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Таблица: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Настройка строки подключения |
+
+#### <a name="install-php-client-via-composer---current"></a>Установка клиента PHP через компоновщик — текущая версия
+
+Для установки через компоновщик сделайте следующее (возьмите для примера большой двоичный объект).
+
+1. Создайте файл с именем **composer.json** в корневом каталоге проекта со следующим кодом:
+  ```php
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
+      }
+    }
+  ```
+2. Скачайте файл [composer.phar](http://getcomposer.org/composer.phar) в корневой каталог проекта.
+3. Выполните команду `php composer.phar install`.
+
+### <a name="previous-versions"></a>Предыдущие версии
 
 |Клиентская библиотека|Поддерживаемая версия Azure Stack|Ссылка|Спецификация конечной точки|
 |---------|---------|---------|---------|
@@ -38,25 +68,23 @@ Microsoft Azure Stack предоставляет набор служб хран�
 |Python     |0.30.0|Пакет PIP:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(выполните: `pip install -v azure-storage==0.30.0)`<br><br>Выпуск GitHub:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Объявление экземпляра службы|
 |Ruby|0.12.1<br>Предварительный просмотр|Пакет RubyGems:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>Выпуск GitHub:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Настройка строки подключения|
 
-> [!NOTE]
-> Сведения PHP<br><br>
->Установка через компоновщик:
->1. Создайте файл с именем `composer.json` в корневом каталоге проекта со следующим кодом:<br>
->
->   ```
->   {
->       "require":{
->           "Microsoft/azure-storage":"0.15.0"
->        }
->    }
->   ```
->
->2. Скачайте [composer.phar](http://getcomposer.org/composer.phar) в корневой каталог проекта.
->3. Выполните команду `php composer.phar install`.
->
+#### <a name="install-php-client-via-composer---previous"></a>Установка клиента PHP через компоновщик — предыдущая версия
 
+Установка через компоновщик:
+
+1. Создайте файл с именем **composer.json** в корневом каталоге проекта со следующим кодом:
+  ```php
+    {
+          "require":{
+          "Microsoft/azure-storage":"0.15.0"
+          }
+    }
+  ```
+2. Скачайте [composer.phar](http://getcomposer.org/composer.phar) в корневой каталог проекта.
+3. Выполните команду `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Объявление конечной точки
+
 Конечная точка Azure Stack содержит две части: имя региона и домен Azure Stack.
 В Пакете средств разработки Azure Stack конечной точкой по умолчанию является **local.azurestack.external**.
 Если вы не знаете конечную точку, обратитесь к администратору облака.
@@ -142,7 +170,7 @@ EndpointSuffix=local.azurestack.external
 
 * [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Использование хранилища BLOB-объектов из Java](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
-* [Способы использования хранилища BLOB-объектов из Node.js]../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Использование хранилища больших двоичных объектов из Node.js](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Использование хранилища BLOB-объектов из C++](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Использование хранилища BLOB-объектов из PHP](../../storage/blobs/storage-php-how-to-use-blobs.md)
 * [Использование хранилища BLOB-объектов Azure из Python](../../storage/blobs/storage-python-how-to-use-blob-storage.md)

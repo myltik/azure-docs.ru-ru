@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Установка стека для SQL, IIS и .NET в Azure
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/28/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Для работы с этим руководством требуется модуль AzureRM.Compute версии не ниже 4.3.1. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM.Compute`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Чтобы установить и использовать PowerShell локально, для работы с этим руководством вам понадобится модуль AzureRM.Compute 4.3.1 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM.Compute`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Создание виртуальной машины с IIS 
 

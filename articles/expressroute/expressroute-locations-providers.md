@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: pareshmu
-ms.openlocfilehash: 9ecfe57f764afb74cbc3bfb3d0672f40bc302091
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b626ebae8032902bae168460eeede00dfdc7dfc2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
 
@@ -69,7 +69,7 @@ ExpressRoute поддерживается во всех регионах и ра
 ### <a name="production-azure"></a>Рабочая среда Azure
 | **Местоположение.** | **Поставщики услуг** |
 | --- | --- |
-| **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions — Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
+| **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions — Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
 | **Атланта** |Equinix |
 | **Пусан** |LG CNS |
 | **Ченнай** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
@@ -77,7 +77,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo|
 | **Денвер** |CoreSite, Megaport |
 | **Дублин** |Colt, eir, Interxion, Megaport, Telecity Group |
-| **Гонконг** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Гонконг** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лас-Вегас** |Level 3 Communications, Megaport |
 | **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions — Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse — KDDI, Telenor, Verizon, Vodafone, Zayo |
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo |
@@ -97,10 +97,10 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 | **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сингапур 2** |Megaport, SingTel |
-| **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, NTT Communications, Orange, Telstra Corporation, Verizon |
 | **Токио** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Level 3 Communications, NTT Communications, Softbank, Verizon |
 | **Торонто** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo |
-| **Вашингтон, округ Колумбия** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo |
+| **Вашингтон, округ Колумбия** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Sprint, Tata Communications, Verizon, Zayo |
 
  **+** означает "скоро"
 

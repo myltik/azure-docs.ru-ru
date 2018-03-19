@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Примеры интеграции служебной шины Azure со службой "Сетка событий" Azure
 
@@ -118,7 +118,7 @@ public class GridEvent
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Соединение функции и пространства имен с помощью службы "Сетка событий"
 
-Следующий шаг — соединение функции и пространства имен служебной шины. Для этого примера используйте портал Azure. Сведения об использовании для этого PowerShell или Azure CLI см. в статье "Общие сведения об интеграции служебной шины Azure и сетки событий Azure".
+Следующий шаг — соединение функции и пространства имен служебной шины. Для этого примера используйте портал Azure. Сведения об использовании для этого PowerShell или Azure CLI см. на странице с [основными понятиями](service-bus-to-event-grid-integration-concept.md).
 
 Чтобы создать подписку на службу "Сетка событий Azure", перейдите к пространству имен на портале Azure и выберите колонку "Сетка событий". Щелкните "+ Подписка на события".
 

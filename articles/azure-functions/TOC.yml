@@ -175,8 +175,8 @@
           href: durable-functions-sequence.md
         - name: Развертывание/вход
           href: durable-functions-cloud-backup.md
-        - name: Экземпляр с отслеживанием состояния
-          href: durable-functions-counter.md
+        - name: Мониторы
+          href: durable-functions-monitor.md
         - name: Участие пользователя
           href: durable-functions-phone-verification.md
         - name: Модульное тестирование
