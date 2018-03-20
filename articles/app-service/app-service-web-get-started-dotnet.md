@@ -37,7 +37,7 @@ ms.lasthandoff: 02/14/2018
 
 Для работы с этим руководством:
 
-* Установите <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> с указанными ниже компонентами:
+* Установите <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> с указанными ниже рабочими нагрузками:
     - **ASP.NET и веб-разработка;**
     - **разработка Azure.**
 
