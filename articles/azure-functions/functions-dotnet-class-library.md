@@ -1,13 +1,13 @@
 ---
-title: "Справочник разработчика C# по функциям Azure"
-description: "Узнайте, как разрабатывать Функции Azure с помощью C#."
+title: Справочник разработчика C# по функциям Azure
+description: Узнайте, как разрабатывать Функции Azure с помощью C#.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Справочник разработчика C# по функциям Azure
 
@@ -134,7 +134,50 @@ public static class BindingExpressionsExample
 }
 ```
 
-Создание файла *function.json* выполняется пакетом NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Исходный код доступен в репозитории GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Пакет NuGet Microsoft.NET.Sdk.Functions
+
+Создание файла *function.json* выполняется пакетом NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+Тот же пакет используется в обеих версиях (1.x и 2.x) среды выполнения Функций. Проекты 1.x и 2.x отличаются только требуемой версией .NET Framework. Ниже приведены фрагменты файлов *.csproj* с разными требуемыми версиями .NET Framework и одним пакетом `Sdk`.
+
+**Функции 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Функции 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+К зависимостям пакетов `Sdk` относятся триггеры и привязки. Проект 1.x ссылается на триггеры и привязки версии 1.x, так как этого требует платформа .NET Framework, а триггерам и привязкам версии 2.x требуется платформа .NET Core.
+
+Пакет `Sdk` также зависит от пакета [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) и косвенно от пакета [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Эти зависимости гарантируют, что проект использует версии пакетов, совместимые с версией среды выполнения Функций, для которой он предназначен. Например, при использовании платформы .NET Framework 4.6.1 пакет `Newtonsoft.Json` имеет версию 11, но среда выполнения Функций, предназначенная для платформы .NET Framework 4.6.1, совместима только с пакетом `Newtonsoft.Json` версии 9.0.1. Поэтому код функции в этом проекте также должен использовать пакет `Newtonsoft.Json` версии 9.0.1.
+
+Исходный код пакета `Microsoft.NET.Sdk.Functions` доступен в репозитории GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Версия среды выполнения
+
+Visual Studio выполняет проекты Функций с помощью [основных инструментов Функций Azure](functions-run-local.md#install-the-azure-functions-core-tools). Основные инструменты — это интерфейс командной строки среды выполнения Функций.
+
+Если вы установите основные инструменты с помощью npm, это не повлияет на версию инструментов, используемую Visual Studio. Версии основных инструментов среды выполнения Функций 1.x хранятся в файле *%USERPROFILE%\AppData\Local\Azure.Functions.Cli*. Visual Studio использует последнюю версию. Основные инструменты Функций 2.x включены в расширение **Инструменты для Функций Azure и веб-заданий**. Используемую в 1.x и 2.x версию можно просмотреть в выходных данных консоли при запуске проекта Функций:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Поддерживаемые типы для привязок
 
@@ -214,7 +257,7 @@ public static class AsyncExample
 
 Функция может принимать параметр [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx), который позволяет операционной системе передавать в ваш код сведения о том, что выполнение функции будет завершено. Это уведомление можно использовать для предотвращения ситуации, когда выполнение функции завершается неожиданно, оставляя данные в несогласованном состоянии.
 
-Следующий пример показывает, как проверить, не приближается ли завершение выполнения функции.
+В следующем примере показано, как проверить, не приближается ли завершение выполнения функции.
 
 ```csharp
 public static class CancellationTokenExample

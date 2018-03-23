@@ -1,11 +1,11 @@
 ---
-title: "Общие сведения о различных порталах, необходимые для создания предложения на Marketplace | Документация Майкрософт"
-description: "Общие сведения о различных порталах, необходимые для создания предложения на Marketplace."
+title: Общие сведения о различных порталах, необходимые для создания предложения на Marketplace | Документация Майкрософт
+description: Общие сведения о различных порталах, необходимые для создания предложения на Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio
-ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 663d9a01b80b0c41e37037b0cbec10c93511d24c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="portals-you-will-need"></a>Порталы, которые вам потребуются
 Прежде чем приступить к публикации предложения, ознакомьтесь с различными порталами, которые вам потребуются. Ниже приводятся краткие сведения о портале "Центр разработчиков", портале публикации и портале предварительной версии Azure в том порядке, в котором вы будете взаимодействовать с ними.                                                                            

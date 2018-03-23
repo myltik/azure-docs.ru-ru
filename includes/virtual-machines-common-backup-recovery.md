@@ -1,4 +1,19 @@
-
+---
+title: включение файла
+description: включение файла
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Служба архивации Azure
 
 Для создания резервных копий виртуальных машин с производственными рабочими нагрузками используйте службу Azure Backup. Azure Backup поддерживает резервные копии с согласованием приложений для виртуальных машин Windows и Linux. Служба архивации Azure создает точки восстановления, которые хранятся в геоизбыточных хранилищах восстановления. Используя точку восстановления, можно восстановить всю виртуальную машину или только определенные файлы. 

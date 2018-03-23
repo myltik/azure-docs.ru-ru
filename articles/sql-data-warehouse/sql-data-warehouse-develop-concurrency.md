@@ -1,11 +1,11 @@
 ---
-title: "Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL | Документация Майкрософт"
-description: "Общие сведения управлении параллелизмом и рабочей нагрузкой в хранилище данных SQL Azure для разработки решений."
+title: Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL | Документация Майкрософт
+description: Общие сведения управлении параллелизмом и рабочей нагрузкой в хранилище данных SQL Azure для разработки решений.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL
 Чтобы обеспечить прогнозируемую и соответствующую масштабу производительность, хранилище данных SQL Microsoft Azure помогает пользователям управлять уровнями параллелизма и выделением ресурсов, например выделением памяти и определением приоритетов ЦП. В этой статье рассматриваются понятия параллелизма и управления рабочей нагрузкой и объясняется, каким образом реализованы эти функции и как управлять ими в хранилище данных. Управление рабочей нагрузкой в хранилище данных SQL обеспечивает поддержку многопользовательских сред, но не поддерживает мультитенантные рабочие нагрузки.

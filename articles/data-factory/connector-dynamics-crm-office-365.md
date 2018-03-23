@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных из Dynamics CRM или Dynamics 365 и обратно с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как копировать данные из Microsoft Dynamics CRM или Microsoft Dynamics 365 в поддерживаемые хранилища данных, используемые в качестве приемника, или из поддерживаемых исходных хранилищ данных в Dynamics CRM и Dynamics 365 с помощью действия копирования в конвейере фабрики данных."
+title: Копирование данных из Dynamics CRM или Dynamics 365 и обратно с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как копировать данные из Microsoft Dynamics CRM или Microsoft Dynamics 365 в поддерживаемые хранилища данных, используемые в качестве приемника, или из поддерживаемых исходных хранилищ данных в Dynamics CRM и Dynamics 365 с помощью действия копирования в конвейере фабрики данных.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b00c594f87a3126bd3f1548cd904adffcb214031
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Копирование данных из Dynamics 365 или Dynamics CRM и обратно с помощью фабрики данных Azure
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 03/08/2018
                 "type": "Datetime"
             }
         ],
-        "typePoperties": {
+        "typeProperties": {
             "entityName": "account"
         },
         "linkedServiceName": {

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Andromeda SCM | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Andromeda SCM."
+title: Руководство по интеграции Azure Active Directory с Andromeda | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Andromeda.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Руководство по интеграции Azure Active Directory с Andromeda SCM
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Руководство по интеграции Azure Active Directory с Andromeda
 
-В этом руководстве описано, как интегрировать Andromeda SCM с Azure Active Directory (Azure AD).
+Из этого руководства вы узнаете, как интегрировать Andromeda с Azure Active Directory (Azure AD).
 
-Интеграция Azure AD с приложением Andromeda SCM обеспечивает следующие преимущества.
+Интеграция Azure AD с приложением Andromeda обеспечивает следующие преимущества:
 
-- С помощью Azure AD вы можете контролировать доступ к Andromeda SCM.
-- Вы можете включить автоматический вход пользователей в Andromeda SCM (единый вход) с учетной записью Azure AD.
+- С помощью Azure AD вы можете контролировать доступ к Andromeda.
+- Вы можете включить автоматический вход пользователей в Andromeda (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Чтобы настроить интеграцию Azure AD с Andromeda SCM, вам потребуется:
+Чтобы настроить интеграцию Azure AD с Andromeda, вам потребуется:
 
 - подписка Azure AD;
-- подписка Andromeda SCM с поддержкой единого входа.
+- подписка Andromeda с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -50,13 +50,13 @@ ms.lasthandoff: 02/27/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Andromeda SCM из коллекции.
+1. Добавление Andromeda из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Добавление Andromeda SCM из коллекции
-Чтобы настроить интеграцию Andromeda SCM с Azure AD, необходимо добавить Andromeda SCM из коллекции в список управляемых приложений SaaS.
+## <a name="adding-andromeda-from-the-gallery"></a>Добавление Andromeda из коллекции
+Чтобы настроить интеграцию Andromeda с Azure AD, необходимо добавить Andromeda из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить Andromeda SCM из коллекции, сделайте следующее:**
+**Чтобы добавить Andromeda из коллекции, сделайте следующее:**
 
 1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
@@ -70,31 +70,31 @@ ms.lasthandoff: 02/27/2018
 
     ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Andromeda SCM**. На панели результатов выберите **Andromeda SCM** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+4. В поле поиска введите **Andromeda**. На панели результатов выберите **Andromeda** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Andromeda SCM в списке результатов](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda в списке результатов](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-В этом разделе описана настройка и проверка единого входа Azure AD в приложение Andromeda SCM с использованием тестового пользователя Britta Simon.
+В этом разделе описана настройка и проверка единого входа Azure AD в приложение Andromeda с использованием тестового пользователя Britta Simon.
 
-Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в Andromeda SCM соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Andromeda SCM.
+Чтобы единый вход работал, Azure AD необходимы сведения о том, какой пользователь в Andromeda соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Andromeda.
 
-Чтобы настроить и проверить единый вход Azure AD в Andromeda SCM, вам потребуется выполнить действия в следующих стандартных блоках.
+Чтобы настроить и проверить единый вход Azure AD в Andromeda, вам потребуется выполнить действия в следующих стандартных блоках:
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Andromeda SCM](#create-an-andromeda-scm-test-user)** нужно для того, чтобы в Andromeda SCM существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+3. **[Создание тестового пользователя Andromeda](#create-an-andromeda-test-user)** нужно для того, чтобы в Andromeda существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Andromeda SCM.
+Из этого раздела вы узнаете, как включить единый вход Azure AD на портале Azure и настроить его в приложении Andromeda.
 
-**Чтобы настроить единый вход Azure AD в Andromeda SCM, сделайте следующее:**
+**Чтобы настроить единый вход Azure AD в Andromeda, сделайте следующее:**
 
-1. На портале Azure на странице интеграции с приложением **Andromeda SCM** щелкните **Единый вход**.
+1. На портале Azure на странице интеграции с приложением **Andromeda** щелкните **Единый вход**.
 
     ![Ссылка "Настройка единого входа"][4]
 
@@ -102,24 +102,24 @@ ms.lasthandoff: 02/27/2018
  
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. Чтобы настроить приложение в режиме, **инициированном поставщиком удостоверений**, в разделе **Домены и URL-адреса приложения Andromeda SCM** сделайте следующее.
+3. Чтобы настроить приложение в режиме, **инициированном поставщиком удостоверений**, в разделе **домена и URL-адресов приложения Andromeda** сделайте следующее:
 
-    ![Сведения о домене и URL-адресах единого входа приложения Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Сведения о домене и URL-адресах единого входа приложения Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<tenantURL>`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<tenantURL>.ngcxpress.com/`
 
-    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<tenantURL>`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`.
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, и выполните следующее действие, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
 
-    ![Сведения о домене и URL-адресах единого входа приложения Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Сведения о домене и URL-адресах единого входа приложения Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenantURL>/SAMLLogon.aspx`
+    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
      
     > [!NOTE] 
     > Приведенное выше значение используется только для примера. Замените их на фактические значения идентификатора, URL-адреса ответа и URL-адреса входа, которые описываются далее в этом руководстве.
 
-5. Приложение Andromeda SCM ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
+5. Приложение Andromeda ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
     
     ![Настройка атрибута единого входа](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,13 +129,13 @@ ms.lasthandoff: 02/27/2018
 6. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке, и выполните следующие действия.
     
     | Имя атрибута | Значение атрибута |
-    | ------------------- | -------------------- |    
-    | role        | DEMO |
-    | Тип        | DEFAULT |
-    | company       | COMP02    |
+    | -------------- | -------------------- |    
+    | role        | Определенная роль для приложения |
+    | Тип        | Тип приложения |
+    | company       | CompanyName    |
 
     > [!NOTE]
-    > Значения, указанные выше, приведены в качестве примера. Эти значения представлены для демонстрации. Используйте роли своей организации.
+    > Значения, указанные выше, приведены в качестве примера. Эти значения представлены исключительно для демонстрации. Используйте роли своей организации.
 
     a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
@@ -159,31 +159,31 @@ ms.lasthandoff: 02/27/2018
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. В разделе **Настройка Andromeda SCM** щелкните **Настроить Andromeda SCM**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+9. В разделе **Andromeda Configuration** (Настройка Andromeda) щелкните **Configure Andromeda** (Настроить Andromeda), чтобы открылось окно **Configure sign-on** (Настройка входа). Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Настройка Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Настройка Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Войдите на сайт компании Andromeda SCM от имени администратора.
+10. Войдите на сайт компании Andromeda от имени администратора.
 
 11. В верхней части строки меню щелкните **Admin** (Администратор) и выберите **Administration** (Администрирование).
 
-    ![Раздел Admin (Администратор) приложения Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Администратор Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. Слева в разделе **Interfaces** (Интерфейсы) щелкните **SAML Configuration** (Настройка SAML).
 
-    ![Раздел SAML приложения Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![SAML Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. На странице раздела **SAML Configuration** (Настройка SAML) сделайте следующее:
 
-    ![Настройка Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Конфигурация Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Установите флажок **Enable SSO with SAML** (Включить единый вход с помощью SAML).
 
-    Б. В разделе **Andromeda Information** (Сведения о приложении Andromeda) скопируйте **идентификатор удостоверения поставщика услуг** и вставьте его в текстовое поле **Идентификатор** раздела **Домены и URL-адреса приложения Andromeda SCM**.
+    Б. В разделе **Andromeda Information** (Сведения о приложении Andromeda) скопируйте **идентификатор удостоверения поставщика услуг** и вставьте его в текстовое поле **Идентификатор** раздела **Andromeda Domain and URLs** (Домен и URL-адреса Andromeda).
 
-    c. Скопируйте **URL-адрес потребителя** и вставьте его в текстовое поле **URL-адрес ответа** раздела **Домены и URL-адреса приложения Andromeda SCM**.
+    c. Скопируйте **URL-адрес объекта-получателя** и вставьте его в текстовое поле **URL-адрес ответа** раздела **Andromeda Domain and URLs** (Домен и URL-адреса Andromeda).
 
-    d. Скопируйте **URL-адрес входа** и вставьте его в текстовое поле **URL-адрес входа** раздела **Домены и URL-адреса приложения Andromeda SCM**.
+    d. Скопируйте **URL-адрес входа** и вставьте его в текстовое поле **Sign-on URL** (URL-адрес входа) раздела **Andromeda Domain and URLs** (Домен и URL-адреса Andromeda).
 
     д. В разделе **SAML Identity Provider** (Поставщик удостоверений SAML) введите имя поставщика удостоверений.
 
@@ -191,9 +191,9 @@ ms.lasthandoff: 02/27/2018
 
     ж. Откройте в Блокноте **сертификат в кодировке Base64**, загруженный с портала Azure, и вставьте его в текстовое поле **Сертификат X 509**.
     
-    h. Сопоставьте следующие атрибуты с соответствующим значением для выполнения единого входа через Azure AD. Для входа требуется атрибут **User ID** (Идентификатор пользователя). Для подготовки необходимо указать атрибуты: **Email** (Электронный адрес), **Company** (Компания), **UserType** (Тип пользователя) и **Role** (Роль). В этом разделе определяются сопоставления атрибутов (имя и значения), которые соответствуют тем, что указаны на портале Azure.
+    h. Сопоставьте следующие атрибуты с соответствующим значением для выполнения единого входа через Azure AD. Для входа требуется атрибут **User ID** (Идентификатор пользователя). Для подготовки необходимо указать атрибуты: **Email** (Электронный адрес), **Company** (Компания), **UserType** (Тип пользователя) и **Role** (Роль). В этом разделе определяются сопоставления атрибутов (имя и значения), которые соответствуют указанным на портале Azure.
 
-    ![Сопоставление атрибутов в Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![Сопоставление атрибутов в Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. Выберите команду **Сохранить**.
 
@@ -232,28 +232,28 @@ ms.lasthandoff: 02/27/2018
 
     d. Нажмите кнопку **Создать**.
  
-### <a name="create-an-andromeda-scm-test-user"></a>Создание тестового пользователя Andromeda SCM.
+### <a name="create-an-andromeda-test-user"></a>Создание тестового пользователя Andromeda
 
-Цель этого раздела — создать в приложении Andromeda SCM пользователя с именем Britta Simon. Приложение Andromeda SCM поддерживает JIT-подготовку. Эта функция включена по умолчанию. В этом разделе никакие действия с вашей стороны не требуются. При попытке получить доступ к приложению Andromeda SCM создается учетная запись пользователя (если она еще не создана).
+Цель этого раздела — создать в приложении Andromeda пользователя с именем Britta Simon. Приложение Andromeda поддерживает JIT-подготовку. Эта функция включена по умолчанию. В этом разделе никакие действия с вашей стороны не требуются. При попытке получить доступ к приложению Andromeda создается учетная запись пользователя (если она еще не создана).
 
 >[!Note]
->Чтобы создать пользователя вручную, обратитесь в [службу поддержки Andromeda SCM](https://www.ngcsoftware.com/support/).
+>Чтобы создать учетную запись пользователя вручную, обратитесь в [службу поддержки Andromeda](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как предоставить пользователю Britta Simon доступ к Andromeda SCM, чтобы он мог использовать единый вход Azure.
+Из этого раздела вы узнаете, как предоставить пользователю Britta Simon доступ к Andromeda, чтобы он мог использовать единый вход Azure.
 
 ![Назначение роли пользователя][200] 
 
-**Чтобы назначить пользователя Britta Simon в Andromeda SCM, сделайте следующее:**
+**Чтобы назначить пользователя Britta Simon в Andromeda, сделайте следующее:**
 
 1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
     ![Назначение пользователя][201] 
 
-2. В списке приложений выберите **Andromeda SCM**.
+2. В списке приложений выберите **Andromeda**.
 
-    ![Ссылка на Andromeda SCM в списке приложений](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Ссылка на Andromeda в списке приложений](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 02/27/2018
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-Щелкнув плитку Andromeda SCM на панели доступа, вы автоматически войдете в приложение Andromeda SCM.
+Щелкнув плитку Andromeda на панели доступа, вы автоматически войдете в приложение Andromeda.
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
@@ -296,4 +296,3 @@ ms.lasthandoff: 02/27/2018
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

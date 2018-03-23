@@ -1,25 +1,19 @@
 ---
-title: "Группы отработки отказа и активная георепликация в базе данных SQL Azure | Документация Майкрософт"
-description: "Используйте группы автоматической отработки отказа для активной георепликации и включите автоматическую отработку отказа в случае сбоя."
+title: Группы отработки отказа и активная георепликация в базе данных SQL Azure | Документация Майкрософт
+description: Используйте группы автоматической отработки отказа для активной георепликации и включите автоматическую отработку отказа в случае сбоя.
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Обзор. Группы отработки отказа и активная георепликация
 Активная георепликация позволяет настроить до четырех доступных для чтения баз данных-получателей в одном или в разных расположениях (регионах) центров обработки данных. Базы данных-получатели доступны для выполнения запросов и отработки отказа при сбое центра обработки данных или невозможности подключения к базе данных-источнику. Отработка отказа должна инициироваться вручную приложением пользователя. После отработки отказа у новой базы данных-источника будет другая конечная точка подключения. 

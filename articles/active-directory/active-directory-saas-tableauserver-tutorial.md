@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Tableau Server | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Tableau Server."
+title: Руководство по интеграции Azure Active Directory с Tableau Server | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Tableau Server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ba94f4f90f49fb7850f4cad2bb49ab4faa3fa92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Учебник. Интеграция Azure Active Directory с Tableau Server
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 12/11/2017
     
     | Имя атрибута | Значение атрибута |
     | ---------------| --------------- |    
-    | Имя пользователя | *user.displayname* |
+    | Имя пользователя | *user.mailnickname* |
 
     a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 

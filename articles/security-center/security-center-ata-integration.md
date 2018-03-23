@@ -1,24 +1,24 @@
 ---
-title: "Подключение Microsoft Advanced Threat Analytics к центру безопасности Azure | Документация Майкрософт"
-description: "Узнайте, как интегрировать центр безопасности Azure с Microsoft Advanced Threat Analytics."
+title: Подключение Microsoft Advanced Threat Analytics к центру безопасности Azure | Документация Майкрософт
+description: Узнайте, как интегрировать центр безопасности Azure с Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Подключение Microsoft Advanced Threat Analytics к центру безопасности Azure
 Этот документ поможет вам настроить интеграцию между Microsoft Advanced Threat Analytics и центром безопасности Azure.
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/14/2017
 12. Установите этот агент в центре ATA. Во время установки обязательно выберите **Подключить агент к службе анализа журналов Azure (OMS)** и по запросу предоставьте сохраненные *идентификатор рабочей области* и *первичный ключ*.
 
 
-Эта установка завершает процесс интеграции. Теперь вы сможете увидеть новые предупреждения, отправляемые из ATA в центр безопасности, в разделах **Оповещения системы безопасности** и **Поиск**. Новое решение появится в списке **Решения безопасности** в разделе **Подключенные решения**. 
+Эта установка завершает процесс интеграции. Теперь вы сможете увидеть новые предупреждения, отправляемые из ATA в центр безопасности, в результатах **поиска**. Новое решение появится в списке **Решения безопасности** в разделе **Подключенные решения**. 
 
 ## <a name="next-steps"></a>Дополнительная информация
 Из этого документа вы узнали, как подключить Microsoft ATA к центру безопасности Azure. Дополнительные сведения о центре безопасности см. в следующих статьях:

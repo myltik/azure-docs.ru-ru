@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: простой единый вход — быстрый запуск | Документация Майкрософт"
-description: "В этой статье описывается, как приступить к работе простым единым входом Azure Active Directory."
+title: 'Azure AD Connect: простой единый вход — быстрый запуск | Документация Майкрософт'
+description: В этой статье описывается, как приступить к работе простым единым входом Azure Active Directory.
 services: active-directory
-keywords: "что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
-documentationcenter: 
+keywords: что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Простой единый вход Azure Active Directory — быстрый запуск
 
@@ -129,7 +129,7 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
 1. Запустите Firefox и введите `about:config` в адресной строке. Проигнорируйте все отображаемые уведомления.
 2. Найдите параметр **network.negotiate-auth.trusted-uris**. Этот параметр выводит список доверенных сайтов в Firefox для проверки подлинности Kerberos.
 3. Щелкните его правой кнопкой мыши и выберите **Изменить**.
-4. В поле введите https://autologon.microsoftazuread-sso.com.
+4. Введите https://autologon.microsoftazuread-sso.com в поле.
 5. Нажмите кнопку **ОК** и вновь откройте браузер.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -159,11 +159,11 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
   - Вы [развернули функцию](##step-3-roll-out-the-feature) для этого пользователя с помощью групповой политики.
 
 Для тестирования сценария, когда пользователь вводит только имя пользователя, но не пароль.
-   - Войдите по адресу https://myapps.microsoft.com/ в новом частном сеансе браузера.
+   - Войдите в https://myapps.microsoft.com/ в новом частном сеансе браузера.
 
 Для тестирования сценария, когда пользователю не нужно вводить имя пользователя или пароль, выполните один из следующих шагов. 
-   - Войдите по адресу https://myapps.microsoft.com/contoso.onmicrosoft.com в новом частном сеансе браузера. Введите вместо *contoso* имя своего клиента.
-   - Или войдите по адресу https://myapps.microsoft.com/contoso.com в новом частном сеансе браузера. Введите вместо *contoso.com* проверенный домен (не федеративный домен) в клиенте.
+   - Войдите в https://myapps.microsoft.com/contoso.onmicrosoft.com в новом частном сеансе браузера. Введите вместо *contoso* имя своего клиента.
+   - Войдите в https://myapps.microsoft.com/contoso.com в новом частном сеансе браузера. Введите вместо *contoso.com* проверенный домен (не федеративный домен) в клиенте.
 
 ## <a name="step-5-roll-over-keys"></a>Шаг 5. Смена ключей
 

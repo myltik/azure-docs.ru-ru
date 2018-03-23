@@ -1,13 +1,13 @@
 ---
-title: "Привязки хранилища таблиц Azure для службы \"Функции Azure\""
-description: "Узнайте, как использовать привязки службы хранилища таблиц Azure в службе \"Функции Azure\"."
+title: Привязки хранилища таблиц Azure для службы "Функции Azure"
+description: Узнайте, как использовать привязки службы хранилища таблиц Azure в службе "Функции Azure".
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Привязки хранилища таблиц Azure для службы "Функции Azure"
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -373,9 +373,7 @@ module.exports = function (context, myQueueItem) {
   Получите доступ к данным таблицы с помощью параметра метода `IQueryable<T> <paramName>`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. `T` должен представлять собой тип, реализующий `ITableEntity`, или быть производным от `TableEntity`. Для выполнения фильтрации можно использовать методы `IQueryable`. Свойства `partitionKey`, `rowKey`, `filter` и `take` не используются в этом сценарии.  
 
 > [!NOTE]
-> `IQueryable` не работает в .NET Core и поэтому не работает в [среде выполнения службы "Функции" версии 2](functions-versions.md).
-
-  Альтернативой является использование параметра метода `CloudTable paramName` для чтения таблицы с помощью пакета SDK службы хранилища Azure.
+> `IQueryable` не поддерживается в [среде выполнения Функций версии 2](functions-versions.md). Альтернативой является [использование параметра метода CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) для чтения таблицы с помощью пакета SDK службы хранилища Azure.
 
 * **Чтение одной или нескольких строк в JavaScript**
 

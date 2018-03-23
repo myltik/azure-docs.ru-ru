@@ -1,13 +1,13 @@
 ---
-title: "Триггер службы \"Сетка событий\" для службы \"Функции Azure\""
-description: "Узнайте, как обрабатывать события службы \"Сетка событий\" в службе \"Функции Azure\"."
+title: Триггер службы "Сетка событий" для службы "Функции Azure"
+description: Узнайте, как обрабатывать события службы "Сетка событий" в службе "Функции Azure".
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Триггер службы "Сетка событий" для службы "Функции Azure"
 
@@ -33,6 +33,16 @@ ms.lasthandoff: 03/02/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Пакеты
+
+Триггер Сетки событий предоставляется в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid). Исходный код для пакета находится в репозитории GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension).
+
+Пакет используется для [разработки библиотеки классов C#](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) и [регистрации расширений привязки Функций версии 2](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
+
+<!--
+If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
+-->
+
 ## <a name="example"></a>Пример
 
 Просмотрите пример триггера Сетки событий для конкретного языка:
@@ -45,24 +55,58 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="c-example"></a>Пример C#
 
-В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая записывает в журнал некоторые поля, являющиеся общими для всех событий и всех данных, связанных с событием.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая выполняет привязку к `JObject`:
 
 ```cs
-[FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Company.Function
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        {
+            log.Info(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
 }
 ```
 
-Атрибут `EventGridTrigger` определен в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+<!--
+The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        {
+            log.Info("C# Event Grid function processed a request.");
+            log.Info($"Subject: {eventGridEvent.Subject}");
+            log.Info($"Time: {eventGridEvent.EventTime}");
+            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+        }
+    }
+}
+```
+-->
+
+См. дополнительные сведения о [пакетах](#packages), [атрибутах](#attributes), [конфигурации](#configuration) и [использовании](#usage).
 
 ### <a name="c-script-example"></a>Пример сценария C#
 
-В следующем примере показаны привязка триггера в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Следующая функция записывает в журнал некоторые поля, которые являются общими для всех событий и всех данных, связанных с событием.
+В следующем примере показаны привязка триггера в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку.
 
 Данные привязки в файле *function.json*:
 
@@ -79,12 +123,30 @@ public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEven
 }
 ```
 
-Ниже приведен код скрипта C#.
+Ниже приведен код сценария C#, который выполняет привязку к `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+<!--
+Here's C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
+#r "Microsoft.Azure.EventGrid"
+
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+Using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
@@ -94,10 +156,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
+-->
+
+См. дополнительные сведения о [пакетах](#packages), [атрибутах](#attributes), [конфигурации](#configuration) и [использовании](#usage).
 
 ### <a name="javascript-example"></a>Пример JavaScript
 
-В следующем примере показана привязка триггера в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку. Следующая функция записывает в журнал некоторые поля, которые являются общими для всех событий и всех данных, связанных с событием.
+В следующем примере показана привязка триггера в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку.
 
 Данные привязки в файле *function.json*:
 
@@ -128,13 +193,13 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>Атрибуты
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs).
 
 Вот как выглядит атрибут `EventGridTrigger` в сигнатуре метода:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -154,7 +219,11 @@ public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEven
 
 ## <a name="usage"></a>Использование
 
-Для функций на языках C# и F# можно объявить для входных данных триггера тип `EventGridEvent` или пользовательский тип. При объявлении пользовательского типа среда выполнения Функций попытается проанализировать событие JSON для задания свойств объекта.
+В функциях C# и F# для триггера Сетки событий можно использовать следующие типы параметров:
+
+* `JObject`
+* `string`
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` — определяет свойства для полей, которые являются общими для всех типов событий. **Этот тип является устаревшим**, но его замена еще не опубликована в NuGet.
 
 Для функций JavaScript параметр, названный по свойству `name` в файле *function.json*, имеет ссылку на объект события.
 
@@ -315,7 +384,7 @@ RequestBin не предназначено для использования с 
 * Опубликуйте по URL-адресу функции триггера службы "Сетка событий", используя следующий шаблон:
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 Для параметра `functionName` нужно указать имя, заданное в атрибуте `FunctionName`.
@@ -376,7 +445,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 Создайте подписку службы "Сетка событий" типа, который необходимо протестировать, и присвойте ей конечную точку ngrok, используя следующий шаблон:
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 Для параметра `functionName` нужно указать имя, заданное в атрибуте `FunctionName`.

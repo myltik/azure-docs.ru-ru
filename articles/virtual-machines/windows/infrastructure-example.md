@@ -1,11 +1,11 @@
 ---
-title: "Пошаговое руководство по примеру инфраструктуры Azure | Документация Майкрософт"
-description: "Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания примера инфраструктуры в Azure."
-documentationcenter: 
+title: Пошаговое руководство по примеру инфраструктуры Azure | Документация Майкрософт
+description: Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания примера инфраструктуры в Azure.
+documentationcenter: ''
 services: virtual-machines-windows
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Пошаговое руководство по примеру инфраструктуры Azure для виртуальных машин Windows
 В этой статье рассматривается создание примера инфраструктуры приложений. Мы подробно рассмотрим проектирование инфраструктуры для простого интернет-магазина, учтя все рекомендации и решения по соглашениям об именовании, группам доступности, виртуальным сетям и подсистемам балансировки нагрузки, и фактически развернем виртуальные машины.
@@ -61,7 +61,7 @@ Adventure Works Cycles хочет создать приложение интер
 Компания Adventure Works Cycles использует подписку Enterprise Subscription под названием "Adventure Works Enterprise Subscription" для выставления счетов за эту рабочую нагрузку ИТ-среды.
 
 ## <a name="storage"></a>Хранилище
-В компании Adventure Works Cycles решили использовать Управляемые диски Azure. При создании виртуальных машин используются хранилища обоих уровней:
+В компании Adventure Works Cycles решили использовать Управляемые диски Azure. При создании виртуальных машин используются оба доступных уровня хранилища:
 
 * **хранилище уровня "Стандартный"** для веб-серверов, серверов приложений, контроллеров домена и их дисков данных;
 * **хранилище уровня "Премиум"** для виртуальных машин SQL Server и их дисков данных.

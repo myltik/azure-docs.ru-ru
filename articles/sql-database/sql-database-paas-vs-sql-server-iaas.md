@@ -1,26 +1,20 @@
 ---
-title: "Сравнение базы данных SQL (PaaS) с SQL Server в облаке на виртуальных машинах (IaaS) | Документация Майкрософт"
-description: "Узнайте, какой вариант SQL Server подходит для вашего приложения: база данных SQL Azure (PaaS) или SQL Server в облаке на виртуальных машинах Azure."
+title: Сравнение базы данных SQL (PaaS) с SQL Server в облаке на виртуальных машинах (IaaS) | Документация Майкрософт
+description: 'Узнайте, какой вариант SQL Server подходит для вашего приложения: база данных SQL Azure (PaaS) или SQL Server в облаке на виртуальных машинах Azure.'
 services: sql-database, virtual-machines
-keywords: "облако SQL Server, SQL Server в облаке, база данных SaaS, облачный SQL Server, DBaaS"
-documentationcenter: 
+keywords: облако SQL Server, SQL Server в облаке, база данных SaaS, облачный SQL Server, DBaaS
 author: CarlRabeler
-manager: jhubbard
-editor: cjgronlund
-ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)
 Доступны два варианта размещения рабочих нагрузок SQL Server в Microsoft Azure:

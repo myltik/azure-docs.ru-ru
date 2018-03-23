@@ -1,8 +1,8 @@
 ---
-title: "Справочник по параметрам условного доступа в Azure Active Directory | Документация Майкрософт"
-description: "Эта статья содержит обзор поддерживаемых параметров в политике условного доступа Azure Active Directory."
+title: Справочник по параметрам условного доступа в Azure Active Directory | Документация Майкрософт
+description: Эта статья содержит обзор поддерживаемых параметров в политике условного доступа Azure Active Directory.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Справочник по параметрам условного доступа в Azure Active Directory
 
@@ -136,9 +136,19 @@ ms.lasthandoff: 02/09/2018
 | macOS                  | Chrome, Safari                      | ![Проверка][1] |
 
 
-> [!NOTE]
-> Для поддержки Chrome нужно использовать Windows 10 Creators Update (версия 1703) или более позднюю версию.<br>
-> Можно установить [это расширение](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### <a name="chrome-support"></a>Поддержка Chrome
+
+Для поддержки Chrome в **Windows 10 Creators Update (версия 1703)** или более поздней версии установите [это расширение](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Для поддержки Chrome в **Windows 8.1 и Windows 7** создайте следующий раздел реестра:
+
+|    |    |
+|--- | ---|
+|Путь | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|ИМЯ | 1 |
+|type | REG_SZ (String) |
+|Данные | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Эти браузеры поддерживают аутентификацию устройств, позволяя идентифицировать устройство и проверить, соответствует ли оно политике. Если браузер работает в частном режиме, проверка устройства завершается ошибкой. 
 
@@ -183,6 +193,10 @@ ms.lasthandoff: 02/09/2018
 Этот параметр применяется к следующим клиентским приложениям.
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI;
+- Microsoft Invoicing.
+- Microsoft Launcher;
 - Microsoft Azure Information Protection.
 - Microsoft Excel
 - Microsoft Kaizala 

@@ -1,19 +1,19 @@
 ---
-title: "Развертывание службы \"Машинное обучение Azure\" для Azure IoT Edge | Документация Майкрософт"
-description: "Развертывание службы \"Машинное обучение Azure\" в качестве модуля на пограничном устройстве"
+title: Развертывание службы "Машинное обучение Azure" для Azure IoT Edge | Документация Майкрософт
+description: Развертывание службы "Машинное обучение Azure" в качестве модуля на пограничном устройстве
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Развертывание службы "Машинное обучение Azure" в качестве модуля IoT Edge (предварительная версия)
 
@@ -27,14 +27,13 @@ ms.lasthandoff: 01/12/2018
 > * Развертывание модуля машинного обучения Azure на устройстве IoT Edge
 > * Просмотр сформированных данных
 
-Модуль машинного обучения Azure, который вы создадите в этом руководстве, считывает сформированные устройством данные о температуре и отправляет сообщения в вышестоящий Центр Интернета вещей Azure, только если прогнозирует сбой (называемый аномалией). 
+Модуль машинного обучения Azure, который вы создадите в этом руководстве, считывает сформированные устройством данные об окружающей среде и отмечает сообщения как аномальные или нет. 
 
-
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Устройство Azure IoT Edge, которое вы создали при работе с кратким руководством или первым руководством.
 * Строка подключения Центра Интернета вещей, к которому подключается ваше устройство IoT Edge.
-* Учетная запись Студии машинного обучения Azure. Чтобы создать учетную запись, выполните инструкции из статьи [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts) (Создание учетной записи для службы "Машинное обучение Azure" и установка Azure Machine Learning Workbench). Для этого руководства не нужно устанавливать приложение рабочего места (Workbench). 
+* Учетная запись Студии машинного обучения Azure. Чтобы создать учетную запись, выполните инструкции из статьи [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts) (Создание учетной записи для службы "Машинное обучение Azure" и установка Azure Machine Learning Workbench). Для этого руководства не нужно устанавливать приложение рабочего места (Workbench). 
 * Служба управления модулями для Azure ML на вашем компьютере. Чтобы настроить среду и создать учетную запись, выполните инструкции из раздела о [настройке управления моделью](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Создание контейнера машинного обучения Azure
@@ -108,7 +107,7 @@ Windows:
 
 ## <a name="view-generated-data"></a>Просмотр сформированных данных
 
-Можно просматривать сообщения с устройства в облако, которые отправляет устройство IoT Edge, используя расширение Azure IoT Toolkit для Visual Studio Code. 
+Можно просматривать сообщения, которые отправляет устройство IoT Edge с устройства в облако, используя [Обозреватель Центра Интернета вещей](https://github.com/azure/iothub-explorer) или расширение Azure IoT Toolkit для Visual Studio Code. 
 
 1. В Visual Studio Code выберите **IoT Hub Devices** (Устройства Центра Интернета вещей). 
 2. Выберите меню **...**, затем — **Set IoT Hub Connection String** (Задать строку подключения Центра Интернета вещей). 
@@ -117,7 +116,7 @@ Windows:
 
 3. В текстовое поле, которое откроется в верхней части страницы, введите строку подключения для вашего Центра Интернета вещей — iothubowner. Устройство IoT Edge должно появиться в списке устройств Центра Интернета вещей.
 4. Выберите **...** еще раз, а затем выберите **Start monitoring D2C message** (Начать мониторинг сообщения D2C).
-5. Наблюдайте за сообщениями, поступающими от tempSensor каждые пять секунд и выдаваемыми модулем machinelearningmodule в ходе оценки работоспособности устройства. 
+5. Просмотрите сообщения, поступающие от tempSensor каждые пять секунд. Текст сообщения содержит свойство с именем **anomaly**, которое модуль machinelearningmodule отображает со значением true или false. Свойство **AzureMLResponse** свойство содержит значение "OK", если модель выполнен успешно. 
 
    ![Ответ Azure ML в теле сообщения](./media/tutorial-deploy-machine-learning/ml-output.png)
 

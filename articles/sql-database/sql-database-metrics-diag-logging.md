@@ -1,25 +1,20 @@
 ---
-title: "Метрики и журналы диагностики базы данных SQL Azure | Документация Майкрософт"
-description: "Сведения о настройке базы данных SQL Azure для хранения данных статистики об использовании ресурсов, подключении и выполнении запросов."
+title: Метрики и журналы диагностики базы данных SQL Azure | Документация Майкрософт
+description: Сведения о настройке базы данных SQL Azure для хранения данных статистики об использовании ресурсов, подключении и выполнении запросов.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Метрики и журналы диагностики базы данных SQL Azure 
 База данных SQL Azure может выдавать значения метрик и журналы диагностики для упрощения мониторинга. Вы можете настроить базу данных SQL для хранения сведений об использовании ресурсов, о рабочих ролях и сеансах, а также настроить подключение к одному из этих ресурсов Azure:
@@ -52,8 +47,8 @@ ms.lasthandoff: 03/08/2018
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics) содержит сведения о статистике выполнения запросов, такие как данные об использовании ЦП и длительность запросов.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics) содержит сведения о статистике времени ожидания запросов, с помощью которых можно узнать, что ожидали запросы, например ЦП, журнал и блокировку.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset) содержит сведения об ошибках SQL, которые произошли в этой базе данных.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset) содержит статистику по значениям времени ожидания различных типов для базы данных.
-- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset). Содержит сведения о времени ожидания в базе данных.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset) содержит статистику по значениям времени ожидания различных типов для базы данных.
+- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset). Содержит сведения о времени ожидания в базе данных.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset). Содержит сведения о блокирующих событиях, произошедших в базе данных.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset). Содержит Intelligent Insights. Дополнительные сведения об Intelligent Insights см. в [этой статье](sql-database-intelligent-insights.md).
 
@@ -257,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Скачивание метрик и журналов из хранилища
 
-Ознакомьтесь с разделом [Скачивание больших двоичных объектов](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Ознакомьтесь с разделом [Скачивание больших двоичных объектов](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Доступные метрики и журналы
 
@@ -478,4 +473,4 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 * [Что такое концентраторы событий Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Приступая к работе с концентраторами событий](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Дополнительные сведения о хранилище см. в разделе [Скачивание больших двоичных объектов](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Дополнительные сведения о хранилище см. в разделе [Скачивание больших двоичных объектов](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

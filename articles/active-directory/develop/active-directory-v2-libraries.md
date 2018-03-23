@@ -1,11 +1,11 @@
 ---
-title: "Библиотеки аутентификации Azure Active Directory версии 2.0 | Документация Майкрософт"
-description: "Сведения о совместимых клиентских библиотеках и серверных библиотеках ПО промежуточного слоя, а также ссылки на связанные библиотеки, исходный код и примеры для конечной точки Azure Active Directory версии 2.0."
+title: Библиотеки аутентификации Azure Active Directory версии 2.0 | Документация Майкрософт
+description: Сведения о совместимых клиентских библиотеках и серверных библиотеках ПО промежуточного слоя, а также ссылки на связанные библиотеки, исходный код и примеры для конечной точки Azure Active Directory версии 2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Библиотеки проверки подлинности Azure Active Directory версии 2.0
 [Конечная точка Azure Active Directory (Azure AD) версии 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0. С конечной точкой версии 2.0 можно использовать различные библиотеки от корпорации Майкрософт и других организаций.
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/11/2017
 При создании приложения, использующего конечную точку версии 2.0, рекомендуется использовать библиотеки, написанные специалистами в области протоколов, сторонниками методов жизненного цикла разработки защищенных приложений (SDL), [таких, каким следуют в корпорации Майкрософт][Microsoft-SDL]. Если вы приняли решение написать код поддержки для протоколов, рекомендуется следовать методам SDL и внимательно просмотреть рекомендации по безопасности в спецификациях стандартов для каждого из протоколов.
 
 > [!NOTE]
-> Ищете библиотеки Azure AD версии 1.0 (ADAL)? Ознакомьтесь с [руководством по библиотекам ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
-> 
-> 
+> Ищете библиотеки Azure AD версии 1.0 (ADAL)? Ознакомьтесь с [руководством по библиотекам ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+>
+>
 
 ## <a name="types-of-libraries"></a>Типы библиотек
 Конечная точка Azure AD версии 2.0 поддерживает два типа библиотек.
@@ -78,13 +78,8 @@ ms.lasthandoff: 12/11/2017
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Пример встроенного приложения](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Пример встроенного приложения](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[Безопасная проверка пароля](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>Совместимые серверные библиотеки ПО промежуточного слоя
-| платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java (scribejava)](https://github.com/scribejava/scribejava) | [Версия 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [The PHP League (oauth2-client)](https://github.com/thephpleague/oauth2-client) | [Версия 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Веб-приложение](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Связанная информация

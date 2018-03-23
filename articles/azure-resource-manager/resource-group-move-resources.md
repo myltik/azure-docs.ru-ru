@@ -1,8 +1,8 @@
 ---
-title: "Перемещение ресурсов Azure в новую подписку или группу ресурсов | Документация Майкрософт"
-description: "Перемещайте ресурсы в новую группу ресурсов или новую подписку с помощью Azure Resource Manager."
+title: Перемещение ресурсов Azure в новую подписку или группу ресурсов | Документация Майкрософт
+description: Перемещайте ресурсы в новую группу ресурсов или новую подписку с помощью Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Перемещение ресурсов в новую группу ресурсов или подписку
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/05/2018
 * переместить ресурсы в новую учетную запись Azure (и клиент Azure Active Directory) и вам нужна помощь, чтобы выполнить инструкции из предыдущего раздела;
 * перемещение классических ресурсов, осложненное проблемами с ограничениями.
 
-## <a name="services-that-enable-move"></a>Службы, поддерживающие перемещение
+## <a name="services-that-can-be-moved"></a>Службы, которые можно переместить
 
 Указанные ниже службы поддерживают перемещение в новую группу ресурсов и подписку.
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 03/05/2018
 * Виртуальные сети — см. сведения об [ограничениях виртуальных сетей](#virtual-networks-limitations)
 * VPN-шлюз
 
-## <a name="services-that-do-not-enable-move"></a>Службы, не поддерживающие перемещение
+## <a name="services-that-cannot-be-moved"></a>Службы, которые невозможно переместить
 
 Службы, которые в настоящее время не поддерживают перемещение ресурсов:
 

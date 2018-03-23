@@ -1,24 +1,19 @@
 ---
-title: "Обновление до последней версии клиентской библиотеки эластичной базы данных | Документация Майкрософт"
-description: "Используйте Nuget для обновления клиентской библиотеки эластичной базы данных."
+title: Обновление до последней версии клиентской библиотеки эластичной базы данных | Документация Майкрософт
+description: Используйте Nuget для обновления клиентской библиотеки эластичной базы данных.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: ddove
-ms.openlocfilehash: 62609f2488a01d9b406c6b730c53ecc9f9b6ea1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 54ddde10935fa5add07aaf0c514cf48c6115678e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Обновление приложения для использования новой версии клиентской библиотеки эластичной базы данных
 Новые версии [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md) доступны через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.

@@ -1,8 +1,8 @@
 ---
-title: "Включение Application Insights Profiler для приложений, размещенных в ресурсах облачных служб Azure | Документация Майкрософт"
-description: "Сведения о настройке Application Insights Profiler в приложении, запущенном в облачных службах Azure."
+title: Включение Application Insights Profiler для приложений, размещенных в ресурсах облачных служб Azure | Документация Майкрософт
+description: Сведения о настройке Application Insights Profiler в приложении, запущенном в облачных службах Azure.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Включение Application Insights Profiler на виртуальных машинах Azure, в Service Fabric и облачных службах Azure
 
@@ -46,8 +46,7 @@ ms.lasthandoff: 03/05/2018
 
    ![Расположение ключа инструментирования](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Чтобы завершить настройку экземпляра Application Insights для профилировщика, выполните действия, описанные в разделе о [включении профилировщика](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Не нужно связывать веб-приложения, так как соответствующие инструкции предназначены для ресурса службы приложений. Включите профилировщик в области **настройки профилировщика**.
+3. Чтобы завершить настройку экземпляра Application Insights для профилировщика, [включите профилировщик. Не нужно связывать веб-приложения, так как соответствующие инструкции предназначены для ресурса службы приложений. Включите профилировщик в области **настройки профилировщика**.
 
 
 ## <a name="set-up-the-application-source-code"></a>Настройка исходного кода приложения
@@ -157,6 +156,8 @@ ms.lasthandoff: 03/05/2018
 
       Сведения о добавлении расширения диагностики в шаблон развертывания см. в статье [Использование мониторинга и системы диагностики с виртуальной машиной Windows и шаблонами Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Альтернативой описанным выше действий с JSON для виртуальных машин является переход на портал Azure. Откройте **Виртуальные машины** > **Параметр диагностики** > **Приемники**. Затем **включите** отправку данных диагностики в Application Insights и выберите учетную запись Application Insights или определенный ключ.
 
 ### <a name="azure-cloud-services"></a>Облачные службы Azure
 

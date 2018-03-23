@@ -1,6 +1,6 @@
 ---
-title: "Запуск проверочного теста в Azure Stack | Документация Майкрософт"
-description: "Как собирать файлы журналов для диагностики в Azure Stack"
+title: Запуск проверочного теста в Azure Stack | Документация Майкрософт
+description: Как собирать файлы журналов для диагностики в Azure Stack
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Запуск проверочного теста в Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
  
 Вы можете проверить состояние Azure Stack. Если возникнет проблема, обратитесь в службу поддержки пользователей Майкрософт. Служба поддержки попросит вас выполнить командлет Test-Test-AzureStack из вашего узла управления. Проверочный тест выявит ошибку. Затем служба поддержки проанализирует подробные журналы, обращая внимание на область, в которой произошла ошибка, и вместе с вами попробует устранить проблему.
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/12/2018
 | ServiceAdminCredentials | PSCredential    | Нет        | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Нет        | FALSE   |
 | AdminCredential         | PSCredential    | Нет        | Нет данных      |
-| StorageConnectionString | Строка          | Нет        | Нет данных      |
+<!-- | StorageConnectionString | Строка          | Нет        | Нет данных      | не поддерживается в версии 1802 -->
 | список                    | SwitchParameter | Нет        | FALSE   |
 | Игнорировать                  | Строка          | Нет        | Нет данных      |
 | Включить                 | Строка          | Нет        | Нет данных      |

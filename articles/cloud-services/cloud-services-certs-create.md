@@ -1,11 +1,11 @@
 ---
-title: "Облачные службы и сертификаты управления | Документация Майкрософт"
-description: "Узнайте, как создавать и использовать сертификаты с помощью Microsoft Azure"
+title: Облачные службы и сертификаты управления | Документация Майкрософт
+description: Узнайте, как создавать и использовать сертификаты с помощью Microsoft Azure
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Общие сведения о сертификатах для облачных служб Azure
 Сертификаты используются в Azure для облачных служб ([сертификаты службы](#what-are-service-certificates)), а также для аутентификации с помощью службы управления API ([сертификаты управления](#what-are-management-certificates)). В этой статье приводится общий обзор этих двух типов сертификатов, а также описывается процесс их [создания](#create) и [развертывания](#deploy) в Azure.
@@ -47,8 +47,6 @@ ms.lasthandoff: 12/14/2017
 
 ### <a name="limitations"></a>Ограничения
 Существует ограничение в 100 сертификатов управления на одну подписку. Существует ограничение в 100 сертификатов управления для всех подписок в рамках конкретного идентификатора пользователя администратора службы. Если идентификатор пользователя администратора учетной записи уже используется для добавления 100 сертификатов управления и есть потребность в большем количестве сертификатов, можно добавить соадминистратора для добавления дополнительных сертификатов. 
-
-Перед добавлением более 100 сертификатов убедитесь, что существующий сертификат можно использовать повторно. Использование соадминистраторов может усложнить процесс управления сертификатами.
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Создание самозаверяющего сертификата

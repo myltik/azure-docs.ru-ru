@@ -1,11 +1,11 @@
 ---
-title: "Настройка времени жизни маркеров в Azure Active Directory | Документация Майкрософт"
-description: "Сведения о настройке времени жизни маркеров, выданных Azure AD."
+title: Настройка времени жизни маркеров в Azure Active Directory | Документация Майкрософт
+description: Сведения о настройке времени жизни маркеров, выданных Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Настройка времени жизни маркеров в Azure Active Directory (общедоступная предварительная версия)
 Вы можете указать время жизни маркера, выданного Azure Active Directory (Azure AD). Время жизни маркеров можно настроить для всех приложений в организации, для многопользовательского приложения (приложения для нескольких организаций) или для определенного субъекта-службы в организации.
@@ -34,6 +34,11 @@ ms.lasthandoff: 02/21/2018
 
 Для организации можно назначить политику по умолчанию. Она будет применяться ко всем приложениям в организации, если только не будет переопределена политикой с более высоким приоритетом. Политику можно также назначить и для отдельных приложений. Приоритетность политики определяется ее типом.
 
+> [!NOTE]
+> Настраиваемые политики времени существования токенов не поддерживается в SharePoint Online.  Хотя имеется возможность создать такую политику с помощью PowerShell, SharePoint Online не признает ее. Ознакомьтесь с [блогом о SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208), чтобы получить дополнительные сведения о настройке времени ожидания бездействующих сеансов.
+>* Время существования по умолчанию для маркера доступа SharePoint Online составляет 1 час. 
+>* Максимальный период бездействия по умолчанию для маркера обновления SharePoint Online составляет 90 дней.
+>
 
 ## <a name="token-types"></a>Типы маркеров
 

@@ -1,8 +1,8 @@
 ---
-title: "Преобразование данных с помощью действия Spark в фабрике данных Azure | Документация Майкрософт"
-description: "Узнайте, как преобразовать данные, запустив программы Spark из конвейера фабрики данных Azure с помощью действия Spark."
+title: Преобразование данных с помощью действия Spark в фабрике данных Azure | Документация Майкрософт
+description: Узнайте, как преобразовать данные, запустив программы Spark из конвейера фабрики данных Azure с помощью действия Spark.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Преобразование данных с помощью действия Spark в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/23/2018
 | description           | Описание действия.  | Нет        |
 | Тип                  | Для действия Spark используется тип действия HDInsightSpark. | Yes      |
 | linkedServiceName     | Имя связанной службы Spark HDInsight, в которой выполняется программа Spark. Дополнительные сведения об этой связанной службе см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md). | Yes      |
-| SparkJobLinkedService | Связанная служба службы хранилища Azure, в которой хранятся файл задания Spark, зависимости и журналы.  Если значение этого свойства не указано, используется хранилище, связанное с кластером HDInsight. | Нет        |
+| SparkJobLinkedService | Связанная служба службы хранилища Azure, в которой хранятся файл задания Spark, зависимости и журналы.  Если значение этого свойства не указано, используется хранилище, связанное с кластером HDInsight. Значением этого свойства может быть только связанная служба хранилища Azure. | Нет        |
 | rootPath              | Контейнер BLOB-объектов Azure и папка, содержащая файл Spark. В имени файла учитывается регистр знаков. Подробнее о структуре этой папки см. в разделе о структуре папок (следующий раздел). | Yes      |
 | entryFilePath         | Относительный путь к корневой папке пакета и кода Spark. | Yes      |
 | className             | Основной класс Java или Spark приложения.      | Нет        |

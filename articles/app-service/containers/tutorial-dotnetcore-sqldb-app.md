@@ -1,11 +1,11 @@
 ---
-title: "Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux | Документация Майкрософт"
-description: "Узнайте, как создать приложение .NET Core, работающее в службе приложений Azure в Linux, с подключением к базе данных SQL."
+title: Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux | Документация Майкрософт
+description: Узнайте, как создать приложение .NET Core, работающее в службе приложений Azure в Linux, с подключением к базе данных SQL.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 804294e91375e0fb5b11190ae969710bbd4c15b1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79d82ddc65b7302552f745ab653109677205aa4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux
 
@@ -93,7 +93,7 @@ dotnet run
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-sql-database-logical-server"></a>Создание логического сервера базы данных SQL
 
@@ -166,7 +166,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 

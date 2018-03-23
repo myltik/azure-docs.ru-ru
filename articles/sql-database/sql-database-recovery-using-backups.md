@@ -1,25 +1,19 @@
 ---
-title: "Восстановление базы данных SQL Azure из резервной копии | Документация Майкрософт"
-description: "В этой статье описывается функция восстановления до точки во времени, позволяющая откатить Базу данных Azure SQL до состояния на момент времени в прошлом (до 35 дней)."
+title: Восстановление базы данных SQL Azure из резервной копии | Документация Майкрософт
+description: В этой статье описывается функция восстановления до точки во времени, позволяющая откатить Базу данных Azure SQL до состояния на момент времени в прошлом (до 35 дней).
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: fd1d334d-a035-4a55-9446-d1cf750d9cf7
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Active
 ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий
 База данных SQL предоставляет такие варианты восстановления базы данных с помощью [создаваемых автоматически резервных копий баз данных](sql-database-automated-backups.md) и [резервных копий в хранилище с включенной функцией долгосрочного хранения](sql-database-long-term-retention.md) Вы можете восстановить из резервной копии базы данных следующее:

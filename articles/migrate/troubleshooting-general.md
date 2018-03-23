@@ -1,16 +1,16 @@
 ---
-title: "Устранение неполадок в службе \"Миграция Azure\" | Документация Майкрософт"
-description: "Эта статья содержит обзор известных проблем в службе \"Миграция Azure\" и советы по устранению распространенных ошибок."
+title: Устранение неполадок в службе "Миграция Azure" | Документация Майкрософт
+description: Эта статья содержит обзор известных проблем в службе "Миграция Azure" и советы по устранению распространенных ошибок.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Устранение неполадок в службе "Миграция Azure"
 
@@ -126,5 +126,23 @@ ms.lasthandoff: 02/23/2018
 7. Закройте средства для разработчиков.
  
 
+## <a name="vcenter-errors"></a>Ошибки vCenter
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ошибка UnhandledException. Произошла внутренняя ошибка: System.IO.FileNotFoundException
+
+Эта проблема возникает в версиях сборщика ниже 1.0.9.5. Вы можете столкнуться с ней при работе в версии сборщика 1.0.9.2 или общедоступной предварительной версии, например 1.0.8.59. Щелкните [эту ссылку, чтобы найти подробный ответ на форумах](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Обновите сборщик, чтобы устранить проблему](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Ошибка UnableToConnectToServer
+
+Не удается подключиться к vCenter Server Servername.com:9443 из-за ошибки: "There was no endpoint listening at https://Servername.com:9443/sdk that could accept the message" (Ожидание передачи данных по адресу https://Servername.com:9443/sdk не выполнялось ни одной конечной точкой, которая могла бы принять сообщение).
+
+Это происходит, если компьютеру сборщика не удается разрешить указанное имя сервера vCenter Server или порт указан неправильно. Если порт не указан, сборщик по умолчанию будет пытаться подключиться к порту 443.
+
+1. Попробуйте проверить связь с сайтом Servername.com с компьютера сборщика.
+2. Если не удается выполнить шаг 1, попробуйте подключиться к серверу vCenter Server по IP-адресу.
+3. Определите правильный номер порта для подключения к серверу vCenter Server.
+4. Наконец, проверьте, работает ли сервер vCenter Server.
+ 
 

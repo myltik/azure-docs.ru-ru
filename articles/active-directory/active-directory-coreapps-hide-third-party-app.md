@@ -1,11 +1,11 @@
 ---
-title: "Скрытие приложения в пользовательском интерфейсе Azure Active Directory | Документация Майкрософт"
-description: "Как скрыть приложение от пользователей на панелях доступа Azure Active Directory или в средствах запуска Office 365."
+title: Скрытие приложения в пользовательском интерфейсе Azure Active Directory | Документация Майкрософт
+description: Как скрыть приложение от пользователей на панелях доступа Azure Active Directory или в средствах запуска Office 365.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/21/2018
 
 1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2.  Выберите **Все службы**, в текстовом поле введите **Azure Active Directory**, а затем нажмите клавишу **ВВОД**.
-3.  На экране ***Azure Active Directory —* имя_каталога** (то есть на экране Azure AD для каталога, которым вы управляете) выберите **Корпоративные приложения**.
+3.  На экране **Azure Active Directory — *имя_каталога*** (то есть на экране Azure AD для каталога, которым вы управляете) выберите **Корпоративные приложения**.
 ![Корпоративные приложения](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  На экране **Корпоративные приложения** выберите **Все приложения**. Отобразится список приложений, которыми можно управлять.
 5.  На экране **Корпоративные приложения — Все приложения** выберите приложение.</br>

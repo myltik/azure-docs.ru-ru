@@ -1,7 +1,7 @@
 ---
-title: "Подключение HDInsight к локальной сети в Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как создать кластер HDInsight в виртуальной сети Azure, а затем подключить его к локальной сети. Узнайте, как настроить разрешение имен между HDInsight и локальной сетью с помощью DNS-сервера."
-documentationcenter: 
+title: Подключение HDInsight к локальной сети в Azure HDInsight | Документация Майкрософт
+description: Узнайте, как создать кластер HDInsight в виртуальной сети Azure, а затем подключить его к локальной сети. Узнайте, как настроить разрешение имен между HDInsight и локальной сетью с помощью DNS-сервера.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Подключение HDInsight к локальной сети
 
@@ -273,13 +273,13 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.
 
 > [!WARNING]
 > Для HDInsight требуется входящий доступ с определенных IP-адресов в облаке Azure и неограниченный исходящий доступ. При использовании группы безопасности сети или определяемых пользователем маршрутов для управления трафиком, необходимо выполнить следующее:
->
-> 1. Найдите IP-адреса расположения, которое содержит виртуальную сеть. Список требуемых IP-адресов по расположениям см. в [этом разделе](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Разрешите входящий трафик с IP-адресов.
->
->    * __Группы безопасности сети.__ Разрешите __входящий трафик__ через порт __443__ из __Интернета__.
->    * __Определяемые пользователем маршруты.__ Задайте __Интернет__ в качестве типа маршрута для __следующего перехода__.
+
+1. Найдите IP-адреса расположения, которое содержит виртуальную сеть. Список требуемых IP-адресов по расположениям см. в [этом разделе](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Для IP-адресов, определенных на шаге 1, необходимо разрешить входящий трафик.
+
+   * Если вы используете __NSG__: разрешите __входящий__ трафик через порт __443__ для этих IP-адресов.
+   * Если вы используете __UDR__: задать __следующего прыжка__ тип маршрута для __Internet__ для IP-адресов.
 
 Примеры использования Azure PowerShell и Azure CLI для создания групп безопасности см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg).
 

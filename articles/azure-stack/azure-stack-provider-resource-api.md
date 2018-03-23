@@ -1,24 +1,24 @@
 ---
-title: "API использования ресурсов для поставщиков | Документация Майкрософт"
-description: "Справочные сведения об API использования ресурсов, который получает сведения об использовании Azure Stack"
+title: API использования ресурсов для поставщиков | Документация Майкрософт
+description: Справочные сведения об API использования ресурсов, который получает сведения об использовании Azure Stack
 services: azure-stack
-documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
-editor: 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
-ms.openlocfilehash: 0c45ce3bc93945ed8700464beebabcda07e8d77c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="provider-resource-usage-api"></a>API использования ресурсов для поставщиков
 Термин *поставщик* обозначает администраторов служб и любых делегированных поставщиков. Операторы Azure Stack и делегированные поставщики с помощью API использования ресурсов для поставщиков могут просматривать данные об использовании ресурсов их непосредственными клиентами. Например, как показано на схеме, с помощью API для поставщиков P0 может получить сведения о прямом использовании ресурсов для P1 и P2, а P1 — для P3 и P4.
@@ -88,6 +88,18 @@ meterID1",
 | *instanceData* |Пары "ключ-значение" из сведений об экземпляре (в новом формате):<br> *resourceUri* — полный идентификатор ресурса, который содержит группы ресурсов и имя экземпляра. <br> *location* — регион, в котором выполнялась эта служба. <br> *tags* — теги ресурсов, которые указываются пользователем. <br> *additionalInfo* — подробные сведения об использованном ресурсе, например версия ОС или тип образа. |
 | *quantity* |Объем потребления ресурса за указанный промежуток времени. |
 | *meterId* |Уникальный идентификатор использованного ресурса (также обозначается *ResourceID*). |
+
+
+## <a name="retrieve-usage-information"></a>Получение сведений о потреблении
+
+Чтобы данные об использовании создавались, должны существовать активно работающие ресурсы, например, действующая виртуальная машина или учетная запись хранения, содержащая некоторые данные. Если вы не знаете, есть ли у вас активные ресурсы в Azure Stack Marketplace, разверните виртуальную машину, откройте для нее колонку мониторинга и проверьте, выполняется ли виртуальная машина. Следующие командлеты PowerShell позволяют просмотреть данные о потреблении:
+
+1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) (Установка PowerShell для Azure Stack);
+2. [Настройка пользователя](user/azure-stack-powershell-configure-user.md) или [оператора Azure Stack](azure-stack-powershell-configure-admin.md) в среде PowerShell; 
+3. Для получения данных о потреблении используйте командлет PowerShell [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates).
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
 
 ## <a name="next-steps"></a>Дополнительная информация
 [API-интерфейс использования для клиентов](azure-stack-tenant-resource-usage-api.md)

@@ -1,11 +1,11 @@
 ---
-title: "Как регистрировать события в концентраторах событий Azure в службе управления Azure API | Документация Майкрософт"
-description: "Узнайте, как регистрировать события в концентраторах событий Azure в службе управления Azure API."
+title: Как регистрировать события в концентраторах событий Azure в службе управления Azure API | Документация Майкрософт
+description: Узнайте, как регистрировать события в концентраторах событий Azure в службе управления Azure API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Как регистрировать события в концентраторах событий Azure в службе управления Azure API
 Концентраторы событий Azure — это высокомасштабируемая служба приема данных, которая может обрабатывать миллионы событий в секунду, позволяя вам обрабатывать и анализировать огромное количество данных, создаваемых подключенными устройствами и приложениями. Концентраторы событий выступают в качестве "входной двери"для событий конвейера. После того как данные поступили в концентратор событий, они могут быть преобразованы и сохранены с использованием любого поставщика аналитики в режиме реального времени или адаптера пакетной обработки или хранения. Концентраторы событий отделяют создание потока событий от потребления этих событий, чтобы потребители событий могли обращаться к событиям по собственному расписанию.
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/01/2018
 
 Чтобы создать средство ведения журнала, выполните HTTP-запрос PUT, используя следующий шаблон URL-адреса:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Замените `{your service}` именем экземпляра службы управления API.
 * Замените `{new logger name}` требуемым именем нового средства ведения журнала. Вы укажете это имя при настройке политики [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub).
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/01/2018
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,7 +60,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-* Для параметра `loggertype` нужно задать значение `AzureEventHub`.
+* Для параметра `loggerType` нужно задать значение `AzureEventHub`.
 * `description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
 * `credentials` содержит `name` и `connectionString` концентратора событий Azure.
 

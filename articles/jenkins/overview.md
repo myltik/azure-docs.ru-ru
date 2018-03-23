@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о Jenkins и Azure | Документация Майкрософт"
-description: "Размещение сборки Jenkins и развертывание сервера автоматизации в Azure, а также использование вычислительных ресурсов и ресурсов службы хранилища Azure для расширения конвейеров непрерывной интеграции и непрерывного развертывания (CI/CD)."
+title: Общие сведения о Jenkins и Azure | Документация Майкрософт
+description: Размещение сборки Jenkins и развертывание сервера автоматизации в Azure, а также использование вычислительных ресурсов и ресурсов службы хранилища Azure для расширения конвейеров непрерывной интеграции и непрерывного развертывания (CI/CD).
 services: jenkins
 author: rloutlaw
 manager: justhe
@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure и Jenkins
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/09/2018
 - [виртуальных машин Azure](/azure/virtual-machines/linux/overview). Создание экземпляра Jenkins на виртуальной машине описывается в нашем [руководстве](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd).
 - Если используется кластер Kubernetes в [Службе контейнеров Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), ознакомьтесь с нашим [практическим руководством](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Для мониторинга развертывания Jenkins в Azure и управления им можно использовать [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) и [Azure CLI] (/cli/azure/overview).
+Для мониторинга развертывания Jenkins в Azure и управления им можно использовать [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) и [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Масштабирование по требованию автоматизации выполнения сборки
 

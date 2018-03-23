@@ -1,27 +1,27 @@
 ---
-title: "Развертывание приложения в Службе приложений Azure с помощью ZIP-файла | Документация Майкрософт"
-description: "Узнайте, как развернуть приложение в Службе приложений Azure с помощью ZIP-файла."
+title: Развертывание приложения в Службе приложений Azure с помощью ZIP- или WAR-файла | Документация Майкрософт
+description: Узнайте, как развернуть приложение в Службе приложений Azure с помощью ZIP-файла (или WAR-файла для разработчиков Java).
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6ecbf111bad96bce310109ac1a3e8f3bb846be6c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Развертывание приложения в Службе приложений Azure с помощью ZIP-файла
+# <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Развертывание приложения в Службе приложений Azure с помощью ZIP- или WAR-файла
 
-В этой статье показано, как с помощью ZIP-файла развернуть веб-приложение в [Службе приложений Azure](app-service-web-overview.md). 
+В этой статье показано, как с помощью ZIP- или WAR-файла развернуть веб-приложение в [Службе приложений Azure](app-service-web-overview.md). 
 
 Развертывание из ZIP-файла осуществляется с помощью той же службы Kudu, которая обеспечивает непрерывное развертывание на основе интеграции. Kudu поддерживает следующие возможности развертывания из ZIP-файла: 
 
@@ -31,6 +31,10 @@ ms.lasthandoff: 12/14/2017
 - журналы развертывания. 
 
 Дополнительные сведения см. в [документации по Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+
+[WAR](https://wikipedia.org/wiki/WAR_(file_format))-файл развертывается в службе приложений для запуска веб-приложения Java. См. раздел [Развертывание WAR-файла](#deploy-war-file).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -58,35 +62,50 @@ zip -r <file-name>.zip .
 Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="deploy-zip-file-with-azure-cli"></a>Развертывание ZIP-файла с помощью с Azure CLI
 
-## <a name="upload-zip-file-to-cloud-shell"></a>Отправка ZIP-файла в Cloud Shell
+Используйте Azure CLI 2.0.21 или более поздней версии. Чтобы просмотреть текущую версию, выполните команду `az --version` в окне терминала.
 
-Если вы решили запустить Azure CLI из окна терминала на локальном компьютере, пропустите этот шаг.
-
-Приведенные здесь действия помогут отправить ZIP-файл в Cloud Shell. 
-
-[!INCLUDE [app-service-web-upload-zip.md](../../includes/app-service-web-upload-zip-no-h.md)]
-
-Дополнительные сведения см. в статье [Сохранение файлов в Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
-
-## <a name="deploy-zip-file"></a>Развертывание ZIP-файла
-
-Разверните загруженный ZIP-файл в веб-приложение с помощью команды [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Если вы решили не использовать Cloud Shell, убедитесь, что установлено Azure CLI версии 2.0.21 или более поздней. Чтобы просмотреть текущую версию, выполните команду `az --version` в окне терминала на локальном компьютере. 
+Разверните загруженный ZIP-файл в веб-приложение с помощью команды [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip).  
 
 Следующий пример развертывает загруженный ZIP-файл. При использовании локальной установки Azure CLI укажите путь к локальному ZIP-файлу `--src`.   
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
+az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
 Эта команда позволяет развертывать файлы и каталоги из ZIP-файлов в папку для приложения службы приложений по умолчанию (`\home\site\wwwroot`). Затем приложение перезапускается. Если настроен любой дополнительный пользовательский процесс сборки, он также запустится. Дополнительные сведения см. в [документации по Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-Чтобы просмотреть список развертываний этого приложения, необходимо использовать интерфейсы REST API (см. следующий раздел). 
-
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
+
+## <a name="deploy-war-file"></a>Развертывание WAR-файла
+
+Чтобы развернуть WAR-файл в службе приложений, отправьте запрос POST по адресу https://<имя_приложения>.scm.azurewebsites.net/api/zipdeploy. В тексте сообщения запроса POST должен содержаться WAR-файл. Учетные данные развертывания для приложения указываются в запросе с использованием обычной проверки подлинности HTTP. 
+
+Для обычной аутентификации HTTP требуются учетные данные развертывания службы приложений. См. дополнительные сведения об [установке и сбросе учетных данных на уровне пользователя](app-service-deployment-credentials.md#userscope).
+
+### <a name="with-curl"></a>Использование cURL
+
+В примере ниже для развертывания WAR-файла используется средство cURL. Замените заполнители `<username>`, `<war_file_path>` и `<app_name>`. Когда в cURL появится запрос, введите пароль.
+
+```bash
+curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+```
+
+### <a name="with-powershell"></a>С помощью PowerShell
+
+В примере ниже для отправки запроса, содержащего WAR-файл, используется [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod). Замените заполнители `<deployment_user>`, `<deployment_password>`, `<zip_file_path>` и `<app_name>`.
+
+```PowerShell
+$username = "<deployment_user>"
+$password = "<deployment_password>"
+$filePath = "<war_file_path>"
+$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
+$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
+Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+```
 
 ## <a name="next-steps"></a>Дополнительная информация
 

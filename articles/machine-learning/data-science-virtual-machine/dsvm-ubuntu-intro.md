@@ -1,8 +1,8 @@
 ---
-title: "Подготовка виртуальной машины Linux (Ubuntu) для обработки и анализа данных в Azure | Документация Майкрософт"
-description: "Создание и настройка виртуальной машины Linux (Ubuntu) в Azure для обработки и анализа данных и машинного обучения."
+title: Подготовка виртуальной машины Linux (Ubuntu) для обработки и анализа данных в Azure | Документация Майкрософт
+description: Создание и настройка виртуальной машины Linux (Ubuntu) в Azure для обработки и анализа данных и машинного обучения.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Подготовка виртуальной машины Linux (Ubuntu) для обработки и анализа данных
 
@@ -214,8 +214,8 @@ R — один из самых популярных языков для анал
 
 Чтобы установить дополнительные библиотеки Python, необходимо выполнить команду ```conda``` или ````pip````, используя sudo, и указать полный путь к диспетчеру пакетов Python (Conda или PIP) для установки в правильную среду Python. Например: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Записная книжка Jupyter

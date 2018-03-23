@@ -1,9 +1,9 @@
 ---
-title: "Потоковая передача журналов диагностики Azure в концентратор событий | Документация Майкрософт"
-description: "Узнайте, как настроить потоковую передачу журналов диагностики Azure в концентратор событий."
+title: Потоковая передача журналов диагностики Azure в концентратор событий | Документация Майкрософт
+description: Узнайте, как настроить потоковую передачу журналов диагностики Azure в концентратор событий.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Потоковая передача журналов диагностики Azure в концентратор событий
 **[Журналы диагностики Azure](monitoring-overview-of-diagnostic-logs.md)** можно передавать в близком к реальному времени в любое приложение. Для этого достаточно использовать стандартный параметр "Экспорт в концентраторы событий" на портале или включить идентификатор правила авторизации концентратора событий в параметрах диагностики с помощью командлетов Azure PowerShell или интерфейса командной строки Azure.
@@ -83,10 +83,10 @@ ms.lasthandoff: 12/22/2017
 Для включения потоковой передачи с помощью [командлетов Azure PowerShell](insights-powershell-samples.md) применяется командлет `Set-AzureRmDiagnosticSetting` с такими параметрами:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-В параметре ServiceBusRuleID передается строка в таком формате: `{Service Bus resource ID}/authorizationrules/{key name}`. Например: `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Сейчас с помощью PowerShell нельзя выбирать концентратор событий с определенным именем.
+Идентификатор правила авторизации концентратора событий представляет собой строку в формате `{Event Hub namespace resource ID}/authorizationrules/{key name}`. Пример: `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Сейчас с помощью PowerShell нельзя выбирать концентратор событий с определенным именем.
 
 ### <a name="via-azure-cli"></a>С помощью интерфейса командной строки Azure
 Для включения потоковой передачи через [интерфейс командной строки Azure](insights-cli-samples.md) применяется команда `insights diagnostic set` с такими параметрами:
@@ -95,7 +95,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [y
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Формат для ServiceBusRuleID будет таким же, как описано для командлета PowerShell. Сейчас с помощью Azure CLI нельзя выбирать концентратор событий с определенным именем.
+Формат идентификатора правила авторизации концентратора событий будет таким же, как описано для командлета PowerShell. Сейчас с помощью Azure CLI нельзя выбирать концентратор событий с определенным именем.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Как используются данные журнала из концентраторов событий?
 Ниже приведен пример выходных данных из концентраторов событий.

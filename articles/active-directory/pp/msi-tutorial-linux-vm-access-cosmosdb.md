@@ -1,11 +1,11 @@
 ---
-title: "Получение доступа к Azure Cosmos DB с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux"
-description: "В рамках этого руководства вы узнаете, как получить доступ к Azure Cosmos DB с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux."
+title: Получение доступа к Azure Cosmos DB с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux
+description: В рамках этого руководства вы узнаете, как получить доступ к Azure Cosmos DB с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>Получение доступа к Azure Cosmos DB с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux 
 
@@ -158,10 +158,10 @@ az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --sc
 3. После этого вам предложат ввести **пароль**, добавленный при создании **виртуальной машины Linux**. Вы должны без проблем войти в систему.  
 4. Используйте cURL для получения маркера доступа для Azure Resource Manager.  
 
-    Запрос CURL маркера доступа и соответствующий ответ приведены ниже.  Замените <CLIENT ID> значением clientId пользовательского MSI.
+    Запрос CURL маркера доступа и соответствующий ответ приведены ниже.  Замените <CLIENT ID> значением clientId пользовательского MSI. 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

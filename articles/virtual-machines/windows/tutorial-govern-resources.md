@@ -1,6 +1,6 @@
 ---
-title: "Управление виртуальными машинами Windows с помощью Azure PowerShell | Документация Майкрософт"
-description: "Руководство. Управление виртуальными машинами Azure с применением RBAC, политик, блокировок и тегов при помощи Azure PowerShell"
+title: Управление виртуальными машинами Windows с помощью Azure PowerShell | Документация Майкрософт
+description: Руководство. Управление виртуальными машинами Azure с применением RBAC, политик, блокировок и тегов при помощи Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9952660dc177b542d8477dc85c62d76d16e8c54e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9fbe9318e52f8299c3ef46f73c3be177de6d4a0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Управление виртуальными машинами с помощью Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="understand-scope"></a>Общие сведения об области
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 В этом руководстве к группе ресурсов применяются все параметры управления, поэтому вы сможете легко отменить их по завершении работы.
 
-Давайте создадим эту группу ресурсов.
+Создайте группу ресурсов.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -55,7 +55,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 Вместо назначения ролей для отдельных пользователей зачастую бывает проще [создать группу Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) для пользователей, которым необходимо выполнять подобные действия. А затем назначить этой группе соответствующую роль. Чтобы упростить работу, создайте группу Azure Active Directory без членов. Вы по-прежнему можете назначить группе роль для области. 
 
-В приведенном ниже примере создается группа Azure Active Directory с именем *VMDemoContributors* и почтовым псевдонимом *vmDemoGroup*. Почтовый псевдоним используется в качестве псевдонима для группы.
+В следующем примере создается группа Azure Active Directory с именем *VMDemoContributors* и почтовым псевдонимом *vmDemoGroup*. Почтовый псевдоним служит в качестве псевдонима для группы.
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -76,7 +76,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 ## <a name="azure-policies"></a>Политики Azure
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Применение политик
 
@@ -170,13 +170,13 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Появится ошибка с сообщением о том, что операцию удаления не удалось выполнить из-за блокировки. Группу ресурсов можно удалить только в том случае, если намеренно снять блокировки. Этот шаг описан в разделе [Очистка ресурсов](#clean-up-resources).
+Появится ошибка с сообщением о том, что операцию удаления не удалось выполнить из-за блокировки. Группу ресурсов можно удалить, только если намеренно снять блокировки. Этот шаг описан в разделе [Очистка ресурсов](#clean-up-resources).
 
 ## <a name="tag-resources"></a>Добавление тегов к ресурсам
 
 К ресурсам Azure можно применять [теги](../../azure-resource-manager/resource-group-using-tags.md), чтобы логически упорядочивать их по категориям. Каждый тег состоит из имени и значения. Например, имя Environment и значение Production можно применить ко всем ресурсам в рабочей среде.
 
-[!include[Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
 Чтобы применить теги к виртуальной машине, воспользуйтесь командой [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource):
 
@@ -206,7 +206,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Просмотр данных о затратах по значениям тега
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -237,7 +237,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 > * назначение пользователей для роли;
 > * применение политик, принудительно внедряющих стандарты;
 > * защита важных ресурсов с помощью блокировок;
-> * снабжение ресурсов тегами для выставления счетов и управления.
+> * добавление к ресурсам тегов для выставления счетов и управления.
 
 Перейдите к следующему руководству, чтобы узнать о высокодоступных виртуальных машинах.
 

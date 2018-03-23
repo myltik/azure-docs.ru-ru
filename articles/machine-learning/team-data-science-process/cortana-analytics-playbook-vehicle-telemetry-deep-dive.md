@@ -1,8 +1,8 @@
 ---
-title: "Подробный обзор прогнозирования исправности автомобиля и манеры вождения с помощью Azure | Документация Майкрософт"
-description: "Используйте возможности Cortana Intelligence, чтобы получить прогнозы и актуальную информацию об исправности и манере вождения автомобиля в режиме реального времени."
+title: Подробный обзор прогнозирования исправности автомобиля и манеры вождения с помощью Azure | Документация Майкрософт
+description: Используйте возможности Cortana Intelligence, чтобы получить прогнозы и актуальную информацию об исправности и манере вождения автомобиля в режиме реального времени.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Сборник тренировочных заданий по решению для аналитики телеметрии автомобиля. Подробный обзор решения
 В этом меню содержатся ссылки на разделы сборника тренировочных заданий: 

@@ -1,13 +1,13 @@
 ---
-title: "Защита служб IIS с помощью SSL-сертификатов в Azure | Документация Майкрософт"
-description: "Узнайте, как защитить веб-сервер IIS с помощью SSL-сертификатов на виртуальной машине Windows в Azure"
+title: Защита служб IIS с помощью SSL-сертификатов в Azure | Документация Майкрософт
+description: Узнайте, как защитить веб-сервер IIS с помощью SSL-сертификатов на виртуальной машине Windows в Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 3c6823387e2e875e935a5a12345afdbf7e81a0cb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Защита веб-сервера IIS с помощью SSL-сертификатов на виртуальной машине Windows в Azure
 Чтобы защитить веб-серверы, можно использовать SSL-сертификат (Secure Sockets Layer) для шифрования веб-трафика. SSL-сертификаты могут храниться в Azure Key Vault и разрешать безопасное развертывание сертификатов на виртуальных машинах Windows в Azure. Из этого руководства вы узнали, как выполнять такие задачи:
@@ -120,7 +120,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
-$vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
+$vm=Get-AzureRmVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzureRmKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId
 $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $vaultId -CertificateStore "My" -CertificateUrl $certURL
 

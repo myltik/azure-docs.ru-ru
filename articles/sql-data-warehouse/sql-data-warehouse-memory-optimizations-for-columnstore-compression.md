@@ -1,25 +1,24 @@
 ---
-title: "Повышение производительности индекса columnstore в хранилище данных SQL Azure | Документация Майкрософт"
-description: "Вы можете снизить требования к памяти (или увеличить объем доступной памяти), чтобы достичь максимально возможного числа строк, которые индекс columnstore сжимает в каждой группе строк."
+title: Повышение производительности индекса columnstore в хранилище данных SQL Azure | Документация Майкрософт
+description: Вы можете снизить требования к памяти (или увеличить объем доступной памяти), чтобы достичь максимально возможного числа строк, которые индекс columnstore сжимает в каждой группе строк.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Максимальное повышение качества группы строк для индекса columnstore
 
@@ -140,9 +139,9 @@ OPTION (MAXDOP 1);
 Объем доступной для выполнения пользовательских запросов памяти определяется размером DWU и классом ресурсов пользователя. Чтобы увеличить объем выделенной для запросов загрузки памяти, можно увеличить число DWU или повысить класс ресурсов.
 
 - Сведения об увеличении числа DWU см.в разделе [Масштабирование производительности](quickstart-scale-compute-portal.md).
-- Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+- Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](resource-classes-for-workload-management.md#assigning-resource-classes).
 
-Например, располагая DWU 100 и классом ресурсов smallrc, пользователь может использовать 100 МБ памяти для каждого распределения. Дополнительные сведения см. в статье [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL](sql-data-warehouse-develop-concurrency.md).
+Например, располагая DWU 100 и классом ресурсов smallrc, пользователь может использовать 100 МБ памяти для каждого распределения. Дополнительные сведения см. в статье [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL](resource-classes-for-workload-management.md).
 
 Предположим, вы определили, что вам необходимо 700 МБ памяти, чтобы получить оптимальные размеры групп строк. В этих примерах показывается, как можно выполнять запросы загрузки с достаточным объемом памяти.
 

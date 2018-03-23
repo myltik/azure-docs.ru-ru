@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных из ServiceNow с помощью фабрики данных Azure (бета-версия) | Документация Майкрософт"
-description: "Узнайте, как копировать данные из ServiceNow в поддерживаемые хранилища данных в качестве приемников с помощью действия копирования в конвейере фабрики данных Azure."
+title: Копирование данных из ServiceNow с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как копировать данные из ServiceNow в поддерживаемые хранилища данных в качестве приемников с помощью действия копирования в конвейере фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Копирование данных из ServiceNow с помощью фабрики данных Azure (бета-версия)
+# <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Копирование данных из ServiceNow с помощью фабрики данных Azure
 
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из ServiceNow. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data by using Copy Activity](v1/data-factory-data-movement-activities.md) (Перемещение данных с помощью действия копирования).
-
-> [!IMPORTANT]
-> Сейчас этот соединитель доступен в бета-версии. Попробуйте поработать с ним и оставьте свой отзыв. Не используйте его в рабочих средах.
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 

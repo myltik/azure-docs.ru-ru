@@ -1,8 +1,8 @@
 ---
-title: "Использование назначаемого пользователем MSI в виртуальной машине Linux для получения доступа к службе хранилища Azure"
-description: "В рамках этого руководства вы узнаете, как получить доступ к службе хранилища Azure с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux."
+title: Использование назначаемого пользователем MSI в виртуальной машине Linux для получения доступа к службе хранилища Azure
+description: В рамках этого руководства вы узнаете, как получить доступ к службе хранилища Azure с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Получение доступа к службе хранилища Azure с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux
 
@@ -167,9 +167,9 @@ az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "
 3. В окне терминала с помощью CURL выполните запрос к локальной конечной точке MSI, чтобы получить маркер доступа для службы хранилища Azure.
 
    В следующем примере показан запрос CURL для получения маркера доступа. Не забудьте заменить `<CLIENT ID>` свойством `clientId`, возвращенным командой `az identity create` в разделе [Создание назначаемого пользователем MSI](#create-a-user-assigned-msi):
-
+   
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]

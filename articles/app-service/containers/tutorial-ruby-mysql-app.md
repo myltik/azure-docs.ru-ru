@@ -1,8 +1,8 @@
 ---
-title: "Разработка веб-приложения на основе Ruby и MySQL в службе приложений Azure на платформе Linux | Документация Майкрософт"
-description: "Узнайте, как создать приложение Ruby, работающее в Azure, с подключением к базе данных MySQL в Azure."
+title: Разработка веб-приложения на основе Ruby и MySQL в службе приложений Azure на платформе Linux | Документация Майкрософт
+description: Узнайте, как создать приложение Ruby, работающее в Azure, с подключением к базе данных MySQL в Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 73839127c23eca29e3a20ab4d68668dfb7c6a375
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Разработка веб-приложения на основе Ruby и MySQL в службе приложений Azure на платформе Linux
 
@@ -132,7 +132,7 @@ rails server
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Создание сервера MySQL
 
@@ -312,37 +312,7 @@ git commit -m "database.yml updates"
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-В Cloud Shell создайте веб-приложение в рамках плана службы приложений `myAppServicePlan` с помощью команды [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
-
-В следующем примере замените `<app_name>`глобальным уникальным именем приложения (допустимые символы: `a-z`, `0-9` и `-`). Задана среда выполнения `RUBY|2.3`, которая развертывает [образ Ruby по умолчанию](https://hub.docker.com/r/appsvc/ruby/). Список всех поддерживаемых сред выполнения можно получить с помощью команды [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
-```
-
-Когда веб-приложение будет создано, в Azure CLI отобразится примерно следующее:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-Вы создали пустое веб-приложение с включенным развертыванием Git.
-
-> [!NOTE]
-> URL-адрес удаленного репозитория Git отображается в свойстве `deploymentLocalGitUrl` в формате `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Сохраните этот URL-адрес для дальнейшего использования.
->
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Настройка параметров базы данных
 

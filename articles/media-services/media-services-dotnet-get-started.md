@@ -1,11 +1,11 @@
 ---
-title: "Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET | Документация Майкрософт"
-description: "В этом учебнике показаны шаги по реализации приложения доставки содержимого по запросу с помощью служб мультимедиа Azure и .NET."
+title: Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET | Документация Майкрософт
+description: В этом учебнике показаны шаги по реализации приложения доставки содержимого по запросу с помощью служб мультимедиа Azure и .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 48824929ee3fc01952fb6525c514a2cdbb265c9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -236,7 +236,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Публикация ресурса-контейнера и получение URL-адресов для потоковой передачи и поэтапного скачивания
 
-Чтобы выполнить потоковую передачу ресурса-контейнера или скачать его, сначала необходимо "опубликовать" его, создав указатель. Указатели предоставляют доступ к файлам, содержащимся в активе. Службы мультимедиа поддерживают два типа указателей: указатели на OnDemandOrigin, использующиеся для потоковой передачи служб мультимедиа (например, MPEG DASH, HLS или Smooth Streaming), и указатели на подписанный URL-адрес (SAS), использующиеся для скачивания файлов мультимедиа (дополнительные сведения об указателях на SAS см. в [этом](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) блоге).
+Чтобы выполнить потоковую передачу ресурса-контейнера или скачать его, сначала необходимо "опубликовать" его, создав указатель. Указатели предоставляют доступ к файлам, содержащимся в активе. Службы мультимедиа поддерживают два типа указателей: указатели на OnDemandOrigin, использующиеся для потоковой передачи служб мультимедиа (например, MPEG DASH, HLS или Smooth Streaming), и указатели на подписанный URL-адрес, использующиеся для скачивания файлов мультимедиа.
 
 ### <a name="some-details-about-url-formats"></a>Некоторые сведения о форматах URL-адреса
 

@@ -1,24 +1,20 @@
 ---
-title: "Дочерние модули Runbook в службе автоматизации Azure | Документация Майкрософт"
-description: "Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними."
+title: Дочерние модули Runbook в службе автоматизации Azure
+description: Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/02/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Дочерние модули Runbook в службе автоматизации Azure
 Рекомендуется создавать в службе автоматизации Azure повторно используемые модульные Runbook с отдельной функцией, которую могут использовать другие Runbook. Родительский Runbook часто будет вызывать один или несколько дочерних Runbook для выполнения требуемых функций. Существует два способа вызвать дочерний Runbook, и у каждого из них есть определенные отличия, которые следует понимать, чтобы определить, какой способ наилучшим образом подходит для тех или иных сценариев.

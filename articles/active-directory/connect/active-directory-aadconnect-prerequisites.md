@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect: оборудование и необходимые компоненты | Документация Майкрософт"
-description: "В этом разделе описаны необходимые условия и требования к оборудованию для Azure AD Connect."
+title: 'Azure AD Connect: оборудование и необходимые компоненты | Документация Майкрософт'
+description: В этом разделе описаны необходимые условия и требования к оборудованию для Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Необходимые условия для Azure AD Connect
 В этой статье описаны необходимые условия и требования к оборудованию для Azure AD Connect.
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/23/2018
   * Кроме того, можно использовать [портал Azure](https://portal.azure.com). Для этого не нужна лицензия Azure AD.
 * [Добавьте и подтвердите домен](../active-directory-domains-add-azure-portal.md) , который вы планируете использовать в Azure AD. Например, если вы планируете использовать для своих пользователей домен contoso.com, убедитесь, что он был подтвержден и вы используете не просто домен по умолчанию contoso.onmicrosoft.com.
 * Клиент Azure AD по умолчанию может вмещать 50 тыс. объектов. После подтверждения домена этот предел увеличивается до 300 тыс. объектов. Если вам нужно еще больше объектов в Azure AD, необходимо отправить обращение в службу технической поддержки, чтобы дополнительно увеличить данный предел. Если вам необходимо более 500 тыс. объектов, то потребуется лицензия, например на Office 365, Azure AD Basic, Azure AD Premium или Enterprise Mobility + Security.
+* ADSyncPrep представляет собой модуль сценария PowerShell, предоставляющий функции, которые используются для подготовки вашей среды Active Directory для Azure AD Connect.  Для работы ADSyncPrep нужен [модуль PowerShell Azure AD Microsoft Online версии 1.1](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Версия 2 не будет работать.  Для установки модуля можно использовать командлет `Install-Module`.  Чтобы получить дополнительную информацию, щелкните приведенную ниже ссылку.
 
 ### <a name="prepare-your-on-premises-data"></a>Подготовка локальных данных
 * Прежде чем выполнять синхронизацию с Azure AD и Office 365, воспользуйтесь инструментом [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) для выявления в каталоге ошибок, таких как повторяющиеся записи или проблемы с форматированием.

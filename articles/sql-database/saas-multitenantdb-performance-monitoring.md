@@ -1,26 +1,20 @@
 ---
-title: "Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS | Документация Майкрософт"
-description: "Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS и управление ею"
-keywords: "руководство по базе данных sql"
+title: Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS | Документация Майкрософт
+description: Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS и управление ею
+keywords: руководство по базе данных sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS и управление ею
 

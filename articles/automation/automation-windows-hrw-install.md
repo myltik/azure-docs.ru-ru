@@ -1,24 +1,18 @@
 ---
-title: "Гибридные рабочие роли Runbook службы автоматизации Azure для Windows | Документация Майкрософт"
-description: "В этой статье содержатся сведения об установке гибридной рабочей роли Runbook в службе автоматизации Azure, которая позволяет запускать модули Runbook на компьютерах под управлением Windows в локальном центре обработки данных или облачной среде."
+title: Гибридные рабочие роли Runbook службы автоматизации Azure для Windows
+description: В этой статье содержатся сведения об установке гибридной рабочей роли Runbook в службе автоматизации Azure, которая позволяет запускать модули Runbook на компьютерах под управлением Windows в локальном центре обработки данных или облачной среде.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+manager: carmonm
+ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Развертывание гибридной рабочей роли Runbook для Windows
 

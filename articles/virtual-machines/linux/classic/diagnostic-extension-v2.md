@@ -1,10 +1,10 @@
 ---
-title: "Мониторинг виртуальной машины под управлением Linux с помощью расширения | Документация Майкрософт"
-description: "Узнайте, как использовать диагностическое расширение Linux для мониторинга данных о производительности и диагностике виртуальной машины Linux в Azure."
+title: Мониторинг виртуальной машины под управлением Linux с помощью расширения | Документация Майкрософт
+description: Узнайте, как использовать диагностическое расширение Linux для мониторинга данных о производительности и диагностике виртуальной машины Linux в Azure.
 services: virtual-machines-linux
 author: NingKuang
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
         "storageAccountKey" : "the key of the account"
     }
 
-Шаг 2. Выполните команду **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Шаг 2. Выполните команду **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Сценарий 2. Настройка метрик системного монитора
 

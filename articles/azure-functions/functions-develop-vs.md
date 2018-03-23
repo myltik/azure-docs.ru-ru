@@ -1,11 +1,11 @@
 ---
-title: "Разработка Функций Azure с помощью Visual Studio | Документация Майкрософт"
-description: "Сведения о разработке и тестировании Функций Azure с помощью инструментов Функций Azure для Visual Studio 2017."
+title: Разработка Функций Azure с помощью Visual Studio | Документация Майкрософт
+description: Сведения о разработке и тестировании Функций Azure с помощью инструментов Функций Azure для Visual Studio 2017.
 services: functions
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
 
@@ -52,14 +52,15 @@ ms.lasthandoff: 01/29/2018
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## <a name="configure-the-project-for-local-development"></a>Настройка проекта для локальной разработки
-
-При создании нового проекта с помощью шаблона Функции Azure получается пустой проект C#, содержащий следующие файлы:
+Шаблон проекта создает проект на C#, устанавливает пакет NuGet `Microsoft.NET.Sdk.Functions` и задает требуемую версию .NET Framework. Служба "Функции" версии 1.x предназначена для .NET Framework, а версии 2.x —для .NET Standard. Новый проект содержит следующие файлы.
 
 * **host.json**: позволяет настроить узел Функций. Эти параметры применяются как в локальном режиме, так и в Azure. Дополнительные сведения см. в [справочной статье о host.json](functions-host-json.md).
     
 * **local.settings.json**: содержит параметры, используемые при выполнении функций локально. Эти параметры не используются в Azure, они используются [основными инструментами Функций Azure](functions-run-local.md). Используйте этот файл для указания параметров, таких как строки подключения к другим службам Azure. Добавьте новый ключ в массив **Values** для каждого подключения, которое необходимо для функций в проекте. Дополнительные сведения см. в разделе [Local settings file](functions-run-local.md#local-settings-file) (Файл локальных параметров) статьи, посвященной основным инструментам Функций Azure.
+
+Для получения дополнительных сведений см. [Проект библиотеки классов функций](functions-dotnet-class-library.md#functions-class-library-project).
+
+## <a name="configure-the-project-for-local-development"></a>Настройка проекта для локальной разработки
 
 Среде выполнения Функций Azure необходима учетная запись хранения Azure для внутреннего использования. Для всех типов триггеров, кроме HTTP и веб-перехватчиков, необходимо задать в качестве ключа **Values.AzureWebJobsStorage** допустимую строку подключения к учетной записи хранения Azure. 
 
@@ -147,5 +148,6 @@ ms.lasthandoff: 01/29/2018
 
 Дополнительные сведения об инструментах Функций Azure см. в разделе часто задаваемых вопросов записи блога [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Инструменты Visual Studio 2017 для Функций Azure).
 
-Дополнительные сведения об основных инструментах Функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md).  
+Дополнительные сведения об основных инструментах Функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md).
+
 Дополнительные сведения о разработке функций, таких как библиотеки класса .NET, см. в статье [Справочник разработчика C# по функциям Azure](functions-dotnet-class-library.md). Здесь также приведены примеры того, как использовать атрибуты для объявления различных типов привязок, поддерживаемых в службе "Функции Azure".    

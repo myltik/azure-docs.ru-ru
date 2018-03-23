@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C. Добавление Twitter в качестве поставщика удостоверений OAuth1 с помощью пользовательских политик"
-description: "Использование Twitter в качестве поставщика удостоверений с помощью протокола OAuth1."
+title: Azure Active Directory B2C. Добавление Twitter в качестве поставщика удостоверений OAuth1 с помощью пользовательских политик
+description: Использование Twitter в качестве поставщика удостоверений с помощью протокола OAuth1.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C. Добавление Twitter в качестве поставщика удостоверений OAuth1 с помощью пользовательских политик
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/11/2017
  
     a. Введите **имя** и **описание** для нового приложения в соответствующих полях. 
 
-    Б. В поле **Website** (Веб-сайт) вставьте значение **https://login.microsoftonline.com**. 
+    Б. В поле **Веб-сайт** вставьте **https://login.microsoftonline.com**. 
 
-    c. В поле **Callback URL** (URL-адрес обратного вызова) вставьте значение **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Замените заполнитель {*клиент*} именем своего клиента (например, contosob2c.onmicrosoft.com). Убедитесь, что используете схему HTTPS. 
+    c. В поле **URL-адрес обратного вызова** вставьте **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Замените заполнитель {*клиент*} именем своего клиента (например, contosob2c.onmicrosoft.com). Убедитесь, что используете схему HTTPS. 
 
     d. В нижней части страницы прочитайте и примите условия соглашения, а затем выберите **Create your Twitter application** (Создать приложение Twitter).
 

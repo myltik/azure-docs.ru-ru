@@ -1,29 +1,36 @@
 ---
-title: "Эффективное управление затратами на SQL Server в Виртуальных машинах Azure | Документация Майкрософт"
-description: "Рекомендации по выбору подходящей модели ценообразования для виртуальны машин SQL Server."
+title: Эффективное управление затратами на SQL Server в Виртуальных машинах Azure | Документация Майкрософт
+description: Рекомендации по выбору подходящей модели ценообразования для виртуальны машин SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Руководство по выбору ценовой категории для виртуальных машин SQL Server в Azure
 
-В этой статье приводятся рекомендации по выбору ценовой категории для виртуальных машин SQL Server в Azure. На затраты влияет несколько параметров, поэтому важно выбрать соответствующий образ, чтобы затраты были соизмеримы с потребностями организации.
+В этой статье приводятся рекомендации по выбору ценовой категории для [виртуальных машин SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) в Azure. На затраты влияет несколько параметров, поэтому важно выбрать соответствующий образ, чтобы затраты были соизмеримы с потребностями организации.
+
+> [!TIP]
+> Если необходимо узнать примерную стоимость конкретного сочетания выпуска SQL Server и размера виртуальной машины, см. статью [Цены на виртуальные машины Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Выберите ОС и выпуск SQL Server из списка **OS/Software** (ОС или программное обеспечение).
+>
+> ![Пользовательский интерфейс на странице цен на виртуальные машины](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Или же используйте [калькулятор цен](https://azure.microsoft.com/pricing/#explore-cost), чтобы добавить и настроить виртуальною машину. 
 
 ## <a name="free-licensed-sql-server-editions"></a>Выпуски SQL Server с бесплатными лицензиями
 
@@ -56,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="pay-per-usage"></a>Оплата за использование
 
-**Оплата за использование лицензий SQL Server** означает, что стоимость минуты выполнения виртуальной машины Azure включает в себя стоимость лицензии SQL Server. Цены на разные выпуски SQL Server (Web, Standard, Enterprise) можно узнать на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). Стоимость одинакова для всех версий SQL Server (от версии 2012 SP3 до 2017). Как и стоимость лицензий SQL Server в общем случае, стоимость минуты лицензии зависит от числа ядер виртуальной машины.
+**Оплата за использование лицензий SQL Server** означает, что стоимость минуты выполнения виртуальной машины Azure включает в себя стоимость лицензии SQL Server. Цены на разные выпуски SQL Server (Web, Standard, Enterprise) можно узнать на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Стоимость одинакова для всех версий SQL Server (от версии 2012 SP3 до 2017). Как и стоимость лицензий SQL Server в общем случае, стоимость минуты лицензии зависит от числа ядер виртуальной машины.
 
 Оплата за использование лицензий SQL Server рекомендуется в следующих случаях.
 
@@ -147,6 +154,6 @@ ms.lasthandoff: 02/21/2018
 
 Общие рекомендации по ценам Azure приведены в статье [Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure](../../../billing/billing-getting-started.md).
 
-Последние цены на виртуальные машины, включая лицензии SQL Server, доступны на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+Последние цены на виртуальные машины, включая лицензии SQL Server, доступны на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Дополнительные сведения о виртуальных машинах SQL Server для Linux и Windows см. в статьях [Приступая к работе с SQL Server на виртуальных машинах Azure (Windows)](virtual-machines-windows-sql-server-iaas-overview.md) и [Обзор SQL Server на виртуальных машинах Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

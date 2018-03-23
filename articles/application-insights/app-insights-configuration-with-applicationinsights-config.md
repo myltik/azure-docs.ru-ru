@@ -1,8 +1,8 @@
 ---
-title: "Справочник по файлу ApplicationInsights.config в Azure | Документация Майкрософт"
-description: "Включение или отключение модулей сбора данных и добавление счетчиков производительности, а также других параметров."
+title: Справочник по файлу ApplicationInsights.config в Azure | Документация Майкрософт
+description: Включение или отключение модулей сбора данных и добавление счетчиков производительности, а также других параметров.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 editor: mrbullwinkle
 manager: carmonm
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Настройка пакета SDK для Application Insights с использованием файла ApplicationInsights.config или ApplicationInsights.xml
 Пакет SDK .NET Application Insights состоит из нескольких пакетов NuGet. [Основной пакет](http://www.nuget.org/packages/Microsoft.ApplicationInsights) предоставляет API для отправки телеметрии в Application Insights. [Дополнительные пакеты](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) предоставляют *модули* и *инициализаторы* телеметрии для автоматического отслеживания телеметрии вашего приложения и его контекста. При настройке файла конфигурации можно включить или отключить модули телеметрии и задать для них параметры.
@@ -28,6 +28,9 @@ ms.lasthandoff: 01/24/2018
 Эквивалентного файла для управления [пакетом SDK на веб-странице][client] не существует.
 
 В этом документе описываются разделы файла конфигурации и то, как они управляют компонентами пакета SDK. Кроме того, в нем содержатся сведения о пакетах NuGet, загружающих эти компоненты.
+
+> [!NOTE]
+> ApplicationInsights.config и XML-файлы инструкций не применяются к пакету SDK для .NET Core. Для изменений в приложении .NET Core обычно используется файл appsettings.json. Пример этого можно найти в [документации по Snapshot Debugger](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications).
 
 ## <a name="telemetry-modules-aspnet"></a>Модули телеметрии (ASP.NET)
 Каждый модуль телеметрии собирает определенный тип данных и использует основной API для их отправки. Модули устанавливаются разными пакетами NuGet, что также добавляет необходимые строки в CONFIG-файл.

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по подготовке виртуальных машин SQL Server на платформе Windows на портале Azure | Документация Майкрософт"
-description: "В этом руководстве описаны варианты создания виртуальных машин Windows SQL Server 2017 на портале Azure."
+title: Руководство по подготовке виртуальных машин SQL Server на платформе Windows на портале Azure | Документация Майкрософт
+description: В этом руководстве описаны варианты создания виртуальных машин Windows SQL Server 2017 на портале Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Как подготовить виртуальную машину SQL Server на платформе Windows на портале Azure
 
 В этом руководстве рассматриваются различные варианты, доступные при создании виртуальной машины SQL Server на платформе Windows на портале Azure. В этой статье рассматривается больше параметров конфигурации, чем в [кратком руководстве по виртуальным машинам SQL Server](quickstart-sql-vm-create-portal.md), и описывается одна возможная задача подготовки. 
 
 Используйте это руководство, чтобы создать собственную виртуальную машину SQL Server. Его также можно использовать как справочник по параметрам, доступным на портале Azure.
+
+> [!TIP]
+> Если у вас есть вопросы по виртуальным машинам SQL Server, см. раздел [часто задаваемых вопросов](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 

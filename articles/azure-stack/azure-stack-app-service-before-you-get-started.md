@@ -1,28 +1,33 @@
 ---
-title: "Подготовка к развертыванию службы приложений в Azure Stack | Документация Майкрософт"
-description: "Действия, которые необходимо выполнить перед развертыванием службы приложений в Azure Stack"
+title: Подготовка к развертыванию службы приложений в Azure Stack | Документация Майкрософт
+description: Действия, которые необходимо выполнить перед развертыванием службы приложений в Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
-manager: femila
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/09/2018
+ms.author: anwestg
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Подготовка к работе со службой приложений в Azure Stack
+
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
+
+> [!IMPORTANT]
+> Прежде чем развертывать Cлужбу приложений Azure, примените обновление 1802 к интегрированной системе Azure Stack или разверните последний пакет средств разработки Azure Stack.
+>
+>
 
 Перед развертыванием службы приложений Azure в Azure Stack необходимо выполнить предварительные требования, указанные в этой статье.
 
@@ -40,14 +45,22 @@ ms.lasthandoff: 02/21/2018
    - модули
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Подготовка к обеспечению высокой доступности
+## <a name="high-availability"></a>высокую доступность;
 
-Сейчас служба приложений Azure в Azure Stack не может обеспечить высокий уровень доступности, так как Azure Stack развертывает рабочие нагрузки только в один домен сбоя.
+После выпуска Azure Stack версии 1802, в которую добавлена поддержка доменов сбоя, новые развертывания Службы приложений Azure в Azure Stack распределяются по доменам сбоя, что обеспечивает отказоустойчивость.  Сведения о повторной балансировке элементов Службы приложений Azure в Azure Stack, развернутых до выпуска обновления 1802, см. в этой статье(azure-stack-app-service-fault-domain-update.md).
 
-Чтобы обеспечить для службы приложений Azure в Azure Stack высокий уровень доступности, разверните необходимый файловый сервер и экземпляр SQL Server в соответствующей конфигурации. Когда Azure Stack будет поддерживать несколько доменов сбоя, мы предоставим рекомендации по включению службы приложений Azure в Azure Stack в конфигурации, обеспечивающей высокий уровень доступности.
-
+Чтобы обеспечить высокий уровень доступности Службы приложений Azure в Azure Stack, разверните необходимый файловый сервер и экземпляр SQL Server в соответствующей конфигурации. 
 
 ## <a name="get-certificates"></a>Получение сертификатов
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Корневой сертификат Azure Resource Manager для Azure Stack
+
+В сеансе PowerShell, запущенном от имени azurestack\CloudAdmin на компьютере с доступом к привилегированной конечной точке в интегрированной системе Azure Stack или на узле Пакета средств разработки Azure Stack, выполните сценарий Get-AzureStackRootCert.ps1 из папки, в которую вы извлекли вспомогательные сценарии. Сценарий создает корневой сертификат в той же папке, где расположен сценарий, используемый службой приложений при создании сценариев.
+
+| Параметр Get-AzureStackRootCert.ps1 | Обязательный или необязательный | Значение по умолчанию | ОПИСАНИЕ |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | Обязательно | AzS-ERCS01 | Привилегированная конечная точка |
+| CloudAdminCredential | Обязательно | AzureStack\CloudAdmin | Учетные данные домена администратора облака Azure Stack |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Сертификаты, необходимые для Пакета средств разработки Azure Stack
 
@@ -58,7 +71,7 @@ ms.lasthandoff: 02/21/2018
 | _.appservice.local.azurestack.external.pfx | SSL-сертификат по умолчанию службы приложений |
 | api.appservice.local.azurestack.external.pfx | SSL-сертификат API службы приложений |
 | ftp.appservice.local.azurestack.external.pfx | SSL-сертификат издателя службы приложений |
-| Sso.appservice.local.azurestack.external.pfx | Сертификат приложения для удостоверения службы приложений |
+| sso.appservice.local.azurestack.external.pfx | Сертификат приложения для удостоверения службы приложений |
 
 Запустите скрипт в расположении Пакета средств разработки Azure Stack и убедитесь, что работаете в PowerShell с правами azurestack\CloudAdmin:
 
@@ -80,12 +93,13 @@ ms.lasthandoff: 02/21/2018
 
 Сертификат домена по умолчанию размещается в роли внешнего интерфейса. Он используется пользовательскими приложениями для групповых запросов или запросов домена по умолчанию к службе приложений Azure. Сертификат также применяется для операций системы управления версиями (Kudu).
 
-Сертификат должен быть в формате PFX и должен быть групповым сертификатом двух субъектов. Это позволяет использовать один сертификат для домена по умолчанию и конечной точки SCM для операций управления версиями.
+Сертификат должен иметь формат PFX и должен быть групповым сертификатом трех субъектов. Это позволяет использовать один сертификат для домена по умолчанию и конечной точки SCM для операций управления версиями.
 
 | Формат | Пример |
 | --- | --- |
 | \*.appservice.\<регион\>.\<имя домена\>.\<расширение\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>Сертификат API
 
@@ -101,11 +115,12 @@ ms.lasthandoff: 02/21/2018
 
 | Формат | Пример |
 | --- | --- |
-| ftp.appservice.\<регион\>.\<имя домена\>.\<расширение\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<регион\>.\<имя домена\>.\<расширение\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Сертификат удостоверения
 
 Сертификат для приложения удостоверения активирует:
+
 - интеграцию между каталогами Azure Active Directory (Azure AD) или службы федерации Active Directory (AD FS), Azure Stack и службой приложений для интеграции с поставщиком вычислительных ресурсов;
 - сценарии единого входа для расширенных средств разработки в службе приложений Azure в Azure Stack.
 
@@ -115,15 +130,19 @@ ms.lasthandoff: 02/21/2018
 | --- | --- |
 | sso.appservice.\<регион\>.\<имя домена\>.\<расширение\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Корневой сертификат Azure Resource Manager для Azure Stack
+## <a name="virtual-network"></a>Виртуальная сеть
 
-В сеансе PowerShel с правами azurestack\CloudAdmin выполните скрипт Get-AzureStackRootCert.ps1 из папки, в которую были извлечены вспомогательные скрипты. Скрипт создает четыре сертификата в той же папке, где расположен скрипт, который требуется службе приложений для создания сертификатов.
+Служба приложений Azure в Azure Stack позволяет развертывать поставщика ресурсов в имеющуюся виртуальную сеть или службу приложений, создав ее как часть развертывания.  Имеющаяся виртуальная сеть позволяет подключаться к файловому серверу и серверу SQL Server, требуемому Службе приложений Azure в Azure Stack, через внутренние IP-адреса.  Перед установкой Службы приложений в Azure Stack в виртуальной сети необходимо настроить следующие диапазоны адресов и подсетей:
 
-| Параметр Get-AzureStackRootCert.ps1 | Обязательный или необязательный | Значение по умолчанию | ОПИСАНИЕ |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | Обязательно | AzS-ERCS01 | Привилегированная конечная точка |
-| CloudAdminCredential | Обязательно | AzureStack\CloudAdmin | Учетные данные домена администратора облака Azure Stack |
+Virtual Network - /16
 
+Подсети
+
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Подготовка файлового сервера
 
@@ -131,8 +150,11 @@ ms.lasthandoff: 02/21/2018
 
 Этот [пример шаблона развертывания Azure Resource Manager](https://aka.ms/appsvconmasdkfstemplate) для развертывания настроенного файлового сервера на одном узле можно использовать только при развертываниях Пакета средств разработки Azure Stack. В рабочей группе будет файловый сервер с одним узлом.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Подготовка групп и учетных записей в Active Directory
+>[!IMPORTANT]
+> Если вы решите развернуть Службу приложений в имеющейся виртуальной сети, файловый сервер необходимо развернуть в отдельную подсеть.
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>Подготовка групп и учетных записей в Active Directory
 
 1. Создайте следующие группы глобальной безопасности Active Directory:
    - FileShareOwners
@@ -216,6 +238,7 @@ net localgroup Administrators FileShareOwners /add
 Выполните указанные ниже команды в командной строке с повышенными привилегиями на файловом сервере или на узле отказоустойчивого кластера, который является текущим владельцем кластерного ресурса. Замените значения, выделенные курсивом, значениями для конкретной среды.
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +251,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Рабочая группа
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -250,15 +274,21 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Для любой роли SQL Server можно использовать экземпляр по умолчанию или именованный экземпляр. Если используется именованный экземпляр, вручную запустите службу обозревателя SQL Server и откройте порт 1434.
 
+>[!IMPORTANT]
+> Если вы решите развернуть Службу приложений в имеющейся виртуальной сети, сервер SQL Server необходимо развернуть в отдельную подсеть.
+>
+
 ## <a name="create-an-azure-active-directory-application"></a>Создание приложения Azure Active Directory
 
 Настройте субъект-службу Azure AD для поддержки следующего:
+
 - интеграция масштабируемых наборов виртуальных машин на уровнях рабочих ролей;
-- единый вход для портала решения "Функции Azure" и расширенные средства разработчика.
+- единый вход для портала Функций Azure и расширенные средства разработчика.
 
 Эти шаги применимы только к средам Azure Stack, защищенным с помощью Azure AD.
 
 Администраторы должны выполнить настройку единого входа, чтобы:
+
 - включить расширенные средства разработчиков в рамках службы приложений (Kudu);
 - включить использование портала Функций Azure.
 
@@ -276,7 +306,8 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 10. Выберите **Регистрация приложений**.
 11. Выполните поиск идентификатора приложения, возвращенного на шаге 7. Вы увидите приложение службы приложений.
 12. Выберите **Приложение** в списке.
-13. Последовательно выберите **Необходимые разрешения** > **Предоставление разрешений** > **Да**.
+13. Щелкните **Параметры**.
+14. Последовательно выберите **Необходимые разрешения** > **Предоставление разрешений** > **Да**.
 
 | Параметр Create-AADIdentityApp.ps1 | Обязательный или необязательный | Значение по умолчанию | ОПИСАНИЕ |
 | --- | --- | --- | --- |
@@ -290,10 +321,12 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ## <a name="create-an-active-directory-federation-services-application"></a>Создание приложения служб федерации Active Directory (AD FS)
 
 В средах Azure Stack, защищенных с помощью AD FS, необходимо настроить субъект-службу AD FS для поддержки следующего:
+
 - интеграция масштабируемых наборов виртуальных машин на уровнях рабочих ролей;
-- единый вход для портала решения "Функции Azure" и расширенные средства разработчика.
+- единый вход для портала Функций Azure и расширенные средства разработчика.
 
 Администраторы должны выполнить настройку единого входа, чтобы:
+
 - настроить субъект-службу для интеграции масштабируемого набора виртуальных машин на уровнях рабочих ролей;
 - включить расширенные средства разработчиков в рамках службы приложений (Kudu);
 - включить использование портала Функций Azure.
@@ -303,9 +336,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 1. Откройте экземпляр PowerShell с правами azurestack\AzureStackAdmin.
 2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Установите PowerShell для Azure Stack](azure-stack-powershell-install.md).
-4.  Запустите скрипт **Create-ADFSIdentityApp.ps1**.
-5.  В окне **Учетные данные** укажите учетную запись администратора облака AD FS и пароль. Нажмите кнопку **ОК**.
-6.  Предоставьте путь к файлу сертификата и пароль для [сертификата, созданного ранее](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Для этого шага по умолчанию создается сертификат **sso.appservice.local.azurestack.external.pfx**.
+4. Запустите скрипт **Create-ADFSIdentityApp.ps1**.
+5. В окне **Учетные данные** укажите учетную запись администратора облака AD FS и пароль. Нажмите кнопку **ОК**.
+6. Предоставьте путь к файлу сертификата и пароль для [сертификата, созданного ранее](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Для этого шага по умолчанию создается сертификат **sso.appservice.local.azurestack.external.pfx**.
 
 | Параметр Create-ADFSIdentityApp.ps1 | Обязательный или необязательный | Значение по умолчанию | ОПИСАНИЕ |
 | --- | --- | --- | --- |
@@ -314,7 +347,6 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 | CloudAdminCredential | Обязательно | Null | Учетные данные домена администратора облака Azure Stack. Пример: Azurestack\CloudAdmin. |
 | CertificateFilePath | Обязательно | Null | Путь к PFX-файлу сертификата приложения идентификации. |
 | CertificatePassword | Обязательно | Null | Пароль, который помогает защитить закрытый ключ сертификата. |
-
 
 ## <a name="next-steps"></a>Дополнительная информация
 

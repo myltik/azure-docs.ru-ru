@@ -1,10 +1,10 @@
 ---
-title: "Проблемы с входом в приложение из коллекции Azure AD, для которого настроен федеративный единый вход | Документы Майкрософт"
-description: "Устранение неполадок с приложением из коллекции Azure AD, для которого настроен единый вход по паролю"
-documentationcenter: 
+title: Проблемы с входом в приложение из коллекции Azure AD, для которого настроен единый вход по паролю | Документы Майкрософт
+description: Устранение неполадок с приложением из коллекции Azure AD, для которого настроен единый вход по паролю
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: de6c876c7583da0b00ae2365646b1d381fda2b1e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6de9d066f861d300bbe3601701e846410e93773
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Проблемы с входом в приложение из коллекции Azure AD, для которого настроен федеративный единый вход
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Проблемы с входом в приложение из коллекции Azure AD, для которого настроен единый вход по паролю
 
 Панель доступа — это веб-портал, который позволяет пользователям, у которых есть рабочая или учебная учетная запись Azure Active Directory (Azure AD), просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Пользователь, у которого есть выпуски Azure AD, также может использовать возможности самостоятельного управления группами и приложениями с помощью панели доступа. Панель доступа отделена от портала Azure, и для нее не требуется подписка Azure.
 

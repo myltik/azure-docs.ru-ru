@@ -1,25 +1,19 @@
 ---
-title: "Отслеживание выполняющегося в памяти хранилища XTP | Документация Майкрософт"
-description: "Сведения об оценке и мониторинге использования и емкости хранилища XTP в памяти и об устранении нехватки памяти 41823."
+title: Отслеживание выполняющегося в памяти хранилища XTP | Документация Майкрософт
+description: Сведения об оценке и мониторинге использования и емкости хранилища XTP в памяти и об устранении нехватки памяти 41823.
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Мониторинг хранилища выполняющейся в памяти OLTP
 При использовании [выполняющейся в памяти OLTP](sql-database-in-memory.md) данные в оптимизированных для памяти таблицах и переменные таблиц находятся в выполняющемся в памяти хранилище OLTP. Каждому уровню служб категории "Премиум" выделяется максимальный объем в хранилище выполняющейся в памяти OLTP, который определен [ограничениями ресурсов отдельной базы данных](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) и [ограничениями ресурсов эластичного пула](sql-database-resource-limits.md#elastic-pool-change-storage-size). При превышении этого ограничения операции вставки и обновления могут завершаться сбоем (ошибка 41823 для отдельных баз данных и ошибка 41840 для эластичных пулов). В таком случае потребуется либо удалить данные, чтобы освободить память, либо повысить уровень производительности базы данных.

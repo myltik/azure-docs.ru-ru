@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: простой единый вход — часто задаваемые вопросы | Документы Майкрософт"
-description: "Ответы на часто задаваемые вопросы о простом едином входе Azure Active Directory."
+title: 'Azure AD Connect: простой единый вход — часто задаваемые вопросы | Документы Майкрософт'
+description: Ответы на часто задаваемые вопросы о простом едином входе Azure Active Directory.
 services: active-directory
-keywords: "что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
-documentationcenter: 
+keywords: что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Часто задаваемые вопросы о простом едином входе Azure Active Directory
 
@@ -38,7 +38,16 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Какие приложения используют возможность параметра `domain_hint` или `login_hint` простого единого входа?
 
-В настоящее время мы готовим список приложений, которые отправляют эти параметры, а также приложений, которые их не отправляют. Если вас интересуют конкретные приложения, свяжитесь с нами в разделе "Примечания".
+Ниже приведен неполный список приложений, отправляющих эти параметры в Azure AD и тем самым обеспечивающих автоматический вход пользователей с помощью простого единого входа.
+
+| имя приложения; | Используемый URL-адрес приложения |
+| -- | -- |
+| Панель доступа | myapps.microsoft.com/contoso.com |
+| Outlook on Web | outlook.office365.com/contoso.com |
+
+В приведенной выше таблице замените contoso.com своим доменным именем, чтобы получить соответствующие URL-адреса приложений для своего клиента.
+
+Если вас интересуют другие приложения, свяжитесь с нами в разделе "Комментарии".
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Поддерживает ли простой единый вход `Alternate ID` в качестве имени пользователя, а не `userPrincipalName`?
 

@@ -1,6 +1,6 @@
 ---
-title: "Настройка частных IP-адресов для виртуальных машин с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью PowerShell."
+title: Настройка частных IP-адресов для виртуальных машин с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Настройка частных IP-адресов для виртуальной машины с помощью PowerShell
 
@@ -32,7 +32,7 @@ Azure предоставляет две модели развертывания:
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в соответствии с указаниями, представленными в этом документе, сначала постройте тестовую среду, как описано в статье [Создание виртуальной сети](virtual-networks-create-vnet-arm-ps.md).
+Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Для выполнения команд в том виде, в каком они представлены в данном документе, сначала создайте тестовую среду, описанную в статье [Создание виртуальной сети с помощью PowerShell](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Создание виртуальной машины со статическим частным IP-адресом
 Чтобы создать виртуальную машину с именем *DNS01* в подсети *FrontEnd* виртуальной сети *TestVNet* со статическим частным IP-адресом *192.168.1.101*, выполните следующие действия.

@@ -1,11 +1,11 @@
 ---
-title: "Проблемы с входом в приложение не из коллекции, для которого настроен федеративный единый вход | Документы Майкрософт"
-description: "Рекомендации по конкретным проблемам при входе в приложение, для которого настроен федеративный единый вход на базе SAML с помощью Azure AD"
+title: Проблемы с входом в приложение не из коллекции, для которого настроен федеративный единый вход | Документы Майкрософт
+description: Рекомендации по конкретным проблемам при входе в приложение, для которого настроен федеративный единый вход на базе SAML с помощью Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Проблемы с входом в приложение не из коллекции, для которого настроен федеративный единый вход
 

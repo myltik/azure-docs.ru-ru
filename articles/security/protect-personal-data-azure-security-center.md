@@ -1,29 +1,29 @@
 ---
-title: "Защита персональных данных с помощью центра безопасности Azure | Документация Майкрософт"
-description: "Сведения о защите персональных данных с помощью центра безопасности Azure."
+title: Защита персональных данных с помощью центра безопасности Azure | Документация Майкрософт
+description: Защита персональных данных с помощью центра безопасности. Эти сведения можно использовать для соблюдения Общего регламента по защите данных (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Защита персональных данных от атак и брешей в системе безопасности с помощью центра безопасности Azure
 
-Эта статья поможет вам понять, как защитить персональные данные от атак и брешей в системе безопасности с помощью центра безопасности Azure.
+Эта статья поможет вам понять, как защитить персональные данные от атак и брешей в системе безопасности с помощью центра безопасности Azure. Сведения в этой статье могут помочь в соблюдении Общего регламента по защите данных (GDPR).
 
 ## <a name="scenario"></a>Сценарий 
 

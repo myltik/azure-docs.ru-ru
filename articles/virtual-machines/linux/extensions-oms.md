@@ -1,11 +1,11 @@
 ---
-title: "Расширение виртуальной машины OMS Azure для Linux | Документация Майкрософт"
-description: "Разверните агент OMS на виртуальной машине Linux, используя расширение виртуальной машины."
+title: Расширение виртуальной машины OMS Azure для Linux | Документация Майкрософт
+description: Разверните агент OMS на виртуальной машине Linux, используя расширение виртуальной машины.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 03/06/2018
 ms.author: danis
-ms.openlocfilehash: fea3e992c70d286695691d837c746522f6a5ebb3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Расширение виртуальной машины OMS для Linux
 
@@ -42,6 +42,7 @@ Log Analytics предоставляет возможности монитори
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 и 12 |
 
+### <a name="agent-and-vm-extension-version"></a>Версия агента и расширения виртуальной машины
 Приведенная ниже таблица содержит сопоставление версий расширения виртуальной машины OMS и пакетов агента OMS для каждого выпуска. В ней также указана ссылка на заметки о выпуске для версии пакета агента OMS.  
 
 | Версия расширения виртуальной машины Linux | Версия пакета агента OMS | 
@@ -51,6 +52,10 @@ Log Analytics предоставляет возможности монитори
 | 1.4.56.5 | [1.4.2–124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
 | 1.4.55.4 | [1.4.1–123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
 | 1.4.45.3 | [1.4.1–45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
+| 1.4.45.2 | [1.4.0-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.0-45)|
+| 1.3.127.5 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)| 
+| 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
+| 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
 ### <a name="azure-security-center"></a>Центр безопасности Azure
 

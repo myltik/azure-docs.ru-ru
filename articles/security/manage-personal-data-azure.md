@@ -1,28 +1,28 @@
 ---
-title: "Управление персональными данными в Microsoft Azure | Документация Майкрософт"
-description: "Руководство по исправлению, обновлению, удалению и экспорту персональных данных в Azure Active Directory и базе данных SQL Azure."
+title: Управление персональными данными в Microsoft Azure | Документация Майкрософт
+description: Исправление, обновление, удаление и экспорт персональных данных для соблюдения Общего регламента по защите данных (GDPR) в Azure Active Directory и Базе данных SQL Azure.
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41c0cc4eb3697aa79abeabddc98a84598ce4ea50
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Управление персональными данными в Microsoft Azure
 
-В этой статье описано, как исправлять, обновлять, удалять и экспортировать персональные данные в Azure Active Directory и базе данных SQL Azure.
+Эта статья содержит указания по исправлению, обновлению, удалению и экспорту персональных данных для соблюдения Общего регламента по защите данных (GDPR) в Azure Active Directory и Базе данных SQL Azure.
 
 ## <a name="scenario"></a>Сценарий
 

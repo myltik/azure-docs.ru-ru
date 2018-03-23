@@ -1,23 +1,23 @@
 ---
-title: "Ошибка RequestDisallowedByPolicy с политикой ресурсов Azure | Документация Майкрософт"
-description: "Описывает причину ошибки RequestDisallowedByPolicy."
+title: Ошибка RequestDisallowedByPolicy с политикой ресурсов Azure | Документация Майкрософт
+description: Описывает причину ошибки RequestDisallowedByPolicy.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Ошибка RequestDisallowedByPolicy с политикой ресурсов Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="symptom"></a>Симптом
 
-Когда вы пытаетесь выполнить действие во время развертывания, может появиться ошибка **RequestDisallowedByPolicy**, которая блокирует выполнение этого действия. В следующем примере показана эта ошибка:
+Во время развертывания может появиться ошибка **RequestDisallowedByPolicy**, которая блокирует создание ресурсов. В следующем примере показана эта ошибка:
 
 ```json
 {
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/06/2017
 
 Чтобы получить информацию о том, какая политика блокирует развертывание, используйте один из следующих методов.
 
-### <a name="method-1"></a>Метод 1
+### <a name="powershell"></a>PowerShell
 
 В PowerShell укажите идентификатор политики как параметр `Id`, чтобы получить сведения о политике, заблокировавшей развертывание.
 
@@ -48,9 +48,9 @@ ms.lasthandoff: 11/06/2017
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Метод 2 
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
 
-В Azure CLI 2.0 укажите имя определения политики. 
+В Azure CLI 2.0 укажите имя определения политики.
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Решение
 
-Возможно, ваш ИТ-отдел для обеспечения безопасности или соответствия применяет некоторые политики ресурсов, например такие, которые запрещают создавать общедоступные IP-адреса, сетевые группы безопасности, определяемые пользователем маршруты или таблицы маршрутизации. Сообщение об ошибке в разделе **Симптомы** отображает политику с именем **regionPolicyDefinition**. Политика может иметь другое имя.
-Чтобы устранить такую проблему, свяжитесь с ИТ-отделом, совместно оцените политики ресурсов и определите приемлемый метод выполнить нужное действие, не нарушая политики организации.
+Для обеспечения безопасности или соответствия администраторы подписки могут назначить политики, ограничивающие развертывание ресурсов. Например, для подписки может быть установлена политика, которая запрещает создание общедоступных IP-адресов, групп безопасности сети, определяемых пользователем маршрутов или таблиц маршрутов. Сообщение об ошибке в разделе **Симптомы** содержит имя политики.
+Чтобы устранить эту проблему, просмотрите политики ресурсов и определите способ развертывания ресурсов, который соответствует этим политикам.
 
 Дополнительные сведения см. в следующих статьях:
 
-- [Общие сведения о политике ресурсов](resource-manager-policy.md)
-- [Просмотр назначенных политик на портале](resource-manager-policy-portal.md)
+- [Что такое служба "Политика Azure"?](../azure-policy/azure-policy-introduction.md)
+- [Создание политик и управление ими для обеспечения соответствия](../azure-policy/create-manage-policy.md)

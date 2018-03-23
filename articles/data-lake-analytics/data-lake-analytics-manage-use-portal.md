@@ -1,10 +1,10 @@
 ---
-title: "Управление Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как управлять учетными записями аналитики озера данных, источниками данных, пользователями и заданиями."
+title: Управление Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как управлять учетными записями аналитики озера данных, источниками данных, пользователями и заданиями.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: saveenr
+ms.openlocfilehash: 93815904e7e21e1ba8283d7a522297c7e3466702
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Управление Azure Data Lake Analytics с помощью портала Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

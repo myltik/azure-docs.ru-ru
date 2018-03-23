@@ -1,12 +1,12 @@
 ---
-title: "Использование агента службы архивации Azure для резервного копирования файлов и папок | Документация Майкрософт"
-description: "Использование агента Microsoft Azure Backup для резервного копирования файлов и папок Windows в Azure. Создание хранилища служб восстановления, установка агента службы архивации, определение политики архивации и начальная архивация файлов и папок."
+title: Использование агента службы архивации Azure для резервного копирования файлов и папок | Документация Майкрософт
+description: Использование агента Microsoft Azure Backup для резервного копирования файлов и папок Windows в Azure. Создание хранилища служб восстановления, установка агента службы архивации, определение политики архивации и начальная архивация файлов и папок.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "хранилище архивации; архивация сервера Windows; архивация Windows;"
+editor: ''
+keywords: хранилище архивации; архивация сервера Windows; архивация Windows;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 0adb2565299a2cd613068539736d4272d59a2397
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Архивация сервера Windows Server или клиента Windows в Azure с использованием модели развертывания с помощью Resource Manager
 В этой статье описывается, как выполнить архивацию файлов и папок Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure, используя модель развертывания Resource Manager.
@@ -143,6 +143,9 @@ ms.lasthandoff: 02/21/2018
   Учетные данные хранилища будут сохранены в папке "Загрузки". После этого вы увидите всплывающее окно с двумя вариантами действий: открыть или сохранить учетные данные. Выберите команду **Сохранить**. Если вы случайно нажали кнопку **Открыть**, подождите, пока попытка открыть учетные данные хранилища закончится ошибкой. Вы не можете открыть учетные данные хранилища. Перейдите к следующему шагу. Учетные данные хранилища находятся в папке "Загрузки".   
 
   ![Загрузка учетных данных хранилища завершена](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>Установка и регистрация агента
 

@@ -1,26 +1,26 @@
 ---
-title: "Справочник разработчика JavaScript для Функций Azure | Документация Майкрософт"
-description: "Узнайте, как разрабатывать функции с помощью JavaScript."
+title: Справочник разработчика JavaScript для Функций Azure | Документация Майкрософт
+description: Узнайте, как разрабатывать функции с помощью JavaScript.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Руководство разработчика JavaScript для Функций Azure
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -265,7 +265,15 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
     ```  
 
 ## <a name="node-version-and-package-management"></a>Управление версиями и пакетами Node
-Версия Node сейчас зафиксирована в значении `6.5.0`. Мы работаем над тем, чтобы добавить поддержку дополнительных версий и настройки для этих версий.
+
+В следующей таблице показана версия Node.js, используемая каждой основной версией среды выполнения службы "Функции".
+
+| Версия службы "Функции" | Версия Node.js | 
+|---|---|
+| 1.x | 6.11.2 (заблокировано средой выполнения) |
+| 2.x  |не ниже версии 8.4.0 с рекомендуемой текущей версией LTS 8.9.4. Установите версию, используя [параметр приложения](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+
+Введя `process.version` из любой функции, можно увидеть текущую версию, которую использует среда выполнения.
 
 Следующие шаги позволяют включить пакеты в приложение-функцию: 
 

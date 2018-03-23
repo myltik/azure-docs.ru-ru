@@ -1,18 +1,18 @@
 ---
-title: "Удаление серверов и отключение защиты | Документация Майкрософт"
-description: "В этой статье описывается, как отменить регистрацию серверов в хранилище Site Recovery, а также отключить защиту для виртуальных машин и физических серверов."
+title: Удаление серверов и отключение защиты | Документация Майкрософт
+description: В этой статье описывается, как отменить регистрацию серверов в хранилище Site Recovery, а также отключить защиту для виртуальных машин и физических серверов.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16a5eaac1138d328f81cfa7d50f8705da867e352
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>Удаление серверов и отключение защиты
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 02/09/2018
 При репликации виртуальных машин VMware или физических серверов Windows или Linux в Azure можно отменить регистрацию неподключенного сервера конфигурации в хранилище, используя следующие действия:
 
 1. [Отключите защиту для виртуальных машин](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Отмените регистрацию](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) и [удалите](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) все политики репликации.
-3. [Удалите сервер конфигурации](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
+2. [Отмена связи или удаление](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) политик репликации.
+3. [Удалите сервер конфигурации](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
 ## <a name="unregister-a-vmm-server"></a>Отмена регистрации сервера VMM
 

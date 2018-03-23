@@ -1,8 +1,8 @@
 ---
-title: "Что такое панель доступа в Azure Active Directory? | Документация Майкрософт"
-description: "Сведения об использовании различных видов панели доступа (веб-браузер, приложение Android, приложения iPhone и iPad) для получения доступа к приложениям SaaS."
+title: Что такое панель доступа в Azure Active Directory? | Документация Майкрософт
+description: Сведения об использовании различных видов панели доступа (веб-браузер, приложение Android, приложения iPhone и iPad) для получения доступа к приложениям SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Что такое панель доступа?
 
@@ -67,6 +67,9 @@ ms.lasthandoff: 01/29/2018
 ## <a name="web-browser-requirements"></a>Требования к веб-браузеру
 
 Для работы с панелью доступа требуется как минимум браузер с включенной поддержкой JavaScript и CSS. Чтобы пользователь мог входить в приложения с помощью единого входа с использованием пароля, в браузере необходимо установить расширение панели доступа. Расширение автоматически скачивается при выборе приложения, настроенного на работу с единым входом с помощью пароля.
+
+Установщик предназначен для конкретной архитектуры. Если щелкнуть ссылку, то вы получите только установщик для архитектуры ОС, которую вы используете в данный момент. Если вы являетесь администратором развертывания приложений, обязательно щелкните ссылки с 64-разрядного и 32-разрядного устройств, чтобы получить обе версии установщика.
+
 
 Расширение панели доступа сейчас доступно для таких браузеров:
 - **Edge** — в Windows 10 Anniversary Edition или более поздней версии; 

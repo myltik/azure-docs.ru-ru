@@ -1,11 +1,11 @@
 ---
-title: "Автоматизация подготовки приложений с помощью SCIM в Azure Active Directory | Документация Майкрософт"
-description: "Azure Active Directory может выполнять автоматическую подготовку пользователей и групп для любого приложения или хранилища удостоверений, представляющим собой веб-службу с интерфейсом, определенным в спецификации протокола SCIM."
+title: Автоматизация подготовки приложений с помощью SCIM в Azure Active Directory | Документация Майкрософт
+description: Azure Active Directory может выполнять автоматическую подготовку пользователей и групп для любого приложения или хранилища удостоверений, представляющим собой веб-службу с интерфейсом, определенным в спецификации протокола SCIM.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Использование SCIM для автоматической подготовки пользователей и групп Azure Active Directory для приложений
 
@@ -685,7 +685,7 @@ Azure Active Directory может предоставлять веб-службе
 ## <a name="group-provisioning-and-de-provisioning"></a>Подготовка и отзыв групп
 На рисунке ниже показаны сообщения, которые Azure AD отправляет службе SCIM для управления жизненным циклом группы в стороннем хранилище удостоверений.  Эти сообщения имеют три отличия от сообщений, относящихся к пользователям. 
 
-* Схема ресурса группы идентифицируется как http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Схема ресурса группы определяется как `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * В запросах на получение групп по умолчанию предполагается, что из всех возвращаемых ресурсов исключается атрибут members.  
 * Запросы, которые должны определить, имеет ли ссылочный атрибут указанное значение, применяются в отношении атрибута members.  
 

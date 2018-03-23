@@ -1,26 +1,20 @@
 ---
-title: "Настройка синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт"
-description: "В этом руководстве показано, как настроить синхронизацию данных SQL Azure (предварительная версия)"
+title: Настройка синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт
+description: В этом руководстве показано, как настроить синхронизацию данных SQL Azure (предварительная версия)
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Настройка синхронизации данных SQL (предварительная версия)
 В этом руководстве вы узнаете, как для настроить синхронизацию данных SQL Azure, создав гибридную группу синхронизации, содержащую экземпляры базы данных SQL Azure и SQL Server. Новая группа синхронизации полностью настраивается и синхронизируется по заданному расписанию.

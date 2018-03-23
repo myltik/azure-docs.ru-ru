@@ -1,24 +1,19 @@
 ---
-title: "Начало работы с заданиями обработки эластичных баз данных | Документация Майкрософт"
-description: "Использование заданий эластичной базы данных для выполнения скриптов T-SQL в нескольких базах данных."
+title: Начало работы с заданиями обработки эластичных баз данных | Документация Майкрософт
+description: Использование заданий эластичной базы данных для выполнения скриптов T-SQL в нескольких базах данных.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: sstein
+ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Начало работы с заданиями обработки эластичных баз данных
 Задания обработки эластичных баз данных (предварительная версия) для службы "База данных SQL Azure" позволяют надежно выполнять сценарии T-SQL, относящиеся к нескольким базам данных, автоматически повторяя попытки и обеспечивая гарантии успешного завершения. Дополнительные сведения о заданиях обработки эластичных баз данных см. в статье [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md).

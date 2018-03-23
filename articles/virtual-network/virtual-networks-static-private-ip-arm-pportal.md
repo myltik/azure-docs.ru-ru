@@ -1,6 +1,6 @@
 ---
-title: "Настройка частных IP-адресов для виртуальных машин с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью портала Azure."
+title: Настройка частных IP-адресов для виртуальных машин с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью портала Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Настройка частных IP-адресов для виртуальной машины с помощью портала Azure
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/21/2018
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Для выполнения приведенных ниже примеров действий требуется созданная простая среда. Чтобы выполнять действия в соответствии с указаниями, представленными в этом документе, сначала постройте тестовую среду, как описано в статье [Создание виртуальной сети](virtual-networks-create-vnet-arm-pportal.md).
+Для выполнения приведенных ниже примеров действий требуется созданная простая среда. Чтобы выполнять действия в соответствии с указаниями, представленными в этом документе, сначала создайте тестовую среду, как описано в статье [Создание виртуальной сети с помощью портала Azure](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Как создать виртуальную машину для тестирования статических частных IP-адресов
 Невозможно задать статический частный IP-адрес во время создания виртуальной машины в режиме развертывания диспетчера ресурсов с помощью портала Azure. Сначала необходимо создать виртуальную машину, а затем указать, что ее частный IP-адрес является статическим.

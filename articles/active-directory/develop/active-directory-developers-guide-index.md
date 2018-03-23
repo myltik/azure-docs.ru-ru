@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory для разработчиков | Документация Майкрософт"
-description: "Список всех руководств и справочных статей в руководстве разработчика Azure Active Directory"
+title: Azure Active Directory для разработчиков | Документация Майкрософт
+description: Список всех руководств и справочных статей в руководстве разработчика Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Статьи в руководстве разработчика Azure AD
 Ниже приведен список всех статей, содержащихся в руководстве разработчика Azure Active Directory.
@@ -43,6 +43,7 @@ ms.lasthandoff: 12/11/2017
 | [Submit Web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard) (Отправка веб-приложений для Office 365 на панель мониторинга продаж)               | Как опубликовать приложение на панели мониторинга продаж O365 |
 | [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)](vs-active-directory-dotnet-getting-started.md)                                               | Как использовать интеграцию Azure AD с проектами MVC в Visual Studio |
 | [Сценарии AD FS для разработчиков](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Интеграция с локальной службой Active Directory с помощью ADFS |
+| [Рекомендации по обработке ошибок для ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Как обеспечить устойчивую обработку ошибок и ведение журнала |
 
 ## <a name="reference"></a>Справочные материалы
 Эти статьи содержат основные справочники по REST и API библиотек проверки подлинности, протоколам, ошибкам, примерам кода и конечным точкам.

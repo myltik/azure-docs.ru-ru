@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Connect: устранение неполадок с простым единым входом | Документы Майкрософт"
-description: "В этом разделе описывается устранение неполадок с простым единым входом Azure Active Directory."
+title: 'Azure Active Directory Connect: устранение неполадок с простым единым входом | Документы Майкрософт'
+description: В этом разделе описывается устранение неполадок с простым единым входом Azure Active Directory.
 services: active-directory
-keywords: "что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
-documentationcenter: 
+keywords: что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Устранение неполадок с простым единым входом Azure Active Directory
 
 Эта статья поможет вам найти информацию об устранении распространенных неполадок с простым единым входом Azure Active Directory (Azure AD).
 
-## <a name="known-problems"></a>Известные проблемы
+## <a name="known-issues"></a>Известные проблемы
 
 - В некоторых случаях включение простого единого входа может занять до 30 минут.
 - Если отключить и повторно включить эффективный единый вход для клиента, пользователи не смогут применять единый вход, пока не истечет срок действия их кэшированных билетов Kerberos (как правило, они действительны в течение 10 часов).
 - Браузер Edge не поддерживается.
-- При запуске клиентов Office, особенно на общих компьютерах, выдаются дополнительные приглашения на вход в систему для пользователей. Пользователи должны часто вводить свои имена пользователей, но не пароли.
 - После успешного единого входа пользователю не предоставляется возможность выбрать вариант **Оставаться в системе**. Из-за этого сценарии сопоставления SharePoint и OneDrive не поддерживаются.
+- Клиенты Office версии ниже 16.0.8730.xxxx не поддерживают неинтерактивной вход с помощью простого единого входа. Для входа в эти клиенты пользователю нужно ввести свое имя пользователя, но не пароль.
 - Простой единый вход не работает в конфиденциальном режиме просмотра в Firefox.
 - Простой единый вход не работает в Internet Explorer с включенным режимом повышенной защиты.
 - Простой единый вход не работает в браузерах на мобильных устройствах с iOS и Android.
 - При синхронизации 30 лесов Active Directory или больше простой единый вход через Azure AD Connect включить невозможно. Чтобы избежать этого, можно [вручную включить](#manual-reset-of-azure-ad-seamless-sso) эту функцию на своем клиенте.
-- Добавление URL-адресов службы Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) в зону "Надежные сайты" вместо зоны "Местная интрасеть" *блокирует вход пользователей*.
+- Добавление URL-адреса службы Azure AD (https://autologon.microsoftazuread-sso.com) в зону "Надежные сайты" вместо зоны "Местная интрасеть" *блокирует вход пользователей*.
+- Отключение типа шифрования **RC4_HMAC_MD5** для протокола Kerberos в параметрах Active Directory нарушит работу простого единого входа. В редакторе "Управление групповыми политиками" убедитесь, что для параметра политики **RC4_HMAC_MD5** (щелкните **"Конфигурация компьютера" > "Параметры Windows" > "Параметры безопасности" > "Локальные политики" > "Параметры безопасности" > "Network Security: Configure encryption types allowed for Kerberos" (Сетевая безопасность: настройка типов шифрования, разрешенных для Kerberos)**) задано значению "Включено".
 
-## <a name="check-the-status-of-the-feature"></a>Проверка состояния функции
+## <a name="check-status-of-feature"></a>Проверка состояния функции
 
 Убедитесь, что функция простого единого входа по-прежнему **включена** в клиенте. Можно проверить состояние, перейдя в область **Azure AD Connect** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Центр администрирования Active Directory Azure — область "Azure AD Connect"](./media/active-directory-aadconnect-sso/sso10.png)
+
+С помощью мыши просмотрите все леса AD, которые были настроены для использования простого единого входа.
+
+![Центр администрирования Azure Active Directory — область простого единого входа](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Причины сбоя единого входа в центре администрирования Azure Active Directory (требуется лицензия Premium)
 
@@ -70,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 
 - Проверьте, включена ли функция простого единого входа в Azure AD Connect. Если функцию не удается включить (например, из-за заблокированного порта), обеспечьте соблюдение всех [предварительных требований](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Если вы включили и [присоединение к Azure AD](../active-directory-azureadjoin-overview.md), и эффективный единый вход для клиента, убедитесь, что проблема не связана с присоединением к Azure AD. Единый вход при присоединении Azure AD имеет приоритет над эффективным единым входом, если устройство зарегистрировано в Azure AD и присоединено к домену. При едином входе с присоединением к Azure AD отображается плитка входа с надписью "Подключено к Windows".
-- Убедитесь, что оба URL-адреса службы Azure AD (https://autologon.microsoftazuread-sso.com и https://aadg.windows.net.nsatc.net) указаны в параметрах зоны интрасети пользователя.
+- Убедитесь, что URL-адрес Azure AD (https://autologon.microsoftazuread-sso.com) указан в параметрах зоны интрасети пользователя.
 - Убедитесь, что корпоративное устройство присоединено к домену Active Directory.
 - Убедитесь, что пользователь вошел в систему с этого устройства с помощью доменной учетной записи Active Directory.
 - Убедитесь, что учетная запись пользователя относится к лесу Active Directory, в котором настроен простой единый вход.

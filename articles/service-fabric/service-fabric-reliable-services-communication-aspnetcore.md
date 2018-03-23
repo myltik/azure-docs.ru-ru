@@ -1,11 +1,11 @@
 ---
-title: "Взаимодействие со службами через ASP.NET Core | Документация Майкрософт"
-description: "Сведения об использовании ASP.NET Core в службах Reliable Services c отслеживанием и без отслеживания состояния."
+title: Взаимодействие со службами через ASP.NET Core | Документация Майкрософт
+description: Сведения об использовании ASP.NET Core в службах Reliable Services c отслеживанием и без отслеживания состояния.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/01/2018
 
 ASP.NET Core — это новая кроссплатформенная среда с открытым кодом для создания современных облачных приложений с подключением к Интернету, таких как веб-приложения, приложения для Интернета вещей и серверные части мобильных приложений. 
 
-Эта статья представляет собой подробное руководство по размещению служб ASP.NET Core в Service Fabric Reliable Services с использованием набора пакетов NuGet **Microsoft.ServiceFabric.AspNetCore.***.
+Эта статья представляет собой подробное руководство по размещению служб ASP.NET Core в Service Fabric Reliable Services с использованием набора пакетов NuGet **Microsoft.ServiceFabric.AspNetCore.*** .
 
 Вводное руководство по ASP.NET Core в Service Fabric и инструкции по настройке среды разработки см. в статье [Создание и развертывание приложения с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния](service-fabric-tutorial-create-dotnet-app.md).
 

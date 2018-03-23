@@ -1,12 +1,12 @@
 ---
-title: "Расширение виртуальной машины для диагностики производительности Azure для Windows | Документация Майкрософт"
-description: "Эта статья содержит сведения о расширении виртуальной машины для диагностики производительности Azure для Windows."
+title: Расширение виртуальной машины для диагностики производительности Azure для Windows | Документация Майкрософт
+description: Эта статья содержит сведения о расширении виртуальной машины для диагностики производительности Azure для Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Расширение виртуальной машины для диагностики производительности Azure для Windows
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/15/2017
 Расширение можно установить на Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016, а также в Windows 8.1 и Windows 10.
 
 ## <a name="extension-schema"></a>Схема расширения
-В указанном ниже объекте JSON показана схема для расширения виртуальной машины для диагностики производительности Azure. Для этого расширения требуется имя и ключ для учетной записи хранения, чтобы хранить выходные данные и отчет диагностики. Эти значения конфиденциальные и должны храниться внутри защищенной конфигурации параметров. Данные защищенных параметров расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине. Обратите внимание, что в **storageAccountName** и **storageAccountKey** учитывается регистр. Другие необходимые параметры указаны в следующем разделе.
+В указанном ниже объекте JSON показана схема для расширения виртуальной машины для диагностики производительности Azure. Для этого расширения требуется имя и ключ для учетной записи хранения, чтобы хранить выходные данные и отчет диагностики. Эти значения конфиденциальные. Ключ учетной записи хранения должен храниться внутри защищенной конфигурации параметров. Данные защищенных параметров расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине. Обратите внимание, что в **storageAccountName** и **storageAccountKey** учитывается регистр. Другие необходимые параметры указаны в следующем разделе.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ ms.lasthandoff: 12/15/2017
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -75,6 +75,7 @@ ms.lasthandoff: 12/15/2017
 |xperfTrace|x|Параметр, позволяющий включить трассировку XPerf. Допустимые значения: **x** или пустое значение. Если вы не хотите записывать данные трассировки, оставьте значение пустым.
 |storPortTrace|s|Параметр, позволяющий включить трассировку StorPort. Допустимые значения: **s** или пустое значение. Если вы не хотите записывать данные трассировки, оставьте значение пустым.
 |srNumber|123452016365929|Номер запроса в службу поддержки (если доступно). Если его нет, оставьте значение поля пустым.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Текущая дата и время в формате UTC. Если вы устанавливали расширение с помощью портала, это значение можно не указывать.
 |storageAccountName|mystorageaccount|Имя учетной записи хранения для хранения журналов диагностики и результатов.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Ключ для учетной записи хранения.
 
@@ -182,19 +183,19 @@ ms.lasthandoff: 12/15/2017
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ ms.lasthandoff: 12/15/2017
 ````
 
 ## <a name="powershell-deployment"></a>Развертывание с помощью PowerShell
-Команду `Set-AzureRmVMExtension` можно использовать для развертывания расширения виртуальной машины для диагностики производительности Azure на имеющейся виртуальной машине. Перед выполнением команды сохраните открытые и закрытые конфигурации в хэш-таблице PowerShell.
+Команду `Set-AzureRmVMExtension` можно использовать для развертывания расширения виртуальной машины для диагностики производительности Azure на имеющейся виртуальной машине.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Сведения о собранных данных

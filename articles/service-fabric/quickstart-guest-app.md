@@ -1,12 +1,12 @@
 ---
-title: "Быстрое развертывание имеющегося приложения в кластере Azure Service Fabric"
-description: "Используйте кластер Azure Service Fabric, чтобы разместить имеющееся приложение Node.js с помощью Visual Studio."
+title: Быстрое развертывание имеющегося приложения в кластере Azure Service Fabric
+description: Используйте кластер Azure Service Fabric, чтобы разместить имеющееся приложение Node.js с помощью Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Размещение приложения Node.js в Azure Service Fabric
 
@@ -136,7 +136,7 @@ Visual Studio создаст проект приложения и проект �
 Не забудьте удалить все ресурсы, которые вы создали в рамках этого краткого руководства, так как за использование этих ресурсов взимается плата.
 
 ## <a name="next-steps"></a>Дополнительная информация
-Ознакомьтесь с дополнительными сведениями о [гостевых исполняемых файлах](service-fabric-deploy-existing-app.md).
+Ознакомьтесь с дополнительными сведениями о [гостевых исполняемых файлах](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->
 

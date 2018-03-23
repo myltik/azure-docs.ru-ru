@@ -1,13 +1,13 @@
 ---
-title: "Привязки хранилища очередей Azure для службы \"Функции Azure\""
-description: "Узнайте, как использовать триггер службы хранилища очередей Azure и выходную привязку в службе \"Функции Azure\"."
+title: Привязки хранилища очередей Azure для службы "Функции Azure"
+description: Узнайте, как использовать триггер службы хранилища очередей Azure и выходную привязку в службе "Функции Azure".
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Привязки хранилища очередей Azure для службы "Функции Azure"
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Пример скрипта C# в триггере
 
-В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C# (CSX)](functions-reference-csharp.md), который использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
+В следующем примере показана привязка триггера очереди в файле *function.json* и коде [сценария C# (CSX)](functions-reference-csharp.md), который использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
 
 Ниже показан файл *function.json*.
 
@@ -112,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 ### <a name="trigger---javascript-example"></a>Пример JavaScript в триггере
 
-В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [функции JavaScript](functions-reference-node.md), которая использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
+В следующем примере показана привязка триггера очереди в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
 
 Ниже показан файл *function.json*.
 
@@ -223,9 +223,9 @@ module.exports = function (context) {
 
 ## <a name="trigger---usage"></a>Использование триггера
  
-В коде и скрипте C# для доступа к данным большого двоичного объекта используйте параметр метода, например `Stream paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
+В коде и сценарии C# для доступа к данным сообщения используйте параметр метода, например `string paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
 
-* Объект POCO. Среда выполнения службы "Функции" десериализирует полезные данные JSON в объект POCO. 
+* Объект. Среда выполнения службы "Функции" десериализует полезные данные JSON в экземпляр произвольного класса, определенного в коде. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Пример выходных данных скрипта C#
 
-В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C# (CSX)](functions-reference-csharp.md), который использует привязку. С помощью этой функции можно создать элемент очереди с полезными данными POCO для каждого полученного HTTP-запроса.
+В следующем примере показана привязка триггера HTTP в файле *function.json* и коде [сценария C# (CSX)](functions-reference-csharp.md), который использует привязку. Функция создает элемент очереди с полезными данными объекта **CustomQueueMessage** для каждого полученного HTTP-запроса.
 
 Ниже показан файл *function.json*.
 
@@ -353,17 +353,17 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Пример выходных данных JavaScript
 
-В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [функции JavaScript](functions-reference-node.md), которая использует привязку. Эта функция создает элемент очереди для каждого полученного HTTP-запроса.
+В следующем примере показана привязка триггера HTTP в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку. Эта функция создает элемент очереди для каждого полученного HTTP-запроса.
 
 Ниже показан файл *function.json*.
 
@@ -459,7 +459,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
  
 В коде и скрипте C# запишите одно сообщение очереди с помощью параметра метода, например `out T paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете использовать этот метод типа возвращаемого значения вместо параметра `out`. `T` может быть любого из следующих типов:
 
-* объект POCO, сериализуемый как JSON;
+* Объект, сериализуемый как JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

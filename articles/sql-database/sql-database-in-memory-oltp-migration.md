@@ -1,25 +1,20 @@
 ---
-title: "Повышение производительности транзакций SQL с помощью выполняющейся в памяти OLTP | Документация Майкрософт"
-description: "Внедрите технологию In-Memory OLTP, чтобы повысить производительность транзакций в вашей базе данных SQL."
+title: Повышение производительности транзакций SQL с помощью выполняющейся в памяти OLTP | Документация Майкрософт
+description: Внедрите технологию In-Memory OLTP, чтобы повысить производительность транзакций в вашей базе данных SQL.
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: MightyPen
-ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
+manager: craigg
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 71dd7d36eee210b80ed6a791b52f977a416b6bb7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Повышение производительности приложений в базе данных SQL с помощью выполняющейся в памяти OLTP
 [Выполняющуюся в памяти OLTP](sql-database-in-memory.md) можно использовать для повышения производительности обработки транзакций, приема данных и сценариев, связанных с временными данными, в базах данных SQL Azure уровня [Премиум](sql-database-service-tiers.md), не повышая ценовую категорию. 

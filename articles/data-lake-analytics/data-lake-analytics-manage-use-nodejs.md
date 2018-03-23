@@ -1,10 +1,10 @@
 ---
-title: "Управление Azure Data Lake Analytics с помощью пакета SDK Azure для Node.js | Документация Майкрософт"
-description: "Узнайте, как управлять учетными записями, источниками данных, заданиями и пользователями аналитики озера данных Azure с помощью пакета SDK Azure для Node.js."
+title: Управление Azure Data Lake Analytics с помощью пакета SDK Azure для Node.js | Документация Майкрософт
+description: Узнайте, как управлять учетными записями, источниками данных, заданиями и пользователями аналитики озера данных Azure с помощью пакета SDK Azure для Node.js.
 services: data-lake-analytics
-documentationcenter: 
-author: edmacauley
-manager: jhubbard
+documentationcenter: ''
+author: saveenr
+manager: kfile
 editor: cgronlun
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f11695df74e30f7ba9b1459f443a720208e542c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Управление аналитикой озера данных Azure с помощью пакета SDK Azure для Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

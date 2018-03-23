@@ -1,24 +1,19 @@
 ---
-title: "Перемещение данных между масштабируемыми облачными базами данных | Документация Майкрософт"
-description: "Объясняет, как управлять сегментами и перемещать данные с помощью размещенной службы с применением интерфейсов API эластичного масштабирования."
+title: Перемещение данных между масштабируемыми облачными базами данных | Документация Майкрософт
+description: Объясняет, как управлять сегментами и перемещать данные с помощью размещенной службы с применением интерфейсов API эластичного масштабирования.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Перемещение данных между масштабируемыми облачными базами данных
 Если вы разрабатываете программное обеспечение как услугу и ваше предложение внезапно становится популярным, к этому росту нужно как-то адаптироваться. В результате добавляются новые базы данных (сегменты). Как перераспределить данные с учетом новых баз данных, не нарушив целостность данных? Для перемещения данных из ограниченных баз данных во вновь созданные используйте **средство разбиения и слияния** .  

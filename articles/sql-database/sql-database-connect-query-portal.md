@@ -1,27 +1,20 @@
 ---
-title: "Портал Azure. Запрос базы данных SQL Azure с помощью редактора запросов | Документация Майкрософт"
-description: "Узнайте, как подключиться к базе данных SQL на портале Azure с помощью редактора SQL-запросов. и выполнении инструкций Transact-SQL (T-SQL) для запроса и изменения данных."
-metacanonical: 
-keywords: "подключение к базе данных sql, портал azure, портал, редактор запросов"
+title: Портал Azure. Запрос базы данных SQL Azure с помощью редактора запросов | Документация Майкрософт
+description: Узнайте, как подключиться к базе данных SQL на портале Azure с помощью редактора SQL-запросов. и выполнении инструкций Transact-SQL (T-SQL) для запроса и изменения данных.
+keywords: подключение к базе данных sql, портал azure, портал, редактор запросов
 services: sql-database
-documentationcenter: 
 author: ayoolubeko
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Портал Azure. Использование редактора SQL-запросов для подключения к данным и их запроса
 

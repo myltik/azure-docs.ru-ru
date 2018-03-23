@@ -1,32 +1,40 @@
 ---
-title: "Настройка Azure AD Privileged Identity Management | Документация Майкрософт"
-description: "В этой статье приводятся общие сведения об управлении привилегированными пользователями Azure AD и об использовании этой функции для повышения безопасности облака."
+title: Настройка Azure AD Privileged Identity Management | Документация Майкрософт
+description: В этой статье приводятся общие сведения об управлении привилегированными пользователями Azure AD и об использовании этой функции для повышения безопасности облака.
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Что такое Azure AD Privileged Identity Management?
 
 С помощью управления привилегированными пользователями в Azure Active Directory (AD) можно администрировать, контролировать и отслеживать доступ в пределах организации, в том числе доступ к ресурсам в Azure AD, ресурсам Azure (предварительная версия) и остальным веб-службам Microsoft, таким как Office 365 или Microsoft Intune.
 
 > [!NOTE]
-> Управление привилегированными пользователями доступно для всей организации, если администраторам назначены лицензии на выпуск Premium P2 службы Azure Active Directory. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
+> При включении управления привилегированными пользователями для вашего клиента требуется действительная платная или бесплатная лицензия Azure AD Premium P2 или Enterprise Mobility + Security E5 для каждого пользователя, который взаимодействует со службой или получает от нее преимущества. К примерам можно отнести пользователей в группе:
+>
+>- которым назначена привилегированная роль администратора; 
+>- которые назначены в качестве допустимых пользователей для других ролей каталога, управляемых посредством через PIM; 
+>- которые могут утверждать или отклонять запросы в PIM; 
+>- которым назначена роль ресурса Azure с использованием JIT-назначений или прямых назначений (на основе времени);  
+>- которые назначены для проверки доступа.
+>
+>Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Организациям необходимо свести к минимуму число пользователей, имеющих доступ к защищенным сведениям или ресурсам. Это снижает вероятность того, что такой доступ получит злоумышленник или что авторизованный пользователь непреднамеренно повлияет на критический ресурс.  Однако пользователям иногда требуется выполнять привилегированные операции в приложениях Azure AD, Azure, Office 365 или SaaS. Организации могут предоставлять пользователям привилегированный доступ к ресурсам Azure, таким как подписки и Azure AD. Необходимо наблюдать за действиями пользователей с правами доступа администратора. Azure AD Privileged Identity Management помогает снизить риск чрезмерных, ненужных или неправильно используемых прав доступа.
 

@@ -1,17 +1,17 @@
 ---
 title: " Управление сервером конфигурации для аварийного восстановления физических серверов с помощью Azure Site Recovery | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как управлять сервером конфигурации для аварийного восстановления физических серверов в Azure с помощью службы Azure Site Recovery."
+description: Из этой статьи вы узнаете, как управлять сервером конфигурации для аварийного восстановления физических серверов в Azure с помощью службы Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Управление сервером конфигурации для аварийного восстановления физических серверов
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/23/2018
 | IIS | — Должен отсутствовать предварительно созданный веб-сайт по умолчанию. <br> — включите [анонимную аутентификацию](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx); <br> — включите параметр [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx);  <br> — Должен отсутствовать предварительно созданный веб-сайт или приложение, ожидающее передачи данных на порте 443.<br>|
 | Тип сетевой карты | VMXNET3 (при развертывании в качестве виртуальной машины VMware) |
 | Тип IP-адреса | Статическое |
-| Доступ к Интернету | Сервер должен иметь доступ к этим URL-адресам: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (не требуется для сервера обработки масштабирования) <br> time.nist.gov <br> time.windows.com |
+| Доступ к Интернету | Сервер должен иметь доступ к этим URL-адресам: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (не требуется для сервера обработки масштабирования) <br> time.nist.gov <br> time.windows.com |
 | порты; | 443 (оркестрация канала управления)<br>9443 (передача данных)|
 
 ## <a name="download-the-latest-installation-file"></a>Скачивание последней версии файла установки
@@ -164,7 +164,7 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  Если вы используете дополнительные серверы обработки, подключенные к серверу конфигурации, необходимо [исправить параметры прокси-сервера на всех серверах обработки масштабирования](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) в развернутой службе.
+  Если вы используете дополнительные серверы обработки, подключенные к серверу конфигурации, необходимо [исправить параметры прокси-сервера на всех серверах обработки масштабирования](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) в развернутой службе.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Повторная регистрация сервера конфигурации с тем же хранилищем
   1. Войдите на сервер конфигурации.
@@ -184,7 +184,7 @@ ProxyPassword="Password"
       ```
 
   >[!WARNING]
-  При наличии нескольких серверов обработки их необходимо [повторно зарегистрировать](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  При наличии нескольких серверов обработки их необходимо [повторно зарегистрировать](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Регистрация сервера конфигурации с другим хранилищем
 
@@ -233,8 +233,8 @@ ProxyPassword="Password"
 > [!WARNING]
 > Прежде чем списывать сервер конфигурации, выполните следующие условия.
 > 1. [Отключите защиту](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) для всех виртуальных машин на сервере конфигурации.
-> 2. [Отмените связь](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) всех политик репликации с сервером конфигурации и [удалите](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) их.
-> 3. [Удалите](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) все узлы vSphere и серверы vCenters, связанные с сервером конфигурации.
+> 2. [Отмените связь](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) всех политик репликации с сервером конфигурации и [удалите](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) их.
+> 3. [Удалите](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) все узлы vSphere и серверы vCenters, связанные с сервером конфигурации.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Удаление сервера конфигурации на портале Azure

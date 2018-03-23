@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: принципы проектирования | Документация Майкрософт"
-description: "В этой статье описываются факторы, которые необходимо учитывать при проектировании реализации."
+title: 'Azure AD Connect: принципы проектирования | Документация Майкрософт'
+description: В этой статье описываются факторы, которые необходимо учитывать при проектировании реализации.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: принципы проектирования
 В этой статье приведено описание факторов, которые должны учитываться при проектировании реализации Azure AD Connect. Здесь подробно рассмотрены некоторые вопросы, но часть из них вкратце рассмотрена в других статьях.

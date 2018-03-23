@@ -1,25 +1,25 @@
 ---
-title: "Справочник по созданию отчетов многофакторной проверки подлинности на портале Azure | Документация Майкрософт"
-description: "Справочные сведения по созданию отчетов многофакторной проверки подлинности на портале Azure"
+title: Справочник по созданию отчетов многофакторной проверки подлинности на портале Azure | Документация Майкрософт
+description: Справочные сведения по созданию отчетов многофакторной проверки подлинности на портале Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb4ef0e361cb3495a03e5a7ed49d9a84a54dbdc3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Справочник по созданию отчетов многофакторной проверки подлинности на портале Azure
 
@@ -95,17 +95,9 @@ ms.lasthandoff: 01/16/2018
 
     - Выполнено путем утверждения в токене. 
 
-    - Выполнено путем утверждения в токене. 
-
-    - Выполнено путем утверждения в токене. 
-
-    - Выполнено путем утверждения в токене. 
-
     - Выполнено путем утверждения, предоставленного внешним поставщиком. 
 
     - Выполнено за счет строгой проверки подлинности. 
-
-    - Пропущено, так как был выполнен поток входа в брокер Windows. 
 
     - Пропущено, так как был выполнен поток входа в брокер Windows. 
 

@@ -1,13 +1,13 @@
 ---
 layout: HubPage
-hide_bc: 
-title: "Документация по Microsoft Azure"
-description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
-ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+hide_bc: ''
+title: Документация по Microsoft Azure
+description: Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое.
+ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -134,6 +134,11 @@ ms.lasthandoff: 12/11/2017
                                                         <span>Python</span>
                                                     </a>
                                                 </div>
+                                                <div class="ico48Link">
+                                                    <a href="/go/azure/">
+                                                        <span>Go</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>Модели приложения</h4>
                                                     <ul class="noBullet">
@@ -179,7 +184,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Программы командной строки</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
@@ -3249,6 +3254,29 @@ ms.lasthandoff: 12/11/2017
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Получение пакета SDK для Go</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Начало работы</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Справочные материалы</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -3284,7 +3312,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Начало работы</a>
+                                                    <a href="/cli/azure">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Скачать Azure CLI 2.0</a>

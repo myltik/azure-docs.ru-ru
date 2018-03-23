@@ -1,11 +1,11 @@
 ---
-title: "Возможности тестирования: взаимодействие между службами | Документация Майкрософт"
-description: "Взаимодействие между службами — критически важная точка интеграции приложения Service Fabric. В этой статье обсуждаются вопросы разработки и методы тестирования."
+title: 'Возможности тестирования: взаимодействие между службами | Документация Майкрософт'
+description: Взаимодействие между службами — критически важная точка интеграции приложения Service Fabric. В этой статье обсуждаются вопросы разработки и методы тестирования.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4c6b53673dd4c79ce435c1593e7d08c7dd4a1cb0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Сценарии тестирования платформы Service Fabric: обмен данными между службами
 Микрослужбы и стили сервисноориентированной архитектуры естественным образом развертываются на платформе Azure Service Fabric. В распределенных архитектурах этих типов компонентные приложения микрослужб обычно состоят из нескольких служб, которые должны взаимодействовать друг с другом. Даже в простейших случаях у вас обычно есть как минимум веб-служба без отслеживания состояния и служба хранилища данных с отслеживанием состояния, которые должны взаимодействовать друг с другом.
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/04/2017
    
     ```powershell
    
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
    
     ```
 

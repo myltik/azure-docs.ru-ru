@@ -1,12 +1,12 @@
 ---
-title: "Часто задаваемые вопросы об агенте службы Azure Backup | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы о принципе работы агента службы Azure Backup, а также об ограничениях хранения и резервного копирования."
+title: Часто задаваемые вопросы об агенте службы Azure Backup | Документация Майкрософт
+description: Ответы на часто задаваемые вопросы о принципе работы агента службы Azure Backup, а также об ограничениях хранения и резервного копирования.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "резервное копирование и аварийное восстановление; служба архивации"
+editor: ''
+keywords: резервное копирование и аварийное восстановление; служба архивации
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Вопросы об агенте службы Azure Backup
 В этой статье содержатся ответы на часто задаваемые вопросы, которые помогут вам быстро ознакомиться с компонентами агента службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>Настройка резервного копирования
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Откуда можно скачать последнюю версию агента службы архивации Azure? <br/>

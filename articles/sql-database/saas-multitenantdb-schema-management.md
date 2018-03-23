@@ -1,26 +1,21 @@
 ---
-title: "Управление схемой базы данных SQL Azure в примере мультитенантного приложения | Документация Майкрософт"
-description: "Управление схемой для нескольких клиентов в мультитенантном приложении, использующем базу данных SQL Azure"
-keywords: "руководство по базе данных sql"
+title: Управление схемой базы данных SQL Azure в примере мультитенантного приложения | Документация Майкрософт
+description: Управление схемой для нескольких клиентов в мультитенантном приложении, использующем базу данных SQL Azure
+keywords: руководство по базе данных sql
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 0303da917ecb03ca27e0444afb56f49766b70029
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Управление схемой в приложении SaaS, использующем сегментированные мультитенантные базы данных SQL
 
@@ -89,7 +84,7 @@ ms.lasthandoff: 02/22/2018
 
 В каждой базе данных клиента в таблице **VenueTypes** содержится набор типов мест проведения. Они определяют вид событий, проводимых в этом месте. Эти типы мест проведения соответствуют фоновому изображению, которое отображается в приложении событий клиента.  В этом упражнении вы развернете обновление во всех базах данных, чтобы добавить два дополнительных типа объектов: *Motorcycle Racing* (Мотоциклетные гонки) и *Swimming Club* (Плавательный клуб). 
 
-Сначала проверьте типы мест проведения, включенные в каждой клиентской базе данных. Подключитесь к одной из клиентских баз данных в SQL Server Management Studio (SSMS) и проверьте таблицу VenueTypes.  Выполнить запрос к этой таблице можно также в редакторе запросов на портале Azure, отрыв его на странице базы данных. 
+Сначала проверьте типы мест проведения, включенные в каждой клиентской базе данных. Подключитесь к одной из клиентских баз данных в SQL Server Management Studio (SSMS) и проверьте таблицу VenueTypes.  Выполнить запрос к этой таблице можно также в редакторе запросов на портале Azure, открыв его со страницы базы данных. 
 
 1. Откройте SSMS и подключитесь к клиентскому серверу *tenants1-dpt-&lt;пользователь&gt;.database.windows.net*.
 1. Перейдите к базе данных *contosoconcerthall* на сервере *tenants1-dpt-&lt;пользователь&gt;* и запросите таблицу *VenueTypes*, чтобы убедиться, что места проведения *Motorcycle Racing* (Мотоциклетные гонки) и *Swimming Club* (Плавательный клуб) **отсутствуют**.

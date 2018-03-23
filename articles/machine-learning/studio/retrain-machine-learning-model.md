@@ -1,11 +1,12 @@
 ---
-title: "Переобучение модели машинного обучения | Документация Майкрософт"
-description: "Узнайте, как переобучить модель и обновить веб-службу так, чтобы она использовала заново обученную модель в службе машинного обучения Azure."
+title: Переобучение модели машинного обучения | Документация Майкрософт
+description: Узнайте, как переобучить модель и обновить веб-службу так, чтобы она использовала заново обученную модель в службе машинного обучения Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondl
-editor: 
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
+editor: ''
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 614517c5b9a54fc11cf0b8f8b6e298b9aec5cf76
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 65c5e86e47528aab36972507b7ee8324040b9beb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-machine-learning-model"></a>Переобучение модели машинного обучения
 В рамках процесса операционализации моделей машинного обучения в Машинном обучении Azure модель обучается и сохраняется. После этого она используется для создания прогнозной веб-службы. Созданная веб-служба может впоследствии использоваться на веб-сайтах, панелях мониторинга и в мобильных приложениях. 

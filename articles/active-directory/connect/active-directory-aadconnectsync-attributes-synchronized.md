@@ -1,24 +1,24 @@
 ---
-title: "Атрибуты, синхронизируемые службой Azure AD Connect | Документация Майкрософт"
-description: "В этой статье перечислены атрибуты, которые синхронизируются с Azure Active Directory."
+title: Атрибуты, синхронизируемые службой Azure AD Connect | Документация Майкрософт
+description: В этой статье перечислены атрибуты, которые синхронизируются с Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory
 В этой статье перечислены атрибуты, которые синхронизируются при помощи служб синхронизации Azure AD Connect.  
@@ -421,17 +421,17 @@ ms.lasthandoff: 01/18/2018
 ## <a name="exchange-hybrid-writeback"></a>Гибридная обратная запись Exchange
 Эти атрибуты записываются из Azure AD в локальную службу Active Directory при активации **гибридного развертывания Exchange**. В зависимости от установленной версии Exchange может синхронизироваться меньшее количество атрибутов.
 
-| Имя атрибута | Пользователь | Контакт | Группа | Комментарий |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Производный от cloudAnchor в Azure AD. Это новый атрибут в Exchange 2016 и Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Серверный архив: позволяет клиентам архивировать почту. |
-| msExchBlockedSendersHash |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
-| msExchSafeRecipientsHash |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
-| msExchSafeSendersHash |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
-| msExchUCVoiceMailSettings |X | | |Включение единой системы обмена сообщениями (сетевая голосовая почта): используется при интеграции сервера Microsoft Lync Server, указывая локальному серверу Lync Server, что у пользователя в онлайн-службах есть голосовая почта. |
-| msExchUserHoldPolicies |X | | |Хранение для судебного разбирательства: позволяет облачным службам определять, на каких пользователей действует хранение для судебного разбирательства. |
-| proxyAddresses |X |X |X |Вставляется только адрес x500 из Exchange Online. |
-| publicDelegates |X | | |Позволяет в почтовом ящике Exchange Online предоставлять права SendOnBehalfTo пользователям с локальными почтовыми ящиками Exchange. Требуется Azure AD Connect сборки 1.1.552.0 или более поздних версий. |
+| Имя атрибута (пользовательский интерфейс Connect) |Имя атрибута (локальная служба AD) | Пользователь | Контакт | Группа | Комментарий |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Производный от cloudAnchor в Azure AD. Это новый атрибут в Exchange 2016 и Windows Server 2016 AD. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Серверный архив: позволяет клиентам архивировать почту. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
+| msExchSafeRecipientsHash| MS-Exch-SafeRecipientsHash  |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Включение единой системы обмена сообщениями (сетевая голосовая почта): используется при интеграции сервера Microsoft Lync Server, указывая локальному серверу Lync Server, что у пользователя в онлайн-службах есть голосовая почта. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Хранение для судебного разбирательства: позволяет облачным службам определять, на каких пользователей действует хранение для судебного разбирательства. |
+| proxyAddresses| proxyAddresses |X |X |X |Вставляется только адрес x500 из Exchange Online. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Позволяет в почтовом ящике Exchange Online предоставлять права SendOnBehalfTo пользователям с локальными почтовыми ящиками Exchange. Требуется Azure AD Connect сборки 1.1.552.0 или более поздних версий. |
 
 ## <a name="exchange-mail-public-folder"></a>Общедоступная папка почты Exchange
 Эти атрибуты синхронизируются из локального экземпляра Active Directory в Azure AD при включении **общедоступных почтовых папок Exchange**.

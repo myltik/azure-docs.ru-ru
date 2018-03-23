@@ -1,6 +1,6 @@
 ---
-title: "Подготовка пула пакетной службы Azure в виртуальной сети | Документация Майкрософт"
-description: "Вы можете создать в виртуальной сети пул пакетной службы, чтобы вычислительные узлы безопасно взаимодействовали с другими виртуальными машинами в сети, например с файловым сервером."
+title: Подготовка пула пакетной службы Azure в виртуальной сети | Документация Майкрософт
+description: Вы можете создать в виртуальной сети пул пакетной службы, чтобы вычислительные узлы безопасно взаимодействовали с другими виртуальными машинами в сети, например с файловым сервером.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 626319a458575d255af4c4f8de93fca542b48890
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5a06ad5086a42bb00147e085227f3c71c357544e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Создание пула пакетной службы Azure в виртуальной сети
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/09/2018
 
 * **Проверка подлинности**. Для использования виртуальной сети Azure API клиента пакетной службы должен использовать проверку подлинности Azure Active Directory (AD). Поддержка Azure AD пакетной службой Azure описана в статье [Аутентификация решений пакетной службы с помощью Active Directory](batch-aad-auth.md). 
 
-* **Виртуальная сеть Azure**. Чтобы заранее подготовить виртуальную сеть с одной или несколькими подсетями, вы можете использовать портал Azure, Azure PowerShell, интерфейс командной строки Azure (CLI) или другие методы. Чтобы создать виртуальную сеть по модели Azure Resource Manager, см. статью [Создание виртуальной сети с несколькими подсетями](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Чтобы создать классическую виртуальную сеть, см. статью [Создание (классической) виртуальной сети с несколькими подсетями](../virtual-network/create-virtual-network-classic.md).
+* **Виртуальная сеть Azure**. Чтобы заранее подготовить виртуальную сеть с одной или несколькими подсетями, вы можете использовать портал Azure, Azure PowerShell, интерфейс командной строки Azure (CLI) или другие методы. Чтобы создать виртуальную сеть на основе Azure Resource Manager, изучите раздел [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network) (Создание виртуальной сети). Чтобы создать классическую виртуальную сеть, см. статью [Создание (классической) виртуальной сети с несколькими подсетями](../virtual-network/create-virtual-network-classic.md).
 
 ### <a name="vnet-requirements"></a>Требования к виртуальной сети
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
@@ -70,4 +70,4 @@ ms.lasthandoff: 02/09/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 - Исчерпывающий обзор пакетной службы см. в статье [Разработка решений для крупномасштабных параллельных вычислений с использованием пакетной службы](batch-api-basics.md).
-- Дополнительные сведения о создании определяемого пользователем маршрута см. в разделе [Создание определяемого пользователем маршрута с помощью портала Azure](../virtual-network/create-user-defined-route-portal.md).
+- Дополнительные сведения о создании определяемого пользователем маршрута см. в разделе [Создание определяемого пользователем маршрута с помощью портала Azure](../virtual-network/tutorial-create-route-table-portal.md).

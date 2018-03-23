@@ -1,23 +1,23 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением \"Люди\" | Документация Майкрософт"
-description: "Сведения о настройке единого входа Azure Active Directory в приложение \"Люди\"."
+title: Руководство по интеграции Azure Active Directory с приложением "Люди" | Документация Майкрософт
+description: Сведения о настройке единого входа Azure Active Directory в приложение "Люди".
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cf3c633aec5fd55d3525c0e010e1aca68407ef33
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Руководство. Интеграция Azure Active Directory с приложением "Люди"
 
@@ -110,14 +110,14 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.peoplehr.com/`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.peoplehr.net`.
 
-    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://www.peoplehr.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес `https://www.peoplehr.com`.
 
     c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`.
-
-    > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу поддержки People](mailto:customerservices@peoplehr.com).
+    
+    > [!NOTE]
+    > Эти значения приведены в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу поддержки People](mailto:customerservices@peoplehr.com). 
 
 5. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 

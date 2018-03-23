@@ -1,24 +1,24 @@
 ---
-title: "Устранение неполадок агента Azure Log Analytics для Linux | Документация Майкрософт"
-description: "Описание симптомов, причин и решений для наиболее распространенных проблем с агентом Azure Log Analytics для Linux."
+title: Устранение неполадок агента Azure Log Analytics для Linux | Документация Майкрософт
+description: Описание симптомов, причин и решений для наиболее распространенных проблем с агентом Azure Log Analytics для Linux.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Устранение неполадок с агентом Azure Log Analytics для Linux
 
@@ -37,12 +37,12 @@ ms.lasthandoff: 02/01/2018
 2. Просмотрите раздел [Обновление параметров прокси-сервера](log-analytics-agent-manage.md#update-proxy-settings), чтобы убедиться в правильности настройки агента для обмена данными через прокси-сервер.    
 * Внимательно проверьте включение в список разрешенных следующих конечных точек службы Log Analytics:
 
-    |Ресурс агента| порты; |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Порт 443|   
-    |*.oms.opinsights.azure.com | Порт 443|   
-    |ods.systemcenteradvisor.com | Порт 443|   
-    |*.blob.core.windows.net/ | Порт 443|   
+    |Ресурс агента| порты; | Направление |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | Порт 443| Исходящий и входящий |  
+    |*.oms.opinsights.azure.com | Порт 443| Исходящий и входящий |  
+    |*.blob.core.windows.net | Порт 443| Исходящий и входящий |  
+    |*.azure-automation.net | Порт 443| Исходящий и входящий | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Проблема. При попытке подключения возникает ошибка 403.
 

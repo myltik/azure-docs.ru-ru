@@ -1,11 +1,11 @@
 ---
-title: "Использование соединителя Office 365 Видео в приложениях логики | Документация Майкрософт"
-description: "Начало использования соединителя Office 365 Видео в приложениях логики службы приложений Microsoft Azure"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Использование соединителя Office 365 Видео в приложениях логики | Документация Майкрософт
+description: Начало использования соединителя Office 365 Видео в приложениях логики службы приложений Microsoft Azure
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 738e5aa7-2523-4116-8b65-211b9063852d
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 5c037f0bdb4e80d92f9ef51601ea331b3aba870c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 30ec8c7aa55013668d2ec0897278d435b9e864c7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Начало работы с соединителем Office 365 Видео
 Подключившись к Office 365 Видео, вы сможете получать информацию об Office 365 Видео, список видео и многое другое. С помощью Office 365 Видео вы можете:

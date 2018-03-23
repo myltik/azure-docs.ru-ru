@@ -1,11 +1,11 @@
 ---
-title: "Пакет SDK для устройств Azure IoT для C — IoTHubClient | Документация Майкрософт"
-description: "Узнайте, как использовать библиотеку IoTHubClient в пакете SDK для устройств Azure IoT для C и как создавать приложения для устройств, взаимодействующие с Центром Интернета вещей."
+title: Пакет SDK для устройств Azure IoT для C — IoTHubClient | Документация Майкрософт
+description: Узнайте, как использовать библиотеку IoTHubClient в пакете SDK для устройств Azure IoT для C и как создавать приложения для устройств, взаимодействующие с Центром Интернета вещей.
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: obloch
-ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Пакет SDK для устройств Azure IoT для C — дополнительные сведения о библиотеке IoTHubClient
 В [первой статье](iot-hub-device-sdk-c-intro.md) этого курса вы познакомились с **пакетом SDK для устройств Azure IoT для C**. В ней объяснялось, что в пакете SDK есть два архитектурных уровня. В основе лежит библиотека **IoTHubClient**, которая непосредственно управляет связью с Центром Интернета вещей. На втором уровне находится библиотека **serializer** , которая реализована поверх упомянутой выше и предоставляет службы сериализации. В данной статье мы раскроем дополнительные подробности о библиотеке **IoTHubClient** .

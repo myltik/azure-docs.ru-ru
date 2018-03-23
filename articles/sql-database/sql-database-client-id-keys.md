@@ -1,26 +1,19 @@
 ---
-title: "Получение значений для аутентификации приложения для подключения к базе данных SQL Azure | Документация Майкрософт"
-description: "Создание субъекта-службы для получения доступа к базе данных SQL из кода."
+title: Получение значений для аутентификации приложения для подключения к базе данных SQL Azure | Документация Майкрософт
+description: Создание субъекта-службы для получения доступа к базе данных SQL из кода.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/30/2016
 ms.author: sstein
-ms.openlocfilehash: e76144bcb65da992c6d723d7333b4db8aa1ca488
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e907edc98228ecab645e63f5e38094e3a04812de
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Получение необходимых значений для проверки подлинности приложения при предоставлении доступа к базе данных SQL из кода
 Чтобы создать базу данных SQL и управлять ею из кода, необходимо зарегистрировать приложение в домене Azure Active Directory (AAD) в подписке, где были созданы ресурсы Azure.
