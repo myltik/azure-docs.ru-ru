@@ -1,18 +1,20 @@
 ---
-title: "Использование оповещения для активации runbook службы автоматизации Azure | Документация Майкрософт"
-description: "Узнайте, как настроить запуск runbook при появлении оповещения Azure."
+title: Использование оповещения для активации runbook службы автоматизации Azure
+description: Узнайте, как настроить запуск runbook при появлении оповещения Azure.
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/11/2018
+ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ea51a85110bb8169dce0a445549e2590c51207e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e1fc357e654aa60b94944a93118431b944898bff
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Использование оповещения для активации runbook службы автоматизации Azure
 

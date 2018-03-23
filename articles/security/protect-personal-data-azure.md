@@ -1,29 +1,29 @@
 ---
-title: "Защита персональных данных в Microsoft Azure | Документация Майкрософт"
-description: "Первая статья из цикла статей, посвященных защите персональных данных в Azure."
+title: Защита персональных данных в Microsoft Azure | Документация Майкрософт
+description: Эта статья поможет вам использовать Azure для защиты персональных данных и соблюдения Общего регламента по защите данных (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Защита персональных данных в Microsoft Azure
 
-Эта статья представляет из себя цикл статей о защите персональных данных с помощью технологий и служб Azure. Таково основное требование многих корпоративных и промышленных стандартов соответствия нормам. В этой статье описан сценарий, проблема и цели компании.
+Эта статья представляет из себя цикл статей о защите персональных данных с помощью технологий и служб Azure. Таково основное требование многих корпоративных и промышленных стандартов соответствия нормам. Например, сведения, приведенные в этом цикле статей, можно использовать для соблюдения Общего регламента по защите данных (GDPR). В этой статье описан сценарий, проблема и цели компании.
 
 ## <a name="scenario-and-problem-statement"></a>Сценарий и постановка проблемы
 

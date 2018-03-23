@@ -1,25 +1,19 @@
 ---
-title: "Рекомендации по производительности базы данных SQL Azure | Документация Майкрософт"
-description: "База данных SQL Azure предоставляет рекомендации для баз данных SQL, которые могут повысить текущую производительность запросов."
+title: Рекомендации по производительности базы данных SQL Azure | Документация Майкрософт
+description: База данных SQL Azure предоставляет рекомендации для баз данных SQL, которые могут повысить текущую производительность запросов.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: monicar
-ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 09/20/2017
-ms.author: 
-ms.openlocfilehash: b3cd5f2138f4d16a1a1590b025d020410ebcce3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: 47e93d270aa3596430ab5892b2bd9323fba1d12e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Рекомендации по производительности для базы данных SQL
 

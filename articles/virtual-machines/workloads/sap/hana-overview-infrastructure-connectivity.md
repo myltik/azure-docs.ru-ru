@@ -1,11 +1,11 @@
 ---
-title: "Инфраструктура и подключение к SAP HANA в Azure (крупные экземпляры) | Документация Майкрософт"
-description: "Настройте требуемую инфраструктуру для подключения, чтобы использовать SAP HANA в Azure (крупные экземпляры)."
+title: Инфраструктура и подключение к SAP HANA в Azure (крупные экземпляры) | Документация Майкрософт
+description: Настройте требуемую инфраструктуру для подключения, чтобы использовать SAP HANA в Azure (крупные экземпляры).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Инфраструктура и возможности подключения SAP HANA в Azure (крупные экземпляры) 
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/01/2017
 >[!Note]
 >Эту виртуальную сеть Azure для крупных экземпляров HANA следует создавать с использованием модели развертывания с помощью Azure Resource Manager. Крупные экземпляры HANA не поддерживают старую модель развертывания Azure, известную как классическая модель развертывания.
 
-Виртуальную сеть можно создать с помощью портала Azure, PowerShell, шаблона Azure или Azure CLI (см. статью [Создание виртуальной сети с помощью портала Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). В следующем примере мы рассмотрим виртуальную сеть, созданную с помощью портала Azure.
+Виртуальную сеть можно создать с помощью портала Azure, PowerShell, шаблона Azure или Azure CLI (см. статью [Создание виртуальной сети с помощью портала Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). В следующем примере мы рассмотрим виртуальную сеть, созданную с помощью портала Azure.
 
 Просматривая определения виртуальной сети Azure на портале Azure, давайте обратим внимание на некоторые определения и их взаимосвязь с перечисленными ниже различными диапазонами IP-адресов. Говоря об **адресном пространстве**, мы имеем в виду адресное пространство, которое разрешено использовать виртуальной сети Azure. Оно будет использоваться в виртуальной сети для распространения маршрутов BGP. Это **адресное пространство** можно увидеть здесь:
 
@@ -250,7 +250,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 
 В этом случае мы рекомендуем добавить новый диапазон IP-адресов в адресное пространство виртуальной сети, а не создавать агрегированный диапазон. В любом случае необходимо отправить соответствующие сведения в корпорацию Майкрософт, чтобы разрешить подключение к единицам крупных экземпляров HANA в клиентском приложении с использованием нового диапазона IP-адресов. Вы можете отправить запрос на добавление адресного пространства виртуальной сети в службу поддержки Azure. Получив подтверждение, выполните следующие шаги.
 
-Чтобы создать дополнительные подсети с помощью портала Azure, см. статью [Создание виртуальной сети с помощью портала Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), а для создания с помощью PowerShell см. статью [Создание виртуальной сети с помощью PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Чтобы создать дополнительные подсети с помощью портала Azure, см. статью [Создание виртуальной сети с помощью портала Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network), а для создания с помощью PowerShell см. статью [Создание виртуальной сети с помощью PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Добавление виртуальных сетей
 
@@ -277,15 +277,13 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 
 Чтобы удалить подсеть виртуальной сети, можно использовать портал Azure, PowerShell или интерфейс командной строки. Если диапазон IP-адресов или адресное пространство виртуальной сети Azure представляли собой агрегированный диапазон, вам не нужно ничего отправлять в Майкрософт. Однако виртуальная сеть распространяет маршруты BGP по адресному пространству, включающему удаленную подсеть. Если вы определили диапазон IP-адресов или адресное пространство виртуальной сети Azure как несколько диапазонов IP-адресов, один из которых был назначен удаленной подсети, его следует удалить из адресного пространства виртуальной сети и сообщить специалистам отдела по управлению службами SAP HANA в Azure, что его нужно удалить из диапазонов, с которыми разрешено взаимодействовать SAP HANA в Azure (крупные экземпляры).
 
-Хотя на сайте Azure.com нет конкретных рекомендаций по удалению подсетей, этот процесс противоположен процессу добавления. Дополнительные сведения о создании подсетей см. в статье [Создание виртуальной сети с помощью портала Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Чтобы удалить подсеть, см. [этот раздел](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet). В нем также представлена дополнительная информация о создании подсетей.
 
 ## <a name="deleting-a-vnet"></a>Удаление виртуальной сети
 
-При удалении виртуальной сети используйте портал Azure, PowerShell или интерфейс командной строки. Специалисты отдела по управлению службами SAP HANA в Azure удаляют существующую авторизацию для канала ExpressRoute HANA SAP в Azure (крупные экземпляры), а также удаляют диапазоны IP-адресов и адресное пространство виртуальной сети Azure для взаимодействия с крупными экземплярами HANA.
+Чтобы удалить виртуальную сеть, см. раздел [Удаление виртуальной сети](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). Специалисты отдела по управлению службами SAP HANA в Azure удаляют существующую авторизацию для канала ExpressRoute HANA SAP в Azure (крупные экземпляры), а также удаляют диапазоны IP-адресов и адресное пространство виртуальной сети Azure для взаимодействия с крупными экземплярами HANA.
 
 После удаления виртуальной сети откройте запрос на поддержку Azure, чтобы указать адресные пространства диапазона IP-адресов, которые следует удалить.
-
-Хотя на сайте Azure.com нет конкретных рекомендаций по удалению виртуальных сетей, этот процесс противоположен процессу добавления (описано выше). Дополнительные сведения о создании виртуальных сетей см. в статьях [Создание виртуальной сети с помощью портала Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и [Создание виртуальной сети с помощью PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Чтобы убедиться, что все удалено, удалите следующие компоненты:
 

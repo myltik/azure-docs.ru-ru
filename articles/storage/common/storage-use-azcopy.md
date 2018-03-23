@@ -1,8 +1,8 @@
 ---
-title: "Копирование или перемещение данных в службу хранилища Azure с помощью AzCopy для Windows | Документация Майкрософт"
-description: "Утилита AzCopy для Windows позволяет копировать и перемещать данные в содержимое BLOB-объектов, таблиц и файлов и из него. Копируйте данные в хранилище Azure из локальных файлов, а также внутри учетной записи хранения и из одной такой учетной записи в другую. Легко переносите данные в хранилище Azure."
+title: Копирование или перемещение данных в службу хранилища Azure с помощью AzCopy для Windows | Документация Майкрософт
+description: Утилита AzCopy для Windows позволяет копировать и перемещать данные в содержимое BLOB-объектов, таблиц и файлов и из него. Копируйте данные в хранилище Azure из локальных файлов, а также внутри учетной записи хранения и из одной такой учетной записи в другую. Легко переносите данные в хранилище Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Перенос данных с помощью AzCopy для Windows
 AzCopy — это служебная программа командной строки. Она предназначена для копирования данных из хранилища BLOB-объектов, хранилища файлов и хранилища таблиц Microsoft Azure (и обратно) с помощью простых команд, обеспечивающих оптимальную производительность. Вы можете перемещать данные между файловой системой и учетной записью хранения или между разными учетными записями хранения.  
@@ -56,7 +56,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Скачивание одного большого двоичного объекта из дополнительного региона
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Обратите внимание, что для доступа к дополнительному региону необходимо включить геоизбыточное хранилище с доступом только для чтения.
@@ -106,7 +106,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Префикс применяется к виртуальному каталогу, который формирует первую часть имени большого двоичного объекта. В указанном выше примере виртуальный каталог не соответствует заданному префиксу и поэтому не скачивается. Кроме того, если не задан параметр `\S`, то AzCopy не скачивает большие двоичные объекты.
+Префикс применяется к виртуальному каталогу, который формирует первую часть имени большого двоичного объекта. В указанном выше примере виртуальный каталог не соответствует заданному префиксу и поэтому не скачивается. Кроме того, если не задан параметр `/S`, то AzCopy не скачивает большие двоичные объекты.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Установка одинакового времени последнего изменения для экспортированных файлов и исходных больших двоичных объектов
 
@@ -616,7 +616,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 * Подробная справка по командной строке AzCopy: `AzCopy /?`
 * Подробная справка по параметрам AzCopy: `AzCopy /?:SourceKey`
-* Примеры командной строки: `AzCopy /?:Samples`
+* Примеры командной строки: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source:"source"
 

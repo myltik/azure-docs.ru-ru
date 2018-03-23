@@ -1,29 +1,29 @@
 ---
-title: "Защита персональных данных с помощью управления удостоверениями и доступом в Azure | Документация Майкрософт"
-description: "Защита персональных данных с помощью удостоверения Azure и элементов управления доступом."
+title: Защита персональных данных с помощью управления удостоверениями и доступом в Azure | Документация Майкрософт
+description: Функции управления удостоверениями и доступом Azure помогают защитить персональные данные и могут оказаться полезными в соблюдении Общего регламента по защите данных (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory и Многофакторная идентификация. Защита персональных данных с помощью управления удостоверениями и доступом
 
-Эта статья содержит сведения и процедуры, с помощью которых можно защитить персональные данные с помощью служб и функций безопасности Azure Active Directory и Многофакторной идентификации.
+Эта статья содержит сведения и процедуры, с помощью которых можно защитить персональные данные с помощью служб и функций безопасности Azure Active Directory и Многофакторной идентификации. Сведения в этой статье помогут в соблюдении Общего регламента по защите данных (GDPR).
 
 ## <a name="scenario"></a>Сценарий
 

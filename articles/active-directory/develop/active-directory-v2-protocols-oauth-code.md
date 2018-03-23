@@ -1,11 +1,11 @@
 ---
-title: "Поток кода авторизации OAuth 2.0 в Azure AD | Документация Майкрософт"
-description: "Построение веб-приложений с помощью реализации протокола проверки подлинности OAuth 2.0 в Azure AD."
+title: Поток кода авторизации OAuth 2.0 в Azure AD | Документация Майкрософт
+description: Построение веб-приложений с помощью реализации протокола проверки подлинности OAuth 2.0 в Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
 ms.workload: identity

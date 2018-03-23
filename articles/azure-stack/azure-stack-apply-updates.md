@@ -1,11 +1,11 @@
 ---
-title: "Применение обновлений в Azure Stack | Документация Майкрософт"
-description: "Узнайте, как импортировать и устанавливать пакеты обновлений Майкрософт для интегрированной системы Azure Stack."
+title: Применение обновлений в Azure Stack | Документация Майкрософт
+description: Узнайте, как импортировать и устанавливать пакеты обновлений Майкрософт для интегрированной системы Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Применение обновлений в Azure Stack
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/11/2017
  
     ![Расположение, в которое нужно передать каждый файл пакета](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Повторите шаги 6 и 7 для файлов *PackageName*.bin и Metadata.xml. 
+8. Повторите шаги 6 и 7 для файлов *PackageName*.bin и Metadata.xml. Не импортируйте файл Supplemental Notice.txt, если он включен.
 9. Когда все будет готово, просмотрите уведомления (значок колокольчика в правом верхнем углу окна портала). В списке уведомлений должно быть сообщение о завершении отправки. 
 10. Вернитесь к плитке обновления на панели мониторинга. Теперь эта плитка должна демонстрировать доступность обновления. Щелкните плитку, чтобы просмотреть только что добавленный пакет обновлений.
 11. Чтобы установить обновления, выберите пакет с пометкой **Ready** (Готов), а затем щелкните его правой кнопкой мыши и выберите действие **Update now** (Обновить сейчас) или нажмите кнопку **Update now** (Обновить сейчас) в верхней части экрана.

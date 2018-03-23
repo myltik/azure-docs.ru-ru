@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/16/2018
+---
 1. Щелкните кнопку **Подключить** , чтобы создать и скачать файл протокола удаленного рабочего стола (RDP-файл). Чтобы воспользоваться этим файлом, щелкните **Открыть** .
 2. Появится предупреждение, что издатель файла `.rdp` неизвестен. Это нормально. Чтобы продолжить, в окне удаленного рабочего стола нажмите кнопку **Подключить** .
    

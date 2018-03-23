@@ -1,9 +1,9 @@
 ---
-title: "Создание оповещений журнала действий и управление ими с помощью новой функции \"Оповещения (предварительная версия)\" в Azure Monitor | Документация Майкрософт"
-description: "Эта статья содержит сведения о создании оповещений журнала действий на вкладке \"Оповещения (предварительная версия)\" в разделе Azure Monitor. В ней также подробно описан новый пользовательский интерфейс для этой функции."
+title: Создание оповещений журнала действий и управление ими с помощью новой функции "Оповещения (предварительная версия)" в Azure Monitor | Документация Майкрософт
+description: Эта статья содержит сведения о создании оповещений журнала действий на вкладке "Оповещения (предварительная версия)" в разделе Azure Monitor. В ней также подробно описан новый пользовательский интерфейс для этой функции.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Создание оповещений журнала действий с помощью новой функции "Оповещения (предварительная версия)"
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 02/09/2018
 
      ![Выбор цели](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - В разделе "Целевые условия" выберите **Add criteria** (Добавить критерии) и выберите тип сигнала **Журнал действий**.
+    - В разделе **Целевые условия** выберите **Добавить критерии** и выберите тип сигнала **Журнал действий**.
 
     - Выберите сигнал в отображаемом списке.
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 02/09/2018
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. В разделе **Define alert rules** (Определите правила генерации оповещений) укажите следующие сведения:
+4. В разделе **define alert rules details** (Определение сведений о правилах генерации оповещений) укажите следующие сведения.
 
     - **Имя правила генерации оповещений** — имя нового правила генерации оповещений.
     - **Описание** — описание нового рабочего правила генерации оповещений.

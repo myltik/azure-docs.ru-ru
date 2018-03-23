@@ -1,11 +1,11 @@
 ---
-title: "Подготовка виртуального массива StorSimple в VMware | Документация Майкрософт"
-description: "Это второе руководство из серии, посвященной развертыванию виртуального массива StorSimple, в котором описывается подготовка виртуального устройства в VMware."
+title: Подготовка виртуального массива StorSimple в VMware | Документация Майкрософт
+description: Это второе руководство из серии, посвященной развертыванию виртуального массива StorSimple, в котором описывается подготовка виртуального устройства в VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Развертывание виртуального массива StorSimple — подготовка в VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -127,7 +127,7 @@ ms.lasthandoff: 11/14/2017
 17. На странице **Storage** (Хранилище) выберите хранилище данных, которое будет использоваться для подготовки виртуальной машины.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. На странице **Virtual Machine Version** (Версия виртуальной машины) выберите параметр **Virtual Machine Version: 8** (Версия виртуальной машины: 8). Поддерживаются все виртуальные машины версий 8–11.
+18. На странице **Virtual Machine Version** (Версия виртуальной машины) выберите параметр **Virtual Machine Version: 8** (Версия виртуальной машины: 8).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. На странице **Guest Operating System** (Гостевая операционная система) задайте для параметра **Guest Operating System** (Гостевая операционная система) значение **Windows**. Для параметра **Version** (Версия) в раскрывающемся списке выберите значение **Microsoft Windows Server 2012 (64-bit)** (Microsoft Windows Server 2012 (64-разрядная версия)).

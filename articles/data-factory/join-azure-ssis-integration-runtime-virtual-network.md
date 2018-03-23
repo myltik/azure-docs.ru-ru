@@ -1,8 +1,8 @@
 ---
-title: "Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети | Документация Майкрософт"
-description: "Узнайте, как присоединить среду выполнения интеграции Azure SSIS к виртуальной сети Azure."
+title: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети | Документация Майкрософт
+description: Узнайте, как присоединить среду выполнения интеграции Azure SSIS к виртуальной сети Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
 Присоедините среду выполнения интеграции (IR) Azure SSIS к виртуальной сети в одной из следующих ситуаций: 
@@ -176,7 +176,9 @@ ms.lasthandoff: 02/28/2018
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Рекомендации по выбору подсети
+-   Не следует выбирать подсеть шлюза для развертывания среды выполнения интеграции SSIS и Azure, так как она предназначена для шлюзов виртуальных сетей.
+-   Убедитесь, что выбранная подсеть содержит достаточный диапазон адресов для работы среды выполнения интеграции SSIS и Azure. Оставьте по крайней мере в два раза больше доступных IP-адресов, чем содержит узлов среда выполнения интеграции. Azure резервирует некоторые IP-адреса в каждой подсети, которые нельзя использовать. Зарезервированы первый и последний IP-адреса подсетей (для соответствия требованиям протокола), а также еще три адреса, используемые для служб Azure. Дополнительные сведения см. в разделе [Существуют ли ограничения на использование IP-адресов в пределах этих подсетей?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Остановка среды выполнения интеграции Azure SSIS
 Остановите среду выполнения интеграции Azure SSIS перед присоединением к виртуальной сети. Следующая команда освобождает все узлы и прекращает выставление счетов.
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 Выполнение этой команды занимает от 20 до 30 минут.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Использование Azure ExpressRoute со средой выполнения интеграции SSIS и Azure
+
+Можно подключить канал [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) к своей инфраструктуре виртуальной сети, расширяя таким образом локальную сеть в Azure. 
+
+Как правило, для этого используется принудительное туннелирование (объявление маршрута BGP (0.0.0.0/0) к виртуальной сети), из-за чего исходящий трафик Интернета из виртуальной сети перенаправляется на устройство локальной сети для проверки и ведения журнала. Такой поток трафика нарушает связь между средой выполнения интеграции SSIS и Azure в виртуальной сети и зависимыми службами фабрики данных Azure. Чтобы устранить эту проблему, следует указать один (или несколько) [определяемый пользователем маршрут в подсети](../virtual-network/virtual-networks-udr-overview.md), которая содержит среду выполнения интеграции SSIS и Azure. Определяемый пользователем маршрут задает маршруты для подсети, которые используются вместо маршрута BGP.
+
+По возможности используйте следующую конфигурацию.
+-   Конфигурация ExpressRoute объявляет маршрут 0.0.0.0/0 и по умолчанию организует принудительное туннелирование всех исходящих подключений в локальную среду.
+-   Определяемый пользователем маршрут, применяемый к подсети, которая содержит среду выполнения интеграции SSIS и Azure, определяет маршрут 0.0.0.0/0 с типом следующего прыжка "Интернет".
+- 
+В результате этих действий определяемый пользователем маршрут уровня подсети получает приоритет над принудительным туннелированием ExpressRoute, обеспечивая передачу исходящего трафика Интернета из среды выполнения интеграции SSIS и Azure.
+
+Если вас беспокоит потеря возможности проверять исходящий трафик Интернета из этой подсети, можно добавить правило NSG для подсети, ограничивающее назначения исходящего трафика [IP-адресами центров обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Ознакомьтесь с [этим сценарием PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) в качестве примера. Это сценарий необходимо запускать еженедельно, чтобы список IP-адресов центров обработки данных Azure оставался актуальным.
 
 ## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о среде выполнения Azure SSIS см. в следующих разделах: 

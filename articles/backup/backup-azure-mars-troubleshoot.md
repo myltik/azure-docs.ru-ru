@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок с агентом Azure Backup | Документация Майкрософт"
-description: "Устранение неполадок при установке и регистрации агента Azure Backup"
+title: Устранение неполадок с агентом Azure Backup | Документация Майкрософт
+description: Устранение неполадок при установке и регистрации агента Azure Backup
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
-ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Устранение неполадок с настройкой и регистрацией агента Azure Backup
 ## <a name="recommended-steps"></a>Рекомендуемые действия
 Ознакомьтесь с рекомендуемыми действиями в следующих таблицах для устранения ошибок, которые могут возникнуть при настройке или регистрации агента Azure Backup.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Указаны недопустимые учетные данные хранилища. Файл либо поврежден, либо не содержит последних учетных данных, связанных со службой восстановления.
 | Сведения об ошибке | Возможные причины | Рекомендованные действия |

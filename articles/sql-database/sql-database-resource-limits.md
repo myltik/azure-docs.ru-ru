@@ -1,11 +1,11 @@
 ---
-title: "Ограничения ресурсов базы данных SQL Azure | Документация Майкрософт"
-description: "На этой странице описываются некоторые общие ограничения ресурсов для Базы данных SQL Azure."
+title: Ограничения ресурсов базы данных SQL Azure | Документация Майкрософт
+description: На этой странице описываются некоторые общие ограничения ресурсов для Базы данных SQL Azure.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Ограничения ресурсов базы данных SQL Azure
+
+> [!IMPORTANT]
+> Ограничения ресурсов для службы "Управляемый экземпляр Базы данных SQL Azure" приведены в разделе [Общие сведения об Управляемом экземпляре Базы данных SQL Azure (предварительная версия)](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Отдельная база данных: размеры хранилища и уровни производительности
 
@@ -79,7 +82,6 @@ ms.lasthandoff: 02/28/2018
 
 > [!NOTE]
 > Ограничения ресурсов отдельных баз данных в эластичных пулах обычно такие же, как и у отдельных баз данных за их пределами, и основаны на DTU и уровне служб. Например, максимальное количество одновременных рабочих экземпляров для базы данных S2 — 120. Таким образом, максимальное количество одновременных рабочих экземпляров в базе данных в стандартном пуле также составляет 120, если максимальное значение DTU для одной базы данных в пуле равно 50 (что эквивалентно уровню S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

@@ -1,31 +1,31 @@
 ---
-title: "JIT-доступ к виртуальным машинам в центре безопасности Azure | Документы Майкрософт"
-description: "В этом документе описано, как управлять доступом к виртуальным машинам Azure в центре безопасности Azure с помощью JIT-доступа (доступ только в течение заданного времени)."
+title: JIT-доступ к виртуальным машинам в центре безопасности Azure | Документы Майкрософт
+description: В этом документе описано, как управлять доступом к виртуальным машинам Azure в центре безопасности Azure с помощью JIT-доступа (доступ только в течение заданного времени).
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Управление доступом к виртуальным машинам с помощью JIT (предварительная версия)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Управление доступом к виртуальным машинам с помощью JIT
 
 JIT-доступ к виртуальной машине позволяет заблокировать входящий трафик к виртуальным машинам Azure, снизить уязвимость к атакам и обеспечить удобный доступ к виртуальным машинам, когда это необходимо.
 
 > [!NOTE]
-> Функция JIT находится в предварительной версии и доступна в центре безопасности Azure уровня "Стандартный".  Дополнительные сведения о ценовых категориях центра безопасности см. на странице [Цены](security-center-pricing.md).
+> Функция JIT доступна в центре безопасности Azure уровня "Стандартный".  Дополнительные сведения о ценовых категориях центра безопасности см. на странице [Цены](security-center-pricing.md).
 >
 >
 

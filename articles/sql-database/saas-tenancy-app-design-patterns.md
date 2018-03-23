@@ -1,26 +1,20 @@
 ---
-title: "Мультитенантные шаблоны SaaS в базе данных SQL Azure | Документация Майкрософт"
-description: "Узнайте о требованиях и общих шаблонах архитектуры данных для мультитенантных приложений базы данных программного обеспечения как услуги (SaaS), работающих в облачной среде Azure."
-keywords: "руководство по базе данных sql"
+title: Мультитенантные шаблоны SaaS в базе данных SQL Azure | Документация Майкрософт
+description: Узнайте о требованиях и общих шаблонах архитектуры данных для мультитенантных приложений базы данных программного обеспечения как услуги (SaaS), работающих в облачной среде Azure.
+keywords: руководство по базе данных sql
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen,srinia
-ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ac4eceb2265850b18682b38141f24b18ca0f9b4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Мультитенантные шаблоны клиента в базе данных SaaS
 

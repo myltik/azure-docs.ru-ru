@@ -1,25 +1,19 @@
 ---
-title: "Повышение производительности приложений базы данных SQL Azure с помощью пакетной обработки"
-description: "В разделе предоставлены доказательства того, что пакетная обработка операций базы данных существенно повышает быстродействие и масштабируемость приложений базы данных SQL Azure. Несмотря на то, что эти методы пакетной обработки применимы для любой базы данных SQL Server, основное внимание здесь уделяется базе данных SQL Azure."
+title: Повышение производительности приложений базы данных SQL Azure с помощью пакетной обработки
+description: В разделе предоставлены доказательства того, что пакетная обработка операций базы данных существенно повышает быстродействие и масштабируемость приложений базы данных SQL Azure. Несмотря на то, что эти методы пакетной обработки применимы для любой базы данных SQL Server, основное внимание здесь уделяется базе данных SQL Azure.
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Как повысить производительность приложений базы данных SQL с помощью пакетной обработки
 Пакетная обработка операций базы данных SQL значительно повышает производительность и масштабируемость приложений. В рамках объяснений преимуществ в первой части этой статьи рассматриваются некоторые примеры результатов проверки, в которых сравниваются последовательные и пакетные запросы к базе данных SQL. В оставшейся части статьи описаны методы, сценарии и рекомендации, позволяющие успешно использовать пакетную обработку в приложениях Azure.

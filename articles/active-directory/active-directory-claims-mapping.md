@@ -1,6 +1,6 @@
 ---
-title: "Сопоставление утверждений в Azure Active Directory (общедоступная предварительная версия) | Документы Майкрософт"
-description: "На этой странице описываются сопоставления утверждений Azure Active Directory."
+title: Сопоставление утверждений в Azure Active Directory (общедоступная предварительная версия) | Документы Майкрософт
+description: На этой странице описываются сопоставления утверждений Azure Active Directory.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Сопоставление утверждений в Azure Active Directory (общедоступная предварительная версия)
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/11/2018
 - Выбор или изменение источника данных, добавленного в определенные утверждения.
 
 >[!NOTE]
->Эта функция сейчас предоставляется в режиме общедоступной предварительной версии. Вы должны быть готовы отменить или удалить все изменения. На этапе общедоступной предварительной версии эта функция доступна во всех подписках Azure Active Directory (Azure AD). Однако, когда функция станет общедоступной, для некоторых аспектов компонента может потребоваться подписка Azure Active Directory Premium.
+>Эта функция сейчас предоставляется в режиме общедоступной предварительной версии. Вы должны быть готовы отменить или удалить все изменения. На этапе общедоступной предварительной версии эта функция доступна во всех подписках Azure Active Directory (Azure AD). Однако, когда функция станет общедоступной, для некоторых аспектов компонента может потребоваться подписка Azure Active Directory Premium. Эта функция поддерживает настройку политик сопоставления утверждений для протоколов WS-Fed, SAML, OAuth и OpenID Connect.
 
 ## <a name="claims-mapping-policy-type"></a>Тип политики сопоставления утверждений
 В Azure AD объект **политики** представлен набором правил, которые применяются к отдельным приложениям или ко всем приложениям в организации. Каждый тип политики имеет уникальную структуру и набор свойств, которые применяются к объектам, для которых назначена эта политика.
@@ -403,7 +403,7 @@ ms.lasthandoff: 01/11/2018
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Таблица 6. Разрешенные методы преобразования для идентификатора имени SAML NameID
 |TransformationMethod|Ограничения|
 | ----- | ----- |
-|ExtractMailPrefix|None|
+|ExtractMailPrefix|Нет|
 |Объединение|Присоединяемый суффикс должен быть подтвержденным доменом клиента ресурса.|
 
 ### <a name="custom-signing-key"></a>Пользовательский ключ подписывания

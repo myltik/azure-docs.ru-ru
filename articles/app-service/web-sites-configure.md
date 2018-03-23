@@ -1,11 +1,11 @@
 ---
-title: "Настройка веб-приложений в службе приложений Azure"
-description: "Настройка веб-приложения в службе приложений Azure"
+title: Настройка веб-приложений в службе приложений Azure
+description: Настройка веб-приложения в службе приложений Azure
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Настройка веб-приложений в службе приложений Azure
 
@@ -129,12 +129,12 @@ ms.lasthandoff: 01/17/2018
 
 ## <a name="other-configuration-tasks"></a>Другие задачи по настройке
 ### <a name="ssl"></a>SSL
-В стандартном и базовом режиме можно загрузить SSL-сертификаты для настраиваемого домена. Дополнительные сведения см. в статье [Включение протокола HTTPS для веб-приложения]. 
+В стандартном и базовом режиме можно загрузить SSL-сертификаты для настраиваемого домена. Дополнительные сведения см. в статье [Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure](app-service-web-tutorial-custom-ssl.md). 
 
 Чтобы просмотреть загруженные сертификаты, щелкните **Все параметры** > **Личные домены и SSL**.
 
 ### <a name="domain-names"></a>Имена доменов
-Добавление имени личного домена для веб-приложения. Дополнительные сведения см. в статье [Настройка личного доменного имени для веб-приложения в службе приложений Azure].
+Добавление имени личного домена для веб-приложения. Дополнительные сведения см. в статье [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md).
 
 Чтобы просмотреть доменные имена, щелкните **Все параметры** > **Личные домены и SSL**.
 

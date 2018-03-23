@@ -1,12 +1,12 @@
 ---
-title: "Обработка внешних событий в устойчивых функциях в Azure"
-description: "Сведения о том, как обрабатывать внешние события в расширении устойчивых функций для Функций Azure."
+title: Обработка внешних событий в устойчивых функциях в Azure
+description: Сведения о том, как обрабатывать внешние события в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Обработка внешних событий в устойчивых функциях (Функции Azure)
 
@@ -128,7 +128,7 @@ public static async Task Run(
 > [Сведения о настройке внешних оркестраций](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Запуск примера с ожиданием внешних событий](durable-functions-counter.md)
+> [Запуск примера с ожиданием внешних событий](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
 > [Запуск примера с ожиданием действий человека](durable-functions-phone-verification.md)

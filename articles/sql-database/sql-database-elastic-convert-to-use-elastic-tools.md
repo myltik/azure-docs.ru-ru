@@ -1,25 +1,19 @@
 ---
-title: "Перенос имеющихся баз данных для масштабирования | Документация Майкрософт"
-description: "Преобразование сегментированных баз данных для использования средств эластичной базы данных путем создания диспетчера сопоставления сегментов"
+title: Перенос имеющихся баз данных для масштабирования | Документация Майкрософт
+description: Преобразование сегментированных баз данных для использования средств эластичной базы данных путем создания диспетчера сопоставления сегментов
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Перенос существующих баз данных для развертывания
 Вы можете легко управлять существующими масштабируемыми сегментированными базами данных с помощью средств базы данных SQL Azure (таких как [клиентская библиотека для эластичных баз данных](sql-database-elastic-database-client-library.md)). Для использования [диспетчера сопоставления сегментов](sql-database-elastic-scale-shard-map-management.md) следует сначала преобразовать существующий набор баз данных. 

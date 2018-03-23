@@ -1,13 +1,13 @@
 ---
-title: "Средства разработки виртуальных машин для обработки и анализа данных в Azure | Документация Майкрософт"
-description: "Средства разработки виртуальных машин для обработки и анализа данных."
-keywords: "средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux"
+title: Средства разработки виртуальных машин для обработки и анализа данных в Azure | Документация Майкрософт
+description: Средства разработки виртуальных машин для обработки и анализа данных.
+keywords: средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0d7ee9a54c2c11f814ce041c5c7e5bd9f2e605e5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Средства разработки виртуальных машин для обработки и анализа данных
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/22/2018
 | Что это такое?   | Универсальная интегрированная среда разработки      |
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Разработка программного обеспечения    |
-| Настройка и установка на DSVM      | Рабочая нагрузка обработки и анализа данных (средства Python и R), рабочая нагрузка Azure (Hadoop, Data Lake), средства Node.js и SQL Server    |
+| Настройка и установка на DSVM      | Рабочая нагрузка обработки и анализа данных (средства Python и R), рабочая нагрузка Azure (Hadoop, Data Lake), средства Node.js и SQL Server, [Инструменты Visual Studio для ИИ](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Запуск и использование      | С помощью ярлыка на рабочем столе (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      |     Visual Studio Code, RStudio, Juno  |
 

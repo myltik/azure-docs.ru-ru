@@ -1,11 +1,11 @@
 ---
-title: "Определение используемого метода единого входа | Документация Майкрософт"
-description: "Общие сведения о режимах единого входа, поддерживаемых в Azure AD, и о выборе подходящего режима для интересующего приложения."
+title: Определение используемого метода единого входа | Документация Майкрософт
+description: Общие сведения о режимах единого входа, поддерживаемых в Azure AD, и о выборе подходящего режима для интересующего приложения.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/21/2018
 
 -   **Вход по паролю.** Выберите **режим единого входа** [Вход по паролю](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work), если приложение отображает HTML-поле имени пользователя и пароля, а также если необходимо безопасно сохранить имя пользователя и пароль для их повторного использования в приложении.
 
--   **Вход на основе SAML.** Выберите режим единого входа [Вход на основе SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work), если приложение поддерживает протоколы SAML или OpenID Connect или если вам нужно сопоставить пользователей с конкретными ролями приложений на основе правил, определенных в утверждениях SAML. *(**Примечание.* Этот параметр недоступен при настройке прокси приложения для приложения.)*
+-   **Вход на основе SAML.** Выберите режим единого входа [Вход на основе SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work), если приложение поддерживает протоколы SAML или OpenID Connect или если вам нужно сопоставить пользователей с конкретными ролями приложений на основе правил, определенных в утверждениях SAML. *(**Примечание.** Этот параметр недоступен при настройке прокси приложения для приложения.)*
 
 -   **Вход на основе заголовков.** Выберите режим единого входа [Вход на основе заголовков](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) при наличии приложения, использующего PingAccess, поддерживающего аутентификацию на основе HTTP-заголовка, для которой необходимо выполнить единый вход. *(**Примечание.* Этот параметр доступен только при настройке прокси приложения и PingAccess для приложения.)*
 

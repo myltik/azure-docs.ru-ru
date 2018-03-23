@@ -1,9 +1,9 @@
 ---
-title: "Использование Hue с Hadoop в кластерах HDInsight на платформе Linux — Azure | Документы Майкрософт"
-description: "Узнайте, как установить Hue на кластер HDInsight и задействовать туннелирование для направления запросов на Hue. Используйте Hue для просмотра хранилища и выполнения Hive или Pig."
+title: Использование Hue с Hadoop в кластерах HDInsight на платформе Linux — Azure | Документы Майкрософт
+description: Узнайте, как установить Hue на кластер HDInsight и задействовать туннелирование для направления запросов на Hue. Используйте Hue для просмотра хранилища и выполнения Hive или Pig.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Установка и использование Hue на кластерах HDInsight Hadoop
 
@@ -48,7 +48,7 @@ Hue — это набор веб-приложений, используемых 
 
 ## <a name="install-hue-using-script-actions"></a>Установка Hue с помощью действий сценария
 
-Сценарий для установки Hue в кластере HDInsight под управлением Linux доступен по адресу https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. С его помощью можно установить Hue в кластерах с Azure Storage Blob (WASB) или Azure Data Lake Store в качестве хранилища по умолчанию.
+Сценарий для установки Hue в кластере HDInsight под управлением Linux: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. С его помощью можно установить Hue в кластерах с Azure Storage Blob (WASB) или Azure Data Lake Store в качестве хранилища по умолчанию.
 
 Этот раздел содержит инструкции по использованию скрипта при подготовке кластера с помощью портала Azure.
 
@@ -68,7 +68,7 @@ Hue — это набор веб-приложений, используемых 
     ![Предоставление параметров действий сценария для Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Предоставление параметров действий сценария для Hue")
 
    * **ИМЯ**: введите понятное имя для действия сценария.
-   * **Универсальный код ресурса скрипта** — https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh;
+   * **URI СКРИПТА**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **ГОЛОВНОЙ**: установите флажок.
    * **Рабочая роль** — оставьте это поле пустым;
    * **Zookeeper** — оставьте это поле пустым;

@@ -1,29 +1,29 @@
 ---
-title: "Обнаружение, идентификация и классификация персональных данных в Microsoft Azure | Документация Майкрософт"
-description: "Узнайте о поиске, классификации, обнаружении и идентификации данных"
+title: Обнаружение, идентификация и классификация персональных данных в Microsoft Azure | Документация Майкрософт
+description: Поиск, классификация, обнаружение и идентификация данных в Azure может помочь в соблюдении Общего регламента по защите данных (GDPR).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Обнаружение, идентификация и классификация персональных данных в Microsoft Azure
 
-В этой статье вы узнаете, как обнаружить, идентифицировать и классифицировать персональные данные в нескольких средствах и службах Azure, включая использование каталога данных Azure, Azure Active Directory, базы данных SQL, Power Query для кластеров Hadoop в Azure HDInsight, Azure Information Protection, поиска Azure и запросов SQL для Azure Cosmos DB.
+В этой статье вы узнаете, как обнаружить, идентифицировать и классифицировать персональные данные в нескольких средствах и службах Azure, включая использование каталога данных Azure, Azure Active Directory, базы данных SQL, Power Query для кластеров Hadoop в Azure HDInsight, Azure Information Protection, поиска Azure и запросов SQL для Azure Cosmos DB. Эти инструменты и процессы можно использовать для соблюдения Общего регламента по защите данных (GDPR).
 
 ## <a name="scenario-problem-statement-and-goal"></a>Сценарий, формулировка проблемы и цель
 

@@ -1,11 +1,11 @@
 ---
-title: "Управление маршрутизацией и виртуальными модулями в Azure с помощью шаблона | Документация Майкрософт"
-description: "Сведения о том, как управлять маршрутизацией и виртуальными модулями с помощью шаблона Azure Resource Manager."
+title: Управление маршрутизацией и виртуальными модулями в Azure с помощью шаблона | Документация Майкрософт
+description: Сведения о том, как управлять маршрутизацией и виртуальными модулями с помощью шаблона Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Создание определяемых пользователем маршрутов с помощью шаблона
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [интерфейс командной строки Azure](tutorial-create-route-table-cli.md)
 > * [Шаблон](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
 > * [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/21/2017
 
 Обратите внимание, чтобы то же самое было сделано для серверной группы безопасности сети и серверной подсети в этом шаблоне.
 
-Также необходимо убедиться, что на сетевой карте, которая будет использоваться для получения и пересылки пакетов, включено свойство IP-пересылки для виртуальной машины **FW1** . В разделе ниже показано определение сетевой карты для в FW1 файле azuredeploy-nsg-udr.json на основе описанного выше сценария.
+Также необходимо убедиться, что на сетевой карте, которая будет использоваться для получения и пересылки пакетов, включено свойство IP-пересылки для виртуальной машины **FW1** . В разделе ниже показано определение сетевой карты для FW1 в файле azuredeploy-nsg-udr.json на основе этого сценария.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/21/2017
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Развертывание шаблона с помощью кнопки развертывания
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), нажмите **Deploy to Azure**(Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Пример шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания предыдущего сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), нажмите **Deploy to Azure**(Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) , чтобы выполнить вход в Azure и выбрать подписку.
 2. Выполните следующую команду, чтобы создать группу ресурсов:
@@ -173,7 +173,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Развертывание шаблона с помощью интерфейса командной строки Azure
 
-Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия:
+Чтобы развернуть шаблон Azure Resource Manager с помощью Azure CLI, сделайте следующее:
 
 1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../cli-install-nodejs.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Чтобы переключиться в режим Resource Manager, выполните следующую команду:
@@ -182,11 +182,11 @@ ms.lasthandoff: 12/21/2017
     azure config mode arm
     ```
 
-    Вот результат, ожидаемый для указанной выше команды:
+    Ниже приведен ожидаемый результат выполнения предыдущей команды.
 
         info:    New mode is arm
 
-3. В браузере перейдите по ссылке **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, скопируйте содержимое JSON-файла и вставьте в новый файл на своем компьютере. В этом сценарии скопируйте указанные ниже значения в файл **c:\udr\azuredeploy.parameters.json**.
+3. В браузере перейдите по ссылке **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, скопируйте содержимое JSON-файла и вставьте в новый файл на своем компьютере. В этом сценарии скопируйте следующие значения в файл **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ ms.lasthandoff: 12/21/2017
         }
     ```
 
-4. Чтобы развернуть новую виртуальную сеть с помощью файлов шаблонов и параметров, которые вы скачали и изменили раньше, выполните следующую команду:
+4. Чтобы развернуть новую виртуальную сеть с помощью файлов шаблонов и параметров, которые вы скачали и изменили ранее, выполните следующую команду:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ ms.lasthandoff: 12/21/2017
             info:    group show command OK
 
 > [!TIP]
-> Если отображаются не все ресурсы, выполните команду `azure group deployment show`, чтобы состояние подготовки развертывания имело значение *Succeded*.
+> Если отображаются не все ресурсы, выполните команду `azure group deployment show`, чтобы состояние подготовки развертывания имело значение *Succeeded*.
 > 

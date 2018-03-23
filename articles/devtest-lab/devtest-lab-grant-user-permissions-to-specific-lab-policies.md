@@ -1,11 +1,11 @@
 ---
-title: "Предоставление пользователю разрешений для определенных политик лаборатории | Документация Майкрософт"
-description: "Узнайте, как предоставить пользователю разрешения для определенных политик лаборатории в DevTest Labs исходя из его потребностей."
+title: Предоставление пользователю разрешений для определенных политик лаборатории | Документация Майкрософт
+description: Узнайте, как предоставить пользователю разрешения для определенных политик лаборатории в DevTest Labs исходя из его потребностей.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
 ms.service: devtest-lab
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
 ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Предоставление пользователю разрешений для определенных политик лаборатории
 ## <a name="overview"></a>Обзор
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/02/2018
 Дополнительные сведения о пользовательских ролях в RBAC см. в статье [Пользовательские роли в Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Создание пользовательской роли лаборатории с помощью PowerShell
-Чтобы начать работу, прочтите статью [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre), в которой рассказывается, как установить и настроить командлеты Azure PowerShell.
+Чтобы приступить к работе, прочитайте приведенную ниже статью, в которой рассказывается, как установить и настроить командлеты Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre)
 
 Настроив командлеты Azure PowerShell, вы сможете выполнять следующие задачи:
 

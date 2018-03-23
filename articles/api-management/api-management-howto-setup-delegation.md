@@ -1,11 +1,11 @@
 ---
-title: "Делегирование пользователю регистрации и подписки на продукт"
-description: "Узнайте, как делегировать регистрации пользователей и подписки на продукты третьим лицам в службе управления API Azure."
+title: Делегирование пользователю регистрации и подписки на продукт
+description: Узнайте, как делегировать регистрации пользователей и подписки на продукты третьим лицам в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Делегирование пользователю регистрации и подписки на продукт
 Делегирование позволяет использовать ваш существующий веб-сайт для обработки входа и регистрации разработчика и подписки на продукты вместо применения встроенной функции на портале разработчика. В результате этого веб-сайт будет владеть пользовательскими данными и проверять эти шаги в соответствии с вашими настройками.
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2018
 
 1. Получите запрос в следующей форме:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL исходной страницы}&salt={строка}&sig={строка}*
    > 
    > 
    
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/28/2018
    * [запросите маркер единого входа (SSO)] через API Management REST API
    * добавьте параметр запроса returnUrl в URL-адреса SSO, который вы получили из вызова API, указанного выше:
      
-     > например, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > Например: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * перенаправьте пользователя на вышеупомянутый URL-адрес
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/28/2018
 
 1. Получите запрос в следующей форме:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product для подписки}&userId={пользователь, выполняющий запрос}&salt={строка}&sig={строка}*
    > 
    > 
    

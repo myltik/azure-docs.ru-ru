@@ -1,26 +1,20 @@
 ---
-title: "Синхронизация данных SQL Azure (предварительная версия) | Документация Майкрософт"
-description: "В этом обзоре представлена синхронизация данных SQL Azure (предварительная версия)"
+title: Синхронизация данных SQL Azure (предварительная версия) | Документация Майкрософт
+description: В этом обзоре представлена синхронизация данных SQL Azure (предварительная версия)
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL (предварительная версия)
 

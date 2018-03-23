@@ -1,6 +1,6 @@
 ---
-title: "Как использовать записные книжки Jupyter в Azure Machine Learning Workbench | Документация Майкрософт"
-description: "Руководство по использованию записных книжек Jupyter Azure Machine Learning Workbench"
+title: Как использовать записные книжки Jupyter в Azure Machine Learning Workbench | Документация Майкрософт
+description: Руководство по использованию записных книжек Jupyter Azure Machine Learning Workbench
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,80 +10,80 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c21b7096f689efedacd6e7d55d83912d35dff803
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Как использовать записную книжку Jupyter в Azure Machine Learning Workbench
+# <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Использование записных книжек Jupyter в Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench поддерживает интерактивные эксперименты по обработке и анализу данных путем интеграции записной книжки Jupyter. В этой статье описывается, как эффективно использовать этот компонент, чтобы ускорить проведение интерактивных экспериментов по обработке и анализу данных и повысить их качество.
+Azure Machine Learning Workbench поддерживает интерактивные эксперименты по обработке и анализу данных путем интеграции записной книжки Jupyter. В данной статье описывается, как эффективно использовать этот компонент, чтобы ускорить проведение интерактивных экспериментов по обработке и анализу данных и повысить их качество.
 
 ## <a name="prerequisites"></a>предварительным требованиям
-- [Установите службу "Машинное обучение Azure" и создайте проект](quickstart-installation.md).
-- Ознакомьтесь с [записной книжкой Jupyter](http://jupyter.org/), так как в этой статье нет сведений о том, как ее использовать.
+- [Создайте учетную запись для службы "Машинное обучение Azure" и установите Azure Machine Learning Workbench](quickstart-installation.md).
+- Ознакомьтесь со сведениями о [записной книжке Jupyter](http://jupyter.org/). В данной статье нет сведений о том, как ее использовать.
 
 ## <a name="jupyter-notebook-architecture"></a>Архитектура записной книжки Jupyter
-На высоком уровне архитектура записной книжки Jupyter включает три компонента, каждый из которых может работать в разных вычислительных средах:
+На высоком уровне архитектура записной книжки Jupyter включает три компонента. Каждый из них может работать в разных вычислительных средах.
 
-- **Клиент** — получает данные, вводимые пользователем, и отображает выводимые данные.
-- **Сервер** — веб-сервер, на котором размещаются файлы записной книжки (IPYNB-файлы).
-- **Ядро** — среда выполнения, где фактически выполняются ячейки записной книжки.
+- **Клиент** — получает данные, вводимые пользователем, и отображает выводимые данные.
+- **Сервер** — веб-сервер, на котором размещаются файлы записной книжки (IPYNB-файлы).
+- **Ядро** — среда выполнения, в которой выполняются ячейки записной книжки.
 
-Дополнительные сведения см. в официальной [документации по Jupyter](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Ниже представлена схема сопоставления архитектуры, состоящей из клиента, сервера и ядра, с компонентами в Azure ML.
+Дополнительные сведения см. в статье [How IPython and Jupyter Notebook work](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html) (Сведения о записной книжке IPython и Jupyter). Ниже представлена схема сопоставления архитектуры, состоящей из клиента, сервера и ядра, с компонентами в Машинном обучении Azure.
 
-![архитектура записной книжки](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
+![Архитектура записной книжки Jupyter](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
-## <a name="kernels-in-azure-ml-workbench-notebook"></a>Ядра в записной книжке Azure ML Workbench
-В Azure ML Workbench можно использовать много разных ядер. Для этого нужно настроить конфигурации запуска и целевые среды вычислений в папке проекта `aml_config`. Добавление новой целевой среды вычислений путем выполнения команды `az ml computetarget attach` эквивалентно добавлению нового ядра.
+## <a name="kernels-in-azure-machine-learning-workbench-notebooks"></a>Ядра в записных книжках Azure Machine Learning Workbench
+В Azure Machine Learning Workbench можно использовать разные ядра. Для этого нужно определить конфигурации запуска и целевые объекты вычислений в папке `aml_config` проекта. Добавление нового целевого объекта вычислений путем выполнения команды `az ml computetarget attach` эквивалентно добавлению нового ядра.
 
 >[!NOTE]
->Дополнительные сведения о конфигурациях запуска и целевых объектах вычислений см. в статье [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
+>Дополнительные сведения о конфигурациях запуска и целевых объектах вычислений см. в статье [Настройка службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
 
 ### <a name="kernel-naming-convention"></a>Соглашение об именовании ядер
-Azure ML Workbench создает пользовательские ядра Jupyter.  Имя для них создается в формате "\<имя проекта> \<имя конфигурации запуска>". Например, если у вас есть конфигурация запуска с именем _docker-python_ в проекте с именем _myIris_, в службе "Машинное обучение Azure" будет доступно ядро с именем myIris docker-python.  Выполняющееся ядро задается в подменю Change kernel (Изменение ядра) меню "Ядра" записной книжки Jupyter. Имя ядра выполнения отображается в правом углу строки меню.
+Azure Machine Learning Workbench создает пользовательские ядра Jupyter. Имя для них создается в формате *\<имя проекта> \<имя конфигурации запуска>*. Например, если у вас есть конфигурация запуска с именем _docker-python_ в проекте с именем _myIris_, в службе "Машинное обучение Azure" будет доступно ядро с именем *myIris docker-python.* Выполняющееся ядро задается в подменю **Change kernel** (Изменение ядра) меню **Ядро** записной книжки Jupyter. Имя выполняющегося ядра отображается в правом углу строки меню.
  
-Сейчас Workbench поддерживает следующие типы ядер.
+Сейчас Azure Machine Learning Workbench поддерживает следующие типы ядер.
 
 ### <a name="local-python-kernel"></a>Локальное ядро Python
-Это ядро Python поддерживает выполнение на локальном компьютере. В нем интегрирована поддержка журнала выполнения службы "Машинное обучение Azure". Как правило, имя ядра — my_project_name local.
+Это ядро Python поддерживает выполнение на локальном компьютере. В нем интегрирована поддержка журнала выполнения службы "Машинное обучение Azure". Как правило, имя ядра — *my_project_name local.*
 
 >[!NOTE]
->Не используйте ядро Python 3. Это изолированное ядро, которое Jupyter предоставляет по умолчанию. Оно не интегрировано с возможностями службы "Машинное обучение Azure". Например, контрольные команды Jupyter _%azureml_ возвращают ошибки типа "не найдено". 
+>Не используйте ядро Python 3. Это изолированное ядро, которое Jupyter предоставляет по умолчанию. Оно не интегрировано с возможностями службы "Машинное обучение Azure". Например, контрольные команды Jupyter `%azureml` возвращают ошибки типа "не найдено". 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Ядро Python в Docker (локальный или удаленный компьютер)
-Это ядро Python выполняется в контейнере Docker на локальном компьютере или на удаленной виртуальной машине Linux. Как правило, имя ядра — my_project docker. В связанном файле `docker.runconfig` для поля `Framework` задано значение `Python`.
+Это ядро Python выполняется в контейнере Docker на локальном компьютере или на удаленной виртуальной машине Linux. Как правило, имя ядра — *my_project docker.* В связанном файле `docker.runconfig` для поля `Framework` задано значение `Python`.
 
 ### <a name="pyspark-kernel-in-docker-local-or-remote"></a>Ядро PySpark в Docker (локальный или удаленный компьютер)
-Это ядро PySpark выполняет скрипты в контексте Spark в контейнере Docker на локальном компьютере или на удаленной виртуальной машине Linux. Как правило, имя ядра — my_project docker. В связанном файле `docker.runconfig` для поля `Framework` задано значение `PySpark`.
+Это ядро PySpark выполняет скрипты в контексте Spark в контейнере Docker на локальном компьютере или на удаленной виртуальной машине Linux. Как правило, имя ядра — *my_project docker.* В связанном файле `docker.runconfig` для поля `Framework` задано значение `PySpark`.
 
-### <a name="pyspark-kernel-on-hdinsight-cluster"></a>Ядро PySpark в кластере HDInsight
-Это ядро выполняется в удаленном кластере HDInsight, подключенном в качестве целевого объекта вычислений для проекта. Как правило, имя ядра — my_project my_hdi. 
+### <a name="pyspark-kernel-in-an-azure-hdinsight-cluster"></a>Ядро PySpark в кластере HDInsight Azure
+Это ядро выполняется в удаленном кластере HDInsight Azure, подключенном в качестве целевого объекта вычислений для проекта. Как правило, имя ядра — *my_project my_hdi.* 
 
 >[!IMPORTANT]
->Чтобы использовать это ядро, в файле `.compute` целевой среды вычислений HDI для поля `yarnDeployMode` необходимо задать значение `client` (значение по умолчанию — `cluster`). 
+>Чтобы использовать это ядро, в файле `.compute` целевого объекта вычислений HDI для поля `yarnDeployMode` необходимо задать значение `client` (значение по умолчанию — `cluster`). 
 
-## <a name="start-jupyter-server-from-the-workbench"></a>Запуск сервера Jupyter из Workbench
-В Azure Machine Learning Workbench доступ к записным книжкам можно получить на вкладке Workbench **Notebooks** (Записные книжки). В примере проекта _Классификация Iris_ содержится пример записной книжки `iris.ipynb`.
+## <a name="start-a-jupyter-server-from-azure-machine-learning-workbench"></a>Запуск сервера Jupyter из Azure Machine Learning Workbench
+В Azure Machine Learning Workbench доступ к записным книжкам можно получить на вкладке **Notebooks** (Записные книжки). В примере проекта _Классификация Iris_ содержится пример записной книжки `iris.ipynb`.
 
-![вкладка Notebooks (Записные книжки)](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
+![Вкладка Notebooks (Записные книжки)](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
-При открытии в Azure Machine Learning Workbench записная книжка отображается в отдельной вкладке документов в **режиме предварительного просмотра**. Это представление, доступное только для чтения, которое не требует выполняющегося сервера и ядра Jupyter.
+При открытии в Azure Machine Learning Workbench записная книжка отображается на отдельной вкладке документов в **режиме предварительного просмотра**. Это представление, доступное только для чтения, которое не требует выполняющегося сервера и ядра Jupyter.
 
-![предварительный просмотр записной книжки](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
+![Предварительный просмотр записной книжки](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-Если нажать кнопку **Start Notebook Server** (Запуск сервера записной книжки), запускается сервер Jupyter, а записная книжка переходит в **режим изменения**. Появляется знакомый пользовательский интерфейс записной книжки Jupyter, встроенный в Workbench. Теперь вы можете настроить ядро в меню **Ядро** и запустить сеанс интерактивной записной книжки. 
+Если нажать кнопку **Start Notebook Server** (Запуск сервера записной книжки), запускается сервер Jupyter, а записная книжка переходит в **режим правки**. Появляется знакомый пользовательский интерфейс записной книжки Jupyter, встроенный в Workbench. Теперь вы можете настроить ядро в меню **Ядро** и запустить сеанс интерактивной записной книжки. 
 
 >[!NOTE]
->Обратите внимание, что для нелокальных ядер при первом использовании сеанс запускается одну-две минуты. Вы можете выполнить команду `az ml experiment prepare` из окна интерфейса командной строки для подготовки целевого объекта вычислений, чтобы после этого ядро запускалось гораздо быстрее.
+>Для нелокальных ядер при первом использовании сеанс запускается одну-две минуты. Вы можете выполнить команду `az ml experiment prepare` из окна интерфейса командной строки для подготовки целевого объекта вычислений, чтобы после этого ядро запускалось гораздо быстрее.
 
-![режим правки](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
+![Режим правки](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
-Это полностью интерактивная записная книжка Jupyter. В этом окне поддерживаются стандартные сочетания клавиш и операции с записными книжками, за исключением некоторых операций с файлами, так как их можно выполнить с помощью вкладок Workbench **Notebooks** (Записные книжки) и **Файл**.
+Это полностью интерактивная записная книжка Jupyter. В этом окне поддерживаются стандартные сочетания клавиш и операции с записными книжками, за исключением некоторых операций с файлами, которые можно выполнить с помощью вкладок Workbench **Notebooks** (Записные книжки) и **Файл**.
 
-## <a name="start-jupyter-server-from-command-line"></a>Запуск сервера Jupyter из командной строки
-Сеанс записной книжки также можно запустить, выполнив команду `az ml notebook start` в окне командной строки:
+## <a name="start-a-jupyter-server-from-the-command-line"></a>Запуск сервера Jupyter из командной строки
+Сеанс записной книжки также можно запустить, выполнив в окне командной строки команду `az ml notebook start`:
 ```
 $ az ml notebook start
 [I 10:14:25.455 NotebookApp] The port 8888 is already in use, trying another port.
@@ -93,26 +93,24 @@ $ az ml notebook start
 [I 10:14:25.465 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 [C 10:14:25.466 NotebookApp] 
     
-    Copy/paste this URL into your browser when you connect for the first time,
-    to login with a token:
-        http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
+Copy and paste this URL into your browser when you connect for the first time, to login with a token: http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
 [I 10:14:25.759 NotebookApp] Accepting one-time-token-authenticated connection from ::1
 [I 10:16:52.970 NotebookApp] Kernel started: 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 [I 10:16:53.854 NotebookApp] Adapting to protocol v5.1 for kernel 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 ```
-После этого автоматически запускается браузер по умолчанию с сервером Jupyter, указывающим на домашний каталог проекта. Кроме того, можно использовать URL-адрес и маркер из окна интерфейса командной строки для запуска других окон браузера локально. 
+После этого автоматически браузер открывается по умолчанию с сервером Jupyter, указывающим на домашний каталог проекта. Кроме того, чтобы открыть другие окна браузера локально, можно использовать URL-адрес и маркер из окна интерфейса командной строки. 
 
-![панель мониторинга проекта](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
+![Панель мониторинга проекта](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
 
-Теперь можно щелкнуть файл записной книжки `.ipynb`, открыть его, настроить ядро (если оно не настроено) и запустить интерактивный сеанс.
+Теперь можно выбрать файл записной книжки `.ipynb`, открыть его, настроить ядро (если оно не настроено) и запустить интерактивный сеанс.
 
-![панель мониторинга проекта](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+![Панель мониторинга проекта](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
 
 ## <a name="use-magic-commands-to-manage-experiments"></a>Использование magic-команд для управления экспериментами
 
 Используя [magic-команды](http://ipython.readthedocs.io/en/stable/interactive/magics.html) внутри ячеек записной книжки, можно отслеживать историю выполнения и сохранять выходные данные, например модели или наборы данных.
 
-Для отслеживания отдельных выполнений ячеек записной книжки используйте magic-команду %azureml history on. После включения журнала выполнение каждой ячейки будет отображаться как запись в журнале выполнения.
+Для отслеживания отдельных выполнений ячеек записной книжки используйте magic-команду `%azureml history on`. После включения журнала выполнение каждой ячейки будет отображаться как запись в журнале выполнения.
 
 ```
 %azureml history on
@@ -121,9 +119,9 @@ logger = get_azureml_logger()
 logger.log("Cell","Load Data")
 ```
 
-Чтобы отключить отслеживание выполнения ячеек, используйте magic-команду %azureml history off.
+Чтобы отключить отслеживание выполнения ячеек, используйте magic-команду `%azureml history off`.
 
-Magic-команда %azureml upload позволяет сохранить полученные в результате выполнения файлы моделей и данных. Сохраненные объекты отображаются как выходные данные в представлении журнала выполнения для соответствующего выполнения.
+Magic-команда `%azureml upload` позволяет сохранить полученные в результате выполнения файлы моделей и данных. Сохраненные объекты отображаются как выходные данные в представлении журнала выполнения.
 
 ```
 modelpath = os.path.join("outputs","model.pkl")
@@ -133,9 +131,9 @@ with open(modelpath,"wb") as f:
 ```
 
 >[!NOTE]
->Выходные данные должны сохраняться в папку с именем outputs.
+>Выходные данные должны сохраняться в папку с именем *outputs.*
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Дополнительные сведения об использовании записной книжки Jupyter см. в [официальной документации Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Более подробные сведения о среде выполнения экспериментов Azure ML см. в [обзоре службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
+- Более подробные сведения о среде выполнения службы "Экспериментирование в Машинном обучении" см. в статье [Настройка службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
 

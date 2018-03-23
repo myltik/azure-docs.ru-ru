@@ -1,25 +1,25 @@
 ---
-title: "Асинхронное обновление для моделей Azure Analysis Services | Документация Майкрософт"
-description: "Узнайте, как написать код, выполняющий асинхронное обновление с использованием REST API."
+title: Асинхронное обновление для моделей Azure Analysis Services | Документация Майкрософт
+description: Узнайте, как написать код, выполняющий асинхронное обновление с использованием REST API.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Асинхронное обновление с помощью REST API
 Вы можете задать асинхронное обновление данных в табличных моделях Azure Analysis Services, используя любой язык программирования, с помощью которого можно вызвать REST. Обновление предусматривает также синхронизацию реплик только для чтения для развертывания запросов. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Все вызовы должны проходить проверку подлинности, для чего нужен допустимый токен Azure Active Directory (OAuth 2) в заголовке авторизации, и соответствовать следующим требованиям:
 
 - Токен должен быть пользовательским маркером или субъектом-службой приложения.
-- У пользователя или приложения должно быть достаточно разрешений для сервера или модели, чтобы выполнять запрашиваемые вызовы. Уровень разрешений определяется по ролям в модели или группе администраторов на сервере.
 - У токена должна быть правильная аудитория, а именно `https://*.asazure.windows.net`.
+- У пользователя или приложения должно быть достаточно разрешений для сервера или модели, чтобы выполнять запрашиваемые вызовы. Уровень разрешений определяется по ролям в модели или группе администраторов на сервере.
+
+    > [!IMPORTANT]
+    > В настоящее время требуются разрешения роли **администратора сервера**.
 
 ## <a name="post-refreshes"></a>POST для /refreshes
 

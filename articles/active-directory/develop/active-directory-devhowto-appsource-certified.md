@@ -1,11 +1,11 @@
 ---
-title: "Получение сертификата AppSource для Azure Active Directory | Документация Майкрософт"
-description: "Сведения о получении сертификата AppSource приложения для Azure Active Directory."
+title: Получение сертификата AppSource для Azure Active Directory | Документация Майкрософт
+description: Сведения о получении сертификата AppSource приложения для Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Как получить сертификат AppSource для Azure Active Directory
 С помощью [Microsoft AppSource](https://appsource.microsoft.com/) бизнес-пользователи могут обнаруживать бизнес-приложения SaaS (автономные приложения SaaS и дополнения к имеющимся продуктам SaaS Microsoft), использовать их и управлять ими.
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы включить мультитенантность в приложении, сделайте следующее:
 - Задайте для свойства `Multi-Tenanted` значение `Yes` в сведениях о регистрации приложения на [портале Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (по умолчанию, приложения, созданные на портале Azure, настроены как *приложения с одним клиентом*).
-- Обновите код, чтобы отправлять запросы к конечной точке `common` (измените конечную точку с *https://login.microsoftonline.com/{ваш_клиент}* на *https://login.microsoftonline.com/common*).
+- Обновите код, чтобы отправлять запросы к конечной точке `common` (измените конечную точку *https://login.microsoftonline.com/{yourtenant}* на *https://login.microsoftonline.com/common*).
 - Для некоторых платформ, например ASP.NET, необходимо также обновить код, чтобы принимать нескольких издателей.
 
 Дополнительные сведения о мультитенантности см. в статье [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения](./active-directory-devhowto-multi-tenant-overview.md).

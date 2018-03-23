@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB. Справочник по синтаксису запроса SQL | Документация Майкрософт"
-description: "Справочная документация по языку SQL-запросов в Azure Cosmos DB."
+title: Azure Cosmos DB. Справочник по синтаксису запроса SQL | Документация Майкрософт
+description: Справочная документация по языку SQL-запросов в Azure Cosmos DB.
 services: cosmos-db
 author: LalithaMV
 manager: jhubbard
 editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -465,7 +465,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Представляет значение указанного имени параметра. Имена параметров должны начинаться со знака "@".  
+     Представляет значение указанного имени параметра. Имена параметров должны начинаться со знака "\@\".  
   
  **Примечания**  
   

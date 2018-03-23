@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с Хранилищем таблиц Azure с помощью Python | Документация Майкрософт"
-description: "Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
+title: Начало работы с Хранилищем таблиц Azure с помощью Python | Документация Майкрософт
+description: Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL).
 services: cosmos-db
 documentationcenter: python
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Начало работы с Хранилищем таблиц Azure с помощью Python
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/14/2018
 Для работы с этим руководством требуются следующие компоненты.
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 или 3.6.
-- [Пакет SDK таблиц Azure Cosmos DB 1.01 для Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Этот пакет SDK подключается к Хранилищу таблиц Azure и API таблиц Azure Cosmos DB.
+- [Пакет SDK таблиц Azure Cosmos DB для Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Этот пакет SDK подключается к Хранилищу таблиц Azure и API таблиц Azure Cosmos DB.
 - [Учетная запись хранения Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) или [учетная запись Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/).
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]

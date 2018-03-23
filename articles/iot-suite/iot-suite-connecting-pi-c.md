@@ -1,25 +1,25 @@
 ---
-title: "Подготовка устройства Raspberry Pi к удаленному мониторингу с помощью C в Azure | Документация Майкрософт"
-description: "В этой статье описывается, как подключить устройство Raspberry Pi к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения, написанного на C."
+title: Подготовка устройства Raspberry Pi к удаленному мониторингу с помощью C в Azure | Документация Майкрософт
+description: В этой статье описывается, как подключить устройство Raspberry Pi к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения, написанного на C.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Подключение устройства Raspberry Pi к предварительно настроенному решению для удаленного мониторинга (C)
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/03/2018
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

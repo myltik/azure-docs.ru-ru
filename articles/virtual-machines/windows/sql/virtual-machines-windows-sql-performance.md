@@ -1,11 +1,11 @@
 ---
-title: "Рекомендации по производительности для SQL Server в Azure | Документы Майкрософт"
-description: "Содержит рекомендации по оптимизации производительности SQL Server в виртуальных машинах Microsoft Azure."
+title: Рекомендации по производительности для SQL Server в Azure | Документы Майкрософт
+description: Содержит рекомендации по оптимизации производительности SQL Server в виртуальных машинах Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure
 
@@ -171,4 +171,4 @@ ms.lasthandoff: 02/21/2018
 
 Рекомендации по безопасности см. в статье [Вопросы безопасности SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-security.md).
 
-Ознакомьтесь с другими статьями, посвященными виртуальным машинам SQL Server, используя руководство с [обзором SQL Server на виртуальных машинах с Windows](virtual-machines-windows-sql-server-iaas-overview.md).
+Ознакомьтесь с другими статьями, посвященными виртуальным машинам SQL Server, используя руководство с [обзором SQL Server на виртуальных машинах с Windows](virtual-machines-windows-sql-server-iaas-overview.md). Если у вас есть вопросы по виртуальным машинам SQL Server, см. раздел [часто задаваемых вопросов](virtual-machines-windows-sql-server-iaas-faq.md).

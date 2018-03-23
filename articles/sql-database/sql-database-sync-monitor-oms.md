@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics | Документация Майкрософт"
-description: "Узнайте, как выполнять мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics"
+title: Мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics | Документация Майкрософт
+description: Узнайте, как выполнять мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be1423026af633ab024980dc6b12b0977639ba3a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Мониторинг синхронизации данных SQL (предварительная версия) с помощью OMS Log Analytics 
 

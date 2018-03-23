@@ -1,24 +1,24 @@
 ---
-title: "Часто задаваемые вопросы о службе \"Управление затратами Azure\" | Документация Майкрософт"
-description: "Ответы на распространенные вопросы о службе \"Управление затратами Azure\"."
+title: Часто задаваемые вопросы о службе "Управление затратами Azure" | Документация Майкрософт
+description: Ответы на распространенные вопросы о службе "Управление затратами Azure".
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Часто задаваемые вопросы о службе "Управление затратами Azure"
 
-В этой статье рассматриваются некоторые распространенные вопросы о службе "Управление затратами Azure" (также известной как Cloudyn). Если у вас есть вопросы о службе "Управление затратами", их можно задать на странице [часто задаваемых вопросов о службе "Управление затратами Azure" от Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+В этой статье рассматриваются некоторые распространенные вопросы о службе "Управление затратами Azure" (также известной как Cloudyn). Если у вас есть вопросы о службе "Управление затратами", их можно задать на странице [часто задаваемых вопросов о службе "Управление затратами Azure"](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Как можно устранить ошибки, связанные с корпоративной настройкой через посредника?
 

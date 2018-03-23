@@ -1,8 +1,8 @@
 ---
-title: "Использование инструментов Azure Stream Analytics для Visual Studio | Документация Майкрософт"
-description: "Руководство по началу работы с инструментами Azure Stream Analytics для Visual Studio."
+title: Использование инструментов Azure Stream Analytics для Visual Studio | Документация Майкрософт
+description: Руководство по началу работы с инструментами Azure Stream Analytics для Visual Studio.
 keywords: Visual Studio
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: jhubbard
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Использование инструментов Azure Stream Analytics для Visual Studio
 Выпущена общедоступная версия инструментов Azure Stream Analytics для Visual Studio. Эти инструменты расширяют возможности пользователя Stream Analytics для устранения неполадок, а также позволяют создавать сложные запросы и даже записывать их на локальный компьютер. Кроме того, можно экспортировать задание Stream Analytics в проект Visual Studio.
 
 ## <a name="introduction"></a>Введение
-В этом руководстве вы узнаете, как использовать средства Stream Analytics для Visual Studio для создания, разработки, локального тестирования, отладки заданий Stream Analytics и управления ими. 
+В этом руководстве вы узнаете, как использовать средства Stream Analytics для Visual Studio для создания, разработки, локального тестирования, отладки заданий Stream Analytics и управления ими. С помощью пакета Nuget для непрерывной интеграции и непрерывного развертывания после создания задания можно настроить процесс непрерывной интеграции и развертывания в Azure. Дополнительные сведения см. в статье [Использование средств Stream Analytics Visual Studio для настройки процессов непрерывной интеграции и непрерывного развертывания](stream-analytics-tools-for-visual-studio-cicd.md) статьи.
 
 После работы с этим учебником вы сможете выполнить следующие задачи:
 

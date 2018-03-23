@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных в базу данных Azure Cosmos DB и из нее с помощью фабрики данных | Документация Майкрософт"
-description: "Узнайте, как копировать данные из поддерживаемых исходных хранилищ данных в Azure Cosmos DB или из Cosmos DB в поддерживаемые хранилища-приемники с помощью фабрики данных."
+title: Копирование данных в базу данных Azure Cosmos DB и из нее с помощью фабрики данных | Документация Майкрософт
+description: Узнайте, как копировать данные из поддерживаемых исходных хранилищ данных в Azure Cosmos DB или из Cosmos DB в поддерживаемые хранилища-приемники с помощью фабрики данных.
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Копирование данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 02/09/2018
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure DB Cosmos в качестве приемника
 
-Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип приемника **DocumentDbCollectionSink**. В разделе **source** действия копирования поддерживаются следующие свойства:
+Чтобы скопировать данные в Azure Cosmos DB, в действии копирования задайте тип приемника **DocumentDbCollectionSink**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |

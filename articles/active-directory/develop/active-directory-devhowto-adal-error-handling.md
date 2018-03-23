@@ -1,8 +1,8 @@
 ---
-title: "Руководство по обработке ошибок для клиентов библиотеки аутентификации Active Directory (ADAL)"
-description: "Здесь содержатся инструкции по обработке ошибок и рекомендации для клиентских приложений ADAL."
+title: Руководство по обработке ошибок для клиентов библиотеки аутентификации Active Directory (ADAL)
+description: Здесь содержатся инструкции по обработке ошибок и рекомендации для клиентских приложений ADAL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
 ms.author: bryanla
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
-ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 02/27/2017
+ms.custom: ''
+ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Руководство по обработке ошибок для клиентов библиотеки аутентификации Active Directory (ADAL)
 
@@ -479,6 +479,9 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>Справочник по ведению журнала и ошибкам
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Регистрация личных и корпоративных сведений
+По умолчанию при ведении журнала ADAL не записываются личные или корпоративные сведения. Библиотека позволяет разработчикам приложений включить их запись с помощью метода задания в классе Logger. При включении записи личных или корпоративных сведений приложение берет на себя ответственность за безопасную обработку конфиденциальных данных и соблюдение нормативных требований.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Библиотека ошибок ADAL
@@ -487,7 +490,7 @@ catch (AdalException e) {
 
 #### <a name="guidance-for-error-logging-code"></a>Рекомендации по коду ведения журнала ошибок
 
-Изменения ведения журнала ADAL .NET зависят от используемой платформы. Дополнительные сведения о включении ведения журнала для кода см. в документации о [ведении журнала](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics).
+Изменения ведения журнала ADAL .NET зависят от используемой платформы. Код для включения ведения журнала приведен на [вики-сайте о ведении журнала](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net).
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ catch (AdalException e) {
 
 #### <a name="operating-system-errors"></a>Ошибки операционной системы
 
-Ошибки ОС Android обнаруживаются через AuthenticationException в ADAL, определяются как SERVER_INVALID_REQUEST и в описании ошибок о них можно получить дополнительные сведения. Есть два выделенных сообщения, которые приложение может показать в пользовательском интерфейсе:
+Ошибки ОС Android обнаруживаются через AuthenticationException в ADAL, определяются как SERVER_INVALID_REQUEST и в описании ошибок о них можно получить дополнительные сведения. 
 
-- Ошибки SSL 
-  - [Пользователь применяет Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue).
-  - [В цепочке сертификатов один из сертификатов отмечен как элемент для дополнительного скачивания (пользователю нужно обратится к ИТ-администратору)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929).
-  - Устройство не доверяет корневому ЦС. Обратитесь к ИТ-администратору. 
-- Ошибки, связанные с сетью 
-  - [При проблеме сети, потенциально связанной с проверкой SSL-сертификата](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), может быть выполнена одна попытка повтора.
+Полный список распространенных ошибок в работе приложений и пользователей, а также действия по их устранению можно найти на [вики-сайте ADAL для Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Рекомендации по коду ведения журнала ошибок
 
@@ -521,6 +519,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";

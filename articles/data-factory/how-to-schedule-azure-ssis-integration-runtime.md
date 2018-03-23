@@ -1,23 +1,23 @@
 ---
-title: "Как планировать среду выполнения интеграции Azure SSIS | Документация Майкрософт"
-description: "В этой статье описан процесс планирования запуска и остановки среды выполнения интеграции Azure SSIS с использованием службы автоматизации Azure и фабрики данных."
+title: Как планировать среду выполнения интеграции Azure SSIS | Документация Майкрософт
+description: В этой статье описан процесс планирования запуска и остановки среды выполнения интеграции Azure SSIS с использованием службы автоматизации Azure и фабрики данных.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Как планировать запуск и остановку среды выполнения интеграции Azure SSIS 
 Запуск среды выполнения интеграции (IR) Azure SSIS (SQL Server Integration Services) связан с издержками. Поэтому следует запускать IR только в том случае, когда требуется выполнение пакетов SSIS в Azure, и останавливать ее при ненадобности. Вы можете [запустить или остановить IR Azure SSIS вручную](manage-azure-ssis-integration-runtime.md) с помощью пользовательского интерфейса фабрики данных или Azure PowerShell. В этой статье описан процесс планирования запуска и остановки IR Azure SSIS с помощью службы автоматизации Azure и фабрики данных Azure. Ниже приведены общие шаги, описанные в этой статье:
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/28/2018
 1. **Создание и тестирование модуля runbook службы автоматизации Azure.** На этом шаге с помощью скрипта, который запускает или останавливает IR Azure SSIS, создается модуль runbook PowerShell. Затем необходимо протестировать runbook в сценариях START и STOP и убедиться в том, что IR запускается или останавливается. 
 2. **Создание двух расписаний для runbook.** Для первого расписания вы настраиваете runbook, используя START в качестве значения для операции. Для второго расписания вы настраиваете runbook, используя STOP в качестве значения для операции. Для обоих расписаний укажите периодичность, с которой выполняется runbook. Например, можно запланировать запуск первого расписания на 8:00 ежедневно, а второго — 23:00 ежедневно. При выполнении первого runbook среда IR Azure SSIS запускается. При выполнении второго runbook среда IR Azure SSIS останавливается. 
 3. **Создание двух веб-перехватчиков для runbook** — один для операции START, а другой для операции STOP. Используйте URL-адреса этих веб-перехватчиков при настройке веб-действий в конвейере фабрики данных. 
-4. **Создание конвейера фабрики данных.** Конвейер, который вы создаете, состоит из четырех действий. Первое **веб-**действие заставляет первый веб-перехватчик запустить IR Azure SSIS. Действие **ожидания** ожидает запуска IR Azure SSIS 30 минут (1800 секунд). Действие **хранимой процедуры** выполняет скрипт SQL, который запускает пакет SSIS. Второе **веб-**действие останавливает IR Azure SSIS. Дополнительные сведения о вызове пакета SSIS из конвейера фабрики данных с помощью действия хранимой процедуры см. в [этой статье](how-to-invoke-ssis-package-stored-procedure-activity.md). Затем вы создадите триггер расписания, чтобы запланировать запуск конвейера с указанной периодичностью.
+4. **Создание конвейера фабрики данных.** Конвейер, который вы создаете, состоит из трех действий. Первое **веб-**действие заставляет первый веб-перехватчик запустить IR Azure SSIS. Действие **хранимой процедуры** выполняет скрипт SQL, который запускает пакет SSIS. Второе **веб-**действие останавливает IR Azure SSIS. Дополнительные сведения о вызове пакета SSIS из конвейера фабрики данных с помощью действия хранимой процедуры см. в [этой статье](how-to-invoke-ssis-package-stored-procedure-activity.md). Затем вы создадите триггер расписания, чтобы запланировать запуск конвейера с указанной периодичностью.
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете версию 1 службы "Фабрика данных", которая является общедоступной, ознакомьтесь [с этой статьей](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ ms.lasthandoff: 02/28/2018
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Создание и планирование конвейера фабрики данных, который запускает или останавливает IR
 В этом разделе показано, как использовать веб-действие для вызова веб-перехватчиков, созданных в предыдущем разделе.
 
-Конвейер, который вы создаете, состоит из четырех действий. 
+Конвейер, который вы создаете, состоит из трех действий. 
 
 1. Первое **веб-**действие заставляет первый веб-перехватчик запустить IR Azure SSIS. 
-2. Действие **ожидания** ожидает запуска IR Azure SSIS 30 минут (1800 секунд). 
-3. Действие **хранимой процедуры** выполняет скрипт SQL, который запускает пакет SSIS. Второе **веб-**действие останавливает IR Azure SSIS. Дополнительные сведения о вызове пакета SSIS из конвейера фабрики данных с помощью действия хранимой процедуры см. в [этой статье](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. Второе **веб-**действие заставляет веб-перехватчик остановить IR Azure SSIS. 
+2. Действие **хранимой процедуры** выполняет скрипт SQL, который запускает пакет SSIS. Второе **веб-**действие останавливает IR Azure SSIS. Дополнительные сведения о вызове пакета SSIS из конвейера фабрики данных с помощью действия хранимой процедуры см. в [этой статье](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. Второе **веб-**действие заставляет веб-перехватчик остановить IR Azure SSIS. 
 
 После создания и тестирования конвейера необходимо создать триггер расписания и связать его с конвейером. Триггер расписания определяет расписание для конвейера. Предположим, что вы создали триггер, запуск которого запланирован ежедневно в 23:00. Триггер выполняет конвейер в 23:00 ежедневно. Конвейер запускает IR Azure SSIS, выполняет пакет SSIS и останавливает IR Azure SSIS. 
 
@@ -279,11 +278,6 @@ ms.lasthandoff: 02/28/2018
     3. В поле **Текст** введите `{"message":"hello world"}`. 
    
         ![Первое веб-действие — вкладка "Настройки"](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. На панели элементов **Действия** разверните **Iteration & Conditions** (Итерация и условия), а затем перетащите действие **ожидания** в область конструктора конвейера. На вкладке **Общие** измените имя действия на **WaitFor30Minutes**. 
-5. Перейдите на вкладку **Настройки** в окне **Свойства**. В поле **Wait time in seconds** (Время ожидания в секундах) введите **1800**. 
-6. Подключите **веб-**действие и действие **ожидания**. Чтобы подключить их, начните перетаскивать зеленый квадрат, прилегающий к веб-действию, к действию ожидания. 
-
-    ![Соединение веб-действия и действия ожидания](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Перетащите действие хранимой процедуры из раздела **Общие** панели элементов **Действия**. Для имени действия задайте значение **RunSSISPackage**. 
 6. Перейдите на вкладку **Учетная запись SQL** в окне **Свойства**. 
 7. Для параметра **Связанная служба** щелкните **+ Создать**.
@@ -296,7 +290,7 @@ ms.lasthandoff: 02/28/2018
     5. В поле **Пароль** введите пароль для этого пользователя. 
     6. Проверьте подключение к базе данных, нажав кнопку **Проверить соединение**.
     7. Сохраните связанную службу, нажав кнопку **Сохранить**.
-1. В окне **Свойства** перейдите из вкладки **Учетная запись SQL** на вкладку **Хранимая процедура** и сделайте следующее: 
+9. В окне **Свойства** перейдите из вкладки **Учетная запись SQL** на вкладку **Хранимая процедура** и сделайте следующее: 
 
     1. Для поля **Имя хранимой процедуры** выберите параметр **Изменить** и введите **sp_executesql**. 
     2. Выберите **+ Создать** в разделе **Параметры хранимой процедуры**. 
@@ -307,12 +301,37 @@ ms.lasthandoff: 02/28/2018
         В SQL-запросе укажите правильные значения для параметров **folder_name**, **project_name** и **package_name**. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Подключите действие **ожидания** к действию **хранимой процедуры**. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Соединение действий ожидания и хранимой процедуры](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Перетащите **веб-**действие в область справа от действия **хранимой процедуры**. Для имени действия задайте значение **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Свяжите действия **Веб-действие** и **Хранимая процедура**. 
+
+    ![Связывание действий "Веб-действие" и "Хранимая процедура"](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Перетащите другое действие **Веб-действие** в область справа от действия **Хранимая процедура**. Для имени действия задайте значение **StopIR**. 
 12. Перейдите на вкладку **Настройки** в окне **Свойства** и сделайте следующее: 
 
     1. В поле **URL-адрес** вставьте URL-адрес для веб-перехватчика, который останавливает IR Azure SSIS. 
@@ -372,7 +391,7 @@ ms.lasthandoff: 02/28/2018
 6. Отслеживайте запуски триггера и конвейера на вкладке **Мониторинг** в левой части экрана. Подробные инструкции см. в разделе [Мониторинг конвейера](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Запуски конвейера](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Чтобы просмотреть выполнения действий, связанные с запуском конвейера, щелкните первую ссылку (**View Activity Runs** (Просмотр запусков действий)) в столбце **Действия**. Вы увидите четыре выполнения действий, связанные с каждым действием в конвейере (первое веб-действие, действие ожидания, действие хранимой процедуры, второе веб-действие). Чтобы вернуться к просмотру запусков конвейера, выберите ссылку **Конвейеры** в верхней части окна.
+7. Чтобы просмотреть выполнения действий, связанные с запуском конвейера, щелкните первую ссылку (**View Activity Runs** (Просмотр запусков действий)) в столбце **Действия**. Вы увидите три выполнения действий, связанные с каждым действием в конвейере (первое веб-действие, действие хранимой процедуры и второе веб-действие). Чтобы вернуться к просмотру запусков конвейера, выберите ссылку **Конвейеры** в верхней части окна.
 
     ![Выполнение действия](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Запуски триггера можно также просмотреть, выбрав пункт списка **Trigger runs** (Запуски триггера) из раскрывающегося списка рядом с пунктом **Pipeline Runs** (Запуски конвейера) в верхней части экрана. 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C. Добавление LinkedIn в качестве поставщика удостоверений OAuth2 с помощью пользовательских политик"
-description: "В статье описывается настройка приложения LinkedIn с помощью протокола OAuth2 и пользовательских политик."
+title: Azure Active Directory B2C. Добавление LinkedIn в качестве поставщика удостоверений OAuth2 с помощью пользовательских политик
+description: В статье описывается настройка приложения LinkedIn с помощью протокола OAuth2 и пользовательских политик.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C. Добавление LinkedIn в качестве поставщика удостоверений с помощью пользовательских политик
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/11/2017
 
     c. Выберите значение для **Application Use** (Использование приложения).
 
-    d. В поле **Website URL** (URL-адрес веб-сайта) вставьте **https://login.microsoftonline.com**.
+    d. В поле **URL-адрес веб-сайта** вставьте **https://login.microsoftonline.com**.
 
     д. Введите значения в поля **Business email** (Рабочий адрес электронной почты) и **Business Phone** (Рабочий телефон).
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 
 3. Выберите значение для параметра **Authentication** (Аутентификация) и запишите значения **Client ID** (Идентификатор клиента) и **Client Secret** (Секрет клиента).
 
-4. В поле **Authorized Redirect URLs** (Авторизованные URL-адреса перенаправления) вставьте значение **https://login.microsoftonline.com/te/{клиент}.onmicrosoft.com/oauth2/authresp**. Замените заполнитель {*клиент*} именем своего клиента (например, contosob2c.onmicrosoft.com). Убедитесь, что используете схему HTTPS. 
+4. В поле **Авторизованные URL-адреса перенаправления** вставьте **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Замените заполнитель {*клиент*} именем своего клиента (например, contosob2c.onmicrosoft.com). Убедитесь, что используете схему HTTPS. 
 
     ![Учетная запись LinkedIn — настройка авторизованных URL-адресов перенаправления](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

@@ -1,13 +1,13 @@
 ---
-title: "Использование внутренней службы DNS для разрешения имен виртуальных машин с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "Как создать виртуальные сетевые карты и использовать внутренние DNS-имена для разрешения имен виртуальных машин в Azure с помощью Azure CLI 2.0."
+title: Использование внутренней службы DNS для разрешения имен виртуальных машин с помощью Azure CLI 2.0 | Документация Майкрософт
+description: Как создать виртуальные сетевые карты и использовать внутренние DNS-имена для разрешения имен виртуальных машин в Azure с помощью Azure CLI 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: fd85ab12a552f83a407dfeeca7ee455dcf731989
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Создание виртуальных сетевых карт и использование внутренних DNS-имен для разрешения имен виртуальных машин в Azure
 В этой статье показано, как задать статические внутренние DNS-имена для виртуальных машин Linux, использующих виртуальные сетевые карты и DNS-имена меток, с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Статические имена DNS используются для постоянных инфраструктурных служб, таких как сервер сборки Jenkins, который используется для этого поддержания документа, или сервер Git.
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 * [файлы открытого и закрытого ключа SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Быстрые команды
-Если вам необходимо быстро выполнить задачу, в следующем разделе описаны нужные команды. Дополнительные сведения и контекст для каждого этапа можно найти в остальной части документа, [начиная отсюда](#detailed-walkthrough). Чтобы выполнить эти действия, нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#az_login).
+Если вам необходимо быстро выполнить задачу, в следующем разделе описаны нужные команды. Дополнительные сведения и контекст для каждого этапа можно найти в остальной части документа, [начиная отсюда](#detailed-walkthrough). Чтобы выполнить эти действия, нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/reference-index#az_login).
 
 Предварительные требования: группа ресурсов, виртуальная сеть и подсеть, группа безопасности сети с разрешенными входящими подключениями SSH.
 
@@ -76,7 +76,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Создание виртуальной сети
 
-Следующий шаг — создание виртуальной сети Azure для запуска виртуальных машин. Для этого пошагового руководства виртуальная сеть содержит одну подсеть. Дополнительные сведения о виртуальных сетях Azure см. в статье [Создание виртуальной сети с помощью интерфейса командной строки Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Следующий шаг — создание виртуальной сети Azure для запуска виртуальных машин. Для этого пошагового руководства виртуальная сеть содержит одну подсеть. Дополнительные сведения о виртуальных сетях Azure см. в разделе о [создании виртуальной сети](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
 Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). В следующем примере создается виртуальная сеть `myVnet` и подсеть `mySubnet`.
 

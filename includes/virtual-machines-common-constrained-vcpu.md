@@ -15,6 +15,11 @@
 | Standard_M64-16ms   | 16   | Совпадает с M64ms   |
 | Standard_M128-64ms  | 64   | Совпадает с M128ms  |
 | Standard_M128-32ms  | 32   | Совпадает с M128ms  |
+| Standard_E4-2s_v3   | 2    | Как и для E4s_v3  |
+| Standard_E8-4s_v3   | 4.    | Как и для E8s_v3  |
+| Standard_E8-2s_v3   | 2    | Как и для E8s_v3  |
+| Standard_E16-8s_v3  | 8    | Как и для E16s_v3 |
+| Standard_E16-4s_v3  | 4.    | Как и для E16s_v3 |
 | Standard_E32-16_v3  | 16   | Совпадает с E32s_v3 |
 | Standard_E32-8s_v3  | 8    | Совпадает с E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Совпадает с E64s_v3 |
@@ -23,6 +28,9 @@
 | Standard_GS4-4      | 4.    | Совпадает с GS4     |
 | Standard_GS5-16     | 16   | Совпадает с GS5     |
 | Standard_GS5-8      | 8    | Совпадает с GS5     |
+| Standard_DS11-1_v2  | 1    | Как и для DS11_v2 |
+| Standard_DS12-2_v2  | 2    | Как и для DS12_v2 |
+| Standard_DS12-1_v2  | 1    | Как и для DS12_v2 |
 | Standard_DS13-4_v2  | 4.    | Совпадает с DS13_v2 |
 | Standard_DS13-2_v2  | 2    | Совпадает с DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Совпадает с DS14_v2 |

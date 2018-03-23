@@ -1,11 +1,11 @@
 ---
-title: "Технические компоненты, необходимые для создания шаблона решения для Marketplace | Документация Майкрософт"
-description: "Общие сведения о требованиях к созданию шаблона решения для развертывания и продажи в Azure Marketplace"
+title: Технические компоненты, необходимые для создания шаблона решения для Marketplace | Документация Майкрософт
+description: Общие сведения о требованиях к созданию шаблона решения для развертывания и продажи в Azure Marketplace
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.author: mbaldwin
+ms.openlocfilehash: 4de9f66b4632f2573299757b2e40fae65f86f7d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Технические компоненты, необходимые для создания шаблона решения для Azure Marketplace
 Прежде чем начать работу, внимательно прочтите описание и разберитесь, где и зачем выполняется каждый шаг. Постарайтесь подготовить максимально подробные сведения о своей компании и другие данные, загрузить необходимые средства и/или создать технические компоненты до того, как начнете создавать предложение.  
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/01/2018
 
 1. [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 2. Шаблоны быстрого запуска Azure:
-   * [https://azure.microsoft.com/ru-ru/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
+   * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## <a name="next-steps"></a>Дополнительная информация

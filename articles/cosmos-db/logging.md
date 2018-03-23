@@ -1,24 +1,24 @@
 ---
-title: "Журнал ведения диагностики Azure Cosmos DB | Документация Майкрософт"
-description: "Это руководство поможет вам приступить к работе с журналами Azure Cosmos DB."
+title: Журнал ведения диагностики Azure Cosmos DB | Документация Майкрософт
+description: Это руководство поможет вам приступить к работе с журналами Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Журнал ведения диагностики Azure Cosmos DB
 
@@ -31,6 +31,13 @@ ms.lasthandoff: 02/22/2018
 На следующем изображении показаны различные виды доступных журналов Azure.
 
 ![Различные виды журналов Azure](./media/logging/azurelogging.png)
+
+На приведенном выше рисунке **вычислительные ресурсы** представляют ресурсы Azure, для которых можно получить доступ к гостевой ОС. Например, к вычислительным ресурсам относятся виртуальные машины Azure, масштабируемые наборы виртуальных машин, Служба контейнеров Azure и пр. Для вычислительных ресурсов создаются журналы действий, журналы диагностики и журналы приложений. Чтобы получить дополнительные сведения, ознакомьтесь с разделом [Источники данных Azure Monitor. Подмножество вычислений](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
+
+**Невычислительными** считаются ресурсы, которые не позволяют обратиться к базовой ОС, и вы работаете непосредственно с ресурсом. Например, группы безопасности сети, Logic Apps и т. п. **Cosmos DB** — это невычислительный ресурс. Журналы для невычислительных ресурсов можно просмотреть в журнале действий. Можно также включить параметр "Журналы диагностики" на портале. Чтобы получить дополнительные сведения, ознакомьтесь с разделом [Остальные источники данных Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+
+В журнале действий регистрируются операции на уровне подписки для Cosmos DB. В него записываются такие операции, как ListKeys, Write DatabaseAccounts и т. д. Журналы диагностики содержат более подробные сведения. В них можно записывать операции DataPlaneRequests (Create, Read, Query и т. д.) и MongoRequests.
+
 
 В рамках этой статьи рассматриваются такие журналы: журнал действий Azure, журнал диагностики Azure и метрики. Далее описаны различия трех этих журналов. 
 

@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных из Salesforce и в Salesforce с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как копировать данные из Salesforce в поддерживаемые приемники данных или из поддерживаемых источников данных в Salesforce с помощью действия копирования в конвейере фабрики данных."
+title: Копирование данных из Salesforce и в Salesforce с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как копировать данные из Salesforce в поддерживаемые приемники данных или из поддерживаемых источников данных в Salesforce с помощью действия копирования в конвейере фабрики данных.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -286,8 +286,8 @@ ms.lasthandoff: 02/27/2018
 
 Чтобы запросить из корзины Salesforce обратимо удаленные записи, укажите в своем запросе **"IsDeleted = 1"**. Например: 
 
-* Чтобы запросить только удаленные записи, укажите "select from MyTable__c **where IsDeleted= 1**".
-* Чтобы запросить все записи, включая существующие и удаленные, укажите "select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
+* Чтобы запросить только удаленные записи, укажите "select \* from MyTable__c **where IsDeleted= 1**".
+* Чтобы запросить все записи, включая существующие и удаленные, укажите "select \* from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Извлечение данных с использованием предложения where для столбца даты и времени
 

@@ -1,11 +1,11 @@
 ---
-title: "Создание веб-приложения Java в службе приложений Azure в Linux"
-description: "Быстрое развертывание первого приложения Hello World на Java в службе приложений Azure в Linux."
+title: Создание веб-приложения Java в службе приложений Azure в Linux
+description: Быстрое развертывание первого приложения Hello World на Java в службе приложений Azure в Linux.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: msangapu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 46c97ae5bd6f53857f0b7df12462102a03e8e857
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c37151c09c7b180993056532c07ff081f576b83
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>Создание веб-приложения Java в службе приложений Azure в Linux (предварительная версия)
 
@@ -50,19 +50,7 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## <a name="create-a-resource-group"></a>Создание группы ресурсов
-
-В Cloud Shell создайте группу ресурсов с помощью команды [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *Западная Европа*. Чтобы просмотреть все поддерживаемые расположения для службы приложений, выполните команду [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-Обычно группа ресурсов и ресурсы создаются в ближайших регионах. 
-
-По завершении команды в выходных данных JSON будут отображаться свойства группы ресурсов.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 

@@ -1,11 +1,11 @@
 ---
-title: "Масштабирование обработки мультимедиа с помощью портала Azure | Документация Майкрософт"
-description: "В этом руководстве описывается, как масштабировать обработку данных мультимедиа с помощью портала Azure."
+title: Масштабирование обработки мультимедиа с помощью портала Azure | Документация Майкрософт
+description: В этом руководстве описывается, как масштабировать обработку данных мультимедиа с помощью портала Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Изменение типа зарезервированных единиц
 > [!div class="op_single_selector"]
@@ -54,11 +54,10 @@ ms.lasthandoff: 12/21/2017
 1. Выберите учетную запись служб мультимедиа Azure на [портале Azure](https://portal.azure.com/).
 2. В окне **Параметры** выберите **Зарезервированные единицы мультимедиа**.
    
-    Чтобы изменить число зарезервированных единиц для выбранного типа зарезервированных единиц, используйте ползунок **Media Served Units** (Зарезервированные единицы мультимедиа).
+    Чтобы изменить число зарезервированных единиц для выбранного типа зарезервированных единиц, используйте ползунок **Media Served Units** (Зарезервированные единицы мультимедиа) в верху экрана.
    
-    Чтобы изменить **ТИП ЗАРЕЗЕРВИРОВАННЫХ ЕДИНИЦ**, выберите S1, S2 или S3.
+    Чтобы изменить параметр **ТИП ЗАРЕЗЕРВИРОВАННЫХ ЕДИНИЦ**, щелкните строку **Скорость зарезервированных единиц обработки**. Затем выберите нужную ценовую категорию: S1, S2 или S3.
    
-    ![Страница "Процессоры"](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Нажмите кнопку СОХРАНИТЬ, чтобы сохранить изменения.
    
     Новые зарезервированные единицы выделяются сразу после нажатия кнопки "СОХРАНИТЬ".

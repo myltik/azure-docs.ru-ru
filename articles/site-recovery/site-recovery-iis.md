@@ -1,34 +1,20 @@
 ---
-title: "Репликация многоуровневого веб-приложения на основе IIS с помощью Azure Site Recovery | Документация Майкрософт"
-description: "Узнайте, как реплицировать виртуальные машины веб-фермы IIS с помощью Azure Site Recovery."
+title: Репликация многоуровневого веб-приложения на основе IIS с помощью Azure Site Recovery | Документация Майкрософт
+description: Узнайте, как реплицировать виртуальные машины веб-фермы IIS с помощью Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-<<<<<<< HEAD
-ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
-=======
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
->>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Репликация многоуровневого веб-приложения на основе IIS с помощью Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Репликация многоуровневого веб-приложения на основе IIS
 
 Программные средства являются механизмом обеспечения эффективности бизнес-операций в организации. Разные веб-приложения используются для различных целей. Некоторые приложения, например приложения обработки платежных ведомостей, финансовые приложения и сайты для обслуживания клиентов, очень важны для деятельности организации. Чтобы избежать потери производительности, необходимо постоянно поддерживать их работу. Более того, постоянная доступность этих приложений позволяет сохранить репутацию организации.
 
@@ -44,19 +30,11 @@ ms.lasthandoff: 02/24/2018
 
 Прежде чем начать, необходимо знать, как выполнять следующие задачи:
 
-<<<<<<< HEAD
-* [Реплицирование виртуальной машины в Azure](site-recovery-vmware-to-azure.md).
-* [Проектирование сети для аварийного восстановления](site-recovery-network-design.md).
-* [Выполнение тестовой отработки отказа в Azure](site-recovery-test-failover-to-azure.md).
-* [Выполнение отработки отказа в Azure](site-recovery-failover.md).
-* [Реплицирование контроллера домена](site-recovery-active-directory.md).
-=======
-* [Репликация виртуальной машины в Azure](site-recovery-vmware-to-azure.md).
+* [Репликация виртуальной машины в Azure](vmware-azure-tutorial.md).
 * [Проектирование сети для аварийного восстановления](site-recovery-network-design.md).
 * [Выполнение тестовой отработки отказа в Azure](site-recovery-test-failover-to-azure.md).
 * [Выполнение отработки отказа в Azure](site-recovery-failover.md).
 * [Репликация контроллера домена](site-recovery-active-directory.md).
->>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
 * [Репликация SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Модели развертывания
@@ -91,7 +69,7 @@ VMware | Yes | Yes
 
 Чтобы реплицировать все виртуальные машины веб-фермы IIS в Azure, следуйте рекомендациям статьи [Тестовая отработка отказа в Azure с помощью Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Если используется статический IP-адрес, вы можете указать нужный IP-адрес для виртуальной машины. Чтобы задать IP-адрес, откройте раздел **Compute and Network** (Вычисления и сеть) > [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) (Целевой IP-адрес).
+Если используется статический IP-адрес, вы можете указать нужный IP-адрес для виртуальной машины. Чтобы задать IP-адрес, откройте раздел **Compute and Network** (Вычисления и сеть)  >  **TARGET IP** (Целевой IP-адрес).
 
 ![Снимок экрана, на котором показано, как задать целевой IP-адрес в области вычислений и сети Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

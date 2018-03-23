@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о модели программирования Service Fabric Reliable Services | Документация Майкрософт"
-description: "Сведения о модели программирования надежных служб Service Fabric, позволяющие приступить к написанию собственных служб."
+title: Общие сведения о модели программирования Service Fabric Reliable Services | Документация Майкрософт
+description: Сведения о модели программирования надежных служб Service Fabric, позволяющие приступить к написанию собственных служб.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Обзор надежных служб
 Платформа Azure Service Fabric упрощает написание надежных служб с отслеживанием и без отслеживания состояния и управление такими службами. В этой статье рассматриваются следующие вопросы.
@@ -34,7 +34,7 @@ Service Fabric управляет временем существования с
 ## <a name="what-are-reliable-services"></a>Что такое надежные службы?
 Надежные службы — это простая, мощная, верхнеуровневая модель программирования, открывающая широкие и гибкие возможности для разработки приложений. С помощью модели программирования надежных служб вы получаете такие возможности:
 
-* Доступ к остальным программным интерфейсам API платформы Service Fabric. В отличие от служб Service Fabric, смоделированных в виде [гостевых исполняемых файлов](service-fabric-deploy-existing-app.md), Reliable Services напрямую использует остальные API-интерфейсы платформы Service Fabric. Это дает службам такие возможности:
+* Доступ к остальным программным интерфейсам API платформы Service Fabric. В отличие от служб Service Fabric, смоделированных в виде [гостевых исполняемых файлов](service-fabric-guest-executables-introduction.md), Reliable Services напрямую использует остальные API-интерфейсы платформы Service Fabric. Это дает службам такие возможности:
   * выполнение запросов к системе;
   * создание отчетов о работоспособности сущностей в кластере;
   * получение уведомлений об изменениях конфигурации и кода;

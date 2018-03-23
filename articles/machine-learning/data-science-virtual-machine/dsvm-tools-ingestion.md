@@ -1,13 +1,13 @@
 ---
-title: "Средства приема данных виртуальных машин для обработки и анализа данных в Azure | Документация Майкрософт"
-description: "Средства приема данных виртуальных машин для обработки и анализа данных"
-keywords: "средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux"
+title: Средства приема данных виртуальных машин для обработки и анализа данных в Azure | Документация Майкрософт
+description: Средства приема данных виртуальных машин для обработки и анализа данных
+keywords: средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Средства приема данных виртуальных машин для обработки и анализа данных
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/22/2018
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Импорт нескольких больших двоичных объектов из службы хранилища Azure в Azure Data Lake Store.      |
 |  Запуск и использование    |   Откройте командную строку и введите `adlcopy` для получения справки.    |
-| Ссылки на примеры      | [С использованием AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Ссылки на примеры      | [С помощью AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AzCopy, командная строка Azure     |
 
 ## <a name="azure-command-line"></a>Командная строка Azure
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/22/2018
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows, Linux     |
 | Распространенные способы применения      | Импорт и экспорт данных в службу хранилища Azure и Azure Data Lake Store и обратно.      |
 |  Запуск и использование    |   Откройте командную строку и введите `az` для получения справки.    |
-| Ссылки на примеры      | [Использование интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Ссылки на примеры      | [Использование интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure)     |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 02/22/2018
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Linux      |
 | Распространенные способы применения      | Чтение и запись больших двоичных объектов в контейнере      |
 |  Запуск и использование    |   В окне терминала запустите _blobfuse_.    |
-| Ссылки на примеры      | blobfuse на GitHub [https://github.com/Azure/azure-storage-fuse]      |
+| Ссылки на примеры      | [blobfuse в GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | Командная строка Azure      |
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных из MongoDB с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как копировать данные из MongoDB на поддерживаемые приемники хранилища данных с помощью действия копирования в конвейере фабрики данных Azure."
+title: Копирование данных из MongoDB с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как копировать данные из MongoDB на поддерживаемые приемники хранилища данных с помощью действия копирования в конвейере фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b12477b855dad28976989e694888667fd0cb6b20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Копирование данных из MongoDB с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

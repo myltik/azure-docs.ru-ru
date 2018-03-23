@@ -1,8 +1,8 @@
 ---
-title: "Обнаружение угроз для базы данных SQL Azure | Документация Майкрософт"
-description: "Система обнаружения угроз обнаруживает подозрительную активность в базе данных, указывающую на наличие потенциальных угроз безопасности."
+title: Обнаружение угроз для базы данных SQL Azure | Документация Майкрософт
+description: Система обнаружения угроз обнаруживает подозрительную активность в базе данных, указывающую на наличие потенциальных угроз безопасности.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: rmatchoro
 manager: shaik
 editor: v-romcal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Обнаружение угроз для базы данных SQL
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/11/2018
 
 Например, внедрение кода SQL — один из распространенных видов угроз безопасности веб-приложений в Интернете, используемый для получения несанкционированного доступа к приложениям, управляемым данными. Хакеры используют уязвимости приложения, чтобы ввести вредоносные инструкции SQL в поля ввода приложения, чтобы испортить или изменить данные в базе данных.
 
-Оповещения об обнаружении угроз SQL интегрируются с оповещениями [центра безопасности Azure](https://azure.microsoft.com/en-us/services/security-center/). Каждый защищенный сервер базы данных SQL оплачивается по такому же тарифу, как и центр безопасности Azure категории "Стандартный" (15 долларов США за узел в месяц), где каждый защищенный сервер базы данных SQL считается как один узел.  
+Оповещения об обнаружении угроз SQL интегрируются с оповещениями [центра безопасности Azure](https://azure.microsoft.com/services/security-center/). Каждый защищенный сервер базы данных SQL оплачивается по такому же тарифу, как и центр безопасности Azure категории "Стандартный" (15 долларов США за узел в месяц), где каждый защищенный сервер базы данных SQL считается как один узел.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Настройка обнаружения угроз для базы данных с помощью портала Azure
 1. Запустите портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Изучение оповещений об обнаружении угроз базы данных на портале Azure
 
-Оповещения об обнаружении угроз базы данных SQL интегрируются с [центром безопасности Azure](https://azure.microsoft.com/en-us/services/security-center/). Динамическая плитка системы безопасности SQL на странице базы данных на портале Azure отображает состояние активных угроз. 
+Оповещения об обнаружении угроз базы данных SQL интегрируются с [центром безопасности Azure](https://azure.microsoft.com/services/security-center/). Динамическая плитка системы безопасности SQL на странице базы данных на портале Azure отображает состояние активных угроз. 
 
    ![Область навигации][6]
    
@@ -75,10 +75,10 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* Узнайте больше об обнаружении угроз, посетив [блог Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/). 
+* Узнайте больше об обнаружении угроз, посетив [блог Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/). 
 * Узнайте больше об [аудите базы данных SQL Azure](sql-database-auditing.md).
 * Узнайте больше о [центре безопасности Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).
-* Дополнительные сведения о ценах см. на [странице цен на базу данных SQL](https://azure.microsoft.com/en-us/pricing/details/sql-database/).  
+* Дополнительные сведения о ценах см. на [странице цен на базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).  
 * Пример сценария PowerShell см. в статье [Настройка аудита и обнаружения угроз для базы данных SQL с помощью PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 

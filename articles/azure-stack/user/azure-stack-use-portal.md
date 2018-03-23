@@ -1,11 +1,11 @@
 ---
-title: "Использование портала Azure Stack | Документация Майкрософт"
-description: "Узнайте, как открыть и использовать пользовательский портал Azure Stack."
+title: Использование портала Azure Stack | Документация Майкрософт
+description: Узнайте, как открыть и использовать пользовательский портал Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Использование портала Azure Stack
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/11/2017
 
 Оператор Azure Stack (поставщик службы или администратор в вашей организации) сообщит вам правильный URL-адрес для доступа к порталу. 
 
-- В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal. &lt; *регион*&gt;.&lt;*полное_доменное_имя*&gt;.
-- При работе с Пакетом средств разработки Azure Stack портал можно найти по адресу https://portal.local.azurestack.external.
+- В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt;.
+- Если вы используете набор разработки Azure Stack, адрес портала https://portal.local.azurestack.external.
 
 ![Снимок экрана пользовательского портала Azure Stack](media/azure-stack-use-portal/UserPortal.png)
 

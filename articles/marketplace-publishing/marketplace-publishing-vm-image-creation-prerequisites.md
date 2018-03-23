@@ -1,11 +1,11 @@
 ---
-title: "Технические компоненты, необходимые для создания образа виртуальной машины для Azure Marketplace | Документация Майкрософт"
-description: "Ознакомьтесь с требованиями по созданию и разработке образа виртуальной машины для Azure Marketplace, предназначенного для продажи."
+title: Технические компоненты, необходимые для создания образа виртуальной машины для Azure Marketplace | Документация Майкрософт
+description: Ознакомьтесь с требованиями по созданию и разработке образа виртуальной машины для Azure Marketplace, предназначенного для продажи.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Технические компоненты, необходимые для создания образа виртуальной машины для Azure Marketplace
 Прежде чем начать работу, внимательно прочтите описание и разберитесь, где и зачем выполняется каждый шаг. Постарайтесь подготовить максимально подробные сведения о своей компании и другие данные, загрузить необходимые средства и/или создать технические компоненты до того, как начнете создавать предложение. Все эти компоненты описаны в данной статье.  

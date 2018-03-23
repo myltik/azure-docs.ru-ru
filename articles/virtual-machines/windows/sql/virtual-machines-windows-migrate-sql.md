@@ -1,11 +1,11 @@
 ---
-title: "Перенос базы данных SQL Server в экземпляр SQL Server на виртуальной машине | Документация Майкрософт"
-description: "Узнайте больше о том, как перенести локальную пользовательскую базу данных в SQL Server на виртуальной машине Azure."
+title: Перенос базы данных SQL Server в экземпляр SQL Server на виртуальной машине | Документация Майкрософт
+description: Узнайте больше о том, как перенести локальную пользовательскую базу данных в SQL Server на виртуальной машине Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jroth
-ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64245a968eca94518d2e4238b4bc5c93c952563a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure
 
@@ -96,6 +96,9 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+
+> [!TIP]
+> Если у вас есть вопросы по виртуальным машинам SQL Server, см. раздел [часто задаваемых вопросов](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Инструкции по созданию образа виртуальной машины Azure SQL Server из записанного образа см. в [рекомендациях по клонированию виртуальных машин Azure SQL из записанных образов](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) в блоге разработчиков CSS SQL Server.
 

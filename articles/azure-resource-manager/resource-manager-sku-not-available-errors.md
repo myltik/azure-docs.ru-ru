@@ -1,23 +1,23 @@
 ---
-title: "Ошибки в Azure, связанные с недоступностью номера SKU | Документация Майкрософт"
-description: "В этой статье объясняется, как устранить ошибки, связанные с недоступностью номера SKU при развертывании."
+title: Ошибки в Azure, связанные с недоступностью номера SKU | Документация Майкрософт
+description: В этой статье объясняется, как устранить ошибки, связанные с недоступностью номера SKU при развертывании.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Устранение ошибок, связанных с недоступностью номера SKU
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Эта ошибка возникает, когда выбранный номер SKU ресурса (например, размер виртуальной машины) недоступен для указанного расположения.
 
-## <a name="solution"></a>Решение
+## <a name="solution-1---powershell"></a>Решение 1 — PowerShell
 
-Чтобы устранить эту проблему, необходимо определить номера SKU, доступные в регионе. Для поиска доступных номеров SKU можно использовать PowerShell, портал или операцию REST.
-
-### <a name="solution-1"></a>Решение 1
-
-Воспользуйтесь командой [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) в PowerShell. Отфильтруйте результаты по расположению. Эта команда поддерживается только в Azure PowerShell последней версии.
+Чтобы определить, какие номера SKU доступны в регионе, используйте команду [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Отфильтруйте результаты по расположению. Эта команда поддерживается только в Azure PowerShell последней версии.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Решение 2
+## <a name="solution-2---azure-cli"></a>Решение 2 — Azure CLI
 
-В Azure CLI используйте команду `az vm list-skus`. Для фильтрации выходных данных можно использовать `grep` или другую подобную служебную программу.
+Чтобы определить, какие номера SKU доступны в регионе, используйте команду `az vm list-skus`. Для фильтрации выходных данных можно использовать `grep` или другую подобную служебную программу.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Решение 3
+## <a name="solution-3---azure-portal"></a>Решение 3 — портал Azure
 
-Воспользуйтесь [порталом](https://portal.azure.com). Войдите на портал и добавьте ресурс с помощью интерфейса. При настройке значений вы увидите доступные SKU для этого ресурса. Не нужно завершать развертывание.
+Чтобы определить, какие номера SKU доступны в регионе, используйте [портал](https://portal.azure.com). Войдите на портал и добавьте ресурс с помощью интерфейса. При настройке значений вы увидите доступные SKU для этого ресурса. Не нужно завершать развертывание.
 
 ![Доступные номера SKU](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Решение 4
+## <a name="solution-4---rest"></a>Решение 4 — REST
 
-Используйте REST API для виртуальных машин. Отправьте следующий запрос:
+Чтобы определить, какие номера SKU доступны в регионе, используйте REST API для виртуальных машин. Отправьте следующий запрос:
 
 ```HTTP 
 GET

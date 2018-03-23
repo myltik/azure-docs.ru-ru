@@ -1,9 +1,9 @@
 ---
-title: "Общие сведения о виртуальной машине для глубокого обучения в Azure | Документация Майкрософт"
-description: "Основные сценарии аналитики и компоненты для виртуальных машин глубокого обучения."
-keywords: "глубокое изучение, искусственный интеллект, средства обработки и анализа данных, виртуальная машина для обработки и анализа данных, средства для обработки и анализа данных, обработка и анализ данных Linux"
+title: Общие сведения о виртуальной машине для глубокого обучения в Azure | Документация Майкрософт
+description: Основные сценарии аналитики и компоненты для виртуальных машин глубокого обучения.
+keywords: глубокое изучение, искусственный интеллект, средства обработки и анализа данных, виртуальная машина для обработки и анализа данных, средства для обработки и анализа данных, обработка и анализ данных Linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a3e4c989c1dbb31b237115acfcc032aa2dee4f2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74b5c68c2c04eebc1d6f1e59fac8cbb11fef46a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Общие сведения о виртуальной машине для глубокого обучения в Azure
 

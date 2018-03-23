@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с SCC LifeCycle | Документация Майкрософт"
-description: "Узнайте, как использовать SCC LifeCycle с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
+title: Руководство по интеграции Azure Active Directory с SCC LifeCycle | Документация Майкрософт
+description: Узнайте, как использовать SCC LifeCycle с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Учебник. Интеграция Azure Active Directory с SCC LifeCycle
 Цель данного учебника — показать интеграцию Azure и SCC LifeCycle.  
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 2. На странице **Как пользователи должны входить в SCC LifeCycle?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SCC LifeCycle, в формате *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*, после чего и нажмите кнопку **Далее**.
+3. На странице **Configure App URL** (Настройка URL-адреса приложения) в текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SCC LifeCycle, в формате *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*, после чего и нажмите кнопку **Далее**.
    
     ![Настройка URL-адреса приложения](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в SCC LifeCycle** щелкните **Скачать метаданные**, а затем сохраните файл метаданных на локальном компьютере.

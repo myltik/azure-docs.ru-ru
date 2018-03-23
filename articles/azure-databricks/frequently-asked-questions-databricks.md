@@ -1,8 +1,8 @@
 ---
-title: "Распространенные вопросы и рекомендации по Azure Databricks | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы и сведения об устранении неполадок для Azure Databricks."
+title: Распространенные вопросы и рекомендации по Azure Databricks | Документация Майкрософт
+description: Ответы на часто задаваемые вопросы и сведения об устранении неполадок для Azure Databricks.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Часто задаваемые вопросы об Azure Databricks
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/01/2018
 
 #### <a name="error-message"></a>Сообщение об ошибке
 
-This subscription is not registered to use the namespace ‘Microsoft.Databricks’ (Эта подписка не зарегистрирована для использования пространства имен Microsoft.Databricks). Сведения о регистрации подписок см. на странице https://aka.ms/rps-not-found. (Код: MissingSubscriptionRegistration)
+This subscription is not registered to use the namespace ‘Microsoft.Databricks’ (Эта подписка не зарегистрирована для использования пространства имен Microsoft.Databricks). "See https://aka.ms/rps-not-found for how to register subscriptions" (Чтобы узнать больше о регистрации подписок, перейдите на страницу https://aka.ms/rps-not-found). (Код: MissingSubscriptionRegistration)
 
 #### <a name="solution"></a>Решение
 
@@ -101,7 +101,7 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 #### <a name="error-message"></a>Сообщение об ошибке
 
 "Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster" (Сбой запуска поставщика облачных служб: при настройке кластера произошла ошибка поставщика облачных служб). Дополнительные сведения см. в руководстве по Databricks.
-Код ошибки Azure: MissingSubscriptionRegistration. Сообщение об ошибке Azure: The subscription is not registered to use namespace 'Microsoft.Compute' (Эта подписка не зарегистрирована для использования пространства имен Microsoft.Compute). Сведения о регистрации подписок см. на странице https://aka.ms/rps-not-found.
+Код ошибки Azure: MissingSubscriptionRegistration. Сообщение об ошибке Azure: The subscription is not registered to use namespace 'Microsoft.Compute' (Эта подписка не зарегистрирована для использования пространства имен Microsoft.Compute). "See https://aka.ms/rps-not-found for how to register subscriptions" (Чтобы узнать больше о регистрации подписок, перейдите на страницу https://aka.ms/rps-not-found)."
 
 #### <a name="solution"></a>Решение
 

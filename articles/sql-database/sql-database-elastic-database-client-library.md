@@ -1,25 +1,19 @@
 ---
-title: "Создание масштабируемых облачных баз данных | Документация Майкрософт"
-description: "Создание масштабируемых приложений базы данных .NET с помощью клиентской библиотеки эластичных баз данных"
+title: Создание масштабируемых облачных баз данных | Документация Майкрософт
+description: Создание масштабируемых приложений базы данных .NET с помощью клиентской библиотеки эластичных баз данных
 services: sql-database
-documentationcenter: 
 manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
-ms.author: ddove
-ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sstein
+ms.openlocfilehash: e15254fd529d98f2b92acea8dd1ed908a82841ea
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Создание масштабируемых облачных баз данных
 Масштабирование баз данных можно легко выполнить с помощью средств и функций масштабирования для базы данных SQL Azure. В частности, для создания и управления масштабируемыми базами данных можно использовать **клиентскую библиотеку эластичных баз данных** . Она позволяет легко разрабатывать сегментированные приложения с сотнями — или даже тысячами — баз данных SQL Azure. [задания обработки эластичных БД](sql-database-elastic-jobs-powershell.md) , чтобы упростить управление этими базами данных.

@@ -1,23 +1,23 @@
 ---
-title: "Ошибки регистрации поставщика ресурсов Azure | Документация Майкрософт"
-description: "В этой статье объясняется, как устранять ошибки регистрации поставщика ресурсов Azure."
+title: Ошибки регистрации поставщика ресурсов Azure | Документация Майкрософт
+description: В этой статье объясняется, как устранять ошибки регистрации поставщика ресурсов Azure.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Устранение ошибок регистрации поставщика ресурсов
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+В сообщении об ошибке должны быть указаны поддерживаемые расположения и версии API. Вы можете изменить шаблон, используя одно из предложенных значений. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете. Если ранее вы не использовали конкретный поставщик ресурсов, возможно, потребуется зарегистрировать такой поставщик.
+
 ## <a name="cause"></a>Причина:
 
 Эти ошибки возникают по одной из следующих причин:
@@ -48,11 +50,7 @@ Message: The subscription is not registered to use namespace {resource-provider-
 1. Версия API не поддерживается для выбранного типа ресурса.
 1. Расположение не поддерживается для выбранного типа ресурса.
 
-## <a name="solution"></a>Решение
-
-В сообщении об ошибке должны быть указаны поддерживаемые расположения и версии API. Вы можете изменить шаблон, используя одно из предложенных значений. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете. Если ранее вы не использовали конкретный поставщик ресурсов, возможно, потребуется зарегистрировать такой поставщик. Дополнительные сведения о поставщиках ресурсов можно получить с помощью PowerShell или интерфейса командной строки Azure.
-
-### <a name="solution-1"></a>Решение 1
+## <a name="solution-1---powershell"></a>Решение 1 — PowerShell
 
 Чтобы просмотреть состояние регистрации, используйте командлет PowerShell **Get-AzureRmResourceProvider**.
 
@@ -78,9 +76,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Решение 2
-
-**Интерфейс командной строки Azure**
+## <a name="solution-2---azure-cli"></a>Решение 2 — Azure CLI
 
 Чтобы узнать, зарегистрирован ли поставщик, используйте команду `az provider list` .
 
@@ -100,7 +96,7 @@ az provider register --namespace Microsoft.Cdn
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Решение 3
+## <a name="solution-3---azure-portal"></a>Решение 3 — портал Azure
 
 Просмотреть состояние регистрации и зарегистрировать пространство имен поставщика ресурсов можно на портале.
 

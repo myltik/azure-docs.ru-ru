@@ -1,26 +1,20 @@
 ---
-title: "Подготовка новых клиентов в мультитенантном приложении, использующем базу данных SQL Azure | Документация Майкрософт"
-description: "Сведения о подготовке и каталогизации новых клиентов в приложении SaaS мультитенантной базы данных SQL Azure"
-keywords: "руководство по базе данных sql"
+title: Подготовка новых клиентов в мультитенантном приложении, использующем базу данных SQL Azure | Документация Майкрософт
+description: Сведения о подготовке и каталогизации новых клиентов в приложении SaaS мультитенантной базы данных SQL Azure
+keywords: руководство по базе данных sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Сведения о подготовке новых клиентов и их регистрации в каталоге
 
@@ -99,8 +93,8 @@ ms.lasthandoff: 02/22/2018
 
 Ниже приведены не конкретные действия, а описание рабочего процесса отладки сценария.
 
-1. **Импорт модуля SubscriptionManagement.psm1**, который содержит функции для входа в Azure и выбора рабочей подписки Azure.
 1. **Импорт модуля CatalogAndDatabaseManagement.psm1**, предоставляющего каталог и абстракцию на уровне клиента с помощью функций[управления сегментами](sql-database-elastic-scale-shard-map-management.md). Этот модуль инкапсулирует большую часть шаблона каталога. Его следует изучить.
+1. **Импорт модуля SubscriptionManagement.psm1**, который содержит функции для входа в Azure и выбора рабочей подписки Azure.
 1. **Получение сведений о конфигурации.** Перейдите к Get-Configuration (нажав клавишу F11) и посмотрите, как указывается конфигурация приложения. Здесь определяются имена ресурсов и другие значения для конкретного приложения, но не изменяйте эти значения, пока вы не изучите сценарии.
 1. **Получение объекта каталога.** Перейдите к функции Get-Catalog, которая составляет и возвращает объект каталога, используемый в сценарии более высокого уровня.  При этом используются функции управления сегментами, импортируемые из **AzureShardManagement.psm1**. Объект каталога состоит из следующих элементов.
    * $catalogServerFullyQualifiedName создается с использованием стандартного корня, а также имени пользователя: _catalog-\<пользователь\>.database.windows.net_.

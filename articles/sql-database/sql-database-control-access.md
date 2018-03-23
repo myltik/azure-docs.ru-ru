@@ -1,26 +1,19 @@
 ---
-title: "Предоставление доступа к базе данных SQL Azure | Документация Майкрософт"
-description: "Предоставление доступа к базе данных SQL Microsoft Azure."
+title: Предоставление доступа к базе данных SQL Azure | Документация Майкрософт
+description: Предоставление доступа к базе данных SQL Microsoft Azure.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/06/2017
 ms.author: carlrab
-ms.openlocfilehash: 28c1ec79752f822939fefe6ce3686ace8ad1b6b0
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 85d3e7819ef06fd943c207e1410c95168f574a7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Контроль доступа к базе данных SQL Azure
 Чтобы обеспечить безопасность, база данных SQL управляет доступом с помощью правил брандмауэра, ограничивающих подключение по IP-адресу, механизмов проверки подлинности, требующих удостоверений пользователей, и методов авторизации, ограничивающих действия и данные для пользователей. 

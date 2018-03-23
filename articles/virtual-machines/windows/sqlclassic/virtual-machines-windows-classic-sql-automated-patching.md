@@ -1,11 +1,11 @@
 ---
-title: "Автоматизированная установка исправлений для виртуальных машин SQL Server (классическая модель) | Документация Майкрософт"
-description: "Описывается функция автоматической установки исправлений для виртуальных машин SQL Server в Azure, использующих классический режим развертывания."
+title: Автоматизированная установка исправлений для виртуальных машин SQL Server (классическая модель) | Документация Майкрософт
+description: Описывается функция автоматической установки исправлений для виртуальных машин SQL Server в Azure, использующих классический режим развертывания.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 42be8c814a7b4c0bb1bd2f88d2e610d20442048e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (классическая модель)
 > [!div class="op_single_selector"]
@@ -28,7 +28,12 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-При автоматической установке исправлений на виртуальных машинах Azure с SQL Server задается период обслуживания. Установка автоматических обновлений возможна только в этот период обслуживания. Для SQL Server это гарантирует, что системные обновления и связанные с ними перезапуски системы будут происходить в наиболее удобное для базы данных время. Автоматическая установка исправлений зависит от [Расширения агента IaaS для SQL Server](../classic/sql-server-agent-extension.md).
+При автоматической установке исправлений на виртуальных машинах Azure с SQL Server задается период обслуживания. Установка автоматических обновлений возможна только в этот период обслуживания. Для SQL Server это гарантирует, что системные обновления и связанные с ними перезапуски системы будут происходить в наиболее удобное для базы данных время. 
+
+> [!IMPORTANT]
+> Устанавливаются только те обновления ОС Windows, которые помечены как **Важные**. Другие обновления SQL Server (например, накопительные обновления) нужно устанавливать вручную. 
+
+Автоматическая установка исправлений зависит от [Расширения агента IaaS для SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../../../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Версию этой статьи для Resource Manager см. в статье [Автоматическое исправление SQL Server на виртуальных машинах Azure Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).

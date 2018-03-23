@@ -1,6 +1,6 @@
 ---
-title: "Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL | Документация Майкрософт"
-description: "Узнайте, как создать приложение Docker Python в Azure с подключением к базе данных PostgreSQL."
+title: Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL | Документация Майкрософт
+description: Узнайте, как создать приложение Docker Python в Azure с подключением к базе данных PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL
 
@@ -130,7 +130,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Создание сервера базы данных Azure для PostgreSQL
 

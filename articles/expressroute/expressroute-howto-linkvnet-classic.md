@@ -1,11 +1,11 @@
 ---
-title: "Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell и классического портала Azure | Документация Майкрософт"
-description: "В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью классической модели развертывания и PowerShell."
+title: Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell и классического портала Azure | Документация Майкрософт
+description: В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью классической модели развертывания и PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2f0fed77a676bc46e8daa9c41efd533dffe72d8b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Подключение виртуальной сети к каналу ExpressRoute с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]
-> * [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [интерфейс командной строки Azure](howto-linkvnet-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -48,6 +48,8 @@ ms.lasthandoff: 12/21/2017
    * Вам необходимо иметь созданные и полностью подготовленные виртуальную сеть и шлюз виртуальной сети. Следуйте инструкциям по [настройке виртуальной сети для ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 Вы можете связать с каналом ExpressRoute до 10 виртуальных сетей включительно. Все виртуальные машины должны находиться в одном геополитическом регионе. При использовании надстройки Premium вы сможете связать больше виртуальных сетей с каналом ExpressRoute или связать виртуальные сети, которые находятся в других геополитических регионах. Дополнительную информацию о надстройке Premium см. в разделе [Вопросы и ответы](expressroute-faqs.md).
+
+Отдельную виртуальную сеть можно связать не более чем с четырьмя каналами ExpressRoute. Чтобы создать связи с каждым каналом ExpressRoute, к которому вы подключаетесь, следуйте приведенной ниже процедуре. Каналы ExpressRoute могут быть размещены в той же подписке, в других подписках или и там, и там.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Подключение к каналу виртуальной сети в той же подписке
 Вы можете связать виртуальную сеть с каналом ExpressRoute, используя следующий командлет. Убедитесь в наличии шлюза виртуальной сети и его готовности к связыванию, прежде чем запускать командлет.

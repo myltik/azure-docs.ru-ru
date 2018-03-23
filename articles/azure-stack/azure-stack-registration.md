@@ -1,28 +1,28 @@
 ---
-title: "Регистрация Azure для интегрированных систем Azure Stack | Документация Майкрософт"
-description: "Описано, как зарегистрировать Azure для подключенных к Azure развернутым службам с несколькими узлами Azure Stack."
+title: Регистрация Azure для интегрированных систем Azure Stack | Документация Майкрософт
+description: Описано, как зарегистрировать Azure для подключенных к Azure развернутым службам с несколькими узлами Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Регистрация Azure Stack в Azure
-Вы можете зарегистрировать Azure Stack в Azure, чтобы скачивать элементы marketplace из Azure и настраивать передачу коммерческих данных в корпорацию Майкрософт. После регистрации Azure Stack данные о потреблении передаются в коммерческий отдел Azure. Вы сможете увидеть их в той подписке, которую использовали для регистрации.
+Вы можете зарегистрировать Azure Stack в Azure, чтобы скачивать элементы marketplace из Azure и настраивать передачу коммерческих данных в корпорацию Майкрософт. После регистрации Azure Stack данные о использовании передаются в Azure Commerce. Вы сможете увидеть их в той подписке, которую использовали для регистрации.
 
 > [!IMPORTANT]
 > Регистрация является обязательной, если вы выбрали модель выставления счетов по мере использования. Иначе вы нарушите условия лицензирования развертывания Azure Stack, так как данные об использовании не будут отправляться.
@@ -54,6 +54,7 @@ ms.lasthandoff: 02/01/2018
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

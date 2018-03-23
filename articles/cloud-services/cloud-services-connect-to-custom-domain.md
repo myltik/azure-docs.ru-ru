@@ -1,11 +1,11 @@
 ---
-title: "Подключение облачной службы к пользовательскому контроллеру домена | Документация Майкрософт"
-description: "Сведения о подключении веб-ролей и рабочих ролей к личному домену AD с помощью PowerShell и расширения домена AD"
+title: Подключение облачной службы к пользовательскому контроллеру домена | Документация Майкрософт
+description: Сведения о подключении веб-ролей и рабочих ролей к личному домену AD с помощью PowerShell и расширения домена AD
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure
 Сначала настройте виртуальную сеть в Azure. Затем добавьте к ней контроллер домена Active Directory (размещенный на виртуальной машине Azure). После этого добавьте имеющиеся роли облачных служб в заранее созданную виртуальную сеть и подключите их к контроллеру домена.
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/16/2017
 Сеть, на которую ссылается облачная служба, должна быть **классической виртуальной сетью**.
 
 ## <a name="create-a-virtual-network"></a>Создайте виртуальную сеть
-Создать виртуальную сеть в Azure можно с помощью портала Azure или PowerShell. В этом руководстве используется PowerShell. Сведения о создании виртуальной сети с помощью портала Azure см. в статье [Создание виртуальной сети с несколькими подсетями](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Создать виртуальную сеть в Azure можно с помощью портала Azure или PowerShell. В этом руководстве используется PowerShell. Сведения о создании виртуальной сети с помощью портала Azure см. в статье [Создание виртуальной сети с помощью портала Azure](../virtual-network/quick-create-portal.md). В ней описано создание виртуальной сети (Resource Manager), но вам необходимо создать виртуальную сеть (классическую) для облачных служб. Для этого на портале выберите **Создать ресурс**, введите *виртуальная сети* в **поле поиска** и нажмите клавишу **ВВОД**. В результатах поиска в разделе **Все** выберите **Виртуальная сеть**. В разделе **Выбор модели развертывания** щелкните **Классическая** и щелкните **Создать**. Следуйте инструкциям в этой статье.
 
 ```powershell
 #Create Virtual Network

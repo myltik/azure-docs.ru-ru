@@ -1,11 +1,11 @@
 ---
-title: "Проблема при установке соединителя агента прокси приложения | Документы Майкрософт"
-description: "Устранение проблем при установке соединителя агента прокси приложения"
+title: Проблема при установке соединителя агента прокси приложения | Документы Майкрософт
+description: Устранение проблем при установке соединителя агента прокси приложения
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Проблема при установке соединителя агента прокси приложения
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/11/2018
 
 **Устранение проблемы:**
 
-1.  Убедитесь, что компьютер поддерживает TLS1.2. Для этого требуется версия Windows после 2012 R2. Если компьютер соединителя относится к версии 2012 R2 или более ранней, убедитесь, что на нем установлены следующие пакеты обновления: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Убедитесь, что компьютер поддерживает TLS1.2. Для этого требуется версия Windows после 2012 R2. Если на компьютере соединителя используется версия 2012 R2 или более ранняя, убедитесь, что на нем установлены следующие пакеты обновления: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Обратитесь к администратору сети и попросите убедиться, что внутренний прокси-сервер и брандмауэр не блокируют SHA512 для исходящего трафика.
 

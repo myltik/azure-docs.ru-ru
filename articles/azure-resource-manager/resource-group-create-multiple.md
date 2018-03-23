@@ -1,11 +1,11 @@
 ---
-title: "Развертывание нескольких экземпляров ресурсов Azure | Документация Майкрософт"
-description: "Использование операции копирования и массивов в шаблоне диспетчера ресурсов Azure для выполнения нескольких итераций при развертывании ресурсов."
+title: Развертывание нескольких экземпляров ресурсов Azure | Документация Майкрософт
+description: Использование операции копирования и массивов в шаблоне диспетчера ресурсов Azure для выполнения нескольких итераций при развертывании ресурсов.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Развертывание нескольких экземпляров ресурса или свойства в шаблонах Azure Resource Manager
 В этой статье показано, как выполнить условное развертывание ресурса, а также как создать несколько экземпляров ресурса, используя итерацию в шаблоне Azure Resource Manager.
@@ -344,6 +344,8 @@ ms.lasthandoff: 12/16/2017
     "outputs": {}
 }
 ```
+
+<a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Итерация дочерних ресурсов
 Нельзя включить дочерний ресурс в цикл копирования. Чтобы создать несколько экземпляров ресурса, которые определяются как вложенные в другой ресурс, необходимо создать его как ресурс верхнего уровня. Вы можете определить связь с родительским ресурсом с помощью свойств type и name.

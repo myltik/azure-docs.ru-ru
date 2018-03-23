@@ -1,25 +1,19 @@
 ---
-title: "Импорт BACPAC-файла для создания базы данных SQL Azure | Документация Майкрософт"
-description: "Создайте базу данных SQL Azure, импортировав BACPAC-файл."
+title: Импорт BACPAC-файла для создания базы данных SQL Azure | Документация Майкрософт
+description: Создайте базу данных SQL Azure, импортировав BACPAC-файл.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.workload: Active
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Импорт BACPAC-файла в новую базу данных SQL Azure
 

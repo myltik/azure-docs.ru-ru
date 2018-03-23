@@ -1,11 +1,11 @@
 ---
-title: "Служба метаданных экземпляров Azure | Документация Майкрософт"
-description: "Использование интерфейса RESTful для получения сведений о вычислительных ресурсах виртуальной машины Windows, сети и ближайших мероприятиях обслуживания."
+title: Служба метаданных экземпляров Azure | Документация Майкрософт
+description: Использование интерфейса RESTful для получения сведений о вычислительных ресурсах виртуальной машины Windows, сети и ближайших мероприятиях обслуживания.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Служба метаданных экземпляров Azure
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 02/28/2018
 > Эта служба является **общедоступной** во всех регионах Azure.  Она регулярно получает обновления, чтобы предоставлять новые сведения об экземплярах виртуальной машины. На этой странице представлены актуальные сведения о доступных [категориях данных](#instance-metadata-data-categories).
 
 ## <a name="service-availability"></a>Доступность службы
-Служба доступна во всех общедоступных регионах Azure. Не все версии API-интерфейса могут быть доступны во всех регионах Azure.
+Служба доступна в общедоступных регионах Azure. Не все версии API-интерфейса могут быть доступны во всех регионах Azure.
 
 регионы                                        | Доступность?                                 | Поддерживаемые версии
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01
-[Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)              | Общедоступная версия | 2017-04-02
-[Azure для Китая](https://www.azure.cn/)                                                           | Общедоступная версия | 2017-04-02
-[Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)                    | Общедоступная версия | 2017-04-02
+[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01, 2017-12-01 (эта версия недоступна в регионах Великобритании)
+[Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)              | Общедоступная версия | 2017-04-02, 2017-08-01
+[Azure для Китая](https://www.azure.cn/)                                                           | Общедоступная версия | 2017-04-02, 2017-08-01
+[Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)                    | Общедоступная версия | 2017-04-02, 2017-08-01
 
 Эта таблица обновляется при наличии обновлений службы, или когда доступны новые поддерживаемые версии.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="usage"></a>Использование
 
 ### <a name="versioning"></a>Управление версиями
-Для службы метаданных экземпляров включено управление версиями. Версии являются обязательными. На данный момент используется версия Global Azure `2017-08-01`. Текущими поддерживаемыми версиями являются 2017-04-02 и 2017-08-01.
+Для службы метаданных экземпляров включено управление версиями. Версии являются обязательными. На данный момент используется версия Global Azure `2017-12-01`. Сейчас поддерживаются версии 2017-04-02, 2017-08-01 и 2017-12-01.
 
 > [!NOTE] 
 > В предыдущих выпусках предварительной версии в качестве api-version поддерживалось значение {latest}. Этот формат больше не поддерживается и в дальнейшем будет считаться устаревшим.
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Запрос**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Ответ**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Подписка Azure для виртуальной машин
 tags | [Теги](../../azure-resource-manager/resource-group-using-tags.md) для виртуальной машины  | 2017-08-01
 имя_группы_ресурсов | [Группа ресурсов](../../azure-resource-manager/resource-group-overview.md) для виртуальной машины | 2017-08-01
 placementGroupId | [Группа размещения](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) масштабируемого набора виртуальных машин | 2017-08-01
+vmScaleSetName | [Имя масштабируемого набора виртуальных машин] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+зона | [Зона доступности](../../availability-zones/az-overview.md) виртуальной машины | 2017-12-01 
 ipv4/privateIpAddress | Локальный IPv4-адрес виртуальной машины | 2017-04-02
 ipv4/publicIpAddress | Общедоступный IPv4-адрес виртуальной машины | 2017-04-02
 subnet/address | Адрес подсети виртуальной машины | 2017-04-02 
 subnet/prefix | Префикс подсети, пример 24 | 2017-04-02 
 ipv6/ipAddress | Локальный IPv6-адрес виртуальной машины | 2017-04-02 
 macAddress | Mac-адрес виртуальной машины | 2017-04-02 
-scheduledevents | Ознакомьтесь со статьей [Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Windows](scheduled-events.md) | 2017-03-01
+scheduledevents | Ознакомьтесь со статьей [Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Windows](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Примеры сценариев использования  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Размещение контейнеров и секций данных на основе домена сбоя или обновления 
 
 В некоторых сценариях размещение разных реплик имеет первостепенное значение. Например, для [размещения реплики HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) или размещения контейнера с помощью [оркестратора](https://kubernetes.io/docs/user-guide/node-selection/) необходимо знать домен сбоя `platformFaultDomain` и домен обновления `platformUpdateDomain`, на которых запущена виртуальная машина.
+Кроме того, это можно сделать с помощью [зоны доступности](../../availability-zones/az-overview.md) для экземпляров.
 Вы можете запросить данные непосредственно через службу метаданных экземпляров.
 
 **Запрос**

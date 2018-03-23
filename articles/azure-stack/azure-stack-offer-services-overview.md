@@ -1,25 +1,25 @@
 ---
-title: "Предложение служб в Azure Stack | Документация Майкрософт"
-description: "Как оператор облака вы можете предлагать своим пользователям службы."
+title: Предложение служб в Azure Stack | Документация Майкрософт
+description: Как оператор облака вы можете предлагать своим пользователям службы.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 03/05/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.reviewer: ''
+ms.openlocfilehash: 5b117a9b174f5d2419ff596cc90436e4b9d21645
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Общие сведения о предложении служб в Azure Stack
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 
 [Microsoft Azure Stack](azure-stack-poc.md) ― это гибридная облачная платформа, позволяющая доставлять службы из центра обработки данных. Как поставщик услуг вы можете предлагать службы своим клиентам. В коммерческой компании или государственном учреждении можно предоставлять локальные службы сотрудникам. К службам, которые можно доставлять, помимо прочего, относятся следующие:
 
-- службы PaaS (платформа как услуга), например службы приложений, мобильные приложения, приложения API, функции API, SQL, MySQL.
+- службы PaaS (платформа как услуга), например службы приложений, приложения API, функции API, SQL, MySQL.
 
 Можно даже комбинировать службы для интеграции и создания сложных решений для различных пользователей.
 

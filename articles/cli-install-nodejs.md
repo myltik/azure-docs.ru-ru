@@ -1,9 +1,9 @@
 ---
-title: "Установка Azure CLI 1.0 | Документация Майкрософт"
-description: "Установка Azure CLI 1.0 на компьютерах Mac OS, Linux и Windows и начало работы со службами Azure."
-editor: 
+title: Установка Azure CLI 1.0 | Документация Майкрософт
+description: Установка Azure CLI 1.0 на компьютерах Mac OS, Linux и Windows и начало работы со службами Azure.
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Установка Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > В этом разделе описана установка Azure CLI 1.0. Это нерекомендуемый CLI, и его можно использовать только для поддержки с моделью управления службами Azure (ASM) с "классическими" ресурсами.
-> Для развертываний Azure Resource Manager (ARM), используйте [Azure CLI 2.0](/cli/azure/overview).
+> Для развертываний Azure Resource Manager используйте [Azure CLI 2.0](/cli/azure).
 
 Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI 1.0), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. Существует несколько вариантов установки этих кроссплатформенных инструментов на компьютер.
 

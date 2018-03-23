@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery: вопросы и ответы | Документация Майкрософт"
-description: "В этой статье приводятся ответы на распространенные вопросы об использовании Azure Site Recovery."
+title: 'Azure Site Recovery: вопросы и ответы | Документация Майкрософт'
+description: В этой статье приводятся ответы на распространенные вопросы об использовании Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: вопросы и ответы
 Данная статья содержит часто задаваемые вопросы об Azure Site Recovery. Если после прочтения статьи у вас возникли какие-либо вопросы, вы можете задать их на [форуме, посвященном службам восстановления Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -55,14 +55,14 @@ ms.lasthandoff: 02/22/2018
 Да. Вы можете реплицировать виртуальные машины на серверах Hyper-V в облаке VMM в Azure или между облаками VMM на том же сервере. Для репликации между локальными средами мы рекомендуем использовать сервер VMM как на первичном, так и на вторичном сайте.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>Какие физические серверы можно защитить?
-Можно реплицировать физические серверы под управлением Windows и Linux в Azure или на вторичный сайт. [Узнайте](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) о требованиях к операционной системе.  Те же требования применяются независимо от конечного расположения репликации физических серверов: Azure или вторичный сайт.
+Можно реплицировать физические серверы под управлением Windows и Linux в Azure или на вторичный сайт. Узнайте больше о требованиях к [репликация в Azure](vmware-physical-azure-support-matrix.md#replicated-machines) и [репликации на дополнительный сайт](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 Обратите внимание, что если локальный сервер выйдет из строя, физические серверы запустятся в качестве виртуальных машин в Azure. Сейчас восстановление размещения на локальный физический сервер не поддерживается, но возможно восстановление размещения компьютера, защищенного как физический, на виртуальную машину VMware.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>Какие виртуальные машины VMware можно защитить?
 
-Для защиты виртуальных машин VMware вам понадобится низкоуровневая оболочка vSphere и виртуальные машины с запущенными инструментами VMware. Мы также рекомендуем использовать сервер VMware vCenter для управления низкоуровневыми оболочками. [Узнайте больше](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) о точных требованиях к репликации серверов и виртуальных машин VMware в Azure или на вторичный сайт.
+Для защиты виртуальных машин VMware вам понадобится низкоуровневая оболочка vSphere и виртуальные машины с запущенными инструментами VMware. Мы также рекомендуем использовать сервер VMware vCenter для управления низкоуровневыми оболочками. Узнайте больше о требованиях к [репликация в Azure](vmware-physical-azure-support-matrix.md#replicated-machines) или [репликации на дополнительный сайт](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Можно ли управлять аварийным восстановлением в офисах филиалов с помощью службы Site Recovery?
@@ -93,7 +93,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 Да, ExpressRoute можно использовать для репликации виртуальных машин в Azure. Azure Site Recovery реплицирует данные в учетную запись хранения Azure через общедоступную конечную точку. Чтобы использовать ExpressRoute для репликации Site Recovery, необходимо настроить [общедоступный пиринг](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). После отработки отказа виртуальных машин в виртуальную сеть Azure доступ к можно получать с помощью [частного пиринга](../expressroute/expressroute-circuit-peerings.md#azure-private-peering), настроенного в виртуальной сети Azure.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Существуют ли предварительные требования для репликации виртуальных машин в Azure?
-Виртуальные машины, которые необходимо реплицировать в Azure, должны соответствовать [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Виртуальные машины [VMware](vmware-physical-azure-support-matrix.md#replicated-machines) и [Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms), которые необходимо реплицировать в Azure, должны соответствовать требованиям Azure.
 
 Учетная запись пользователя Azure должна содержать определенные [разрешения](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) для включения репликации новой виртуальной машины в Azure.
 
@@ -106,8 +106,9 @@ Azure Site Recovery реплицирует данные в учетную зап
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Можно ли автоматизировать сценарии Site Recovery с помощью пакета SDK?
 Да. Рабочие процессы службы Site Recovery можно автоматизировать с помощью интерфейса REST API, PowerShell или пакета SDK для Azure. Ниже перечислены сценарии развертывания Site Recovery с помощью PowerShell, которые поддерживаются в настоящее время.
 
-* [Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (модель Resource Manager)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Репликация виртуальных машин Hyper-V (без VMM) в Azure с помощью PowerShell (модель Resource Manager)](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (модель Resource Manager)](hyper-v-vmm-powershell-resource-manager.md)
+* [Репликация виртуальных машин Hyper-V (без VMM) в Azure с помощью PowerShell (модель Resource Manager)](hyper-v-azure-powershell-resource-manager.md)
+* [Репликация из VMware в Azure с помощью PowerShell для Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Какая учетная запись хранения требуется при репликации в Azure?
 Требуется учетная запись хранения LRS или GRS. Рекомендуется использовать учетную запись хранения GRS, чтобы обеспечить устойчивость данных в случае отключения электричества в регионе или при отсутствии возможности восстановления основного региона. Учетная запись должна находиться в том же регионе, что и хранилище служб восстановления. При развертывании Site Recovery на портале Azure хранилище класса Premium поддерживается для репликации виртуальных машин VMware, Hyper-V и физических серверов.
@@ -123,7 +124,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 Эта возможность не поддерживается. Запросите эту функцию на [форуме отзывов и предложений](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Можно ли исключить из репликации отдельные диски?
-Эта возможность поддерживается при [репликации виртуальных машин VMware и Hyper-V](site-recovery-exclude-disk.md) в Azure с помощью портала Azure.
+Эта возможность поддерживается при репликации виртуальных машин VMware и Hyper-V в Azure с помощью портала Azure.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Можно ли реплицировать виртуальные машины с динамическими дисками?
 Динамические диски поддерживаются при репликации виртуальных машин Hyper-V. Они также поддерживаются при репликации виртуальных машин VMware и физических компьютеров в Azure. Диск операционной системы должен представлять собой базовый диск.

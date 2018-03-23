@@ -1,11 +1,11 @@
 ---
-title: "Дальнейшие действия по созданию проекта Service Fabric | Документация Майкрософт"
-description: "Узнайте о проекте приложения, который вы только что создали в Visual Studio,  о том, как создать службы с помощью руководств, а также ознакомьтесь с дополнительными сведениями о разработке служб для Service Fabric."
+title: Дальнейшие действия по созданию проекта Service Fabric | Документация Майкрософт
+description: Узнайте о проекте приложения, который вы только что создали в Visual Studio,  о том, как создать службы с помощью руководств, а также ознакомьтесь с дополнительными сведениями о разработке служб для Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Ваше приложение Service Fabric и дальнейшие действия
 Ваше приложение Azure Service Fabric создано. В этой статье описываются некоторые руководства, с которыми вам необходимо ознакомиться, состав проекта, а также приведены некоторые дополнительные сведения, которые будут вам интересны, и возможные дальнейшие действия.
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/09/2017
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Узнайте больше о моделях программирования
-Service Fabric предлагает несколько способов записи и управления службами.  По этим ссылкам можно получить общие и основные сведения о [службах Reliable Services c отслеживанием и без отслеживания состояния](service-fabric-reliable-services-introduction.md), службах [Reliable Actors](service-fabric-reliable-actors-introduction.md), [контейнерах](service-fabric-containers-overview.md), [гостевых исполняемых службах](service-fabric-deploy-existing-app.md) и [службах ASP.NET Core c отслеживанием и без отслеживания состояния](service-fabric-reliable-services-communication-aspnetcore.md).
+Service Fabric предлагает несколько способов записи и управления службами.  По этим ссылкам можно получить общие и основные сведения о [службах Reliable Services c отслеживанием и без отслеживания состояния](service-fabric-reliable-services-introduction.md), службах [Reliable Actors](service-fabric-reliable-actors-introduction.md), [контейнерах](service-fabric-containers-overview.md), [гостевых исполняемых службах](service-fabric-guest-executables-introduction.md) и [службах ASP.NET Core c отслеживанием и без отслеживания состояния](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Узнайте больше о взаимодействии служб
 Приложение Service Fabric состоит из множества разных служб, каждая из которых выполняет специализированную задачу. Эти службы могут обмениваться данными друг с другом. Кроме того, вне кластера могут присутствовать клиентские приложения, которые подключаются к службам и взаимодействуют с ними. Узнайте, как в Service Fabric [настроить обмен данными со службами и между ними](service-fabric-connect-and-communicate-with-services.md). 

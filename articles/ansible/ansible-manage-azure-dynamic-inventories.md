@@ -1,21 +1,21 @@
 ---
-title: "Управление динамическими списками Azure с помощью Ansible"
-description: "Узнайте, как управлять динамическими списками Azure с помощью Ansible"
+title: Управление динамическими списками Azure с помощью Ansible
+description: Узнайте, как управлять динамическими списками Azure с помощью Ansible
 ms.service: ansible
-keywords: "ansible, azure, разработка и операции, bash, cloudshell, динамические списки"
+keywords: ansible, azure, разработка и операции, bash, cloudshell, динамические списки
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Управление динамическими списками Azure с помощью Ansible
-Ansible можно использовать для извлечения информации из различных источников (включая облачные источники, такие как Azure) в *динамический список*. В этой статье вы настроите динамический список Ansible Azure через [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md), создадите в нем две виртуальные машины, назначите одной из них тег и установите на ней Nginx.
+Ansible можно использовать для извлечения информации из различных источников (включая облачные источники, такие как Azure) в *динамический список*. В этой статье вы настроите динамический список Ansible Azure с помощью [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md), создадите в нем две виртуальные машины, назначите одной из них тег и установите на ней Nginx.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -59,11 +59,11 @@ Ansible можно использовать для извлечения инфо
 Выполните приведенную ниже команду [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag), чтобы добавить тег для виртуальной машины `ansible-inventory-test-vm1` с ключом `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Создание динамического списка
-После определения виртуальных машин (и добавления тегов) необходимо создать динамический список. Ansible предоставляет скрипт Python с названием [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py), который создает динамический список ресурсов Azure, отправляя запросы API к Azure Resource Manager. Ниже приведены шаги по использованию скрипта `azure_rm.py` для подключения двух тестовых виртуальных машин Azure:
+После определения виртуальных машин (и добавления тегов) необходимо создать динамический список. Ansible предоставляет скрипт Python с названием [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py), который создает динамический список ресурсов Azure, отправляя запросы API к Azure Resource Manager. Ниже описано, как использовать скрипт `azure_rm.py` для подключения двух тестовых виртуальных машин Azure:
 
 1. Получите скрипт `azure_rm.py`, используя команду `wget` GNU:
 

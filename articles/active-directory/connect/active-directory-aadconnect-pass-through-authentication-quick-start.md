@@ -1,9 +1,9 @@
 ---
-title: "Краткое руководство по аутентификации Azure AD | Документация Майкрософт"
-description: "В этой статье описывается, как приступить к работе со сквозной проверкой подлинности Azure Active Directory (Azure AD)."
+title: Краткое руководство по аутентификации Azure AD | Документация Майкрософт
+description: В этой статье описывается, как приступить к работе со сквозной проверкой подлинности Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход"
-documentationcenter: 
+keywords: сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Краткое руководство по сквозной проверке подлинности Azure Active Directory
 
@@ -116,20 +116,38 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 ## <a name="step-5-ensure-high-availability"></a>Шаг 5. Обеспечение высокого уровня доступности
 
-Если планируется развернуть сквозную проверку подлинности в рабочей среде, необходимо установить автономный агент проверки подлинности. Установите второй агент проверки подлинности на сервере, _отличном_ от сервера, на котором выполняется Azure AD Connect и первый агент проверки подлинности. Эта настройка обеспечит высокий уровень доступности запросов на вход. Выполните указанные ниже инструкции, чтобы развернуть автономный агент проверки подлинности.
+Если планируется развернуть сквозную аутентификацию в рабочей среде, необходимо как минимум установить изолированный агент аутентификации. Установите эти агенты аутентификации на серверах, на которых _не_ выполняется Azure AD Connect. Эта конфигурация обеспечит высокий уровень доступности для запросов пользователей на вход.
 
-1. Скачайте последнюю версию агента аутентификации (1.5.193.0 или более позднюю). Войдите в [центр администрирования Azure Active Directory](https://aad.portal.azure.com), используя учетные данные глобального администратора для своего клиента.
+Выполните инструкции ниже, чтобы скачать программное обеспечение агента аутентификации.
+
+1. Скачайте последнюю версию агента аутентификации (версию 1.5.193.0 или более позднюю). Для этого войдите в [центр администрирования Azure Active Directory](https://aad.portal.azure.com) с учетными данными глобального администратора для клиента.
 2. В области слева выберите **Azure Active Directory**.
 3. Выберите **Azure AD Connect** > **Сквозная проверка подлинности** > **Загрузить агент**.
 4. Нажмите кнопку **Принять условия и скачать**.
-5. Установите последнюю версию агента аутентификации. Для этого запустите исполняемый файл, который вы скачали на предыдущем шаге. По запросу введите учетные данные глобального администратора для клиента.
 
 ![Центр администрирования Azure Active Directory — кнопка скачивания агента аутентификации](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Центр администрирования Azure Active Directory — область "Скачивание агента"](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Можно также скачать агент аутентификации Azure Active Directory [отсюда](https://aka.ms/getauthagent). Обязательно прочитайте и примите [условия использования](https://aka.ms/authagenteula) агента аутентификации, _прежде_ чем установить его.
+>Можно также напрямую скачать программное обеспечение агента аутентификации [отсюда](https://aka.ms/getauthagent). Прочитайте и примите [условия использования](https://aka.ms/authagenteula) агента аутентификации, _прежде_ чем установить его.
+
+Развернуть изолированный агент аутентификации можно двумя способами.
+
+Во-первых, это можно сделать интерактивно, просто запустив скачанный исполняемый файл агента аутентификации и указав учетные данные глобального администратора своего клиента при появлении соответствующего запроса.
+
+Во-вторых, можно создать и запустить сценарий автоматического развертывания. Это удобно, если вы хотите одновременно развернуть несколько агентов аутентификации или установить агенты аутентификации на серверах Windows, на которых не включен пользовательский интерфейс или к которым невозможно получить доступ с помощью подключения к удаленному рабочему столу. Ниже приведены инструкции по этому способу.
+
+1. Выполните следующую команду, чтобы установить агент аутентификации: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Агент аутентификации можно зарегистрировать в службе с помощью Windows PowerShell. Создайте объект учетных данных PowerShell `$cred`, содержащий имя пользователя и пароль глобального администратора для вашего клиента. Выполните следующую команду, заменив *\<username\>* и *\<password\>* на нужные имя пользователя и пароль:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Перейдите в каталог **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** и запустите следующий сценарий с использованием созданного объекта `$cred`.
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Дополнительная информация
 - [Интеллектуальная блокировка](active-directory-aadconnect-pass-through-authentication-smart-lockout.md). Узнайте, как настроить возможность интеллектуальной блокировки в клиенте для защиты учетных записей пользователей.

@@ -1,25 +1,19 @@
 ---
-title: "Применение рекомендаций по производительности для Базы данных SQL Azure | Документация Майкрософт"
-description: "Чтобы найти рекомендации по производительности, позволяющие оптимизировать работу базы данных SQL Azure, используйте портал Azure."
+title: Применение рекомендаций по производительности для Базы данных SQL Azure | Документация Майкрософт
+description: Чтобы найти рекомендации по производительности, позволяющие оптимизировать работу базы данных SQL Azure, используйте портал Azure.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: monicar
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a5772e67d5b91ff989ac6d049b14b1ccad5c952e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Поиск и применение рекомендаций по производительности
 
@@ -130,7 +124,7 @@ ms.lasthandoff: 02/21/2018
 | Возврат |Рекомендация была применена, но не дала существенного улучшения и была автоматически отменена. |
 | Отмена |Рекомендация была отменена. |
 
-Щелкните внутрипроцессную рекомендацию в списке, чтобы увидеть дополнительные сведения о ней:
+Щелкните внутрипроцессную рекомендацию в списке, чтобы увидеть дополнительные сведения.
 
 ![Рекомендованные индексы](./media/sql-database-advisor-portal/operations.png)
 

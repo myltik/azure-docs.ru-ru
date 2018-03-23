@@ -1,6 +1,6 @@
 ---
-title: "Приобретение и настройка SSL-сертификата для службы приложений Azure | Документация Майкрософт"
-description: "Узнайте, как приобрести сертификат службы приложений и привязать его к приложению службы приложений."
+title: Приобретение и настройка SSL-сертификата для службы приложений Azure | Документация Майкрософт
+description: Узнайте, как приобрести сертификат службы приложений и привязать его к приложению службы приложений.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Приобретение и настройка сертификата SSL для службы приложений Azure
 

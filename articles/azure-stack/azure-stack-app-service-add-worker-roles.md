@@ -1,27 +1,28 @@
 ---
-title: "Развертывание рабочих ролей в службе приложений — Azure Stack | Документация Майкрософт"
-description: "Подробные инструкции по масштабированию службы приложений Microsoft Azure Stack"
+title: Развертывание рабочих ролей в службе приложений — Azure Stack | Документация Майкрософт
+description: Подробные инструкции по масштабированию службы приложений Microsoft Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
-manager: femila
-editor: 
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: ddd9820715e964218db8b88fb5211b3725c808b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/08/2018
+ms.author: anwestg
+ms.reviewer: brenduns
+ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Служба приложений в Azure Stack: добавление рабочих ролей и ролей инфраструктуры
+
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*  
 
 Этот документ содержит инструкции по масштабированию службы приложений для рабочих ролей и ролей инфраструктуры Azure Stack. Здесь вы найдете указания по созданию дополнительных рабочих ролей, что позволяет поддерживать приложения любого размера.
@@ -35,7 +36,49 @@ ms.lasthandoff: 02/21/2018
 
 Служба приложений Azure в Azure Stack развертывает все роли в масштабируемых наборах виртуальных машин, что обеспечивает дополнительные возможности масштабирования. Чтобы использовать эти возможности, все операции масштабирования рабочих уровней выполняются с правами администратора службы приложений.
 
-Дополнительные рабочие роли можно добавить непосредственно в роли администратора поставщика ресурсов в службе приложений.
+> [!IMPORTANT]
+> В настоящее время невозможно масштабировать масштабируемые наборы виртуальных машин на портале, как указано в примечаниях к выпуску Azure Stack, поэтому для масштабирования используйте пример PowerShell.
+>
+>
+
+## <a name="add-additional-workers-with-powershell"></a>Добавление дополнительных рабочих ролей с помощью PowerShell
+
+1. [Настройка среды PowerShell оператора Azure Stack](azure-stack-powershell-configure-admin.md)
+
+2. Используйте этот пример, чтобы развернуть масштабируемый набор.
+   ```powershell
+   
+    ##### Scale out the AppService Role instances ######
+   
+    # Set context to AzureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+                                                 
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+
+    # Get current scale set
+    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+   ```    
+
+   > [!NOTE]
+   > На выполнение этого шага может уйти несколько часов, в зависимости от типа роли и количества экземпляров.
+   >
+   >
+
+3. Контролируйте состояние новых экземпляров ролей в инструменте администрирования службы приложений. Чтобы проверить состояние отдельного экземпляра роли, щелкните тип роли в списке.
+
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Дополнительные рабочие роли можно добавить непосредственно в роли администратора поставщика ресурсов в службе приложений.
 
 1. Войдите на портал администрирования Azure Stack с правами администратора службы.
 
@@ -57,12 +100,16 @@ ms.lasthandoff: 02/21/2018
 
 7. Ход подготовки новых ролей можно отслеживать в списке рабочих ролей в колонке **Роли**.
 
+## <a name="result"></a>Результат
+
 Когда рабочие роли будут полностью развернуты и готовы к использованию, пользователи смогут размещать в них свои рабочие нагрузки. В следующем примере представлено несколько ценовых категорий, доступных по умолчанию. Если для определенного рабочего уровня нет доступных рабочих процессов, вы не сможете выбрать соответствующую ценовую категорию.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Чтобы развернуть роли управления, внешнего интерфейса или издателя, нужно развернуть соответствующий масштабируемый набор виртуальных машин. В последующих выпусках мы добавим возможность развертывать эти роли при помощи функций управления в службе приложений.
+> Чтобы развернуть роли управления, внешнего интерфейса или издателя, нужно развернуть соответствующий тип роли. 
+>
+>
 
 Чтобы масштабировать роли управления, интерфейса или издателя, выполните те же действия, выбирая соответствующий тип роли. Контроллеры не развертываются как наборы масштабирования. Поэтому во время установки для всех рабочих развертываний следует развернуть два контроллера.
 

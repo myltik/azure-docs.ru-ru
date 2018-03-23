@@ -1,11 +1,11 @@
 ---
-title: "Подключение компьютеров с помощью шлюза OMS | Документация Майкрософт"
-description: "Подключайте свои устройства и компьютеры под наблюдением Operations Manager к шлюзу OMS, чтобы отправлять данные в службу автоматизации Azure и Log Analytics в случае отсутствия доступа к Интернету."
+title: Подключение компьютеров с помощью шлюза OMS | Документация Майкрософт
+description: Подключайте свои устройства и компьютеры под наблюдением Operations Manager к шлюзу OMS, чтобы отправлять данные в службу автоматизации Azure и Log Analytics в случае отсутствия доступа к Интернету.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Подключения компьютеров с помощью шлюза OMS без доступа к Интернету
 В этом документе описывается, как настроить связь между службой автоматизации Azure и Log Analytics с помощью шлюза OMS, когда компьютеры, подключенные напрямую или отслеживаемые Operations Manager, не имеют доступа к Интернету.  Шлюз OMS, являющийся прокси-сервером переадресации HTTP, в котором HTTP-туннелирование осуществляется с помощью команды HTTP CONNECT, может выполнять сбор и отправку данных в службу автоматизации Azure и Log Analytics от их имени.  

@@ -1,11 +1,11 @@
 ---
-title: "Поиск по журналам в Azure Log Analytics | Документация Майкрософт"
-description: "Чтобы получить данные из Log Analytics, требуется поиск по журналам.  В этой статье описывается использование новых поисков по журналам в Log Analytics и приведены основные сведения, которые необходимо знать перед их созданием."
+title: Поиск по журналам в Azure Log Analytics | Документация Майкрософт
+description: Чтобы получить данные из Log Analytics, требуется поиск по журналам.  В этой статье описывается использование новых поисков по журналам в Log Analytics и приведены основные сведения, которые необходимо знать перед их созданием.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Основные сведения о поисках по журналам в Log Analytics
 

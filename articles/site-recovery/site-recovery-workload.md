@@ -1,24 +1,24 @@
 ---
-title: "Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery? | Документация Майкрософт"
-description: "Описание рабочих нагрузок, которые можно защитить с помощью аварийного восстановления в службе Azure Site Recovery."
+title: Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery? | Документация Майкрософт
+description: Описание рабочих нагрузок, которые можно защитить с помощью аварийного восстановления в службе Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: cfreeman
-editor: 
+editor: ''
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 3/16/2018
 ms.author: raynew
-ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery?
 
@@ -62,7 +62,7 @@ Site Recovery помогает реализовать защиту и восст
 | Dynamics AX |Да |Да |Да |Да |Да|
 | Oracle |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт)|
 | Файловый сервер Windows |Да |Да |Да |Да |Да|
-| Citrix XenApp и XenDesktop |Да|Н/Д |Да |Н/Д |Да |
+| Citrix XenApp и XenDesktop |Да|Недоступно |Да |Недоступно |Да |
 
 ## <a name="replicate-active-directory-and-dns"></a>Репликация Active Directory и DNS
 Инфраструктура Active Directory и DNS необходима для большинства корпоративных приложений. Во время аварийного восстановления эти компоненты инфраструктуры необходимо защитить и восстановить перед восстановлением рабочих нагрузок и приложений.

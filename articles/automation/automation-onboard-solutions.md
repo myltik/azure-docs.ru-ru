@@ -1,25 +1,21 @@
 ---
-title: "Внедрение решение по обновлению и отслеживанию изменений в службу автоматизации Azure | Документация Майкрософт"
-description: "Узнайте, как подключить решения по обновлению и отслеживанию изменений к службе автоматизации Azure."
+title: Внедрение решений по обновлению и отслеживанию изменений в службу автоматизации Azure
+description: Узнайте, как подключить решения по обновлению и отслеживанию изменений к службе автоматизации Azure.
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: edae1156-2dc7-4dab-9e5c-bf253d3971d0
 ms.service: automation
+author: eamonoreilly
+ms.author: eamono
+manager: carmonm
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/28/2018
-ms.author: eamono
+ms.date: 03/16/2018
 ms.custom: mvc
-ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cde701672034b3c0edc46f1439488bcf53704df2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Внедрение решений по обновлению и отслеживанию изменений в службу автоматизации Azure
 

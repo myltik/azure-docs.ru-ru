@@ -1,8 +1,8 @@
 ---
-title: "Доменные службы Azure AD: сравнение доменных служб Azure AD и самостоятельно развернутых контроллеров домена | Документация Майкрософт"
-description: "Сравнение доменных служб Azure Active Directory и самостоятельно развернутых контроллеров домена."
+title: 'Доменные службы Azure AD: сравнение доменных служб Azure AD и самостоятельно развернутых контроллеров домена | Документация Майкрософт'
+description: Сравнение доменных служб Azure Active Directory и самостоятельно развернутых контроллеров домена.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/11/2017
 | --- |:---:|:---:|
 | [**Управляемая служба**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Защищенные развернутые службы**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Администратор должен обеспечить безопасное развертывание. |
-| [**Сервер DNS**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;** (управляемая служба) |**&#x2713;** |
+| [**Сервер DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (управляемая служба) |**&#x2713;** |
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Присоединение к домену**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Аутентификация в домене с помощью NTLM и Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |

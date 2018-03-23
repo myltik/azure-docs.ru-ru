@@ -1,30 +1,30 @@
 ---
-title: "Настройка среды PowerShell оператора Azure Stack | Документация Майкрософт"
-description: "Сведения о том, как настроить среду PowerShell оператора Azure Stack."
+title: Настройка среды PowerShell оператора Azure Stack | Документация Майкрософт
+description: Сведения о том, как настроить среду PowerShell оператора Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 03/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 96ce59d0390affaa57d05d6d08657f5c1a3c466a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 57aa5a1ccc45548c3e789b50c888f669df39d5f1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-the-azure-stack-operators-powershell-environment"></a>Настройка среды PowerShell оператора Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-Как оператор Azure Stack вы можете настроить среду PowerShell для работы с Пакетом средств разработки Azure Stack. После настройки среду PowerShell можно использовать для управления ресурсами Azure Stack, например для создания предложений, планов и квот, управления оповещениями и т. д. Эта статья касается работы только с облачными средами оператора. Если нужно настроить PowerShell для пользовательской среды, см. статью [Настройка пользовательской среды PowerShell в Azure Stack](user/azure-stack-powershell-configure-user.md). 
+Azure Stack можно настроить для управления такими ресурсами, как создание предложений, планов, квот и предупреждений, с помощью PowerShell. Этот раздел поможет настроить среду оператора. Если вы хотите настроить PowerShell для пользовательской среды, см. статью [Настройка пользовательской среды PowerShell в Azure Stack](user/azure-stack-powershell-configure-user.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -35,76 +35,40 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Настройка среды оператора и вход в Azure Stack
 
-Выполните один из следующих скриптов в зависимости от типа развертывания (Azure AD или AD FS), чтобы настроить среду оператора Azure Stack для работы с PowerShell (обязательно замените значения AAD tenantName, конечной точки GraphAudience и ArmEndpoint в соответствии с конфигурацией своей среды):
+Настройте среду оператора Azure Stack с помощью PowerShell. С учетом типа развертывания (Azure AD или AD FS) выполните один из следующих сценариев: замените tenantName Azure AD, конечную точку GraphAudience и значение ArmEndpoint собственной конфигурацией среды.
 
-### <a name="azure-active-directory-aad-based-deployments"></a>Развертывания на базе Azure Active Directory (AAD)
-       
-  ```powershell
-  # Navigate to the downloaded folder and import the **Connect** PowerShell module
-  Set-ExecutionPolicy RemoteSigned
-  Import-Module .\Connect\AzureStack.Connect.psm1
+### <a name="azure-active-directory-azure-ad-based-deployments"></a>Развертывания на базе Azure Active Directory (Azure AD)
 
-  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+````powershell  
+#  Create an administrator environment
+Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+# Get the value of your Directory Tenant ID
+$TenantID = Get-AzsDirectoryTenantId -AADTenantName "<mydirectorytenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
 
+# After registering the AzureRM environment, cmdlets can be 
+# easily targeted at your Azure Stack instance.
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+````
 
-  # Register an AzureRM environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
-    
-  Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience $GraphAudience 
-
-  # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-    -EnvironmentName "AzureStackAdmin"
-
-  # Sign in to your environment
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -TenantId $TenantID 
-  ```
 
 ### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Развертывания на базе служб федерации Active Directory (AD FS)
-         
-  ```powershell
-  # Navigate to the downloaded folder and import the **Connect** PowerShell module
-  Set-ExecutionPolicy RemoteSigned
-  Import-Module .\Connect\AzureStack.Connect.psm1
 
-  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+````powershell  
+#  Create an administrator environment
+Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+# Get the value of your Directory Tenant ID
+$TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName AzureStackAdmin
 
-
-  # Register an AzureRM environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
-
-
-  # Get the Active Directory tenantId that is used to deploy Azure Stack     
-  $TenantID = Get-AzsDirectoryTenantId `
-    -ADFS `
-    -EnvironmentName "AzureStackAdmin"
-
-  # Sign in to your environment
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -TenantId $TenantID 
-  ```
+# After registering the AzureRM environment, cmdlets can be 
+# easily targeted at your Azure Stack instance.
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+````
 
 ## <a name="test-the-connectivity"></a>Проверка подключения
 
-Теперь, когда все настроено, вы можете создавать ресурсы в Azure Stack с помощью Azure PowerShell. Например, можно создать группу ресурсов для приложения и добавить виртуальную машину. Используйте команду ниже, чтобы создать группу ресурсов с именем MyResourceGroup.
+Теперь, когда все настроено, можно создавать ресурсы в Azure Stack с помощью Azure PowerShell. Например, можно создать группу ресурсов для приложения и добавить виртуальную машину. Используйте команду ниже, чтобы создать группу ресурсов с именем MyResourceGroup.
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

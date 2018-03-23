@@ -1,24 +1,24 @@
 ---
-title: "Передача в Azure данных об использовании из Azure Stack | Документация Майкрософт"
-description: "Сведения о настройке передачи данных об использовании в Azure Stack."
+title: Передача в Azure данных об использовании из Azure Stack | Документация Майкрософт
+description: Сведения о настройке передачи данных об использовании в Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Передача в Azure данных об использовании из Azure Stack 
 
@@ -108,3 +108,4 @@ ms.lasthandoff: 12/11/2017
 * [API использования поставщика](azure-stack-provider-resource-api.md)  
 * [API использования клиента](azure-stack-tenant-resource-usage-api.md)
 * [Часто задаваемые вопросы об использовании](azure-stack-usage-related-faq.md)
+* [Управление потреблением и оплатой для Azure Stack в роли поставщика облачных служб](azure-stack-add-manage-billing-as-a-csp.md)

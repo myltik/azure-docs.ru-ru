@@ -1,11 +1,11 @@
 ---
-title: "Служба архивации Azure: восстановление файлов и папок из резервной копии виртуальной машины Azure | Документация Майкрософт"
-description: "Восстановление файлов из точки восстановления виртуальной машины Azure"
+title: 'Служба архивации Azure: восстановление файлов и папок из резервной копии виртуальной машины Azure | Документация Майкрософт'
+description: Восстановление файлов из точки восстановления виртуальной машины Azure
 services: backup
 documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "восстановление на уровне элементов; восстановление файлов из резервной копии виртуальной машины Azure; восстановление файлов виртуальной машины Azure"
+keywords: восстановление на уровне элементов; восстановление файлов из резервной копии виртуальной машины Azure; восстановление файлов виртуальной машины Azure
 ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Восстановление файлов из резервной копии виртуальной машины Azure
 
 Azure Backup предоставляет возможность восстановления [виртуальных машин и дисков Azure](./backup-azure-arm-restore-vms.md) из резервных копий виртуальной машины Azure, также известных как точки восстановления. В этой статье описывается восстановление файлов и папок из резервной копии виртуальной машины Azure. Восстановление файлов и папок доступно для всех виртуальных машин Azure, развернутых по модели с помощью Resource Manager и защищенных в хранилище служб восстановления.
 
 > [!Note]
+> Эта функция доступна для всех виртуальных машин Azure, развернутых посредством модели с помощью Resource Manager и защищенных в хранилище служб восстановления.
 > Восстановление файлов из зашифрованной резервной копии виртуальной машины не поддерживается.
 >
 

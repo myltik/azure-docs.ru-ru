@@ -1,24 +1,20 @@
 ---
-title: "Создание или импорт модуля Runbook в службе автоматизации Azure"
-description: "В этой статье описывается создание новых модулей Runbook в службе автоматизации Azure или их импорт из файла."
+title: Создание или импорт модуля Runbook в службе автоматизации Azure
+description: В этой статье описывается создание новых модулей Runbook в службе автоматизации Azure или их импорт из файла.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 24414362-b690-4474-8ca7-df18e30fc31d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 61fd58e21c8afce141f17f39da9ff6f77070c7a8
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Создание или импорт модуля Runbook в службе автоматизации Azure
 Чтобы добавить модуль Runbook в службу автоматизации Azure, можно [создать новый модуль](#creating-a-new-runbook) или импортировать уже существующий модуль из файла или из [коллекции Runbook](automation-runbook-gallery.md). В этой статье рассказывается, как создавать и импортировать модули Runbook из файла.  Информацию о получении доступа к модулям Runbook сообществ см. в статье [Коллекции модулей Runbook и других модулей для службы автоматизации Azure](automation-runbook-gallery.md).

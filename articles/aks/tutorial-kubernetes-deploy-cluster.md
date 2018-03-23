@@ -1,6 +1,6 @@
 ---
-title: "Руководство по Kubernetes в Azure. Развертывание кластера"
-description: "Руководство по AKS. Развертывание кластера"
+title: Руководство по Kubernetes в Azure. Развертывание кластера
+description: Руководство по AKS. Развертывание кластера
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Получите идентификатор ресурса реестра ACR. Измените имя реестра на имя своего реестра ACR, а имя группы ресурсов — на имя той группы ресурсов, в которой находится реестр ACR.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Создайте назначение ролей для предоставления необходимого уровня доступа.

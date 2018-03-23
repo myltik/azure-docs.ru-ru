@@ -1,13 +1,13 @@
 ---
-title: "Обеспечение высокого уровня доступности SAP NetWeaver на виртуальных машинах Azure | Документация Майкрософт"
-description: "Руководство по обеспечению высокого уровня доступности для SAP NetWeaver на виртуальных машинах Azure"
+title: Обеспечение высокого уровня доступности SAP NetWeaver на виртуальных машинах Azure | Документация Майкрософт
+description: Руководство по обеспечению высокого уровня доступности для SAP NetWeaver на виртуальных машинах Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae90fe1d6d9e91bffa3fd4c6a7d79d069ab604a2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Высокий уровень доступности SAP NetWeaver на виртуальных машинах Azure
 
@@ -293,7 +293,7 @@ ms.lasthandoff: 11/02/2017
 [sap-ha-guide-10.2]:high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916
 [sap-ha-guide-10.3]:high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5
 
-[sap-ha-multi-sid-guide]:high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:high-availability-multi-sid.md (Конфигурации высокой доступности SAP с несколькими SID)
 
 
 [sap-ha-guide-figure-1000]:media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/02/2017
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (Матрица доступности продуктов SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -422,7 +422,7 @@ ms.lasthandoff: 11/02/2017
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -1018,7 +1018,7 @@ _**Рис. 15.** Правила балансировки нагрузки ASCS/
 
 Если вы хотите использовать другие номера для экземпляров SAP ASCS или SCS, необходимо изменить имена и значения по умолчанию их портов.
 
-1.  На портале Azure выберите **<*SID* > подсистема балансировки нагрузки -lb-ascs** > **Правила балансировки нагрузки**.
+1.  На портале Azure выберите **<*SID*>-балансировщик нагрузки -lb-ascs** > **Правила балансировки нагрузки**.
 2.  Для всех правил балансировки нагрузки, относящихся к экземпляру SAP ASCS или SCS, измените следующие значения.
 
   * ИМЯ
@@ -1413,7 +1413,7 @@ SIOS DataKeeper Cluster Edition нужно установить на обоих 
 1.  В диспетчере DNS Windows создайте запись DNS для имени виртуального узла экземпляра ASCS/SCS.
 
   > [!IMPORTANT]
-  > IP-адрес, назначаемый имени виртуального узла экземпляра ASCS/SCS, должен совпадать с IP-адресом, назначенным Azure Load Balancer (**<*SID*>-lb-ascs**).  
+  > IP-адрес, который вы назначите имени виртуального узла для экземпляра ASCS/SCS, должен совпадать с IP-адресом, назначенным для Azure Load Balancer (**<*SID*>-lb-ascs**).  
   >
   >
 
@@ -1491,7 +1491,7 @@ SIOS DataKeeper Cluster Edition нужно установить на обоих 
 
   Номер порта определен в шаблонах Azure Resource Manager для SAP. Назначить номер порта можно в PowerShell.
 
-  Чтобы задать новое значение ProbePort для кластерного ресурса **SAP <*SID*> IP**, выполните следующий сценарий PowerShell. Обновите переменные PowerShell для своей среды. После выполнения сценария вам будет предложено перезапустить кластерную группу SAP, чтобы активировать изменения.
+  Чтобы задать новое значение ProbePort для кластерного ресурса **SAP <*SID*> IP**, выполните следующий скрипт PowerShell. Обновите переменные PowerShell для своей среды. После выполнения сценария вам будет предложено перезапустить кластерную группу SAP, чтобы активировать изменения.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -1549,7 +1549,7 @@ SIOS DataKeeper Cluster Edition нужно установить на обоих 
   }
   ```
 
-  После подключения роли кластера **SAP <*SID*>** к сети убедитесь, что для параметра **ProbePort** задано новое значение.
+  Подключив роль кластера **SAP <*SID*>**, убедитесь, что используется новое значение параметра **ProbePort**.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>

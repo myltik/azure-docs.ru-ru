@@ -1,11 +1,11 @@
 ---
-title: "Вход с помощью телефона через приложение Microsoft Authenticator. Учетные записи Azure и Майкрософт | Документация Майкрософт"
-description: "Используйте телефон для входа в учетную запись Майкрософт вместо ввода пароля. В этой статье приведены ответы на часто задаваемые вопросы об этой функции."
+title: Вход с помощью телефона через приложение Microsoft Authenticator. Учетные записи Azure и Майкрософт | Документация Майкрософт
+description: Используйте телефон для входа в учетную запись Майкрософт вместо ввода пароля. В этой статье приведены ответы на часто задаваемые вопросы об этой функции.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Вход с использованием телефона вместо ввода пароля
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>Как получить доступ к учетной записи без телефона (в случае потери и т. д.)?  
 
-Чтобы перейти к использованию пароля, вы всегда можете щелкнуть **Use a password instead** (Использовать пароль) на странице входа. Обратите внимание, что при использовании двухфакторной проверки подлинности по-прежнему необходим второй метод для подтверждения входа. Поэтому мы настоятельно рекомендуем внести дополнительные актуальные сведения безопасности для своей учетной записи. Вы можете получить доступ к сведениям безопасности, перейдя по ссылке https://account.live.com/proofs/manage.
+Чтобы перейти к использованию пароля, вы всегда можете щелкнуть **Use a password instead** (Использовать пароль) на странице входа. Обратите внимание, что при использовании двухфакторной проверки подлинности по-прежнему необходим второй метод для подтверждения входа. Поэтому мы настоятельно рекомендуем внести дополнительные актуальные сведения безопасности для своей учетной записи. Вы можете управлять сведениями о безопасности по адресу https://account.live.com/proofs/manage.
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Как отключить эту функцию и вернуться к вводу пароля?
 

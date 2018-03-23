@@ -1,12 +1,12 @@
 ---
-title: "Работа с прокси в Функциях Azure | Документация Майкрософт"
-description: "Общие сведения об использовании прокси Функций Azure"
+title: Работа с прокси в Функциях Azure | Документация Майкрософт
+description: Общие сведения об использовании прокси Функций Azure
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Работа с функцией "Прокси-серверы Функций Azure"
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="debugProxies"></a>Устранение неполадок функции "Прокси-серверы"
 
-Добавьте флаг `"debug":true` к любому прокси-серверу в `proxy.json`, чтобы включить ведение журнала отладки. Журналы хранятся в папке `D:\home\LogFiles\Application\Proxies\DetailedTrace`. К ним можно получить доступ с помощью дополнительных инструментов (Kudu). Каждый HTTP-ответ также будет содержать заголовок `Proxy-Trace-Location` с URL-адресом для доступа к файлу журнала.
+Добавьте флаг `"debug":true` к любому прокси-серверу в `proxies.json`, чтобы включить ведение журнала отладки. Журналы хранятся в папке `D:\home\LogFiles\Application\Proxies\DetailedTrace`. К ним можно получить доступ с помощью дополнительных инструментов (Kudu). Каждый HTTP-ответ также будет содержать заголовок `Proxy-Trace-Location` с URL-адресом для доступа к файлу журнала.
 
 Чтобы отладить прокси-сервер на стороне клиента, добавьте заголовок `Proxy-Trace-Enabled` с заданным значением `true`. При этом также будут записываться журналы трассировки в файловую систему и URL-адрес трассировки будет возвращаться в качестве заголовка в ответе.
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 02/13/2018
 
 В целях безопасности вы можете запретить всем пользователям вызывать службу для создания файлов трассировки. Пользователи не смогут получить доступ к содержимому трассировки без ваших учетных данных для входа. Но создание файлов трассировки связано с потреблением ресурсов и свидетельствует о том, что вы используете прокси-серверы Функций Azure.
 
-Чтобы полностью отключить трассировку, добавьте `"debug":false` для конкретного прокси-сервера в `proxy.json`.
+Чтобы полностью отключить трассировку, добавьте `"debug":false` для конкретного прокси-сервера в `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Расширенная конфигурация
 

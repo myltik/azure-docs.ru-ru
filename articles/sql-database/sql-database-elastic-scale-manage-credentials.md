@@ -1,25 +1,19 @@
 ---
-title: "Управление учетными данными в клиентской библиотеке эластичной базы данных | Документация Майкрософт"
-description: "Как установить правильный уровень учетных данных (от администратора до доступа только для чтения) для приложений эластичных баз данных."
+title: Управление учетными данными в клиентской библиотеке эластичной базы данных | Документация Майкрософт
+description: Как установить правильный уровень учетных данных (от администратора до доступа только для чтения) для приложений эластичных баз данных.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Учетные данные для доступа к клиентской библиотеке эластичной базы данных
 [Клиентская библиотека эластичной базы данных](sql-database-elastic-database-client-library.md) использует три различных типа учетных данных для доступа к [диспетчеру карты сегментов](sql-database-elastic-scale-shard-map-management.md). В зависимости от выполняемых задач используйте учетные данные с максимально низким уровнем доступа.

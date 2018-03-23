@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт"
-description: "Узнайте, как устранять распространенные неполадки синхронизации данных SQL Azure (предварительная версия)."
+title: Устранение неполадок синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт
+description: Узнайте, как устранять распространенные неполадки синхронизации данных SQL Azure (предварительная версия).
 services: sql-database
 ms.date: 11/13/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Устранение неполадок с синхронизацией данных SQL (предварительная версия)
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 11/20/2017
 
 При попытке использовать агент клиента вы получаете следующие сообщения.
 
-"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more details" (Сбой синхронизации с исключением. Ошибка десериализации параметра www.microsoft.com/.../05:GetBatchInfoResult. Подробнее см. в описании InnerException).
+"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more information" (Сбой синхронизации с исключением. Ошибка десериализации параметра www.microsoft.com/.../05:GetBatchInfoResult. Дополнительные сведения см. в описании InnerException).
 
 "Inner exception message: Type 'Microsoft.Synchronization.ChangeBatch' is an invalid collection type since it does not have a default constructor" (Внутреннее сообщение об исключении. Тип Microsoft.Synchronization.ChangeBatch является недопустимым типом коллекции, так как он не имеет конструктора по умолчанию).
 

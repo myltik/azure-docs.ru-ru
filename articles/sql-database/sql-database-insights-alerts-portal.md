@@ -1,25 +1,19 @@
 ---
-title: "Создание оповещений для базы данных SQL с помощью портала Azure | Документация Майкрософт"
-description: "Используйте портал Azure для создания оповещений базы данных SQL, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий."
+title: Создание оповещений для базы данных SQL с помощью портала Azure | Документация Майкрософт
+description: Используйте портал Azure для создания оповещений базы данных SQL, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий.
 author: aamalvea
-manager: jhubbard
-editor: 
+manager: craigg
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 611b88c540902bc7a72d53671dacd098d9798b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Создание оповещений для базы данных SQL Azure и хранилища данных с помощью портала Azure
 
@@ -83,31 +77,31 @@ ms.lasthandoff: 10/31/2017
 | База данных SQL | cpu_percent | Процент использования ЦП | Среднее | 5 мин |
 | База данных SQL | physical_data_read_percent | Процент операций ввода/вывода данных | Среднее | 5 мин |
 | База данных SQL | log_write_percent | Log IO percentage | Среднее | 5 мин |
-| База данных SQL | dtu_consumption_percent | Процент использования DTU | Средняя | 5 мин |
+| База данных SQL | dtu_consumption_percent | Процент использования DTU | Среднее | 5 мин |
 | База данных SQL | storage | Total database size | Максимальная | 30 минут |
 | База данных SQL | connection_successful | Успешные подключения | Всего | 10 минут |
 | База данных SQL | connection_failed | Неудачные подключения | Всего | 10 минут |
 | База данных SQL | blocked_by_firewall | Заблокировано брандмауэром | Всего | 10 минут |
 | База данных SQL | deadlock | Взаимоблокировки | Всего | 10 минут |
 | База данных SQL | storage_percent | Размер базы данных в процентах | Максимальная | 30 минут |
-| База данных SQL | xtp_storage_percent | In-Memory OLTP storage percent (Preview) | Среднее | 5 мин |
-| База данных SQL | workers_percent | Workers percentage | Средняя | 5 мин |
+| База данных SQL | xtp_storage_percent | In-Memory OLTP storage percent (Preview) | Средняя | 5 мин |
+| База данных SQL | workers_percent | Workers percentage | Среднее | 5 мин |
 | База данных SQL | sessions_percent | Sessions percent | Среднее | 5 мин |
 | База данных SQL | dtu_limit | DTU limit | Среднее | 5 мин |
 | База данных SQL | dtu_used | DTU used | Среднее | 5 мин |
 ||||||
-| Эластичный пул | cpu_percent | Процент использования ЦП | Средняя | 10 минут |
-| Эластичный пул | physical_data_read_percent | Процент операций ввода/вывода данных | Средняя | 10 минут |
-| Эластичный пул | log_write_percent | Log IO percentage | Среднее | 10 минут |
+| Эластичный пул | cpu_percent | Процент использования ЦП | Среднее | 10 минут |
+| Эластичный пул | physical_data_read_percent | Процент операций ввода/вывода данных | Среднее | 10 минут |
+| Эластичный пул | log_write_percent | Log IO percentage | Средняя | 10 минут |
 | Эластичный пул | dtu_consumption_percent | Процент использования DTU | Средняя | 10 минут |
-| Эластичный пул | storage_percent | Storage percentage | Средняя | 10 минут |
-| Эластичный пул | workers_percent | Workers percentage | Среднее | 10 минут |
+| Эластичный пул | storage_percent | Storage percentage | Среднее | 10 минут |
+| Эластичный пул | workers_percent | Workers percentage | Средняя | 10 минут |
 | Эластичный пул | eDTU_limit | eDTU limit | Средняя | 10 минут |
 | Эластичный пул | storage_limit | Storage limit | Среднее | 10 минут |
-| Эластичный пул | eDTU_used | eDTU used | Среднее | 10 минут |
+| Эластичный пул | eDTU_used | eDTU used | Средняя | 10 минут |
 | Эластичный пул | storage_used | Storage used | Среднее | 10 минут |
 ||||||               
-| Хранилище данных SQL | cpu_percent | Процент использования ЦП | Средняя | 10 минут |
+| Хранилище данных SQL | cpu_percent | Процент использования ЦП | Среднее | 10 минут |
 | Хранилище данных SQL | physical_data_read_percent | Процент операций ввода/вывода данных | Среднее | 10 минут |
 | Хранилище данных SQL | storage | Total database size | Максимальная | 10 минут |
 | Хранилище данных SQL | connection_successful | Успешные подключения | Всего | 10 минут |
@@ -115,8 +109,8 @@ ms.lasthandoff: 10/31/2017
 | Хранилище данных SQL | blocked_by_firewall | Заблокировано брандмауэром | Всего | 10 минут |
 | Хранилище данных SQL | service_level_objective | Целевой уровень служб базы данных. | Всего | 10 минут |
 | Хранилище данных SQL | dwu_limit | Лимит DWU. | Максимальная | 10 минут |
-| Хранилище данных SQL | dwu_consumption_percent | DWU percentage | Среднее | 10 минут |
-| Хранилище данных SQL | dwu_used | DWU used | Средняя | 10 минут |
+| Хранилище данных SQL | dwu_consumption_percent | DWU percentage | Средняя | 10 минут |
+| Хранилище данных SQL | dwu_used | DWU used | Среднее | 10 минут |
 ||||||
 
 

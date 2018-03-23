@@ -1,26 +1,26 @@
 ---
-title: "Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B."
+title: Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B | Документация Майкрософт
+description: Ответы на часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/08/2018
+ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B
 
@@ -84,8 +84,8 @@ ms.lasthandoff: 03/02/2018
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>Доступен ли сброс паролей в JIT- или вирусном клиенте для пользователей, принявших приглашения через рабочий или учебный электронный адрес, но у которых нет учетной записи Azure AD?
 Да. Вы можете отправить электронное сообщение для сброса пароля, с помощью которого пользователь сможет сбросить пароль в JIT-клиенте.
 
-### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>Предоставляет ли Microsoft Dynamics CRM поддержку через Интернет для пользователей службы совместной работы Azure AD B2B?
-Сейчас эта поддержка не предоставляется. Тем не менее в будущем мы планируем добавить данную поддержку.
+### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Предоставляет ли Microsoft Dynamics 365 поддержку через Интернет для пользователей службы совместной работы Azure AD B2B?
+Да, Dynamics 365 (Интернет) обеспечивает поддержку службы совместной работы Azure AD B2B. Дополнительные сведения см. в статье о Dynamics 365 [Приглашение пользователей с помощью службы совместной работы Azure Active Directory B2B](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Какой срок действия у начального пароля для нового пользователя службы совместной работы B2B?
 Azure AD имеет единые требования в отношении фиксированного набора знаков, надежности пароля и правил блокировки учетной записи, которые одинаково применяются ко всем облачным учетным записям Azure AD. Облачные учетные записи — это учетные записи, которые не входят в федерацию с другими поставщиками удостоверений, такими как: 

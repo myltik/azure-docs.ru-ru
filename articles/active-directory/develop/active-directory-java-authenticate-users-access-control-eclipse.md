@@ -1,11 +1,11 @@
 ---
-title: "Использование контроля доступа (Java) | Документация Майкрософт"
-description: "Узнайте, как разрабатывать и применять контроль доступа с использованием Java в Azure."
+title: Использование контроля доступа (Java) | Документация Майкрософт
+description: Узнайте, как разрабатывать и применять контроль доступа с использованием Java в Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse
 В этом руководстве показано, как использовать службу Azure Access Control Service (ACS) в наборе средств Azure для Eclipse. Дополнительные сведения об ACS см. в разделе [Дальнейшие действия](#next_steps).
@@ -78,9 +78,9 @@ ms.lasthandoff: 12/11/2017
 Для выполнения задач в этом руководстве вам потребуется следующее:
 
 * Java Developer Kit (JDK), версия 1.6 или более поздняя.
-* Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Indigo или более поздняя. Скачать ее можно на веб-странице <http://www.eclipse.org/downloads/>. 
+* Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Indigo или более поздняя. Этот компонент можно скачать отсюда: <http://www.eclipse.org/downloads/>. 
 * Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat, GlassFish, сервера приложений JBoss или Jetty.
-* Подписка на Azure, которую можно получить, перейдя по ссылке <http://www.microsoft.com/windowsazure/offers/>.
+* Подписка Azure, которую можно получить на сайте <http://www.microsoft.com/windowsazure/offers/>.
 * Выпуск набора средств Azure для Eclipse за апрель 2014 года или более поздняя версия. Дополнительные сведения см. в статье [Установка набора средств Azure для Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Сертификат X.509 для использования с приложением. Этот сертификат потребуется в обоих форматах: открытый сертификат (CER) и файл обмена личной информацией (PFX). (Возможности для создания этого сертификата будут описаны далее в этом руководстве.)
 * Знакомство с эмулятором среды выполнения приложений Azure и методами развертывания, которые обсуждаются в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
@@ -205,7 +205,7 @@ Azure создает и активирует пространство имен. 
 4. Нажмите кнопку **Готово**
 5. Нажмите кнопку **Запуск в эмуляторе Azure** .
 6. После запуска веб-приложения Java в эмуляторе среды выполнения приложений закройте все экземпляры браузера (чтобы все текущие сеансы браузера не мешали тестированию входа в ACS).
-7. Запустите приложение, открыв в браузере ссылку <http://localhost:8080/MyACSHelloWorld/> (или <https://localhost:8080/MyACSHelloWorld/>, если установлен флажок **Require HTTPS connections** (Требовать соединения HTTPS)). Вам будет предложено войти в Windows Live ID, а затем следует использовать URL-адрес возврата, указанный для приложения проверяющей стороны.
+7. Запустите приложение, открыв <http://localhost:8080/MyACSHelloWorld/> в браузере (или <https://localhost:8080/MyACSHelloWorld/>, если вы установили флажок **Require HTTPS connections** (Требовать HTTPS-подключения)). Вам будет предложено войти в Windows Live ID, а затем следует использовать URL-адрес возврата, указанный для приложения проверяющей стороны.
 8. По завершении просмотра приложения нажмите кнопку **Сброс эмулятора Azure** .
 
 ## <a name="deploy-to-azure"></a>Развернуть в Azure

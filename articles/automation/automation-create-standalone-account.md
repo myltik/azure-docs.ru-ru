@@ -1,24 +1,20 @@
 ---
-title: "Создание автономной учетной записи службы автоматизации Azure | Документация Майкрософт"
-description: "В этой статье приводятся пошаговые инструкции по созданию и тестированию, а также пример проверки подлинности с помощью субъекта безопасности в службе автоматизации Azure."
+title: Создание автономной учетной записи службы автоматизации Azure
+description: В этой статье приводятся пошаговые инструкции по созданию и тестированию, а также пример проверки подлинности с помощью субъекта безопасности в службе автоматизации Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 08/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Создание автономной учетной записи службы автоматизации Azure
 В этой статье объясняется, как создать учетную запись службы автоматизации на портале Azure. Вы можете использовать учетную запись службы автоматизации на портале, чтобы оценить и изучить службу автоматизации Azure, не прибегая к дополнительным решениям по управлению или интеграции с Azure Log Analytics в Operations Management Suite (OMS). В дальнейшем эти решения по управлению можно добавить или интегрировать с Log Analytics для расширенного мониторинга заданий Runbook. 

@@ -1,25 +1,19 @@
 ---
-title: "Управление историческими данными в темпоральных таблицах с помощью политики хранения | Документация Microsoft"
-description: "Узнайте, как использовать политику темпорального хранения для постоянного контроля над историческими данными."
+title: Управление историческими данными в темпоральных таблицах с помощью политики хранения | Документация Microsoft
+description: Узнайте, как использовать политику темпорального хранения для постоянного контроля над историческими данными.
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: drasumic
-editor: 
-ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/12/2016
 ms.author: bonova
-ms.openlocfilehash: b4e1524008837094b57a3df469439ceaebf9c166
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Управление историческими данными в темпоральных таблицах с политикой хранения
 Темпоральные таблицы увеличивают размер базы данных больше, чем обычные таблицы, особенно если исторические данные хранятся в течение длительного времени. Поэтому политика хранения для исторических данных является важной составляющей управления жизненным циклом любой темпоральной таблицы. Темпоральные таблицы в базе данных SQL Azure включают удобный механизм хранения, который помогает выполнить эту задачу.

@@ -1,26 +1,23 @@
 ---
-title: "Примеры скриптов Azure PowerShell для базы данных SQL | Документация Майкрософт"
-description: "Примеры скриптов Azure PowerShell помогут вам создать серверы базы данных SQL, эластичные пулы, базы данных и брандмауэры, а также помогут управлять ими."
+title: Примеры скриптов Azure PowerShell для базы данных SQL | Документация Майкрософт
+description: Примеры скриптов Azure PowerShell помогут вам создать серверы базы данных SQL, эластичные пулы, базы данных и брандмауэры, а также помогут управлять ими.
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
 ms.custom: overview-samples, mvc
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: On Demand
 ms.date: 06/23/2017
-ms.author: janeng
-ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: carlrab
+ms.openlocfilehash: 63be3858bf159195acb99821a17447b7f05d7917
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Примеры Azure PowerShell для базы данных SQL Azure
 

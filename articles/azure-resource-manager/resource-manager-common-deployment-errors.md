@@ -1,25 +1,25 @@
 ---
-title: "Устранение распространенных ошибок развертывания в Azure | Документация Майкрософт"
-description: "Описывается устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager."
+title: Устранение распространенных ошибок развертывания в Azure | Документация Майкрософт
+description: Описывается устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "ошибка развертывания, развертывание Azure, развернуть в Azure"
+keywords: ошибка развертывания, развертывание Azure, развернуть в Azure
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
 
@@ -37,6 +37,7 @@ ms.lasthandoff: 12/20/2017
 | BadRequest | Отправленные значения развертывания не соответствуют значениям, ожидаемым Resource Manager. Проверьте внутреннее сообщение о состоянии. Оно поможет вам в устранении неполадки. | [Справочник по шаблону](/azure/templates/) и [поддерживаемые расположения](resource-manager-templates-resources.md#location) |
 | Конфликт | Запрашиваемая операция не разрешена в текущем состоянии ресурса. Например, изменение размера диска разрешено только при создании или освобождении виртуальной машины. | |
 | DeploymentActive | Дождитесь завершения параллельного развертывания в эту группу ресурсов. | |
+| DeploymentFailed | Ошибка DeploymentFailed является общей ошибкой, которая не содержит сведений, необходимых для ее устранения. Найдите в сведениях об ошибке ее код, с помощью которого можно получить дополнительные сведения. | [Поиск кода ошибки](#find-error-code) |
 | DnsRecordInUse | Имя записи DNS должно быть уникальным. Предоставьте другое имя или измените имеющуюся запись. | |
 | ImageNotFound | Проверьте параметры образа виртуальной машины. |  |
 | InUseSubnetCannotBeDeleted | Эта ошибка возникает, когда вы пытаетесь обновить ресурс, но при обработке запроса удаляется и создается ресурс. Укажите все неизменяемые значения. | [Обновление ресурса](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -44,7 +45,7 @@ ms.lasthandoff: 12/20/2017
 | InvalidContentLink | скорее всего была предпринята попытка связать недоступный вложенный шаблон. Внимательно проверьте URI, указанный для вложенного шаблона. Если шаблон существует в учетной записи хранения, убедитесь, что URI доступен. Возможно, понадобится передать маркер SAS. | [Связанные шаблоны](resource-group-linked-templates.md) |
 | InvalidParameter | Одно из значений, предоставленных для ресурса, не соответствует ожидаемому значению. Эта ошибка может возникнуть в результате многих различных состояний. Например, пароля может быть недостаточно или имя большого двоичного объекта может быть неверным. Проверьте сообщение об ошибке, чтобы определить, какое значение необходимо исправить. | |
 | InvalidRequestContent | Среди значений развертывания есть неожидаемые значения либо обязательные значения отсутствуют. Проверьте значения для типа ресурса. | [Справочник по шаблонам](/azure/templates/) |
-| InvalidRequestFormat | Включите ведение журнала отладки при выполнении развертывания и проверьте содержимое запроса. | [Ведение журнала отладки](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | Включите ведение журнала отладки при выполнении развертывания и проверьте содержимое запроса. | [Ведение журнала отладки](#enable-debug-logging) |
 | InvalidResourceNamespace | Проверьте пространство имен ресурсов, заданное в свойстве **type**. | [Справочник по шаблонам](/azure/templates/) |
 | InvalidResourceReference | Ресурс не существует, или на него неверно ссылаются. Проверьте, следует ли добавить зависимость. Убедитесь, что для функции **reference** указаны параметры, необходимые для вашего сценария. | [Устранение ошибок, связанных с зависимостями](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Проверьте тип ресурсов, заданный в свойстве **type**. | [Справочник по шаблонам](/azure/templates/) |
@@ -75,7 +76,124 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="find-error-code"></a>Поиск кода ошибки
 
-Если во время развертывания возникает ошибка, Resource Manager возвращает код ошибки. Сообщение об ошибке можно просмотреть на портале, в PowerShell или Azure CLI. Внешнее сообщение об ошибке может быть слишком общим для устранения неполадок. Подробные сведения об ошибке приведены во внутреннем сообщении. Дополнительные сведения см. в разделе [Определение кода ошибки](resource-manager-troubleshoot-tips.md#determine-error-code).
+Существует два типа ошибок, которые могут произойти:
+
+* ошибки проверки;
+* ошибки развертывания.
+
+Ошибки проверки возникают в сценариях, которые можно определить перед развертыванием. Это синтаксические ошибки в шаблоне или попытки развертывания ресурсов, которые приведут к превышению квот для подписки. Ошибки развертывания возникают из-за условий, возникающих во время развертывания. Это попытки получить доступ к ресурсу, который развертывается параллельно.
+
+Ошибки обоих типов возвращают код ошибки, с помощью которого можно устранить неполадки развертывания. Ошибки обоих типов отображаются в [журнале действий](resource-group-audit.md). Однако ошибки проверки не отображаются в журнале развертывания, так как при их наличии развертывание не запускается.
+
+### <a name="validation-errors"></a>Ошибки проверки
+
+При развертывании через портал ошибка проверки появляется после отправки значений.
+
+![Показ ошибки проверки через портал](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+Выберите сообщение для получения дополнительных сведений. На следующем изображении показана ошибка **InvalidTemplateDeployment** и сообщение, которое указывает, что развертывание заблокировано политикой.
+
+![Отображение сведений о проверке](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>Ошибки развертывания
+
+Если операция прошла проверку, но завершилась ошибкой во время развертывания, вы увидите ошибку в уведомлениях. Выберите уведомление.
+
+![уведомление об ошибке](./media/resource-manager-common-deployment-errors/notification.png)
+
+Вы увидите больше сведений о развертывании. Щелкните область уведомления, чтобы получить дополнительные сведения об ошибке.
+
+![сбой развертывания](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+Вы увидите сообщение об ошибке и ее коды. Обратите внимание, что имеется два кода ошибки. Первый код ошибки (**DeploymentFailed**) является общей ошибкой, которая не содержит сведений, необходимых для ее устранения. Второй код ошибки (**StorageAccountNotFound**) предоставляет необходимые сведения. 
+
+![Сведения об ошибке](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>Включение ведения журнала отладки
+
+Иногда требуются дополнительные сведения о запросе и ответе, чтобы узнать, что пошло не так. С помощью PowerShell или Azure CLI вы можете запросить, чтобы во время развертывания в журнал записывались дополнительные сведения.
+
+- PowerShell
+
+   В PowerShell для параметра **DeploymentDebugLogLevel** задайте значение All, ResponseContent или RequestContent.
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   Проверьте содержимое запроса с помощью следующего командлета.
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   Или проверьте содержимое ответа, выполнив команду, указанную ниже.
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   Эти сведения помогут определить, правильно ли задано то или иное значение в шаблоне.
+
+- Инфраструктура CLI Azure
+
+   Для просмотра операций развертывания выполните следующую команду.
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- Вложенный шаблон
+
+   Чтобы вести журнал отладочной информации для вложенного шаблона, используйте элемент **debugSetting**.
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>Создание шаблона для устранения неполадок
+
+В некоторых случаях устранить неполадки шаблона проще всего, проверяя его части. Можно создавать упрощенный шаблон, позволяющий сосредоточиться на части, которая, как вы считаете, вызывает ошибку. Для примера предположим, что вы получили сообщение об ошибке при указании ссылки на ресурс. Вместо того, чтобы проверять весь шаблон, создайте шаблон, возвращающий часть, которая может быть причиной проблемы. Это поможет определить, передаются ли правильные параметры, правильно ли используются функции шаблона и получается ли ожидаемый ресурс.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+Или предположим, что возникают ошибки развертывания, которые, как вы считаете, связаны с неправильно заданными зависимостями. Проверьте шаблон, разбив его на более простые шаблоны. Сначала создайте шаблон, который развертывает только один ресурс (например, SQL Server). Когда вы убедитесь, что этот ресурс определен правильно, добавьте зависящий от него ресурс (например, базу данных SQL). Проверив правильность определения этих двух ресурсов, добавьте другие зависимые ресурсы (например, политики аудита). В перерывах между тестовыми развертываниями удаляйте группу ресурсов, чтобы гарантировать адекватную проверку зависимостей.
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).

@@ -1,12 +1,12 @@
 ---
-title: "Создание бессерверного приложения в Visual Studio | Документы Майкрософт"
-description: "В этом руководстве мы создадим и развернем первое бессерверное приложение в Visual Studio, а также научимся управлять им."
-keywords: 
+title: Создание бессерверного приложения в Visual Studio | Документы Майкрософт
+description: В этом руководстве мы создадим и развернем первое бессерверное приложение в Visual Studio, а также научимся управлять им.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Создание бессерверного приложения в Visual Studio с использованием приложений логики и функций
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание бессерверной панели мониторинга социальных сетей](logic-apps-scenario-social-serverless.md)
-* [Управление приложениями логики из Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+* [Управление приложениями логики из Visual Studio Cloud Explorer](manage-logic-apps-with-visual-studio.md)
 * [Язык определения рабочего процесса приложений логики](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

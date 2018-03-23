@@ -1,10 +1,10 @@
 ---
-title: "Как использовать хранилище очередей из Node.js | Документация Майкрософт"
-description: "Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Node.js."
+title: Как использовать хранилище очередей из Node.js | Документация Майкрософт
+description: Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Node.js.
 services: storage
 documentationcenter: nodejs
-author: tamram
-manager: timlt
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 97522abd05d60eeaa2cc8dd07d3ab81d7f1d5fb9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: cshoe
+ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Использование хранилища очередей из Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Создание приложения Node.js
-Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание веб-приложения Node.js в службе приложений Azure](../../app-service/app-service-web-get-started-nodejs.md), [Построение и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- (с использованием Windows PowerShell, или [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix](https://www.microsoft.com/web/webmatrix/).
+Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание веб-приложения Node.js в Azure](../../app-service/app-service-web-get-started-nodejs.md), [Построение и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) — с использованием Windows PowerShell, или [Node.js tutorial in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial) (Руководство по Node.js в VS Code).
 
 ## <a name="configure-your-application-to-access-storage"></a>Настройка приложения для доступа к хранилищу
 Для использования службы хранилища Azure необходим пакет SDK для службы хранилища Azure для Node.js, который содержит набор удобных библиотек, взаимодействующих со службами REST хранилища.
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/03/2018
 1. Используя интерфейс командной строки, такой как **PowerShell** (Windows), **Terminal** (Mac) или **Bash** (Unix), перейдите в папку, в которой создан пример приложения.
 2. Введите в командной строке **npm install azure-storage** . Результат выполнения этой команды будет аналогичен следующему примеру:
  
-    ```
+    ```bash
     azure-storage@0.5.0 node_modules\azure-storage
     +-- extend@1.2.1
     +-- xmlbuilder@0.4.3
@@ -60,26 +60,26 @@ ms.lasthandoff: 01/03/2018
 ### <a name="import-the-package"></a>Импорт пакета
 Используйте Блокнот или другой текстовый редактор, чтобы добавить следующий код в начало файла **server.js** приложения, где планируется использовать хранилище.
 
-```
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Настройка подключения к службе хранилища Azure
 Модуль Azure считывает переменные среды AZURE\_STORAGE\_ACCOUNT и AZURE\_STORAGE\_ACCESS\_KEY или AZURE\_STORAGE\_CONNECTION\_STRING, чтобы получить информацию, необходимую для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, при вызове **createQueueService**необходимо указать сведения об учетной записи.
 
-Пример настройки переменных среды для веб-сайта Azure на [портале Azure](https://portal.azure.com) см. в статье [Веб-приложение Node.js, использующее службу таблиц Azure].
+Пример настройки переменных среды для веб-сайта Azure на [портале Azure](https://portal.azure.com) см. в статье [Веб-приложение Node.js, использующее службу таблиц Azure](../../cosmos-db/table-storage-cloud-service-nodejs.md).
 
 ## <a name="how-to-create-a-queue"></a>Практическое руководство. Создание очереди
 Следующий пример кода создает объект **QueueService** , который позволяет работать с очередями.
 
-```
+```javascript
 var queueSvc = azure.createQueueService();
 ```
 
 Используйте метод **createQueueIfNotExists** , который возвращает указанную очередь, если она уже существует, или создает новую с указанным именем, если она отсутствует.
 
-```
-queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+```javascript
+queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   if(!error){
     // Queue created or exists
   }
@@ -91,13 +91,13 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
 ### <a name="filters"></a>Фильтры
 Дополнительные операции фильтрации можно применить к выполняемым операциям, используя **QueueService**. К операциям фильтрации могут относиться ведение журнала, автоматический повтор и т. д. Фильтры являются объектами, реализующими метод со следующей сигнатурой:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Выполнив предварительную обработку параметров запроса, метод должен вызвать "next", передавая обратный вызов со следующей сигнатурой:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -105,7 +105,7 @@ function (returnObject, finalCallback, next)
 
 В пакет SDK Azure для Node.js включены два фильтра, реализующие логику повторных попыток: **ExponentialRetryPolicyFilter** и **LinearRetryPolicyFilter**. Следующий код создает объект **QueueService**, использующий **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
@@ -113,8 +113,8 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Практическое руководство. Вставка сообщения в очередь
 Чтобы создать сообщение и вставить его в очередь, используйте метод **createMessage** .
 
-```
-queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+```javascript
+queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
   if(!error){
     // Message inserted
   }
@@ -124,10 +124,10 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, result, respon
 ## <a name="how-to-peek-at-the-next-message"></a>Практическое руководство. Просмотр следующего сообщения
 Вы можете просмотреть сообщение в начале очереди, не удаляя его из нее, вызвав метод **peekMessages** . По умолчанию **peekMessages** просматривает одно сообщение.
 
-```
-queueSvc.peekMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.peekMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
+    // Message text is in results[0].messageText
   }
 });
 ```
@@ -147,11 +147,11 @@ queueSvc.peekMessages('myqueue', function(error, result, response){
 
 Чтобы удалить сообщение из очереди, используйте метод **getMessage**. В результате сообщения становятся невидимыми в очереди, и другие клиенты не могут их обрабатывать. После того как приложение обработало сообщение, вызовите метод **deleteMessage** , чтобы удалить его из очереди. Следующий пример получает сообщение, а затем удаляет его:
 
-```
-queueSvc.getMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
-    var message = result[0];
+    // Message text is in results[0].messageText
+    var message = results[0];
     queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
       if(!error){
         //message deleted
@@ -172,12 +172,12 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Практическое руководство. Изменение содержимого сообщения в очереди
 Вы можете изменить содержимое сообщения непосредственно в очереди с помощью **updateMessage**. Следующий пример обновляет текст сообщения:
 
-```
-queueSvc.getMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   if(!error){
     // Got the message
-    var message = result[0];
-    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+    var message = getResults[0];
+    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, updateResults, updateResponse){
       if(!error){
         // Message updated successfully
       }
@@ -194,14 +194,14 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 
 В следующем примере кода метод **getMessages** используется для получения 15 сообщений в одном вызове. Затем он обрабатывает каждое сообщение с помощью цикла for. Он также задает время ожидания невидимости пять минут для всех сообщений, возвращенных методом.
 
-```
-queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
-      var message = result[index];
-      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+      var message = results[index];
+      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){
         if(!error){
           // Message deleted
         }
@@ -214,10 +214,10 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 ## <a name="how-to-get-the-queue-length"></a>Практическое руководство. Получение длины очереди
 Метод **getQueueMetadata** возвращает метаданные очереди, в том числе приблизительное количество сообщений, ожидающих в очереди.
 
-```
-queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+```javascript
+queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   if(!error){
-    // Queue length is available in result.approximateMessageCount
+    // Queue length is available in results.approximateMessageCount
   }
 });
 ```
@@ -225,10 +225,10 @@ queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 ## <a name="how-to-list-queues"></a>Практическое руководство. Получение списка очередей
 Чтобы извлечь список очередей, используйте **listQueuesSegmented**. Чтобы извлечь список, отфильтрованный по определенному префиксу, используйте **listQueuesSegmentedWithPrefix**.
 
-```
-queueSvc.listQueuesSegmented(null, function(error, result, response){
+```javascript
+queueSvc.listQueuesSegmented(null, function(error, results, response){
   if(!error){
-    // result.entries contains the list of queues
+    // results.entries contains the list of queues
   }
 });
 ```
@@ -238,7 +238,7 @@ queueSvc.listQueuesSegmented(null, function(error, result, response){
 ## <a name="how-to-delete-a-queue"></a>Практическое руководство. Удаление очереди
 Чтобы удалить очередь и все сообщения в ней, вызовите метод **deleteQueue** для объекта очереди.
 
-```
+```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
   if(!error){
     // Queue has been deleted
@@ -255,7 +255,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 В следующем примере создается новая общая политика, которая позволяет держателю подписи SAS добавлять сообщения в очередь в течение 100 минут с момента своего создания.
 
-```
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -277,7 +277,7 @@ var host = queueSvc.host;
 
 Клиентское приложение далее использует подпись SAS с помощью **QueueServiceWithSAS** для выполнения операций с очередью. Следующий пример выполняет подключение к очереди и создает сообщение.
 
-```
+```javascript
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
   if(!error){
@@ -293,7 +293,7 @@ sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(er
 
 ACL реализуется с помощью массива политик доступа, каждая из которых связана со своим идентификатором. В следующем примере определяются две политики, по одной для пользователей user1 и user2:
 
-```
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
@@ -310,7 +310,7 @@ var sharedAccessPolicy = {
 
 В этом примере код получает текущее значение ACL для **myqueue**, а затем добавляет новые политики с помощью **setQueueAcl**. Такой подход допускает выполнение:
 
-```
+```javascript
 var extend = require('extend');
 queueSvc.getQueueAcl('myqueue', function(error, result, response) {
   if(!error){
@@ -326,7 +326,7 @@ queueSvc.getQueueAcl('myqueue', function(error, result, response) {
 
 После задания ACL можно создать подпись SAS на основе идентификатора политики. В следующем примере создается новая подпись SAS для пользователя 'user2':
 
-```
+```javascript
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 

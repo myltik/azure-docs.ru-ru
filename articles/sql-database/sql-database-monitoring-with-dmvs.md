@@ -1,26 +1,19 @@
 ---
-title: "Мониторинг базы данных SQL Azure с помощью динамических административных представлений | Документация Майкрософт"
-description: "Узнайте, как выявлять и диагностировать распространенные проблемы производительности с помощью динамических представлений управления для мониторинга Базы данных SQL Microsoft Azure."
+title: Мониторинг базы данных SQL Azure с помощью динамических административных представлений | Документация Майкрософт
+description: Узнайте, как выявлять и диагностировать распространенные проблемы производительности с помощью динамических представлений управления для мониторинга Базы данных SQL Microsoft Azure.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 298adcad78163e82a926abb684a172d56b4a33dd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8185e2748f4aeec4343fa649d8b54958cdcb262a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Мониторинг базы данных SQL Azure с помощью динамических представлений управления
 База данных SQL Microsoft Azure предлагает ряд динамических представлений управления для диагностирования проблем производительности, которые могут быть вызваны заблокированными или долго выполняющимися запросами, узкими местами ресурсов, непродуманным планом запросов и т. д. Этот раздел содержит информацию о том, как выявлять распространенные проблемы производительности с помощью динамических административных представлений.

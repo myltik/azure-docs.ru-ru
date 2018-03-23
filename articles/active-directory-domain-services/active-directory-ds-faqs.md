@@ -1,8 +1,8 @@
 ---
-title: "Доменные службы Azure Active Directory — часто задаваемые вопросы | Документация Майкрософт"
-description: "Часто задаваемые вопросы о доменных службах Azure Active Directory"
+title: Доменные службы Azure Active Directory — часто задаваемые вопросы | Документация Майкрософт
+description: Часто задаваемые вопросы о доменных службах Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Доменные службы Azure Active Directory: часто задаваемые вопросы
 На этой странице вы найдете ответы на часто задаваемые вопросы о доменных службах Azure Active Directory. Следите за обновлениями.
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Можно ли включить доменные службы Azure AD в подписку Azure CSP (поставщик облачных решений)?
 Да. Узнайте, как включить [доменные служб Azure AD в подписках Azure CSP](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Можно ли включить доменные службы Azure AD в федеративном каталоге Azure AD? Я использую AD FS при проверке подлинности пользователей для доступа к Office 365 и не выполняю синхронизацию хэшей паролей в Azure AD. Можно включить доменные службы Azure AD для этого каталога?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Можно ли включить доменные службы Azure AD в федеративном каталоге Azure AD? Хэши паролей не синхронизируются с Azure AD. Можно включить доменные службы Azure AD для этого каталога?
 Нет. Доменным службам Azure AD необходим доступ к хэшам паролей учетных записей пользователей для аутентификации пользователей с помощью NTLM или Kerberos. При использовании федеративного каталога хэши паролей не хранятся в каталоге Azure AD. Поэтому доменные службы Azure AD не работает с такими каталогами Azure AD.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Можно ли сделать доменные службы AD Azure доступными в нескольких виртуальных сетях в рамках подписки?
@@ -53,6 +53,9 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Могу ли я добавить контроллеры домена в управляемый домен доменных служб Azure AD?
 Нет. Домен, предоставленный доменными службами Azure AD — это управляемый домен. Вам не нужно подготавливать, настраивать или иным образом обрабатывать контроллеры домена для этого домена. Корпорация Майкрософт предоставляет эти операции управления как услугу. Поэтому вы не можете добавить дополнительные контроллеры домена (ни контроллеры чтения и записи, ни контроллеры только для чтения) для управляемого домена.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Могут ли гостевые пользователи, приглашенные в каталог, использовать доменные службы Azure AD?
+Нет. Гостевые пользователи, приглашенные в каталог Azure AD с помощью процесса [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md), синхронизируются в управляемом домене доменных служб Azure AD. Однако пароли этих пользователей не хранятся в каталоге Azure AD. Таким образом доменные службы Azure AD не имеют возможности синхронизировать хэши NTLM и Kerberos этих пользователей в управляемом домене. В результате такие пользователи не могут войти в управляемый домен или подключить к нему компьютеры.
 
 ## <a name="administration-and-operations"></a>Администрирование и операции
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Можно ли подключиться к контроллеру управляемого домена с помощью удаленного рабочего стола?
@@ -75,6 +78,9 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Можно ли изменять или добавлять записи DNS в управляемом домене?
 Да. Участники группы "Администраторы контроллера домена AAD" получают привилегии администратора DNS, позволяющие изменять записи DNS в управляемом домене. Они могут использовать консоль диспетчера DNS на компьютере под управлением Windows Server, присоединенном к управляемому домену, для управления службами DNS. Чтобы использовать консоль диспетчера DNS, установите "Средства DNS-сервера", которые входят в необязательный компонент "Средства удаленного администрирования сервера" на сервере. Дополнительные сведения о [служебных программам для администрирования, мониторинга и устранения неполадок DNS](https://technet.microsoft.com/library/cc753579.aspx) доступны в библиотеке TechNet.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Что из себя представляет политика времени существования пароля в управляемом домене?
+Время существования пароля по умолчанию в управляемом домене доменных служб Azure AD составляет 90 дней. Время существования этого пароля не синхронизировано со временем жизни пароля, настроенным в Azure AD. Таким образом может возникнуть ситуация, когда срок действия паролей пользователей заканчивается в управляемом домене, но они все еще действуют в Azure AD. В таких случаях пользователям требуется сменить пароль в Azure AD, после чего новый пароль синхронизируется с управляемым доменом. Кроме того, атрибуты password-does-not-expire и user-must-change-password-at-next-logon учетных записей пользователей не синхронизируются с управляемым доменом.
 
 ## <a name="billing-and-availability"></a>Выставление счетов и доступность
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Являются ли доменные службы Azure AD платной службой?

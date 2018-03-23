@@ -1,11 +1,11 @@
 ---
-title: "Параметры VPN-шлюза для распределенных подключений Azure | Документация Майкрософт"
-description: "Узнайте о параметрах VPN-шлюза для шлюзов виртуальной сети Azure."
+title: Параметры VPN-шлюза для распределенных подключений Azure | Документация Майкрософт
+description: Узнайте о параметрах VPN-шлюза для шлюзов виртуальной сети Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Сведения о параметрах конфигурации VPN-шлюза
 
 VPN-шлюз — это разновидность шлюза виртуальной сети, который передает зашифрованный трафик между виртуальной сетью и локальным расположением через общедоступное подключение. VPN-шлюз можно также использовать для передачи трафика между виртуальными сетями в магистрали Azure.
 
 Подключение VPN-шлюза зависит от конфигурации нескольких ресурсов, каждый из которых содержит настраиваемые параметры. В разделах этой статьи рассматриваются ресурсы и параметры, относящиеся к VPN-шлюзу для виртуальной сети, созданной на основе модели развертывания с помощью Resource Manager. Описания и схемы топологий для каждого варианта подключения можно найти в статье [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md).
+
+>[!NOTE]
+> Значения в этой статье применяются к шлюзам виртуальной сети, использующим -GatewayType Vpn. Именно поэтому они называются VPN-шлюзами. Значения, которые применяются к -GatewayType ExpressRoute, см. в статье [Сведения о шлюзах виртуальных сетей ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Значения, применяемые для шлюзов ExpressRoute и VPN-шлюзов, различны.
+>
+>
 
 ## <a name="gwtype"></a>Типы шлюзов
 

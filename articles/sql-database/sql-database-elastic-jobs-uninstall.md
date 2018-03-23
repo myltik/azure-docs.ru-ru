@@ -1,25 +1,19 @@
 ---
-title: "Удаление инструмента заданий обработки эластичных баз данных"
-description: "Узнайте, как удалять компоненты заданий обработки эластичных баз данных с помощью портала Azure или PowerShell."
+title: Удаление инструмента заданий обработки эластичных баз данных
+description: Узнайте, как удалять компоненты заданий обработки эластичных баз данных с помощью портала Azure или PowerShell.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
+manager: craigg
+author: stevestein
 ms.service: sql-database
-ms.workload: Inactive
 ms.custom: scale out apps
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 5e665ee8cc9efacbd31111dc0458ad6096e457c0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: e6a86a3571301f6fa2a356714721daa141e696bf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Удаление компонентов заданий обработки эластичных баз данных.
 **Задания обработки эластичных баз данных** можно удалить с помощью портала Azure или PowerShell.

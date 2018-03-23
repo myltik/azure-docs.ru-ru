@@ -1,11 +1,11 @@
 ---
-title: "Добавление соединителя хранилища BLOB-объектов Azure в приложения логики | Документация Майкрософт"
-description: "Начало работы с соединителем хранилища BLOB-объектов Azure и его настройка в приложении логики."
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Добавление соединителя хранилища BLOB-объектов Azure в приложения логики | Документация Майкрософт
+description: Начало работы с соединителем хранилища BLOB-объектов Azure и его настройка в приложении логики.
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b5dc3f75-6bea-420b-b250-183668d2848d
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 7aaff2ac78201c4484105c6cacc5f0fef19ca7b5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Использование соединителя хранилища BLOB-объектов Azure в приложении логики
 Используйте соединитель хранилища BLOB-объектов Azure, чтобы отправлять, обновлять, получать и удалять большие двоичные объекты в учетной записи хранения в рамках приложения логики.  

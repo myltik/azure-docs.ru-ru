@@ -1,6 +1,6 @@
 ---
-title: "Компиляция конфигураций в Azure Automation DSC | Документация Майкрософт"
-description: "В этой статье описывается, как компилировать конфигурации службы настройки требуемого состояния (DSC) для службы автоматизации Azure."
+title: Компиляция конфигураций в Azure Automation DSC | Документация Майкрософт
+description: В этой статье описывается, как компилировать конфигурации службы настройки требуемого состояния (DSC) для службы автоматизации Azure.
 services: automation
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Компилирование конфигураций в Azure Automation DSC
 
@@ -249,6 +249,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -283,6 +284,9 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+> [!NOTE]
+> После завершения компиляции может появиться следующее сообщение об ошибке: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported** (Модуль Microsoft.PowerShell.Management не импортирован, так как уже импортирована оснастка Microsoft.PowerShell.Management). Это предупреждение можно спокойно проигнорировать.
 
 ## <a name="importing-node-configurations"></a>Импорт конфигураций узлов
 

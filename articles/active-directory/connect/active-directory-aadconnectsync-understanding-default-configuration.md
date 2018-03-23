@@ -1,11 +1,11 @@
 ---
-title: "Синхронизация Azure AD Connect: общие сведения о конфигурации по умолчанию | Документация Майкрософт"
-description: "Эта статья содержит информацию о конфигурации по умолчанию для службы синхронизации Azure AD Connect."
+title: 'Синхронизация Azure AD Connect: общие сведения о конфигурации по умолчанию | Документация Майкрософт'
+description: Эта статья содержит информацию о конфигурации по умолчанию для службы синхронизации Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию
 В этой статье описываются стандартные правила конфигурации и то, как они влияют на конфигурацию. Кроме того, здесь содержится информация о конфигурации по умолчанию службы синхронизации Azure AD Connect. Статья на реальном примере познакомит читателя с тем, как работает модель конфигурации, именуемая "декларативной подготовкой". Для работы с этой статьей нужно установить и настроить службу Azure AD Connect Sync с помощью мастера установки.
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/18/2018
 * Не синхронизируйте объекты, которые не будут работать в Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Эта битовая маска (&amp;H21C07000) будет отфильтровывать следующие объекты:
-  * общедоступную папку с поддержкой электронной почты;
+  * общая папка с поддержкой электронной почты (в предварительной версии начиная с версии 1.1.524.0);
   * почтовый ящик системного помощника;
   * почтовый ящик базы данных почтовых ящиков (системный почтовый ящик);
   * универсальную группу безопасности (не применяется для пользователя, но доступно для прежних версий);

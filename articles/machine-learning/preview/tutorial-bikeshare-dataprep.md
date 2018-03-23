@@ -1,6 +1,6 @@
 ---
-title: "Руководство по расширенной подготовке данных для системы совместного использования велосипедов при помощи Azure Machine Learning Workbench"
-description: "В этом руководстве вы выполните полную подготовку данных с помощью Azure Machine Learning Workbench."
+title: Руководство по расширенной подготовке данных для системы совместного использования велосипедов при помощи Azure Machine Learning Workbench
+description: В этом руководстве вы выполните полную подготовку данных с помощью Azure Machine Learning Workbench.
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: ca7239fd3e31c7a6cfc6fb64e04afb376e01c190
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1d4b58d0fe0628aa00b8229a1383d3ada414f62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Руководство. Использование Azure Machine Learning Workbench для расширенной подготовки данных (система совместного использования велосипедов)
 Машинное обучение Azure (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -736,7 +736,7 @@ df.head(10)
 3. Создайте конфигурацию запуска HDInsight. Потребуется указать имя кластера и пароль `sshuser`.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

@@ -1,11 +1,11 @@
 ---
-title: "Универсальный соединитель SQL | Документация Майкрософт"
-description: "В этой статье описана настройка универсального соединителя SQL от корпорации Майкрософт."
+title: Универсальный соединитель SQL | Документация Майкрософт
+description: В этой статье описана настройка универсального соединителя SQL от корпорации Майкрософт.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: bhu
-editor: 
+editor: ''
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Технический справочник по универсальному соединителю SQL
 В этой статье описывается универсальный соединитель SQL. Статья относится к следующим продуктам:
@@ -152,7 +152,7 @@ ms.lasthandoff: 03/06/2018
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- Начиная с мая 2017 г. компонент "*" (или **любой параметр** изменен для поддержки потока импорта и экспорта. Если вы хотите использовать этот параметр, таблица или представление с несколькими значениями должны иметь атрибут, содержащий тип объекта.
+ Начиная с мая 2017 года компонент "\*" (или **любой параметр**) изменен для поддержки потока импорта и экспорта. Если вы хотите использовать этот параметр, таблица или представление с несколькими значениями должны иметь атрибут, содержащий тип объекта.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

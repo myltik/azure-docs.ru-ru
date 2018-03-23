@@ -1,26 +1,20 @@
 ---
-title: "Многофакторная идентификация для SQL Azure | Документация Майкрософт"
-description: "База данных SQL Azure и хранилище данных SQL Azure поддерживают подключения из SQL Server Management Studio (SSMS) с использованием универсальной проверки подлинности Active Directory."
+title: Многофакторная идентификация для SQL Azure | Документация Майкрософт
+description: База данных SQL Azure и хранилище данных SQL Azure поддерживают подключения из SQL Server Management Studio (SSMS) с использованием универсальной проверки подлинности Active Directory.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: GithubMirek
-manager: johammer
-editor: 
-tags: 
-ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 09/29/2017
 ms.author: mireks
-ms.openlocfilehash: 3fd6532fb3dc6af9b3ccdac37201552ad0475e7b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3a950ac837b543cbcbfd4ae43cf4b9ebeb537cd5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)
 База данных SQL Azure и хранилище данных SQL Azure поддерживают подключения из SQL Server Management Studio (SSMS) с использованием *универсальной проверки подлинности Active Directory*. 

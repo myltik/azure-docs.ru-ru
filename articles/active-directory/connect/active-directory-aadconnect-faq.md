@@ -1,8 +1,8 @@
 ---
-title: "Часто задаваемые вопросы по Azure Active Directory Connect | Документация Майкрософт"
-description: "На этой странице изложены часто задаваемые вопросы об Azure AD Connect."
+title: Часто задаваемые вопросы по Azure Active Directory Connect | Документация Майкрософт
+description: На этой странице изложены часто задаваемые вопросы об Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Часто задаваемые вопросы по Azure Active Directory Connect
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/11/2017
 Можно также настроить Azure AD так, чтобы модуль синхронизации обновлял userPrincipalName, как описано в статье [Функции службы синхронизации Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
 **Вопрос. Поддерживается ли мягкое сопоставление локальных объектов группы или контактных объектов Azure AD с существующими объектами группы или контактными объектами Azure AD?**  
-Нет, в настоящее время такая возможность не поддерживается.
+Да, для сопоставления будет использоваться proxyAddress.  Мягкие сопоставления не поддерживается для групп, которые не поддерживают электронную почту.
 
 **Вопрос. Поддерживается ли возможность настройки вручную атрибута ImmutableId в существующих объектах группы или контактных объектах Azure AD для их жесткого сопоставления с аналогичными локальными объектами?**  
 Нет, в настоящее время такая возможность не поддерживается.

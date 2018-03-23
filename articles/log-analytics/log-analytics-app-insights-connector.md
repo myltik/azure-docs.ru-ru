@@ -1,11 +1,11 @@
 ---
-title: "Просмотр данных приложений Azure Application Insights | Документация Майкрософт"
-description: "Решение \"Соединитель Application Insights\" можно использовать для диагностики проблем с производительностью и для того, чтобы узнать, какие действия пользователи выполняют в вашем приложении, которое отслеживается с помощью Application Insights."
+title: Просмотр данных приложений Azure Application Insights | Документация Майкрософт
+description: Решение "Соединитель Application Insights" можно использовать для диагностики проблем с производительностью и для того, чтобы узнать, какие действия пользователи выполняют в вашем приложении, которое отслеживается с помощью Application Insights.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Решение по управлению "Соединитель Application Insights" (предварительная версия)
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 02/13/2018
 Моменты, которые следует учитывать:
 
 - Приложения Application Insights можно связать только с одной рабочей областью Log Analytics.
-- С Log Analytics можно связать [ресурсы Application Insights только уровня "Стандартный" или "Премиум"](https://azure.microsoft.com/pricing/details/application-insights). Тем не менее можно использовать уровень "Бесплатный" Log Analytics.
+- С Log Analytics можно связать [ресурсы Application Insights только уровня "Базовый" или "Корпоративный"](https://azure.microsoft.com/pricing/details/application-insights). Тем не менее можно использовать уровень "Бесплатный" Log Analytics.
 
 ## <a name="management-packs"></a>Пакеты управления
 

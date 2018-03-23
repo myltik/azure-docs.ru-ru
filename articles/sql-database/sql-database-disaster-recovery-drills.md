@@ -1,26 +1,20 @@
 ---
-title: "Отработки аварийного восстановления базы данных SQL | Документация Майкрософт"
-description: "Дополнительные сведения и рекомендации по использованию базы данных SQL Azure для выполнения детализации при аварийном восстановлении."
+title: Отработки аварийного восстановления базы данных SQL | Документация Майкрософт
+description: Дополнительные сведения и рекомендации по использованию базы данных SQL Azure для выполнения детализации при аварийном восстановлении.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.date: 10/20/2016
-ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>Отработка аварийного восстановления
 Рекомендуется периодически проверять готовность приложений к рабочему процессу восстановления. Проверка поведения приложения и возможных последствий потери данных и нарушений работы, которая включает отработку отказа, предусмотрена стандартами разработки. Эта процедура также является обязательной для большинства отраслевых стандартов в рамках сертификации непрерывности бизнес-процессов.

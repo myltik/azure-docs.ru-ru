@@ -1,12 +1,12 @@
 ---
-title: "Мониторинг производительности базы данных в базе данных SQL Azure | Документация Майкрософт"
-description: "Узнайте о возможностях мониторинга своей базы данных с помощью средств Azure и динамических административных представлений."
-keywords: "мониторинг базы данных, производительность облачной базы данных"
+title: Мониторинг производительности базы данных в базе данных SQL Azure | Документация Майкрософт
+description: Узнайте о возможностях мониторинга своей базы данных с помощью средств Azure и динамических административных представлений.
+keywords: мониторинг базы данных, производительность облачной базы данных
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
 ms.custom: monitor & tune
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Мониторинг производительности базы данных в базе данных SQL Azure
 Мониторинг производительности базы данных SQL в Azure начинается с мониторинга использования ресурсов в соответствии с выбранным уровнем производительности базы данных. С помощью мониторинга можно определить, является ли емкость базы данных избыточной или же проблема возникает из-за того, что ресурсы используются на пределе возможностей. Затем при необходимости можно изменить уровень производительности и [уровень службы](sql-database-service-tiers.md) такой базы данных. Вы можете выполнять мониторинг базы данных с помощью графических средств на [портале Azure](https://portal.azure.com) или с использованием [динамических административных представлений](https://msdn.microsoft.com/library/ms188754.aspx).

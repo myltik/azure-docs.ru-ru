@@ -1,8 +1,8 @@
 ---
-title: "Приложение Microsoft Authenticator: справка и поддержка | Документация Майкрософт"
-description: "Содержит перечень часто задаваемых вопросов и ответов о приложениях Microsoft Authentication и Azure Multi-Factor Authentication."
+title: 'Приложение Microsoft Authenticator: справка и поддержка | Документация Майкрософт'
+description: Содержит перечень часто задаваемых вопросов и ответов о приложениях Microsoft Authentication и Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Часто задаваемые вопросы о приложении Microsoft Authenticator
 
@@ -28,6 +28,14 @@ ms.lasthandoff: 01/29/2018
 Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Многофакторной идентификации Azure. Приложение Microsoft Authenticator доступно для [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) и [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Какие данные Authenticator хранит от моего имени и как их удалить?
+
+Microsoft Authenticator сохраняет сведения об учетной записи, которые создаются при добавлении учетной записи. При использовании Authenticator создается журнал диагностики для отладки, в который записываются полезные данные, помогающие корпорации Майкрософт в диагностике непредвиденных проблем. Чтобы открыть данные журнала, выберите **Справка** > **Отправить журналы** > **Просмотреть журналы**.
+
+Эти данные можно удалить, удалив элемент учетной записи. При этом будут удалены все данные учетной записи, используемые приложением, включая журналы. 
+
+Дополнительные сведения о том, как корпорация Майкрософт использует ваши данные, доступны по адресу: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Для чего используются коды в приложении? Почему их значение уменьшается в обратном порядке?
 

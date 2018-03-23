@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: простой единый вход | Документы Майкрософт"
-description: "В этом разделе описывается простой единый вход Azure Active Directory (Azure AD) и то, как он обеспечивает действительно единый вход пользователей корпоративных компьютеров в корпоративной сети."
+title: 'Azure AD Connect: простой единый вход | Документы Майкрософт'
+description: В этом разделе описывается простой единый вход Azure Active Directory (Azure AD) и то, как он обеспечивает действительно единый вход пользователей корпоративных компьютеров в корпоративной сети.
 services: active-directory
-keywords: "что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
-documentationcenter: 
+keywords: что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Простой единый вход Azure Active Directory
 
@@ -51,6 +51,8 @@ ms.lasthandoff: 01/09/2018
 - Именем пользователя для входа может быть либо локальное имя пользователя по умолчанию (`userPrincipalName`), либо другой атрибут, настроенный в Azure AD Connect (`Alternate ID`). Оба варианта использования работают, так как служба простого единого входа использует утверждение `securityIdentifier` в билете Kerberos для поиска соответствующего объекта-пользователя в Azure AD.
 - Простой единый вход — ситуативно-обусловленная функция. Если в ней происходит сбой, процедура входа выполняется стандартно, то есть пользователь, как и прежде, должен просто ввести пароль на странице входа.
 - Если приложение пересылает параметр `domain_hint` (OpenID Connect), параметр `whr` (SAML), определяющий клиент, или параметр `login_hint`, определяющий пользователя, в запросе на вход в Azure AD, то пользователи автоматически входят в систему, не вводя имена пользователей и пароли.
+- Поддерживается выход. Это позволяет пользователям выбрать другую учетную запись Azure AD для входа вместо того, чтобы автоматически входить с помощью простого единого входа.
+- Клиенты Office 365 (версии 16.0.8730.xxxx и более поздних версий) поддерживаются с помощью неинтерактивной процедуры.
 - Функцию можно включить с помощью Azure AD Connect.
 - Это бесплатная функция, и для ее использования не требуются платные выпуски Azure AD.
 - Она доступна в клиентах на основе веб-браузера и клиентах Office, поддерживающих [современную проверку подлинности](https://aka.ms/modernauthga) на платформах и в браузерах с поддержкой проверки подлинности Kerberos.

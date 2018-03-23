@@ -1,25 +1,19 @@
 ---
-title: "Развертывание с помощью базы данных SQL Azure | Документация Майкрософт"
-description: "Разработчики программного обеспечения как услуги (SaaS) могут с легкостью создавать эластичные и масштабируемые базы данных в облаке, используя следующие средства"
+title: Развертывание с помощью базы данных SQL Azure | Документация Майкрософт
+description: Разработчики программного обеспечения как услуги (SaaS) могут с легкостью создавать эластичные и масштабируемые базы данных в облаке, используя следующие средства
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: a99607a0a57087c313d1718ff0b77af3637e1fa9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 784f244f64464c92f1b04ce0523e8850f66b8383
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Развертывание с помощью Базы данных SQL Azure
 Можно легко развертывать базы данных SQL Azure с помощью инструментов **эластичной базы данных** . Эти инструменты и компоненты позволяют использовать ресурсы **Базы данных SQL Azure** для создания решений для транзакционных рабочих нагрузок и, в частности, приложений SaaS (программное обеспечение как услуга). Возможности эластичных баз данных включают в себя следующее.

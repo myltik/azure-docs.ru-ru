@@ -1,11 +1,11 @@
 ---
-title: "Памятка для хранилища данных SQL Azure | Документация Майкрософт"
-description: "Найдите ссылки и рекомендации по быстрому созданию решений хранилища данных SQL Azure."
+title: Памятка для хранилища данных SQL Azure | Документация Майкрософт
+description: Найдите ссылки и рекомендации по быстрому созданию решений хранилища данных SQL Azure.
 services: sql-data-warehouse
 documentationcenter: NA
 author: acomet
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Памятка для хранилища данных SQL Azure
 В этой памятке предоставляются полезные советы и рекомендации по созданию решений хранилища данных SQL Azure. Прежде чем приступить к работе, подробно ознакомьтесь с каждым из шагов в записи блога [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Шаблоны и антишаблоны рабочих нагрузок хранилища данных SQL Azure), где объясняется, что такое хранилище данных SQL и чем оно не является.
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/21/2018
 |:--- |:--- |
 | Дистрибутив | Циклический перебор, |
 | Индексация | Куча |
-| Секционирование | Нет |
+| Секционирование | None |
 | Класс ресурсов | largerc или xlargerc |
 
 Подробнее о [переносе данных], [загрузке данных], а также о [процессе извлечения, загрузки и преобразования (ELT)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -146,12 +146,12 @@ ms.lasthandoff: 02/21/2018
 [Эскиз]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[загрузке данных]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[индексах]:./sql-data-warehouse-tables-index.md
-[секциях]:./sql-data-warehouse-tables-partition.md
-[статистике]:./sql-data-warehouse-tables-statistics.md
-[классами ресурсов и параллелизмом]:./sql-data-warehouse-develop-concurrency.md
+[загрузке данных]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[индексах]:sql-data-warehouse-tables-index.md
+[секциях]:sql-data-warehouse-tables-partition.md
+[статистике]:sql-data-warehouse-tables-statistics.md
+[классами ресурсов и параллелизмом]:resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 
