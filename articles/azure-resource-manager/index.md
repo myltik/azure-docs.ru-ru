@@ -1,24 +1,24 @@
 ---
-title: "Документация по Azure Resource Manager. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как использовать диспетчер ресурсов для развертывания и администрирования ресурсов решений в качестве группы, а также как создавать шаблоны для согласованного и воспроизводимого развертывания ресурсов."
+title: Документация по Azure Resource Manager. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как использовать диспетчер ресурсов для развертывания и администрирования ресурсов решений в качестве группы, а также как создавать шаблоны для согласованного и воспроизводимого развертывания ресурсов.
 services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Документация по Azure Resource Manager
+# <a name="azure-resource-manager-documentation"></a>Документация по Azure Resource Manager
 
 Узнайте, как использовать диспетчер ресурсов для развертывания, отслеживания и администрирования ресурсов решения в качестве группы. Руководства, справочники по API и другая документация, в которой показано, как настраивать группы ресурсов и создавать шаблоны для согласованного и воспроизводимого развертывания.
 

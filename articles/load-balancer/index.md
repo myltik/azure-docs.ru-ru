@@ -1,24 +1,24 @@
 ---
-title: "Документация по Azure Load Balancer. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как использовать подсистему балансировки нагрузки для повышения сетевой производительности приложений. Управляйте трафиком на виртуальных машинах, в облачных ресурсах и в распределенных виртуальных сетях."
+title: Документация по Azure Load Balancer. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как использовать подсистему балансировки нагрузки для повышения сетевой производительности приложений. Управляйте трафиком на виртуальных машинах, в облачных ресурсах и в распределенных виртуальных сетях.
 services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4642b0108343b417dc09bbc5978b6a18a58d39a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="load-balancer-documentation"></a>Документация по подсистеме балансировки нагрузки
+# <a name="load-balancer-documentation"></a>Документация по подсистеме балансировки нагрузки
 
 Узнайте, как настроить подсистему балансировки нагрузки, чтобы обеспечить высокую доступность и сетевую производительность для приложений. В документации показано, как сбалансировать нагрузку для трафика, направляемого на виртуальные машины, облачные ресурсы и распределенные виртуальные сети и обратно.
 
