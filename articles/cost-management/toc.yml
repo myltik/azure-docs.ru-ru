@@ -28,7 +28,7 @@
 - name: Основные понятия
   items:
     - name: Интерпретация отчетов о затратах
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Практические руководства
   items:
     - name: Активация подписок и учетных записей Azure

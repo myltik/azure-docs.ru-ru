@@ -1,24 +1,24 @@
 ---
-title: "Документация по диспетчеру трафика Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как управлять входящим трафиком для оптимальной производительности приложений. В документации показано, как распределять трафик, направляемый в Azure или на внешние конечные точки службы."
+title: Документация по диспетчеру трафика Azure. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как управлять входящим трафиком для оптимальной производительности приложений. В документации показано, как распределять трафик, направляемый в Azure или на внешние конечные точки службы.
 services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Документация по диспетчеру трафика
+# <a name="traffic-manager-documentation"></a>Документация по диспетчеру трафика
 
 Узнайте, как использовать диспетчер трафика для маршрутизации входящего трафика, чтобы обеспечить оптимальную производительность и надежность приложений. В руководствах, справочниках по API и другой документации показано, как управлять трафиком, направляемым в Azure или на внешние конечные точки службы.
 

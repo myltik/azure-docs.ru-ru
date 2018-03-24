@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Планирование для присоединенных к домену кластеров
       href: apache-domain-joined-architecture.md
-    - name: Настройка среды с присоединенной к домену песочницей
-      href: apache-domain-joined-configure.md
     - name: Настройка присоединенных к домену кластеров с помощью Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Синхронизация пользователей Microsoft Azure AD с кластером HDInsight

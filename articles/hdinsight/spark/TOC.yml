@@ -97,8 +97,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: Создание высокодоступных заданий потоковой передачи Spark в YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Структурированная потоковая передача с помощью концентраторов событий
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Структурированная потоковая передача с помощью Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
