@@ -1,10 +1,11 @@
 # [Служба "Работоспособность служб Azure"](index.md)
 
 # Обзор
-## [Что такое служба работоспособности служб Azure?](service-health-overview.md)
-## [Что такое служба работоспособности ресурсов Azure?](resource-health-overview.md)
+## [Что такое "Состояние Azure?"](azure-status-overview.md)
+## [Что такое "Работоспособность служб"?](service-health-overview.md)
+## [Что такое "Работоспособность ресурсов"?](resource-health-overview.md)
 # Практическое руководство
-## [Настройка оповещений для службы работоспособности служб](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+## [Настройка оповещений о событиях работоспособности служб](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Настройка уведомлений с помощью веб-перехватчика](service-health-alert-webhook-guide.md)
 ### [Настройка с помощью ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Настройка с помощью PagerDuty](service-health-alert-webhook-pagerduty.md)
@@ -13,4 +14,3 @@
 ## [Часто задаваемые вопросы](resource-health-faq.md)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Типы ресурсов и проверок работоспособности, доступные в службе работоспособности ресурсов Azure](resource-health-checks-resource-types.md)
-

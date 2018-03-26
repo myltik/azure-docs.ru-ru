@@ -1,16 +1,16 @@
 ---
 layout: HubPage
-hide_bc: 
-title: "Документация по Microsoft Azure"
-description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
+hide_bc: ''
+title: Документация по Microsoft Azure
+description: Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое.
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 6d188cc25d858cc2d07fc49450d6b2d4a4a04c09
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f344bf3062add621dc7d0a4cb6f7ed37e6d28d57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -142,23 +142,28 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
-                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
+                                                            <img src="media/index/logo_NET.svg" alt="">
+.NET</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/python/azure/">
-                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
+                                                            <img src="media/index/logo_python.svg" alt="">
+Python</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/java/azure/">
-                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
+                                                            <img src="media/index/logo_java.svg" alt="">
+Java</a>
                                                     </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
-                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
+                                                            <img src="media/index/logo_PHP.svg" alt="">
+PHP</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/javascript/azure/">
-                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                            <img src="media/index/logo_nodejs.svg" alt="">
+Node.js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/"> Go</a>
@@ -202,6 +207,8 @@ ms.lasthandoff: 03/16/2018
                                                     <li><a class="barLink" href="/azure/machine-learning/">Машинное обучение</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">API компьютерного зрения</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">API распознавания лиц</a></li>
+                                                    <li><a class="barLink" href="/bot-framework/">Служба Azure Bot</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/luis/">LUIS</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -217,11 +224,13 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
-                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
+                                                            <img src="media/index/azure_dev-7.svg" alt="">
+Azure CLI </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
-                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell </a>
+                                                            <img src="media/index/azure_dev-8.svg" alt="">
+Azure PowerShell </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -238,15 +247,18 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Развертывание в Azure </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Развертывание в Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/jenkins">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt="">
+Jenkins </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt=""> Terraform </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
+Terraform </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -2618,7 +2630,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Пользовательская служба визуального распознавания&nbsp;<sup style="font-size:70%">ПРЕДВАРИТЕЛЬНАЯ ВЕРСИЯ</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Пользовательская служба визуального распознавания&nbsp;<sup style="font-size:70%">(предварительная версия)</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>API распознавания эмоций&nbsp;<sup style="font-size:70%">(предварительная версия)</sup></span></a>
@@ -2671,16 +2683,16 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Проверка орфографии Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Service (LUIS)</span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Лингвистический анализ&nbsp;<sup style="font-size:70%">(предварительная версия)</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Текстовая аналитика</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Анализ текста</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Перевод текстов</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Перевод текста</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Языковая модель на основе веб-содержимого&nbsp;<sup style="font-size:70%">(предварительная версия)</sup></span></a>
@@ -2724,13 +2736,13 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />API Bing для поиска новостей</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Поиск видео Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />API Bing для поиска видео</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Поиск в Интернете Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />API Bing для поиска в Интернете</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Автозаполнение Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />API автозаполнения Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Пользовательский поиск Bing</a>
@@ -2739,7 +2751,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />API Bing для поиска сущностей</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Поиск изображений Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />API Bing для поиска изображений</a>
                                                             </li>
                                                         </ul>
                                                     </div>

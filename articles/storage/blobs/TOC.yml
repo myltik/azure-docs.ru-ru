@@ -208,9 +208,11 @@
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Маршрутизация событий в пользовательскую конечную точку
       href: storage-blob-event-quickstart.md
-    - name: Личные домены
+    - name: Восстановление удаленных больших двоичных объектов
+      href: storage-blob-soft-delete.md
+    - name: Настройка личного домена
       href: storage-custom-domain-name.md
-    - name: Поиск в хранилище BLOB-объектов с помощью поиска Azure
+    - name: Поиск хранилища BLOB-объектов с помощью Поиска Azure
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Передача данных
       items:

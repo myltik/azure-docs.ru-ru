@@ -7,20 +7,40 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Создание рабочей области Databricks
+    - name: Создание рабочей области Databricks с помощью портала
       href: quickstart-create-databricks-workspace-portal.md
+    - name: Создание рабочей области Databricks с помощью шаблона Resource Manager
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: Учебники
   items:
+    - name: Выполнение операций ETL
+      href: databricks-extract-load-sql-data-warehouse.md
     - name: Потоковая передача данных с помощью концентраторов событий
       href: databricks-stream-from-eventhubs.md
     - name: Анализ тональности с помощью Cognitive Services
       href: databricks-sentiment-analysis-cognitive-services.md
+    - name: Потоковая передача данных из HDInsight Kafka
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Практические руководства
   items:
+    - name: Создание кластера Spark
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Работа с записными книжками
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Запуск заданий Spark
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Подключение к источникам данных
+      href: databricks-connect-to-data-sources.md
     - name: 'Подключение с помощью Excel, R и Python'
       href: connect-databricks-excel-python-r.md
     - name: Использование интерфейса командной строки Databricks через Azure Cloud Shell
       href: databricks-cli-from-azure-cloud-shell.md
+    - name: Использование средств бизнес-аналитики
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+- name: Справочные материалы
+  items:
+    - name: ИНТЕРФЕЙС REST API
+      href: /rest/api/databricks
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы

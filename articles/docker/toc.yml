@@ -1,0 +1,33 @@
+- name: Документация Docker
+  href: index.md
+- name: Быстрый запуск
+  expanded: true
+  items:
+    - name: Шаблон Docker в Marketplace
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
+- name: Учебники
+  items:
+    - name: 'Веб-приложение Python и Docker, PostgreSQL'
+      href: /azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app
+    - name: CI/CD с помощью Docker Swarm и VSTS
+      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
+    - name: 'CI/CD и Docker, Jenkins, Linux'
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+- name: Практические руководства
+  items:
+    - name: Расширение виртуальной машины Docker
+      href: /azure/virtual-machines/linux/dockerextension
+    - name: Виртуальная машина Docker
+      href: /azure/virtual-machines/linux/docker-machine
+    - name: Реестр контейнеров Docker
+      href: /azure/container-registry/container-registry-get-started-portal
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Драйвер Docker Azure
+      href: 'https://docs.docker.com/machine/drivers/azure/'
+    - name: Сайт Docker Azure
+      href: 'https://www.docker.com/docker-azure'
+    - name: Сайт Docker
+      href: 'https://docker.com'

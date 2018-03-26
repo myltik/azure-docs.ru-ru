@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью в зависимости от SKU шлюза. Эта таблица относится к классической модели развертывания и модели Resource Manager. 
 
 Цены на шлюзы зависят от SKU шлюзов. Дополнительные сведения см. на странице [Шлюз VPN. Цены](https://azure.microsoft.com/pricing/details/vpn-gateway).

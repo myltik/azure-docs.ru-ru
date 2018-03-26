@@ -41,6 +41,7 @@
 ### [Анализ тональности с помощью Twitter](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Выявление мошенничества в реальном времени](stream-analytics-real-time-fraud-detection.md)
 ### [Выполнение заданий в IoT Edge](stream-analytics-edge.md) 
+### [Анализ данных датчиков, расположенных в пунктах сбора оплаты](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Выполнение пользовательского статистического выражения JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Высокочастотный трейдинг](stream-analytics-high-frequency-trading.md)
 ### [Запуск Функций Azure](stream-analytics-with-azure-functions.md)

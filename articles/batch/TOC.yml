@@ -1,0 +1,193 @@
+- name: Документация по пакетной службе
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое пакетная служба Azure?
+      href: batch-technical-overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Выполнение пакетного задания — CLI
+      href: quick-create-cli.md
+    - name: Выполнение пакетного задания — портал
+      href: quick-create-portal.md
+    - name: Выполнение пакетного задания — .NET
+      href: quick-run-dotnet.md
+    - name: Выполнение пакетного задания — Python
+      href: quick-run-python.md
+- name: Учебники
+  items:
+    - name: Параллельная обработка файлов — .NET
+      href: tutorial-parallel-dotnet.md
+    - name: Параллельная обработка файлов — Python
+      href: tutorial-parallel-python.md
+    - name: Отрисовка сцен с использованием Arnold
+      href: tutorial-rendering-cli.md
+    - name: Параллельное моделирование на R
+      href: tutorial-r-doazureparallel.md
+- name: Примеры
+  items:
+    - name: Примеры кода
+      items:
+        - name: Примеры кода Azure
+          href: 'https://azure.microsoft.com/resources/samples/?service=batch'
+        - name: Репозиторий образцов пакетной службы
+          href: 'https://github.com/Azure/azure-batch-samples'
+    - name: Инфраструктура CLI Azure
+      href: cli-samples.md
+- name: Основные понятия
+  items:
+    - name: Возможности разработчика
+      href: batch-api-basics.md
+    - name: API-интерфейсы и средства
+      href: batch-apis-tools.md
+    - name: Квоты и ограничения
+      href: batch-quota-limit.md
+- name: Практические руководства
+  items:
+    - name: Управление учетными записями пакетной службы
+      items:
+        - name: Управление учетными записями пакетной службы с помощью портала
+          href: batch-account-create-portal.md
+        - name: Управление учетными записями пакетной службы с помощью библиотеки .NET для управления пакетной службой
+          href: batch-management-dotnet.md
+    - name: "Проверка подлинности с помощью Azure\_AD"
+      items:
+        - name: Azure AD и пакетная служба
+          href: batch-aad-auth.md
+        - name: Azure AD и управление пакетной службой
+          href: batch-aad-auth-management.md
+    - name: Создание пакетов приложений
+      href: batch-application-packages.md
+    - name: Создание пулов и управление ими
+      items:
+        - name: Автомасштабирование вычислительных узлов
+          href: batch-automatic-scaling.md
+        - name: Выбор размера виртуальной машины для вычислительных узлов
+          href: batch-pool-vm-sizes.md
+        - name: Настройка доступа к вычислительным узлам
+          href: pool-endpoint-configuration.md
+        - name: Создание пула с помощью пользовательского образа
+          href: batch-custom-images.md
+        - name: Создание пула в виртуальной сети
+          href: batch-virtual-network.md
+        - name: Использование виртуальных машин для ресурсоемких вычислений
+          href: batch-pool-compute-intensive-sizes.md
+        - name: Использование вычислительных узлов Linux
+          href: batch-linux-nodes.md
+        - name: Использование виртуальных машин с низким приоритетом
+          href: batch-low-pri-vms.md
+    - name: Управление заданиями и задачами
+      items:
+        - name: Подготовка заданий и выполнение задач
+          href: batch-job-prep-release.md
+        - name: Параллельные задачи узла
+          href: batch-parallel-node-tasks.md
+        - name: Подсчет задач по состоянию
+          href: batch-get-task-counts.md
+        - name: Зависимости задачи
+          href: batch-task-dependencies.md
+        - name: Учетные записи пользователей для выполнения задач
+          href: batch-user-accounts.md
+        - name: Выполнение пакетных заданий без кода
+          href: batch-cli-templates.md
+    - name: Сохранение пакетных заданий и выходных данных задач
+      href: batch-task-output.md
+      items:
+        - name: Сохранение выходных данных с помощью API пакетной службы
+          href: batch-task-output-files.md
+        - name: Сохранение выходных данных с помощью библиотеки соглашений об именовании файлов
+          href: batch-task-output-file-conventions.md
+    - name: Выполнение рабочих нагрузок
+      items:
+        - name: Задания MPI
+          href: batch-mpi.md
+        - name: Контейнерные рабочие нагрузки
+          href: batch-docker-container-workloads.md
+        - name: Отрисовка
+          href: batch-rendering-service.md
+        - name: Обработка данных с помощью пакетной службы и фабрики данных
+          href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
+    - name: Мониторинг ресурсов
+      items:
+        - name: Ведения журнала диагностики
+          href: batch-diagnostics.md
+        - name: Эффективные запросы на вывод списка
+          href: batch-efficient-list-queries.md
+    - name: Использование средств для разработчиков
+      items:
+        - name: Использование .NET для пакетной службы
+          href: batch-dotnet-get-started.md
+        - name: Использование Python для пакетной службы
+          href: batch-python-tutorial.md
+        - name: Использование Node.js для пакетной службы
+          href: batch-nodejs-get-started.md
+        - name: Использование командлетов PowerShell
+          href: batch-powershell-cmdlets-get-started.md
+        - name: Использование интерфейса командной строки Azure
+          href: batch-cli-get-started.md
+- name: Справочные материалы
+  items:
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/batch
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.batch
+    - name: .NET
+      href: /dotnet/api/overview/azure/batch
+    - name: Java
+      href: /java/api/overview/azure/batch
+    - name: Node.js
+      href: /javascript/api/overview/azure/batch
+    - name: Python
+      href: /python/api/overview/azure/batch
+    - name: REST
+      items:
+        - name: Пакетная служба
+          href: /rest/api/batchservice
+        - name: Управление пакетной службой
+          href: /rest/api/batchmanagement/
+    - name: Пакетная аналитика
+      href: batch-analytics.md
+      items:
+        - name: Событие создания пула
+          href: batch-pool-create-event.md
+        - name: Событие начала удаления пула
+          href: batch-pool-delete-start-event.md
+        - name: Событие завершения удаления пула
+          href: batch-pool-delete-complete-event.md
+        - name: Событие начала изменения размера пула
+          href: batch-pool-resize-start-event.md
+        - name: Событие завершения изменения размера пула
+          href: batch-pool-resize-complete-event.md
+        - name: Событие начала выполнения задачи
+          href: batch-task-start-event.md
+        - name: Событие завершения выполнения задачи
+          href: batch-task-complete-event.md
+        - name: Событие сбоя выполнения задачи
+          href: batch-task-fail-event.md
+    - name: Переменные среды вычислительного узла пакетной службы Azure
+      href: batch-compute-node-environment-variables.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Форум по Пакетной службе
+      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch'
+    - name: Batch Shipyard
+      href: 'https://github.com/Azure/batch-shipyard'
+    - name: Блог
+      href: 'https://blogs.technet.microsoft.com/windowshpc/'
+    - name: Решения HPC в Azure
+      href: ../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/batch/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Шаблон Resource Manager
+      href: /azure/templates/microsoft.batch/batchaccounts
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=batch&updatetype=&platform='
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-batch'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=batch'

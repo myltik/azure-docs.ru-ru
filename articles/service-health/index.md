@@ -1,27 +1,53 @@
 ---
-title: "Руководства по службе работоспособности ресурсов Azure | Документация Майкрософт"
-description: "Служба работоспособности служб Azure предоставляет персонализированные инструкции и поддержку при возникновении проблем в работе служб Azure, а также помогает подготовиться к предстоящему плановому обслуживанию. Служба работоспособности служб Azure отправляет пользователям и рабочим группам настраиваемые целевые уведомления."
-services: Resource health
+title: Служба "Работоспособность служб Azure" | Документация Майкрософт
+description: Служба "Работоспособность служб Azure" предоставляет индивидуальные инструкции и средства поддержки на случай проблем со службами Azure.
+services: Azure Service Health
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/07/2017
 ms.author: carolz
-ms.openlocfilehash: 17f7d334380032eec4be7d0ce3071a62b04fdc62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f362acf85af392253fe556ed9b97a325f22ca7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-service-health-documentation"></a>Документация по службе работоспособности служб Azure
 
-Служба работоспособности служб Azure предоставляет персонализированные инструкции и поддержку при возникновении проблем в работе служб Azure, а также помогает подготовиться к предстоящему плановому обслуживанию. Служба работоспособности служб Azure отправляет пользователям и рабочим группам настраиваемые целевые уведомления.
+Служба "Работоспособность служб Azure" предоставляет индивидуальные инструкции и средства поддержки на случай проблем со службами Azure. Служба может сообщать о масштабе проблем и уведомлять вас после их устранения. Эта служба также помогает подготовиться к запланированному техническому обслуживанию и изменениям, которые могут повлиять на доступность ваших ресурсов.
+
+Служба "Работоспособность служб Azure" включает следующие компоненты:
+ 1. **Состояние Azure** — глобальное представление работоспособности служб Azure.
+ 2. **Работоспособность служб** — персонализированное представление о работоспособности служб Azure.
+ 3. **Работоспособность ресурсов** — подробное представление о работоспособности отдельных ресурсов, доступных в службах Azure.
+
+Вместе эти интерфейсы обеспечивают полное представление о работоспособности Azure с нужной вам степенью детализации.
+
 <ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/service-health/azure-status-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/GlobeSuccess.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Дополнительные сведения о состоянии Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/service-health/service-health-overview">
         <div class="cardSize">
@@ -33,7 +59,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Сведения о службе работоспособности служб Azure</h3>
+                        <h3>Дополнительные сведения о службе "Работоспособность служб"</h3>
                     </div>
                 </div>
             </div>
@@ -41,17 +67,17 @@ ms.lasthandoff: 10/11/2017
         </a>
     </li>
     <li>
-        <a href="/azure/service-health/resource-health-checks-resource-types">
+        <a href="/azure/service-health/resource-health-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/ResourceDefault.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Дополнительные сведения о типах ресурсов и проверках работоспособности в службе работоспособности ресурсов</h3>
+                        <h3>Дополнительная информация о службе "Работоспособность ресурсов".</h3>
                     </div>
                 </div>
             </div>
@@ -69,7 +95,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Просмотрите ознакомительное видео о службе работоспособности служб</h3>
+                        <h3>Просмотрите ознакомительное видео о службе "Работоспособность служб"</h3>
                     </div>
                 </div>
             </div>

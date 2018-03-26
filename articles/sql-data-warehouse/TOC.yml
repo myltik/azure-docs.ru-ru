@@ -1,0 +1,241 @@
+- name: Документация по хранилищу данных SQL
+  href: index.md
+- name: Обзор
+  items:
+    - name: Сведения о хранилище данных SQL Azure
+      href: sql-data-warehouse-overview-what-is.md
+    - name: Краткий справочник
+      href: cheat-sheet.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание подключения (портал)
+      href: create-data-warehouse-portal.md
+    - name: Остановка и возобновление вычислений
+      items:
+        - name: Microsoft Azure
+          href: pause-and-resume-compute-portal.md
+        - name: PowerShell
+          href: pause-and-resume-compute-powershell.md
+    - name: Масштабирование вычислительных ресурсов
+      items:
+        - name: Microsoft Azure
+          href: quickstart-scale-compute-portal.md
+        - name: PowerShell
+          href: quickstart-scale-compute-powershell.md
+        - name: T-SQL
+          href: quickstart-scale-compute-tsql.md
+- name: Учебники
+  items:
+    - name: 1. Загрузка WideWorldImporters
+      href: load-data-wideworldimportersdw.md
+- name: Основные понятия
+  items:
+    - name: Функции службы
+      items:
+        - name: Архитектура MPP
+          href: massively-parallel-processing-mpp-architecture.md
+        - name: Уровни производительности
+          href: performance-tiers.md
+        - name: Единицы использования хранилища данных
+          href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+        - name: 'Масштабирование, приостановка и возобновление'
+          href: sql-data-warehouse-manage-compute-overview.md
+        - name: Резервные копии хранилища данных
+          href: sql-data-warehouse-backups.md
+        - name: Аудит
+          href: sql-data-warehouse-auditing-overview.md
+        - name: Ограничения емкости
+          href: sql-data-warehouse-service-capacity-limits.md
+        - name: Часто задаваемые вопросы
+          href: sql-data-warehouse-overview-faq.md
+    - name: Безопасность
+      items:
+        - name: Обзор
+          href: sql-data-warehouse-overview-manage-security.md
+        - name: Authentication
+          href: sql-data-warehouse-authentication.md
+    - name: Миграция в хранилище данных SQL.
+      items:
+        - name: Обзор
+          href: sql-data-warehouse-overview-migrate.md
+        - name: Перенос схемы
+          href: sql-data-warehouse-migrate-schema.md
+        - name: Перенос кода
+          href: sql-data-warehouse-migrate-code.md
+        - name: Перенос данных
+          href: sql-data-warehouse-migrate-data.md
+    - name: Загрузка и перемещение данных
+      items:
+        - name: Обзор
+          href: design-elt-data-loading.md
+        - name: Рекомендации
+          href: guidance-for-loading-data.md
+    - name: Интеграция
+      items:
+        - name: Обзор
+          href: sql-data-warehouse-overview-integrate.md
+        - name: Эластичные запросы в базе данных SQL
+          href: how-to-use-elastic-query-with-sql-data-warehouse.md
+    - name: Производительность запросов
+      items:
+        - name: Классы ресурсов
+          href: resource-classes-for-workload-management.md
+        - name: Сжатие ColumnStore
+          href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+    - name: Мониторинг
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Разработка хранилищ данных
+      items:
+        - name: Обзор
+          href: sql-data-warehouse-overview-develop.md
+        - name: Компоненты хранилища данных
+          href: sql-data-warehouse-overview-workload.md
+        - name: Таблицы
+          items:
+            - name: Обзор
+              href: sql-data-warehouse-tables-overview.md
+            - name: CTAS;
+              href: sql-data-warehouse-develop-ctas.md
+            - name: Типы данных
+              href: sql-data-warehouse-tables-data-types.md
+            - name: Распределенные таблицы
+              href: sql-data-warehouse-tables-distribute.md
+            - name: Индексы
+              href: sql-data-warehouse-tables-index.md
+            - name: Удостоверение
+              href: sql-data-warehouse-tables-identity.md
+            - name: Разделы
+              href: sql-data-warehouse-tables-partition.md
+            - name: Реплицированные таблицы
+              href: design-guidance-for-replicated-tables.md
+            - name: Статистика
+              href: sql-data-warehouse-tables-statistics.md
+            - name: Временные таблицы
+              href: sql-data-warehouse-tables-temporary.md
+        - name: Запросы
+          items:
+            - name: Динамический SQL
+              href: sql-data-warehouse-develop-dynamic-sql.md
+            - name: Группировка по параметрам
+              href: sql-data-warehouse-develop-group-by-options.md
+            - name: Метки
+              href: sql-data-warehouse-develop-label.md
+        - name: Элементы языка T-SQL
+          items:
+            - name: Циклы
+              href: sql-data-warehouse-develop-loops.md
+            - name: Хранимые процедуры
+              href: sql-data-warehouse-develop-stored-procedures.md
+            - name: Транзакции
+              href: sql-data-warehouse-develop-transactions.md
+            - name: Рекомендациями по транзакциям
+              href: sql-data-warehouse-develop-best-practices-transactions.md
+            - name: Пользовательские схемы
+              href: sql-data-warehouse-develop-user-defined-schemas.md
+            - name: Присвоение значения переменной
+              href: sql-data-warehouse-develop-variable-assignment.md
+            - name: Views
+              href: sql-data-warehouse-develop-views.md
+    - name: Устранение неполадок
+      href: sql-data-warehouse-troubleshoot.md
+- name: Практические руководства
+  items:
+    - name: Функции службы
+      items:
+        - name: Восстановление хранилища данных (портал)
+          href: sql-data-warehouse-restore-database-portal.md
+        - name: Восстановление хранилища данных (PowerShell)
+          href: sql-data-warehouse-restore-database-powershell.md
+        - name: Восстановление хранилища данных (REST API)
+          href: sql-data-warehouse-restore-database-rest-api.md
+    - name: Безопасность
+      items:
+        - name: Включение шифрования (портал)
+          href: sql-data-warehouse-encryption-tde.md
+        - name: Включение шифрования (T-SQL)
+          href: sql-data-warehouse-encryption-tde-tsql.md
+        - name: Обнаружение угроз
+          href: sql-data-warehouse-security-threat-detection.md
+    - name: Загрузка и перемещение данных
+      items:
+        - name: Данные о такси Нью-Йорка
+          href: load-data-from-azure-blob-storage-using-polybase.md
+        - name: Общедоступные данные Contoso
+          href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+        - name: Хранилище озера данных Azure
+          href: sql-data-warehouse-load-from-azure-data-lake-store.md
+        - name: Azure Databricks
+          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
+        - name: BCP
+          href: sql-data-warehouse-load-with-bcp.md
+        - name: Фабрика данных
+          href: sql-data-warehouse-load-with-data-factory.md
+        - name: AzCopy
+          href: sql-data-warehouse-load-from-sql-server-with-polybase.md
+        - name: Redgate
+          href: sql-data-warehouse-load-with-redgate.md
+        - name: SSIS
+          href: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+    - name: Интеграция
+      items:
+        - name: Настройка эластичных запросов в базе данных SQL
+          href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+        - name: Добавление задания Azure Stream Analytics
+          href: sql-data-warehouse-integrate-azure-stream-analytics.md
+        - name: Использование машинного обучения
+          href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+        - name: Визуализация с помощью Power BI
+          href: sql-data-warehouse-get-started-visualize-with-power-bi.md
+    - name: Мониторинг и настройка
+      items:
+        - name: Анализ рабочей нагрузки
+          href: analyze-your-workload.md
+    - name: Масштабирование
+      items:
+        - name: Автоматизация уровней вычислений
+          href: manage-compute-with-azure-functions.md
+- name: Справочные материалы
+  items:
+    - name: T-SQL
+      items:
+        - name: Полный справочник
+          href: 'https://docs.microsoft.com/sql/t-sql/language-reference/'
+        - name: Элементы языка для хранилища данных SQL
+          href: sql-data-warehouse-reference-tsql-language-elements.md
+        - name: Инструкции для хранилища данных SQL
+          href: sql-data-warehouse-reference-tsql-statements.md
+    - name: Системные представления
+      href: sql-data-warehouse-reference-tsql-system-views.md
+    - name: Командлеты PowerShell
+      href: sql-data-warehouse-reference-powershell-cmdlets.md
+    - name: Интерфейсы API REST
+      href: sql-data-warehouse-manage-compute-rest-api.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Форум
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Запросы функций
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
+    - name: Поддержка
+      href: sql-data-warehouse-get-started-create-support-ticket.md
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse'
+    - name: Партнеры
+      items:
+        - name: Бизнес-аналитика
+          href: sql-data-warehouse-partner-business-intelligence.md
+        - name: Интеграция данных
+          href: sql-data-warehouse-partner-data-integration.md
+        - name: Управление данными
+          href: sql-data-warehouse-partner-data-management.md

@@ -6,18 +6,14 @@
       href: azure-stack-poc.md
     - name: Заметки о выпуске
       items:
-        - name: Заметки к выпуску пакета SDK
-          href: azure-stack-asdk-release-notes.md
-        - name: Заметки к выпуску интегрированных систем
-          items:
-            - name: Обновление 1802
-              href: azure-stack-update-1802.md
-            - name: Обновление 1712
-              href: azure-stack-update-1712.md
-            - name: Обновление 1711
-              href: azure-stack-update-1711.md
-            - name: Обновление 1710
-              href: azure-stack-update-1710.md
+        - name: Обновление 1802
+          href: azure-stack-update-1802.md
+        - name: Обновление 1712
+          href: azure-stack-update-1712.md
+        - name: Обновление 1711
+          href: azure-stack-update-1711.md
+        - name: Обновление 1710
+          href: azure-stack-update-1710.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -67,8 +63,6 @@
               href: validate-pki-certs.md
         - name: Интеграция удостоверений
           href: azure-stack-integrate-identity.md
-        - name: Регистрация Azure Stack
-          href: azure-stack-registration.md
         - name: Внешний мониторинг
           href: azure-stack-integrate-monitor.md
         - name: Интеграция решений для обеспечения безопасности
@@ -77,30 +71,14 @@
       href: azure-stack-servicing-policy.md
     - name: Основные возможности и концепции
       href: azure-stack-key-features.md
-    - name: Архитектура пакета SDK
-      href: azure-stack-architecture.md
     - name: Основы администрирования
       href: azure-stack-manage-basics.md
 - name: Практические руководства
   items:
-    - name: Развертывание пакета SDK для Azure Stack
-      items:
-        - name: предварительным требованиям
-          href: azure-stack-deploy.md
-        - name: Телеметрия
-          href: azure-stack-telemetry.md
-        - name: Развертывание
-          href: azure-stack-run-powershell-script.md
-        - name: Установка PowerShell
-          href: azure-stack-powershell-install.md
-        - name: Зарегистрировать
-          href: azure-stack-register.md
-        - name: Подключение к Azure Stack
-          href: azure-stack-connect-azure-stack.md
-        - name: Добавление образа по умолчанию
-          href: azure-stack-add-default-image.md
-        - name: Создание тестовой виртуальной машины
-          href: azure-stack-provision-vm.md
+    - name: Настройка коллекции телеметрии
+      href: azure-stack-telemetry.md
+    - name: Регистрация Azure Stack
+      href: azure-stack-registration.md
     - name: управление
       items:
         - name: Управление регионами
@@ -246,7 +224,7 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Настройка источников развертывания
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Заметки о выпуске обновления 1 службы приложений
+            - name: Служба приложений в заметках о выпуске обновления 1 Azure Stack
               href: azure-stack-app-service-release-notes-update-one.md
         - name: Заполнение Marketplace
           items:
@@ -318,6 +296,8 @@
   items:
     - name: Документация пользователя по Azure Stack
       href: /azure/azure-stack/user/
+    - name: Документация ASDK
+      href: /azure/azure-stack/asdk/
 - name: Ресурсы
   items:
     - name: План выхода продуктов Azure Stack

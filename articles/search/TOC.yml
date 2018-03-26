@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: Безопасность
       items:
-        - name: Защита данных и операционная безопасность
+        - name: Обзор безопасности
           href: search-security-overview.md
-        - name: Защита с помощью фильтров удостоверений
+        - name: Управление ключами службы
+          href: search-security-api-keys.md
+        - name: Доступ администратора на основе ролей
+          href: search-security-rbac.md
+        - name: Фильтры системы безопасности
           href: search-security-trimming-for-azure-search.md
-        - name: Защита с помощью Active Directory
+        - name: Фильтр по удостоверениям AAD
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: Разработка
       items:

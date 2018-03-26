@@ -131,6 +131,8 @@
   items:
     - name: Документация оператора по Azure Stack
       href: /azure/azure-stack/
+    - name: Документация ASDK
+      href: /azure/azure-stack/asdk/
 - name: Ресурсы
   items:
     - name: План выхода продуктов Azure Stack

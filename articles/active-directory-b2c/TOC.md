@@ -91,7 +91,8 @@
 #### [Сложность пароля](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Изменение пароля](active-directory-b2c-reference-password-change-custom.md)
 #### [Включение возможности оставаться в системе](active-directory-b2c-reference-kmsi-custom.md)
-### Устранение неполадок
+### Устранение неполадок и журналы событий
+#### [Создание настраиваемых событий с помощью Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Сбор журналов с помощью Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Справочные материалы
 ### [Заметки о выпуске](active-directory-b2c-developer-notes-custom.md)

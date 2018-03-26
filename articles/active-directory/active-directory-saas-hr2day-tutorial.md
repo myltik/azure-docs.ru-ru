@@ -1,6 +1,6 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с HR2day by Merces | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и HR2day от Merces."
+title: Учебник. Интеграция Azure Active Directory с HR2day by Merces | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и HR2day от Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -136,7 +136,7 @@ ms.lasthandoff: 12/11/2017
     
       | Имя атрибута    |   Значение атрибута |  
     | ------------------- | -------------------- |    
-    | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+    | ATTR_LOGINCLAIM | join\(\[mail\],\"102938475Z\","\@\" |
     
       a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 

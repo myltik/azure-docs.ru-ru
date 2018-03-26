@@ -65,7 +65,7 @@
 # Справочные материалы
 ##  [Обработчик правил Azure CDN](cdn-rules-engine-reference.md)
 ### [Условные выражения обработчика правил Azure CDN](cdn-rules-engine-reference-conditional-expressions.md)
-### [Условия соответствия обработчика правил](cdn-rules-engine-reference-match-conditions.md)
+### [Условия соответствия для обработчика правил Azure CDN](cdn-rules-engine-reference-match-conditions.md)
 ### [Функции обработчика правил Azure CDN](cdn-rules-engine-reference-features.md)
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
@@ -74,7 +74,9 @@
 ## [REST](/rest/api/cdn/)
 
 # Ресурсы
-## [Расположение узлов POP сети Azure CDN](cdn-pop-locations.md)
+## Расположение узлов POP сети Azure CDN
+### [Расположения POP по региону](cdn-pop-locations.md)
+### [Расположения POP по аббревиатуре](cdn-pop-abbreviations.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Цены](https://azure.microsoft.com/pricing/details/cdn/)

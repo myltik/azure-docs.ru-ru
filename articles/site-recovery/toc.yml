@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Аварийное восстановление для приложений
       href: site-recovery-workload.md
+    - name: Сведения о планах восстановления
+      href: recovery-plan-overview.md
     - name: Общие сведения о миграции
       href: migrate-overview.md
     - name: Об управлении доступом на основе ролей с помощью Site Recovery
@@ -273,6 +275,12 @@
           items:
             - name: Выполнение отработки аварийного восстановления в Azure
               href: site-recovery-test-failover-to-azure.md
+            - name: Настройка планов восстановления
+              href: site-recovery-create-recovery-plans.md
+            - name: Добавление сценариев VMM в планы восстановления
+              href: hyper-v-vmm-recovery-script.md
+            - name: Добавление модулей Runbook Azure в планы восстановления
+              href: site-recovery-runbook-automation.md
             - name: Выполнение отработки отказа в Azure
               href: site-recovery-failover.md
             - name: Восстановление размещения из Azure в Hyper-V
