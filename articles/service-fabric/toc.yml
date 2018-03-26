@@ -131,6 +131,8 @@
           items:
             - name: Архитектура
               href: service-fabric-reliable-actors-platform.md
+            - name: Применение функций уровня службы
+              href: service-fabric-reliable-actors-using.md
             - name: Жизненный цикл и сборка мусора
               href: service-fabric-reliable-actors-lifecycle.md
             - name: Управление данными о состоянии
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: Создание службы Reliable Actors
           items:
-            - name: Отправка уведомлений
+            - name: 'Доступ к состоянию субъекта, его сохранение и удаление'
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: Перечисление субъектов
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: Удаление субъектов и их состояния
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: Резервное копирование и восстановление субъектов
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: Отправка уведомлений субъекта
               href: service-fabric-reliable-actors-events.md
             - name: Настройка таймеров и напоминаний
               href: service-fabric-reliable-actors-timers-reminders.md

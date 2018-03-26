@@ -1,12 +1,12 @@
 ---
-title: "Устранение неполадок SSH-подключения к виртуальной машине Azure | Документация Майкрософт"
-description: "Диагностика ошибок, например \"ошибка SSH-подключения\" или \"в SSH-подключении отказано\", для виртуальной машины под управлением Linux."
-keywords: "отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения"
+title: Устранение неполадок SSH-подключения к виртуальной машине Azure | Документация Майкрософт
+description: Диагностика ошибок, например "ошибка SSH-подключения" или "в SSH-подключении отказано", для виртуальной машины под управлением Linux.
+keywords: отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -199,7 +199,7 @@ az vm restart --resource-group myResourceGroup --name myVM
 
 
 ## <a name="redeploy-a-vm"></a>Повторное развертывание виртуальной машины
-Виртуальную машину можно повторно развернуть на другом узле в Azure, что поможет устранить любые базовые сетевые проблемы. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Виртуальную машину можно повторно развернуть на другом узле в Azure, что поможет устранить любые базовые сетевые проблемы. Сведения о [повторном развертывании виртуальной машины на новом узле Azure см](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.
@@ -231,7 +231,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * Выполните сброс удаленного доступа на [портале Azure](https://portal.azure.com). На портале Azure выберите свою виртуальную машину и нажмите кнопку **Reset Remote...** (Удаленный сброс...).
 * Перезапустите виртуальную машину. На [портале Azure](https://portal.azure.com) выберите свою виртуальную машину и нажмите кнопку **Перезапуск**.
     
-* Повторно разверните виртуальную машину на новом узле Azure. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Повторно разверните виртуальную машину на новом узле Azure. Сведения о [повторном развертывании виртуальной машины на новом узле Azure см](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.
 * Следуйте указаниям в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), чтобы сделать следующее:

@@ -40,6 +40,7 @@
 #### [В Windows с общим диском для экземпляра (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [В Windows с общей папкой SOFS для экземпляра (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
 #### [В SUSE Linux с NFS для экземпляра (A)SCS](high-availability-guide-suse.md)
+#### [Pacemaker на SLES](high-availability-guide-suse-pacemaker.md)
 ### Установка SAP
 #### [В Windows с общим диском для экземпляра (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [В Windows с общей папкой SOFS для экземпляра (A)SCS](sap-high-availability-installation-wsfc-file-share.md)

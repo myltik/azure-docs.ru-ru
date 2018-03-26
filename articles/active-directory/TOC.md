@@ -77,7 +77,8 @@
 ## [Управление группами и членами](active-directory-manage-groups.md)
 ### Управление группами
 #### [портал Azure](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell (модель Resource Manager)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Классическая модель развертывания Azure PowerShell](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Управление членами группы](active-directory-groups-members-azure-portal.md)
 ### [Управление владельцами групп](active-directory-accessmanagement-managing-group-owners.md)
 ### [Управление членством в группах](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Восстановление удаленной группы Office 365](active-directory-groups-restore-azure-portal.md)
-### Управление параметрами группы
-#### [портал Azure](active-directory-groups-settings-azure-portal.md)
-#### [Командлеты](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Управление параметрами группы](active-directory-groups-settings-azure-portal.md)
+
 ### Создание дополнительных правил
 #### [портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Пользовательская домашняя страница](application-proxy-office365-app-launcher.md)
 ##### [Преобразование встроенных ссылок](application-proxy-link-translation.md)
 ##### [Шаблоны приложений](active-directory-application-proxy-wildcard.md)
-
+##### [Azure Active Directory Application Proxy и Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Пошаговые руководства по публикации
 ##### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
 
 

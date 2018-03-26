@@ -7,7 +7,7 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Оповещение на основе метрики
+    - name: Оповещение на основе метрики (классическое)
       href: monitor-quick-resource-metric-alert-portal.md
     - name: Оповещение о действии подписки
       href: monitor-quick-audit-notify-action-in-subscription.md
@@ -21,66 +21,45 @@
   items:
     - name: Источники данных мониторинга
       href: monitoring-data-sources.md
+    - name: Azure Monitor
+      href: monitoring-overview-azure-monitor.md
+    - name: Метрики
+      href: monitoring-overview-metrics.md
+    - name: Autoscale
+      href: monitoring-overview-autoscale.md
+    - name: Журналы диагностики
+      href: monitoring-overview-of-diagnostic-logs.md
+    - name: Журнал действий
+      href: monitoring-overview-activity-logs.md
+    - name: Оповещения
+      href: monitoring-overview-unified-alerts.md
+    - name: Оповещения (классические)
+      href: monitoring-overview-alerts.md
+    - name: Оповещения журналов
+      href: monitor-alerts-unified-log.md
+    - name: Оповещения журнала действий (предварительная версия)
+      href: monitoring-activity-log-alerts-new-experience.md
+    - name: Расширение оповещений из OMS в Azure
+      href: monitoring-alerts-extend.md
+    - name: Группы действий
+      href: monitoring-action-groups.md
+    - name: Расширение системы диагностики Azure
+      href: azure-diagnostics.md
     - name: 'Роли, разрешения и безопасность'
       href: monitoring-roles-permissions-security.md
     - name: Интеграция с партнерскими решениями
       href: monitoring-partners.md
-    - name: Дополнительные общие сведения
-      items:
-        - name: Azure Monitor
-          href: monitoring-overview-azure-monitor.md
-        - name: Метрики
-          href: monitoring-overview-metrics.md
-        - name: Оповещения
-          href: monitoring-overview-alerts.md
-        - name: Оповещения (предварительная версия)
-          href: monitoring-overview-unified-alerts.md
-        - name: Оповещения журналов
-          href: monitor-alerts-unified-log.md
-        - name: Autoscale
-          href: monitoring-overview-autoscale.md
-        - name: Журнал действий
-          href: monitoring-overview-activity-logs.md
-        - name: Оповещения журнала действий (предварительная версия)
-          href: monitoring-activity-log-alerts-new-experience.md
-        - name: Группы действий
-          href: monitoring-action-groups.md
-        - name: Журналы диагностики
-          href: monitoring-overview-of-diagnostic-logs.md
-        - name: Расширение системы диагностики Azure
-          href: azure-diagnostics.md
-    - name: Схемы
-      items:
-        - name: Схема расширения системы диагностики Azure
-          href: azure-diagnostics-schema.md
-          items:
-            - name: 1
-              href: azure-diagnostics-schema-1dot0.md
-            - name: 1.2
-              href: azure-diagnostics-schema-1dot2.md
-            - name: "Версия\_1.3 и более поздняя версия"
-              href: azure-diagnostics-schema-1dot3-and-later.md
 - name: Практические руководства
   items:
-    - name: Пошаговые руководства
-      items:
-        - name: Пошаговое руководство по Azure Monitor
-          href: monitoring-get-started.md
-        - name: Пошаговое руководство по автомасштабированию
-          href: monitoring-autoscale-get-started.md
-        - name: Обозреватель многомерных метрик
-          href: monitoring-metric-charts.md
-        - name: "Примеры для Azure CLI\_1.0"
-          href: insights-cli-samples.md
-        - name: Примеры сценариев Azure PowerShell
-          href: insights-powershell-samples.md
+    - name: Пошаговое руководство по Azure Monitor
+      href: monitoring-get-started.md
     - name: Использование оповещений
       items:
-        - name: Настройка оповещений почти в реальном времени на портале Azure
+        - name: Настройка новых оповещений на портале Azure
           href: monitoring-near-real-time-metric-alerts.md
-        - name: Настройка оповещений на портале Azure
+        - name: Настройка классических оповещений на портале Azure
           href: insights-alerts-portal.md
-        - name: Настройка метрик или оповещений журналов в службе оповещений (предварительная версия) на портале Azure
+        - name: Настройка метрик или оповещений журналов на портале Azure
           href: monitor-alerts-unified-usage.md
         - name: Настройка оповещений с помощью интерфейса командной строки
           href: insights-alerts-command-line-interface.md
@@ -90,8 +69,12 @@
           href: monitor-alerts-unified-log-webhook.md
         - name: Создание оповещения метрики с помощью шаблона Resource Manager
           href: monitoring-enable-alerts-using-template.md
+        - name: Инициирование расширения оповещений из OMS в Azure
+          href: monitoring-alerts-extend-tool.md
     - name: Использование автомасштабирования
       items:
+        - name: Пошаговое руководство по автомасштабированию
+          href: monitoring-autoscale-get-started.md
         - name: Основные сведения о параметрах автомасштабирования
           href: monitoring-understanding-autoscale-settings.md
         - name: Рекомендации
@@ -151,10 +134,6 @@
         - name: Включение параметров диагностики с помощью шаблонов Resource Manager
           href: monitoring-enable-diagnostic-logs-using-template.md
     - name: Использование REST API
-      items:
-        - name: "Пошаговое руководство по использованию REST\_API"
-          href: monitoring-rest-api-walkthrough.md
-    - name: Использование расширения системы диагностики Azure
       items:
         - name: Отправка в Application Insights
           href: azure-diagnostics-configure-application-insights.md

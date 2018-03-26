@@ -56,7 +56,10 @@
 #### [Разные модели развертывания — одна подписка](create-peering-different-deployment-models.md)
 #### [Разные модели развертывания — разные подписки](create-peering-different-deployment-models-subscriptions.md)
 
-### [Конечные точки службы виртуальной сети](virtual-network-service-endpoints-configure.md)
+### Конечные точки службы виртуальной сети
+#### [портал Azure](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [интерфейс командной строки Azure](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Виртуальные машины
 #### [Пропускная способность сети на виртуальных машинах](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [Проблемы с подключением между виртуальными машинами](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Настройка записи типа PTR для проверки заголовка SMTP](create-ptr-for-smtp-service.md)
 
+## Примеры сценариев
+### [интерфейс командной строки Azure](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (классическая модель)](/powershell/module/azure/)
 ## [интерфейс командной строки Azure](/cli/azure/network)

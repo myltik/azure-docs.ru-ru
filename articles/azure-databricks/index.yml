@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по Azure Databricks (предварительная версия)"
+title: Документация по Azure Databricks
 metadata:
-  title: "Документация по Azure Databricks. Руководства | Документация Майкрософт"
-  description: "Узнайте, как использовать Azure Databricks, из кратких руководств и других материалов, ссылки на которые приведены здесь. Azure Databricks — это платформа аналитики на основе Apache Spark, оптимизированная для платформы облачных служб Microsoft Azure."
+  title: Документация по Azure Databricks. Руководства | Документация Майкрософт
+  description: Узнайте, как использовать Azure Databricks, из кратких руководств и других материалов, ссылки на которые приведены здесь. Azure Databricks — это платформа аналитики на основе Apache Spark, оптимизированная для платформы облачных служб Microsoft Azure.
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -11,47 +11,56 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 03/19/2018
   ms.author: nitinme
-  ms.openlocfilehash: 8bbb8bb020c8c64e11d072729b59074a406a03ca
-  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+  ms.openlocfilehash: 2c0bbbe6d9799258b983723c5d6980754a9908ae
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 03/17/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
-  description: "Узнайте, как использовать Azure Databricks, из кратких руководств и других материалов, ссылки на которые приведены здесь. Azure Databricks — это платформа аналитики на основе Apache Spark, оптимизированная для платформы облачных служб Microsoft Azure. Разработанная с помощью основателей Apache Spark платформа Databricks интегрируется с Azure, предоставляя установку одним щелчком, упрощенные рабочие процессы и интерактивную рабочую область, которая обеспечивает совместную работу специалистов в области обработки и анализа данных, инжиниринга данных и бизнес-аналитики."
+  description: Узнайте, как использовать Azure Databricks, из кратких руководств и других материалов, ссылки на которые приведены здесь. Azure Databricks — это платформа аналитики на основе Apache Spark, оптимизированная для платформы облачных служб Microsoft Azure. Разработанная с помощью основателей Apache Spark платформа Databricks интегрируется с Azure, предоставляя установку одним щелчком, упрощенные рабочие процессы и интерактивную рабочую область, которая обеспечивает совместную работу специалистов в области обработки и анализа данных, инжиниринга данных и бизнес-аналитики.
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Общие сведения об Azure Databricks (3:38)"
+    title: Общие сведения об Azure Databricks (3:38)
     href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
     width: 250
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как создать рабочую область Azure Databricks и кластер Spark, а затем запускать задания с помощью следующих средств:"
+    text: 'Узнайте, как создать рабочую область Azure Databricks и кластер Spark, а затем запускать задания с помощью следующих средств:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/azure-databricks/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-- title: "Пошаговые руководства"
+    - image:
+        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+      text: Шаблон Resource Manager
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Сведения о работе с Azure Databricks:"
+    text: 'Сведения о работе с Azure Databricks:'
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/azure-databricks/databricks-stream-from-eventhubs\">Потоковая передача данных из концентраторов событий с помощью Azure Databricks</a>"
-    - html: "<a href=\"/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services\">Анализ тональности с помощью Azure Databricks и Cognitive Services</a>"
-    - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Импорт данных из хранилища Azure</a>"
-    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/notebooks/index.html\" target=\"_blank\">Работа с записными книжками</a>"
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/jobs.html\" target=\"_blank\">Запуск заданий Spark</a>"
-    - html: "<a href=\"https://docs.azuredatabricks.net/spark/latest/data-sources/index.html\" target=\"_blank\">Использование источников данных Spark</a>"
+    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Извлечение, преобразование и загрузка данных</a>
+    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Потоковая передача данных из концентраторов событий</a>
+    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Анализ тональности с помощью Cognitive Services</a>
+    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Потоковая передача данных из HDInsight Kafka</a>
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/databricks">REST API</a></p>

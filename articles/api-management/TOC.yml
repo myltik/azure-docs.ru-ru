@@ -1,0 +1,223 @@
+- name: Документация по службе управления API в Azure
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Сведения о службе управления API
+      href: api-management-key-concepts.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание экземпляра (портал)
+      href: get-started-create-service-instance.md
+    - name: Создание экземпляра (PowerShell)
+      href: powershell-create-service-instance.md
+- name: Учебники
+  items:
+    - name: 1. Импорт вашего первого API
+      href: import-and-publish.md
+    - name: 2. Создание и публикация продукта
+      href: api-management-howto-add-products.md
+    - name: 3. Макетирование ответов API
+      href: mock-api-responses.md
+    - name: 4. Защита API
+      href: transform-api.md
+    - name: 5. Мониторинг опубликованных API
+      href: api-management-howto-use-azure-monitor.md
+    - name: 6. Отладка API
+      href: api-management-howto-api-inspector.md
+    - name: 7. Добавление редакций
+      href: api-management-get-started-revise-api.md
+    - name: 8. Добавление нескольких версий
+      href: api-management-get-started-publish-versions.md
+    - name: 9. Настройка портала разработчика
+      href: api-management-customize-styles.md
+- name: Примеры
+  items:
+    - name: Политики
+      href: policy-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Основные понятия
+  items:
+    - name: Терминология
+      href: api-management-terminology.md
+    - name: Политики
+      items:
+        - name: Обзор
+          href: api-management-howto-policies.md
+        - name: Справочные указатели по политикам
+          href: api-management-policies.md
+    - name: Управление с помощью службы автоматизации
+      href: automation-manage-api-management.md
+    - name: Обработка ошибок
+      href: api-management-error-handling-policies.md
+    - name: Ограничения на импорт для API
+      href: api-management-api-import-restrictions.md
+- name: Практические руководства
+  items:
+    - name: 'Определение интерфейсов API '
+      items:
+        - name: Добавление API вручную
+          href: add-api-manually.md
+        - name: Импорт спецификации OpenAPI
+          href: import-api-from-oas.md
+        - name: Импорт SOAP API
+          href: import-soap-api.md
+        - name: Импорт SOAP API и преобразование в REST
+          href: restify-soap-api.md
+        - name: Импорт приложения API
+          href: import-api-app-as-api.md
+        - name: Импорт приложения-функции
+          href: import-function-app-as-api.md
+        - name: Импорт приложения логики
+          href: import-logic-app-as-api.md
+        - name: Импорт приложения Service Fabric
+          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+        - name: Изменение API
+          href: edit-api.md
+    - name: Подготовка и масштабирование
+      items:
+        - name: Обновление и масштабирование
+          href: upgrade-and-scale.md
+        - name: Настройка личного домена
+          href: configure-custom-domain.md
+    - name: Кэш
+      items:
+        - name: Добавление кэширования для повышения производительности
+          href: api-management-howto-cache.md
+    - name: Защита серверной части
+      items:
+        - name: Защита API с помощью Azure AD
+          href: api-management-howto-protect-backend-with-aad.md
+        - name: Подключение к виртуальной сети
+          href: api-management-using-with-vnet.md
+        - name: Подключение к внутренней виртуальной сети
+          href: api-management-using-with-internal-vnet.md
+        - name: Интеграция шлюза приложений с внутренней виртуальной сетью
+          href: api-management-howto-integrate-internal-vnet-appgateway.md
+        - name: Взаимная проверка подлинности на основе сертификата
+          href: api-management-howto-mutual-certificates.md
+    - name: Настройка процесса разработки
+      items:
+        - name: Изменение содержимого и макета страницы
+          href: api-management-modify-content-layout.md
+        - name: Настройка системных страниц с помощью шаблонов
+          href: api-management-developer-portal-templates.md
+        - name: Аутентификация с помощью Azure AD
+          href: api-management-howto-aad.md
+        - name: Аутентификация с помощью Azure AD B2C
+          href: api-management-howto-aad-b2c.md
+        - name: Делегированная аутентификация
+          href: api-management-howto-setup-delegation.md
+        - name: 'Уведомления, отправляемые по электронной почте, и шаблоны'
+          href: api-management-howto-configure-notifications.md
+        - name: Обеспечение поддержки консольного приложения OAuth
+          href: api-management-howto-oauth2.md
+    - name: Определение политик
+      items:
+        - name: Настройка или изменение политик
+          href: set-edit-policies.md
+        - name: Выражения политики
+          href: api-management-policy-expressions.md
+        - name: Настраиваемое кэширование
+          href: api-management-sample-cache-by-key.md
+        - name: Расширенный мониторинг
+          href: api-management-log-to-eventhub-sample.md
+        - name: Расширенное регулирование запросов
+          href: api-management-sample-flexible-throttling.md
+        - name: Использование внешних служб
+          href: api-management-sample-send-request.md
+        - name: Управление секретами с помощью свойств
+          href: api-management-howto-properties.md
+        - name: Защита API-интерфейсов с помощью аутентификации на основе сертификата клиента
+          href: api-management-howto-mutual-certificates-for-clients.md
+        - name: Политики ограничения доступа
+          href: api-management-access-restriction-policies.md
+        - name: Расширенные политики
+          href: api-management-advanced-policies.md
+        - name: Политики аутентификации
+          href: api-management-authentication-policies.md
+        - name: Политики кэширования
+          href: api-management-caching-policies.md
+        - name: Междоменные политики
+          href: api-management-cross-domain-policies.md
+        - name: Политики преобразования
+          href: api-management-transformation-policies.md
+    - name: Справочник по шаблонам
+      items:
+        - name: Шаблоны
+          href: api-management-developer-portal-templates-reference.md
+        - name: Интерфейсы API
+          href: api-management-api-templates.md
+        - name: Продукты
+          href: api-management-product-templates.md
+        - name: ПРИЛОЖЕНИЯ
+          href: api-management-application-templates.md
+        - name: Проблемы
+          href: api-management-issue-templates.md
+        - name: Профиль пользователя
+          href: api-management-user-profile-templates.md
+        - name: Страницы
+          href: api-management-page-templates.md
+        - name: Ресурсы шаблона
+          href: api-management-template-resources.md
+    - name: Справочник по моделям данных
+      href: api-management-template-data-model-reference.md
+    - name: Элементы управления страницы
+      href: api-management-page-controls.md
+    - name: Управление в производственной среде
+      items:
+        - name: Управление группами
+          href: api-management-howto-create-groups.md
+        - name: Развертывание в несколько регионов Azure
+          href: api-management-howto-deploy-multi-region.md
+        - name: Регистрация событий для концентраторов событий Azure
+          href: api-management-howto-log-event-hubs.md
+        - name: Настройка аварийного восстановления с помощью резервного копирования и восстановления
+          href: api-management-howto-disaster-recovery-backup-restore.md
+        - name: Управление учетными записями пользователей
+          href: api-management-howto-create-or-invite-developers.md
+        - name: Настройка с помощью Git
+          href: api-management-configuration-repository-git.md
+        - name: Использование контроля доступа на основе ролей
+          href: api-management-role-based-access-control.md
+        - name: Использование удостоверения управляемой службы
+          href: api-management-howto-use-managed-service-identity.md
+        - name: Интеграция с Service Fabric
+          items:
+            - name: Обзор
+              href: ../service-fabric/service-fabric-api-management-overview.md
+            - name: Учебник
+              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+- name: Справочные материалы
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: REST
+      href: /rest/api/apimanagement/
+    - name: REST (оригинал)
+      href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+- name: Ресурсы
+  items:
+    - name: Часто задаваемые вопросы
+      href: api-management-faq.md
+    - name: Доступ по регионам
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Руководство по проектированию API
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: Руководство по реализации API
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+    - name: Стратегия
+      href: 'http://aka.ms/apimroadmap'
+    - name: Шаблон решения Power BI для службы управления API
+      href: 'http://aka.ms/apimpbi'
+    - name: Блог
+      href: 'http://aka.ms/apimblog'
+    - name: Запросы функций
+      href: 'http://aka.ms/apimwish'

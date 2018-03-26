@@ -7,6 +7,8 @@
 ## [Делегирование DNS с помощью DNS Azure](dns-domain-delegation.md)
 ## [DNS: часто задаваемые вопросы](dns-faq.md)
 ## [Использование частных зон DNS](private-dns-overview.md)
+## [Сценарии Частной зоны DNS](private-dns-scenarios.md)
+
 
 # Начало работы
 
@@ -17,6 +19,7 @@
 
 ## Создание частной зоны и записи DNS
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [интерфейс командной строки Azure](private-dns-getstarted-cli.md)
 ## [Делегирование своего домена в Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Создание пользовательских записей DNS для веб-приложения](dns-web-sites-custom-domain.md)
 
