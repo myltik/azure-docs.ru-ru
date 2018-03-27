@@ -1,27 +1,27 @@
 ---
-title: "Создание первой функции в Azure с помощью Visual Studio | Документация Майкрософт"
-description: "Создание и публикация в Azure простой функции, активируемой HTTP, с помощью инструментов функций Azure для Visual Studio."
+title: Создание первой функции в Azure с помощью Visual Studio | Документация Майкрософт
+description: Создание и публикация в Azure простой функции, активируемой HTTP, с помощью инструментов функций Azure для Visual Studio.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, вычисления, независимая архитектура
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
@@ -37,11 +37,13 @@ ms.lasthandoff: 02/27/2018
 
 Для работы с этим руководством:
 
-* Установите [Visual Studio 2017 15.4](https://www.visualstudio.com/vs/) или более поздней версии, а также рабочую нагрузку **разработки в Azure**.
+* Установите [Visual Studio 2017 15.5](https://www.visualstudio.com/vs/) или более поздней версии, а также рабочую нагрузку **разработки в Azure**.
 
     ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Убедитесь, что установлены служба "Функции Azure" и средства работы с веб-заданиями самой последней версии. Это можно сделать в разделе **Updates** (Обновления)  > **Visual Studio Marketplace** в пункте **Extensions and Updates** (Расширения и обновления).
+    Если вы уже установили Visual Studio, убедитесь, что установлены все последние обновления. 
+
+* Если вы установили рабочую нагрузку разработки Azure вместе с Visual Studio 2017 15.4 или более ранней версии, возможно, также потребуется [обновить средства решения "Функции Azure"](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

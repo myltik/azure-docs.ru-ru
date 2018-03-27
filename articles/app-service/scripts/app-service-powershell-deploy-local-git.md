@@ -1,11 +1,11 @@
 ---
-title: "Пример сценария Azure PowerShell. Создание веб-приложения и развертывание кода из локального репозитория Git | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для создания веб-приложения и развертывания кода из локального репозитория Git."
+title: Пример сценария Azure PowerShell. Создание веб-приложения и развертывание кода из локального репозитория Git | Документация Майкрософт
+description: Пример сценария Azure PowerShell для создания веб-приложения и развертывания кода из локального репозитория Git.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c54dcd1869af0c5f3aac69bbd20d23b79ca669cf
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6846d9d25fb4b6b884e39676f8dbaa6c2899436b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Создание веб-приложения и развертывание кода из локального репозитория Git
 
 Этот пример скрипта создает веб-приложение со связанными ресурсами в службе приложений, а затем развертывает код веб-приложения из локального репозитория Git.
 
-При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, код приложения нужно зафиксировать в локальном репозитории Git.
+При необходимости обновите Azure PowerShell до последней версии с помощью инструкции, приведенной в [руководстве Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, код приложения нужно зафиксировать в локальном репозитории Git.
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/18/2017
 Выполнив пример сценария, вы можете удалить группу ресурсов, веб-приложение и все связанные ресурсы, используя следующую команду.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzureRmResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>Описание скрипта
@@ -45,11 +45,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | Get-Help | Заметки |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Создает план службы приложений. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Создает веб-приложение. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Изменяет ресурс в группе ресурсов. |
-| [Get-AzureRmWebAppPublishingProfile](/powershell/module/azurerm.websites/get-azurermwebapppublishingprofile) | Получает профиль публикации веб-приложения. |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Создание веб-приложения с требуемой группой ресурсов и группой службы приложений. Если текущий каталог содержит репозиторий Git, также добавьте удаленное расположение `azure`. |
 
 ## <a name="next-steps"></a>Дополнительная информация
 

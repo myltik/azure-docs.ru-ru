@@ -1,8 +1,8 @@
 ---
-title: "Устранение неполадок в Azure IoT Edge | Документация Майкрософт"
-description: "Решения распространенных проблем и получение навыков по устранению неполадок для Azure IoT Edge"
+title: Устранение неполадок в Azure IoT Edge | Документация Майкрософт
+description: Решения распространенных проблем и получение навыков по устранению неполадок для Azure IoT Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Распространенные проблемы и их решения для Azure IoT Edge
 
@@ -30,10 +30,16 @@ ms.lasthandoff: 03/08/2018
    docker logs <container name>
    ```
 
-* Просмотрите сообщения, отправляемые через центр Edge, и соберите данные аналитики касательно обновлений свойств устройства из подробных журналов контейнеров в среде выполнения. Если вы изучаете статьи с краткими руководствами, можете добавить параметр --auto-cert-gen-force-no-passwords.
+* Просмотрите сообщения, отправляемые через центр Edge, и соберите данные аналитики касательно обновлений свойств устройства из подробных журналов контейнеров в среде выполнения.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* Просмотр подробных журналов для команд iotedgectl:
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * Если возникают проблемы с подключением, проверьте переменные среды устройства Edge, например строку подключения устройства:

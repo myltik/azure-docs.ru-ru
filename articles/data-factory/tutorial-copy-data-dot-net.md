@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL | Документация Майкрософт"
-description: "В этом руководстве приведены пошаговые инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL Azure."
+title: Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL | Документация Майкрософт
+description: В этом руководстве приведены пошаговые инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0747ba79529bc2f12f1c5d74cbfcb7b62a62baa8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 86ceb395a6605b77b1f8594dbf153ac800b501b9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью фабрики данных Azure
 В этом руководстве вы создадите фабрику данных с конвейером, который перемещает данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. Шаблон конфигурации в этом руководстве применяется к копированию из файлового в реляционное хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников, см. в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/23/2018
 В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание связанных служб хранилища Azure и базы данных SQL Azure.
 > * Создание наборов данных большого двоичного объекта Azure и базы данных SQL Azure.
 > * Создание конвейера с действием копирования.
@@ -120,8 +120,9 @@ ms.lasthandoff: 01/23/2018
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    ```
+    
+2. Добавьте приведенный ниже код в метод **Main**, в котором задаются переменные. Замените заполнители своими значениями. Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища Azure, база данных SQL Azure и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
 
     ```csharp
     // Set variables
@@ -162,7 +163,7 @@ ms.lasthandoff: 01/23/2018
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 
 Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
 
@@ -519,7 +520,7 @@ Press any key to exit...
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание связанных служб хранилища Azure и базы данных SQL Azure.
 > * Создание наборов данных большого двоичного объекта Azure и базы данных SQL Azure.
 > * Создание конвейера с действием копирования.

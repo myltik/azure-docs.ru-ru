@@ -1,6 +1,6 @@
 ---
-title: "Создание и использование внутреннего балансировщика нагрузки со средой службы приложений Azure"
-description: "Сведения о создании и использовании изолированной от Интернета среды службы приложений Azure"
+title: Создание и использование внутреннего балансировщика нагрузки со средой службы приложений Azure
+description: Сведения о создании и использовании изолированной от Интернета среды службы приложений Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Создание и использование внутреннего балансировщика нагрузки со средой службы приложений #
 
@@ -139,7 +139,7 @@ SSL-сертификат необходимо преобразовать в PFX-
 
 Чтобы создать собственный сертификат, можно использовать приведенные ниже команды PowerShell. Обязательно укажите доменное имя среды ASE с ILB вместо *internal.contoso.com*. 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ SSL-сертификат необходимо преобразовать в PFX-
 
     Б. Чтобы протестировать публикацию веб-развертывания или доступ к расширенной консоли, создайте запись для _mytestapp.scm.ilbase.com_.
 
-7. Откройте браузер на этой виртуальной машине и перейдите по адресу http://mytestapp.ilbase.com. (Или перейдите к любому имени веб-приложения в вашем домене.)
+7. Воспользуйтесь браузером на этой виртуальной машине и перейдите по адресу http://mytestapp.ilbase.com. (Или перейдите к любому имени веб-приложения в вашем домене.)
 
-8. Откройте браузер на этой виртуальной машине и перейдите по адресу https://mytestapp.ilbase.com. Если используется самозаверяющий сертификат, учтите, что уровень безопасности будет снижен.
+8. Воспользуйтесь браузером на этой виртуальной машине и перейдите по адресу https://mytestapp.ilbase.com. Если используется самозаверяющий сертификат, учтите, что уровень безопасности будет снижен.
 
     IP-адрес ILB указан в разделе **IP-адреса**. В нем также указаны внешние виртуальные IP-адреса и IP-адреса для входящего трафика управления.
 

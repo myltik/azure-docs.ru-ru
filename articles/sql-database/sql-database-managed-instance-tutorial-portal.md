@@ -1,24 +1,21 @@
 ---
-title: "Портал Azure: создание управляемого экземпляра базы данных SQL | Документация Майкрософт"
-description: "Создайте управляемый экземпляр базы данных SQL Azure в виртуальной сети и используйте SSMS для восстановления резервной копии базы данных Wide World Importers."
-keywords: "руководство по базе данных sql, создание управляемого экземпляра базы данных sql"
+title: 'Портал Azure: создание управляемого экземпляра базы данных SQL | Документация Майкрософт'
+description: Создайте управляемый экземпляр базы данных SQL Azure в виртуальной сети и используйте SSMS для восстановления резервной копии базы данных Wide World Importers.
+keywords: руководство по базе данных sql, создание управляемого экземпляра базы данных sql
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Создание управляемого экземпляра базы данных SQL Azure на портале Azure
 
@@ -26,6 +23,9 @@ ms.lasthandoff: 03/12/2018
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
+> [!IMPORTANT]
+> Список регионов, в которых сейчас доступен Управляемый экземпляр см. в разделе [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Перенос баз данных в полностью управляемую службу при помощи Управляемого экземпляра Базы данных SQL Azure).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
 Войдите на [портал Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/12/2018
 В шагах ниже описывается, как создать виртуальную сеть [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) для управляемого экземпляра. Дополнительные сведения о настройке виртуальной сети для управляемого экземпляра базы данных SQL Azure см. в [этой статье](sql-database-managed-instance-vnet-configuration.md).
 
 1. Щелкните **Создать ресурс** в верхнем левом углу окна портала Azure.
-2. Найдите и выберите **виртуальную сеть**, для режима развертывания выберите **Resource Manager**, а затем нажмите кнопку **Создать**.
+2. Найдите и выберите **виртуальную сеть**, для режима развертывания выберите **диспетчер ресурсов**, а затем нажмите кнопку **Создать**.
 
    ![создание виртуальной сети](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
@@ -133,11 +133,11 @@ ms.lasthandoff: 03/12/2018
 
 11. Щелкните **Таблица маршрутов** и выберите **myMI_route_table**.
 
-    ![установка таблицы маршрутов](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![настройка таблицы маршрутов](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
 12. Нажмите кнопку **Сохранить**
 
-    ![установка и сохранение таблицы маршрутов](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![настройка и сохранение таблицы маршрутов](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 ## <a name="create-a-managed-instance"></a>Создание управляемого экземпляра
 
@@ -204,8 +204,8 @@ ms.lasthandoff: 03/12/2018
    |**Имя**|Любое допустимое имя|Сведения о допустимых именах см. в статье [Соглашения об именовании](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Диапазон адресов (блок CIDR)**|Любой допустимый диапазон адресов в виртуальной сети (используется по умолчанию).||
    |**группа безопасности сети**.|Нет||
-   |**Таблица маршрутов**|Нет||
-   |**Конечные точки службы**|None||
+   |**Таблица маршрутов**|None||
+   |**Конечные точки службы**|Нет||
 
    ![сведения о подсети виртуальной машины](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
@@ -284,7 +284,7 @@ ms.lasthandoff: 03/12/2018
     ![конфигурация усиленной безопасности Internet Explorer](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. На панели задач откройте **Internet Explorer**.
 5. Выберите **Использовать рекомендуемые параметры безопасности, конфиденциальности и совместимости** и нажмите кнопку **ОК**, чтобы завершить установку Internet Explorer 11.
-6. В поле URL-адреса введите https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms и нажмите клавишу **ВВОД**. 
+6. Введите в поле URL-адреса https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms и щелкните **Ввод**. 
 7. Загрузите последнюю версию SQL Server Management Studio и при появлении запроса щелкните **Запустить**.
 8. При появлении запроса щелкните **Установить**.
 9. По завершении установки щелкните **Закрыть**.
@@ -299,7 +299,7 @@ ms.lasthandoff: 03/12/2018
 
 Чтобы загрузить Wide World Importers — стандартный файл резервной копии, выполните шаги ниже.
 
-В Internet Explorer в поле URL-адреса введите https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak, а затем при появлении запроса нажмите кнопку **Сохранить**, чтобы сохранить этот файл в папку **Загрузки**.
+В Internet Explorer введите в поле URL-адреса https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak и при появлении запроса щелкните **Сохранить**, чтобы сохранить этого файла в папку **Загрузки**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Создание учетной записи хранения Azure и передача файла резервной копии
 

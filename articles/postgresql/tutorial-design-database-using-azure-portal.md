@@ -1,6 +1,6 @@
 ---
-title: "Руководство. Проектирование первой службы \"База данных Azure для PostgreSQL\" с помощью портала Azure"
-description: "Это руководство содержит сведения о проектировании первой базы данных Azure для PostgreSQL с помощью портала Azure."
+title: Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью портала Azure
+description: Это руководство содержит сведения о проектировании первой базы данных Azure для PostgreSQL с помощью портала Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f4d886bbbf2b9111d736e291e420b822de9766a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Руководство по проектированию первой службы "База данных Azure для PostgreSQL" с помощью портала Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью портала Azure
 
 База данных Azure для PostgreSQL является управляемой службой, которая позволяет запускать и масштабировать высокодоступные базы данных PostgreSQL, а также управлять ими в облаке. С помощью портала Azure можно легко управлять сервером и проектировать базы данных.
 

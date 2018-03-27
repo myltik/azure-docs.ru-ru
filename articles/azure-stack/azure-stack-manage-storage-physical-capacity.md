@@ -1,25 +1,25 @@
 ---
-title: "Управление емкостью физической памяти для Azure Stack | Документация Майкрософт"
-description: "Мониторинг доступного объема хранилища и управление им для Azure Stack."
+title: Управление емкостью физической памяти для Azure Stack | Документация Майкрософт
+description: Мониторинг доступного объема хранилища и управление им для Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 84518E90-75E1-4037-8D4E-497EAC72AAA1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 137e5d726aaedb405852c786b909b51110df1a50
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b922790d51c7028c37bb5863d43e99e19790488c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Управление емкостью физической памяти для Azure Stack
 

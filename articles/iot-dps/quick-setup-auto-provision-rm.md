@@ -1,22 +1,22 @@
 ---
-title: "Настройка подготовки устройств с помощью шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Краткое руководство Azure. Настройка службы \"Подготовка устройств к добавлению в Центр Интернета вещей\" с помощью шаблона"
+title: Настройка подготовки устройств с помощью шаблона Azure Resource Manager | Документация Майкрософт
+description: Краткое руководство Azure. Настройка службы "Подготовка устройств к добавлению в Центр Интернета вещей" с помощью шаблона
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 827be2be6915b0f0c9892e73b8f0a293a9659b6e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Настройка службы "Подготовка устройств к добавлению в Центр Интернета вещей" c помощью шаблона Azure Resource Manager
 
@@ -340,7 +340,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 az group delete --name {your resource group name}
 ```
 
-Группы ресурсов и отдельные ресурсы также можно удалять с помощью портала Azure, PowerShell, REST API или поддерживаемых пакетов SDK платформ, опубликованных для Azure Resource Manager или Центра Интернета вещей и службы подготовки устройств.
+Группы ресурсов и отдельные ресурсы также можно удалять с помощью портала Azure, PowerShell, REST API или поддерживаемых пакетов SDK платформ, опубликованных для Azure Resource Manager или службы "Подготовка устройств к добавлению в Центр Интернета вещей".
 
 ## <a name="next-steps"></a>Дополнительная информация
 

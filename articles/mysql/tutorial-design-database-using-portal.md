@@ -1,6 +1,6 @@
 ---
-title: "Проектирование первой базы данных Azure для MySQL с помощью портала Azure"
-description: "Это руководство содержит сведения о создании базы данных и сервера базы данных Azure для MySQL и управлении ими с помощью портала Azure."
+title: Руководство по проектированию службы "База данных Azure для MySQL" с помощью портала Azure
+description: Это руководство содержит сведения о создании базы данных и сервера базы данных Azure для MySQL и управлении ими с помощью портала Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -10,13 +10,13 @@ ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 272c1ba67fb1a907d739d23ce1d965f57c3a1074
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 67f1a1ced8e36adf5d391415aae9b16df43950bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>Проектирование первой базы данных Azure для MySQL
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Руководство по проектированию базы данных в службе "База данных Azure для MySQL" с помощью портала Azure
 База данных Azure для MySQL — это управляемая служба, которая позволяет вам запускать, администрировать и масштабировать высокодоступные базы данных MySQL в облаке. С помощью портала Azure можно легко управлять сервером и проектировать базы данных.
 
 Из этого руководства вы узнаете, как с помощью портала Azure выполнять следующие операции:

@@ -1,11 +1,11 @@
 ---
-title: "Как добавить имеющуюся подписку Azure в каталог Azure AD | Документация Майкрософт"
-description: "Как добавить имеющуюся подписку в каталог Azure AD"
+title: Как добавить имеющуюся подписку Azure в каталог Azure AD | Документация Майкрософт
+description: Как добавить имеющуюся подписку в каталог Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Как связать или добавить подписку Azure в Azure Active Directory
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 01/06/2018
 
 * Необходимо войти в систему, используя учетную запись с правами владельца RBAC на доступ к подписке.
 * Для входа необходимо использовать учетную запись, которая существует в текущем каталоге, связанном с подпиской, и в каталоге, в который необходимо добавить подписку. Дополнительные сведения о получении доступа к другому каталогу см. в статье [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
+* Эта функция недоступна для подписок CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) и Microsoft Imagine (MS-AZR-0144P).
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Привязка имеющейся подписки к каталогу Azure AD
 

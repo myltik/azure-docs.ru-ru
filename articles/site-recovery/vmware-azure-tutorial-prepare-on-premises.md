@@ -1,19 +1,19 @@
 ---
-title: "Подготовка локальных серверов VMware для аварийного восстановления виртуальных машин VMware в Azure | Документация Майкрософт"
-description: "Узнайте, как подготовить локальные сервера VMware для аварийного восстановления виртуальных машин VMware в Azure с помощью службы Azure Site Recovery."
+title: Подготовка локальных серверов VMware для аварийного восстановления виртуальных машин VMware в Azure | Документация Майкрософт
+description: Узнайте, как подготовить локальные сервера VMware для аварийного восстановления виртуальных машин VMware в Azure с помощью службы Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Подготовка локальных серверов VMware для аварийного восстановления в Azure
 
@@ -59,34 +59,16 @@ Site Recovery требуется доступ к серверам VMware, что
 3. Для установки на виртуальные машины Linux необходимо подготовить корневую учетную запись на исходном сервере Linux.
 
 
-## <a name="check-vmware-server-requirements"></a>Проверка требований сервера VMware
+## <a name="check-vmware-requirements"></a>Проверка соответствия требованиям к VMware
 
-Убедитесь, что серверы VMware соответствуют следующим требованиям.
+Убедитесь, что серверы и виртуальные машины VMware соответствуют требованиям.
 
-**Компонент** | **Требование**
---- | ---
-**Сервер vCenter** | vCenter 6.5, 6.0 или 5.5
-**Узел vSphere** | vSphere 6.5, 6.0 или 5.5
+1. [Проверьте](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) соответствие требованиям сервера VMware.
+2. Если вы используете Linux, [проверьте](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) соответствие требованиям к файловой системе и хранилищу. 
+3. Проверьте поддержку локальных [сетей](vmware-physical-azure-support-matrix.md#network) и [хранилищ](vmware-physical-azure-support-matrix.md#storage). 
+4. Проверьте возможности, которые поддерживаются для [сети Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [хранилища](vmware-physical-azure-support-matrix.md#azure-storage) и [вычислительных ресурсов](vmware-physical-azure-support-matrix.md#azure-compute) после отработки отказа.
+5. Локальные виртуальные машины, которые реплицируются в Azure, должны соответствовать [требованиям к виртуальным машинам Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Проверка требований виртуальных машин VMware
-
-Убедитесь, что виртуальная машина соответствует требованиям Azure, приведенным в следующей таблице.
-
-**Требования виртуальной машины** | **Дополнительные сведения**
---- | ---
-**Размер диска операционной системы** | До 2048 ГБ.
-**Число дисков операционной системы** | 1
-**Число дисков с данными** | 64 ГБ и меньше
-**Размер виртуального жесткого диска с данными** | До 4095 ГБ.
-**Сетевые адаптеры** | Поддерживаются несколько адаптеров
-**Общий виртуальный жесткий диск** | Не поддерживается
-**Диск FC** | Не поддерживается
-**Формат жесткого диска** | VHD или VHDX.<br/><br/> Хотя Azure пока что не поддерживает формат VHDX, служба Site Recovery автоматически преобразует VHDX в VHD при отработке отказа с перемещением в Azure. При восстановлении к локальной системе виртуальные машины продолжают использовать формат VHDX.
-**BitLocker** | Не поддерживается. Отключите перед включением репликации для виртуальных машин.
-**Имя виртуальной машины** | От 1 до 63 символов,<br/><br/> при этом допустимы только буквы, цифры и дефисы Имя виртуальной машины должно начинаться и заканчиваться буквой или цифрой.
-**Тип виртуальной машины** | Поколение 1 — Linux или Windows<br/><br/>Поколение 2 — только для Windows
-
-Виртуальная машина также должна работать под управлением поддерживаемой операционной системы. Подробный список поддерживаемых версий см. в [таблице поддерживаемых виртуальных машин VMware и физических серверов](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Подготовка к подключению виртуальных машин Azure после отработки отказа
 

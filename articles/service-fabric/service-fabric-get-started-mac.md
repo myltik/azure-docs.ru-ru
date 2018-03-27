@@ -1,11 +1,11 @@
 ---
-title: "Настройка среды разработки Mac OS X для работы с Azure Service Fabric | Документация Майкрософт"
-description: "Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. По завершении установки вы сможете собирать приложения на базе Mac OS X."
+title: Настройка среды разработки Mac OS X для работы с Azure Service Fabric | Документация Майкрософт
+description: Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. По завершении установки вы сможете собирать приложения на базе Mac OS X.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: bf0a03ace2f6b6e6b1c845785a452d0b75f35de8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Настройка среды разработки для Mac OS X
 > [!div class="op_single_selector"]
@@ -99,6 +99,12 @@ ms.lasthandoff: 02/27/2018
 
 Чтобы установить интерфейс командной строки Service Fabric (`sfctl`) на компьютере Mac, см. инструкции в [этом разделе](service-fabric-cli.md#cli-mac).
 Команды интерфейса командной строки поддерживают взаимодействие с сущностями Service Fabric, включая кластеры, приложения и службы.
+
+1. Чтобы подключиться к кластеру перед развертыванием приложений, выполните следующую команду: 
+
+```bash
+sfctl cluster select --endpoint http://localhost:19080
+```
 
 ## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Создание приложения на компьютере Mac с помощью Yeoman
 

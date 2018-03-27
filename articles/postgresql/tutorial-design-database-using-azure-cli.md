@@ -1,6 +1,6 @@
 ---
-title: "Руководство по проектированию первой службы \"База данных Azure для PostgreSQL\" с помощью Azure CLI"
-description: "Это руководство содержит сведения о создании, настройке первого сервера службы \"База данных Azure для PostgreSQL\" и выполнении запросов к нему с помощью Azure CLI."
+title: Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI
+description: Это руководство содержит сведения о создании, настройке первого сервера службы "База данных Azure для PostgreSQL" и выполнении запросов к нему с помощью Azure CLI.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Руководство по проектированию первой службы "База данных Azure для PostgreSQL" с помощью Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI 
 Из этого руководства вы узнаете, как с помощью Azure CLI (интерфейса командной строки) и других служебных программ выполнять следующие операции:
 > [!div class="checklist"]
 > * Создание сервера базы данных Azure для PostgreSQL
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/02/2018
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Если вы используете несколько подписок, выберите соответствующую подписку, в которой находится ресурс либо в которой за него взимается плата. Выберите конкретный идентификатор подписки вашей учетной записи, выполнив команду [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
@@ -163,9 +163,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Создание таблиц в базе данных
-Теперь, когда вы знаете, как подключиться к базе данных Azure для PostgreSQL, рассмотрим, как выполнить некоторые основные задачи.
+Теперь, когда вы знаете, как подключиться к базе данных Azure для PostgreSQL, можно выполнить некоторые основные задачи.
 
-Сначала можно создать таблицу и заполнить ее некоторыми данными. Давайте создадим таблицу, с помощью которой можно отслеживать данные инвентаризации.
+Сначала создайте таблицу и заполните ее некоторыми данными. Например, создадим таблицу, с помощью которой можно отслеживать данные инвентаризации:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +180,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-table"></a>Загрузка данных в таблицу
-Теперь, когда таблица создана, мы можем вставить в нее данные. Чтобы вставить некоторые строки данных, в открытом окне командной строки выполните следующий запрос:
+Теперь, когда таблица создана, вставьте в нее некоторые данные. Чтобы вставить некоторые строки данных, в открытом окне командной строки выполните следующий запрос:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
