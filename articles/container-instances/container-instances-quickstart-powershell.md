@@ -1,25 +1,23 @@
 ---
-title: "Краткое руководство. Создание первого контейнера службы \"Экземпляры контейнеров Azure\" с помощью PowerShell"
-description: "Начните работу со службой \"Экземпляры контейнеров Azure\", создав экземпляр контейнера Windows с помощью PowerShell."
+title: Краткое руководство. Создание первого контейнера службы "Экземпляры контейнеров Azure" с помощью PowerShell
+description: В этом кратком руководстве вы развернете контейнер Windows в службе "Экземпляры контейнеров Azure" при помощи Azure PowerShell.
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 6e43a525010ac57a75f6db4c43f6f1407dab93a8
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Создание первого контейнера в службе "Экземпляры контейнеров Azure"
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Краткое руководство. Создание первого контейнера в службе "Экземпляры контейнеров Azure"
 
-Служба "Экземпляры контейнеров Azure" упрощает создание контейнеров Docker и управление ими в Azure, избавляя от необходимости подготавливать виртуальные машины или применять службу более высокого уровня.
-
-В этом кратком руководстве вы создадите контейнер Windows в Azure и предоставите к нему доступ в Интернете по общедоступному IP-адресу. Эта операция выполняется при помощи одной команды. Через несколько секунд в браузере отобразится запущенное приложение.
+Служба "Экземпляры контейнеров Azure" упрощает создание контейнеров Docker и управление ими в Azure, избавляя от необходимости подготавливать виртуальные машины или применять службу более высокого уровня. В этом кратком руководстве вы создадите контейнер Windows в Azure и предоставите его в Интернете с полным доменным именем (FQDN). Эта операция выполняется при помощи одной команды. Через несколько секунд в браузере отобразится запущенное приложение.
 
 ![Приложение, развернутое с помощью службы "Экземпляры контейнеров Azure" (просмотр в браузере)][qs-powershell-01]
 
@@ -27,7 +25,7 @@ ms.lasthandoff: 01/09/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.5 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -39,23 +37,28 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Создание контейнера
 
-Чтобы создать контейнер, нужно указать его имя, образ Docker и группу ресурсов Azure в командлете [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Либо же можно предоставить контейнер в Интернете по общедоступному IP-адресу. В этом случае мы будем использовать контейнер Nano Server со службами IIS.
+Чтобы создать контейнер, нужно указать его имя, образ Docker и группу ресурсов Azure в командлете [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Либо же можно предоставить контейнер в Интернете с использованием метки DNS-имени.
+
+Чтобы запустить контейнер Nano Server со службами IIS, выполните приведенную ниже команду. Значение `-DnsNameLabel` должно быть уникальным в пределах региона Azure, в котором создан экземпляр. Возможно, потребуется изменить это значение, чтобы гарантировать уникальность.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Через несколько секунд вы получите ответ на запрос. Изначально контейнер находится в состоянии **Создание**, но через пару минут он запустится. Можно проверить состояние с помощью командлета [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+Через несколько секунд вы должны получить ответ на запрос. Контейнер изначально находится в состоянии **Создание**, но через несколько минут он запустится. Можно проверить состояние развертывания с помощью командлета [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Состояние подготовки и IP-адрес контейнера отображаются в выходных данных командлета:
+Состояние подготовки, полное доменное имя (FQDN) и IP-адрес контейнера отображаются в выходных данных командлета:
 
-```
+```console
+PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+
+
 ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/12345678-1234-1234-1234-12345678abcd/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
+Id                       : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
 Name                     : mycontainer
 Type                     : Microsoft.ContainerInstance/containerGroups
 Location                 : eastus
@@ -63,14 +66,18 @@ Tags                     :
 ProvisioningState        : Creating
 Containers               : {mycontainer}
 ImageRegistryCredentials :
-RestartPolicy            :
-IpAddress                : 40.71.248.73
+RestartPolicy            : Always
+IpAddress                : 52.226.19.87
+DnsNameLabel             : aci-demo-win
+Fqdn                     : aci-demo-win.eastus.azurecontainer.io
 Ports                    : {80}
 OsType                   : Windows
 Volumes                  :
+State                    : Pending
+Events                   : {}
 ```
 
-Когда состояние контейнера **ProvisioningState** станет `Succeeded`, вы можете получить к нему доступ в браузере по указанному IP-адресу.
+Как только для **ProvisioningState** контейнера будет установлено значение `Succeeded`, перейдите к его `Fqdn` в браузере:
 
 ![Службы IIS, развернутые с помощью службы "Экземпляры контейнеров Azure" (просмотр в браузере)][qs-powershell-01]
 

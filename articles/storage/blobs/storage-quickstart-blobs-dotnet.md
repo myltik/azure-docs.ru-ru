@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью .NET | Документация Майкрософт"
-description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для .NET, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
+title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью .NET | Документация Майкрософт
+description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для .NET, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью .NET
 
@@ -253,13 +253,13 @@ File.Delete(destinationFile);
 
 ### <a name="binaries-and-source-code"></a>Двоичные файлы и исходный код
 
-- Загрузите пакет NuGet для последней версии [клиентской библиотеки .NET службы хранилища](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- См. [исходный код клиентской библиотеки .NET службы хранилища](https://github.com/Azure/azure-storage-net) на сайте GitHub.
+- Скачайте пакет NuGet для последней версии [клиентской библиотеки .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) для службы хранилища Azure. 
+- См. [исходный код клиентской библиотеки .NET](https://github.com/Azure/azure-storage-net) на сайте GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Справочник по клиентской библиотеке и примеры
 
-- Подробные сведения о клиентской библиотеке см. в [справочнике по API-интерфейсу .NET для хранилища](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
-- Изучите примеры для хранилища BLOB-объектов, написанные с использованием клиентской библиотеки .NET для хранилища [здесь](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob).
+- Подробные сведения о клиентской библиотеке .NET см. в [справочнике по API-интерфейсу .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- Изучите [примеры для хранилища BLOB-объектов](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob), написанные с использованием клиентской библиотеки .NET.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Java | Документация Майкрософт"
-description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Java, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
+title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Java | Документация Майкрософт
+description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Java, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью языка Java
 
@@ -202,6 +202,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Ресурсы для разработки приложений Java с большими двоичными объектами
+
+Ознакомьтесь со следующими дополнительными ресурсами для разработки Java с использованием хранилища BLOB-объектов:
+
+### <a name="binaries-and-source-code"></a>Двоичные файлы и исходный код
+
+- Просматривайте и скачивайте [исходный код клиентской библиотеки Java](https://github.com/Azure/azure-storage-java) для службы хранилища Azure в GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Справочник по клиентской библиотеке и примеры
+
+- Подробные сведения о клиентской библиотеке Java см. в [справочнике по API-интерфейсу Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage).
+- Изучите [примеры для хранилища BLOB-объектов](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob), написанные с использованием клиентской библиотеки Java.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

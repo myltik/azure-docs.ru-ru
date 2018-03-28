@@ -1,28 +1,28 @@
 ---
-title: "Как выполнять запросы в базе данных Azure Cosmos DB с помощью API MongoDB | Документация Майкрософт"
-description: "Узнайте, как выполнять запросы с помощью API MongoDB в базе данных Azure Cosmos DB"
+title: Как выполнять запросы в базе данных Azure Cosmos DB с помощью API MongoDB | Документация Майкрософт
+description: Узнайте, как выполнять запросы с помощью API MongoDB в базе данных Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 05/10/2017
+ms.workload: ''
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Как выполнять запросы к данным в базе данных Azure Cosmos DB с помощью API для MongoDB
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Руководство. Выполнение запросов в Azure Cosmos DB с использованием API MongoDB
 
 [API для MongoDB](mongodb-introduction.md) базы данных Azure Cosmos DB поддерживает [запросы оболочки MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 12/14/2017
 
 **Запрос**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
 **Результаты**
 

@@ -1,21 +1,21 @@
 ---
-title: "Краткое руководство. Создание первого контейнера службы \"Экземпляры контейнеров Azure\" с помощью портала Azure"
-description: "Начало работы со службой \"Экземпляры контейнеров Azure\" и развертывание в ней"
+title: Краткое руководство. Создание первого контейнера службы "Экземпляры контейнеров Azure" с помощью портала Azure
+description: В этом кратком руководстве при помощи портала Azure вы развернете контейнер в службе "Экземпляры контейнеров Azure".
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Создание первого контейнера в службе "Экземпляры контейнеров Azure"
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Краткое руководство. Создание первого контейнера в службе "Экземпляры контейнеров Azure"
 
 Служба "Экземпляры контейнеров Azure" упрощает создание контейнеров и управление ими в Azure. В этом кратком руководстве вы создадите контейнер в Azure и предоставите к нему доступ в Интернете по общедоступному IP-адресу. Эту операцию можно выполнить на портале Azure. Всего несколько щелчков, и вы увидите в браузере такое:
 
