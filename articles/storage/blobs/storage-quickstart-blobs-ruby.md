@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью аннотации | Документация Майкрософт"
-description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для Ruby, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
+title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью аннотации | Документация Майкрософт
+description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для Ruby, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью аннотации
 
@@ -177,6 +177,12 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Ресурсы для разработки приложений Ruby с большими двоичными объектами
+
+Ознакомьтесь со следующими дополнительными ресурсами для разработки Ruby с использованием хранилища BLOB-объектов:
+
+- Просматривайте и скачивайте [исходный код клиентской библиотеки Ruby](https://github.com/Azure/azure-storage-ruby) для службы хранилища Azure на GitHub.
+- Изучите [примеры для хранилища BLOB-объектов](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob), написанные с использованием клиентской библиотеки Ruby.
 
 ## <a name="next-steps"></a>Дополнительная информация
  

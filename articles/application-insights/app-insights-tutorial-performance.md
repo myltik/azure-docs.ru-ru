@@ -1,8 +1,8 @@
 ---
-title: "Диагностика проблем производительности с помощью Azure Application Insights | Документация Майкрософт"
-description: "Руководство по поиску и диагностике проблем производительности в приложении с помощью Azure Application Insights."
+title: Диагностика проблем производительности с помощью Azure Application Insights | Документация Майкрософт
+description: Руководство по поиску и диагностике проблем производительности в приложении с помощью Azure Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Поиск и диагностика проблем производительности с помощью Azure Application Insights
 
@@ -41,7 +41,7 @@ Azure Application Insights собирает данные телеметрии и
 Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Определение медленных операций сервера
-Application Insights собирает данные о производительности различных операций в приложении.  Определив операции с наибольшей длительностью, можно диагностировать потенциальные проблемы или наиболее подходящее целевое значение ваших текущих операций разработки, чтобы повысить общую производительность приложения.
+Application Insights собирает данные о производительности различных операций в приложении. Определив операции с наибольшей длительностью, можно диагностировать потенциальные проблемы или наиболее подходящее целевое значение ваших текущих операций разработки, чтобы повысить общую производительность приложения.
 
 1. Выберите **Application Insights**, а затем выберите подписку.  
 1. Чтобы открыть панель **Производительность**, выберите **Производительность** в меню **Исследовать** или выберите диаграмму **Время ответа сервера**.

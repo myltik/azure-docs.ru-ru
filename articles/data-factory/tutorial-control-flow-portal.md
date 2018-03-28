@@ -1,8 +1,8 @@
 ---
-title: "Ветвление в конвейере фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как контролировать поток данных в фабрике данных Azure с помощью ветвления и создания цепочки действий."
+title: Ветвление в конвейере фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как контролировать поток данных в фабрике данных Azure с помощью ветвления и создания цепочки действий.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ветвления и создание цепочки действий в конвейере фабрики данных
 В этом руководстве создается конвейер фабрики данных, который демонстрирует некоторые функции потока управления. Этот конвейер просто копирует данные из контейнера в хранилище BLOB-объектов Azure в другой контейнер в той же учетной записи хранения. Если действие копирования завершается успешно, конвейер отправляет по электронной почте подробную информацию об успешной операции копирования (например, количество записанных данных). Если происходит сбой действия копирования, конвейер отправляет по электронной почте данные об ошибке копирования (например, текст сообщения об ошибке). В этом руководстве вы научитесь передавать параметры.
@@ -309,7 +309,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. В окне **Запуск конвейера** выполните следующие действия. 
 
     1. Введите **adftutorial/dummy/input** в качестве значения для параметра **sourceBlobContainer**. Убедитесь, что папка dummy не существует в контейнере adftutorial. 
-    2. Введите **adftutorial/dummy/inputt** в качестве значения для параметра **sinkBlobContainer**. 
+    2. Введите **adftutorial/dummy/output** в качестве значения для параметра **sinkBlobContainer**. 
     3. Введите **адрес электронной почты** для **получателя**. 
     4. Нажмите кнопку **Готово**
 

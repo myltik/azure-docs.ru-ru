@@ -1,26 +1,19 @@
 ---
-title: "Перенос базы данных SQL Server в базу данных SQL Azure | Документация Майкрософт"
-description: "Сведения о переносе базы данных SQL Server в базу данных SQL Azure."
+title: Перенос базы данных SQL Server в базу данных SQL Azure | Документация Майкрософт
+description: Сведения о переносе базы данных SQL Server в базу данных SQL Azure.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c333fd4f87f30d9aa1ace755c7414423ab348e03
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Перенос базы данных SQL Server в базу данных SQL Azure
 
@@ -91,7 +84,7 @@ ms.lasthandoff: 02/21/2018
    > [!IMPORTANT]
    > \* Размеры хранилища, превышающие включенный объем, доступны в предварительной версии. За их использование взимается дополнительная плата. Подробнее об этом можно узнать в статье [Стоимость использования Базы данных SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* На уровне "Премиум" хранилище объемом свыше 1 ТБ сейчас доступно в следующих регионах: восточная Австралия, юго-восточная Австралия, южная Бразилия, центральная Канада, восточная Канада, центральная часть США, центральная Франция, центральная Германия, восточная Япония, западная Япония, Республика Корея, центральный регион; северо-центральный регион США, Северная Европа, юго-центральный регион США, Юго-Восточная Азия, южная часть Соединенного Королевства, западная часть Соединенного Королевства, восточная часть США 2, западная часть США, Виргиния (для обслуживания государственных организаций США) и Западная Европа. См. [текущие ограничения для баз данных P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* На уровне "Премиум" хранилище объемом свыше 1 ТБ сейчас доступно в следующих регионах: Виргиния (для обслуживания государственных организаций США), восточная Канада, восточная часть США 2, восточная Япония, Западная Европа, западная часть Соединенного Королевства, западная часть США, западная Япония, Республика Корея (центральный регион), Северная Европа, северо-центральный регион США, центральная Германия, центральная Канада, центральная Франция, центральная часть США, Юго-Восточная Азия, юго-центральный регион США, южная Бразилия и южная часть Соединенного Королевства. См. [текущие ограничения для баз данных P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Выбрав уровень сервера, число DTU и объем хранилища, нажмите кнопку **Применить**.  
