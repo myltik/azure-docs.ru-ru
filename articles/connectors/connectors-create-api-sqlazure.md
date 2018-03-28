@@ -1,11 +1,11 @@
 ---
-title: "Добавление соединителя базы данных SQL Azure в приложения логики | Документация Майкрософт"
-description: "Обзор соединителя базы данных SQL Azure с параметрами интерфейса REST API"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Добавление соединителя базы данных SQL Azure в приложения логики | Документация Майкрософт
+description: Обзор соединителя базы данных SQL Azure с параметрами интерфейса REST API
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Начало работы с соединителем базы данных SQL Azure
 С помощью соединителя базы данных SQL Azure можно создавать рабочие процессы для управления данными в таблицах в вашей организации. 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/19/2018
 3. Чтобы открыть список всех доступных действий, в текстовом поле введите sql.
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. В нашем примере мы выберем действие для SQL Server **Get row** (Получение строки). Если подключение уже существует, выберите **имя таблицы** в раскрывающемся списке и введите **идентификатор строки**, который необходимо вернуть.
+4. В этом примере выберем действие для SQL Server **Get row** (Получение строки). Если подключение уже существует, выберите **имя таблицы** в раскрывающемся списке и введите **идентификатор строки**, который необходимо вернуть.
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    

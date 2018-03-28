@@ -1,18 +1,18 @@
 ---
-title: "Подготовка локального сервера Hyper-V для аварийного восстановления виртуальных машин Hyper-V в Azure | Документация Майкрософт"
-description: "Сведения о подготовке локальных виртуальных машин, не управляемых System Center VMM, для аварийного восстановления в Azure с помощью службы Azure Site Recovery."
+title: Подготовка локального сервера Hyper-V для аварийного восстановления виртуальных машин Hyper-V в Azure | Документация Майкрософт
+description: Сведения о подготовке локальных виртуальных машин, не управляемых System Center VMM, для аварийного восстановления в Azure с помощью службы Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Подготовка локальных серверов Hyper-V для аварийного восстановления в Azure
 
@@ -28,25 +28,16 @@ ms.lasthandoff: 02/22/2018
 
 
 
-## <a name="review-server-requirements"></a>Проверка соответствия требованиям к серверам
+## <a name="review-requirements-and-prerequisites"></a>Проверка требований и необходимых компонентов
 
-Убедитесь, что узлы Hyper-V соответствуют указанным ниже требованиям. Если вы управляете узлами в облаках System Center Virtual Machine Manager (VMM), проверьте соответствие требованиям к VMM.
+Убедитесь, что узлы и виртуальные машины Hyper-V соответствуют требованиям.
 
+1. [Проверьте](hyper-v-azure-support-matrix.md#on-premises-servers) локальные требования к серверу.
+2. [Проверьте требования](hyper-v-azure-support-matrix.md#replicated-vms) для виртуальных машин Hyper-V, которые вы хотите реплицировать в Azure.
+3. Проверьте [сеть](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) узла Hyper-V, а также поддержку [хранилища](hyper-v-azure-support-matrix.md#hyper-v-host-storage) узла и гостевого хранилища для локальных узлов Hyper-V.
+4. Проверьте поддерживаемые возможности для [сети Azure](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [хранилища](hyper-v-azure-support-matrix.md#azure-storage) и [вычислительных ресурсов](hyper-v-azure-support-matrix.md#azure-compute-features) после отработки отказа.
+5. Локальные виртуальные машины, которые реплицируются в Azure, должны соответствовать [требованиям к виртуальным машинам Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Компонент** | **Hyper-V под управлением VMM** | **Hyper-V без VMM**
---- | --- | ---
-**Операционная система узла Hyper-V** | Windows Server 2016, 2012 R2 | Нет данных
-**VMM** | VMM 2012, VMM 2012 R2 | Нет данных
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Проверка соответствия требованиям к виртуальной машине Hyper-V
-
-Убедитесь, что виртуальная машина соответствует требованиям, приведенным в таблице.
-
-**Требование к виртуальной машине** | **Дополнительные сведения**
---- | ---
-**Операционная система на виртуальной машине** | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Требования Azure** | Локальные виртуальные машины Hyper-V должны соответствовать требованиям к виртуальным машинам Azure (site-recovery-support-matrix-to-azure.md).
 
 ## <a name="prepare-vmm-optional"></a>Подготовка VMM (необязательно)
 
@@ -82,13 +73,14 @@ ms.lasthandoff: 02/22/2018
 
 При отработке отказа может потребоваться подключение к реплицируемой сети в локальной среде.
 
-Чтобы подключиться к виртуальным машинам Windows с помощью RDP после отработки отказа, сделайте следующее:
+Чтобы подключиться к виртуальным машинам Windows с помощью RDP после отработки отказа, разрешите доступ, как показано ниже:
 
 1. Чтобы получить доступ к Интернету, включите RDP на локальных виртуальных машинах перед отработкой отказа. Убедитесь в том, что правила TCP и UDP добавлены для **общедоступного** профиля, а RDP разрешен в разделе **Брандмауэр Windows** > **Allowed Apps** (Разрешенные приложения) для всех профилей.
 2. Для доступа через VPN типа "сеть — сеть" включите RDP на локальном компьютере. Протокол удаленного рабочего стола должен быть разрешен в разделе **Брандмауэр Windows** -> **Allowed apps and features** (Разрешенные приложения и компоненты) для сетей **домена и частных сетей**.
    Убедитесь, что для политики сети SAN операционной системы задано значение **OnlineAll**. [Узнайте больше](https://support.microsoft.com/kb/3031135). Убедитесь, что на виртуальной машине нет ожидающих установки обновлений Windows, прежде чем активировать отработку отказа. Если они есть, вы не сможете войти в виртуальную машину до завершения обновления.
 3. После отработки отказа на виртуальной машине Windows Azure проверьте **диагностику загрузки**, чтобы просмотреть снимок экрана виртуальной машины. Если вы не можете подключиться к виртуальной машине, убедитесь, что она запущена, и ознакомьтесь с [рекомендациями по устранению неполадок](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+После отработки отказа доступ к виртуальным машинам Azure можно получить с помощью IP-адреса, который используется для доступа к реплицированным локальным виртуальным машинам, либо с помощью другого IP-адреса. [Подробнее ](concepts-on-premises-to-azure-networking.md) о настройке назначения IP-адресов для отработки отказа.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -1,25 +1,21 @@
 ---
-title: "Первый Runbook рабочего процесса PowerShell в службе автоматизации Azure | Документация Майкрософт"
-description: "Учебник, в котором рассказывается, как создать, протестировать и опубликовать простой текстовый Runbook с помощью рабочего процесса PowerShell."
+title: Первый runbook рабочего процесса PowerShell в службе автоматизации Azure
+description: Учебник, в котором рассказывается, как создать, протестировать и опубликовать простой текстовый Runbook с помощью рабочего процесса PowerShell.
+keywords: рабочий процесс PowerShell, примеры рабочего процесса powershell, рабочие процессы powershell
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "рабочий процесс PowerShell, примеры рабочего процесса powershell, рабочие процессы powershell"
-ms.assetid: 0002d7f7-e2b5-46e3-b5eb-4596b84fd526
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 62cb96075deed6c252ae44c8a000e820cb691a90
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 61191e78ebd2f0d7a960dfb0c74a1d8260331212
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Первый Runbook рабочего процесса PowerShell
 
@@ -131,11 +127,11 @@ ms.lasthandoff: 01/29/2018
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
-2. Сохраните runbook, затем щелкните **Тестовая область**, чтобы протестировать модуль.
+2. Сохраните модуль runbook, а затем щелкните **Тестовая область**, чтобы проверить модуль.
 3. Щелкните **Пуск** , чтобы начать тестирование. После завершения теста проверьте, запущена ли виртуальная машина.
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>Шаг 7. Добавление входного параметра в модуль Runbook
-Созданный модуль runbook сейчас запускает виртуальную машину, указанную в коде runbook, но лучше указать виртуальную машину при запуске runbook. Для этого добавьте в runbook входные параметры.
+Созданный модуль runbook сейчас запускает виртуальную машину, указанную в коде runbook, но лучше указать виртуальную машину при запуске runbook. Для этого добавьте в модуль runbook входные параметры.
 
 1. Добавьте значения для параметров *VMName* (Имя ВМ) и *ResourceGroupName* (Имя группы ресурсов) в модуль Runbook и используйте эти переменные в командлете **Start-AzureRmVM**, как показано в примере ниже.
 

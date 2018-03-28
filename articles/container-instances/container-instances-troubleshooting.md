@@ -1,27 +1,88 @@
 ---
-title: "Устранение неполадок в службе \"Экземпляры контейнеров Azure\""
-description: "Подробные сведения об устранении неполадок в службе \"Экземпляры контейнеров Azure\""
+title: Устранение неполадок в службе "Экземпляры контейнеров Azure"
+description: Подробные сведения об устранении неполадок в службе "Экземпляры контейнеров Azure"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Устранение неполадок развертывания с помощью службы "Экземпляры контейнеров Azure"
 
 В этой статье показано, как устранять неполадки при развертывании контейнеров в службе "Экземпляры контейнеров Azure". Кроме того, здесь описываются некоторые распространенные проблемы, с которыми вы можете столкнуться.
 
+## <a name="view-logs-and-stream-output"></a>Просмотр журналов и потокового вывода
+
+Если у вас есть контейнер, который работает некорректно, начните с просмотра журналов с помощью команды [az container logs][az-container-logs]. Затем перенаправьте его стандартные выходные данные и ошибки с помощью [az container attach][az-container-attach].
+
+### <a name="view-logs"></a>Просмотр журналов
+
+Для просмотра журналов из кода приложения в контейнере можно использовать команду [az container logs][az-container-logs].
+
+Ниже приводятся выходные данные журнала, созданные контейнером на основе задач, описанным в статье [Выполнение задачи-контейнера в службе "Экземпляры контейнеров Azure"](container-instances-restart-policy.md), которому на обработку передан недопустимый URL-адрес.
+
+```console
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+```
+
+### <a name="attach-output-streams"></a>Присоединение выходных потоков
+
+Команда [az container attach][az-container-attach] предоставляет диагностические сведения во время запуска контейнера. Она направляет потоки STDOUT и STDERR запущенного контейнера в локальную консоль.
+
+Ниже приводятся выходные данные журнала, созданные контейнером на основе задач, описанным в статье [Выполнение задачи-контейнера в службе "Экземпляры контейнеров Azure"](container-instances-restart-policy.md), которому предоставлен действительный URL-адрес большого текстового файла для обработки.
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
+
 ## <a name="get-diagnostic-events"></a>Получение диагностических событий
 
-Для просмотра журналов из кода приложения в контейнере можно использовать команду [az container logs][az-container-logs]. Если вам не удалось развернуть контейнер, необходимо просмотреть диагностические сведения, предоставляемые поставщиком ресурсов службы "Экземпляры контейнеров Azure". Чтобы просмотреть события для контейнера, выполните команду [az container show][az-container-show]:
+Если контейнер не может развернуться успешно, просмотрите диагностические сведения, предоставляемые поставщиком ресурсов службы "Экземпляры контейнеров Azure". Чтобы просмотреть события для контейнера, выполните команду [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -90,11 +151,17 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 ## <a name="common-deployment-issues"></a>Стандартные проблемы развертывания
 
-Существует несколько типичных проблем, вызывающих большинство ошибок развертывания.
+В следующих разделах описаны распространенные проблемы, вызывающие основную часть ошибок при развертывании контейнера:
+
+* [Версия образа не поддерживается](#image-version-not-supported)
+* [Сбой получения образа](#unable-to-pull-image)
+* [Контейнер постоянно завершает работу и перезагружается](#container-continually-exits-and-restarts)
+* [Контейнер долго запускается](#container-takes-a-long-time-to-start)
+* [Ошибка при недоступном ресурсе](#resource-not-available-error)
 
 ## <a name="image-version-not-supported"></a>Версия образа не поддерживается
 
-Если задано изображение, не поддерживаемое службой "Экземпляры контейнеров Azure", будет возвращена ошибка `ImageVersionNotSupported`. Значение ошибки будет следующим: `The version of image '{0}' is not supported.`. Сейчас эта ошибка касается образов Windows 1709. Чтобы избежать ее, используйте образ LTS Windows. Поддержка изображений Windows 1709 в процессе реализации.
+Если вы укажете образ, не поддерживаемый службой "Экземпляры контейнеров Azure", будет возвращена ошибка `ImageVersionNotSupported`. Эта ошибка имеет значение `The version of image '{0}' is not supported.` и в данный момент касается только образов Windows 1709. Чтобы устранить эту проблему, используйте образ LTS Windows. Поддержка изображений Windows 1709 в процессе реализации.
 
 ## <a name="unable-to-pull-image"></a>Сбой получения образа
 
@@ -180,24 +247,39 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 ## <a name="container-takes-a-long-time-to-start"></a>Контейнер долго запускается
 
+Вот два основных фактора, влияющих на время запуска контейнера в экземплярах контейнеров Azure:
+
+* [Размер образа](#image-size)
+* [Расположение образа](#image-location)
+
+Для образов Windows действуют [дополнительные рекомендации](#use-recent-windows-images).
+
+### <a name="image-size"></a>Размер образа
+
 Если контейнер запускается долго, но в конечном итоге успешно, обратите внимание на размер образа контейнера. Так как служба "Экземпляры контейнеров Azure" извлекает образ контейнера по требованию, время запуска непосредственно связано с его размером.
 
-Размер образа контейнера можно просмотреть с помощью интерфейса командной строки Docker:
+Размер образа контейнера можно просмотреть с помощью команды `docker images` в интерфейсе командной строки Docker:
 
-```bash
-docker images
-```
-
-Выходные данные:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 Чтобы обеспечить маленький размер образа, нужно добавить в него только то, что требуется во время выполнения. Один из способов — это [многоэтапная сборка][docker-multi-stage-builds]. За счет многоэтапной сборки можно очень просто гарантировать, что итоговый образ содержит артефакты, необходимые для приложения, и в нем отсутствует дополнительное содержимое, которое требовалось во время сборки.
 
-Другой способ сократить влияние получения образа на время запуска контейнера — размещение образа контейнера с помощью реестра контейнеров Azure в том же регионе, где планируется использовать службу "Экземпляры контейнеров Azure". Таким образом сокращается сетевой путь, который должен пройти образ контейнера, а также значительно сокращается время загрузки.
+### <a name="image-location"></a>Расположение образа
+
+Чтобы получение образа меньше влияло на время запуска контейнера, вы также можете разместить образ контейнера в [реестре контейнеров Azure](/azure/container-registry/) того же региона, в котором будут развернуты экземпляры контейнеров. Таким образом сокращается сетевой путь, который должен пройти образ контейнера, а также значительно сокращается время загрузки.
+
+### <a name="use-recent-windows-images"></a>Использование последних образов Windows
+
+Для образов на основе конкретных образов Windows экземпляры контейнеров Azure используют механизм кэширования, чтобы сократить время запуска контейнера.
+
+Чтобы ускорить запуск, используйте для контейнера Windows одну из **трех последних версий** следующих **двух образов**:
+
+* [Windows Server 2016][docker-hub-windows-core] (только LTS)
+* [Nano Server Windows Server 2016][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Ошибка при недоступном ресурсе
 
@@ -214,7 +296,10 @@ microsoft/aci-helloworld               latest              7f78509b568e        1
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

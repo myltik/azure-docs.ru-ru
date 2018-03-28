@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights для ASP.NET Core | Документация Майкрософт"
-description: "Отслеживайте доступность, производительность и использование веб-приложений."
+title: Azure Application Insights для ASP.NET Core | Документация Майкрософт
+description: Отслеживайте доступность, производительность и использование веб-приложений.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9fb3e68db66449d9ca3b43e6974910cb9477e62
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights для ASP.NET Core
 
@@ -214,5 +214,6 @@ _Счетчики производительности_ в этом контек
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Изучите маршруты пользователей](app-insights-usage-flows.md), чтобы понять, как пользователи перемещаются приложением.
+* [Настройка коллекции моментальных снимков](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) для отображения состояния исходного кода и переменных в момент создания исключения.
 * [Используйте API](app-insights-api-custom-events-metrics.md) для отправки собственных событий и метрик для более четкого представления о производительности и использовании приложения.
 * [Тесты доступности](app-insights-monitor-web-app-availability.md) позволяют постоянно проверять работу приложения из всех точек мира.

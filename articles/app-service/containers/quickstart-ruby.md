@@ -1,12 +1,12 @@
 ---
-title: "Создание приложения Ruby и его развертывание в службе приложений Azure на платформе Linux | Документация Майкрософт"
-description: "Узнайте, как создать приложения Ruby с помощью службы приложений на платформе Linux."
-keywords: "служба приложений azure, linux, oss, ruby"
+title: Создание приложения Ruby и его развертывание в службе приложений Azure на платформе Linux | Документация Майкрософт
+description: Узнайте, как создать приложения Ruby с помощью службы приложений на платформе Linux.
+keywords: служба приложений azure, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Создание приложения Ruby в службе приложений на платформе Linux
 
@@ -88,37 +88,23 @@ rails server
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Создание веб-приложения Ruby в Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Группа ресурсов используется для размещения ресурсов, требуемых веб-приложением. Чтобы создать группу ресурсов, используйте команду [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Создание веб-приложения
 
-Выполните команду [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create), чтобы создать план службы приложений для веб-приложения.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Далее выполните команду [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create), чтобы создать веб-приложение, использующее созданный план службы. Обратите внимание, что для среды выполнения установлено значение `ruby|2.3`. Не забудьте указать уникальное имя приложения вместо `<app name>`.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-Выходные данные команды включают сведения о созданном веб-приложении, а также содержат URL-адрес развертывания. Вы увидите что-то похожее на пример ниже. Скопируйте URL-адрес для дальнейшего использования в этом руководстве.
+Перейдите на сайт, чтобы просмотреть созданное веб-приложение со встроенным образом. Замените _&lt;имя_приложения>_ уникальным именем веб-приложения.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-После создания веб-приложения страница **обзора** будет доступна для просмотра. Перейдите на эту страницу. Отобразится следующая страница заставки:
+Новое веб-приложение должно выглядеть так:
 
 ![Страница заставки](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Развертывание приложения
 

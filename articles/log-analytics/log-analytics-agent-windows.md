@@ -1,24 +1,24 @@
 ---
-title: "Подключение компьютеров Windows к Azure Log Analytics | Документация Майкрософт"
-description: "В этой статье объясняется, как с помощью Microsoft Monitoring Agent (MMA) подключить компьютеры, размещенные в облаках или в локальной среде, к Log Analytics."
+title: Подключение компьютеров Windows к Azure Log Analytics | Документация Майкрософт
+description: В этой статье объясняется, как с помощью Microsoft Monitoring Agent (MMA) подключить компьютеры, размещенные в облаках или в локальной среде, к Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Подключение компьютеров Windows к службе Log Analytics в Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/24/2018
 После завершения установки на **панели управления** появится **Microsoft Monitoring Agent**. Чтобы убедиться, что он отправляет отчеты в Log Analytics, ознакомьтесь с разделом [Проверка подключения агента к Log Analytics](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Установка агента с помощью командной строки
-Скачанный файл агента — это автономный пакет установки, созданный IExpress.  В нем содержатся программа установки агента и вспомогательные файлы. Чтобы установить агент с помощью командной строки, содержимое этого пакета нужно извлечь. Ниже описано, как это сделать.    
+Скачанный файл агента — это автономный пакет установки.  В нем содержатся программа установки агента и вспомогательные файлы. Чтобы установить агент с помощью командной строки, содержимое этого пакета нужно извлечь. Ниже описано, как это сделать.    
 
 >[!NOTE]
 >Для обновления агента необходимо использовать API сценариев службы Log Analytics. Дополнительные сведения см. в статье [Обслуживание агента Log Analytics для Windows и Linux и управление им](log-analytics-agent-manage.md).
@@ -72,6 +72,7 @@ ms.lasthandoff: 02/24/2018
 
 |Параметры MMA                   |Заметки         |
 |---------------------------------------|--------------|
+| NOAPM=1                               | Необязательный параметр. Установка агента без мониторинга производительности приложений .NET.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 — настройка агента для передачи отчетов в рабочую область.                |
 |OPINSIGHTS_WORKSPACE_ID                | Идентификатор добавляемой рабочей области (GUID).                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Ключ рабочей области, используемый для первоначальной аутентификации в рабочей области. |
@@ -80,7 +81,7 @@ ms.lasthandoff: 02/24/2018
 |OPINSIGHTS_PROXY_USERNAME               | Имя пользователя для доступа к прокси-серверу после аутентификации. |
 |OPINSIGHTS_PROXY_PASSWORD               | Пароль для доступа к прокси-серверу после аутентификации. |
 
-1. Чтобы извлечь файлы установки агента из командной строки с повышенными привилегиями, запустите файл `extract MMASetup-<platform>.exe`. После этого вы сможете выбрать путь для извлечения файлов.  Кроме того, путь можно указать, передав аргументы `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Дополнительные сведения о параметрах командной строки, поддерживаемых IExpress, см. в [этой статье](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages). Затем обновите пример в соответствии со своими потребностями.
+1. Чтобы извлечь файлы установки агента из командной строки с повышенными привилегиями, запустите файл `MMASetup-<platform>.exe /c`. После этого вы сможете выбрать путь для извлечения файлов.  Кроме того, путь можно указать, передав аргументы `MMASetup-<platform>.exe /c /t:<Path>`.  
 2. Чтобы автоматически установить агент и настроить его для отправки отчетов в рабочую область коммерческого облака Azure, из папки, в которую вы извлекли файлы установки, выполните следующую команду: 
    
      ```dos
@@ -99,8 +100,8 @@ ms.lasthandoff: 02/24/2018
 
 В указанном ниже примере выполняется установка 64-разрядного агента, идентифицируемого значением `URI`. Вы также можете использовать 32-разрядную версию, заменив значение универсального кода ресурса (URI). URI для обеих версий:
 
-- 64-разрядный агент Windows: https://go.microsoft.com/fwlink/?LinkId=828603
-- 32-разрядный агент Windows: https://go.microsoft.com/fwlink/?LinkId=828604
+- Агент 64-разрядной версии Windows — https://go.microsoft.com/fwlink/?LinkId=828603.
+- Агент 32-разрядной версии Windows — https://go.microsoft.com/fwlink/?LinkId=828604.
 
 
 >[!NOTE]
@@ -108,7 +109,7 @@ ms.lasthandoff: 02/24/2018
 
 32- и 64-разрядные версии пакета агента имеют разные коды продукта. Новые выпущенные версии также имеют уникальное значение.  Код продукта — это глобальный уникальный идентификатор, который представляет собой основной идентификатор приложения или продукта. Он представляется свойством **ProductCode** установщика Windows.  Значение `ProductId value` в сценарии **MMAgent.ps1** должно соответствовать коду продукта в пакете установщика 32- или 64-разрядного агента.
 
-Чтобы извлечь код продукта из пакета установщика агента напрямую, вы можете воспользоваться Orca.exe (компонент пакета разработки программного обеспечения для Windows), который можно найти на странице [компонентов Windows SDK для разработчиков установщика Windows](https://msdn.microsoft.com/library/windows/desktop/aa370834%27v=vs.85%28.aspx). Кроме того, вы можете использовать PowerShell с [примером сценария](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/), написанного специалистом с рангом Microsoft Valuable Professional (MVP).
+Чтобы извлечь код продукта из пакета установщика агента напрямую, вы можете воспользоваться Orca.exe (компонент пакета разработки программного обеспечения для Windows), который можно найти на странице [компонентов Windows SDK для разработчиков установщика Windows](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx). Кроме того, вы можете использовать PowerShell с [примером сценария](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/), написанного специалистом с рангом Microsoft Valuable Professional (MVP).  В обоих случаях сначала нужно извлечь файл**MOMagent.msi** из пакета установки MMASetup.  Эта процедура рассматривается выше в разделе [Установка агента с помощью командной строки](#install-the-agent-using-the-command-line).  
 
 1. Импортируйте модуль DSC xPSDesiredStateConfiguration со страницы [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) в службу автоматизации Azure.  
 2.  Создайте в службе автоматизации Azure ресурсы-контейнеры для переменных *OPSINSIGHTS_WS_ID* и *OPSINSIGHTS_WS_KEY*. В качестве значения параметра *OPSINSIGHTS_WS_ID* укажите идентификатор рабочей области Log Analytics, а для параметра *OPSINSIGHTS_WS_KEY* — первичный ключ рабочей области.

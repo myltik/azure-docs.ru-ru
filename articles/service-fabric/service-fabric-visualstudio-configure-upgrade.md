@@ -1,6 +1,6 @@
 ---
-title: "Настройка обновления приложения Service Fabric | Документация Майкрософт"
-description: "Узнайте, как настроить параметры обновления приложения Service Fabric с помощью Microsoft Visual Studio."
+title: Настройка обновления приложения Service Fabric | Документация Майкрософт
+description: Узнайте, как настроить параметры обновления приложения Service Fabric с помощью Microsoft Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: mikkelhegn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Настройка обновления приложения Service Fabric в Visual Studio
 Средства Visual Studio для Azure Service Fabric обеспечивают поддержку обновления для публикации на локальных и удаленных кластерах. Существуют три сценария, в которых следует обновить приложение до более новой версии, а не заменить его, во время тестирования и отладки:
@@ -86,4 +86,4 @@ ms.lasthandoff: 10/11/2017
 </Policies>
 ```
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения о развертывании приложений см. в статье [Развертывание гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md).
+Дополнительные сведения см. в статье об [обновлении приложения с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md).

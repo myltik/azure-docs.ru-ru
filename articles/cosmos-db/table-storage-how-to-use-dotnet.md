@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с хранилищем таблиц Azure с помощью .NET | Документация Майкрософт"
-description: "Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
+title: Приступая к работе с хранилищем таблиц Azure с помощью .NET | Документация Майкрософт
+description: Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL).
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,9 +83,9 @@ ms.lasthandoff: 03/09/2018
 Вы можете использовать библиотеку таблиц Azure Cosmos DB в любом приложении .NET, в том числе в облачной службе Azure, веб-приложении Azure, классическом или мобильном приложении. Для упрощения в этом руководстве мы будем использовать консольное приложение.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Установка необходимых пакетов с помощью NuGet
-Для работы с этим руководством вам нужно указать в проекте три пакета:
+Для работы с этим руководством рекомендуем указать в проекте три пакета:
 
-* [Общая библиотека службы хранилища Azure для .NET (предварительная версия 8.6.0)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
+* [Общая библиотека службы хранилища Azure для .NET (предварительная версия)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
 * [Библиотека таблиц Microsoft Azure Cosmos DB для .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Этот пакет предоставляет программный доступ к ресурсам данных в вашей учетной записи хранилища таблиц или API таблиц Azure Cosmos DB.
 * [Библиотека Microsoft Azure Configuration Manager для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) — этот пакет предоставляет класс для анализа строки подключения в файле конфигурации независимо от среды выполнения приложения.
 
@@ -100,6 +100,11 @@ ms.lasthandoff: 03/09/2018
 > Зависимости ODataLib в общей библиотеке хранилища для .NET разрешаются с помощью пакетов ODataLib, доступных в NuGet, а не в WCF Data Services. Библиотеки ODataLib можно скачать напрямую или указать на них ссылку в проекте через NuGet. К специальным пакетам ODataLib, используемым клиентскими библиотеками хранения, относятся [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) и [Spatial](http://nuget.org/packages/System.Spatial/). Хотя эти библиотеки используются классами хранилища таблиц Azure, они являются обязательными зависимостями для программирования с использованием общей библиотеки хранилища.
 > 
 > 
+
+> [!TIP]
+> Разработчики, знакомые с хранилищем таблиц Azure, возможно, в прошлом применяли пакет [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/). Рекомендуем использовать для всех новых приложений таблиц [общую библиотеку службы хранилища Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) и [библиотеку таблиц Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Но пакет WindowsAzure.Storage по-прежнему поддерживается. Если вы используете библиотеку WindowsAzure.Storage, включите Microsoft.WindowsAzure.Storage.Table в операторы using.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>Определение целевой среды
 Примеры из этого руководства можно выполнять в двух средах.

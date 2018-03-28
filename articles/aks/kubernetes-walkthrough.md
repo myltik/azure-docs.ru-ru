@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство по работе с кластером Azure Kubernetes для Linux"
-description: "Вы научитесь быстро создавать кластер Kubernetes для контейнеров Linux в AKS при помощи Azure CLI."
+title: Краткое руководство по работе с кластером Azure Kubernetes для Linux
+description: Вы научитесь быстро создавать кластер Kubernetes для контейнеров Linux в AKS при помощи Azure CLI.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/26/2018
+ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 817b204cde8708ff06507c30e1725c0e46185877
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3005023e45bc6516732f077f152aed93564be38b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -27,10 +27,14 @@ ms.lasthandoff: 03/08/2018
 
 Если вы решили установить и использовать CLI локально, для выполнения инструкций из этого руководства вам потребуется Azure CLI 2.0.27 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][azure-cli-install].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Включение предварительной версии AKS в подписке Azure
-Пока AKS находится н этапе предварительной версии, для создания новых кластеров требуется флаг этого компонента в подписке. Можно запросить этот компонент для любого числа подписок, которые вы хотите использовать. Используйте команду `az provider register`, чтобы зарегистрировать поставщик AKS.
+## <a name="enabling-aks-preview"></a>Включение предварительной версии AKS
+
+Убедитесь, что включены необходимые поставщики служб Azure, выполнив команду `az provider register`. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -64,7 +68,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>Создание кластера AKS
 
-В следующем примере создается кластер *myAKSCluster* с одним узлом.
+Используйте команду [az aks create][az-aks-create], чтобы создать кластер AKS. В следующем примере создается кластер *myAKSCluster* с одним узлом.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -76,14 +80,14 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 
 Управлять кластером Kubernetes можно при помощи [kubectl][kubectl], клиента командной строки Kubernetes.
 
-Если вы используете Azure Cloud Shell, клиент kubectl уже установлен. Если вы хотите установить его локально, выполните следующую команду.
+Если вы используете Azure Cloud Shell, клиент kubectl уже установлен. Для локальной установки можно использовать команду [az aks install-cli][az-aks-install-cli].
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Чтобы настроить kubectl для подключения к кластеру Kubernetes, выполните следующую команду. На этом шаге скачиваются учетные данные и настраивается интерфейс командной строки Kubernetes для их использования.
+Чтобы настроить подключение kubectl к кластеру Kubernetes, выполните команду [az aks get-credentials][az-aks-get-credentials]. На этом шаге скачиваются учетные данные и настраивается интерфейс командной строки Kubernetes для их использования.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -244,7 +248,9 @@ az group delete --name myResourceGroup --yes --no-wait
 
 <!-- LINKS - internal -->
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

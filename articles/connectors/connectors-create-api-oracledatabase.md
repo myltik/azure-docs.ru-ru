@@ -1,25 +1,25 @@
 ---
-title: "Добавление соединителя базы данных Oracle в Azure Logic Apps | Документация Майкрософт"
-description: "Использование соединителя базы данных Oracle в приложении логики"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Добавление соединителя базы данных Oracle в Azure Logic Apps | Документация Майкрософт
+description: Использование соединителя базы данных Oracle в приложении логики
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Начало работы с соединителем базы данных Oracle
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/19/2018
 
 **Устранение.** Убедитесь, что шлюз работает на локальной машине, где он установлен, и что он может подключаться к Интернету.  Мы рекомендуем не устанавливать шлюза на компьютере, который может быть выключен или переведен в спящий режим. Можно также попытаться перезапустить локальную службу шлюза данных (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Ошибка.** Используемый поставщик является устаревшим: "System.Data.OracleClient требует версию клиента программного обеспечения Oracle 8.1.7 или более поздней версии.". Установите официальный поставщик со страницы [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Ошибка.** Используемый поставщик является устаревшим: "System.Data.OracleClient требует версию клиента программного обеспечения Oracle 8.1.7 или более поздней версии.". Перейдите по ссылке [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376), чтобы установить официальный поставщик.
 
 **Причина.** На компьютере, где выполняется локальный шлюз данных, не установлен пакет SDK для клиента Oracle.  
 
@@ -130,8 +130,8 @@ ms.lasthandoff: 01/19/2018
 
 Мы рекомендуем посетить [форум, посвященный Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps), где вы сможете задать вопросы, помочь другим пользователям и узнать, что они делают. 
 
-Вы можете улучшить Logic Apps и соединители, внеся свои предложения или проголосовав за уже внесенные на сайте [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Чтобы улучшить Logic Apps и соединители, внесите свои предложения или проголосуйте за уже внесенные на сайте [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Создайте приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md) и узнайте, какие еще соединители доступны в Logic Apps, с помощью [списка интерфейсов API](apis-list.md).
+[Создайте приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md) и просмотрите в [списке интерфейсов API](apis-list.md) другие доступные соединители в Logic Apps.

@@ -1,8 +1,8 @@
 ---
-title: "Обзор Microsoft Azure Data Lake Analytics | Документация Майкрософт"
-description: "Служба Data Lake Analytics позволяет управлять компанией с помощью аналитических сведений, полученных из любых объемов данных в облаке."
+title: Обзор Microsoft Azure Data Lake Analytics | Документация Майкрософт
+description: Служба Data Lake Analytics позволяет управлять компанией с помощью аналитических сведений, полученных из любых объемов данных в облаке.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: a788c7ad6eca0abea6f6ab400cbe2d0e5914eed8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4ee0bdf486fa59c2d32b0d28ee25618996a57c6e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-data-lake-analytics"></a>Обзор Azure Data Lake Analytics
 
@@ -46,7 +46,7 @@ Data Lake Analytics тесно интегрируется с Visual Studio. Вы
     
 ### <a name="works-with-all-your-azure-data"></a>Работает со всеми данными Azure
   
-Data Lake Analytics работает с Azure Data Lake Store, обеспечивающей самую высокую производительность, пропускную способность и параллелизацию, а также с большими двоичными объектами службы хранилища Azure, базой данных SQL Azure и хранилищем данных Azure.
+Data Lake Analytics работает со службой Azure Data Lake Store, обеспечивающей самую высокую производительность, пропускную способность и параллелизацию, а также с большими двоичными объектами службы хранилища Azure, службой "База данных SQL Azure" и хранилищем данных Azure.
 
 ### <a name="next-steps"></a>Дополнительная информация
  

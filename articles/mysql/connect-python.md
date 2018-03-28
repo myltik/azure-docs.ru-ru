@@ -1,6 +1,6 @@
 ---
-title: "Подключение к Базе данных Azure для MySQL с помощью Python"
-description: "В этом кратком руководстве представлены примеры кода Python, которые можно использовать для подключения к базе данных Azure для MySQL и запроса данных из нее."
+title: Подключение к Базе данных Azure для MySQL с помощью Python
+description: В этом кратком руководстве представлены примеры кода Python, которые можно использовать для подключения к базе данных Azure для MySQL и запроса данных из нее.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>База данных Azure для MySQL: подключение и запрос данных с помощью Python
 Это краткое руководство демонстрирует, как использовать [Python](https://python.org) для подключения к базе данных Azure для MySQL. Здесь используются инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных из платформ Windows, Mac OS и Ubuntu Linux. В этой статье предполагается, что у вас уже есть опыт разработки на языке Python и вы только начали работу с базой данных Azure для MySQL.
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/28/2018
 1. В Linux (Ubuntu) Python обычно устанавливается как часть установки по умолчанию.
 2. Проверьте установку Python, запустив оболочку bash. Выполните команду `python -V`, используя параметр V в верхнем регистре, чтобы узнать номер версии.
 3. Проверьте установку PIP, выполнив команду `pip show pip -V`, чтобы получить номер версии. 
-4. PIP может быть включен в некоторых версиях Python. Если PIP не установлен, установите пакет [PIP] (https://pip.pypa.io/en/stable/installing/), выполнив команду `sudo apt-get install python-pip`.
+4. PIP может быть включен в некоторых версиях Python. Если PIP не установлен, вы можете установить пакет [PIP](https://pip.pypa.io/en/stable/installing/), выполнив команду `sudo apt-get install python-pip`.
 5. Обновите PIP до последней версии, выполнив команду `pip install -U pip`.
 6. Установите соединитель MySQL для Python и его зависимости с помощью команды PIP:
 

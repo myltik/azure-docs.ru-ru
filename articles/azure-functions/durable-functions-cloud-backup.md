@@ -1,12 +1,12 @@
 ---
-title: "Сценарии развертывания и объединения в устойчивых функциях — Azure"
-description: "Сведения о том, как реализовать сценарии развертывания и объединения в расширении устойчивых функций для Функций Azure."
+title: Сценарии развертывания и объединения в устойчивых функциях — Azure
+description: Сведения о том, как реализовать сценарии развертывания и объединения в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Сценарии развертывания и объединения в устойчивых функциях. Пример резервного копирования в облако
 
@@ -158,7 +158,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом примере показано, как реализовать шаблон развертывания и объединения. В приведенном ниже примере показано, как реализовать шаблон [одноэлементного экземпляра с отслеживанием состояния](durable-functions-singletons.md) при [нескончаемой оркестрации](durable-functions-eternal-orchestrations.md).
+В этом примере показано, как реализовать шаблон развертывания и объединения. В следующем примере показано, как реализовать шаблон мониторинга с помощью [устойчивых таймеров](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Одноэлементные экземпляры с отслеживанием состояния в устойчивых функциях. Пример функции счетчика](durable-functions-counter.md)
+> [Запуск примера мониторинга](durable-functions-monitor.md)

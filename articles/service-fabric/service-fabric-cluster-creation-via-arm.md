@@ -1,6 +1,6 @@
 ---
-title: "Создание кластера Azure Service Fabric из шаблона | Документация Майкрософт"
-description: "В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью Azure Resource Manager, Azure Key Vault и Azure Active Directory (Azure AD) для аутентификации клиента."
+title: Создание кластера Azure Service Fabric из шаблона | Документация Майкрософт
+description: В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью Azure Resource Manager, Azure Key Vault и Azure Active Directory (Azure AD) для аутентификации клиента.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Создание кластера Service Fabric в Azure с помощью Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -117,7 +117,7 @@ az account set --subscription $subscriptionId
 
 Используемый шаблон доступен в [образцах шаблонов Azure Service Fabric для Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) и [для Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-Команды, указанные ниже, подходят для создания кластеров Windows и Linux, необходимо просто указать нужную операционную систему. Команды PowerShell или CLI также сохраняют сертификат в указанную папку CertificateOutputFolder. Команда принимает и другие параметры (например, номер SKU виртуальной машины).
+Команды, указанные ниже, подходят для создания кластеров Windows и Linux, необходимо просто указать нужную операционную систему. Команды PowerShell или CLI также сохраняют сертификат в указанную папку CertificateOutputFolder, но сначала нужно убедиться, что папка для сертификатов уже создана. Команда принимает и другие параметры (например, номер SKU виртуальной машины).
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -161,9 +161,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>Использование собственного пользовательского шаблона 
 
-Если необходимо создать пользовательский шаблон в соответствии с потребностями, настоятельно рекомендуется начать с одного из шаблонов, доступных в [образцах шаблонов Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). [Настройте шаблон кластера][customize-your-cluster-template], следуя инструкциям и учитывая пояснения в разделе ниже.
+Если необходимо создать пользовательский шаблон в соответствии с потребностями, настоятельно рекомендуется начать с одного из шаблонов, доступных в [примерах шаблонов Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). [Настройте шаблон кластера][customize-your-cluster-template], следуя инструкциям и учитывая пояснения в разделе ниже.
 
-Если уже имеется пользовательский шаблон, дважды проверьте, что все три связанные с сертификатом параметра в шаблоне и файле параметров имеют следующие имена, а значения равны нулю.
+Если у вас уже есть пользовательский шаблон, дважды проверьте, что все три параметра, связанные с сертификатом, в шаблоне и файле параметров имеют указанные ниже имена, а значения равны нулю.
 
 ```Json
    "certificateThumbprint": {
@@ -178,7 +178,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -226,7 +226,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Использование шаблона по умолчанию с типом узла 1 и 5 узлами, который поставляется в модуле
 Используемый шаблон доступен в [образцах Azure для Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) и [для Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -262,7 +263,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>Использование имеющегося пользовательского шаблона 
-Если необходимо создать пользовательский шаблон в соответствии с потребностями, настоятельно рекомендуется начать с одного из шаблонов, доступных в [образцах шаблонов Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). [Настройте шаблон кластера][customize-your-cluster-template], следуя инструкциям и учитывая пояснения в разделе ниже.
+Если необходимо создать пользовательский шаблон в соответствии с потребностями, настоятельно рекомендуется начать с одного из шаблонов, доступных в [примерах шаблонов Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). [Настройте шаблон кластера][customize-your-cluster-template], следуя инструкциям и учитывая пояснения в разделе ниже.
 
 Если уже имеется пользовательский шаблон, дважды проверьте, что все три связанные с сертификатом параметра в шаблоне и файле параметров имеют следующие имена, а значения равны нулю.
 
@@ -279,7 +280,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Использование указателя на секрет, отправленный в хранилище ключей
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>Использование указателя на секрет, отправленный в хранилище ключей
 
 Чтобы использовать существующее хранилище ключей, _необходимо включить его для развернутой службы_, благодаря чему поставщик вычислительных ресурсов сможет получить из него сертификаты и установить его на узлах кластера:
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Это можно также сделать с помощью следующей команды CLI. Замените значения в инструкциях объявления на соответствующие.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -522,9 +523,9 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 ```
 
 ### <a name="populate-the-parameter-file-with-the-values"></a>Указание значений в файле параметров
-Наконец, используйте полученные значения в результате выполнения команд PowerShell для хранилища ключей и Azure AD, чтобы заполнить файл параметров.
+Наконец, используйте полученные значения из хранилища ключей и с помощью команд PowerShell Azure AD для заполнения файла параметров.
 
-Если вы планируете использовать модули Azure Service Fabric RM для PowerShell, то вам не нужно заполнять информацию о сертификате кластера. Если же вы хотите, чтобы система сгенерировала самозаверяющий сертификат для обеспечения безопасности кластера, просто задайте для них нулевое значение. 
+Если вы планируете использовать модули Azure Service Fabric RM для PowerShell, вам не нужно вводить информацию о сертификате кластера. Если же вы хотите, чтобы система сгенерировала самозаверяющий сертификат для обеспечения безопасности кластера, просто задайте нулевые значения. 
 
 > [!NOTE]
 > Для сбора и заполнения этих пустых значений параметров модулями RM названия параметров должны совпадать с названиями ниже.
@@ -542,7 +543,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
         },
 ```
 
-Если вы используете сертификаты приложения или имеющийся кластер, отправленный в хранилище ключей, необходимо получить и предоставить эти сведения. 
+Если вы используете сертификаты приложения или существующий кластер, отправленный в хранилище ключей, необходимо получить и указать эти сведения. 
 
 Модули RM не могут создавать конфигурации Azure AD. Поэтому если вы планируете использовать Azure AD для клиентского доступа, необходимо указать значения.
 
@@ -587,13 +588,13 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 ### <a name="test-your-template"></a>Тестирование шаблона  
 Используйте следующую команду PowerShell для тестирования шаблона Resource Manager с помощью файла параметров.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Если возникают проблемы и приходят зашифрованные сообщения, в качестве решения попробуйте использовать параметр -Debug (отладка).
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 
 Теперь вы можете развернуть кластер, используя шаги, описанные ранее в этом документе, или если значения в файле параметров заполнены, то вы можете создать кластер, напрямую выполнив [развертывание шаблона ресурсов Azure][resource-group-template-deploy].
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Подключение к кластеру с помощью аутентификации Azure AD с использованием PowerShell
 Чтобы подключить кластер Service Fabric, воспользуйтесь следующим примером команды PowerShell:
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

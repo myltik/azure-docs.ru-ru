@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Развертывание службы "Машинное обучение Azure" в качестве модуля IoT Edge (предварительная версия)
 
@@ -41,12 +41,16 @@ ms.lasthandoff: 03/08/2018
 
 На компьютере с запущенной службой управления модулями для Azure ML скачайте и сохраните файлы [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) и [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) из набора средств Azure ML IoT на GitHub. Эти файлы определяют обученную модель машинного обучения, которую вы развернете на своем устройстве Iot Edge. 
 
-С помощью обученной модели создайте контейнер, который можно развернуть на устройствах IoT Edge.
+С помощью обученной модели создайте контейнер, который можно развернуть на устройствах IoT Edge. Используйте эту команду для следующих задач:
+
+   * регистрация модели;
+   * создание манифеста;
+   * создание образа контейнера Docker с именем *machinelearningmodule*;
+   * развертывание образа в кластер Службы контейнеров Azure (AKS).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-Имя службы (в этом примере — *machinelearningmodule*) становится именем образа контейнера Docker.
 
 ### <a name="view-the-container-repository"></a>Просмотр репозитория контейнеров
 

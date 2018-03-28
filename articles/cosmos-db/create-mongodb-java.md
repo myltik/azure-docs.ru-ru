@@ -1,25 +1,25 @@
 ---
-title: "Создание консольного приложения с использованием Java и API MongoDB в Azure Cosmos DB | Документация Майкрософт"
-description: "В этой статье представлен пример кода Java, который можно использовать для подключения и выполнения запросов к API MongoDB в Azure Cosmos DB."
+title: Создание консольного приложения с использованием Java и API MongoDB в Azure Cosmos DB | Документация Майкрософт
+description: В этой статье представлен пример кода Java, который можно использовать для подключения и выполнения запросов к API MongoDB в Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 199ea35d7df405ebc148185094a6865a1c373941
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB. Создание консольного приложения API MongoDB с использованием языка Java и портала Azure
 
@@ -58,11 +58,11 @@ Azure Cosmos DB — это глобально распределенная мн
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Затем откройте файл решения в Visual Studio. 
+3. Затем откройте код в любом удобном редакторе. 
 
 ## <a name="review-the-code"></a>Просмотр кода
 
-Сделаем краткий обзор того, что происходит в приложении. Откройте файл `Program.cs`, и вы увидите, что эти строки кода создают ресурсы Azure Cosmos DB. 
+Сделаем краткий обзор того, что происходит в приложении. Откройте файл `Program.java`, и вы увидите, что эти строки кода создают ресурсы Azure Cosmos DB. 
 
 * Инициализация экземпляра DocumentClient.
 

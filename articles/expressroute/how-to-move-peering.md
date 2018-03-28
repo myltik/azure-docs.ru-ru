@@ -1,25 +1,25 @@
 ---
-title: "Переход с общедоступного пиринга в Azure ExpressRoute на пиринг Майкрософт | Документация Майкрософт"
-description: "В этой статье приведены этапы перехода с общедоступного пиринга на пиринг Майкрософт в ExpressRoute."
+title: Переход с общедоступного пиринга в Azure ExpressRoute на пиринг Майкрософт | Документация Майкрософт
+description: В этой статье приведены этапы перехода с общедоступного пиринга на пиринг Майкрософт в ExpressRoute.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Переход с общедоступного пиринга на пиринг Майкрософт
 
@@ -73,7 +73,11 @@ ms.lasthandoff: 11/11/2017
   * [Удаление общедоступного пиринга Azure на портале Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Удаление общедоступного пиринга Azure с помощью Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Удаление общедоступного пиринга Azure с помощью CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Просмотр пирингов
+  
+На портале Azure вы можете просмотреть список всех каналов и пирингов ExpressRoute. Дополнительные сведения см. в разделе [Просмотр сведений о пиринге Майкрософт](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).

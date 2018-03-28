@@ -1,28 +1,28 @@
 ---
-title: "Как выполнять запросы к данным таблиц в базе данных Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как запрашивать данные таблиц в базе данных Azure Cosmos DB"
+title: Как выполнять запросы к данным таблиц в базе данных Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как запрашивать данные таблиц в базе данных Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kanshiG
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 80fed91c45ae19193f6b8dfcaef747f8c4253dee
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 969b16457b32cedb7140bb032c1830e95ebed9be
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>База данных Azure Cosmos DB. Запрос табличных данных с помощью API таблицы
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Руководство. Выполнение запросов в Azure Cosmos DB с использованием API таблиц
 
 [API таблицы](table-introduction.md) в службе Azure Cosmos DB поддерживает OData и запросы [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) к данным "ключ — значение" (таблицы).  
 

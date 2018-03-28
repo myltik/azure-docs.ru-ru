@@ -1,10 +1,11 @@
 ---
-title: "Ведение журналов для веб-служб машинного обучения | Документация Майкрософт"
-description: "Узнайте, как включить функцию ведения журналов для веб-служб машинного обучения. Функция ведения журналов предоставляет дополнительные сведения по устранению неполадок API-интерфейсов."
+title: Ведение журналов для веб-служб машинного обучения | Документация Майкрософт
+description: Узнайте, как включить функцию ведения журналов для веб-служб машинного обучения. Функция ведения журналов предоставляет дополнительные сведения по устранению неполадок API-интерфейсов.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Включение функции ведения журналов для веб-служб машинного обучения
 В этом документе представлена информация о возможности ведения журналов в веб-службах машинного обучения. Ведение журнала предоставляет дополнительные сведения, помимо номера ошибки и сообщения о ней. Эти сведения могут помочь устранить неполадки, связанные с вызовами интерфейсов API машинного обучения.  
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Включите ведение журнала на портале [веб-служб машинного обучения Azure](https://services.azureml.net). 
 
-1. Войдите на портал веб-служб машинного обучения Azure по адресу [https://services.azureml.net](https://services.azureml.net). Для классических веб-служб также можно перейти на портал, щелкнув **New Web Services Experience** (Новый интерфейс веб-служб) на странице веб-служб машинного обучения в Студии машинного обучения.
+1. Войдите на портал веб-служб "Машинное обучение Azure" по адресу [https://services.azureml.net](https://services.azureml.net). Для классических веб-служб также можно перейти на портал, щелкнув **New Web Services Experience** (Новый интерфейс веб-служб) на странице веб-служб машинного обучения в Студии машинного обучения.
 
    ![Ссылка New Web Services Experience (Новый интерфейс веб-служб)](./media/web-services-logging/new-web-services-experience-link.png)
 

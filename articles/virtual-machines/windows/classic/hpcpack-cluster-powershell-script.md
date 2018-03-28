@@ -1,11 +1,11 @@
 ---
-title: "Сценарий PowerShell для развертывания кластера HPC на основе Windows | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как с помощью сценария PowerShell развернуть кластер пакета HPC 2012 R2 в Windows на виртуальной машине Azure."
+title: Сценарий PowerShell для развертывания кластера HPC на основе Windows | Документация Майкрософт
+description: Из этой статьи вы узнаете, как с помощью сценария PowerShell развернуть кластер пакета HPC 2012 R2 в Windows на виртуальной машине Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 286b2be8-2533-40df-b02a-26156b1f1133
 ms.service: virtual-machines-windows
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Создание кластера для высокопроизводительных вычислений (HPC) Windows с помощью сценария развертывания пакета HPC в IaaS
-Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер пакета HPC 2012 R2 для рабочих нагрузок Windows на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также дополнительных вычислительных ресурсов Windows, которые вы указали. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Linux, см. раздел о [создании кластера HPC Linux с помощью сценария развертывания пакета HPC в IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Примеры см. в статьях [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) и [Создание кластера HPC с помощью пользовательского образа вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер пакета HPC 2012 R2 для рабочих нагрузок Windows на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также дополнительных вычислительных ресурсов Windows, которые вы указали. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Linux, см. раздел о [создании кластера HPC Linux с помощью сценария развертывания пакета HPC в IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
 > Сценарий PowerShell, описанный в этой статье, создает кластер пакета Microsoft HPC 2012 R2 в Azure с помощью классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
-> Кроме того сценарий, описанный в этой статье не поддерживает пакет HPC 2016.
+> Кроме того сценарий, описанный в этой статье не поддерживает пакет HPC 2016. Сведения о шаблонах Resource Manager для HPC Pack 2012 R2 и HPC Pack 2016 в см. в статье [Варианты развертывания кластера HPC Pack в Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: "API-интерфейс, пакет SDK и ресурсы для SQL .NET Core (Azure Cosmos DB) | Документация Майкрософт"
-description: "Сведения об API-интерфейсе и пакете SDK для SQL .NET Core, в том числе даты выхода, даты прекращения использования и внесенные изменения по каждой версии пакета SDK .NET Core для Azure Cosmos DB."
+title: API-интерфейс, пакет SDK и ресурсы для SQL .NET Core (Azure Cosmos DB) | Документация Майкрософт
+description: Сведения об API-интерфейсе и пакете SDK для SQL .NET Core, в том числе даты выхода, даты прекращения использования и внесенные изменения по каждой версии пакета SDK .NET Core для Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для .NET Core для API-интерфейса SQL
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ ms.lasthandoff: 03/12/2018
 
 > [!NOTE] 
 > Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+
+* Исправлено исключение KeyNotFoundException в сложных случаях для запросов ORDER BY между секциями.
+* Исправлена ошибка, из-за которой не учитывался атрибут JsonPropery в выбранном предложении запросов LINQ.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -170,6 +175,7 @@ ms.lasthandoff: 03/12/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.9.1](#1.9.1) |9 марта 2018 г. |--- |
 | [1.8.2](#1.8.2) |21 февраля 2018 г. |--- |
 | [1.8.1](#1.8.1) |5 февраля 2018 г. |--- |
 | [1.7.1](#1.7.1) |16 ноября 2017 г. |--- |

@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Настройка времени жизни маркеров в Azure Active Directory (общедоступная предварительная версия)
 Вы можете указать время жизни маркера, выданного Azure Active Directory (Azure AD). Время жизни маркеров можно настроить для всех приложений в организации, для многопользовательского приложения (приложения для нескольких организаций) или для определенного субъекта-службы в организации.
@@ -276,7 +276,7 @@ ms.lasthandoff: 03/08/2018
 
 2.  Назначьте политику для субъекта-службы. Вам потребуется также получить **идентификатор объекта** субъекта-службы. 
 
-    1.  Чтобы просмотреть список всех субъектов-служб в организации, можно запросить [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) или открыть [проводник Azure AD Graph](https://graphexplorer.cloudapp.net/) и войти в учетную запись Azure AD.
+    1.  Чтобы просмотреть все субъекты-службы в организации, запросите [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) или [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Также это можно проверить в [обозревателе Azure AD Graph](https://graphexplorer.cloudapp.net/)и [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) с помощью учетной записи Azure AD.
 
     2.  Получив **идентификатор объекта** субъекта-службы, выполните следующую команду:
 
@@ -332,7 +332,7 @@ ms.lasthandoff: 03/08/2018
 
     Теперь у нас есть политика, которая применяется ко всей организации. Предположим, мы хотим сохранить эту политику со сроком действия 30 дней для определенного субъекта-службы, но изменить максимальное ограничение стандартной политики для организации, указав значение until-revoked (пока не будет отозван).
 
-    1.  Чтобы просмотреть список всех субъектов-служб в организации, можно запросить [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) или открыть [проводник Azure AD Graph](https://graphexplorer.cloudapp.net/) и войти в учетную запись Azure AD.
+    1.  Чтобы просмотреть все субъекты-службы в организации, запросите [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) или [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Также это можно проверить в [обозревателе Azure AD Graph](https://graphexplorer.cloudapp.net/)и [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) с помощью учетной записи Azure AD.
 
     2.  Получив **идентификатор объекта** субъекта-службы, выполните следующую команду:
 

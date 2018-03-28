@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Асинхронное обновление с помощью REST API
 Вы можете задать асинхронное обновление данных в табличных моделях Azure Analysis Services, используя любой язык программирования, с помощью которого можно вызвать REST. Обновление предусматривает также синхронизацию реплик только для чтения для развертывания запросов. 
@@ -48,7 +48,7 @@ asazure://westus.asazure.windows.net/myserver
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Базовый URL-адрес можно использовать, чтобы добавлять ресурсы и операции по следующей схеме: 
+Базовый URL-адрес можно использовать, чтобы добавлять ресурсы и операции на основе следующих параметров: 
 
 ![Асинхронное обновление](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 - Все, что заканчивается на **()** — функции.
 - Все остальное — это ресурсы или объекты.
 
-Например, вы можете выполнить обновление, применив команду POST к коллекции refreshes, как показано ниже:
+Например, вы можете выполнить обновление, применив команду POST к коллекции refreshes:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 - У пользователя или приложения должно быть достаточно разрешений для сервера или модели, чтобы выполнять запрашиваемые вызовы. Уровень разрешений определяется по ролям в модели или группе администраторов на сервере.
 
     > [!IMPORTANT]
-    > В настоящее время требуются разрешения роли **администратора сервера**.
+    > Сейчас требуются разрешения роли **администратора сервера**.
 
 ## <a name="post-refreshes"></a>POST для /refreshes
 
@@ -106,7 +106,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 |---------|---------|---------|---------|
 |type     |  Перечисление.       |  Тип выполняемой обработки. Он зависит от типа [команды refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL: full, clearValues, calculate, dataOnly, automatic, add или defragment.       |   automatic      |
 |CommitMode     |  Перечисление.       |  Определяет, будут объекты зафиксированы в пакетах или только после завершения. Режимы: default, transactional, partialBatch.  |  transactional       |
-|MaxParallelism     |   int      |  Это значение определяет максимальное количество потоков, над которыми можно параллельно выполнять команды обработки. Оно согласовывается со свойством MaxParallelism, которое можно задать, используя [команду sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) или другими способами.       | 10        |
+|MaxParallelism     |   int      |  Это значение определяет максимальное количество потоков, над которыми можно параллельно выполнять команды обработки. Это значение согласуется со свойством MaxParallelism, которое можно задать, используя [команду sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) или другими способами.       | 10        |
 |RetryCount    |    int     |   Указывает число попыток повторить операцию, по исчерпании которого будет определен сбой.      |     0    |
 |Объекты     |   Массив,      |   Массив объектов для обработки. Для каждого объекта указываются параметр table, если нужно обработать целую таблицу, или параметры table и partition для обработки секции. Если нет указанных объектов, обновляется вся модель. |   Обработка целой модели      |
 
@@ -188,7 +188,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 }
 ```
 
-Значения syncstate:
+Значения для `syncstate`:
 
 - 0 — репликация. Файлы базы данных реплицируются в целевую папку.
 - 1 — восстановление. База данных восстанавливается на серверных экземплярах только для чтения.
@@ -228,7 +228,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
     ![Добавление параметров доступа через API](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  В разделе **Выбор API** в поле поиска введите **SQL Server Analysis Services**, а затем выберите результат **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  В разделе **Select an API** (Выбор API) введите в поле поиска **Azure Analysis Services**, а затем выберите эту службу.
 
     ![Выбор API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 #### <a name="service-principal"></a>Субъект-служба
 
-Дополнительные сведения о том, как настроить субъект-службу и назначить необходимые разрешения в Azure Analysis Services, см. в записи блога [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) (Автоматизация Azure Analysis Services с помощью субъекта-службы и PowerShell). Выполнив шаги, описанные в этой записи блога, сделайте дополнительно следующее:
+Дополнительные сведения о том, как настроить субъект-службу и назначить необходимые разрешения в Azure AS, см. в статьях [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md) и [Добавление субъекта-службы к роли администратора сервера](analysis-services-addservprinc-admins.md). Выполнив эти шаги, сделайте дополнительно следующее:
 
 1.  В примере кода найдите фрагмент **string authority = …** и замените **стандартный** идентификатор на код клиента своей организации.
 2.  Закомментируйте или раскомментируйте код, так чтобы класс ClientCredential использовался для создания экземпляра объекта cred. Убедитесь, что доступ к значениям \<App ID> и \<App Key> осуществляется безопасно, или настройте для субъектов-служб проверку подлинности.

@@ -104,7 +104,7 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Этот запрос получает одну запись.
@@ -180,7 +180,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 Чтобы удалить все сущности в таблице, получите их и передайте результаты в командлет "remove". 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

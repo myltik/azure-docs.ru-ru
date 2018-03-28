@@ -1,6 +1,6 @@
 ---
-title: "Функции шаблона Resource Manager | Документация Майкрософт"
-description: "Описывает функции, используемые в шаблоне диспетчера ресурсов Azure для извлечения значений, работы со строками и числовыми значениями и получения сведений о развертывании."
+title: Функции шаблона Resource Manager | Документация Майкрософт
+description: Описывает функции, используемые в шаблоне диспетчера ресурсов Azure для извлечения значений, работы со строками и числовыми значениями и получения сведений о развертывании.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Функции шаблонов диспетчера ресурсов Azure
-В этом разделе описаны все функции, которые можно использовать в шаблоне Azure Resource Manager.
+В этой статье описаны все функции, которые можно использовать в шаблоне Azure Resource Manager.
 
 Функции нужно добавлять в шаблоны, заключая их в скобки `[` и `]` соответственно. Выражение вычисляется во время развертывания. Хотя результат вычисления выражения и записывается как строковый литерал, он может иметь другой тип JSON, например массив, объект или целое число. Как и в языке JavaScript, вызовы функций форматируются так: `functionName(arg1,arg2,arg3)`. Обращение к свойствам производится с помощью точки и операторов [index].
 
@@ -37,6 +37,7 @@ ms.lasthandoff: 10/11/2017
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -93,6 +94,21 @@ Resource Manager предоставляет ряд функций для вып�
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>Логические функции
+Resource Manager предоставляет для работы с логическими условиями следующие функции:
+
+* [and](resource-group-template-functions-logical.md#and) (и);
+* [bool](resource-group-template-functions-logical.md#bool);
+* [if](resource-group-template-functions-logical.md#if) (если);
+* [not](resource-group-template-functions-logical.md#not) (не);
+* [or](resource-group-template-functions-logical.md#or) (или).
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -103,15 +119,6 @@ Resource Manager предоставляет ряд функций для вып�
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## <a name="logical-functions"></a>Логические функции
-Resource Manager предоставляет для работы с логическими условиями следующие функции:
-
-* [and](resource-group-template-functions-logical.md#and) (и);
-* [bool](resource-group-template-functions-logical.md#bool);
-* [if](resource-group-template-functions-logical.md#if) (если);
-* [not](resource-group-template-functions-logical.md#not) (не);
-* [or](resource-group-template-functions-logical.md#or) (или).
 
 ## <a name="numeric-functions"></a>Числовые функции
 Диспетчер ресурсов предоставляет следующие функции для работы с целыми числами:
@@ -155,6 +162,7 @@ Resource Manager предоставляет для работы с логиче�
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />

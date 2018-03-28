@@ -1,8 +1,8 @@
 ---
-title: "Azure AD B2C: настройка пользовательского интерфейса с помощью настраиваемых политик | Документация Майкрософт"
-description: "Сведения о настройке пользовательского интерфейса с помощью настраиваемых политик в Azure AD B2C."
+title: 'Azure AD B2C: настройка пользовательского интерфейса с помощью настраиваемых политик | Документация Майкрософт'
+description: Сведения о настройке пользовательского интерфейса с помощью настраиваемых политик в Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C. Настройка пользовательского интерфейса с помощью настраиваемой политики
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/11/2017
 
 Проверьте готовность, сделав следующее.
 
-1. Перейдите на веб-сайт [test-cors.org](http://test-cors.org/) и вставьте URL-адрес в поле **Remote URL** (Удаленный URL-адрес).
+1. Перейдите на веб-сайт [www.test-cors.org](http://www.test-cors.org/) и вставьте URL-адрес в поле **Remote URL** (Удаленный URL-адрес).
 2. Щелкните **Send Request** (Отправить запрос).  
     Если произошла ошибка, проверьте правильность [параметров CORS](#configure-cors). Кроме того, вам может потребоваться очистить кэш браузера или открыть закрытый сеанс, нажав CTRL+SHIFT+P.
 

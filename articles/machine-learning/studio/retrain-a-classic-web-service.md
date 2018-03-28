@@ -1,11 +1,12 @@
 ---
-title: "Переобучение классической веб-службы | Документация Майкрософт"
-description: "Узнайте о том, как осуществить программное переобучение модели и обновить веб-службу так, чтобы она использовала переобученную модель при задействовании функций машинного обучения Azure."
+title: Переобучение классической веб-службы | Документация Майкрософт
+description: Узнайте о том, как осуществить программное переобучение модели и обновить веб-службу так, чтобы она использовала переобученную модель при задействовании функций машинного обучения Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
-editor: 
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
+editor: ''
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Переобучение классической веб-службы
 Развернутая прогнозная веб-служба является конечной точкой оценки по умолчанию. Конечные точки по умолчанию синхронизируются с исходными экспериментами по обучению и оценке, поэтому обученную модель конечной точки по умолчанию нельзя заменить. Чтобы переобучить веб-службу, необходимо добавить в нее новую конечную точку. 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/09/2018
 2. Щелкните ссылку "Обновить ресурс".
 3. Скопируйте URL-адрес POST запроса PATCH. Например: 
    
-     URL-адрес запроса PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     URL-адрес исправления: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Теперь обученную модель можно использовать для обновления созданной конечной точки оценки.
 

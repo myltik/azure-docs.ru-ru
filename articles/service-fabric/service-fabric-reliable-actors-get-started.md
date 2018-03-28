@@ -1,24 +1,24 @@
 ---
-title: "Создание первой микрослужбы Azure на основе субъектов на языке C# | Документация Майкрософт"
-description: "В этом учебнике последовательно описаны этапы создания, отладки и развертывания простой службы на основе субъекта с использованием Service Fabric Reliable Actors."
+title: Создание первой микрослужбы Azure на основе субъектов на языке C# | Документация Майкрософт
+description: В этом учебнике последовательно описаны этапы создания, отладки и развертывания простой службы на основе субъекта с использованием Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Приступая к работе с Reliable Actors
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/21/2017
 
 ![Средства Service Fabric для Visual Studio — новый проект][1]
 
-В следующем диалоговом окне выберите **Служба субъекта** и введите имя службы.
+В следующем диалоговом окне выберите **Служба субъекта** в разделе **.Net Core 2.0** и введите имя службы.
 
 ![Шаблоны проекта Service Fabric][5]
 

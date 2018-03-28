@@ -1,12 +1,12 @@
 ---
-title: "Часто задаваемые вопросы о службе архивации Azure | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы о возможностях службы Azure Backup, в частности о хранилищах служб восстановления, объектах, для которых можно создавать резервные копии, принципе работы, шифровании и ограничениях. "
+title: Часто задаваемые вопросы о службе архивации Azure | Документация Майкрософт
+description: 'Ответы на часто задаваемые вопросы о возможностях службы Azure Backup, в частности о хранилищах служб восстановления, объектах, для которых можно создавать резервные копии, принципе работы, шифровании и ограничениях. '
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "резервное копирование и аварийное восстановление; служба архивации"
+editor: ''
+keywords: резервное копирование и аварийное восстановление; служба архивации
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Вопросы о службе архивации Azure
 Эта статья содержит ответы на часто задаваемые вопросы о компонентах службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Вы можете задать вопросы о службе архивации Azure, щелкнув **Комментарии** (справа). Комментарии отображаются в конце статьи. Чтобы оставлять комментарии, нужна учетная запись Livefyre. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,8 +132,7 @@ ms.lasthandoff: 03/05/2018
 | Microsoft Exchange |Общее количество баз данных Exchange на сервере Exchange, для которого выполняется резервное копирование |
 | Восстановление исходного состояния системы и состояние системы |Каждая отдельная копия восстановления исходного состояния системы или состояния системы компьютера, для которого выполняется резервное копирование |
 
-При резервном копировании виртуальных машин Azure допускается наличие максимум 16 дисков размером до 1024 ГБ на каждой виртуальной машине. <br>
-Существует [закрытая предварительная версия решения](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0), поддерживающего диски объемом до 4 ТБ. 
+При резервном копировании виртуальных машин Azure допускается наличие максимум 16 дисков размером до 4095 ГБ на каждой виртуальной машине. <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>Политика хранения и точки восстановления
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Есть ли отличия между политикой хранения DPM и Windows Server или клиента Windows (т. е. на сервере Windows Server без DPM)?<br/>

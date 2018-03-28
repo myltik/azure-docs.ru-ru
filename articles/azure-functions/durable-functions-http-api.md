@@ -1,12 +1,12 @@
 ---
-title: "API HTTP в устойчивых функциях — Azure"
-description: "Сведения о том, как внедрять API HTTP в расширении устойчивых функций для Функций Azure."
+title: API HTTP в устойчивых функциях — Azure
+description: Сведения о том, как внедрять API HTTP в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP в устойчивых функциях (Функции Azure)
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 10/11/2017
 * получение состояния экземпляра оркестрации;
 * отправка события в ожидающий экземпляр оркестрации;
 * завершение работающего экземпляра оркестрации.
+
 
 Каждый из этих API HTTP является операцией веб-перехватчика, обрабатываемой напрямую расширением устойчивых задач. Они не относятся к какой-либо функции в приложении-функции.
 
@@ -78,7 +79,7 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 Этот протокол позволяет согласовать долго выполняющиеся процессы с помощью внешних клиентов или служб, которые поддерживают опрос конечной точки HTTP и используют заголовок `Location`. Ключевые компоненты уже встроены в API HTTP устойчивых функций.
 
 > [!NOTE]
-> По умолчанию все действия на основе HTTP, предоставляемые [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), поддерживают стандартную модель асинхронных операций. Это позволяет внедрять долго выполняющиеся устойчивые функции в рамках рабочего процесса Logic Apps. Дополнительные сведения о поддержке Logic Apps для асинхронных шаблонов HTTP см. в разделе [Модель асинхронных операций](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> По умолчанию все действия на основе HTTP, предоставляемые [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), поддерживают стандартную модель асинхронных операций. Эта возможность позволяет внедрять долго выполняющиеся устойчивые функции в рамках рабочего процесса Logic Apps. Дополнительные сведения о поддержке Logic Apps для асинхронных шаблонов HTTP см. в разделе [Модель асинхронных операций](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>Справочник по API HTTP
 
@@ -90,6 +91,8 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 | taskHub    | Строка запроса    | Имя [центра задач](durable-functions-task-hubs.md). Если не указано, предполагается имя центра задач текущего приложения-функции. |
 | connection; | Строка запроса    | **Имя** строки подключения для учетной записи хранения. Если не указано, предполагается строка подключения по умолчанию для приложения-функции. |
 | systemKey  | Строка запроса    | Ключ авторизации, необходимый для вызова API. |
+| showHistory| Строка запроса    | Необязательный параметр. Если задано значение `true`, журнал выполнения оркестрации будет включен в полезные данные ответа.| 
+| showHistoryOutput| Строка запроса    | Необязательный параметр. Если задано значение `true`, выходные данные действия будут включены в журнал выполнения оркестрации.| 
 
 `systemKey` — это ключ авторизации, автоматически создаваемый узлом Функций Azure. В частности, он предоставляет доступ к API расширения устойчивых задач и им можно управлять так же, как и [другими ключами авторизации](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Самый простой способ обнаружения значения `systemKey` — с помощью API `CreateCheckStatusResponse`, упомянутого ранее.
 
@@ -110,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Формат для Функций 2.0 имеет те же параметры, но имеет другой префикс URL-адреса:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Ответ
@@ -122,7 +125,7 @@ GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskH
 * **HTTP 400 (Bad Request)** (HTTP 400 (неверный запрос)). На определенном экземпляре произошел сбой, или его работа была прервана.
 * **HTTP 404 (Not Found)** (HTTP 404 (не найдено)). Указанный экземпляр не существует или не был запущен.
 
-Полезные данные ответа для случаев **HTTP 200** и **HTTP 202** являются объектами JSON с приведенными ниже полями.
+Полезные данные ответа для случаев **HTTP 200** и **HTTP 202** являются объектами JSON со следующими полями:
 
 | Поле           | Тип данных | ОПИСАНИЕ |
 |-----------------|-----------|-------------|
@@ -131,20 +134,59 @@ GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskH
 | output          | JSON      | Выходные данные JSON экземпляра. Это поле имеет значение `null`, если экземпляр не находится в завершенном состоянии. |
 | createdTime     | строка    | Время, когда был создан экземпляр. Использует расширенную нотацию ISO 8601. |
 | lastUpdatedTime | строка    | Время, когда экземпляр был в последний раз сохранен. Использует расширенную нотацию ISO 8601. |
+| historyEvents   | JSON      | Массив JSON, содержащий журнал выполнения оркестрации. Это поле имеет значение `null`, если для параметра строки запроса `showHistory` не задано значение `true`.  | 
 
-Ниже приведен пример полезных данных ответа (в формате, удобном для чтения):
+Ниже приведен пример полезных данных ответа, включающий журнал выполнения оркестрации и выходные данные действия (в удобном для чтения формате).
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,7 +210,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Параметры запроса для этого API включают набор по умолчанию, упомянутый ранее, а также следующие уникальные параметры.
+Параметры запроса для этого API включают набор по умолчанию, упомянутый ранее, а также следующие уникальные параметры:
 
 | Поле       | Тип параметра  | Тип данных | ОПИСАНИЕ |
 |-------------|-----------------|-----------|-------------|
@@ -184,7 +226,7 @@ POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/rais
 * **HTTP 404 (Not Found)** (HTTP 404 (не найдено)). Указанный экземпляр не найден.
 * **HTTP 410 (Gone)** (HTTP 410 (потеряно)). Указанный экземпляр выполнен или завершился с ошибкой и не может обрабатывать возникающие события.
 
-Ниже приведен пример запроса, отправляющий строку JSON `"incr"` в экземпляр, ожидающий событие с именем **operation** (взятое из примера [Счетчик](durable-functions-counter.md)):
+Ниже приведен пример запроса, отправляющий строку JSON `"incr"` в экземпляр, который ожидает событие с именем **operation**:
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX

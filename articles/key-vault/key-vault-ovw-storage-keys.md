@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Ключи учетной записи хранения Azure Key Vault"
-description: "Ключи учетной записи хранения обеспечивают простую интеграцию между Azure Key Vault и доступом по ключу к учетной записи хранения Azure."
+ms.assetid: ''
+title: Ключи учетной записи хранения Azure Key Vault
+description: Ключи учетной записи хранения обеспечивают простую интеграцию между Azure Key Vault и доступом по ключу к учетной записи хранения Azure.
 ms.topic: article
 services: key-vault
 ms.service: key-vault
@@ -9,17 +9,17 @@ author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: 6ebac5fc90e259b19e0a4103a732754384232a44
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a3f8d540c7e4c8a86b151540980724777fd150fd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Ключи учетной записи хранения Azure Key Vault
 
-До появления ключей учетной записи хранения Azure Key Vault разработчикам приходилось управлять ключами учетной записи хранения Azure (ASA) и сменять их вручную или с помощью внешних средств автоматизации. Сейчас ключи учетной записи хранения Key Vault реализованы в качестве [секретов Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) для проверки подлинности с помощью учетной записи хранения Azure. 
+До появления ключей учетной записи хранения Azure Key Vault разработчикам приходилось управлять ключами учетной записи хранения Azure (ASA) и сменять их вручную или с помощью внешних средств автоматизации. Сейчас ключи учетной записи хранения Key Vault реализованы в качестве [секретов Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) для проверки подлинности с помощью учетной записи хранения Azure.
 
-Благодаря ключу учетной записи хранения Azure управление сменой секретов происходит автоматически, а также устраняется необходимость прямого контакта с ключом ASA за счет использования подписанных URL-адресов (SAS). 
+Благодаря ключу учетной записи хранения Azure управление сменой секретов происходит автоматически, а также устраняется необходимость прямого контакта с ключом ASA за счет использования подписанных URL-адресов (SAS).
 
 Дополнительные сведения об учетных записях хранения Azure см. в статье [Об учетных записях хранения Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -33,67 +33,66 @@ ms.lasthandoff: 01/19/2018
 Служба Key Vault выполняет несколько внутренних функций управления от вашего имени, если вы используете управляемые ключи учетной записи хранения.
 
 - Служба хранилища Azure Key Vault управляет ключами учетной записи хранения Azure (ASA).
-    - На внутреннем уровне Azure Key Vault может выводить список (синхронизировать) ключи с помощью учетной записи хранения Azure.  
-    - Azure Key Vault периодически повторно создает (сменяет) ключи. 
-    - Значения ключей никогда не возвращаются в ответе вызывающему объекту. 
-    - Azure Key Vault управляет ключами как учетных записей хранения, так и классических учетных записей хранения. 
+    - На внутреннем уровне Azure Key Vault может выводить список (синхронизировать) ключи с помощью учетной записи хранения Azure.
+    - Azure Key Vault периодически повторно создает (сменяет) ключи.
+    - Значения ключей никогда не возвращаются в ответе вызывающему объекту.
+    - Azure Key Vault управляет ключами как учетных записей хранения, так и классических учетных записей хранения.
 - Azure Key Vault позволяет владельцу хранилища или объекта создавать определения SAS (учетной записи или службы).
     - Значение SAS, созданное с помощью определения SAS, возвращается в качестве секрета через путь универсального кода ресурса (URI) REST. Дополнительные сведения см. в статье [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations) (Операции с учетными записями хранения Azure Key Vault).
 
 ## <a name="naming-guidance"></a>Рекомендации по именованию
 
-- Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв.  
+- Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв.
 - Имя определения SAS должно быть 1–102 символа в длину и содержать только символы 0–9, a–z, A–Z.
 
 ## <a name="developer-experience"></a>Возможности для разработчика
 
-### <a name="before-azure-key-vault-storage-keys"></a>До появления ключей Azure Key Vault 
+### <a name="before-azure-key-vault-storage-keys"></a>До появления ключей Azure Key Vault
 
-Разработчикам приходилось применять следующие методы, чтобы получить доступ к хранилищу Azure с помощью ключа учетной записи хранения. 
- 
-```powershell
-//create an Azure Storage Account using a connection string containing an account name and a storage key 
+Разработчикам приходилось применять следующие методы, чтобы получить доступ к хранилищу Azure с помощью ключа учетной записи хранения.
+1. Сохранять строку подключения или маркер SAS в параметрах приложения службы приложений Azure или в другом хранилище.
+1. Извлекать строку подключения или маркер при запуске приложения.
+1. Создавать [CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) для взаимодействия с хранилищем.
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+```cs
+// The Connection string is being fetched from App Service application settings
+var connectionStringOrSasToken = CloudConfigurationManager.GetSetting("StorageConnectionString");
+var storageAccount = CloudStorageAccount.Parse(connectionStringOrSasToken);
 var blobClient = storageAccount.CreateCloudBlobClient();
  ```
- 
-### <a name="after-azure-key-vault-storage-keys"></a>После появления ключей Azure Key Vault 
 
-```powershell
-//Make sure to set storage permissions appropriately on your key vault
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+### <a name="after-azure-key-vault-storage-keys"></a>После появления ключей Azure Key Vault
 
-//Get secret URI 
+Теперь разработчику нужно создать [KeyVaultClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault.keyvaultclient), который позволяет получить маркер SAS для используемого хранилища. На основе этого маркера он создает [CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount).
 
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+```cs
+// Create KeyVaultClient with vault credentials
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
 
--AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+// Get a SAS token for our storage from Key Vault
+var sasToken = await kv.GetSecretAsync("SecretUri");
 
-//Get a SAS token from Key Vault
+// Create new storage credentials using the SAS token.
+var accountSasCredential = new StorageCredentials(sasToken.Value);
 
-var secret = await kv.GetSecretAsync("SecretUri");
+// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
+var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
 
-// Create new storage credentials using the SAS token. 
+var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 
-var accountSasCredential = new StorageCredentials(secret.Value); 
+// Use the blobClientWithSas
+...
 
-// Use the storage credentials and the Blob storage endpoint to create a new Blob service client. 
-
-var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
-
-var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
- 
-// If your SAS token is about to expire, Get sasToken again from Key Vault and update it.
-
+// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
+sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
  ### <a name="developer-guidance"></a>Руководство для разработчика
 
-- Разрешите только Key Vault управлять ключами ASA. Не пытайтесь управлять ими самостоятельно. Это повлияет на процессы Key Vault. 
-- Ключи ASA не должны управляться более чем одним объектом Key Vault. 
-- Если необходимо вручную повторно создать ключи ASA, рекомендуем делать это через Key Vault. 
+- Разрешите только Key Vault управлять ключами ASA. Не пытайтесь управлять ими самостоятельно. Это повлияет на процессы Key Vault.
+- Ключи ASA не должны управляться более чем одним объектом Key Vault.
+- Если необходимо вручную повторно создать ключи ASA, рекомендуем делать это через Key Vault.
 
 ## <a name="getting-started"></a>Приступая к работе
 
@@ -101,132 +100,140 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 Для удостоверения приложения Azure Key Vault необходимы разрешения на *вывод списка* и *повторное создание* ключей учетной записи хранения. Настройте эти разрешения, выполнив следующие действия:
 
-- Получите ObjectId удостоверения Azure Key Vault: 
+```powershell
+# Get the resource ID of the Azure Storage Account you want to manage.
+# Below, we are fetching a storage account using Azure Resource Manager
+$storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-    `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
+# Get ObjectId of Azure Key Vault Identity
+$servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
-- Присвойте идентификатору Azure Key Vault роль оператора учетной записи хранения: 
-
-    `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
+# Assign Storage Key Operator role to Azure Key Vault Identity
+New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
+```
 
     >[!NOTE]
-    > Для классической учетной записи задайте значение параметра роли *Роль службы оператора ключей классических учетных записей хранения*.
+    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
 
 ## <a name="working-example"></a>Действующий пример
 
 В следующем примере показано создание учетной записи хранения Azure под управлением Key Vault и связанных определений подписанного URL-адреса (SAS).
 
-### <a name="assumptions"></a>Предположения
+### <a name="prerequisite"></a>Предварительные требования
 
-Далее представлены инструкции для этого примера.
+Обязательно выполните инструкции в разделе [Настройка разрешений для управления доступом на основе ролей (RBAC)](#setup-for-role-based-access-control-rbac-permissions).
 
-- Ресурс хранения находится в папке */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*.
-
-- Имя хранилища ключей — *yourtest1*.
-
-### <a name="get-a-service-principal"></a>Получение субъекта-службы
+### <a name="setup"></a>Настройка
 
 ```powershell
-$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
+# This is the name of our Key Vault
+$keyVaultName = "mykeyVault"
+
+# Fetching all the storage account object, of the ASA we want to manage with KeyVault
+$storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
+
+# Get ObjectId of Azure KeyVault Identity service principal
+$servicePrincipalId = $(Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-Выходные данные предыдущей команды будут содержать параметр ServicePrincipal, который мы будем называть *yourKeyVaultServicePrincipalId*. 
-
-### <a name="set-permissions"></a>Установка разрешений
-
-Убедитесь, что для разрешений хранилища задано значение *Все*. Вы можете получить youruserPrincipalId и задать разрешения для хранилищ, выполнив указанные ниже команды.
+Затем задайте для **учетной записи** разрешения на доступ, позволяющие управлять всеми разрешениями в Key Vault. В приведенном ниже примере используется учетная запись Azure _developer@contoso.com_.
 
 ```powershell
-$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
+# Searching our Azure Active Directory for our account's ObjectId
+$userPrincipalId = $(Get-AzureRmADUser -SearchString "developer@contoso.com").Id
+
+# We use the ObjectId we found to setting permissions on the vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $userPrincipalId -PermissionsToStorage all
 ```
-Теперь найдите свое имя и получите связанный ObjectId, который будет использоваться при настройке разрешений в хранилище.
+
+### <a name="create-a-key-vault-managed-storage-account"></a>Создание управляемой учетной записи хранения в Key Vault
+
+Теперь создайте управляемую учетную запись хранения в Azure Key Vault и маркеры SAS на основе ключей доступа из этой учетной записи хранения.
+- `-ActiveKeyName` использует ключ key2 для создания маркеров SAS.
+- `-AccountName` определяет управляемую учетную запись хранения. Ниже мы для простоты используем имя, совпадающее с именем учетной записи хранения, но оно может быть любым.
+- `-DisableAutoRegenerateKey` указывает, что ключи учетной записи хранения не нужно создавать повторно.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
+# Adds your storage account to be managed by Key Vault and will use the access key, key2
+Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storage.StorageAccountName -AccountResourceId $storage.Id -ActiveKeyName key2 -DisableAutoRegenerateKey
 ```
 
-### <a name="allow-access"></a>Разрешить доступ
+### <a name="key-regeneration"></a>Повторное создание ключей
 
-Прежде чем вы сможете создавать управляемую учетную запись хранения и определения SAS, службе Key Vault необходимо предоставить доступ к учетными записями хранения.
-
-```powershell
-New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
-```
-
-### <a name="create-storage-account"></a>Создать учетную запись хранения
-
-Теперь создайте управляемую учетную запись хранения и два определения SAS. SAS учетной записи позволяет получить доступ к службе BLOB-объектов с другими разрешениями.
-
-```powershell
-Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -DisableAutoRegenerateKey
-```
-
-### <a name="regeneration"></a>Повторное создание
-
-Настройте период повторного создания с помощью следующих команд.
+Если нужно, чтобы хранилище ключей автоматически повторно создавало ключи доступа с некоторой периодичностью, вы можете настроить этот период. Ниже мы указываем для повторного создания период в 3 дня. Через 3 дня хранилище ключей повторно создаст ключ key1 и установит его в качестве активного вместо key2.
 
 ```powershell
 $regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -RegenerationPeriod $regenPeriod
+$accountName = $storage.StorageAccountName
+
+Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $accountName -AccountResourceId $storage.Id -ActiveKeyName key2 -RegenerationPeriod $regenPeriod
 ```
 
 ### <a name="set-sas-definitions"></a>Настройка определений SAS
 
+SAS учетной записи позволяет получить доступ к службе BLOB-объектов с другими разрешениями.
 Настройте определения SAS в Key Vault для управляемой учетной записи хранения.
+- `-AccountName` — это имя управляемой учетной записи хранения в Key Vault.
+- `-Name` — идентификатор маркера SAS в этом хранилище.
+- `-ValidityPeriod` — дата окончания срока действия для создаваемого маркера SAS.
 
 ```powershell
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1  -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List,Write
+$validityPeriod = [System.Timespan]::FromDays(1)
+$readSasName = "readBlobSas"
+$writeSasName = "writeBlobSas"
+
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName $keyVaultName -AccountName $accountName -Name $readSasName -Protocol HttpsOnly -ValidityPeriod $validityPeriod -Permission Read,List
+
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName $keyVaultName -AccountName $accountName -Name $writeSasName -Protocol HttpsOnly -ValidityPeriod $validityPeriod -Permission Read,List,Write
 ```
 
-### <a name="get-token"></a>Получение токена
+### <a name="get-sas-tokens"></a>Получение маркеров SAS
 
-Получите соответствующие токены SAS и выполните вызовы к хранилищу.
+Получите соответствующие токены SAS и выполните вызовы к хранилищу. `-SecretName` создается на основе входных данных `AccountName` и параметров `Name` при выполнении команды [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
 
 ```powershell
-$sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas1).SecretValueText
-$sasToken2 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas2).SecretValueText
+$readSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "$accountName-$readSasName").SecretValueText
+$writeSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "$accountName-$writeSasName").SecretValueText
 ```
 
 ### <a name="create-storage"></a>Создание хранилища
 
-Обратите внимание, что попытка получить доступ с использованием *$sastoken1* завершается ошибкой, но можно получить доступ с помощью *$sastoken2*. 
+Обратите внимание, что попытка получить доступ с помощью *$readSasToken* завершается ошибкой, но нам удается получить доступ с помощью *$writeSasToken*.
 
 ```powershell
-$context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
-$context2 = New-AzureStorageContext -SasToken $sasToken2 -StorageAccountName yourtest1
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
-```
+$context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
+$context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-### <a name="example-summary"></a>Пример сводки
+Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+```
 
 Доступ к содержимому большого двоичного объекта хранилища можно получить с помощью токена SAS с доступом на запись.
 
 ### <a name="relevant-powershell-cmdlets"></a>Соответствующие командлеты PowerShell
 
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount?view=azurermps-4.3.1)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey?view=azurermps-4.3.1)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
+- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
+- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
+- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
+- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
+- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
+- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
 
-## <a name="storage-account-onboarding"></a>Подключение учетной записи хранения 
+## <a name="storage-account-onboarding"></a>Подключение учетной записи хранения
 
 Пример: владелец объекта Key Vault добавляет объект учетной записи хранилища в Azure Key Vault, чтобы подключить учетную запись хранения.
 
-Во время подключения Key Vault проверяет, что удостоверение подключаемой учетной записи имеет разрешения на *перечисление* и *повторное создание* ключей хранилища. Чтобы проверить эти разрешения, Key Vault получает токен OBO (от имени) от службы аутентификации, указывает Azure Resource Manager в качестве целевой аудитории, а затем обращается к службе хранилища Azure для *получения списка*. Если вызов *списка* завершается неудачей, создание объекта Key Vault завершается ошибкой с кодом состояния HTTP *Запрещено*. Ключи, указанные таким способом, кэшируются с помощью хранилища сущностей хранилища ключей. 
+Во время подключения Key Vault проверяет, что удостоверение подключаемой учетной записи имеет разрешения на *перечисление* и *повторное создание* ключей хранилища. Чтобы проверить эти разрешения, Key Vault получает токен OBO (от имени) от службы аутентификации, указывает Azure Resource Manager в качестве целевой аудитории, а затем обращается к службе хранилища Azure для *получения списка*. Если вызов *списка* завершается неудачей, создание объекта Key Vault завершается ошибкой с кодом состояния HTTP *Запрещено*. Ключи, указанные таким способом, кэшируются с помощью хранилища сущностей хранилища ключей.
 
 Key Vault необходимо убедиться, что идентификатор имеет разрешения на *повторное создание*, прежде чем предоставить ему права на повторное создание ключей. Чтобы убедиться, что идентификатор (через токен OBO), а также основной идентификатор Key Vault имеют следующие разрешения:
 
 - Key Vault выводит список разрешений RBAC в ресурсе учетной записи хранения.
-- Key Vault проверяет ответ через сопоставление регулярных выражений для определения действий и их отсутствия. 
+- Key Vault проверяет ответ через сопоставление регулярных выражений для определения действий и их отсутствия.
 
 Некоторые поддерживаемые примеры вы можете найти в разделе [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) (Key Vault — управляемая система хранения ключей учетных записей).
 
-Если удостоверение не имеет разрешение на *повторное создание* или основное удостоверение Key Vault не имеет разрешение на *перечисление* или *повторное создание*, тогда запрос на подключение завершается ошибкой с соответствующим кодом и сообщением. 
+Если удостоверение не имеет разрешение на *повторное создание* или основное удостоверение Key Vault не имеет разрешение на *перечисление* или *повторное создание*, тогда запрос на подключение завершается ошибкой с соответствующим кодом и сообщением.
 
 Маркер OBO будет работать только при использовании основных, собственных клиентских приложений PowerShell или CLI.
 

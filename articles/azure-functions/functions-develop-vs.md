@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
-ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
 
@@ -38,9 +38,13 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Инструменты службы "Функции Azure" включены в рабочую нагрузку "разработка Azure" в [Visual Studio 2017 версии 15.4](https://www.visualstudio.com/vs/) или более поздней версии. Не забудьте включить рабочую нагрузку **разработка Azure** в своем экземпляре Visual Studio 2017.
+Инструменты решения "Функции Azure" включены в рабочую нагрузку разработки Azure в [Visual Studio 2017 15.5](https://www.visualstudio.com/vs/) или более поздней версии. Не забудьте включить рабочую нагрузку **разработка Azure** в своем экземпляре Visual Studio 2017.
 
 ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+Убедитесь, что установлены обновления Visual Studio и используется [последняя версия](#check-your-tools-version) инструментов решения "Функции Azure".
+
+### <a name="other-requirements"></a>Другие требования
 
 Для создания и развертывания функций необходимы также следующие компоненты:
 
@@ -48,11 +52,33 @@ ms.lasthandoff: 03/08/2018
 
 * Учетная запись хранения Azure. Чтобы создать учетную запись хранения, см. раздел [Создайте учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
+### <a name="check-your-tools-version"></a>Проверка версии инструментов
+
+1. В меню **Сервис** выберите пункт **Расширения и обновления**. Разверните **Установленные** > **Инструменты** и выберите **Azure Functions and Web Jobs Tools** (Инструменты для решения "Функции Azure" и веб-заданий).
+
+    ![Проверка версии инструментов решения "Функции Azure"](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Запишите номер установленной **версии**. Вы можете сравнить эту версию с последней версией, указанной [в заметках о выпуске](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. Если вы используете более раннюю версию, обновите инструменты в Visual Studio, как показано в следующем разделе.
+
+### <a name="update-your-tools"></a>Обновление инструментов
+
+1. В диалоговом окне **Расширения и обновления** последовательно выберите **Обновления** > **Visual Studio Marketplace**, **Azure Functions and Web Jobs Tools** (Инструменты для решения "Функции Azure" и веб-заданий) и нажмите кнопку **Обновить**.
+
+    ![Обновление версии инструментов решения "Функции Azure"](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. Скачав обновления для инструментов, закройте Visual Studio, чтобы активировать обновления с помощью установщика VSIX.
+
+3. В установщике нажмите кнопку **ОК**, чтобы начать запуск, и выберите **Изменить** для обновления инструментов. 
+
+4. Когда обновление завершится, нажмите кнопку **Закрыть** и перезапустите Visual Studio.
+
 ## <a name="create-an-azure-functions-project"></a>Создание проекта Функций Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-Шаблон проекта создает проект на C#, устанавливает пакет NuGet `Microsoft.NET.Sdk.Functions` и задает требуемую версию .NET Framework. Служба "Функции" версии 1.x предназначена для .NET Framework, а версии 2.x —для .NET Standard. Новый проект содержит следующие файлы.
+Шаблон проекта создает проект на C#, устанавливает пакет NuGet `Microsoft.NET.Sdk.Functions` и задает требуемую версию .NET Framework. Служба "Функции" версии 1.x предназначена для .NET Framework, а версии 2.x —для .NET Standard. Новый проект содержит следующие файлы:
 
 * **host.json**: позволяет настроить узел Функций. Эти параметры применяются как в локальном режиме, так и в Azure. Дополнительные сведения см. в [справочной статье о host.json](functions-host-json.md).
     

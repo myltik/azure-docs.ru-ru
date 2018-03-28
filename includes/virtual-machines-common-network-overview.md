@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/16/2018
+---
 При создании виртуальной машины Azure вам потребуется [виртуальная сеть](../articles/virtual-network/virtual-networks-overview.md). Вы можете создать ее или использовать уже готовую. Кроме того, необходимо решить, как в этой виртуальной сети будет предоставляться доступ к виртуальным машинам. Очень важно [спланировать это перед созданием ресурсов](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md), а также ознакомиться с [ограничениями, применяемыми к сетевым ресурсам](../articles/azure-subscription-service-limits.md#networking-limits).
 
 На следующем рисунке виртуальные машины представлены в качестве веб-серверов и серверов баз данных. Каждый набор виртуальных машин назначен отдельной подсети в виртуальной сети.
@@ -75,7 +91,7 @@
 | [портал Azure](../articles/virtual-network/quick-create-portal.md) | Если виртуальная сеть создана при создании виртуальной машины, то ее имя состоит из имени группы ресурсов, в которой находится виртуальная сеть, и части **-vnet**. Адресное пространство — 10.0.0.0/24, обязательное имя подсети — **default**, а диапазон адресов подсети — 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Чтобы создать подсеть и виртуальную сеть, используйте командлеты [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) и [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork). Вы также можете добавить подсеть в имеющуюся виртуальную сеть с помощью командлета [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig). |
 | [интерфейс командной строки Azure](../articles/virtual-network/quick-create-cli.md) | Подсеть и виртуальная сеть создаются одновременно. В команду [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) добавьте параметр **--subnet-name** с именем подсети. |
-| [Шаблон](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Для создания виртуальной сети и подсетей проще всего скачать готовый шаблон, например [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) (Виртуальная сеть с двумя подсетями), и изменить его в соответствии со своими потребностями. |
+| Шаблон | Для создания виртуальной сети и подсетей проще всего скачать готовый шаблон, например [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) (Виртуальная сеть с двумя подсетями), и изменить его в соответствии со своими потребностями. |
 
 ## <a name="network-security-groups"></a>Группы безопасности сети
 

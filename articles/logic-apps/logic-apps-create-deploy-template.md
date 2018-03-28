@@ -1,11 +1,11 @@
 ---
-title: "Создание шаблонов развертывания для Azure Logic Apps | Документация Майкрософт"
-description: "Узнайте, как создавать шаблоны Azure Resource Manager для развертывания приложений логики и управлять выпусками."
+title: Создание шаблонов развертывания для Azure Logic Apps | Документация Майкрософт
+description: Создание шаблонов Azure Resource Manager для развертывания приложений логики
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
-editor: 
+author: ecfan
+manager: SyntaxC4
+editor: ''
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Создание шаблонов для развертывания приложений логики и управления выпусками
+# <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Создание шаблонов Azure Resource Manager для развертывания приложений логики
 
 После создания приложения логики на его основе можно создать шаблон Azure Resource Manager.
 Таким образом вы сможете легко развернуть приложение логики в любой среде или группе ресурсов, где это может потребоваться.
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-logic-app-deployment-template"></a>Создание шаблона развертывания приложения логики
 
-Самый простой способ создать допустимый шаблон развертывания приложения логики — это воспользоваться [инструментами Visual Studio для приложений логики](logic-apps-deploy-from-vs.md).
+Самый простой способ создать допустимый шаблон развертывания приложения логики — это воспользоваться [инструментами Visual Studio для приложений логики](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 Инструменты Visual Studio создают допустимый шаблон развертывания, который можно использовать в разных подписках или расположениях.
 
 При создании шаблона для развертывания приложения логики могут быть полезными и некоторые другие инструменты.
@@ -78,6 +78,102 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Добавление параметров для шаблона приложения логики
 После создания шаблона приложения логики можно добавлять или изменять любые дополнительные параметры. Например, если определение включает идентификатор ресурса в функции Azure или вложенном рабочем процессе, где планируется одно развертывание, можно добавить дополнительные ресурсы для шаблона и при необходимости параметризовать идентификаторы. То же касается и ссылок на пользовательские интерфейсы API или конечные точки Swagger, которые будут развернуты в каждой группе ресурсов.
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Добавление ссылок на зависимые ресурсы в шаблоны развертывания Visual Studio
+
+Если нужно, чтобы приложение логики ссылалось на зависимые ресурсы, вы можете использовать [функции шаблонов Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) в шаблоне развертывания приложения логики. Например, приложение логики может ссылаться на определенную функцию Azure или учетную запись интеграции, которая должна автоматически развертываться вместе с приложением логики. Здесь приводятся рекомендации по использованию параметров в шаблоне развертывания, которые позволят конструктору Logic App правильно их отображать. 
+
+Параметры приложений логики можно использовать в следующих типах триггеров и действий.
+
+*   Дочерний рабочий процесс
+*   Приложение-функция
+*   Вызов APIM
+*   URL-адрес API среды выполнения
+*   Путь для подключения к API.
+
+Вы также можете использовать функции шаблонов: parameters, variables, resourceId, concat и т. п. Например, этот пример кода может заменить идентификатор ресурса функции Azure:
+
+```
+"parameters":{
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+А так вы можете использовать параметры:
+
+```
+"MyFunction": {
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+В качестве другого примера можно параметризовать операцию отправки сообщений в служебной шине:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> Параметр host.runtimeUrl является необязательным, его можно удалить из шаблона.
+> 
+
+
+> [!NOTE] 
+> Чтобы конструктор Logic App мог работать с этими параметрами, ему нужно предоставить значения по умолчанию, например так:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Добавление приложения логики в существующий проект группы ресурсов
+
+Если у вас уже есть проект группы ресурсов, вы можете добавить в него приложение логики в окне "Структура JSON". Рядом с созданным ранее приложением логики можно добавить новые приложения.
+
+1. Откройте файл `<template>.json` .
+
+2. Откройте окно "Структура JSON", открыв меню **Вид** > **Другие окна** > **Структура JSON**.
+
+3. Чтобы добавить ресурс в файл шаблона, щелкните **добавить ресурс** в верхней части окна "Структура JSON". Также можно щелкнуть правой кнопкой мыши **ресурсы** в окне "Структура JSON", а затем выбрать пункт **Добавить новый ресурс**.
+
+    ![Окно "Структура JSON"](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. В диалоговом окне **Добавление ресурса** найдите и выберите **Приложение логики**. Присвойте имя приложению логики и выберите **Добавить**.
+
+    ![Добавление ресурса](./media/logic-apps-create-deploy-template/addresource.png)
+
 
 ## <a name="deploy-a-logic-app-template"></a>Развертывание шаблона приложения логики
 

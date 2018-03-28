@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Шифрование службы хранилища с помощью управляемых клиентом ключей в Azure Key Vault
 
@@ -81,6 +81,7 @@ $resource.Properties
 
     ![Снимок экрана портала с окном SSE, в котором выбрано указание универсального кода ресурса (URI) ключа](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>Указание ключа из хранилища ключей 
 
 Чтобы указать ключ из хранилища ключей, сделайте следующее.
@@ -96,6 +97,17 @@ $resource.Properties
 ![Снимок экрана портала, показывающий отказ в доступе к Key Vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 Вы также можете предоставить доступ с помощью портала Azure, перейдя к Azure Key Vault на портале Azure и предоставив доступ учетной записи хранения.
+
+
+Указанный выше ключ можно связать с существующей учетной записи хранения с помощью следующих команд PowerShell:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Этап 5. Копирование данных в учетную запись хранения
 

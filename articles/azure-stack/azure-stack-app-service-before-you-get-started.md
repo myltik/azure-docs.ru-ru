@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Подготовка к работе со службой приложений в Azure Stack
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="high-availability"></a>высокую доступность;
 
-После выпуска Azure Stack версии 1802, в которую добавлена поддержка доменов сбоя, новые развертывания Службы приложений Azure в Azure Stack распределяются по доменам сбоя, что обеспечивает отказоустойчивость.  Сведения о повторной балансировке элементов Службы приложений Azure в Azure Stack, развернутых до выпуска обновления 1802, см. в этой статье(azure-stack-app-service-fault-domain-update.md).
+После выпуска Azure Stack версии 1802, в которую добавлена поддержка доменов сбоя, новые развертывания Службы приложений Azure в Azure Stack распределяются по доменам сбоя, что обеспечивает отказоустойчивость.  Сведения о повторной балансировке элементов Службы приложений Azure в Azure Stack, развернутых до выпуска обновления 1802, см. в этой [документации](azure-stack-app-service-fault-domain-update.md).
 
 Чтобы обеспечить высокий уровень доступности Службы приложений Azure в Azure Stack, разверните необходимый файловый сервер и экземпляр SQL Server в соответствующей конфигурации. 
 

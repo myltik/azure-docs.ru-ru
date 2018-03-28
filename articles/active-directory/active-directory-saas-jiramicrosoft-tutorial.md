@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением единого входа Microsoft Azure Active Directory для JIRA | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и приложением единого входа Microsoft Azure Active Directory для JIRA."
+title: Руководство по интеграции Azure Active Directory с приложением единого входа Microsoft Azure Active Directory для JIRA | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и приложением единого входа Microsoft Azure Active Directory для JIRA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Руководство по интеграции Azure Active Directory с приложением единого входа Microsoft Azure Active Directory для JIRA
 
@@ -61,11 +61,12 @@ ms.lasthandoff: 01/29/2018
 
 *   JIRA Core и JIRA Software: 6.0–7.2.0;
 *   JIRA Service Desk: 3.0–3.2.
+*   JIRA поддерживает также 5.2. Дополнительные сведения см. в статье об [использовании единого входа Microsoft Azure Active Directory для JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление приложения единого входа Microsoft Azure Active Directory для JIRA из коллекции.
+1. Добавление приложения единого входа Microsoft Azure Active Directory для JIRA из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-microsoft-azure-active-directory-single-sign-on-for-jira-from-the-gallery"></a>Добавление приложения единого входа Microsoft Azure Active Directory для JIRA из коллекции
@@ -160,7 +161,7 @@ ms.lasthandoff: 01/29/2018
     
     ![Настройка единого входа](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Скачайте подключаемый модуль из [Центра загрузки Майкрософт](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Вручную передайте подключаемый модуль, предоставленный корпорацией Майкрософт, воспользовавшись меню **Upload add-on** (Отправка надстройки).
+8. Скачайте подключаемый модуль из [Центра загрузки Майкрософт](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Вручную передайте подключаемый модуль, предоставленный корпорацией Майкрософт, воспользовавшись меню **Upload add-on** (Отправка надстройки). Загрузка подключаемого модуля выполняется в соответствии с [соглашением об обслуживании Майкрософт](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Настройка единого входа](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ ms.lasthandoff: 01/29/2018
     h. Установите флажок **Enable Single Sign out** (Включить единый выход), если после выхода пользователя из JIRA требуется выходить и из Azure AD. 
 
     i. Нажмите кнопку **Сохранить**, чтобы сохранить изменения.
+
+    > [!NOTE]
+    > Дополнительные сведения об установке и устранении неполадок см. в [руководстве администратора соединителя единого входа MS JIRA](ms-confluence-jira-plugin-adminguide.md) и в [часто задаваемых вопросах](ms-confluence-jira-plugin-faq.md).
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

@@ -1,6 +1,6 @@
 ---
-title: "Настройка политики SSL на шлюзе приложений Azure с помощью PowerShell | Документация Майкрософт"
-description: "На этой странице представлены инструкции по настройке политики SSL на шлюзе приложений Azure"
+title: Настройка политики SSL на шлюзе приложений Azure с помощью PowerShell | Документация Майкрософт
+description: На этой странице представлены инструкции по настройке политики SSL на шлюзе приложений Azure
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Настройка версий политики SSL и комплектов шифров на шлюзе приложений
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Список стандартных политик SSL
 
-В составе шлюза приложений имеется 3 стандартные политики, которыми можно воспользоваться. Командлет `Get-AzureRmApplicationGatewaySslPredefinedPolicy` извлекает эти политики. В каждой политике включены разные версии протокола SSL и комплекты шифров. Эти стандартные политики можно использовать для быстрой настройки политики SSL на шлюзе приложений. Если определенная политика SSL не выбрана, по умолчанию выбирается политика **AppGwSslPolicy20170401**.
+В составе шлюза приложений имеется 3 стандартные политики, которыми можно воспользоваться. Командлет `Get-AzureRmApplicationGatewaySslPredefinedPolicy` извлекает эти политики. В каждой политике включены разные версии протокола SSL и комплекты шифров. Эти стандартные политики можно использовать для быстрой настройки политики SSL на шлюзе приложений. Если определенная политика SSL не выбрана, по умолчанию выбирается политика **AppGwSslPolicy20150501**.
 
 Ниже приведен пример выполнения командлета `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Расширение виртуальной машины для диагностики производительности Azure для Windows
 
@@ -227,9 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 
 ## <a name="view-and-share-the-results"></a>Просмотр результатов и предоставление к ним общего доступа
 
-По умолчанию выходные данные расширения хранятся в папке с именем log_collection на временном диске (обычно D:\log_collection). В этой папке вы увидите ZIP-файлы, содержащие журналы диагностики и отчет с выводами и рекомендациями.
-
-Созданный ZIP-файл также передается в учетную запись хранения, указанную во время установки. Его можно совместно использовать на протяжении 30 дней с помощью [подписанного URL-адреса](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Текстовый файл с именем *zipfilename*_saslink.tx также создается в папке log_collection. Этот файл содержит ссылку SAS, созданную для скачивания ZIP-файла. Любой пользователь, у которого есть эта ссылка, может скачать ZIP-файл.
+Выходные данные расширения можно найти в ZIP-файле, который передается в учетную запись хранения, указанную во время установки. Его можно совместно использовать на протяжении 30 дней с помощью [подписанного URL-адреса (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Этот ZIP-файл содержит журналы диагностики и отчет с результатами и рекомендациями. Ссылка SAS на ZIP-файл с выходными данными содержится в текстовом файле с именем *zipfilename*_saslink.txt в папке **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Любой пользователь, у которого есть эта ссылка, может скачать ZIP-файл.
 
 Чтобы помочь сотрудникам службы поддержки, которые работают над вашим запросом, корпорация Майкрософт может использовать ссылку SAS для скачивания данных диагностики.
 
@@ -240,7 +238,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ![Снимок экрана: подробные сведения о диагностике производительности](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> Ссылка на SAS, которая отображается на портале, может не работать из-за неправильно сформированного URL-адреса во время кодирования и декодирования операции. Вместо этого можно получить ссылку непосредственно из файла *_saslink.txt виртуальной машины.
+> Ссылка SAS, которая отображается на портале, в некоторых случаях может не работать. из-за неправильно сформированного URL-адреса во время кодирования и декодирования операции. Вместо этого можно получить ссылку непосредственно из файла *_saslink.txt виртуальной машины.
 
 ## <a name="troubleshoot-and-support"></a>Устранение неполадок и поддержка
 
@@ -249,6 +247,6 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     Эту проблему можно спокойно проигнорировать, если состояние расширения указывает, что подготовка расширения успешно завершена.
 - Некоторые проблемы во время установки можно устранить с помощью журналов расширений. Выходные данные выполнения расширения регистрируются в файле, расположенном в следующем каталоге:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт поддержки Azure](https://azure.microsoft.com/support/options/) и выберите **Получить поддержку**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/support/faq/).

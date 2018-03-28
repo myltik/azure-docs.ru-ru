@@ -1,6 +1,6 @@
 ---
-title: "API-интерфейс, пакет SDK и ресурсы для SQL .NET (Azure Cosmos DB) | Документация Майкрософт"
-description: "Сведения об API и пакетах SDK для SQL .NET, в том числе даты выхода, даты снятия с учета и изменения, внесенные в каждую версию пакета SDK для .NET для Azure Cosmos DB."
+title: API-интерфейс, пакет SDK и ресурсы для SQL .NET (Azure Cosmos DB) | Документация Майкрософт
+description: Сведения об API и пакетах SDK для SQL .NET, в том числе даты выхода, даты снятия с учета и изменения, внесенные в каждую версию пакета SDK для .NET для Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске для API SQL
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* Исправлено исключение KeyNotFoundException в сложных случаях для запросов ORDER BY между секциями.
+* Исправлена ошибка, из-за которой не учитывался атрибут JsonPropery в выбранном предложении запросов LINQ.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Исправлена ошибка, которая происходила для определенного состояния гонки, в результате чего при использовании модели согласованности на уровне сеанса периодически возникали ошибки Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token (Сеанс чтения для входного маркера сеанса недоступен).
@@ -290,6 +295,8 @@ ms.lasthandoff: 03/12/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |9 марта 2018 г. |--- |
+| [1.20.2](#1.20.1) |21 февраля 2018 г. |--- |
 | [1.20.1](#1.20.1) |5 февраля 2018 г. |--- |
 | [1.19.1](#1.19.1) |16 ноября 2017 г. |--- |
 | [1.19.0](#1.19.0) |10 ноября 2017 г. |--- |

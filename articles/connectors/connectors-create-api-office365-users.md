@@ -1,11 +1,11 @@
 ---
-title: "Добавление соединителя Пользователи Office 365 в приложения логики | Документация Майкрософт"
-description: "Обзор соединителя Office 365 Пользователи с параметрами интерфейса API REST"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Добавление соединителя Пользователи Office 365 в приложения логики | Документация Майкрософт
+description: Обзор соединителя Office 365 Пользователи с параметрами интерфейса API REST
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Начало работы с соединителем Office 365 Пользователи
 Подключившись к Office 365 Пользователи, вы сможете получать профили, искать пользователей и выполнять многие другие действия. С помощью Office 365 Пользователи вы можете:
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/19/2018
 > 
 > 
 
-После создания подключения укажите свойства Office 365 Пользователи, такие как идентификатор пользователя. Эти свойства описаны далее в **справочнике по REST API** .
+После создания подключения укажите свойства Office 365 Пользователи, такие как идентификатор пользователя. Эти свойства описаны в **справочнике по REST API**.
 
 ## <a name="connector-specific-details"></a>Сведения о соединителях
 

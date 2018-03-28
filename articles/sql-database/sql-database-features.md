@@ -2,19 +2,18 @@
 title: Сравнение функций Базы данных SQL Azure | Документация Майкрософт
 description: В данной статье сравниваются возможности Базы данных SQL Azure и управляемых экземпляров между собой и с SQL Server.
 services: sql-database
-documentationcenter: ''
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 34aafdc377acf0b67674dbac2e67237440ed1420
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: craigg
+ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Сравнение функций Базы данных SQL Azure и SQL Server 
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 03/08/2018
 | [Автономные пользователи](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes | Yes |
 | [Ключевые слова языка управления потоком](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Yes | Yes |
 | [Запросы баз данных](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет. См. раздел [Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)](sql-database-elastic-query-overview.md). | Да, включая [эластичные запросы](sql-database-elastic-query-overview.md). |
-| [Межбазовые транзакции]((https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)) | Нет  | Yes |
+| [Межбазовые транзакции](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет  | Yes |
 | [Курсоры](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Yes |Yes | 
 | [Сжатие данных](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Yes |Yes |
 | [Компонент Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Нет  | Yes |

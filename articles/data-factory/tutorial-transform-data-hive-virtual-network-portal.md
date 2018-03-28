@@ -1,8 +1,8 @@
 ---
-title: "Преобразование данных с помощью Hive в виртуальной сети Azure | Документация Майкрософт"
-description: "В этом руководстве представлены пошаговые инструкции по преобразованию данных с использованием действия Hive в фабрике данных Azure."
+title: Преобразование данных с помощью Hive в виртуальной сети Azure | Документация Майкрософт
+description: В этом руководстве представлены пошаговые инструкции по преобразованию данных с использованием действия Hive в фабрике данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
 В этом руководстве с помощью портала Azure вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
@@ -114,7 +114,7 @@ ms.lasthandoff: 02/09/2018
 2. В окне **Integration Runtime Setup** (Настройка среды выполнения интеграции) выберите вариант **Perform data movement and dispatch activities to external computes** (Выполнить перемещение данных и передать действия на внешние вычислительные ресурсы), затем щелкните **Next** (Далее). 
 
    ![Выбор варианта Perform data movement and dispatch activities to external computes (Выполнить перемещение данных и передать действия на внешние вычислительные ресурсы)](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Выберите **Private Network** (Частная сеть) и щелкните **Next** (Далее).
+3. Выберите **Частная сеть** и нажмите кнопку **Далее**.
     
    ![Выбор частной сети](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Введите **MySelfHostedIR** для параметра **Name** (Имя) и щелкните **Next** (Далее). 

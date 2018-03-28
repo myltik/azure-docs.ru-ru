@@ -1,24 +1,18 @@
 ---
-title: "Интеграция системы управления версиями в службе автоматизации Azure | Документация Майкрософт"
-description: "В этой статье описывается интеграция системы управления версиями с GitHub в службе автоматизации Azure."
+title: Интеграция системы управления версиями и службы автоматизации Azure
+description: В этой статье описывается интеграция системы управления версиями с GitHub в службе автоматизации Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Интеграция системы управления версиями в службе автоматизации Azure
 Интеграция системы управления версиями позволяет связать модули Runbook из вашей учетной записи службы автоматизации с репозиторием системы управления версиями GitHub. Система управления версиями позволяет работать вместе с коллегами, отслеживать изменения и выполнять откат к более ранним версиям модулей Runbook. Например, система управления версиями позволяет синхронизировать различные ветви этой системы с учетными записями службы автоматизации, предназначенными для разработки, тестирования и работы готового продукта. Таким образом, вы сможете легко разместить в рабочей учетной записи службы автоматизации тот код, который был протестирован в среде разработки.

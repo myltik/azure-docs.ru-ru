@@ -1,6 +1,6 @@
 ---
-title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью PHP | Документация Майкрософт"
-description: "Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и обратно с помощью PHP"
+title: Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью PHP | Документация Майкрософт
+description: Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и обратно с помощью PHP
 services: storage
 author: roygara
 manager: jeconnoc
@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 474c03921369035cd7334fdddd9806f8f90b7d58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью PHP
 Из этого краткого руководства вы узнаете, как использовать PHP для передачи, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/12/2018
 
 Для работы с этим кратким руководством сделайте следующее: 
 * Установите [PHP](http://php.net/downloads.php).
-* Установите [Azure SDK для PHP](https://github.com/Azure/azure-storage-php).
+* Установите [пакет SDK для службы хранилища Azure для PHP](https://github.com/Azure/azure-storage-php).
 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
@@ -196,6 +196,13 @@ This is the content of the blob uploaded: Hello Azure!
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## <a name="resources-for-developing-php-applications-with-blobs"></a>Ресурсы для разработки приложений PHP с большими двоичными объектами
+
+Ознакомьтесь со следующими дополнительными ресурсами для разработки PHP с использованием хранилища BLOB-объектов:
+
+- Просматривайте, скачивайте и устанавливайте [исходный код клиентской библиотеки PHP](https://github.com/Azure/azure-storage-php) для службы хранилища Azure в GitHub.
+- Изучите [примеры для хранилища BLOB-объектов](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob), написанные с использованием клиентской библиотеки PHP.
 
 ## <a name="next-steps"></a>Дополнительная информация
  

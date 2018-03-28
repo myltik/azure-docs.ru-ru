@@ -1,161 +1,170 @@
 ---
-title: "Изменения, вносимые в проект MVC при подключении к Azure AD | Документация Майкрософт"
-description: "Описывает, что происходит с проектом MVC при подключении к приложению Azure AD с помощью подключенных служб Visual Studio"
+title: Изменения, вносимые в проект MVC при подключении к Azure AD | Документация Майкрософт
+description: Описывает, что происходит с проектом MVC при подключении к приложению Azure AD с помощью подключенных служб Visual Studio
 services: active-directory
 documentationcenter: na
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: eccff00847968b4293b6e7142af0cceff0476c46
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b17c5fe500f3e2a8370ec5c4a09b62737d9afb84
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory?
+
 > [!div class="op_single_selector"]
-> * [Приступая к работе](vs-active-directory-dotnet-getting-started.md)
-> * [Что произошло?](vs-active-directory-dotnet-what-happened.md)
-> 
-> 
+> - [Приступая к работе](vs-active-directory-dotnet-getting-started.md)
+> - [Что произошло?](vs-active-directory-dotnet-what-happened.md)
 
-## <a name="references-have-been-added"></a>Добавлены ссылки
-### <a name="nuget-package-references"></a>Ссылки на пакет NuGet
-* **Microsoft.IdentityModel.Protocol.Extensions**
-* **Microsoft.Owin**
-* **Microsoft.Owin.Host.SystemWeb**
-* **Microsoft.Owin.Security**
-* **Microsoft.Owin.Security.Cookies**
-* **Microsoft.Owin.Security.OpenIdConnect**
-* **Owin**
-* **System.IdentityModel.Tokens.Jwt**
+В этой статье описаны конкретные изменения, которые вносятся в проекты ASP.NET MVC при добавлении [подключенной службы Azure Active Directory через Visual Studio](vs-active-directory-add-connected-service.md).
 
-### <a name="net-references"></a>Ссылки на .NET
-* **Microsoft.IdentityModel.Protocol.Extensions**
-* **Microsoft.Owin**
-* **Microsoft.Owin.Host.SystemWeb**
-* **Microsoft.Owin.Security**
-* **Microsoft.Owin.Security.Cookies**
-* **Microsoft.Owin.Security.OpenIdConnect**
-* **Owin**
-* **System.IdentityModel**
-* **System.IdentityModel.Tokens.Jwt**
-* **System.Runtime.Serialization**
+Сведения о работе с подключенной службой см. в статье [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)](vs-active-directory-dotnet-getting-started.md).
 
-## <a name="code-has-been-added"></a>Добавлен код
-### <a name="code-files-were-added-to-your-project"></a>В проект добавлены файлы с кодом
-К проекту добавлен класс запуска проверки подлинности **App_Start/Startup.Auth.cs**, содержащий логику запуска для проверки подлинности на основе Azure AD. Кроме того, добавлен класс контролера Controllers/AccountController.cs, который содержит методы **SignIn()** и **SignOut()**. Наконец, добавлено частичное представление **Views/Shared/_LoginPartial.cshtml**, содержащее ссылку действия для SignIn и SignOut.
+## <a name="added-references"></a>Добавлены ссылки
 
-### <a name="startup-code-was-added-to-your-project"></a>В проект добавлен код запуска
-Если в проекте уже есть класс запуска, метод **Configuration** обновляется, чтобы добавить вызов **ConfigureAuth(app)**. В противном случае в проект добавляется класс запуска.
+Влияет на файлы проекта * (ссылки .NET) и `packages.config` (ссылки NuGet).
 
-### <a name="your-appconfig-or-webconfig-has-new-configuration-values"></a>В файл app.config или web.config добавлены значения конфигурации
-Были добавлены следующие записи конфигурации.
+| type | Справочные материалы |
+| --- | --- |
+| .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.Cookies |
+| .NET; NuGet | Microsoft.Owin.Security.OpenIdConnect |
+| .NET; NuGet | Owin |
+| .NET        | System.IdentityModel |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
+| .NET        | System.Runtime.Serialization |
 
+Дополнительные ссылки, если выбран параметр **Чтение данных каталога**
+
+| type | Справочные материалы |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (только для Visual Studio 2015) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory; |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (только для Visual Studio 2015) |
+| .NET; NuGet | System.Spatial |
+
+Следующие ссылки удалены (только для проектов ASP.NET 4, например в Visual Studio 2015):
+
+| type | Справочные материалы |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## <a name="project-file-changes"></a>Изменения в файле проекта
+
+- Для свойства `IISExpressSSLPort` установлено конкретное число.
+- Для свойства `WebProject_DirectoryAccessLevelKey` установлено значение 0 (или 1, если выбран параметр **Чтение данных каталога**).
+- Для свойства `IISUrl` установлено значение `https://localhost:<port>/`, где `<port>` соответствует значению `IISExpressSSLPort`.
+
+## <a name="webconfig-or-appconfig-changes"></a>Изменения в файлах web.config или app.config
+
+- Добавлены следующие записи конфигурации:
+
+    ```xml
     <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
         <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-        <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
+        <add key="ida:Domain" value="<your selected Azure domain>" />
+        <add key="ida:TenantId" value="<the Id of your selected Azure AD tenant>" />
+        <add key="ida:PostLogoutRedirectUri" value="<project start page, such as https://localhost:44335>" />
     </appSettings>
+    ```
 
-### <a name="an-azure-active-directory-ad-app-was-created"></a>Было создано приложение Azure Active Directory (AD)
-Было создано приложение Azure AD в указанно в мастере каталоге.
+- Добавлены элементы `<dependentAssembly>` в узел `<runtime><assemblyBinding>` для `System.IdentityModel.Tokens.Jwt` и `Microsoft.IdentityModel.Protocol.Extensions`.
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Какие дополнительные изменения внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*?
-Удалены ссылки на пакет NuGet. Для файлов созданы резервные копии, а сами файлы удалены. В зависимости от состояния проекта вам, возможно, придется вручную удалить дополнительные ссылки или файлы либо изменить код соответствующим образом.
+Дополнительные изменения, если выбран параметр **Чтение данных каталога**
 
-### <a name="nuget-package-references-removed-for-those-present"></a>Ссылки на существующие пакеты NuGet удалены
-* **Microsoft.AspNet.Identity.Core**
-* **Microsoft.AspNet.Identity.EntityFramework**
-* **Microsoft.AspNet.Identity.Owin**
+- Добавлены следующие записи конфигурации в `<appSettings>`.
 
-### <a name="code-files-backed-up-and-removed-for-those-present"></a>Для существующих файлов кода созданы резервные копии, а сами файлы удалены.
-Для каждого из следующих файлов создана резервная копия, а сами файлы удалены из проекта. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
+    ```xml
+    <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
+    ```
 
-* **App_Start\IdentityConfig.cs**
-* **Controllers\ManageController.cs**
-* **Models\IdentityModels.cs**
-* **Models\ManageViewModels.cs**
+- Добавлены следующие элементы в `<configuration>`. Значения будут разными для MDF-файла проекта и идентификатора каталога проекта:
 
-### <a name="code-files-backed-up-for-those-present"></a>Для существующих файлов кода созданы резервные копии
-Для каждого из следующих файлов создана резервная копия, после чего файлы были заменены. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
-
-* **Startup.cs.**
-* **App_Start\Startup.Auth.cs**
-* **Controllers\AccountController.cs**
-* **Views\Shared\_LoginPartial.cshtml**
-
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Какие дополнительные изменения внесены в мой проект после установки флажка *Чтение данных каталога*?
-Добавлены дополнительные ссылки.
-
-### <a name="additional-nuget-package-references"></a>Дополнительные ссылки на пакет NuGet
-* **EntityFramework**
-* **Microsoft.Azure.ActiveDirectory.GraphClient**
-* **Microsoft.Data.Edm**
-* **Microsoft.Data.OData**
-* **Microsoft.Data.Services.Client**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory**
-* **System.Spatial**
-
-### <a name="additional-net-references"></a>Дополнительные ссылки на .NET
-* **EntityFramework**
-* **EntityFramework.SqlServer**
-* **Microsoft.Azure.ActiveDirectory.GraphClient**
-* **Microsoft.Data.Edm**
-* **Microsoft.Data.OData**
-* **Microsoft.Data.Services.Client**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
-* **System.Spatial**
-
-### <a name="additional-code-files-were-added-to-your-project"></a>В проект добавлены дополнительные файлы с кодом
-Для поддержки кэширования маркеров добавлены два файла: **Models\ADALTokenCache.cs** и **Models\ApplicationDbContext.cs**.  Чтобы проиллюстрировать получение доступа к информации о пользовательском профиле с помощью интерфейсов API Graph Azure, были добавлены дополнительные контроллер и представление.  Они содержатся в файлах **Controllers\UserProfileController.cs** и **Views\UserProfile\Index.cshtml**.
-
-### <a name="additional-startup-code-was-added-to-your-project"></a>В проект добавлен дополнительный код запуска
-В файле **startup.auth.cs** в элемент **Notifications**, который содержится в **OpenIdConnectAuthenticationNotifications**, добавлен новый объект **OpenIdConnectAuthenticationOptions**.  Он был добавлен для включения возможности получения кода OAuth и его обмена на маркер доступа.
-
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>В файл app.config или web.config внесены дополнительные изменения
-Были добавлены следующие дополнительные записи настройки.
-
-    <appSettings>
-        <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
-    </appSettings>
-
-Были добавлены следующие разделы конфигурации и строка подключения
-
+    ```xml
     <configSections>
-        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+      <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
+
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
+      <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\<project-mdf-file>.mdf;Initial Catalog=<project-catalog-id>;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
+
     <entityFramework>
-        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-          <parameters>
-            <parameter value="mssqllocaldb" />
-          </parameters>
-        </defaultConnectionFactory>
-        <providers>
-          <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-        </providers>
+      <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+        <parameters>
+          <parameter value="mssqllocaldb" />
+        </parameters>
+      </defaultConnectionFactory>
+      <providers>
+        <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+      </providers>
     </entityFramework>
+    ```
 
+- Добавлены элементы `<dependentAssembly>` в узел `<runtime><assemblyBinding>` для `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm` и `Microsoft.Data.OData`.
 
-### <a name="your-azure-active-directory-app-was-updated"></a>Обновлено приложение Azure Active Directory
-В приложение Azure Active Directory добавлено разрешение *Чтение данных каталога*. Кроме того, создан дополнительный ключ, который затем использовался в качестве параметра *ida:ClientSecret* в файле **web.config**.
+## <a name="code-changes-and-additions"></a>Изменения и дополнения в коде
+
+- Добавлен атрибут `[Authorize]` в `Controllers/HomeController.cs` и все остальные существующие контроллеры.
+
+- Добавлен класс запуска `App_Start/Startup.Auth.cs` для аутентификации, который содержит логику запуска для аутентификации Azure AD. Если вы выбрали параметр **Чтение данных каталога**, этот файл содержит еще и код для получения кода OAuth и его обмена на маркер доступа.
+
+- Добавлен класс контроллера `Controllers/AccountController.cs`, который содержит методы `SignIn` и `SignOut`.
+
+- Добавлено частичное представление `Views/Shared/_LoginPartial.cshtml`, которое содержит ссылку на действие для `SignIn` и `SignOut`.
+
+- Добавлено частичное представление `Views/Account/SignoutCallback.cshtml`, которое содержит HTML для пользовательского интерфейса выхода.
+
+- В методе `Startup.Configuration` добавлен вызов `ConfigureAuth(app)`, если такой класс уже существовал. В противном случае добавлен класс `Startup` с вызовом этого метода.
+
+- Добавлен файл `Connected Services/AzureAD/ConnectedService.json` (для Visual Studio 2017) или `Service References/Azure AD/ConnectedService.json` (для Visual Studio 2015), который содержит сведения, позволяющие Visual Studio отслеживать добавление подключенной службы.
+
+- Если вы выбрали параметр **Чтение данных каталога**, добавлены `Models/ADALTokenCache.cs` и `Models/ApplicationDbContext.cs` для поддержки кэширования маркеров. Чтобы проиллюстрировать получение доступа к информации о пользовательском профиле с помощью интерфейсов API Graph Azure `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml` и `Views/UserProfile/Relogin.cshtml`, добавлены дополнительные контроллер и представление.
+
+### <a name="file-backup-visual-studio-2015"></a>Резервные копии файлов (для Visual Studio 2015)
+
+При добавлении подключенной службы Visual Studio 2015 создает резервные копии всех измененных и удаленных файлов. Все эти файлы сохраняются в папке `Backup/AzureAD`. Visual Studio 2017 не создает резервные копии.
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ManageViewModels.cs`
+- `Views\Shared\_LoginPartial.cshtml`
+
+## <a name="changes-on-azure"></a>Изменения в Azure
+
+- Создано приложение Azure AD в домене, который вы выбрали при добавлении подключенной службы.
+- В приложение добавлены разрешения на **чтение данных каталога**, если вы выбрали соответствующий параметр.
+
+[Подробнее об Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Дополнительная информация
-- [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
+- [Добавление возможности входа в веб-приложение ASP.NET с помощью учетной записи Майкрософт](guidedsetups/active-directory-aspnetwebapp-v1.md).

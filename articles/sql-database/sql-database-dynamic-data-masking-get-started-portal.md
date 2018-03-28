@@ -1,25 +1,19 @@
 ---
-title: "Портал Azure: динамическое маскирование данных базы данных SQL | Документация Майкрософт"
-description: "Как приступить к работе с динамическим маскированием данных в базе данных SQL на портале Azure."
+title: 'Портал Azure: динамическое маскирование данных базы данных SQL | Документация Майкрософт'
+description: Как приступить к работе с динамическим маскированием данных в базе данных SQL на портале Azure.
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 11/22/2016
 ms.author: ronitr
-ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2db546d8165956dc6f9fad21f66af315ba301c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Приступая к работе с динамическим маскированием данных в базе данных SQL на портале Azure
 
@@ -27,7 +21,7 @@ ms.lasthandoff: 12/14/2017
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Настройка динамического маскирования данных для базы данных с помощью портала Azure
-1. Запустите портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).
+1. Запустите портал Azure: [https://portal.azure.com](https://portal.azure.com).
 2. Перейдите на страницу с параметрами базы данных, которая содержит конфиденциальные данные, которые нужно маскировать.
 3. Щелкните элемент **Динамическое маскирование данных**. Откроется страница настройки **Динамическое маскирование данных**.
    

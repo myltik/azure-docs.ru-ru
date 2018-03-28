@@ -1,8 +1,8 @@
 ---
-title: "Azure AD B2C: устранение неполадок в настраиваемых политиках с помощью Application Insights | Документация Майкрософт"
-description: "Сведения о настройке Application Insights для отслеживания выполнения пользовательских политик"
+title: 'Azure AD B2C: устранение неполадок в настраиваемых политиках с помощью Application Insights | Документация Майкрософт'
+description: Сведения о настройке Application Insights для отслеживания выполнения пользовательских политик
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: сбор журналов
 
@@ -105,6 +105,8 @@ traces \| where timestamp > ago(1d) | Просмотр всех журналов
 
 >[!NOTE]
 >Для разработчиков удостоверений сообщество разработало средство просмотра пути взаимодействия пользователя.  Это средство не поддерживается Майкрософт и предоставляется исключительно в том виде, в котором оно было создано.  Оно считывается из экземпляра Application Insights и обеспечивает хорошо структурированное представление событий пути взаимодействия пользователя.  Исходный код можно получить и развернуть в собственном решении.
+
+Версия средства просмотра, которое считывает события из Application Insights, находится [здесь](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >Сейчас детально описанные здесь журналы действий предназначены **только** для упрощения разработки пользовательских политик. Не используйте режим разработки в рабочей среде.  В журналах регистрируются все утверждения, отправляемые и принимаемые поставщиками удостоверений во время разработки.  При использовании режима разработки в рабочей среде разработчик несет ответственность за персональные данные (личные сведения), собранные в его журнале App Insights.  Эти подробные журналы могут собираться, только когда политика помещается в **режим разработки**.

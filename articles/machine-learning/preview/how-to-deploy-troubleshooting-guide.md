@@ -1,9 +1,9 @@
 ---
-title: "Руководство по устранению неполадок развертывания службы \"Машинное обучение Azure\" | Документация Майкрософт"
-description: "Руководство по устранению неполадок при развертывании и создании службы"
+title: Руководство по устранению неполадок развертывания службы "Машинное обучение Azure" | Документация Майкрософт
+description: Руководство по устранению неполадок при развертывании и создании службы
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7b8d2f4fb52c6d4faed8e813779e3b01d1817355
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Устранение неполадок при развертывании службы и настройке среды
 Следующие сведения помогут вам определить причину возникновения ошибок при настройке среды управления моделями.

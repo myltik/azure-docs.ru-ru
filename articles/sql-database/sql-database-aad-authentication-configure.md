@@ -3,17 +3,17 @@ title: Настройка аутентификации Azure Active Directory д
 description: Сведения о подключении к Базе данных SQL, управляемому экземпляру и хранилищу данных SQL с использованием аутентификации Azure Active Directory после настройки Azure AD.
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL, управляемого экземпляра или хранилища данных SQL
 
@@ -193,7 +193,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ## <a name="configure-your-client-computers"></a>Настройка клиентских компьютеров
 Приложения или пользователи подключаются к Базе данных SQL Azure или хранилищу данных SQL, используя удостоверения Azure AD, с клиентских компьютеров. На эти компьютеры необходимо установить указанное ниже программное обеспечение.
 
-* .NET Framework 4.6 или более поздней версии можно скачать на веб-странице [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET Framework 4.6 или более поздней версии с [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * Библиотека аутентификации Azure Active Directory для SQL Server (**ADALSQL.DLL**) доступна на нескольких языках (версии x86 и amd64) в центре загрузки в [библиотеке аутентификации Microsoft Active Directory для Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 Вы можете выполнить эти требования, сделав следующее:

@@ -1,24 +1,20 @@
 ---
-title: "Изучение рабочего процесса PowerShell для службы автоматизации Azure | Документация Майкрософт"
-description: "Данная статья предназначена для разработчиков, уже знакомых с PowerShell. В ней рассматриваются различия между PowerShell и рабочим процессом PowerShell, а также понятия, относящиеся к модулям Runbook службы автоматизации."
+title: Рабочий процесс PowerShell для службы автоматизации Azure
+description: Данная статья предназначена для разработчиков, уже знакомых с PowerShell. В ней рассматриваются различия между PowerShell и рабочим процессом PowerShell, а также понятия, относящиеся к модулям Runbook службы автоматизации.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/21/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Изучение основных понятий рабочего процесса Windows PowerShell для модулей Runbook службы автоматизации 
 Модули Runbook в службе автоматизации Azure реализованы в виде рабочих процессов Windows PowerShell.  Рабочий процесс Windows PowerShell похож на сценарий Windows PowerShell, но имеет ряд существенных отличий, которые могут запутать нового пользователя.  Хотя эта статья предназначена помочь вам в написании модулей Runbook с помощью рабочего процесса PowerShell, мы рекомендуем использовать для этого PowerShell, если только вам не требуются контрольные точки.  Существует ряд различий в синтаксисе при разработке модулей runbook рабочего процесса PowerShell, и эти различия требуют немного больше усилий для написания эффективных рабочих процессов.  

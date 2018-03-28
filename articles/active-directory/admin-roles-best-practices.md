@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Защита привилегированного доступа для гибридных и облачных развертываний в Azure AD
 
@@ -118,7 +118,7 @@ Azure AD PIM входит в состав Azure AD Premium P2 и EMS E5. Эти 
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Включите многофакторную проверку подлинности и зарегистрируйте все другие однопользовательские нефедеративные учетные записи администратора с высокими привилегиями. 
 
-Требуйте прохождения Многофакторной идентификации Azure (MFA) при входе в систему для всех отдельных пользователей, которым постоянно назначена одна или несколько из ролей администраторов Azure AD: глобальный администратор, администратор привилегированных ролей, администратор Exchange Online и администратор SharePoint Online. Используйте руководство для включения [MFA для ваших учетных записей администратора](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) и зарегистрируйте всех этих пользователей на странице [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Более подробные сведения можно найти в шаге 2 и 3 руководства [по защите доступа к данным и службам в Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Требуйте прохождения Многофакторной идентификации Azure (MFA) при входе в систему для всех отдельных пользователей, которым постоянно назначена одна или несколько из ролей администраторов Azure AD: глобальный администратор, администратор привилегированных ролей, администратор Exchange Online и администратор SharePoint Online. Используйте руководство по включению [MFA для ваших учетных записей администратора](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) и зарегистрируйте всех этих пользователей на странице [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Более подробные сведения можно найти в шаге 2 и 3 руководства [по защите доступа к данным и службам в Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Этап 2. Устранение рисков наиболее часто используемых методов атак
 
@@ -176,9 +176,9 @@ Azure AD PIM входит в состав Azure AD Premium P2 и EMS E5. Эти 
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Получение оценки безопасности Office 365 (если используется Office 365)
 
-Оценка безопасности определяет, какие службы Office 365 вы используете (например, OneDrive, SharePoint и Exchange), затем просматривает ваши настройки и действия и сравнивает их с базовыми показателями, установленными Майкрософт. Вы получите оценку на основе степени соответствия рекомендациям по безопасности. Любой, у кого есть права администратора (глобальный администратор или пользовательская роль администратора) для подписки Office 365 Business Premium или Enterprise, может получить доступ к оценке безопасности по адресу [​​https://securescore.office.com](https://securescore.office.com/).
+Оценка безопасности определяет, какие службы Office 365 вы используете (например, OneDrive, SharePoint и Exchange), затем просматривает ваши настройки и действия и сравнивает их с базовыми показателями, установленными Майкрософт. Вы получите оценку на основе степени соответствия рекомендациям по безопасности. Любой, у кого есть права администратора (глобальный администратор или пользовательская роль администратора) для подписки "Office 365 бизнес премиум" или "Office 365 корпоративный", может получить доступ к оценке безопасности по адресу [https://securescore.office.com](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Ознакомление с руководством по обеспечению безопасности и соответствия Office 365 (при использовании Office365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Ознакомление с руководством по обеспечению безопасности и соответствия Office 365 (при использовании Office 365)
 
 План [для обеспечения безопасности и соответствия](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) описывает то, как клиент Office 365 должен настроить эту службу и использовать другие возможности EMS. Затем просмотрите шаги 3–6 руководства [Защита доступа к данным и службам в Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) и руководство по [отслеживанию безопасности и соответствия Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
@@ -201,7 +201,7 @@ Azure AD PIM входит в состав Azure AD Premium P2 и EMS E5. Эти 
 
 Используйте корпоративный портал и портал Azure для определения подписок в организации, в которых размещены рабочие приложения. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Удаление учетных записей Майкрософт, добавленных в роли администратора
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Удаление учетных записей Майкрософт, добавленных в роли администратора
 
 Учетные записи Майкрософт из других программ, таких как Xbox, Live и Outlook, не должны использоваться в качестве учетных записей администратора в подписках организации. Удалите статус администратора изо всех учетных записей Майкрософт и замените их на рабочую или учебную учетную запись Active Directory (например, chris@contoso.com).
 
@@ -318,7 +318,6 @@ MCAS позволяет вам анализировать файлы и уста
 * минимизировать риск, автоматизировать предотвращение угроз и обеспечить принудительное применение политики.
 
 Агент Cloud App Security SIEM интегрирует Cloud App Security с вашим сервером SIEM, чтобы обеспечить централизованный мониторинг оповещений и действий Office 365. Он запускается на вашем сервере, получает оповещения и действия из Cloud App Security и передает их на сервер SIEM. Дополнительные сведения см. в статье [Интеграция SIEM](https://docs.microsoft.com/cloud-app-security/siem).
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Этап 4. Дальнейшее укрепление защиты для упреждающего обнаружения угроз
 
@@ -438,16 +437,16 @@ MCAS позволяет вам анализировать файлы и уста
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* [Центр управления безопасностью Майкрософт. Безопасность продуктов](https://www.microsoft.com/trustcenter/security). Функции безопасности облачных продуктов и служб Майкрософт.
+* [Центр управления безопасностью Майкрософт. Безопасность продуктов](https://www.microsoft.com/en-us/trustcenter/security). Функции безопасности облачных продуктов и служб Майкрософт.
 
-* [Центр управления безопасностью Майкрософт. Соответствие нормативным требованиям](https://www.microsoft.com/trustcenter/compliance/complianceofferings). Комплексный набор предложений Майкрософт по обеспечению соответствия нормативным требованиям для облачных служб.
+* [Центр управления безопасностью Майкрософт. Соответствие нормативным требованиям](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings). Комплексный набор предложений Майкрософт по обеспечению соответствия нормативным требованиям для облачных служб.
 
-* [Руководство по проведению оценки угроз для безопасности](https://www.microsoft.com/trustcenter/guidance/risk-assessment). Управление требованиями к безопасности и соответствию для облачных служб Майкрософт.
+* [Руководство по проведению оценки угроз для безопасности](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment). Управление требованиями к безопасности и соответствию для облачных служб Майкрософт.
 
 ### <a name="other-ms-online-services"></a>Другие веб-службы Майкрософт 
 
-* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security). Intune обеспечивает управление мобильными устройствами, управление мобильными приложениями и возможности управления ПК из облака.
+* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security). Intune обеспечивает управление мобильными устройствами, управление мобильными приложениями и возможности управления ПК из облака.
 
-* [Средства обеспечения безопасности в Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security). Dynamics 365 — это облачное решение Майкрософт, которое сочетает возможности управления отношениями с клиентами (CRM) и планирования ресурсов предприятия (ERP).
+* [Средства обеспечения безопасности в Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security). Dynamics 365 — это облачное решение Майкрософт, которое сочетает возможности управления отношениями с клиентами (CRM) и планирования ресурсов предприятия (ERP).
 
  

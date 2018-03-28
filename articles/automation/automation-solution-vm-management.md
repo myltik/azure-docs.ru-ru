@@ -1,24 +1,18 @@
 ---
-title: "Решение для запуска и остановки виртуальных машин в нерабочее время (предварительная версия) | Документация Майкрософт"
-description: "Решение по управлению виртуальными машинами запускает и останавливает виртуальные машины Azure Resource Manager по расписанию и осуществляет упреждающий мониторинг с помощью Log Analytics."
+title: Решение для запуска и остановки виртуальных машин в нерабочее время (предварительная версия)
+description: Решение по управлению виртуальными машинами запускает и останавливает виртуальные машины Azure Resource Manager по расписанию и осуществляет упреждающий мониторинг с помощью Log Analytics.
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Решение для запуска и остановки виртуальных машин в нерабочее время (предварительная версия) в службе автоматизации Azure
 

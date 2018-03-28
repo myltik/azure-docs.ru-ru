@@ -1,11 +1,11 @@
 ---
-title: "Добавление соединителя OneDrive в приложения логики | Документация Майкрософт"
-description: "Обзор соединителя OneDrive с параметрами интерфейса API REST"
+title: Добавление соединителя OneDrive в приложения логики | Документация Майкрософт
+description: Обзор соединителя OneDrive с параметрами интерфейса API REST
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Начало работы с соединителем OneDrive
 Подключитесь к OneDrive для управления файлами, включая передачу, получение, удаление файлов и многое другое. 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/19/2018
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Если появится запрос на вход, введите учетные данные для входа, чтобы создать подключение. Дополнительные сведения о [создании подключения](connectors-create-api-onedrive.md#create-the-connection) см. в разделе выше. 
+    Если появится запрос на вход, введите учетные данные для входа, чтобы создать подключение. Дополнительные сведения о [ создании подключения ](connectors-create-api-onedrive.md#create-the-connection) см. в разделе выше. 
    
    > [!NOTE]
    > В этом примере приложение логики запускается при обновлении файла в выбранной папке. Чтобы увидеть результаты триггера, добавьте другое действие, которое отправляет сообщение электронной почты. Например, добавьте действие Office 365 Outlook *Отправить сообщение электронной почты* для отправки вам сообщения электронной почты после обновления файла. 

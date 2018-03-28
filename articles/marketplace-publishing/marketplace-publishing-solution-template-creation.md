@@ -1,11 +1,11 @@
 ---
-title: "Руководство по созданию шаблона решения для Marketplace | Документация Майкрософт"
-description: "Подробные инструкции по созданию, сертификации и развертыванию шаблона решения с поддержкой нескольких образов виртуальных машин для продажи в Azure Marketplace."
+title: Руководство по созданию шаблона решения для Marketplace | Документация Майкрософт
+description: Подробные инструкции по созданию, сертификации и развертыванию шаблона решения с поддержкой нескольких образов виртуальных машин для продажи в Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Руководство по созданию шаблона решения для Azure Marketplace
 Выполнив шаг 1 [Создание учетной записи разработчика Майкрософт][link-acct-creation], вы перейдете к статье [Технические компоненты, необходимые для создания шаблона решения для Azure Marketplace](marketplace-publishing-solution-template-creation-prerequisites.md) с инструкциями по созданию шаблона решения, совместимого с Azure. Рассмотрим процедуру создания шаблона решения для нескольких виртуальных машин на [портале публикации][link-pubportal] для Azure Marketplace.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Создание шаблона решения на портале публикации
-Откройте страницу [https://publish.windowsazure.com](http://publish.windowsazure.com). При первом входе в [портал публикации](https://publish.windowsazure.com/)укажите учетную запись, под которой зарегистрирован профиль продавца для вашей компании. Впоследствии вы сможете добавить в качестве соадминистратора на портале публикации любого сотрудника своей компании.
+Перейдите на сайт [https://publish.windowsazure.com](http://publish.windowsazure.com). При первом входе в [портал публикации](https://publish.windowsazure.com/)укажите учетную запись, под которой зарегистрирован профиль продавца для вашей компании. Впоследствии вы сможете добавить в качестве соадминистратора на портале публикации любого сотрудника своей компании.
 
 ### <a name="1-select-solution-templates"></a>1. Выберите "Шаблоны решений"
   ![рисунок][img-pubportal-menu-sol-templ]
@@ -37,9 +37,9 @@ ms.lasthandoff: 11/02/2017
 
 * Создайте топологию (как правило, в качестве имени топологии для шаблона решения используется "идентификатор топологии"). Идентификатор топологии включается в URL-адрес, как показано ниже.
 
-  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{пространство_имен_издателя}/{идентификатор_заказа}{идентификатор_топологии};
+  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  портал Azure: https://portal.azure.com/#gallery/{пространство_имен_издателя}.{идентификатор_заказа}{идентификатор_топологии}.
+  Портал Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Добавьте новую версию.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Сертифицируйте версии топологии

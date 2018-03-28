@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Общие сведения о перезагрузках виртуальной машины. Обслуживание и простой
 Есть три сценария, которые могут повлиять на работу виртуальной машины в Azure: незапланированное техническое обслуживание, незапланированный простой и запланированное техническое обслуживание.
 
@@ -15,7 +31,7 @@
 
 * [Настройка нескольких виртуальных машин в группе доступности для обеспечения избыточности]
 * [Использование управляемых дисков для виртуальных машин в группе доступности]
-* [Служба метаданных Azure. Запланированные события (предварительная версия)] https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Использование запланированных событий для упреждающей реакции на события, влияющие на виртуальную машину] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Настройка каждого уровня приложений в отдельных группах доступности]
 * [Объединение балансировщика нагрузки с группами доступности]
 * [Используйте зоны доступности, чтобы обеспечить защиту от сбоев на уровне центра обработки данных]

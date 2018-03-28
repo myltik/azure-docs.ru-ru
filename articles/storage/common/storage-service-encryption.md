@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Шифрование службы хранилища Azure для неактивных данных (предварительная версия)
 
@@ -62,17 +62,13 @@ ms.lasthandoff: 03/12/2018
 
 Ответ. Дополнительные затраты не требуются.
 
-**Вопрос. Кто управляет ключами шифрования?**
-
-Ответ. Ключами управляет корпорация Майкрософт.
-
 **Вопрос. Можно ли использовать собственные ключи шифрования?**
 
-Ответ. На данный момент нет.
+Ответ. Да, вы можете использовать собственные ключи шифрования. Дополнительные сведения см. в статье [Шифрование службы хранилища с помощью управляемых клиентом ключей в Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Вопрос. Можно ли отменить доступ к ключам шифрования?**
 
-Ответ. На данный момент нет. Ключами полностью управляет корпорация Майкрософт.
+Ответ. Да, если вы [используете собственные ключи шифрования](storage-service-encryption-customer-managed-keys.md) в Azure Key Vault.
 
 **Вопрос. Включено ли шифрование службы хранилища Azure по умолчанию при создании учетной записи хранения?**
 

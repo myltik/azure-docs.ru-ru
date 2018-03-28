@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Python | Документация Майкрософт"
-description: "В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Python, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере."
+title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Python | Документация Майкрософт
+description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Python, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью языка Python
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 02/24/2018
 
 Для работы с этим кратким руководством сделайте следующее: 
 * установите [Python](https://www.python.org/downloads/);
-* скачайте и установите [пакет SDK службы хранилища Azure для Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* скачайте и установите [пакет SDK службы хранилища Azure для Python](storage-python-how-to-use-blob-storage.md). 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -160,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Ресурсы для разработки приложений Python с большими двоичными объектами
+
+Ознакомьтесь со следующими дополнительными ресурсами для разработки Python с использованием хранилища BLOB-объектов:
+
+### <a name="binaries-and-source-code"></a>Двоичные файлы и исходный код
+
+- Просматривайте, скачивайте и устанавливайте [исходный код клиентской библиотеки Python](https://github.com/Azure/azure-storage-python) для службы хранилища Azure в GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Справочник по клиентской библиотеке и примеры
+
+- Подробные сведения о клиентской библиотеке Python см. в [справочнике по API-интерфейсу Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Изучите [примеры для хранилища BLOB-объектов](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob), написанные с использованием клиентской библиотеки Python.
 
 ## <a name="next-steps"></a>Дополнительная информация
  
@@ -168,5 +180,4 @@ os.remove(full_path_to_file2)
 > [!div class="nextstepaction"]
 > [Практическое руководство по операциям в хранилище BLOB-объектов](./storage-python-how-to-use-blob-storage.md)
  
-
 Дополнительные сведения об обозревателе объектов и BLOB-объектах см. в статье [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

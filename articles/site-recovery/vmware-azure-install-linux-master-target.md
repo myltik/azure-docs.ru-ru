@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
 После отработки отказа виртуальных машин в Azure для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. 
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/08/2018
 
 Создайте главный целевой сервер в соответствии со следующими рекомендациями по размеру.
 - **ОЗУ**: 6 ГБ или больше.
-- **Размер диска ОС**: 100 ГБ или больше (для установки CentOS 6.6).
+- **Размер диска ОС**: 100 ГБ или больше (для установки ОС).
 - **Дополнительное пространство для диска хранения**: 1 ТБ.
 - **Ядра ЦП**: 4 ядра или больше.
 
@@ -112,24 +112,31 @@ ms.lasthandoff: 03/08/2018
 
 1.  Выберите **Да** для записи изменений на диск, а затем нажмите клавишу **ВВОД**.
 
-1.  В окне выбора настроек прокси выберите параметр по умолчанию, выберите **Продолжить**, а затем нажмите клавишу **ВВОД**.
+    ![Выбор параметра по умолчанию](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Выбор параметра по умолчанию](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  В окне выбора настроек прокси выберите параметр по умолчанию, выберите **Продолжить**, а затем нажмите клавишу **ВВОД**.
+     
+     ![Выбор способа управления обновлениями](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  В окне выбора выберите параметр **No automatic updates** (Без автоматического обновления) для управления обновлениями в системе, а затем нажмите клавишу **ВВОД**.
 
-     ![Выбор способа управления обновлениями](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Выбор способа управления обновлениями](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Так как для главного целевого сервера Azure Site Recovery требуется специальная версия Ubuntu, необходимо убедиться, что на виртуальной машине отключено обновление ядра. Если оно включено, то какое-либо регулярное обновление приведет к неисправности главного целевого сервера. Убедитесь, что выбран параметр **No automatic updates** (Без автоматического обновления).
 
 1.  Выберите параметры по умолчанию. Если требуется использовать openSSH для SSH-подключения, выберите параметр **OpenSSH server** (Сервер OpenSSH) и нажмите кнопку **Продолжить**.
 
-    ![Выбор программного обеспечения](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Выбор программного обеспечения](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. В окне выбора установки загрузчика GRUB выберите **Да**, а затем нажмите клавишу **ВВОД**.
+     
+    ![Установщик загрузки GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Выберите соответствующее устройство для установки загрузчика (предпочтительно **/dev/sda**) и нажмите клавишу **ВВОД**.
+     
+    ![Выбор подходящего устройства](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Выберите **Продолжить** и нажмите клавишу **ВВОД**, чтобы завершить установку.
 
@@ -154,7 +161,7 @@ ms.lasthandoff: 03/08/2018
 
 4. В левой области выберите **Дополнительно** > **Общие**, а затем нажмите кнопку **Configuration Parameters** (Параметры конфигурации) в правой нижней части экрана.
 
-    ![Вкладка "Параметры"](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Открытие параметра конфигурации](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     Когда виртуальная машина работает, кнопка **Параметры конфигурации** неактивна. Чтобы она стала активной, завершите работу виртуальной машины.
 
@@ -168,7 +175,7 @@ ms.lasthandoff: 03/08/2018
 
     - В столбце имени добавьте **disk.EnableUUID** и выберите значение **TRUE**.
 
-    ![Проверка наличия параметра disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Проверка наличия параметра disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Отключение обновления ядра
 
@@ -244,7 +251,7 @@ ms.lasthandoff: 03/08/2018
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Создание файловой системы на диске](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Создание файловой системы на диске](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. После создания файловой системы подключите диск хранения.
 
@@ -252,7 +259,6 @@ ms.lasthandoff: 03/08/2018
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Подключение диска хранения](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Создайте запись **fstab**, чтобы диск хранения автоматически подключался при каждом запуске системы.
     

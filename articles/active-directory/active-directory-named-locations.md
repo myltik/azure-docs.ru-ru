@@ -1,8 +1,8 @@
 ---
-title: "Именованные расположения в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, что такое именованные расположения и как их настраивать."
+title: Настройка именованных расположений в Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить именованные расположения.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Именованные расположения в Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Настройка именованных расположений в Azure Active Directory
 
 С помощью именованных расположений можно пометить доверенные диапазоны IP-адресов в вашей организации. Именованные расположения в Azure Active Directory используются в следующих контекстах:
 
@@ -89,22 +89,14 @@ ms.lasthandoff: 02/09/2018
 
 
 
-## <a name="what-you-should-know"></a>Необходимая информация
-
-**Bulk updates** (Массовые обновления). При создании или обновлении именованных расположений для массовых обновлений можно передать или скачать CSV-файл с диапазонами IP-адресов. С помощью этого действия диапазоны IP-адресов из файла добавляются в список, и их не нужно переписывать.
-
-![Ссылки для передачи и скачивания](./media/active-directory-named-locations/09.png)
-
-
-**Ограничения.** Вы можете определить не более 60 именованных расположений, каждому из которых назначен один диапазон IP-адресов. Если у вас есть только одно настроенное именованное расположение, для него можно определить до 500 диапазонов IP-адресов.
-
-
 ## <a name="next-steps"></a>Дополнительная информация
 
-Дополнительная информация:
+Дополнительные сведения можно найти в разделе 
 
-- Список **событий риска** см. в статье о [События риска Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
-- Сведения об **условном доступе** см. в статье [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- [Условия расположения в условном доступе Azure Active Directory](active-directory-conditional-access-locations.md)
 
-- **Отчеты о событиях входа, представляющих риск**, см. [на портале Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [События риска Azure Active Directory](active-directory-reporting-risk-events.md)
+
+- [Отчет о событиях входа, представляющих риск, на портале Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)  

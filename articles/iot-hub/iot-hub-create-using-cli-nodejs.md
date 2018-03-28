@@ -1,11 +1,11 @@
 ---
-title: "Создание Центра Интернета вещей с помощью Azure CLI (azure.js) | Документация Майкрософт"
-description: "Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI (azure.js)."
+title: Создание Центра Интернета вещей с помощью Azure CLI (azure.js) | Документация Майкрософт
+description: Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI (azure.js).
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
 
@@ -88,7 +88,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**. Имя группы ресурсов. Может содержать 1–64 знака (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
-* **name**. Имя создаваемого Центра Интернета вещей. Может содержать 3–50 знаков (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
+* **name**. Имя создаваемого Центра Интернета вещей. Может содержать 3–50 знаков (буквы, цифры и дефисы). Регистр знаков не учитывается.
 * **location**. Расположение (регион или центр обработки данных Azure) для подготовки Центра Интернета вещей.
 * **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Наиболее актуальный и полный список доступен на странице цен на Центр Интернета вещей.
 * **units**. Количество подготовленных единиц. Диапазон: F1 [1]; S1, S2 [1–200]; S3 [1–10]. Единицы Центра Интернета вещей зависят от общего количества сообщений и количества устройств, к которым требуется подключаться.

@@ -1,24 +1,24 @@
 ---
-title: "Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory"
-description: "Известные проблемы с управляемым удостоверением службы для Azure Active Directory."
+title: Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory
+description: Известные проблемы с управляемым удостоверением службы для Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory
 
@@ -37,6 +37,10 @@ ms.lasthandoff: 03/08/2018
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Можно ли использовать MSI с библиотекой аутентификации Active Directory (ADAL) или библиотекой аутентификации Microsoft (MSAL)?
 
 Нет, MSI не еще интегрирован с ADAL или MSAL. Дополнительные сведения о том, как получить маркер MSI с использованием конечной точки MSI REST, см. в статье [Использование управляемого удостоверения службы (MSI) виртуальной машины Azure для получения маркера](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Что собой представляет периметр безопасности для управляемого удостоверения службы?
+
+Периметром безопасности удостоверения является ресурс, к которому оно подключено. Например, периметром безопасности для MSI виртуальной машины является виртуальная машина. В любом коде, выполняемом на этой виртуальной машине, можно вызвать конечную точку и маркеры запроса MSI. Этот принцип применяется и к другим ресурсам, которые поддерживают MSI.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Какие дистрибутивы Linux поддерживаются?
 

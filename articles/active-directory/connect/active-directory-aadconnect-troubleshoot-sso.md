@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Устранение неполадок с простым единым входом Azure Active Directory
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/08/2018
 - Простой единый вход не работает в конфиденциальном режиме просмотра в Firefox.
 - Простой единый вход не работает в Internet Explorer с включенным режимом повышенной защиты.
 - Простой единый вход не работает в браузерах на мобильных устройствах с iOS и Android.
+- Если пользователь входит в состав слишком большого количества групп в Active Directory, скорее всего, билет Kerberos этого пользователя будет слишком большим для обработки, что приведет к сбою простого единого входа. HTTPS-запросы Azure AD могут включать заголовки с максимальным размером 16 КБ. Размер билетов Kerberos должен быть гораздо меньше, чтобы можно было разместить другие артефакты Azure AD, такие как файлы cookie. Рекомендуем сократить количество членов в группах и повторить попытку.
 - При синхронизации 30 лесов Active Directory или больше простой единый вход через Azure AD Connect включить невозможно. Чтобы избежать этого, можно [вручную включить](#manual-reset-of-azure-ad-seamless-sso) эту функцию на своем клиенте.
 - Добавление URL-адреса службы Azure AD (https://autologon.microsoftazuread-sso.com) в зону "Надежные сайты" вместо зоны "Местная интрасеть" *блокирует вход пользователей*.
 - Отключение типа шифрования **RC4_HMAC_MD5** для протокола Kerberos в параметрах Active Directory нарушит работу простого единого входа. В редакторе "Управление групповыми политиками" убедитесь, что для параметра политики **RC4_HMAC_MD5** (щелкните **"Конфигурация компьютера" > "Параметры Windows" > "Параметры безопасности" > "Локальные политики" > "Параметры безопасности" > "Network Security: Configure encryption types allowed for Kerberos" (Сетевая безопасность: настройка типов шифрования, разрешенных для Kerberos)**) задано значению "Включено".

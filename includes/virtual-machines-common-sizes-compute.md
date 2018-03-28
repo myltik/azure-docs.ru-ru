@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 9602e8d73e5aca650dd20da34a9aa675b508ada7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/16/2018
+---
 <!-- F-series, Fs-series* -->
 
 Оптимизированные для вычислений размеры виртуальных машин отличаются высоким соотношением ресурсов ЦП и памяти и хорошо подходят для веб-серверов, сетевых устройств, серверов приложений и пакетных процессов со средним объемом трафика. Эта статья содержит сведения о количестве виртуальных ЦП, дисков данных и сетевых адаптеров, а также о пропускной способности хранилища и сети для каждого размера ВМ этой группы.
@@ -28,7 +44,7 @@ ACU: 195–210
 
 <sup>1</sup>Виртуальные машины серии FSv2 основаны на технологии Intel® Hyper-Threading
 
-<sup>2</sup> Для поддержки более 64 виртуальных ЦП требуется одна из следующих операционных систем: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 и Red Hat Enterprise Linux, CentOS 7.3 или Oracle Linux 7.3 с LIS 4.2.1
+<sup>2</sup> Для поддержки более 64 виртуальных ЦП требуется одна из следующих операционных систем: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 и Red Hat Enterprise Linux, CentOS 7.3 или Oracle Linux 7.3 с LIS 4.2.1.
 
 <sup>3</sup> Экземпляр изолирован на оборудовании, выделенном единственному заказчику.
 

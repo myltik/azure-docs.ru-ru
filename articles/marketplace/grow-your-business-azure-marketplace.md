@@ -1,24 +1,24 @@
 ---
-title: "Расширение бизнеса благодаря Azure Marketplace"
-description: "Пошаговое руководство и контрольный список по публикации в Azure Marketplace для новых издателей."
+title: Расширение бизнеса благодаря Azure Marketplace
+description: Пошаговое руководство и контрольный список по публикации в Azure Marketplace для новых издателей.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Расширение бизнеса благодаря Azure Marketplace
 
@@ -129,7 +129,8 @@ ms.lasthandoff: 03/02/2018
 >[!NOTE]
 >Единый каталог коммерческих партнеров (каталог OCP) является преимуществом членов в партнерской сети Microsoft Partner Network. 
 
-![Преимущества программы Marketplace GTM](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Преимущества программы Marketplace GTM](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Для получения поддержки посетите страницу [с данными о выходе на рынок Майкрософт](https://www.microsoftgotomarket.com). Здесь вы можете найти шаблоны, веб-содержимое, обучение и средства для продвижения вашего бизнеса.
 

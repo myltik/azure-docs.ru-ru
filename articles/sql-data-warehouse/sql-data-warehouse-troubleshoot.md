@@ -1,25 +1,24 @@
 ---
-title: "Устранение неполадок хранилища данных SQL Azure | Документация Майкрософт"
-description: "Диагностика и устранение неполадок хранилища данных SQL Azure."
+title: Устранение неполадок хранилища данных SQL Azure | Документация Майкрософт
+description: Диагностика и устранение неполадок хранилища данных SQL Azure.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Устранение неполадок хранилища данных SQL Azure
 В этом разделе рассмотрены общие вопросы наших клиентов об устранении неполадок.
@@ -60,7 +59,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="polybase"></a>PolyBase
 | Проблема | Способы устранения: |
 |:--- |:--- |
-| Ошибка загрузки из-за большого размера строк |В настоящее время для Polybase не поддерживаются строки большого размера.  Таким образом, если ваша таблица содержит данные типа VARCHAR(MAX), NVARCHAR(MAX) или VARBINARY(MAX), для их загрузки нельзя использовать внешние таблицы.  Строки больших размеров можно загружать только с помощью фабрики данных Azure (с использованием BCP), Azure Stream Analytics, служб SSIS, программы BCP или класса .NET SQLBulkCopy. Поддержка строк большого размера для PolyBase будет добавлена в будущем выпуске. |
+| Ошибка загрузки из-за большого размера строк |В настоящее время для Polybase не поддерживаются строки большого размера.  Таким образом, если ваша таблица содержит данные типа VARCHAR(MAX), NVARCHAR(MAX) или VARBINARY(MAX), для их загрузки нельзя использовать внешние таблицы.  Строки больших размеров можно загружать только с помощью фабрики данных Azure (с использованием BCP), Azure Stream Analytics, Integration Services, программы BCP или класса .NET SQLBulkCopy. Поддержка строк большого размера для PolyBase будет добавлена в будущем выпуске. |
 | Ошибка загрузки таблицы с типом данных MAX с использованием BCP |Это известная проблема. Для ее решения в некоторых сценариях нужно поместить данные VARCHAR(MAX), NVARCHAR(MAX) или VARBINARY(MAX) в конец таблицы.  Попытайтесь переместить столбцы с типом данных MAX в конец таблицы. |
 
 ## <a name="differences-from-sql-database"></a>Отличия от базы данных SQL
@@ -74,7 +73,7 @@ ms.lasthandoff: 12/18/2017
 | Определяемые пользователем функции не поддерживают инструкции SELECT |Это текущее ограничение определяемых пользователем функций.  Сведения о поддерживаемом синтаксисе см. в статье, посвященной инструкции [CREATE FUNCTION][CREATE FUNCTION]. |
 
 ## <a name="next-steps"></a>Дополнительная информация
-Если не удалось найти решение для приведенной выше проблемы, то можно ознакомиться со следующими ресурсами, которые могут помочь.
+Ниже перечислены некоторые ресурсы, которые можно использовать для поиска решения вашей проблемы.
 
 * [Блоги]
 * [Запросы функций]
@@ -113,7 +112,7 @@ ms.lasthandoff: 12/18/2017
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

@@ -1,21 +1,21 @@
 ---
-title: "Привязки Microsoft Graph для службы \"Функции Azure\""
-description: "Узнайте, как использовать триггеры и привязки Microsoft Graph в решении \"Функции Azure\"."
+title: Привязки Microsoft Graph для службы "Функции Azure"
+description: Узнайте, как использовать триггеры и привязки Microsoft Graph в решении "Функции Azure".
 services: functions
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Привязки Microsoft Graph для службы "Функции Azure"
 
@@ -33,7 +33,13 @@ ms.lasthandoff: 02/27/2018
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Привязки Microsoft Graph сейчас доступны в предварительной версии.
+> Привязки Microsoft Graph сейчас доступны в предварительной версии для Функций Azure версии 2.x. Они не поддерживаются в Функциях версии 1.x.
+
+## <a name="packages"></a>Пакеты
+
+Входная привязка маркера проверки подлинности содержится в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/). Другие привязки Microsoft Graph содержатся в пакете [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/). Исходный код для пакетов находится в репозитории GitHub [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Настройка расширений
 
@@ -54,9 +60,7 @@ ms.lasthandoff: 02/27/2018
 > [!Note] 
 > В рамках плана потребления процесс установки на портале может занять до 10 минут.
 
-Если используется Visual Studio, вы можете получить расширения, установив следующие пакеты NuGet:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/);
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Если используется Visual Studio, вы можете получить расширения, установив [пакеты NuGet, указанные выше в этой статье](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Настройка аутентификации или авторизации
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Атрибуты маркера проверки подлинности
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs).
 
 ### <a name="auth-token---configuration"></a>Настройка маркера проверки подлинности
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Атрибуты входной привязки Excel
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs).
 
 ### <a name="excel-input---configuration"></a>Конфигурация входной привязки Excel
 
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Атрибуты выходной привязки Excel
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs).
 
 ### <a name="excel-output---configuration"></a>Конфигурация выходной привязки Excel
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Атрибуты входной привязки файла
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs).
 
 ### <a name="file-input---configuration"></a>Конфигурация входной привязки файла
 
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Атрибуты выходной привязки файла
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs).
 
 ### <a name="file-output---configuration"></a>Конфигурация выходной привязки файла
 
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Атрибуты выходной привязки Outlook
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs).
 
 ### <a name="outlook-output---configuration"></a>Конфигурация выходной привязки Outlook
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Атрибуты триггера веб-перехватчика
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs).
 
 ### <a name="webhook-trigger---configuration"></a>Конфигурация триггера веб-перехватчика
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Атрибуты входной привязки веб-перехватчика
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
 
 ### <a name="webhook-input---configuration"></a>Конфигурация входной привязки веб-перехватчика
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Атрибуты выходной привязки веб-перехватчика
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
 
 ### <a name="webhook-output---configuration"></a>Конфигурация выходной привязки веб-перехватчика
 
