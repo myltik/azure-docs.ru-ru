@@ -1,34 +1,32 @@
 ---
-title: "Квоты Azure Data Lake Analytics | Документация Майкрософт"
-description: "Узнайте, как настроить или увеличить квоту в учетных записях Azure Data Lake Analytics (ADLA)."
+title: Квота Azure Data Lake Analytics
+description: Узнайте, как настроить или увеличить квоту в учетных записях Azure Data Lake Analytics (ADLA).
 services: data-lake-analytics
-keywords: "Аналитика озера данных Azure"
-documentationcenter: 
+keywords: Аналитика озера данных Azure
+documentationcenter: ''
 author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/18/2017
+ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 957f306ea0e80b5830ad64e5ef06c6d122d9eccc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Квота Azure Data Lake Analytics
 
-Узнайте, как настроить или увеличить квоту в учетных записях Azure Data Lake Analytics (ADLA). Зная ее ограничения, вы сможете понять поведение задания U-SQL. Все квоты являются мягкими, то есть вы всегда можете увеличить максимальное ограничение, направив нам соответствующий запрос.
+Узнайте, как настроить или увеличить квоту в учетных записях Azure Data Lake Analytics (ADLA). Зная ее ограничения, вы сможете понять поведение задания U-SQL. Все квоты являются мягкими, то есть максимальное ограничение можно увеличить, обратившись в службу поддержки Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Ограничения подписок Azure
 
 **Максимальное количество учетных записей Azure Data Lake Analytics в одной подписке:** 5.
 
- Это максимальное число учетных записей Azure Data Lake Analytics, которые можно создать, на подписку. Если вы попытаетесь создать шестую учетную запись Azure Data Lake Analytics, то увидите сообщение о том, что достигнуто максимальное количество учетных записей Data Lake Analytics (5) для текущего региона и подписки. Вы можете удалить неиспользуемые учетные записи ADLA или [отправить запрос в службу поддержки](#increase-maximum-quota-limits).
+Это максимальное число учетных записей Azure Data Lake Analytics, которые можно создать в одной подписке в одном регионе. Если вы попытаетесь создать шестую учетную запись Azure Data Lake Analytics, то увидите сообщение о том, что достигнуто максимальное количество учетных записей Data Lake Analytics (5) для текущего региона и подписки. В этом случае можно выбрать другой регион, удалить все неиспользуемые учетные записи ADLA в том же регионе или [отправить в службу поддержки Azure запрос](#increase-maximum-quota-limits) на увеличение квоты.
 
 ## <a name="adla-account-limits"></a>Ограничения учетной записи Azure Data Lake Analytics
 
@@ -50,24 +48,24 @@ ms.lasthandoff: 10/11/2017
 3. Щелкните **Свойства**.
 4. Настройте значения параметров **Параллелизм** и **Параллельные задания** с учетом своих потребностей.
 
-    ![Аналитика озера данных Azure: колонка на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+    ![Azure Data Lake Analytics: страница на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
 
 ## <a name="increase-maximum-quota-limits"></a>Увеличение максимальной квоты
 
-1. Откройте запрос на поддержку на портале Azure.
+1. Создайте запрос на поддержку на портале Azure.
 
-    ![Аналитика озера данных Azure: колонка на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+    ![Azure Data Lake Analytics: страница на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Аналитика озера данных Azure: колонка на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+    ![Azure Data Lake Analytics: страница на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 2. Для типа проблемы укажите **Квота**.
 3. Выберите **подписку**, которая не является пробной.
 4. Выберите тип квоты **Data Lake Analytics**.
 
-    ![Аналитика озера данных Azure: колонка на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+    ![Azure Data Lake Analytics: страница на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. В колонке "Проблема" опишите необходимые увеличения квоты, а в поле **Сведения** укажите причины для такого увеличения.
+5. На странице проблемы опишите необходимое увеличение квоты, а в поле **Сведения** укажите причины для такого увеличения.
 
-    ![Аналитика озера данных Azure: колонка на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+    ![Azure Data Lake Analytics: страница на портале](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. Проверьте введенные контактные данные и создайте запрос в службу поддержки.
 

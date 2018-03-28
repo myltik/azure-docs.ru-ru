@@ -1,8 +1,8 @@
 ---
-title: "Запись выражений для сопоставления атрибутов в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как использовать сопоставление выражений для преобразования значений атрибутов в допустимый формат при автоматической подготовке объектов приложения SaaS в Azure Active Directory."
+title: Запись выражений для сопоставления атрибутов в Azure Active Directory | Документация Майкрософт
+description: Узнайте, как использовать сопоставление выражений для преобразования значений атрибутов в допустимый формат при автоматической подготовке объектов приложения SaaS в Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Запись выражений для сопоставления атрибутов в Azure Active Directory
 При настройке подготовки для приложения SaaS одним из типов сопоставления атрибутов, которые можно указать, является сопоставление выражений. Для этого необходимо написать выражение, похожее на скрипт. Оно позволит вам преобразовать данные пользователей в форматы, более подходящие для приложений SaaS.
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/16/2018
 | ИМЯ | Обязательно/повторяется | type | Заметки |
 | --- | --- | --- | --- |
 | **источник** |Обязательно |Строка |Как правило, имя атрибута из исходного объекта. |
-| **входной_формат** |Обязательно |Строка |Предполагаемый формат исходного значения. Список поддерживаемых форматов см. на странице [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **входной_формат** |Обязательно |Строка |Предполагаемый формат исходного значения. Поддерживаемые форматы см. по адресу [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **выходной_формат** |Обязательно |Строка |Формат вывода даты. |
 
 - - -
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/16/2018
 | ИМЯ | Обязательно/повторяется | type | Заметки |
 | --- | --- | --- | --- |
 | **разделитель** |Обязательно |Строка |Строка, используемая для разделения исходных значений, когда они объединяются в одну строку. Если разделитель не требуется, может не иметь значения (""). |
-| ** source1  … sourceN ** |Обязательно, количество повторов может меняться |Строка |Строковые значения для объединения. |
+| **source1  … sourceN ** |Обязательно, количество повторов может меняться |Строка |Строковые значения для объединения. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/16/2018
 
 - - -
 ### <a name="replace"></a>Замените
-**Функция:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Функция:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Описание.**<br>
 Заменяет значения в пределах строки. Ее работа зависит от указанных параметров.
@@ -119,13 +119,13 @@ ms.lasthandoff: 01/16/2018
 * Если указаны параметры **oldValue** и **template**:
   
   * заменяет все экземпляры **oldValue** в **template** значением **source**.
-* Если указаны параметры **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**:
+* Если указаны параметры **regexPattern**, **regexGroupName**, **replacementValue**:
   
   * заменяет все значения, сопоставимые с шаблоном старого значения регулярного выражения в исходной строке, значением замены.
-* Если указаны параметры **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**:
+* Если указаны параметры **regexPattern**, **regexGroupName**, **replacementPropertyName**:
   
-  * Если **source** имеет значение, возвращает **source**.
-  * Если **source** не имеет значения, используется **oldValueRegexPattern** и **oldValueRegexGroupName** для извлечения значения замены из свойства с **replacementPropertyName**. В качестве результата возвращается значение замены.
+  * Если для **source** не указано значение, возвращается **source**.
+  * Если для **source** не указано значение, используется **regexPattern** и **regexGroupName** для извлечения значения замены из свойства с **replacementPropertyName**. В качестве результата возвращается значение замены.
 
 **Параметры:**<br> 
 
@@ -213,6 +213,17 @@ ms.lasthandoff: 01/16/2018
 * **ВВОД** : (givenName): "John"
 * **ВВОД** : (surname): "Doe"
 * **Выходные данные**: "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Удаление диакритических знаков из строки и преобразование символов в нижний регистр
+Необходимо удалить специальные символы из строки и преобразовать символы верхнего регистра в нижний.
+
+**Выражение:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Пример ввода и вывода:** <br>
+
+* **Входные данные** (givenName): "Zoë".
+* **Выходные данные**: "zoe".
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Вывод даты в виде строки в определенном формате
 Необходимо отправить в приложение SaaS даты в определенном формате. <br>

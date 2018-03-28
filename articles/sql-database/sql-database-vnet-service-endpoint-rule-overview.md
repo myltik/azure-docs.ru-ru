@@ -1,27 +1,20 @@
 ---
-title: "Конечные точки службы и правила виртуальной сети для базы данных SQL Azure | Документация Майкрософт"
-description: "Пометьте подсеть как конечную точку службы виртуальной сети. Затем внесите конечную точку в виде правила виртуальной сети в список управления доступом к базе данных SQL Azure. После этого база данных SQL будет принимать подключения от всех виртуальных машин и других узлов в этой подсети."
+title: Конечные точки службы и правила виртуальной сети для базы данных SQL Azure | Документация Майкрософт
+description: Пометьте подсеть как конечную точку службы виртуальной сети. Затем внесите конечную точку в виде правила виртуальной сети в список управления доступом к базе данных SQL Azure. После этого база данных SQL будет принимать подключения от всех виртуальных машин и других узлов в этой подсети.
 services: sql-database
-documentationcenter: 
+ms.service: sql-database
 author: MightyPen
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
-ms.service: sql-database
 ms.custom: VNet Service endpoints
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure
 
@@ -237,6 +230,12 @@ PolyBase часто используют для загрузки данных в
 
 Создать правила виртуальной сети можно также с помощью сценария PowerShell. Для этого используется командлет **New-AzureRmSqlServerVirtualNetworkRule**. Если вам это интересно, ознакомьтесь с разделом [Создание конечной точки службы и правила виртуальной сети для базы данных SQL Azure с помощью PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### <a name="rest-api-alternative"></a>Альтернативный REST API
+
+На внутреннем уровне командлеты PowerShell для действий виртуальной сети SQL вызывают REST API. REST API можно вызывать напрямую.
+
+- [Virtual Network Rules][rest-api-virtual-network-rules-operations-862r] (Правила виртуальной сети)
+
 #### <a name="prerequisites"></a>предварительным требованиям
 
 Необходима подсеть, помеченная определенным *именем типа* конечной точки службы виртуальной сети, относящимся к базе данных SQL Azure.
@@ -296,6 +295,8 @@ PolyBase часто используют для загрузки данных в
 ## <a name="next-steps"></a>Дополнительная информация
 
 - [Создание конечной точки службы и правила виртуальной сети для базы данных SQL Azure с помощью PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Правила виртуальной сети: операции][rest-api-virtual-network-rules-operations-862r] с REST API
+
 
 
 <!-- Link references, to images. -->
@@ -336,6 +337,7 @@ PolyBase часто используют для загрузки данных в
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

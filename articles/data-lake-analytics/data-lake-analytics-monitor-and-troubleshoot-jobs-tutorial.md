@@ -1,8 +1,8 @@
 ---
-title: "Устранение неполадок с заданиями Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных. "
+title: Устранение неполадок с заданиями Azure Data Lake Analytics с помощью портала Azure | Документация Майкрософт
+description: 'Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure
-Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Устранение неполадок с заданиями Azure Data Lake Analytics с помощью портала Azure
+Узнайте, как использовать портал Azure для устранения неполадок с заданиями Data Lake Analytics.
 
-При прохождении этого учебника вы смоделируете проблему с отсутствующим исходным файлом и устраните ее с помощью портала Azure.
+Работая с этим руководством, вы смоделируете проблему с отсутствующим исходным файлом и устраните ее с помощью портала Azure.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Отправка задания аналитики озера данных
 
@@ -62,7 +62,7 @@ OUTPUT @searchlog
 3. Щелкните элемент **Управление заданиями** для просмотра заданий. Задания делятся на три категории: **Выполняется**, **В очереди** и **Завершено**. Задание, завершившееся сбоем, будет отображено в разделе **Завершено** . Оно должно быть первым в списке. При наличии большого числа заданий можно щелкнуть **Фильтр** , чтобы упростить их поиск.
 
     ![Аналитика озера данных Azure: фильтрация заданий](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Щелкните невыполненное задание из списка, чтобы открыть сведения о задании в новой колонке:
+4. Щелкните невыполненное задание из списка, чтобы открыть сведения о задании:
 
     ![Аналитика озера данных Azure: невыполненное задание](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 

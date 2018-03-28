@@ -1,6 +1,6 @@
 ---
-title: "Включение SSL в кластере Azure Machine Learning Compute (MLC) | Документация Майкрософт"
-description: "Инструкции по настройке SSL для вызовов оценки в кластере Azure Machine Learning Compute (MLC)"
+title: Включение SSL в кластере Azure Machine Learning Compute (MLC) | Документация Майкрософт
+description: Инструкции по настройке SSL для вызовов оценки в кластере Azure Machine Learning Compute (MLC)
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Включение SSL в кластере Azure Machine Learning Compute (MLC) 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 
 После выполнения предварительных требований у вас будут два файла:
 
-* файл для сертификата, например `cert.pem`;
+* Файл для сертификата, например `cert.pem`. Файл должен содержать полную цепочку сертификатов.
 * файл для ключа, например `key.pem`.
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Сопоставление CNAME и IP-адреса
 
-Создайте сопоставление между именем CNAME, выбранном в разделе предварительных требований, и IP-адресом внешнего интерфейса в режиме реального времени (FE). Чтобы узнать IP-адрес FE, запустите приведенную ниже команду. В выходных данных появится поле с именем publicIpAddress, которое содержит IP-адрес внешнего интерфейса кластера в режиме реального времени. Чтобы настроить запись CNAME, см. инструкции вашего поставщика DNS.
+Создайте сопоставление между именем CNAME, выбранном в разделе предварительных требований, и IP-адресом внешнего интерфейса в режиме реального времени (FE). Чтобы узнать IP-адрес FE, запустите приведенную ниже команду. В выходных данных появится поле с именем publicIpAddress, которое содержит IP-адрес внешнего интерфейса кластера в режиме реального времени. Чтобы настроить FQDN, используемое в CNAME для общедоступного IP-адреса, см. инструкции поставщика DNS.
 
 
 

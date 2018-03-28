@@ -1,9 +1,9 @@
 ---
-title: "Обзор метрик в Microsoft Azure | Документация Майкрософт"
-description: "Обзор метрик и их использования в Microsoft Azure"
+title: Обзор метрик в Microsoft Azure | Документация Майкрософт
+description: Обзор метрик и их использования в Microsoft Azure
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Обзор метрик в Microsoft Azure
 Из этой статьи вы узнаете, что такое метрики в Microsoft Azure, какими преимуществами они обладают и как ими пользоваться.  
@@ -116,7 +116,7 @@ Azure Monitor также имеет новые метрики построени
 
  ![Метрики и правила генерации оповещений в Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Оповещения практически в реальном времени (предварительная версия). Они могут отслеживать несколько метрик и пороговые значения ресурса, а затем отправлять вам уведомления с помощью [группы действий](/monitoring-action-groups.md). Дополнительные сведения об оповещениях на основе метрик практически в реальном времени см. [здесь](https://aka.ms/azuremonitor/near-real-time-alerts).
+Оповещения практически в реальном времени (предварительная версия). Они могут отслеживать несколько метрик и пороговые значения ресурса, а затем отправлять вам уведомления с помощью [группы действий](/monitoring-action-groups.md). Дополнительные сведения об оповещениях на основе метрик почти в реальном времени см. [здесь](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Автомасштабирование ресурсов Azure

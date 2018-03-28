@@ -1,11 +1,11 @@
 ---
-title: "Локальное создание образа виртуальной машины для Azure Marketplace | Документация Майкрософт"
-description: "Узнайте и выполните действия по созданию локального образа виртуальной машины, а затем разверните его в Azure Marketplace и сделайте доступным для покупки."
+title: Локальное создание образа виртуальной машины для Azure Marketplace | Документация Майкрософт
+description: Узнайте и выполните действия по созданию локального образа виртуальной машины, а затем разверните его в Azure Marketplace и сделайте доступным для покупки.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Локальная разработка образа виртуальной машины для Azure Marketplace
 Настоятельно рекомендуется разрабатывать виртуальные жесткие диски (VHD) Azure прямо в облаке, используя для этого протокол удаленного рабочего стола. Однако при необходимости вы можете загрузить VHD и выполнить разработку в локальной инфраструктуре.  
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/21/2018
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Например: Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+Например, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
 
 > [!NOTE]
 > Командлет **Save-AzureVhd** также имеет параметр **NumberOfThreads**, позволяющий улучшить параллелизм и добиться оптимального использования доступной пропускной способности для загрузки.

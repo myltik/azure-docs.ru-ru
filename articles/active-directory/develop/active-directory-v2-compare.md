@@ -1,11 +1,11 @@
 ---
-title: "Чем отличается конечная точка Azure AD версии 2.0? | Документация Майкрософт"
-description: "Сравнение первоначальной версии Azure AD и конечных точек версии 2.0."
+title: Чем отличается конечная точка Azure AD версии 2.0? | Документация Майкрософт
+description: Сравнение первоначальной версии Azure AD и конечных точек версии 2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>В чем отличия конечной точки версии 2.0?
 Если вы знакомы с Azure Active Directory или интегрировали приложения с Azure AD в прошлом, то можете столкнуться с некоторыми неожиданными отличиями в конечной точке версии 2.0.  Они описаны в этом документе.

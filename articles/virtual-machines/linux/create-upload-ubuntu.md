@@ -1,8 +1,8 @@
 ---
-title: "Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure"
-description: "Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Ubuntu Linux."
+title: Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure
+description: Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Ubuntu Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
 manager: timlt
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2f4983f918eccd2ae1adb4ec2c88133465f47e07
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4c49cbefafe71646ba08dd049baf50ff04463fdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Подготовка виртуальной машины Ubuntu для Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -40,11 +40,11 @@ ms.lasthandoff: 01/22/2018
 * Формат VHDX не поддерживается в Azure, поддерживается только **фиксированный VHD**.  Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd.
 * При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. Для дисков данных можно использовать [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов.  Дополнительные сведения описаны далее.
-* Все VHD-диски должны иметь размер, кратный 1 МБ.
+* Размер виртуальной памяти всех VHD в Azure должен быть округлен до 1 МБ. При конвертации диска в формате RAW в виртуальный жесткий диск убедитесь, что размер диска RAW в несколько раз превышает 1 МБ. См. дополнительные сведения в [примечаниях по установке Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="manual-steps"></a>Создание вручную
 > [!NOTE]
-> Прежде чем создавать собственный образ Ubuntu для Azure, рассмотрите возможность применения предварительно созданных и проверенных образов с сайта [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) .
+> Прежде чем создавать собственный образ Ubuntu для Azure, попробуйте использовать предварительно созданные и проверенные образов с сайта [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/).
 > 
 > 
 

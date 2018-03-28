@@ -1,42 +1,63 @@
 ---
-title: "Создание определений для приложений логики с помощью JSON в Azure Logic Apps | Документация Майкрософт"
-description: "Сведения о добавлении параметров, обработке строк, создании сопоставлений параметров и получении данных с помощью функций данных."
+title: Создание, редактирование и расширение JSON для определений в Azure Logic Apps | Документация Майкрософт
+description: Создание и настройка определений в формате JSON для приложений логики
 author: ecfan
-manager: anneta
-editor: 
+manager: SyntaxC4
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>Создание определений для приложений логики с помощью JSON
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Создание, редактирование и настройка JSON для определений в приложениях логики
 
-Чтобы выполнять более сложные задачи с [Azure Logic Apps](../logic-apps/logic-apps-overview.md), можно использовать представление кода для изменения определения приложения логики, которое использует простой и декларативный язык JSON. Сначала ознакомьтесь с разделом [Создание приложения логики](../logic-apps/quickstart-create-first-logic-app-workflow.md), если вы еще этого не сделали. Вы также можете просмотреть [полные справочные материалы по языку определения рабочего процесса](http://aka.ms/logicappsdocs).
+При создании корпоративных решений по интеграции с автоматизированными рабочими процессами на основе [Azure Logic Apps](../logic-apps/logic-apps-overview.md) для описания и проверки определений используется простой декларативный язык JSON (JavaScript Object Notation) и [схема WDL (языка определения рабочего процесса)](../logic-apps/logic-apps-workflow-definition-language.md). Эти форматы позволяют легко читать и понимать определения приложений логики даже без глубоких знаний о программировании. Если вы хотите автоматизировать создание и развертывание приложений логики, включите определения приложений логики в [шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) в качестве [ресурсов Azure](../azure-resource-manager/resource-group-overview.md). Тогда вы сможете создавать приложения логики, управлять ими и развертывать их с помощью [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) или [интерфейсов API REST для Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+
+Вы можете открыть определения приложений логики в формате JSON, используя редактор представления кода на портале Azure или в Visual Studio, или любой другой текстовый редактор. Если вы пока не знакомы с приложениями логики, изучите статью [о создании первого приложения логики](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Некоторые возможности Azure Logic Apps, такие как параметры, доступны только при работе с определения приложения логики в представлении кода. Параметры позволяют многократно использовать значения во всем приложении логики. Например, если вы хотите использовать тот же адрес электронной почты в нескольких действиях, можно задать его как параметр.
+> Некоторые возможности Azure Logic Apps, например определение параметров и множественные триггеры, можно включить в определения только напрямую через JSON, но нельзя использовать в конструкторе Logic Apps. Если вам нужны эти функции, используйте представление кода или другой текстовый редактор.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Просмотр и изменение определения приложения логики в JSON-файле
+## <a name="edit-json---azure-portal"></a>Редактирование JSON на портале Azure
 
-1. Войдите на [портал Azure](https://portal.azure.com "Портал Azure").
+1. Войдите на <a href="https://portal.azure.com" target="_blank">портале Azure</a>.
 
-2. В меню слева выберите **Больше служб**. В разделе **Интеграция Enterprise** выберите **Приложения логики**. Выберите приложение логики.
+2. В меню слева выберите **Все службы**. В поле поиска введите строку "приложения логики" и выберите нужное приложение в результатах поиска.
 
-3. Из меню приложения логики в разделе **Средства разработки** выберите **Представление кода приложения логики**.
+3. В меню для этого приложения логики откройте раздел **Средства разработки** и выберите **Представление кода приложения логики**.
 
-   Окно представления кода откроется с отображением определения приложения логики.
+   Откроется окно представления кода, в котором вы увидите определения приложения логики в формате JSON.
+
+## <a name="edit-json---visual-studio"></a>Редактирование JSON в Visual Studio
+
+Прежде чем редактировать определения приложений логики в Visual Studio, следует [установить все необходимые средства](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Чтобы создать приложение логики в Visual Studio, воспользуйтесь [кратким руководством по автоматизации задач и процессов с помощью Azure Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+Visual Studio позволяет открыть приложения логики, которые были созданы и развернуты напрямую через портал Azure или из Visual Studio в виде проектов Azure Resource Manager.
+
+1. Откройте решение Visual Studio или проект [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md), который содержит нужное приложение логики.
+
+2. Найдите и откройте определение приложения логики. По умолчанию они содержатся в [шаблоне диспетчера ресурсов](../azure-resource-manager/resource-group-overview.md#template-deployment) под именем **LogicApp.json**. Вы можете применять и корректировать этот шаблон для развертывания в разных средах.
+
+3. Откройте контекстное меню для определения и шаблона приложения логики. Выберите действие **Открыть в конструкторе приложений логики**.
+
+   ![Открытие приложения логики в решении Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. В нижней части конструктора выберите **Представление кода**. 
+
+   Откроется окно представления кода, в котором вы увидите определения приложения логики в формате JSON.
+
+5. Чтобы вернуться в представление конструктора, в нижней части редактора представления кода, выберите **Конструктор**.
 
 ## <a name="parameters"></a>Параметры
 

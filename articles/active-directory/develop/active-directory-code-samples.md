@@ -1,11 +1,11 @@
 ---
-title: "Примеры кода Azure Active Directory | Документация Майкрософт"
-description: "Список примеров кода Azure Active Directory, сгруппированных по сценарию."
+title: Примеры кода Azure Active Directory | Документация Майкрософт
+description: Список примеров кода Azure Active Directory, сгруппированных по сценарию.
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Примеры кода Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ ms.lasthandoff: 02/28/2018
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Использование OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей клиента Azure AD. |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Мультитенантное веб-приложение .NET MVC, которое использует OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей нескольких клиентов Azure AD. |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |Использование OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей клиента Azure AD. |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |Веб-приложение .NET MVC, которое использует OpenID Connect для входа пользователей с единого клиента Azure Active Directory (Azure AD) с помощью ПО промежуточного слоя ASP.NET Core OpenID Connect. |
 
 ## <a name="single-page-application-spa"></a>Одностраничное приложение (SPA)
 В этом примере показано, как создать одностраничное приложение, защищенное с помощью Azure AD.  

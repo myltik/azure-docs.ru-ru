@@ -1,11 +1,11 @@
 ---
-title: "Нетехнические предварительные требования, необходимые для создания предложения в Azure Marketplace | Документация Майкрософт"
-description: "Ознакомьтесь с требованиями по созданию и развертыванию предложения Azure Marketplace, предназначенного для продажи другим пользователям."
+title: Нетехнические предварительные требования, необходимые для создания предложения в Azure Marketplace | Документация Майкрософт
+description: Ознакомьтесь с требованиями по созданию и развертыванию предложения Azure Marketplace, предназначенного для продажи другим пользователям.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5c30e62bf345843fe83b3f17b728e1a937d19ce3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Общие предварительные требования для создания предложения в Azure Marketplace
 Эта статья содержит общие предварительные относящиеся к бизнес-процессу требования, которые необходимы для создания предложения.
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>Получение подписки Azure с оплатой по мере использования
-Эта подписка будет использоваться для создания образов виртуальных машин и передачи образов в [Azure Marketplace](https://azure.microsoft.com/marketplace/). Если у вас нет подписки, войдите в систему по адресу https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+Эта подписка будет использоваться для создания образов виртуальных машин и передачи образов в [Azure Marketplace](https://azure.microsoft.com/marketplace/). Если у вас нет подписки, зарегистрируйтесь здесь: https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## <a name="sell-from-countries"></a>Допустимые страны продаж
 > [!WARNING]

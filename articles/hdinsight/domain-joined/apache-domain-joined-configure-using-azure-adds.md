@@ -1,12 +1,12 @@
 ---
-title: "Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory — Azure | Документация Майкрософт"
-description: "Узнайте, как установить и настроить кластеры HDInsight, присоединенные к домену, с помощью доменных служб Azure Active Directory."
+title: Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory — Azure | Документация Майкрософт
+description: Узнайте, как установить и настроить кластеры HDInsight, присоединенные к домену, с помощью доменных служб Azure Active Directory.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory
 
@@ -56,6 +56,9 @@ ms.lasthandoff: 02/21/2018
 - **Подразделение**. Уникальное имя подразделения, которое необходимо использовать с кластером HDInsight. Например: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. Если такого подразделения не существует, кластер HDInsight попытается создать его. 
 - **LDAPS URL** (URL-адрес LDAPS). Например, ldaps://contoso.onmicrosoft.com:636.
 - **Access user group** (Группа пользователей с доступом). Группы безопасности, пользователей которых нужно синхронизировать с кластером. Например, HiveUsers. Чтобы указать несколько групп пользователей, разделяйте их запятой (,).
+ 
+> [!NOTE]
+> Так как Apache Zeppelin использует доменное имя для аутентификации административной учетной записи службы, для правильной работы Apache Zeppelin учетная запись ДОЛЖНА иметь то же доменное имя, что и ее суффикс имени участника-пользователя.
  
 На следующем снимке экрана показаны конфигурации на портале Azure:
 

@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения об обмене данными с Reliable Services | Документация Майкрософт"
-description: "Общие сведения о модели обмена данными с Reliable Services, включая открытие прослушивателей для служб, разрешение конечных точек и обмен данными между службами."
+title: Общие сведения об обмене данными с Reliable Services | Документация Майкрософт
+description: Общие сведения о модели обмена данными с Reliable Services, включая открытие прослушивателей для служб, разрешение конечных точек и обмен данными между службами.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Использование API связи служб Reliable Services
 Обмен данными между службами совершенно не влияет на работу платформы Azure Service Fabric. Допускается использование любых протоколов и стеков, от UDP до HTTP. Способ взаимодействия служб зависит только от выбора разработчика. Платформа приложений служб Reliable Services предоставляет несколько встроенных стеков связи, а также API-интерфейсы для создания пользовательских компонентов связи.
@@ -54,7 +54,7 @@ public interface CommunicationListener {
 Для служб без отслеживания состояния:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ public class MyStatelessService extends StatelessService {
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -196,7 +196,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Платформа Service Fabric предоставляет API-интерфейсы, которые позволяют клиентам и другим службам в дальнейшем запрашивать этот адрес по имени службы. Это важно, так как у службы нестатический адрес. Перемещение служб в кластере осуществляется для балансировки ресурсов и обеспечения их доступности. Это механизм, позволяющий клиентам распознавать адрес прослушивания для службы.
 
 > [!NOTE]
-> Полное пошаговое руководство по созданию прослушивателя каналов связи см. в статье [ASP.NET Core в Service Fabric Reliable Services](service-fabric-reliable-services-communication-webapi.md) (для C#). В случае с Java вы можете написать собственную реализацию HTTP-сервера. Пример приложения EchoServer см. на странице https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Полное пошаговое руководство по созданию прослушивателя каналов связи см. в статье [ASP.NET Core в Service Fabric Reliable Services](service-fabric-reliable-services-communication-webapi.md) (для C#). Для Java вы можете написать собственную реализацию HTTP-сервера. Пример приложения EchoServer см. на странице https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -275,7 +275,7 @@ CompletableFuture<ResolvedServicePartition> partition =
 Клиент связи просто получает адрес и использует его для подключения к службе. Клиент может использовать любой протокол.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

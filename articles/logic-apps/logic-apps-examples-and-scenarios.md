@@ -1,11 +1,11 @@
 ---
-title: "Примеры и распространенные сценарии для Azure Logic Apps | Документация Майкрософт"
-description: "Узнайте больше о приложениях логики благодаря примерам, сценариям, учебникам и пошаговым руководствам."
+title: Примеры и распространенные сценарии для Azure Logic Apps | Документация Майкрософт
+description: Узнайте больше о приложениях логики благодаря примерам, сценариям, учебникам и пошаговым руководствам.
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Распространенные сценарии, примеры, учебники и пошаговые руководства для Azure Logic Apps
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/05/2018
 
 Можно полностью разработать и развернуть приложения логики с помощью Visual Studio, Visual Studio Team Services или любых других инструментов системы управления версиями и автоматической сборки. Для поддержки развертывания рабочих процессов и зависимых подключений в шаблоне ресурсов приложения логики используют шаблоны развертывания ресурсов Azure. Средства Visual Studio автоматически создают эти шаблоны, которые можно записать после изменения в систему управления версиями для управления версиями.
 
-* [Развертывание из Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Создание и развертывание приложений логики в Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Включение мониторинга, ведения журнала и оповещений для существующих приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Создание шаблона для автоматического развертывания](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/05/2018
 
 * [Как выражения рабочего процесса работают в приложениях логики](../logic-apps/logic-apps-author-definitions.md)
 * [Обработка типов содержимого, отличных от JSON](../logic-apps/logic-apps-content-type.md), например `application/xml`, `application/octet-stream` и `multipart/formdata`
-* [Справочник. Язык определения рабочего процесса Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Схема языка определения рабочих процессов в Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Прочие возможности интеграции и функции
 

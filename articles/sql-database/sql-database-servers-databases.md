@@ -2,24 +2,18 @@
 title: Создание серверов и баз данных SQL Azure и управление ими | Документация Майкрософт
 description: Сведения о сервере базы данных SQL Azure, основные понятия о базах данных, создание серверов и баз данных и их администрирование.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Создание серверов базы данных SQL Azure и баз данных SQL Azure и управление ими
 
@@ -27,7 +21,7 @@ ms.lasthandoff: 03/09/2018
 
 - Отдельная база данных, которая создается в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md) с определенным набором [вычислительных ресурсов и ресурсов хранилища для разных рабочих нагрузок](sql-database-service-tiers.md). База данных SQL Azure связана с логическим сервером базы данных SQL Azure, который создан в определенном регионе Azure.
 - База данных, которая создается в составе [пула баз данных](sql-database-elastic-pool.md) в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md) с определенным набором [вычислительных ресурсов и ресурсов хранилища для разных рабочих нагрузок](sql-database-service-tiers.md), которые совместно используются всеми базами данных в пуле. База данных SQL Azure связана с логическим сервером базы данных SQL Azure, который создан в определенном регионе Azure.
-- [Экземпляр SQL Server](sql-database-managed-instance.md), который создается в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md) с определенным набором вычислительных ресурсов и ресурсов хранения, предназначенных для всех баз данных в этом экземпляре сервера. Управляемый экземпляр содержит системные и пользовательские базы данных. С его помощью можно выполнять перенос базы данных методом lift-and-shift в полностью управляемое приложение PaaS, не изменяя приложение. Служба "Управляемый экземпляр Базы данных SQL" обеспечивает высокую совместимость с моделью программирования локального сервера SQL Server и поддерживает большинство возможностей, дополнительных инструментов и служб SQL Server.  
+- [Экземпляр SQL Server](sql-database-managed-instance.md) (Управляемый экземпляр), который создается в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md) с определенным набором вычислительных ресурсов и ресурсов хранения, предназначенных для всех баз данных в этом экземпляре сервера. Управляемый экземпляр содержит системные и пользовательские базы данных. С его помощью можно выполнять перенос базы данных методом lift-and-shift в полностью управляемое приложение PaaS, не изменяя приложение. Служба "Управляемый экземпляр Базы данных SQL" обеспечивает высокую совместимость с моделью программирования локального сервера SQL Server и поддерживает большинство возможностей, дополнительных инструментов и служб SQL Server.  
 
 База данных SQL Microsoft Azure поддерживает клиент протокола для потока табличных данных (TDS) версии 7.3 или более поздней версии и разрешает использовать только зашифрованные TCP/IP-подключения.
 
@@ -146,7 +140,7 @@ ms.lasthandoff: 03/09/2018
 |[az group create](/cli/azure/group#az_group_create)|Создает группу ресурсов.|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Создает сервер.|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Выводит список серверов.|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Возвращает данные об использовании серверов.|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Возвращает данные об использовании серверов.|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Возвращает сервер.|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Обновляет сервер.|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Удаляет сервер.|
@@ -202,7 +196,6 @@ ms.lasthandoff: 03/09/2018
 |[Серверы: вывод списка](/rest/api/sql/servers/list)|Возвращает список серверов.|
 |[Серверы: вывод списка по группе ресурсов](/rest/api/sql/servers/listbyresourcegroup)|Возвращает список серверов в группе ресурсов.|
 |[Серверы: обновление](/rest/api/sql/servers/update)|Обновляет существующий сервер.|
-|[Серверы: SQL](/rest/api/sql/servers%20-%20sql)|Определяет, может ли быть создан ресурс с указанным именем.|
 |[Базы данных: создание или обновление](/rest/api/sql/databases/createorupdate)|Создает новую базу данных или обновляет имеющуюся.|
 |[Базы данных: получение](/rest/api/sql/databases/get)|Получает базу данных.|
 |[Базы данных: получение по эластичному пулу](/rest/api/sql/databases/getbyelasticpool)|Получает базу данных в эластичном пуле.|

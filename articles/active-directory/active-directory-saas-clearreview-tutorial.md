@@ -1,10 +1,10 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Clear Review | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Clear Review."
+title: Руководство по интеграции Azure Active Directory с Clear Review | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Clear Review.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Руководство по интеграции Azure Active Directory с Clear Review
 
@@ -108,9 +108,9 @@ ms.lasthandoff: 12/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<customer name>.clearreview.com/sso/metadata`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<customer>.clearreview.com/sso/acs/`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<customer name>.clearreview.com/sso/acs/`.
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, и выполните следующее действие, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
 
@@ -119,31 +119,36 @@ ms.lasthandoff: 12/11/2017
     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки Clear Review](https://clearreview.com/contact/).
+    > Эти значения приведены в качестве примера. Укажите вместо них фактические значения URL-адреса для входа, идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки Clear Review](https://clearreview.com/contact/).
 
-5. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+5. Приложение Clear Review ожидает в утверждении идентификатора имени значение уникального идентификатора пользователя. Необходимо сопоставить значение идентификатора пользователя со значением **user.mail**.
+
+    ![Раздел "Атрибут"](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
     ![Ссылка для скачивания сертификата](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Нажмите кнопку **Сохранить** .
+7. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. В разделе **Настройка Clear Review** щелкните **Настроить Clear Review**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+8. В разделе **Настройка Clear Review** щелкните **Настроить Clear Review**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
 
     ![Настройка Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Чтобы настроить единый вход на стороне **Clear Review** откройте портал **Clear Review** с учетными данными администратора.
+9. Чтобы настроить единый вход на стороне **Clear Review** откройте портал **Clear Review** с учетными данными администратора.
 
-9. Выберите **Admin** (Администрирование) в области навигации слева.
+10. Выберите **Admin** (Администрирование) в области навигации слева.
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. В нижней части страницы выберите действие **Change** (Изменить).
+11. В нижней части страницы выберите действие **Change** (Изменить).
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. На странице **Single Sign-On Settings** (Параметры единого входа) выполните следующие действия.
+12. На странице **Single Sign-On Settings** (Параметры единого входа) выполните следующие действия.
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ ms.lasthandoff: 12/11/2017
 
     d. Откройте скачанный сертификат в Блокноте, скопируйте его содержимое и вставьте в текстовое поле **X.509 Certificate** (Сертификат X.509).   
 
-12. Выберите команду **Сохранить**.
+13. Выберите команду **Сохранить**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -253,4 +258,3 @@ ms.lasthandoff: 12/11/2017
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

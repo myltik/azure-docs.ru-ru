@@ -1,13 +1,13 @@
 ---
-title: "Привязки хранилища BLOB-объектов Azure для службы \"Функции Azure\""
-description: "Узнайте, как использовать триггеры и привязки хранилища BLOB-объектов Azure в службе \"Функции Azure\"."
+title: Привязки хранилища BLOB-объектов Azure для службы "Функции Azure"
+description: Узнайте, как использовать триггеры и привязки хранилища BLOB-объектов Azure в службе "Функции Azure".
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Привязки хранилища BLOB-объектов Azure для службы "Функции Azure"
 
@@ -33,6 +33,12 @@ ms.lasthandoff: 03/02/2018
 
 > [!NOTE]
 > Для триггеров больших двоичных объектов не поддерживаются [учетные записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts). Для триггеров хранилища BLOB-объектов требуется учетная запись хранения общего назначения. Для входных и выходных привязок можно использовать учетные записи хранения только для больших двоичных объектов.
+
+## <a name="packages"></a>Пакеты
+
+Привязки большого двоичного объекта доступны в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). Исходный код для пакета находится в репозитории GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Триггер
 
@@ -152,7 +158,7 @@ module.exports = function(context) {
 
 В [библиотеках классов C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки триггера большого двоичного объекта:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
 
   Конструктор атрибута принимает строку пути, которая указывает на контейнер для просмотра, и при необходимости [шаблон имени большого двоичного объекта](#trigger---blob-name-patterns). Ниже приведен пример:
 
@@ -180,7 +186,7 @@ module.exports = function(context) {
 
   Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Предоставляет еще один способ указать используемую учетную запись хранения. Конструктор принимает имя параметра приложения, содержащего строку подключения к службе хранилища. Атрибут может применяться на уровне класса, метода или параметра. Ниже показан пример уровня класса и метода.
 
@@ -472,7 +478,7 @@ module.exports = function(context) {
 
 ## <a name="input---attributes"></a>Входные атрибуты
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 Конструктор атрибута принимает путь к большому двоичному объекту и параметр `FileAccess`, указывающий на чтение или запись, как показано в следующем примере:
 
@@ -684,7 +690,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 Конструктор атрибута принимает путь к большому двоичному объекту и параметр `FileAccess`, указывающий на чтение или запись, как показано в следующем примере:
 

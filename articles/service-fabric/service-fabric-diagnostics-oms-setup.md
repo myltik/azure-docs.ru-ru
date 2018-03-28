@@ -1,12 +1,12 @@
 ---
-title: "Настройка мониторинга с помощью OMS Log Analytics в Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как настроить визуализацию и анализ событий в Operations Management Suite для мониторинга кластеров Azure Service Fabric."
+title: Настройка мониторинга с помощью OMS Log Analytics в Azure Service Fabric | Документация Майкрософт
+description: Узнайте, как настроить визуализацию и анализ событий в Operations Management Suite для мониторинга кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Настройка Log Analytics в Operations Management Suite для кластера
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/21/2018
 >[!NOTE]
 >Для кластеров Linux эта функция подключения еще недоступна. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>Добавление агента OMS в кластер 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Подключение рабочей области OMS к кластеру 
 
 1. Рабочая область должна быть подключена к данным диагностики, поступающим из кластера. Перейдите в группу ресурсов, в которой вы создали решение "Аналитика Service Fabric". Выберите **ServiceFabric\<имя_рабочей_области_OMS\>** и перейдите на страницу обзора. На этой странице можно изменить параметры решения, рабочей области и получить доступ к порталу OMS.
 

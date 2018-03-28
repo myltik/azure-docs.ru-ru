@@ -1,6 +1,6 @@
 ---
-title: "Как контейнеризовать микрослужбы Azure Service Fabric (предварительная версия)"
-description: "К платформе Azure Service Fabric добавлены новые функции для контейнеризации микрослужб Service Fabric. Эта функция в настоящее время находится на стадии предварительной версии."
+title: Как контейнеризовать микрослужбы Azure Service Fabric (предварительная версия)
+description: К платформе Azure Service Fabric добавлены новые функции для контейнеризации микрослужб Service Fabric. Эта функция в настоящее время находится на стадии предварительной версии.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Как контейнеризовать Azure Service Fabric Reliable Services и Reliable Actors (предварительная версия)
 
 Service Fabric поддерживает контейнеризацию микрослужб Service Fabric (службы на основе Reliable Services и Reliable Actors). Дополнительные сведения см. в статье [Service Fabric и контейнеры](service-fabric-containers-overview.md).
 
-
- Это предварительная версия функции. В этой статье объясняется, как получить службу, работающую в контейнере.  
+Это предварительная версия функции. В этой статье объясняется, как получить службу, работающую в контейнере.  
 
 > [!NOTE]
-> Эта функция доступна в режиме предварительной версии и не поддерживается в рабочей среде. Сейчас эта функция работает только в Windows.
+> Эта функция доступна в режиме предварительной версии и не поддерживается в рабочей среде. Сейчас эта функция работает только в Windows. Чтобы запустить контейнеры, кластер должен работать на компьютере под управлением Windows Server 2016 с контейнерами.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Инструкции по контейнеризации приложения Service Fabric
 

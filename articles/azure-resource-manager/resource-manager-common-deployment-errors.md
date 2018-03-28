@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
 
@@ -38,6 +38,7 @@ ms.lasthandoff: 03/12/2018
 | Конфликт | Запрашиваемая операция не разрешена в текущем состоянии ресурса. Например, изменение размера диска разрешено только при создании или освобождении виртуальной машины. | |
 | DeploymentActive | Дождитесь завершения параллельного развертывания в эту группу ресурсов. | |
 | DeploymentFailed | Ошибка DeploymentFailed является общей ошибкой, которая не содержит сведений, необходимых для ее устранения. Найдите в сведениях об ошибке ее код, с помощью которого можно получить дополнительные сведения. | [Поиск кода ошибки](#find-error-code) |
+| DeploymentQuotaExceeded | Если вы достигли предела в 800 развертываний на группу ресурсов, удалите из журнала те развертывания, которые больше не нужны. Вы можете удалить записи из журнала с помощью команды [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) в Azure CLI или с помощью командлета [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) в PowerShell. Удаление записи из журнала развертывания не влияет на развертывание ресурсов. | |
 | DnsRecordInUse | Имя записи DNS должно быть уникальным. Предоставьте другое имя или измените имеющуюся запись. | |
 | ImageNotFound | Проверьте параметры образа виртуальной машины. |  |
 | InUseSubnetCannotBeDeleted | Эта ошибка возникает, когда вы пытаетесь обновить ресурс, но при обработке запроса удаляется и создается ресурс. Укажите все неизменяемые значения. | [Обновление ресурса](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ ms.lasthandoff: 03/12/2018
 | InvalidResourceNamespace | Проверьте пространство имен ресурсов, заданное в свойстве **type**. | [Справочник по шаблонам](/azure/templates/) |
 | InvalidResourceReference | Ресурс не существует, или на него неверно ссылаются. Проверьте, следует ли добавить зависимость. Убедитесь, что для функции **reference** указаны параметры, необходимые для вашего сценария. | [Устранение ошибок, связанных с зависимостями](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Проверьте тип ресурсов, заданный в свойстве **type**. | [Справочник по шаблонам](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Зарегистрируйте подписку в поставщике ресурсов. | [Устранение ошибок регистрации](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Проверьте синтаксис шаблона на наличие ошибок. | [Устранение ошибок, связанных с недопустимым шаблоном](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Удалите ненужные зависимости. | [Устранение циклических зависимостей](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Проверьте, принадлежит ли учетная запись к тому же клиенту, что и группа ресурсов, в которую выполняется развертывание. | |
 | LinkedInvalidPropertyId | Идентификатор ресурса не удается разрешить правильно. Убедитесь, что указаны все обязательные значения для идентификатора ресурса, включая идентификатор подписки, имя группы ресурсов, тип ресурса, имя родительского ресурса (если необходимо) и имя ресурса. | |
 | LocationRequired | Укажите расположение ресурса. | [Определение расположения](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Убедитесь, что имя и тип вложенного ресурса содержат правильное количество сегментов. | [Разрешение сегментов ресурса](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Проверьте состояние регистрации поставщика ресурсов и поддерживаемые расположения. | [Устранение ошибок регистрации](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Зарегистрируйте подписку в поставщике ресурсов. | [Устранение ошибок регистрации](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Проверьте состояние регистрации поставщика ресурсов. | [Устранение ошибок регистрации](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ ms.lasthandoff: 03/12/2018
 | StorageAccountAlreadyTaken | Предоставьте уникальное имя учетной записи хранения. | [Устранение ошибок, связанных с именами учетных записей хранения](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Проверьте подписку, группу ресурсов и имя учетной записи хранения, которую вы хотите использовать. | |
 | SubnetsNotInSameVnet | Виртуальная машина может иметь только одну виртуальную сеть. При развертывании нескольких сетевых адаптеров убедитесь, что они принадлежат той же виртуальной сети. | [Использование нескольких сетевых адаптеров](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Удалите ненужные зависимости. | [Устранение циклических зависимостей](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Уменьшите количество групп ресурсов для одного развертывания. | [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Поиск кода ошибки
 

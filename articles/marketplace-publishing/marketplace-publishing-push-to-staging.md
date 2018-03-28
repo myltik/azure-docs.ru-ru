@@ -1,11 +1,11 @@
 ---
-title: "Подготовка и тестирование вашего предложения для развертывания в Azure Marketplace | Документация Майкрософт"
-description: "Подробные инструкции по предоставлению маркетинговых материалов, настройке планов ценообразования и тестированию предложения перед развертыванием в Azure Marketplace."
+title: Подготовка и тестирование вашего предложения для развертывания в Azure Marketplace | Документация Майкрософт
+description: Подробные инструкции по предоставлению маркетинговых материалов, настройке планов ценообразования и тестированию предложения перед развертыванием в Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Завершение создания предложения с маркетинговыми материалами
 На этом шаге процесса публикации необходимо предоставить определенные маркетинговые материалы и сведения о предложении и (или) номера SKU в Azure Marketplace. К ним относятся, например, описание продукта, эмблемы компании, ценовые категории, сведения об организации и другие сведения, необходимые для отправки вашего предложения и (или) номера SKU на промежуточный этап. Эта информация используется в качестве маркетинговых материалов на нашем портале Azure. Этот процесс начинается на [портале публикации][link-pubportal].
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Шаг 1. Предоставление маркетинговых материалов Marketplace
 **Единственным языком по умолчанию, а также поддерживаемым языком является английский.** Убедитесь, что все сведения, предоставляемые в полях, указываются на английском языке. Все сведения можно отредактировать в любое время до момента перехода в промежуточную стадию.
 
-1. Перейдите на портал публикации [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Перейдите на портал публикации: [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. В меню слева щелкните вкладку **Маркетинг** .
 3. На главной панели нажмите кнопку **Английский (США)** .
    

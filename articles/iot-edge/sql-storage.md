@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Хранение данных в граничной системе с помощью баз данных SQL Server
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/08/2018
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ ms.lasthandoff: 03/08/2018
         }
    ```
 
-3. В зависимости от используемой операционной системы обновите параметры для модуля SQL с помощью кода ниже: 
+3. Замените `<docker registry address>` адресом из статьи о [развертывании Функции Azure в виде модуля IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function).
+
+   >[!NOTE]
+   >Адрес реестра контейнеров совпадает с адресом сервера входа, который был скопирован из реестра. Он должен быть указан в формате `<your container registry name>.azurecr.io`.
+
+4. В зависимости от используемой операционной системы обновите параметры для модуля SQL с помощью кода ниже: 
 
    * Windows:
 
@@ -110,11 +115,11 @@ ms.lasthandoff: 03/08/2018
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Сохраните файл. 
-5. В палитре команд VS Code выберите **Edge: Create deployment for Edge device** (Edge: создать развертывание для устройства Edge). 
-6. Выберите идентификатор устройства IoT Edge.
-7. Выберите файл `deployment.json`, который вы обновили. В окне вывода можно увидеть соответствующие выходные данные для развертывания. 
-8. Чтобы запустить среду выполнения Edge, выберите в палитре команд **Edge: Start Edge** (Edge: запустить Edge).
+5. Сохраните файл. 
+6. В палитре команд VS Code выберите **Edge: Create deployment for Edge device** (Edge: создать развертывание для устройства Edge). 
+7. Выберите идентификатор устройства IoT Edge.
+8. Выберите файл `deployment.json`, который вы обновили. В окне вывода можно увидеть соответствующие выходные данные для развертывания. 
+9. Чтобы запустить среду выполнения Edge, выберите в палитре команд **Edge: Start Edge** (Edge: запустить Edge).
 
 >[!TIP]
 >Каждый раз при создании контейнера SQL Server в рабочей среде нужно [изменять стандартный пароль системного администратора](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

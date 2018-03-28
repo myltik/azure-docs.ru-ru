@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Служба метаданных экземпляров Azure
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/08/2018
 
 регионы                                        | Доступность?                                 | Поддерживаемые версии
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01, 2017-12-01 (эта версия недоступна в регионах Великобритании)
+[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)              | Общедоступная версия | 2017-04-02, 2017-08-01
 [Azure для Китая](https://www.azure.cn/)                                                           | Общедоступная версия | 2017-04-02, 2017-08-01
 [Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)                    | Общедоступная версия | 2017-04-02, 2017-08-01
@@ -406,7 +406,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. Почему я получаю ошибку `500 Internal Server Error`?
    * Повторите запрос в зависимости от экспоненциальной системы. Если проблема не исчезла, обратитесь в службу поддержки Azure.
 6. Где можно задать дополнительные вопросы или оставить комментарии?
-   * Оставьте комментарии на сайте http://feedback.azure.com.
+   * Добавьте здесь свои комментарии здесь: http://feedback.azure.com.
 7. Будет ли это работать для экземпляра масштабируемого набора виртуальных машин?
    * Да, служба метаданных доступна для экземпляров масштабируемого набора. 
 8. Как можно получить поддержку для службы?

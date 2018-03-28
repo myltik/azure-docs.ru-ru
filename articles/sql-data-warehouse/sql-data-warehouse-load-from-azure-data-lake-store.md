@@ -1,33 +1,33 @@
 ---
-title: "Загрузка данных из Azure Data Lake Store в хранилище данных SQL | Документация Майкрософт"
-description: "Узнайте, как с помощью внешних таблиц PolyBase загружать данные из Azure Data Lake Store в хранилище данных SQL Azure."
+title: Загрузка данных из Azure Data Lake Store в хранилище данных SQL | Документация Майкрософт
+description: Узнайте, как с помощью внешних таблиц PolyBase загружать данные из Azure Data Lake Store в хранилище данных SQL Azure.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 12/14/2017
+ms.date: 3/14/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Загрузка данных из Azure Data Lake Store в хранилище данных SQL
 В этой статье приведены полные инструкции по загрузке данных из Azure Data Lake Store (ADLS) в хранилище данных SQL с использованием PolyBase.
-Вы можете выполнять специализированные запросы к данным, которые хранятся в ADLS, с помощью внешних таблиц, но мы рекомендуем импортировать данные в хранилище данных SQL.
+Вы можете выполнять специализированные запросы к данным, которые хранятся в ADLS, с помощью внешних таблиц. Но для оптимальной производительности мы рекомендуем импортировать данные в хранилище данных SQL.
 
 Из этого учебного курса вы узнаете следующее:
 
-1. Создание объектов внешней базы данных для загрузки данных из Azure Data Lake Store.
+1. Создание объектов базы данных, требуемых для загрузки данных из Azure Data Lake Store.
 2. Подключение к каталогу Azure Data Lake Store.
 3. Загрузка данных в хранилище данных SQL Azure.
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 12/15/2017
 
 * SQL Server Management Studio или SQL Server Data Tools. Загрузка и подключение SSMS описаны [здесь](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms).
 
-* Хранилище данных SQL Azure. Чтобы создать его, выполните инструкции из этой статьи: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision_.
+* Хранилище данных SQL Azure. Чтобы создать его, выполните инструкции по адресу https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision.
 
-* Служба Azure Data Lake Store. Чтобы создать ее, выполните инструкции из этой статьи: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal.
+* Служба Azure Data Lake Store. Чтобы создать ее, выполните инструкции по адресу https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal.
 
 
 ###  <a name="create-a-credential"></a>Создание учетных данных
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Создание внешнего источника данных
-Используйте команду [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE], чтобы сохранить расположение данных. Чтобы найти URI ADL на портале Azure, перейдите в Azure Data Lake Store к панели "Основные компоненты".
+Используйте команду [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE], чтобы сохранить расположение данных. 
 
 ```sql
 -- C: Create an external data source
@@ -99,8 +99,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Настройка формата данных
-Чтобы импортировать данные из ADLS, укажите формат внешнего файла. Эта команда принимает параметры описания данных, зависящие от формата файла.
-В документации по T-SQL можно найти полный список форматов, доступных для команды [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
+Чтобы импортировать данные из ADLS, укажите формат внешнего файла. Этот объект определяет, каким образом файлы записываются в ADLS.
+Полный список форматов, доступных для команды [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], см. в документации по T-SQL.
 
 ```sql
 -- D: Create an external file format
@@ -155,9 +155,9 @@ WITH
 Внешние таблицы строго типизированы. Это означает, что каждая строка принимаемых данных должна соответствовать определению в схеме таблицы.
 Строка, которая не соответствует определению схемы, будет отклоняться при загрузке.
 
-С помощью параметров REJECT_TYPE и REJECT_VALUE вы можете определить, сколько строк или какой процент данных должны попасть в итоговую таблицу. Если при загрузке достигается значение отклонения, она завершается сбоем. Чаще всего строки отклоняются из-за несоответствия определению схемы. Например, если для столбца в схеме ошибочно указан формат int (целое число), а сами данные в файле имеют строковый формат, будут отклонены все строки.
+С помощью параметров REJECT_TYPE и REJECT_VALUE вы можете определить, сколько строк или какой процент данных должны попасть в итоговую таблицу. Если в ходе загрузки будет достигнуто указанное ограничение, загрузка завершится ошибкой. Чаще всего строки отклоняются из-за несоответствия определению схемы. Например, если для столбца в схеме ошибочно указан формат int (целое число), а сами данные в файле имеют строковый формат, будут отклонены все строки.
 
- Хранилище Azure Data Lake использует управление доступом на основе ролей (RBAC) для управления доступом к данным. Это означает, что субъект-служба должна иметь разрешения на чтение для каталогов, указанных в параметре расположения, и для дочерних элементов конечного каталога и файлов. Это позволяет PolyBase проводить аутентификацию и загружать чтение данных. 
+ Хранилище Azure Data Lake использует управление доступом на основе ролей (RBAC) для управления доступом к данным. Это означает, что субъект-служба должна иметь разрешения на чтение для каталогов, указанных в параметре расположения, и для дочерних элементов конечного каталога и файлов. Это позволяет PolyBase выполнять аутентификацию и загрузку данных. 
 
 ## <a name="load-the-data"></a>Загрузка данных
 Чтобы загрузить данные из Azure Data Lake Store, используйте инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. 
@@ -201,7 +201,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 Данные успешно загружены в хранилище данных SQL Azure. Отличная работа!
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Загрузка данных является первым шагом к разработке решения для хранения данных на основе хранилища данных SQL. Ознакомьтесь с документацией для разработчиков, посвященной [таблицам](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) и [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+Загрузка данных является первым шагом к разработке решения для хранения данных на основе хранилища данных SQL. Ознакомьтесь с документацией для разработчиков, посвященной [таблицам](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) и [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops).
 
 
 <!--Image references-->

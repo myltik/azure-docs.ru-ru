@@ -1,13 +1,13 @@
 ---
-title: "Привязки мобильных приложений для службы \"Функции Azure\""
-description: "Узнайте, как использовать привязки мобильных приложений Azure в функциях Azure."
+title: Привязки мобильных приложений для службы "Функции Azure"
+description: Узнайте, как использовать привязки мобильных приложений Azure в функциях Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Привязки мобильных приложений для службы "Функции Azure" 
 
@@ -28,6 +28,12 @@ ms.lasthandoff: 01/02/2018
 Привязки мобильных приложений позволяют вам считывать и обновлять данные таблиц в мобильных приложениях.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Пакеты
+
+Привязки мобильных приложений доступны в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps). Исходный код для пакета находится в репозитории GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Входные данные
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Входные атрибуты
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs).
 
 Дополнительные сведения о настройке свойств атрибутов см. в следующем разделе о [настройке](#input---configuration).
 
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs).
 
 Дополнительные сведения о настройке свойств атрибутов см. в разделе [Выходная конфигурация](#output---configuration). Ниже приведен пример атрибута `MobileTable` в сигнатуре метода:
 

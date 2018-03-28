@@ -1,10 +1,10 @@
 ---
-title: "Переменные среды Azure Service Fabric | Документация Майкрософт"
-description: "Справочная документация по переменным среды Service Fabric."
+title: Переменные среды Azure Service Fabric | Документация Майкрософт
+description: Справочная документация по переменным среды Service Fabric.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: a4bf082f5bd5a57bb5eb7641a25176e3a06503a3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9faefb43b9d5da81dddef8f326a3867b32842f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Переменные среды Service Fabric
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/16/2018
 | Fabric_NodeId                                | Идентификатор узла, на котором выполняется процесс.                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | IP-адрес или полное доменное имя узла согласно файлу манифеста кластера. | localhost или 10.0.0.1                                                |
 | Fabric_NodeName                              | Имя узла, на котором выполняется процесс.                          | _Node_0                                                              |
-| Fabric_ServiceName                           | Имя службы, если служба размещена в режиме ExclusiveProcess.  | MyService                                               |
+| Fabric_ServiceName                           | Имя службы, если служба размещена в режиме ExclusiveProcess. Значение этой переменной доступно только в том случае, если служба создается с режимом ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
 | Fabric_ServicePackageActivationId            | Идентификатор FabricServicePackageActivationId.                                         | Глобальный уникальный идентификатор.                                                               |
 | Fabric_ServicePackageName                    | Имя пакета службы, частью которого является процесс.                     | Web1Pkg                                                              |
 

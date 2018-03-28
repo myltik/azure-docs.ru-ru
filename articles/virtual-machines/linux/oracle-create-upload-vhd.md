@@ -1,8 +1,8 @@
 ---
-title: "Создание и передача виртуального жесткого диска Oracle Linux | Документация Майкрософт"
-description: "Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Oracle Linux."
+title: Создание и передача виртуального жесткого диска Oracle Linux | Документация Майкрософт
+description: Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Oracle Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
 manager: timlt
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 52771c8cf401bb60339182644cd8755637650140
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Подготовка виртуальной машины Oracle Linux для Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/22/2018
 * При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. Для дисков данных можно использовать [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * NUMA не поддерживается для виртуальных машин большего размера из-за ошибки ядра Linux в версиях ниже 2.6.37. Эта проблема влияет в основном на дистрибутивы, в которых используется исходное ядро Red Hat 2.6.32. При ручной установке агента Azure Linux (waagent) NUMA автоматически отключается в конфигурации GRUB для ядра Linux. Дополнительные сведения описаны далее.
 * Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов.  Дополнительные сведения описаны далее.
-* Все VHD-диски должны иметь размер, кратный 1 МБ.
+* Размер виртуальной памяти всех VHD в Azure должен быть округлен до 1 МБ. При конвертации диска в формате RAW в виртуальный жесткий диск убедитесь, что размер диска RAW в несколько раз превышает 1 МБ. См. дополнительные сведения в [примечаниях по установке Linux](create-upload-generic.md#general-linux-installation-notes).
 * Убедитесь, что `Addons` включен репозиторий. Измените файл `/etc/yum.repo.d/public-yum-ol7.repo` (Oracle Linux 6) или `enabled=0` (Oracle Linux) и замените в нем строку `enabled=1` строкой **в разделе `/etc/yum.repo.d/public-yum-ol6.repo`[ol6_addons]** или **[ol7_addons]**.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+

@@ -1,11 +1,11 @@
 ---
-title: "Соединитель SMTP в Azure Logic Apps | Документация Майкрософт"
-description: "Создание приложений логики с помощью службы приложений Azure. Подключение к SMTP для отправки электронной почты."
+title: Соединитель SMTP в Azure Logic Apps | Документация Майкрософт
+description: Создание приложений логики с помощью службы приложений Azure. Подключение к SMTP для отправки электронной почты.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Начало работы с соединителем SMTP
 Подключение к SMTP для отправки электронной почты.
@@ -37,13 +37,13 @@ ms.lasthandoff: 01/19/2018
 ## <a name="use-an-smtp-trigger"></a>Использование триггера SMTP
 Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Так как SMTP не предоставляет триггеры, мы используем триггер **Salesforce - When an object is created** (Salesforce — при создании объекта). Этот триггер активируется при создании объекта в Salesforce. В нашем примере мы настроим триггер таким образом, чтобы при каждом создании интереса в Salesforce выполнялось действие *Send Email* через соединитель SMTP. При этом будет отправляться уведомление об этом интересе.
+В этом примере для SMTP триггер не предусмотрен. Поэтому добавьте триггер Salesforce **When an object is created** (При создании объекта). Этот триггер активируется при создании объекта в Salesforce. В этом примере триггер настраивается таким образом, чтобы при каждом создании интереса в Salesforce выполнялось действие *Send Email* с использованием соединителя SMTP. При этом отправляется уведомление об этом интересе.
 
 1. В конструкторе приложений логики в поле поиска введите запрос *salesforce* , а затем выберите триггер **Salesforce — при создании объекта** .  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. Отобразится элемент управления **При создании объекта** .
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Укажите **тип объекта** , а затем выберите *Интерес* из списка объектов. На этом шаге вы указываете, что создаете триггер, который будет уведомлять приложение логики о создании интереса в Salesforce.  
+3. Укажите **тип объекта** , а затем выберите *Интерес* из списка объектов. На этом этапе вы создаете триггер, который будет уведомлять приложение логики о создании интереса в Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. Ваш триггер создан.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="use-an-smtp-action"></a>Использование действия SMTP
 Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Теперь, когда триггер добавлен, выполните следующие действия, чтобы добавить действие SMTP, которое будет выполняться при создании интереса в Salesforce.
+Теперь, когда триггер добавлен, выполните описанные ниже действия, чтобы добавить действие SMTP, которое выполняется при создании интереса в Salesforce.
 
 1. Нажмите кнопку **+ Новый шаг**, чтобы добавить действие, которое будет выполняться после создания интереса.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

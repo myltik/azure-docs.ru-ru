@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Триггер службы "Сетка событий" для службы "Функции Azure"
 
@@ -37,11 +37,11 @@ ms.lasthandoff: 03/08/2018
 
 Триггер Сетки событий предоставляется в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid). Исходный код для пакета находится в репозитории GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension).
 
-Пакет используется для [разработки библиотеки классов C#](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) и [регистрации расширений привязки Функций версии 2](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Пример
 
@@ -348,7 +348,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ### <a name="create-a-requestbin-endpoint"></a>Создание конечной точки RequestBin
 
-RequestBin является средством с открытым исходным кодом, которое принимает HTTP-запросы и показывает текст запроса. Служба "Сетка событий Azure" взаимодействует с URL-адресом http://requestb.in особым образом. Чтобы упростить тестирование, Сетка событий отправляет события в URL-адрес RequestBin, не требуя правильного ответа на запросы подтверждения подписки. С двумя другими средствами тестирования (http://webhookinbox.com и http://hookbin.com) служба также взаимодействует особым образом.
+RequestBin является средством с открытым исходным кодом, которое принимает HTTP-запросы и показывает текст запроса. Служба "Сетка событий Azure" взаимодействует с URL-адресом http://requestb.in особым образом. Чтобы упростить тестирование, Сетка событий отправляет события в URL-адрес RequestBin, не требуя правильного ответа на запросы подтверждения подписки. Два других средства тестирования обрабатываются точно так же: http://webhookinbox.com и http://hookbin.com.
 
 RequestBin не предназначено для использования с высокой пропускной способностью. Если вы одновременно отправляете несколько событий, в средстве могут отобразиться не все события.
 

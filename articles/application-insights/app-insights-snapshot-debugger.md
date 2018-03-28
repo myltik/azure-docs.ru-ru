@@ -1,8 +1,8 @@
 ---
-title: "Отладчик моментальных снимков Azure Application Insights для приложений .NET | Документация Майкрософт"
-description: "Отладочные моментальные снимки автоматически собираются при порождении исключений в рабочих приложениях .NET"
+title: Отладчик моментальных снимков Azure Application Insights для приложений .NET | Документация Майкрософт
+description: Отладочные моментальные снимки автоматически собираются при порождении исключений в рабочих приложениях .NET
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: pharring
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Отладочные моментальные снимки для исключений в приложениях .NET
 
@@ -60,10 +60,20 @@ ms.lasthandoff: 01/24/2018
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
+        <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
+        <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
+        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
-        <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
+        <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
+        <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
+        <SnapshotInLowPriorityThread>true</SnapshotInLowPriorityThread>
+        <!-- Agree to send anonymous data to Microsoft to make this product better. -->
+        <ProvideAnonymousTelemetry>true</ProvideAnonymousTelemetry>
+        <!-- The limit on the number of failed requests to request snapshots before the telemetry processor is disabled. -->
+        <FailedRequestLimit>3</FailedRequestLimit>
         </Add>
     </TelemetryProcessors>
     ```
@@ -128,7 +138,17 @@ ms.lasthandoff: 01/24/2018
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true
+       "IsEnabledInDeveloperMode": true,
+       "ThresholdForSnapshotting": 5,
+       "MaximumSnapshotsRequired": 3,
+       "MaximumCollectionPlanSize": 50,
+       "ReconnectInterval": "00:15:00",
+       "ProblemCounterResetInterval":"24:00:00",
+       "SnapshotsPerTenMinutesLimit": 1,
+       "SnapshotsPerDayLimit": 30,
+       "SnapshotInLowPriorityThread": true,
+       "ProvideAnonymousTelemetry": true,
+       "FailedRequestLimit": 3
      }
    }
    ```
@@ -226,7 +246,7 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="check-the-uploader-logs"></a>Проверьте журналы отправителя
 
-После создания моментального снимка на диске создается файл минидампа (.dmp). Этот файл минидампа и любые связанные PDB-файлы отправляются в отдельном процессе передачи в хранилище отладчика моментальных снимков Application Insights. После успешной передачи минидамп удаляется с диска. Файлы журнала для отправителя минидампа сохраняются на диске. В среде службы приложений эти журналы можно найти в `D:\Home\LogFiles\Uploader_*.log`. Используйте веб-сайт управления Kudu для службы приложений, чтобы найти эти файлы журнала.
+После создания моментального снимка на диске создается файл минидампа (.dmp). Этот файл минидампа и любые связанные PDB-файлы отправляются в отдельном процессе передачи в хранилище отладчика моментальных снимков Application Insights. После успешной передачи минидамп удаляется с диска. Файлы журнала для процесса передачи сохраняются на диске. В среде службы приложений эти журналы можно найти в `D:\Home\LogFiles`. Используйте веб-сайт управления Kudu для службы приложений, чтобы найти эти файлы журнала.
 
 1. Откройте службу приложений на портале Azure.
 
@@ -235,25 +255,36 @@ ms.lasthandoff: 01/24/2018
 4. В раскрывающемся списке **Debug console** (Консоль отладки) выберите **CMD** (Команда).
 5. Щелкните **LogFiles**.
 
-Вы увидите хотя бы один файл с именем, начинающимся с `Uploader_` и расширением `.log`. Щелкните соответствующую пиктограмму, чтобы скачать все файлы журналов, или открыть их в браузере.
-Имя файла содержит имя компьютера. Если экземпляр службы приложений размещен на нескольких компьютерах, для каждого компьютера существуют отдельные файлы журналов. Когда отправитель обнаруживает новый файл минидампа, он записывается в файл журнала. Ниже приведен пример успешной отправки:
+Вы увидите хотя бы один файл с именем, начинающимся с `Uploader_` или `SnapshotUploader_`, и расширением `.log`. Щелкните соответствующую пиктограмму, чтобы скачать все файлы журналов, или открыть их в браузере.
+Имя файла содержит уникальный суффикс, который идентифицирует экземпляр службы приложений. Если экземпляр службы приложений размещен на нескольких компьютерах, для каждого компьютера существуют отдельные файлы журналов. Когда отправитель обнаруживает новый файл минидампа, он записывается в файл журнала. Ниже приведен пример успешного моментального снимка и отправки:
 
 ```
-MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
-    DateTime=2017-05-25T14:25:08.0349846Z
-MinidumpUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 329.12 MB
-    DateTime=2017-05-25T14:25:16.0145444Z
-MinidumpUploader.exe Information: 0 : Upload successful.
-    DateTime=2017-05-25T14:25:42.9164120Z
-MinidumpUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
-    DateTime=2017-05-25T14:25:42.9164120Z
-MinidumpUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
-    DateTime=2017-05-25T14:25:44.2310982Z
-MinidumpUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
-    DateTime=2017-05-25T14:25:44.5435948Z
-MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
-    DateTime=2017-05-25T14:25:44.6095821Z
+SnapshotUploader.exe Information: 0 : Received Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
+    DateTime=2018-03-09T01:42:41.8571711Z
+SnapshotUploader.exe Information: 0 : Creating minidump from Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
+    DateTime=2018-03-09T01:42:41.8571711Z
+SnapshotUploader.exe Information: 0 : Dump placeholder file created: 139e411a23934dc0b9ea08a626db16c5.dm_
+    DateTime=2018-03-09T01:42:41.8728496Z
+SnapshotUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:45.7525022Z
+SnapshotUploader.exe Information: 0 : Successfully wrote minidump to D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:45.7681360Z
+SnapshotUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 214.42 MB (uncompressed)
+    DateTime=2018-03-09T01:42:45.7681360Z
+SnapshotUploader.exe Information: 0 : Upload successful. Compressed size 86.56 MB
+    DateTime=2018-03-09T01:42:59.6184651Z
+SnapshotUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
+    DateTime=2018-03-09T01:42:59.6184651Z
+SnapshotUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
+    DateTime=2018-03-09T01:42:59.6809606Z
+SnapshotUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
+    DateTime=2018-03-09T01:42:59.8059929Z
+SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:59.8530649Z
 ```
+
+> [!NOTE]
+> Приведенный выше пример взят из пакета NuGet Microsoft.ApplicationInsights.SnapshotCollector версии 1.2.0. В более ранних версиях процесс передачи называется `MinidumpUploader.exe`, а журнал содержит менее подробные сведения.
 
 В предыдущем примере, ключ инструментирования — это `c12a605e73c44346a984e00000000000`. Это значение должно соответствовать ключу инструментирования для вашего приложения.
 Минидамп связан с моментальным снимком с идентификатором `139e411a23934dc0b9ea08a626db16c5`. Позже этот идентификатор можно использовать для поиска связанной телеметрии исключений в аналитике Application Insights.
@@ -261,16 +292,14 @@ MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 Отправитель проверяет наличие новых PDB-файлов примерно один раз каждые 15 минут. Ниже приведен пример:
 
 ```
-MinidumpUploader.exe Information: 0 : PDB rescan requested.
-    DateTime=2017-05-25T15:11:38.8003886Z
-MinidumpUploader.exe Information: 0 : Scanning D:\home\site\wwwroot\ for local PDBs.
-    DateTime=2017-05-25T15:11:38.8003886Z
-MinidumpUploader.exe Information: 0 : Scanning D:\local\Temporary ASP.NET Files\root\a6554c94\e3ad6f22\assembly\dl3\81d5008b\00b93cc8_dec5d201 for local PDBs.
-    DateTime=2017-05-25T15:11:38.8160276Z
-MinidumpUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
-    DateTime=2017-05-25T15:11:38.8316450Z
-MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\.pdbscan.
-    DateTime=2017-05-25T15:11:38.8316450Z
+SnapshotUploader.exe Information: 0 : PDB rescan requested.
+    DateTime=2018-03-09T01:47:19.4457768Z
+SnapshotUploader.exe Information: 0 : Scanning D:\home\site\wwwroot for local PDBs.
+    DateTime=2018-03-09T01:47:19.4457768Z
+SnapshotUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
+    DateTime=2018-03-09T01:47:19.4614027Z
+SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\6368.pdbscan
+    DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
 Для приложений, которые _не_ размещаются в службе приложений, журналы отправителя находятся в той же папке минидампов: `%TEMP%\Dumps\<ikey>` (где `<ikey>` ваш ключ инструментирования).
@@ -284,31 +313,48 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 Выполните следующие действия, чтобы настроить роль облачной службы с выделенным локальным ресурсом для моментальных снимков.
 
 1. Добавьте новый локальный ресурс в облачную службу, изменив файл определения облачной службы (CSDF). В следующем примере определяется ресурс с именем `SnapshotStore` и размером 5 ГБ.
-```xml
+   ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
-```
+   ```
 
-2. Измените метод `OnStart` роли, чтобы добавить переменную среды, указывающую на локальный ресурс `SnapshotStore`.
-```csharp
+2. Измените код запуска роли, чтобы добавить переменную среды, указывающую на локальный ресурс `SnapshotStore`. Для рабочих ролей код необходимо добавить в метод `OnStart` нужной роли:
+   ```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
        return base.OnStart();
    }
-```
+   ```
+   Для веб-ролей (ASP.NET) код необходимо добавить в метод `Application_Start` веб-приложения:
+   ```csharp
+   using Microsoft.WindowsAzure.ServiceRuntime;
+   using System;
+
+   namespace MyWebRoleApp
+   {
+       public class MyMvcApplication : System.Web.HttpApplication
+       {
+          protected void Application_Start()
+          {
+             Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+             // TODO: The rest of your application startup code
+          }
+       }
+   }
+   ```
 
 3. Обновите файл ApplicationInsights.config для роли, чтобы переопределить размещение временной папки, которое используется в `SnapshotCollector`.
-```xml
-  <TelemetryProcessors>
+   ```xml
+   <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
       <!-- Use the SnapshotStore local resource for snapshots -->
       <TempFolder>%SNAPSHOTSTORE%</TempFolder>
       <!-- Other SnapshotCollector configuration options -->
     </Add>
-  </TelemetryProcessors>
-```
+   </TelemetryProcessors>
+   ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Поиск исключений с моментальными снимками с помощью поиска Application Insights
 

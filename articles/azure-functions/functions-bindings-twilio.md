@@ -1,13 +1,13 @@
 ---
-title: "Привязка Twilio для службы \"Функции Azure\""
-description: "Узнайте, как использовать привязки Twilio с функциями Azure."
+title: Привязка Twilio для службы "Функции Azure"
+description: Узнайте, как использовать привязки Twilio с функциями Azure.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,17 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Привязка Twilio для службы "Функции Azure"
 
 В этой статье описано, как отправлять текстовые сообщения с помощью привязок [Twilio](https://www.twilio.com/) в службу "Функции Azure". Служба "Функции Azure" поддерживают выходные привязки для Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Пакеты
+
+Привязки Twilio доступны в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio). Исходный код для пакета находится в репозитории GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Пример
 
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Атрибуты
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs).
 
 Дополнительные сведения о настройке свойств атрибутов см. в разделе [Конфигурация](#configuration). Ниже приведен пример атрибута `TwilioSms` в сигнатуре метода:
 

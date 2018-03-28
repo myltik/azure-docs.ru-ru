@@ -1,99 +1,99 @@
 ---
-title: "Как диагностировать ошибки с помощью мастера подключения к Azure Active Directory"
-description: "Мастер подключения к Active Directory обнаружил несовместимый тип проверки подлинности"
+title: Как диагностировать ошибки с помощью подключенной службы Azure Active Directory
+description: Подключенная служба Active Directory обнаружила несовместимый тип аутентификации
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 186bb1ede11c869b1352906b7ebafe57025f4f09
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab81c3385479a96fbfa7e68c4e81129ff327ed4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Диагностика ошибок с помощью мастера подключения к Azure Active Directory
-Во время обнаружения предыдущего кода проверки подлинности мастер обнаружил несовместимый тип проверки подлинности.   
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Диагностика ошибок с помощью подключенной службы Azure Active Directory
 
-## <a name="what-is-being-checked"></a>Что проверяется?
-**Примечание.** Чтобы правильно определить предыдущий код аутентификации в проекте, необходимо создать проект.  Если возникла эта ошибка и в вашем проекте нет предыдущего кода аутентификации, еще раз выполните сборку проекта и повторите попытку.
+При попытке определить существующий код аутентификации сервер подключения Azure Active Directory обнаружил несовместимый тип аутентификации.
 
-### <a name="project-types"></a>Типы проектов
-Мастер проверяет, какого типа проект вы разрабатываете, поэтому он может внедрить в проект правильную логику аутентификации.  Если в проекте есть какой-либо контроллер, являющийся производным от `ApiController`, то этот проект рассматривается как проект веб-API.  Если в проекте есть какие-либо контроллеры, являющиеся производными от `MVC.Controller`, то этот проект рассматривается как проект MVC.  Все остальные варианты мастером не поддерживаются.
+Чтобы правильно определить существующий в проекте код аутентификации, необходимо создать проект.  Если возникла эта ошибка и в вашем проекте нет предыдущего кода аутентификации, еще раз выполните сборку проекта и повторите попытку.
 
-### <a name="compatible-authentication-code"></a>Совместимый код проверки подлинности
-Мастер также проверяет параметры проверки подлинности, ранее настроенные с помощью мастера или совместимые с ним.  Если все параметры присутствуют, то это рассматривается как реентерабельный случай, и мастер может открыть и отобразить эти параметры.  Если присутствуют только некоторые параметры, это рассматривается как случай ошибки.
+## <a name="project-types"></a>Типы проектов
 
-В проекте MVC мастер проверяет все перечисленные ниже параметры, которые были получены в результате предыдущего использования мастера.
+Подключенная служба проверяет тип проекта, над которым вы работаете, чтобы внедрить в него правильную логику аутентификации. Если в проекте есть какой-либо контроллер, являющийся производным от `ApiController`, то этот проект рассматривается как проект веб-API. Если в проекте есть какие-либо контроллеры, являющиеся производными от `MVC.Controller`, то этот проект рассматривается как проект MVC. Подключенная служба не поддерживает другие типы проектов.
+
+## <a name="compatible-authentication-code"></a>Совместимый код аутентификации
+
+Также подключенная служба проверяет параметры аутентификации, настроенные ранее или совместимые с этой службой. Если присутствуют все необходимые параметры, то проект рассматривается как подключаемый повторно, и подключенная служба отображает эти параметры при открытии.  Если присутствуют только некоторые параметры, это рассматривается как случай ошибки.
+
+В проекте MVC подключенная служба проверяет все перечисленные ниже параметры, которые могли быть созданы при предыдущем применении этой службы.
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Кроме того, мастер проверяет в проекте веб-API все перечисленные ниже параметры, которые были получены в результате предыдущего использования мастера.
+Кроме того, подключенная служба проверяет в проекте веб-API все перечисленные ниже параметры, которые могли быть созданы при предыдущем применении этой службы.
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-### <a name="incompatible-authentication-code"></a>Несовместимый код проверки подлинности
-Наконец, мастер пытается обнаружить версии кода проверки подлинности, настроенные в предыдущих версиях Visual Studio. Эта ошибка означает, что проект содержит несовместимый тип проверки подлинности. Мастер определяет следующие типы проверок подлинности предыдущих версий Visual Studio:
+## <a name="incompatible-authentication-code"></a>Несовместимый код аутентификации
 
-* Проверка подлинности Windows 
-* Учетные записи индивидуальных пользователей 
-* Учетные записи организации 
+И в завершение подключенная служба пытается обнаружить версии кода аутентификации, настроенные для предыдущих версий Visual Studio. Эта ошибка означает, что проект содержит несовместимый тип проверки подлинности. Подключенная служба обнаруживает следующие типы аутентификации от предыдущих версий Visual Studio:
 
-Чтобы обнаружить аутентификацию Windows в проекте MVC, мастер ищет элемент `authentication` в файле **web.config** .
+* Проверка подлинности Windows
+* Учетные записи индивидуальных пользователей
+* Учетные записи организации
 
-<pre>
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
-</pre>
+Чтобы обнаружить аутентификацию Windows в проекте MVC, подключенная служба ищет элемент `authentication` в файле `web.config`.
 
-Чтобы обнаружить аутентификацию Windows в проекте веб-API, мастер ищет элемент `IISExpressWindowsAuthentication` в **CSPROJ-файле** вашего проекта.
+```xml
+<configuration>
+    <system.web>
+        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+    </system.web>
+</configuration>
+```
 
-<pre>
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup>
-    &lt;/Project&gt;
-</pre>
+Чтобы обнаружить аутентификацию Windows в проекте Web API, подключенная служба ищет элемент `IISExpressWindowsAuthentication` в файле `.csproj`.
 
-Чтобы обнаружить проверку подлинности индивидуальных учетных записей, мастер ищет элемент пакета в файле **Packages.config** .
+```xml
+<Project>
+    <PropertyGroup>
+        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+    </PropertyGroup>
+</Project>
+```
 
-<pre>
-    &lt;packages&gt;
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/packages&gt;
-</pre>
+Чтобы обнаружить аутентификацию по учетным записям отдельных пользователей, подключенная служба ищет элемент пакета в файле `packages.config`.
 
-Чтобы определить старый тип проверки подлинности учетной записи организации, мастер ищет в файле **web.config**следующий элемент:
+```xml
+<packages>
+    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+</packages>
+```
 
-<pre>
-    &lt;configuration&gt;
-        &lt;appSettings&gt;
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
-</pre>
+Чтобы обнаружить старый тип аутентификации по корпоративной учетной записи, подключенная служба ищет в файле `web.config` следующий элемент:
 
-Чтобы изменить тип проверки подлинности, удалите несовместимый тип и повторно запустите мастер.
+```xml
+<configuration>
+    <appSettings>
+        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+    </appSettings>
+</configuration>
+```
+
+Чтобы изменить тип аутентификации, удалите несовместимый тип аутентификации и повторно добавьте подключенную службу.
 
 Дополнительные сведения см. в статье [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
-
-#<a name="next-steps"></a>Дополнительная информация
-- [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)

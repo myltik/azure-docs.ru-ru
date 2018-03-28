@@ -1,24 +1,20 @@
 ---
-title: "Непрерывное развертывание с помощью Azure Automation DSC и Chocolatey | Документация Майкрософт"
-description: "Непрерывное развертывание DevOps с помощью Automation DSC Azure и диспетчера пакетов Chocolatey.  Пример с полным шаблоном ARM в формате JSON и исходным кодом PowerShell."
+title: Непрерывное развертывание с помощью Azure Automation DSC и Chocolatey
+description: Непрерывное развертывание DevOps с помощью Automation DSC Azure и диспетчера пакетов Chocolatey.  Пример с полным шаблоном ARM в формате JSON и исходным кодом PowerShell.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Пример использования. Непрерывное развертывание на виртуальных машинах с помощью Automation DSC и Chocolatey
 В среде DevOps существует множество средств, которые упрощают различные аспекты процесса непрерывной интеграции.  Платформа для настройки требуемого состояния службы автоматизации Azure (далее — Automation DSC Azure) — это долгожданная новая функция, которую могут использовать команды разработчиков DevOps.  В этой статье показана настройка непрерывного развертывания для компьютера Windows.  Применение этого метода можно легко расширить, включив любое количество компьютеров Windows, необходимое для роли (например, веб-сайта), а также дополнительные роли.

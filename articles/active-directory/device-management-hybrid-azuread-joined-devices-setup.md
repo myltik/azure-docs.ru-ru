@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -62,7 +62,13 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Прежде чем настраивать в организации гибридные устройства, присоединенные к Azure AD, обязательно убедитесь в том, что вы используете последнюю версию Azure AD Connect.
+Прежде чем настраивать в организации гибридные устройства, присоединенные к Azure AD, обязательно убедитесь в следующем:
+
+- Вы работаете с актуальной версией Azure AD Connect.
+
+- В Azure AD Connect синхронизированы объекты-компьютеры гибридных устройств, которые нужно присоединить к Azure AD. Если объекты-компьютеры принадлежат конкретным подразделениям (OU), эти подразделения также нужно настроить для синхронизации в Azure AD Connect.
+
+  
 
 Azure AD Connect выполняет следующие функции:
 
@@ -145,7 +151,7 @@ Azure AD Connect выполняет следующие функции:
 Командлет `Initialize-ADSyncDomainJoinedComputerSync`:
 
 - В этом командлете используется модуль PowerShell и средства AD DS, которые используют веб-службы Active Directory в контроллере домена. Поддержку веб-служб Active Directory выполняют контроллеры домена под управлением Windows Server 2008 R2 и более поздних версий.
-- Он поддерживается только **модулем MSOnline PowerShell версии 1.1.166.0**. Чтобы скачать этот модуль, используйте эту [ссылку](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Он поддерживается только **модулем MSOnline PowerShell версии 1.1.166.0**. Чтобы скачать этот модуль, используйте эту [ссылку](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
 - Если не установить средства AD DS, выполнение командлета `Initialize-ADSyncDomainJoinedComputerSync` завершится ошибкой.  Средства AD DS можно установить с помощью диспетчера сервера в разделе "Компоненты" — "Средства удаленного администрирования сервера" — "Средства администрирования ролей".
 
 Если вы используете контроллер домена под управлением Windows Server 2008 или более ранних версий, для создания точки подключения службы используйте приведенный ниже скрипт.
@@ -306,7 +312,7 @@ Azure AD Connect выполняет следующие функции:
 
 В приведенном выше утверждении
 
-- `<verified-domain-name>` — заполнитель, который необходимо заменить одним из проверенных доменных имен в Azure AD. Например, значение = http://contoso.com/adfs/services/trust/
+- `<verified-domain-name>` — заполнитель, который необходимо заменить одним из проверенных доменных имен в Azure AD. Например, Value = "http://contoso.com/adfs/services/trust/"
 
 
 

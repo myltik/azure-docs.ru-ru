@@ -1,30 +1,27 @@
 ---
-title: "Выполнение операций в хранилище таблиц Azure с помощью PowerShell | Документация Майкрософт"
-description: "Выполнение операций в хранилище таблиц Azure с помощью PowerShell"
+title: Выполнение операций в хранилище таблиц Azure с помощью PowerShell | Документация Майкрософт
+description: Выполнение операций в хранилище таблиц Azure с помощью PowerShell
 services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Выполнение операций в хранилище таблиц Azure с помощью Azure PowerShell 
-
->[!NOTE]
->API таблицы Azure Cosmos DB предоставляет расширенные функции для хранения таблиц, такие как комплексные возможности глобального распределения, низкие задержки операций чтения и записи, автоматическое вторичное индексирование и выделенная пропускная способность. В большинстве случаев команды PowerShell в этой статье работают как для API таблицы Azure Cosmos DB, так и для хранилища таблиц Azure, однако в этой статье рассматривается хранилище таблиц Azure. Если вы используете API таблицы Azure Cosmos DB, ознакомьтесь со статьей [Выполнение операций в API таблицы Azure Cosmos DB с помощью Azure PowerShell](table-powershell.md).
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Хранилище таблиц Azure — хранилище данных NoSQL, которое можно использовать для хранения и запросов огромных наборов структурированных нереляционных данных. Основными компонентами службы являются таблицы, сущности и свойства. Таблица представляет собой коллекцию сущностей. Сущность — это набор свойств. Каждая сущность может иметь до 252 свойств. Все они являются парами "имя — значение". В этой статье предполагается, что вы уже знакомы с понятиями хранилища таблиц Azure. Дополнительные сведения см. в статьях [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Общие сведения о модели данных службы таблиц) и [Приступая к работе с хранилищем таблиц Azure с помощью .NET](table-storage-how-to-use-dotnet.md).
 
@@ -38,7 +35,7 @@ ms.lasthandoff: 01/18/2018
 > * удаление сущностей таблицы.
 > * Удаление таблицы
 
-В этом практическом руководстве показано, как создать учетную запись хранения в новой группе ресурсов, чтобы вы могли легко удалить ее по завершении. Вы можете использовать имеющуюся учетную запись хранения.
+В этом практическом руководстве показано, как создать учетную запись службы хранилища Azure в новой группе ресурсов, чтобы вы могли легко удалить ее при необходимости. Вы можете использовать существующую учетную запись хранения.
 
 Для работы с этим руководством требуется модуль Azure PowerShell 4.4.0 или более поздней версии. В окне PowerShell выполните `Get-Module -ListAvailable AzureRM`, чтобы найти версию. Если версия не отображается или нужно установить обновление, ознакомьтесь со статьей [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Установка и настройка Azure PowerShell). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Извлеките список таблиц, содержащихся в учетной записи хранения, с помощью командлета [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Получение ссылки на определенную таблицу

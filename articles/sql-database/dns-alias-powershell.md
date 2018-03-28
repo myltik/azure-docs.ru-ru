@@ -1,26 +1,21 @@
 ---
-title: "Управление псевдонимом DNS для базы данных SQL Azure с помощью PowerShell | Документация Майкрософт"
-description: "С помощью командлетов PowerShell (например, New-AzureRMSqlServerDNSAlias) вы можете перенаправлять новые клиентские подключения на другой сервер Базы данных SQL Azure, не меняя конфигурацию клиента."
+title: Управление псевдонимом DNS для базы данных SQL Azure с помощью PowerShell | Документация Майкрософт
+description: С помощью командлетов PowerShell (например, New-AzureRMSqlServerDNSAlias) вы можете перенаправлять новые клиентские подключения на другой сервер Базы данных SQL Azure, не меняя конфигурацию клиента.
 keywords: dns sql database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
-ms.custom: 
-ms.workload: 
-ms.tgt_pltfrm: 
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: dmalik
-ms.openlocfilehash: ec638d7b48b443cda5755e3077c6304b0c5ad78e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2aae669364c3de2e9b00ffe8e28b1521d3a781e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Управление псевдонимом DNS для Базы данных SQL Azure с помощью PowerShell
 
@@ -50,7 +45,7 @@ ms.lasthandoff: 02/09/2018
 
 Чтобы выполнить пример скрипта PowerShell, приведенный в этой статье, потребуются следующие компоненты:
 
-- Подписка и учетная запись Azure. Чтобы получить бесплатную пробную версию, щелкните [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
+- Подписка и учетная запись Azure. Для получения бесплатной пробной версии, щелкните ссылку [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 
 - Модуль Azure PowerShell и командлет **New-AzureRMSqlServerDNSAlias**.
     - Чтобы выполнить установку или обновление, см. статью [Установка и настройка Azure PowerShell][install-azurerm-ps-84p].

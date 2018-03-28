@@ -1,11 +1,11 @@
 ---
-title: "Масштабируемость служб Service Fabric | Документация Майкрософт"
-description: "Описывает процесс выполнения служб структурой служб"
+title: Масштабируемость служб Service Fabric | Документация Майкрософт
+description: Описывает процесс выполнения служб структурой служб
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Масштабирование в Service Fabric
-Azure Service Fabric упрощает создание масштабируемых приложений, обеспечивая управление службами, секциями и репликами на узлах кластера. Выполнение множества рабочих нагрузок на одном и том же оборудовании обеспечивает не только максимальное использование ресурсов, но и гибкость в выборе способа масштабирования рабочих нагрузок. 
+Azure Service Fabric упрощает создание масштабируемых приложений, обеспечивая управление службами, секциями и репликами на узлах кластера. Выполнение множества рабочих нагрузок на одном и том же оборудовании обеспечивает не только максимальное использование ресурсов, но и гибкость в выборе способа масштабирования рабочих нагрузок. В этом видео Channel 9 объясняется, как создавать масштабируемые приложения для микрослужб:
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 В Service Fabric масштабирования осуществляется несколькими способами:
 

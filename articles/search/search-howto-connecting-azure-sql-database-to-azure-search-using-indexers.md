@@ -1,24 +1,24 @@
 ---
-title: "Подключение базы данных SQL Azure к службе поиска Azure с помощью индексаторов | Документация Майкрософт"
-description: "Узнайте, как извлекать данные из Базы данных SQL Azure в индекс Поиска Azure с помощью индексаторов."
+title: Подключение базы данных SQL Azure к службе поиска Azure с помощью индексаторов | Документация Майкрософт
+description: Узнайте, как извлекать данные из Базы данных SQL Azure в индекс Поиска Azure с помощью индексаторов.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 
@@ -57,6 +57,9 @@ ms.lasthandoff: 01/09/2018
 | Типы данных совместимы | Большинство типов SQL, но не все из них, поддерживаются индексом Поиска Azure. Список см. в разделе [Сопоставление типов данных](#TypeMapping). |
 | Синхронизация данных в режиме реального времени необязательна | Индексатор может выполнять повторное индексирование таблицы не чаще, чем раз в пять минут. При частом изменении данных, которые должны быть отражены в индексе в течение нескольких секунд или минут, мы рекомендуем использовать [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) или [пакет SDK для .NET](search-import-data-dotnet.md), чтобы отправлять обновленные строки напрямую. |
 | Возможно добавочное индексирование | Если вы располагаете большим набором данных и собираетесь запускать индексатор по расписанию, Поиск Azure должен иметь возможность эффективного определения новых, измененных или удаленных строк. Недобавочное индексирование разрешено только при индексировании по требованию или при индексации менее 100 000 строк. Дополнительные сведения см. в разделе [Запись измененных и удаленных строк](#CaptureChangedRows) ниже. |
+
+> [!NOTE] 
+> Поиск Azure поддерживает только аутентификацию SQL Server. Если требуется поддержка для аутентификации Azure Active Directory, проголосуйте за это [предложение UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Создание индексатора SQL Azure
 

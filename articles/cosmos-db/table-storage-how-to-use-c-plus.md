@@ -1,6 +1,6 @@
 ---
-title: "Как использовать хранилище таблиц Azure с C++ | Документация Майкрософт"
-description: "Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
+title: Как использовать хранилище таблиц Azure и Azure Cosmos DB в C++ | Документация Майкрософт
+description: Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL).
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/12/2018
 ms.author: mimig
-ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>Как использовать хранилище таблиц Azure с C++
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Как использовать хранилище таблиц Azure и API таблиц Azure Cosmos DB в C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Обзор
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Здесь описаны такие сценарии, как **создание и удаление таблицы**, а также **работа с сущностями таблиц**.
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Azure или API таблиц Azure Cosmos DB. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Здесь описаны такие сценарии, как **создание и удаление таблицы**, а также **работа с сущностями таблиц**.
 
 > [!NOTE]
 > Данное руководство предназначено для клиентской библиотеки хранилища Azure для С++ версии 1.0.0 и выше. Рекомендуемая версия клиентской библиотеки хранилища — 2.2.0. Она доступна на сайте [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/01/2018
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>Настройка приложения для доступа к хранилищу таблиц
+## <a name="configure-access-to-the-table-client-library"></a>Настройка доступа к клиентской библиотеке таблиц
 Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы хранилища Azure для доступа к таблицам.  
 
 ```cpp
@@ -54,13 +54,24 @@ ms.lasthandoff: 02/01/2018
 #include <was/table.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Настройка строки подключения к хранилищу Azure
-Клиент хранилища Azure использует строку подключения с целью хранения конечных точек и учетных данных для доступа к службам управления данными. При запуске клиентского приложения необходимо указать строку подключения к хранилищу в указанном формате. Для значений *AccountName* и *AccountKey* используйте имя учетной записи хранения и ключ доступа к хранилищу, которые соответствуют учетной записи хранения и указаны на [портале Azure](https://portal.azure.com). Сведения об учетных записях хранения и ключах доступа см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md). В этом примере показано, как объявить статическое поле для размещения строки подключения:  
+Клиент службы хранилища Azure или Cosmos DB хранит в строке подключения идентификаторы конечных точек и учетные данные для доступа к службам управления данными. При запуске клиентского приложения следует предоставить строку в правильном формате для подключения к хранилищу или к Azure Cosmos DB.
+
+## <a name="set-up-an-azure-storage-connection-string"></a>Настройка строки подключения к службе хранилища Azure
+ Для параметров *AccountName* и *AccountKey* укажите значения имени и ключа доступа от учетной записи хранения, которые можно найти на [портале Azure](https://portal.azure.com). Сведения об учетных записях хранения и ключах доступа см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md). В этом примере показано, как объявить статическое поле для размещения строки подключения к службе хранилища Azure:  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Настройка строки подключения к Azure Cosmos DB
+Для параметров *Имя учетной записи*, *Первичный ключ* и *Конечная точка* укажите значения имени и первичного ключа учетной записи Azure Cosmos DB, а также конечную точку, которые можно найти на [портале Azure](https://portal.azure.com). В этом примере показано, как объявить статическое поле для размещения строки подключения к Azure Cosmos DB:
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 Чтобы протестировать приложение на локальном компьютере с Windows, можно использовать [эмулятор хранения](../storage/common/storage-use-emulator.md) Azure, устанавливаемый с [пакетом Azure SDK](https://azure.microsoft.com/downloads/). Эмулятор хранения — это служебная программа, моделирующая службы больших двоичных объектов, очередей и таблиц, которые доступны в Azure на локальном компьютере разработки. В следующем примере показано, как объявить статическое поле для размещения строки подключения для эмулятора локального хранилища.  
 
@@ -74,7 +85,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 В приведенных ниже примерах предполагается, что вы использовали одно из этих двух определений для получения строки подключения к хранилищу.  
 
 ## <a name="retrieve-your-connection-string"></a>Получить строку подключения
-Информацию о своей учетной записи хранения можно представить с помощью класса **cloud_storage_account**. Чтобы получить данные учетной записи хранения из строки подключения хранилища, можно использовать метод синтаксического анализа.
+Информацию о своей учетной записи хранения можно представить с помощью класса **cloud_storage_account**. Чтобы получить данные учетной записи хранения из строки подключения хранилища, можно использовать метод **синтаксического анализа** .
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -198,6 +209,9 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 ## <a name="retrieve-all-entities-in-a-partition"></a>Получение всех сущностей в разделе
 Чтобы запросить таблицу для всех сущностей в разделе, используйте объект **table_query**. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.  
 
+> [!NOTE]
+> Эти методы сейчас не поддерживаются для C++ в базе данных Azure Cosmos DB.
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,6 +246,9 @@ for (; it != end_of_results; ++it)
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Получение диапазона сущностей в разделе
 Если вы не хотите запрашивать все сущности в разделе, можно указать диапазон, объединив фильтр ключа раздела с фильтром ключа строк. В следующем примере кода используются два фильтра для получения всех сущностей в разделе Smith, где ключ строки (имя) начинается с первой буквы алфавита до буквы E, после чего результаты запроса выводятся в консоль.  
+
+> [!NOTE]
+> Эти методы сейчас не поддерживаются для C++ в базе данных Azure Cosmos DB.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -436,23 +453,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+    {
+        std::cout << "Table deleted!";
+    }
+    else
+    {
+        std::cout << "Table didn't exist";
+    }
 ```
 
-## <a name="next-steps"></a>Дополнительная информация
-Теперь, когда вы ознакомились с основными сведениями о хранилище таблиц, воспользуйтесь следующими ссылками для получения дополнительных сведений о службе хранилища Azure:  
+## <a name="troubleshooting"></a>Устранение неполадок
+* Ошибки сборки в выпуске Visual Studio Community 2017
 
+  Если сборка проекта завершается ошибкой из-за включаемых файлов storage_account.h и table.h, удалите параметр компилятора **/permissive-**. 
+  - В **обозревателе решений** щелкните проект правой кнопкой мыши и выберите **Свойства**.
+  - В диалоговом окне **Страницы свойств** разверните узел **Свойства конфигурации**, затем разверните **C/C++** и выберите **Язык**.
+  - Для параметра **Режим совместимости** установите значение **Нет**.
+   
+## <a name="next-steps"></a>Дополнительная информация
+Перейдите по приведенным ниже ссылкам, чтобы больше узнать о службе хранилища Azure и API таблиц в Azure Cosmos DB. 
+
+* [Общие сведения об API таблиц Azure Cosmos DB](table-introduction.md)
 * [Обозреватель хранилищ Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
-* [Использование хранилища BLOB-объектов из C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Использование хранилища очередей из C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Перечисление ресурсов хранилища Azure в C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 * [Документация по службе хранилища Azure](https://azure.microsoft.com/documentation/services/storage/)

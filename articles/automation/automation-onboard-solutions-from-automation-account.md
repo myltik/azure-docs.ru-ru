@@ -1,20 +1,21 @@
 ---
-title: "Сведения о том, как подключить решения для управления обновлениями, отслеживания изменений и инвентаризации в службе автоматизации Azure"
-description: "Сведения о том, как на виртуальной машине Azure подключить решения для управления обновлениями, отслеживания изменений и инвентаризации, входящие в состав службы автоматизации Azure"
+title: Сведения о том, как подключить решения для управления обновлениями, отслеживания изменений и инвентаризации в службе автоматизации Azure
+description: Сведения о том, как на виртуальной машине Azure подключить решения для управления обновлениями, отслеживания изменений и инвентаризации, входящие в состав службы автоматизации Azure
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.custom: mvc
+ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Подключение решений для управления обновлениями, отслеживания изменений и инвентаризации
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
-Войдите на портал Azure по адресу https://portal.azure.com.
+Войдите в Azure: https://portal.azure.com
 
 ## <a name="enable-solutions"></a>включение решений;
 

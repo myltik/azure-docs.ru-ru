@@ -1,24 +1,18 @@
 ---
-title: "Проверка конфигурации учетной записи службы автоматизации Azure | Документация Майкрософт"
-description: "В этой статье описывается проверка правильной настройки конфигурации учетной записи службы автоматизации."
+title: Проверка конфигурации учетной записи службы автоматизации Azure
+description: В этой статье описывается проверка правильной настройки конфигурации учетной записи службы автоматизации.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+manager: carmonm
+ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Тестирование проверки подлинности учетной записи запуска от имени службы автоматизации Azure
 После успешного создания учетной записи службы автоматизации можно выполнить простой тест, чтобы убедиться, что вы сможете успешно пройти проверку подлинности в Azure Resource Manager или в классическом развертывании Azure с помощью созданной или обновленной учетной записи запуска от имени службы автоматизации.    

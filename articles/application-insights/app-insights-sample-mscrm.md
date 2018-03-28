@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Dynamics CRM и Azure Application Insights | Документация Майкрософт"
-description: "Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту."
+title: Microsoft Dynamics CRM и Azure Application Insights | Документация Майкрософт
+description: Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mazharmicrosoft
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 759dac681592d0e5951e09638533b93c6348d899
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online с помощью Application Insights
 В этой статье показано, как получить данные телеметрии из службы [Microsoft Dynamics CRM Online](https://www.dynamics.com/) с помощью [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Мы рассмотрим весь процесс добавления сценария Application Insights в приложение, сбор данных и их визуализацию.
@@ -33,12 +33,12 @@ ms.lasthandoff: 11/01/2017
 ### <a name="create-an-application-insights-resource-in-azure"></a>Создание ресурса Application Insights в Azure
 1. Получите [учетную запись Microsoft Azure](http://azure.com/pricing). 
 2. Войдите на [портал Azure](https://portal.azure.com) и добавьте новый ресурс Application Insights. Здесь будут обрабатываться и отображаться ваши данные.
-   
+
     ![Щелкните значок «+» и последовательно выберите «Службы для разработчиков», Application Insights.](./media/app-insights-sample-mscrm/01.png)
-   
+
     Выберите приложение ASP.NET в качестве типа приложения.
 3. Откройте страницу "Начало работы", а затем откройте "Мониторинг и диагностика приложения на стороне клиента".
-   
+
     ![Фрагмент кода для вставки на веб-страницу](./media/app-insights-sample-mscrm/03.png)
 
 **Не закрывайте страницу с кодом** , выполняя следующий шаг в другом окне браузера. Код вскоре вам понадобится. 
@@ -46,41 +46,38 @@ ms.lasthandoff: 11/01/2017
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Создание веб-ресурса JavaScript в Microsoft Dynamics CRM
 1. Откройте экземпляр CRM Online и войдите с правами администратора.
 2. Последовательно откройте элементы "Параметры Microsoft Dynamics CRM", "Настройка", "Настройка системы".
-   
-    ![Параметры Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/04.png)
-   
-    ![Параметры > Настройки](./media/app-insights-sample-mscrm/05.png)
 
-    ![Настройка параметра системы](./media/app-insights-sample-mscrm/06.png)
+    ![Параметры Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/00001.png)
+
+    ![Параметры > Настройки](./media/app-insights-sample-mscrm/00002.png)
 
 1. Создайте ресурс JavaScript.
-   
+
     ![Диалоговое окно создания веб-ресурса](./media/app-insights-sample-mscrm/07.png)
-   
+
     Присвойте ему имя, выберите тип **Script (JScript)** и откройте текстовый редактор.
-   
-    ![Откройте текстовый редактор](./media/app-insights-sample-mscrm/08.png)
+
+    ![Откройте текстовый редактор](./media/app-insights-sample-mscrm/00004.png)
 2. Скопируйте код из Application Insights. При копировании необходимо пропускать теги скриптов. См. ниже снимок экрана.
-   
-    ![Задайте ключ инструментирования](./media/app-insights-sample-mscrm/09.png)
-   
+
+    ![Задайте ключ инструментирования](./media/app-insights-sample-mscrm/00005.png)
+
     Код содержит ключ инструментирования, который идентифицирует ресурс Application Insights.
 3. Щелкните «Сохранить», а затем «Опубликовать».
-   
-    ![Сохранение и публикация](./media/app-insights-sample-mscrm/10.png)
+
+    ![Сохранение и публикация](./media/app-insights-sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Формы инструментов
 1. В Microsoft CRM Online откройте форму «Учетная запись».
-   
-    ![Форма учетной записи](./media/app-insights-sample-mscrm/11.png)
+
+    ![Форма учетной записи](./media/app-insights-sample-mscrm/00007.png)
 2. Откройте свойства формы.
-   
-    ![Свойства формы](./media/app-insights-sample-mscrm/12.png)
+
+    ![Свойства формы](./media/app-insights-sample-mscrm/00008.png)
 3. Добавьте созданный веб-ресурс JavaScript.
-   
+
     ![Меню "Добавить"](./media/app-insights-sample-mscrm/13.png)
-   
-    ![Добавление веб-ресурса](./media/app-insights-sample-mscrm/14.png)
+
 4. Сохраните и опубликуйте настройки формы.
 
 ## <a name="metrics-captured"></a>Собранные показатели телеметрии

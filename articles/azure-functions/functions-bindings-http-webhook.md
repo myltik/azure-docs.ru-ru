@@ -1,13 +1,13 @@
 ---
-title: "Привязки HTTP и webhook в функциях Azure"
-description: "Узнайте, как использовать триггеры и привязки HTTP и webhook в функциях Azure."
+title: Привязки HTTP и webhook в функциях Azure
+description: Узнайте, как использовать триггеры и привязки HTTP и webhook в функциях Azure.
 services: functions
 documentationcenter: na
 author: mattchenderson
 manager: cfowler
-editor: 
-tags: 
-keywords: "функции azure, функции, обработка событий, webhook, динамические вычисления, бессерверная архитектура, HTTP, API, REST"
+editor: ''
+tags: ''
+keywords: функции azure, функции, обработка событий, webhook, динамические вычисления, бессерверная архитектура, HTTP, API, REST
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
 
@@ -30,6 +30,12 @@ ms.lasthandoff: 02/13/2018
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="packages"></a>Пакеты
+
+Привязки служебной шины доступны в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http). Исходный код для пакета находится в репозитории GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Триггер
 
@@ -361,7 +367,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Атрибуты триггера
 
-В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs).
 
 В параметрах конструктора атрибута можно задать уровень авторизации и допустимые методы HTTP. Имеются свойства для типа веб-перехватчика и шаблона пути. Дополнительные сведения об этих параметрах см. в разделе [Конфигурация триггера](#trigger---configuration). Вот как выглядит атрибут `HttpTrigger` в сигнатуре метода:
 

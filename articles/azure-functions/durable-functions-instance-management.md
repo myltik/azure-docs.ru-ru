@@ -1,12 +1,12 @@
 ---
-title: "Управление экземплярами в устойчивых функциях (Azure)"
-description: "Сведения о том, как управлять экземплярами в расширении устойчивых функций для Функций Azure."
+title: Управление экземплярами в устойчивых функциях (Azure)
+description: Сведения о том, как управлять экземплярами в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a938e5949896ad3bfa91903106d56ccdf827c725
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Управление экземплярами в устойчивых функциях (Функции Azure)
 
@@ -26,12 +26,14 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="starting-instances"></a>Запуск экземпляров
 
-Метод [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) запускает новый экземпляр функции оркестратора. Экземпляры этого класса можно получить с помощью привязки `orchestrationClient`. На внутреннем уровне этот метод ставит в очередь управления сообщение, которое инициирует запуск функции с заданным именем и привязкой к триггеру `orchestrationTrigger`.
+Метод [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) запускает новый экземпляр функции оркестратора. Экземпляры этого класса можно получить с помощью привязки `orchestrationClient`. На внутреннем уровне этот метод ставит в очередь управления сообщение, которое инициирует запуск функции с заданным именем и привязкой к триггеру `orchestrationTrigger`. 
+
+Задача завершается при запуске процесса оркестрации. Процесс оркестрации должен запуститься в течение 30 секунд. Если на это уходит больше времени, создается исключение `TimeoutException`. 
 
 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) принимает следующие параметры:
 
 * **Name.** Имя функции оркестратора, для которой назначается запуск.
-* **Input.** Любые данные, сериализуемые в формат JSON, которые нужно передать как входные данные для функции оркестратора.
+* **Input.** Любые данные, сериализуемые в формат JSON, которые нужно передать в функцию оркестратора как входные данные.
 * **InstanceId.** Уникальный идентификатор экземпляра (необязательно). Если идентификатор экземпляра не указан, ему будет присвоено случайное значение.
 
 Ниже приведен простой пример на C#.
@@ -48,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-В языках, отличных от .NET, также можно использовать привязку к выходным данным функции для запуска новых экземпляров. В этом случае можно применить любой объект, сериализуемый в формат JSON, с тремя указанными выше параметрами в качестве полей. Например, рассмотрим следующую функцию Node.js:
+В языках, отличных от .NET, также можно использовать привязку к выходным данным функции для запуска новых экземпляров. В этом случае можно применить любой объект, сериализуемый в формат JSON, с тремя полями для указанных выше параметров. Например, рассмотрим следующую функцию Node.js:
 
 ```js
 module.exports = function (context, input) {
@@ -68,7 +70,7 @@ module.exports = function (context, input) {
 
 ## <a name="querying-instances"></a>Запросы к экземплярам
 
-Метод [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) подает запрос на сведения о состоянии экземпляра оркестрации. Он принимает параметр `instanceId` и возвращает объект со следующими свойствами:
+Метод [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) подает запрос на сведения о состоянии экземпляра оркестрации. Он принимает параметры `instanceId` (обязательный), `showHistory` (необязательный) и `showHistoryOutput` (необязательный). Если `showHistory` имеет значение `true`, ответ будет содержать журнал выполнения. Если `showHistoryOutput` имеет значение `true`, журнал выполнения будет содержать выходные данные действия. Этот метод возвращает объект со следующими свойствами:
 
 * **Name.** Имя функции оркестратора.
 * **InstanceId.** Идентификатор экземпляра оркестрации (будет совпадать с переданным значением `instanceId`).
@@ -82,6 +84,7 @@ module.exports = function (context, input) {
     * **ContinuedAsNew.** Экземпляр выполнил перезапуск с очисткой журнала выполнения. Это переходное состояние.
     * **Failed.** Выполнение экземпляра завершилось ошибкой.
     * **Terminated.** Выполнение экземпляра прервано.
+* **History**: журнал выполнения оркестрации. Это поле заполняется, только если `showHistory` имеет значение `true`.
     
 Этот метод возвращает `null`, если экземпляр не существует или его выполнение еще не начато.
 
@@ -145,6 +148,60 @@ public static Task Run(
 
 > [!WARNING]
 > Если экземпляра оркестрации с указанным *идентификатором* не существует или этот экземпляр не ожидает указанное *имя события*, сообщение о событии игнорируется. Дополнительные сведения об этом поведении см. в [описании проблемы на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+## <a name="wait-for-orchestration-completion"></a>Дождитесь, пока завершится оркестрация.
+
+Класс [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) предоставляет API-интерфейс [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_), который позволяет синхронно получать фактические выходные данные от экземпляра оркестрации. Этот метод по умолчанию использует значения 10 секунд для `timeout` и 1 секунду для `retryInterval`, если вы не укажете свои значения.  
+
+Ниже приведен пример функции HTTP-триггера, в котором показано, как использовать этот API:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
+
+Следующая строка вызывает эту функцию с временем ожидания в 2 секунды и интервалом повторов 0,5 секунды:
+
+```bash
+    http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
+```
+
+В зависимости от того, сколько времени уйдет на получение ответа от экземпляра оркестрации, возможны два варианта развития событий.
+
+1. Если экземпляр оркестрации завершит работу до истечения указанного времени ожидания (2 секунды в нашем примере), то фактический ответ от экземпляра оркестрации доставляется синхронно:
+
+    ```http
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+        Date: Thu, 14 Dec 2017 06:14:29 GMT
+        Server: Microsoft-HTTPAPI/2.0
+        Transfer-Encoding: chunked
+
+        [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ]
+    ```
+
+2. Если экземпляр оркестрации не успеет завершить работу до истечения указанного времени ожидания (2 секунды в нашем примере), возвращается ответ по умолчанию, как указано в **обнаружении URL-адреса API HTTP**:
+
+    ```http
+        HTTP/1.1 202 Accepted
+        Content-Type: application/json; charset=utf-8
+        Date: Thu, 14 Dec 2017 06:13:51 GMT
+        Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}
+        Retry-After: 10
+        Server: Microsoft-HTTPAPI/2.0
+        Transfer-Encoding: chunked
+
+        {
+            "id": "d3b72dddefce4e758d92f4d411567177",
+            "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+        }
+    ```
+
+> [!NOTE]
+> Формат URL-адресов веб-перехватчиков может отличаться в зависимости от того, какая версия узла Функций Azure выполняется. Описанный выше пример предназначен для узла Функций Azure 2.0.
 
 ## <a name="next-steps"></a>Дополнительная информация
 
