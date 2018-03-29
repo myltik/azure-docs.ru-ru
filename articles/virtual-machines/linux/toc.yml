@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: Расширение VMAccess
           href: using-vmaccess-extension.md
+        - name: Ограничение установки расширения
+          href: extensions-rmpolicy-howto-cli.md
     - name: Перенос виртуальных машин
       items:
         - name: Миграция AWS и локальных виртуальных машин
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: Диагностика загрузки
           href: boot-diagnostics.md
+        - name: Последовательная консоль
+          href: serial-console.md
         - name: Доступ к приложениям
           href: troubleshoot-app-connection.md
         - name: Ошибки выделения ресурсов

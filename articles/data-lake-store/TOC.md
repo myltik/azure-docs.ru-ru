@@ -9,7 +9,6 @@
 
 # Начало работы
 ## [Использование портала](data-lake-store-get-started-portal.md)
-## [Использование Data Lake Store в Обозревателе службы хранилища](data-lake-store-in-storage-explorer.md)
 ## [PowerShell](data-lake-store-get-started-powershell.md)
 ## [Использование Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # Практическое руководство
 ## Загрузка и перемещение данных
 ### [Использование фабрики данных Azure](../data-factory/load-azure-data-lake-store.md)
-### [Использование Data Lake Store в Обозревателе службы хранилища](data-lake-store-in-storage-explorer.md)
+### [Использование Обозревателя службы хранилища](data-lake-store-in-storage-explorer.md)
 ### [С помощью AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Использование Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

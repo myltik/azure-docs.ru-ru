@@ -445,3 +445,5 @@
       href: faq.md
     - name: Объяснение согласованности данных на примере игры в бейсбол
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Устранение неполадок с Azure Cosmos DB
+      href: troubleshoot-azure-cosmosdb.md

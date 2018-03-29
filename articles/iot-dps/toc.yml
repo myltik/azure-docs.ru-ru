@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: Настройка автоматической подготовки на портале
       href: quick-setup-auto-provision-rm.md
-    - name: Создание виртуального устройства
+    - name: Автоматическая подготовка имитированного устройства
       items:
-        - name: TPM
+        - name: Аттестация доверенного платформенного модуля
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: Аттестация X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: Регистрация устройства
+    - name: Регистрация устройств с помощью API-интерфейсов службы подготовки
       items:
-        - name: TPM
+        - name: Аттестация доверенного платформенного модуля
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: Аттестация X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: Основные понятия
   items:
-    - name: Основные понятия устройства
+    - name: Автоматическая подготовка
+      href: concepts-auto-provisioning.md
+    - name: Устройства
       href: concepts-device.md
-    - name: Основные понятия службы
-      href: concepts-service.md
-    - name: Основные понятия безопасности
+    - name: Безопасность
       href: concepts-security.md
+    - name: Service
+      href: concepts-service.md
 - name: Практические руководства
   items:
     - name: Управление регистрацией устройств

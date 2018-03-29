@@ -84,9 +84,10 @@
 ## [Устранение неполадок](vpn-gateway-troubleshoot.md)
 ### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Предлагаемые сообществом параметры устройств VPN или брандмауэра](vpn-gateway-third-party-settings.md)
-### [Проблемы с подключением типа "точка — сеть"](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Сбой подключения типа "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Проблемы с подключением "точка — сеть"](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Проблемы с подключением "точка — сеть" для VPN-клиента Mac OS X ](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Проблемы с подключением "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Настройка и проверка VPN-подключений и подключений между виртуальными сетями](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Справочные материалы

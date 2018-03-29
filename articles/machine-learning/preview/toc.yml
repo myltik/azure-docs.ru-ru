@@ -3,10 +3,14 @@
 - name: Обзор
   expanded: true
   items:
-    - name: Что такое служба "Машинное обучение Microsoft Azure"?
+    - name: Сведения о Машинном обучении Azure
       href: overview-what-is-azure-ml.md
     - name: Обзор службы "Управление моделями"
       href: model-management-overview.md
+    - name: Другие продукты Машинного обучения
+      href: overview-more-machine-learning.md
+    - name: Новые возможности
+      href: azure-machine-learning-release-notes.md
 - name: Быстрое начало работы
   items:
     - name: Установка и запуск
@@ -98,6 +102,8 @@
           href: how-to-setup-ssl-on-mlc.md
         - name: Развертывание веб-службы
           href: model-management-service-deploy.md
+        - name: Настройка контейнера
+          href: model-management-custom-container.md
         - name: Развертывание на устройстве IoT Edge
           href: deploy-to-iot-edge-device.md
         - name: Использование веб-службы
@@ -180,18 +186,6 @@
           href: model-management-cli-reference.md
         - name: API сбора данных модели
           href: model-data-collection-api-reference.md
-    - name: Заметки о выпуске
-      items:
-        - name: Спринт 0. Октябрь 2017 г.
-          href: release-notes-sprint-0.md
-        - name: Спринт 1 — ноябрь 2017 г.
-          href: release-notes-sprint-1.md
-        - name: Спринт 2 — декабрь 2017 г.
-          href: release-notes-sprint-2.md
-        - name: Исправление QFE для Sprint 2 — декабрь 2017 г.
-          href: release-notes-sprint-2.1.md
-        - name: Спринт 3 — январь 2018 г.
-          href: release-notes-sprint-3.md
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы
