@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8dc955b3556477e04e6ef3e92b1c7dbe82ac7f35
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Включение ведения журнала диагностики для веб-приложений в службе приложений Azure
 ## <a name="overview"></a>Обзор
@@ -120,7 +120,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="download-with-azure-command-line-interface"></a>Скачивание с использованием интерфейса командной строки Azure
 Чтобы скачать файлы журналов с использованием интерфейса командной строки Azure, откройте командную строку, PowerShell, Bash или сеанс терминала и введите следующую команду:
 
-    az webapp log download --name webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 Команда сохранит журналы веб-приложения (webappname) в файл **diagnostics.zip** в текущем каталоге.
 

@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о внутреннем Azure Load Balancer | Документация Майкрософт"
-description: "Сведения о том, как внутренняя подсистема балансировки нагрузки работает в Azure, и сценарии настройки внутренних конечных точек."
+title: Общие сведения о внутреннем Azure Load Balancer | Документация Майкрософт
+description: Сведения о том, как внутренняя подсистема балансировки нагрузки работает в Azure, и сценарии настройки внутренних конечных точек.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Общие сведения о внутреннем Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Внутренняя подсистема балансировки нагрузки Azure (ILB) направляет трафик только к тем ресурсам, которые находятся внутри облачной службы или используют VPN для доступа к инфраструктуре Azure. В этом отношении ILB отличается от подсистемы балансировки нагрузки с доступом в Интернет. Инфраструктура Azure ограничивает доступ к виртуальным IP-адресам (с балансировкой нагрузки) облачных служб или к виртуальной сети. Виртуальные IP-адреса и виртуальные сети никогда не предоставляются напрямую конечной точке Интернета. Внутренние бизнес-приложения выполняются в Azure и доступны из Azure или из локальных ресурсов.
 
