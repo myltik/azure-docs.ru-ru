@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 54e366de60e34ef0aac258e16ac585c3b930ebf7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Пакет SDK для обработчика канала изменений в .NET: скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -33,8 +33,6 @@ ms.lasthandoff: 03/08/2018
 > * [Поставщик ресурсов REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 |   |   |
 |---|---|
 |**Скачивание пакета SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
@@ -44,7 +42,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Улучшение стабильности.
 * Поддержка использования контрольных точек вручную.
 * Совместимость с [пакетом SDK .NET для SQL](sql-api-sdk-dotnet.md) версии 1.21 и выше.
@@ -77,7 +75,7 @@ ms.lasthandoff: 03/08/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |7 марта 2018 г. |--- |
+| [1.3.1](#1.3.1) |13 марта 2018 г. |--- |
 | [1.2.0](#1.2.0) |31 октября 2017 г. |--- |
 | [1.1.1](#1.1.1) |29 августа 2017 г. |--- |
 | [1.1.0](#1.1.0) |13 августа 2017 г. |--- |

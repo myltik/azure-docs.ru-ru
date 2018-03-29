@@ -1,8 +1,8 @@
 ---
-title: "Расширение возможностей HDInsight с помощью виртуальной сети Azure | Документы Майкрософт"
-description: "Узнайте, как использовать виртуальную сеть Azure для подключения HDInsight к другим облачным ресурсам или к ресурсам в центре обработки данных."
+title: Расширение возможностей HDInsight с помощью виртуальной сети Azure | Документы Майкрософт
+description: Узнайте, как использовать виртуальную сеть Azure для подключения HDInsight к другим облачным ресурсам или к ресурсам в центре обработки данных.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b02a4625e3973ca7679d1d2018bd37ff1d2ae2ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Расширение возможностей HDInsight с помощью виртуальной сети Azure
 
@@ -173,11 +173,11 @@ Azure предоставляет разрешение имен для служб
 
     Пример каждой конфигурации см. в разделе [Пример: пользовательский DNS-сервер](#example-dns).
 
-Дополнительные сведения см. в документе [Разрешение имен для виртуальных машин и экземпляров ролей](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Дополнительные сведения см. в документе [Разрешение имен для виртуальных машин и экземпляров ролей](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="directly-connect-to-hadoop-services"></a>Подключение напрямую к службам Hadoop
 
-В большей части документации по HDInsight предполагается, что у вас есть доступ к кластеру через Интернет. Например, что вы можете подключиться к кластер по адресу https://CLUSTERNAME.azurehdinsight.net. Этот адрес использует общедоступный шлюз, который будет недоступен, если вы использовали группы безопасности сети или определяемые пользователем маршруты для ограничения доступа из Интернета.
+В большей части документации по HDInsight предполагается, что у вас есть доступ к кластеру через Интернет. Например, что вы можете подключиться к кластеру по адресу https://CLUSTERNAME.azurehdinsight.net. Этот адрес использует общедоступный шлюз, который будет недоступен, если вы использовали группы безопасности сети или определяемые пользователем маршруты для ограничения доступа из Интернета.
 
 Для прямого подключения к Ambari и другим веб-страницам через виртуальную сеть сделайте следующее:
 

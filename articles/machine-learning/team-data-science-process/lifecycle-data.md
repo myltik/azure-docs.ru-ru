@@ -1,24 +1,24 @@
 ---
-title: "Получение и анализ данных в жизненном цикле процесса обработки и анализа данных группы в Azure | Документация Майкрософт"
-description: "Цели, задачи и конечные результаты на этапе получения и анализа данных проектов обработки и анализа данных"
+title: Получение и анализ данных в жизненном цикле процесса обработки и анализа данных группы в Azure | Документация Майкрософт
+description: Цели, задачи и конечные результаты на этапе получения и анализа данных проектов обработки и анализа данных
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 9618653e8f77c69a3a95fe27ee55c4f05c55a66e
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 028992561b1c2481dc72af3c4edcc16f65f25105
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-acquisition-and-understanding"></a>Получение и изучение данных
 

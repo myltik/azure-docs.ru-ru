@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство по использованию Azure IoT Edge в ОС Windows | Документация Майкрософт"
-description: "Первое знакомство с Azure IoT Edge и выполнение анализа на имитированном пограничном устройстве"
+title: Краткое руководство по использованию Azure IoT Edge в ОС Windows | Документация Майкрософт
+description: Первое знакомство с Azure IoT Edge и выполнение анализа на имитированном пограничном устройстве
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Краткое руководство по развертыванию первого простого модуля IoT Edge на устройстве с Windows при помощи портала Azure (предварительная версия)
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 03/05/2018
 Для среды выполнения укажите строку подключения устройства IoT Edge, о которой шла речь в предыдущем разделе.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Запустите среду выполнения.

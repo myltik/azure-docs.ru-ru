@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Виртуальные машины низкого приоритета в масштабируемых наборах (предварительная версия)
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="use-the-azure-cli-20"></a>Использование Azure CLI 2.0
 
-Процесс создания масштабируемого набора с низкоприоритетными виртуальными машинами такой же, как описано в [статье о начале работы](virtual-machine-scale-sets-create-cli.md). Просто добавьте параметр "--Priority" при вызове CLI и установите для него значение *Low*, как показано в примере ниже.
+Процесс создания масштабируемого набора с низкоприоритетными виртуальными машинами такой же, как описано в [статье о начале работы](quick-create-cli.md). Просто добавьте параметр "--Priority" при вызове CLI и установите для него значение *Low*, как показано в примере ниже.
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Использование Azure PowerShell
 
-Процесс создания масштабируемого набора с низкоприоритетными виртуальными машинами такой же, как описано в [статье о начале работы](virtual-machine-scale-sets-create-powershell.md).
+Процесс создания масштабируемого набора с низкоприоритетными виртуальными машинами такой же, как описано в [статье о начале работы](quick-create-powershell.md).
 Просто добавьте параметр "-Priority" в командлет [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) и установите для него значение *Low*, как показано в примере ниже.
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Использование шаблонов Azure Resource Manager
 
-Создание масштабируемого набора, использующего низкоприоритетные виртуальные машины, описано в статьях о начале работы для [Linux](virtual-machine-scale-sets-create-template-linux.md) и [Windows](virtual-machine-scale-sets-create-template-windows.md). Добавьте свойство "priority" в тип ресурса *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* в шаблоне и укажите *Low* в качестве значения. Обязательно используйте версию API *2017-10-30-preview* или более позднюю. 
+Создание масштабируемого набора, использующего низкоприоритетные виртуальные машины, описано в статьях о начале работы для [Linux](quick-create-template-linux.md) и [Windows](quick-create-template-windows.md). Добавьте свойство "priority" в тип ресурса *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* в шаблоне и укажите *Low* в качестве значения. Обязательно используйте версию API *2017-10-30-preview* или более позднюю. 
 
 Чтобы установить политику вытеснения с действием удаления, добавьте параметр "evictionPolicy" и задайте для него значение *delete*.
 

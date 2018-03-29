@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство по использованию Azure IoT Edge и Linux | Документация Майкрософт"
-description: "Первое знакомство с Azure IoT Edge и запуск аналитики на имитированном пограничном устройстве"
+title: Краткое руководство по использованию Azure IoT Edge и Linux | Документация Майкрософт
+description: Первое знакомство с Azure IoT Edge и запуск аналитики на имитированном пограничном устройстве
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Краткое руководство. Развертывание первого модуля IoT Edge на устройстве Linux или Mac (предварительная версия)
 
@@ -76,7 +76,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Для среды выполнения укажите строку подключения устройства IoT Edge, о которой шла речь в предыдущем разделе.
 ```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Запустите среду выполнения.

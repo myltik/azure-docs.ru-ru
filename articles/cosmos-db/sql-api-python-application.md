@@ -1,7 +1,7 @@
 ---
-title: "Руководство по веб-приложению Python Flask для Azure Cosmos DB | Документация Майкрософт"
-description: "Изучите руководство по использованию Azure Cosmos DB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений."
-keywords: "Разработка приложений, Python Flask, веб-приложение Python, разработка веб-приложения Python"
+title: Руководство по веб-приложению Python Flask для Azure Cosmos DB | Документация Майкрософт
+description: Изучите руководство по использованию Azure Cosmos DB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений.
+keywords: Разработка приложений, Python Flask, веб-приложение Python, разработка веб-приложения Python
 services: cosmos-db
 documentationcenter: python
 author: mimig1
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2150b91b5c8dd0326893497fe963fbe1d7cc59bd
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 333d34e2c7b07b1ec09d1375d4d05075ed7dde0d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Создание веб-приложения Python Flask с использованием Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/28/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 В этом руководстве показано, как использовать Azure Cosmos DB для хранения данных и обеспечения доступа к ним из веб-приложения Python Flask, размещенного в службе приложений Azure. Предполагается, что у вас есть некоторый опыт использования Python и веб-сайтов Azure.
 

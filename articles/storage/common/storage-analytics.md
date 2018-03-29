@@ -1,10 +1,10 @@
 ---
-title: "Использование аналитики службы хранилища Azure для сбора данных журналов и метрик | Документация Майкрософт"
-description: "Аналитика хранилища позволяет отслеживать данные метрик для всех служб хранилища, а также для сбора журналов по хранилищам BLOB-объектов, очередей и таблиц."
+title: Использование аналитики службы хранилища Azure для сбора данных журналов и метрик | Документация Майкрософт
+description: Аналитика хранилища позволяет отслеживать данные метрик для всех служб хранилища, а также для сбора журналов по хранилищам BLOB-объектов, очередей и таблиц.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-analytics"></a>аналитики хранилища
 

@@ -1,8 +1,8 @@
 ---
-title: "Имитация Azure IoT Edge в Windows | Документация Майкрософт"
-description: "Установка среды выполнения Azure IoT Edge на имитированном устройстве в ОС Windows и развертывание первого модуля"
+title: Имитация Azure IoT Edge в Windows | Документация Майкрософт
+description: Установка среды выполнения Azure IoT Edge на имитированном устройстве в ОС Windows и развертывание первого модуля
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Развертывание Azure IoT Edge на имитированном устройстве в ОС Windows (предварительная версия)
 
@@ -86,7 +86,7 @@ Azure IoT Edge позволяет выполнять анализ и обраб�
 Для среды выполнения укажите строку подключения устройства IoT Edge, о которой шла речь в предыдущем разделе.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Запустите среду выполнения.
