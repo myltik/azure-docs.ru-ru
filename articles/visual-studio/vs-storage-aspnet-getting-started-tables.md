@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с хранилищем таблиц Azure и подключенными службами Visual Studio (ASP.NET) | Документация Майкрософт"
-description: "Начало работы с хранилищем таблиц Azure в проекте ASP.NET в Visual Studio при подключении к учетной записи хранения с помощью подключенных служб Visual Studio"
+title: Начало работы с хранилищем таблиц Azure и подключенными службами Visual Studio (ASP.NET) | Документация Майкрософт
+description: Начало работы с хранилищем таблиц Azure в проекте ASP.NET в Visual Studio при подключении к учетной записи хранения с помощью подключенных служб Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Начало работы с хранилищем таблиц Azure и подключенными службами Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 В этом руководстве показано, как написать код ASP.NET для некоторых распространенных сценариев с использованием сущностей хранилища таблиц Azure. К этим сценариям относится создание таблицы, а также добавление, запрос и удаление сущностей таблиц. 
 
-##<a name="prerequisites"></a>предварительным требованиям
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Учетная запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)

@@ -1,9 +1,9 @@
 ---
-title: "Руководство по настройке глобального распределения Azure Cosmos DB с помощью API SQL | Документация Майкрософт"
-description: "Сведения о настройке глобального распределения Azure Cosmos DB с помощью API SQL."
+title: Руководство по настройке глобального распределения Azure Cosmos DB с помощью API SQL | Документация Майкрософт
+description: Сведения о настройке глобального распределения Azure Cosmos DB с помощью API SQL.
 services: cosmos-db
-keywords: "Глобальное распределение"
-documentationcenter: 
+keywords: Глобальное распределение
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,15 +15,13 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Сведения о настройке глобального распределения Azure Cosmos DB с помощью API SQL.
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 В этой статье показано, как настроить глобальное распределение базы данных Azure Cosmos DB и подключиться к ней с помощью API SQL на портале Azure.
 
