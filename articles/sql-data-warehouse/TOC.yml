@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Масштабирование, приостановка и возобновление'
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: Резервные копии хранилища данных
-          href: sql-data-warehouse-backups.md
+        - name: Архивация и восстановление
+          href: backup-and-restore.md
         - name: Аудит
           href: sql-data-warehouse-auditing-overview.md
         - name: Ограничения емкости

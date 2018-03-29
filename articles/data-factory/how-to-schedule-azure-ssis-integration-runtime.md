@@ -4,7 +4,7 @@ description: В этой статье описан процесс планиро
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Как планировать запуск и остановку среды выполнения интеграции Azure SSIS 
 Запуск среды выполнения интеграции (IR) Azure SSIS (SQL Server Integration Services) связан с издержками. Поэтому следует запускать IR только в том случае, когда требуется выполнение пакетов SSIS в Azure, и останавливать ее при ненадобности. Вы можете [запустить или остановить IR Azure SSIS вручную](manage-azure-ssis-integration-runtime.md) с помощью пользовательского интерфейса фабрики данных или Azure PowerShell. В этой статье описан процесс планирования запуска и остановки IR Azure SSIS с помощью службы автоматизации Azure и фабрики данных Azure. Ниже приведены общие шаги, описанные в этой статье:

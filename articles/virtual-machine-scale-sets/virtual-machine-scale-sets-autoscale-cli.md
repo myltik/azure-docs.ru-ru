@@ -1,11 +1,11 @@
 ---
-title: "Автомасштабирование масштабируемых наборов виртуальных машин с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать правила автомасштабирования для масштабируемых наборов виртуальных машин с помощью Azure CLI 2.0."
+title: Автомасштабирование масштабируемых наборов виртуальных машин с помощью Azure CLI | Документация Майкрософт
+description: Узнайте, как создать правила автомасштабирования для масштабируемых наборов виртуальных машин с помощью Azure CLI 2.0.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Автоматическое масштабирование масштабируемых наборов виртуальных машин с помощью Azure CLI 2.0
 При создании масштабируемого набора вы определяете количество экземпляров виртуальных машин для запуска. По мере изменения потребностей приложения можно автоматически увеличивать или уменьшать это количество. Возможность автоматического масштабирования позволяет удовлетворить пользовательский спрос или среагировать на изменения производительности приложения на протяжении его жизненного цикла.

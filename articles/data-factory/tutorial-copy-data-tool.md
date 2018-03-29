@@ -1,21 +1,21 @@
 ---
-title: "Копирование данных с помощью средства копирования данных Azure | Документация Майкрософт"
-description: "Создание фабрики данных Azure и применение средства копирования данных для копирования данных из хранилища BLOB-объектов Azure в базу данных SQL."
+title: Копирование данных с помощью средства копирования данных Azure | Документация Майкрософт
+description: Создание фабрики данных Azure и применение средства копирования данных для копирования данных из хранилища BLOB-объектов Azure в базу данных SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b636128d0df5a404df7aa6b2cfdce016e36681f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью средства копирования данных
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]

@@ -1,11 +1,11 @@
 ---
-title: "Создание мобильных приложений с помощью Xamarin и Azure Cosmos DB | Документация Майкрософт"
-description: "В этом руководстве описывается создание приложений с помощью Xamarin iOS, Android или Forms, а также Azure Cosmos DB. Azure Cosmos DB — это быстро растущая облачная база данных глобального масштаба для мобильных приложений."
+title: Создание мобильных приложений с помощью Xamarin и Azure Cosmos DB | Документация Майкрософт
+description: В этом руководстве описывается создание приложений с помощью Xamarin iOS, Android или Forms, а также Azure Cosmos DB. Azure Cosmos DB — это быстро растущая облачная база данных глобального масштаба для мобильных приложений.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: monicar
-editor: 
+editor: ''
 ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0cbe9a8463e8b471e3e4b0b4403c3a5d01ed59a0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Создание мобильных приложений с помощью Xamarin и Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Большинство мобильных приложений хранят данные в облаке, а Azure Cosmos DB — одна из облачных баз данных для мобильных приложений. В ней есть все, что необходимо для разработчика мобильных приложений. Это полностью управляемая база данных как услуга, которая масштабируется по запросу. Она может прозрачно передавать ваши данные пользователям, где бы они ни находились, непосредственно в ваше приложение. С помощью [пакета SDK Azure Cosmos DB для .NET Core](sql-api-sdk-dotnet-core.md) можно настроить в мобильных приложениях Xamarin взаимодействие непосредственно с Azure Cosmos DB без служб среднего уровня.
 

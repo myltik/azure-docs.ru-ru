@@ -1,12 +1,12 @@
 ---
-title: "Условный доступ на основе приложений Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как работает условный доступ на основе приложений Azure Active Directory."
+title: Условный доступ на основе приложений Azure Active Directory | Документация Майкрософт
+description: Узнайте, как работает условный доступ на основе приложений Azure Active Directory.
 services: active-directory
-keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
-documentationcenter: 
+keywords: условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Условный доступ на основе приложений Azure Active Directory  
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/11/2018
  
 
 
-##<a name="before-you-begin"></a>Перед началом работы
+## <a name="before-you-begin"></a>Перед началом работы
 
 В данной статье предполагается, что вы знакомы со следующими технологиями и процедурами:
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 01/11/2018
 - [Перенос политик условного доступа](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для создания политики условного доступа на основе приложений у вас должна быть подписка Enterprise Mobility + Security или Azure Active Directory Premium, а у пользователей — лицензия на EMS или Azure AD. 
 

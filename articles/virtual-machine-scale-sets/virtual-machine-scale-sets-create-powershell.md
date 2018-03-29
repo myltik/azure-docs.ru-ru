@@ -1,13 +1,13 @@
 ---
-title: "Создание масштабируемого набора виртуальных машин с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как быстро создать масштабируемый набор виртуальных машин с помощью Azure PowerShell"
+title: Создание масштабируемого набора виртуальных машин с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как быстро создать масштабируемый набор виртуальных машин с помощью Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Создание масштабируемого набора виртуальных машин с помощью Azure PowerShell
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. Следуя инструкциям в этой статье, вы создадите масштабируемый набор виртуальных машин с помощью Azure PowerShell. Вы также можете создать масштабируемый набор с помощью [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) или [портала Azure](virtual-machine-scale-sets-create-portal.md).

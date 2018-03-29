@@ -1,8 +1,8 @@
 ---
-title: "Доменные службы Azure Active Directory: присоединение виртуальной машины Ubuntu к управляемому домену | Документация Майкрософт"
-description: "Присоединение виртуальной машины Ubuntu Linux к управляемому домену Azure AD"
+title: 'Доменные службы Azure Active Directory: присоединение виртуальной машины Ubuntu к управляемому домену | Документация Майкрософт'
+description: Присоединение виртуальной машины Ubuntu Linux к управляемому домену Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Присоединение виртуальной машины Ubuntu к управляемому домену в Azure
 Из этой статьи вы узнаете, как присоединить виртуальную машину Ubuntu Linux к управляемому домену доменных служб Azure AD.
@@ -217,7 +217,7 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 
 
 ## <a name="troubleshooting-domain-join"></a>Устранение неполадок при присоединении к домену
-См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join).
+См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain).
 
 
 ## <a name="related-content"></a>Похожий контент

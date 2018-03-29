@@ -1,12 +1,12 @@
 ---
-title: "Советы по повышению производительности для .NET в Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как улучшить производительность базы данных Azure Cosmos DB с помощью параметров конфигурации клиента"
-keywords: "как улучшить производительность базы данных"
+title: Советы по повышению производительности для .NET в Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как улучшить производительность базы данных Azure Cosmos DB с помощью параметров конфигурации клиента
+keywords: как улучшить производительность базы данных
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6b8ff8d2efd2039e7b71f4e8f25b2756d324940f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -28,8 +28,6 @@ ms.lasthandoff: 02/28/2018
 > 
 
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Советы по повышению производительности для .NET в Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB — быстрая и гибкая распределенная база данных, которая легко масштабируется с гарантированной задержкой и пропускной способностью. Для масштабирования базы данных с помощью Azure Cosmos DB не нужно вносить существенных изменений в архитектуру или писать сложный код. Для увеличения или уменьшения масштаба достаточно вызвать один метод интерфейса API или [пакета SDK](set-throughput.md#set-throughput-sdk). Но так как для доступа к Azure Cosmos DB выполняются сетевые вызовы, некоторые оптимизации на стороне клиента помогут повысить производительность при работе с [пакетом SDK .NET для SQL](documentdb-sdk-dotnet.md).
 

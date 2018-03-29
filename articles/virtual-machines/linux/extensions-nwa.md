@@ -1,11 +1,11 @@
 ---
-title: "Расширение виртуальной машины агента Наблюдателя за сетями Azure для Linux | Документация Майкрософт"
-description: "Развертывание агента Наблюдателя за сетями на виртуальной машине Linux с помощью расширения виртуальной машины."
+title: Расширение виртуальной машины агента Наблюдателя за сетями Azure для Linux | Документация Майкрософт
+description: Развертывание агента Наблюдателя за сетями на виртуальной машине Linux с помощью расширения виртуальной машины.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Расширение виртуальной машины агента Наблюдателя за сетями для Linux
 
 ## <a name="overview"></a>Обзор
 
-[Наблюдатель за сетями Azure](https://review.docs.microsoft.com/azure/network-watcher/) — это служба мониторинга производительности, диагностики и анализа сети, позволяющая наблюдать за сетями Azure. Расширение виртуальной машины агента Наблюдателя за сетями необходимо для некоторых функций Наблюдателя за сетями на виртуальных машинах Azure. Сюда входит запись сетевого трафика по запросу и другие дополнительные функциональные возможности.
+[Наблюдатель за сетями Azure](https://docs.microsoft.com/azure/network-watcher/) — это служба мониторинга производительности, диагностики и анализа сети, позволяющая наблюдать за сетями Azure. Расширение виртуальной машины агента Наблюдателя за сетями необходимо для некоторых функций Наблюдателя за сетями на виртуальных машинах Azure. Сюда входит запись сетевого трафика по запросу и другие дополнительные функциональные возможности.
 
 В этом документе подробно описаны поддерживаемые платформы и параметры развертывания для расширения виртуальной машины агента Наблюдателя за сетями для Linux.
 

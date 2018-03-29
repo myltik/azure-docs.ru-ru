@@ -1,11 +1,11 @@
 ---
-title: "Назначение пользователя или группы корпоративному приложению в Azure Active Directory | Документы Майкрософт"
-description: "Узнайте, как выбрать корпоративное приложение и назначить для него пользователя или группу в Azure Active Directory."
+title: Назначение пользователя или группы корпоративному приложению в Azure Active Directory | Документы Майкрософт
+description: Узнайте, как выбрать корпоративное приложение и назначить для него пользователя или группу в Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: daveba
+ms.author: markvi
 ms.reviewer: luleon
-ms.openlocfilehash: b65284f799eca956c30db21d5d4171d0495297ea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45f366767daa6557fd9577a2a27a6923e63da384
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Назначение пользователя или группы корпоративному приложению в Azure Active Directory
 Чтобы назначить пользователя или группу в корпоративном приложении, необходимо иметь соответствующие разрешения для управления корпоративным приложением, а также права глобального администратора для доступа к каталогу.
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/21/2018
 6. В колонке ***имя_приложения*** (то есть в колонке с именем выбранного приложения в заголовке) выберите **Пользователи и группы**.
 
     ![Выбор команды "Все приложения"](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
-7. В колонке ***имя_приложения*** **— User &amp; Group Assignment** (Назначение пользователей и групп) щелкните **Добавить**.
+7. В колонке ***имя_приложения*****— User &amp; Group Assignment** (Назначение пользователей и групп) щелкните **Добавить**.
 8. В колонке **Добавление назначения** щелкните **Пользователи и группы**.
 
     ![Назначение приложению пользователя или группы](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)

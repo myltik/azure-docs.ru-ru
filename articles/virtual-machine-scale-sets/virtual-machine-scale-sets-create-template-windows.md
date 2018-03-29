@@ -1,13 +1,13 @@
 ---
-title: "Создание масштабируемого набора виртуальных машин Windows с помощью шаблона Azure | Документация Майкрософт"
-description: "Узнайте, как быстро создать масштабируемый набор виртуальных машин Windows с помощью шаблона Azure Resource Manager, который позволяет развернуть пример приложения и настроить правила автоматического масштабирования."
+title: Создание масштабируемого набора виртуальных машин Windows с помощью шаблона Azure | Документация Майкрософт
+description: Узнайте, как быстро создать масштабируемый набор виртуальных машин Windows с помощью шаблона Azure Resource Manager, который позволяет развернуть пример приложения и настроить правила автоматического масштабирования.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 1632411b0cfc2f8fa59f323436ee386e763a1ae0
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Создание масштабируемого набора виртуальных машин Windows с помощью шаблона Azure
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В этом руководстве по началу работы описано, как создадать масштабируемый набор виртуальных машин с помощью шаблона Azure Resource Manager. Также можно создать масштабируемый набор с помощью [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) или [портала Azure](virtual-machine-scale-sets-create-portal.md).

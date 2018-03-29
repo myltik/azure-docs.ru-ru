@@ -1,11 +1,11 @@
 ---
-title: "Настройка MSI в масштабируемом наборе виртуальных машин Azure с помощью портала Azure"
-description: "Пошаговые инструкции по настройке управляемого удостоверения службы (MSI) в масштабируемом наборе виртуальных машин Azure с помощью портала Azure."
+title: Настройка MSI в масштабируемом наборе виртуальных машин Azure с помощью портала Azure
+description: Пошаговые инструкции по настройке управляемого удостоверения службы (MSI) в масштабируемом наборе виртуальных машин Azure с помощью портала Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Настройка управляемого удостоверения службы (MSI) в масштабируемом наборе виртуальных машин Azure с помощью портала Azure
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/08/2018
 
 На момент написания этой статьи включение MSI во время создания масштабируемого набора виртуальных машин на портале Azure не поддерживалось. См. краткое руководство по созданию масштабируемого набора виртуальных машин по ссылке ниже:
 
-- [Создание масштабируемого набора виртуальных машин на портале Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Создание масштабируемого набора виртуальных машин на портале Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Затем перейдите к инструкциям по включению MSI в масштабируемом наборе виртуальных машин в следующем разделе.
 

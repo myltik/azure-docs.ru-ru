@@ -1,23 +1,20 @@
 ---
-title: "Добавление возможности входа в веб-приложение Node.js — Azure Active Directory B2C"
-description: "Как создать веб-приложение Node.js, позволяющее пользователям входить в систему с помощью Azure Active Directory B2C"
+title: Добавление возможности входа в веб-приложение Node.js — Azure Active Directory B2C
+description: Как создать веб-приложение Node.js, позволяющее пользователям входить в систему с помощью Azure Active Directory B2C
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: dstrockis
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
-ms.openlocfilehash: 25a2bef2f3cc6f210c574f920164b8d69b0d90db
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: b10b2338bfbcd449075e612ae00cc23802dce3a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: добавление входа в веб-приложение Node.js
 
@@ -400,7 +397,7 @@ exports.list = function(req, res){
 
 Зарегистрируйтесь или войдите в приложение с помощью адреса электронной почты или учетной записи Facebook. Выйдите и снова войдите от имени другого пользователя.
 
-##<a name="next-steps"></a>Дополнительная информация
+## <a name="next-steps"></a>Дополнительная информация
 
 Полный пример (без ваших значений конфигурации) можно загрузить в виде [ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Кроме того, его можно клонировать из GitHub:
 

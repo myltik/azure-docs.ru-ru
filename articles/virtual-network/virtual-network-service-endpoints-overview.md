@@ -1,12 +1,12 @@
 ---
-title: "Конечные точки служб виртуальной сети Azure | Документация Майкрософт"
-description: "Узнайте, как включить прямой доступ к ресурсам Azure из виртуальной сети с помощью конечных точек служб."
+title: Конечные точки служб виртуальной сети Azure | Документация Майкрософт
+description: Узнайте, как включить прямой доступ к ресурсам Azure из виртуальной сети с помощью конечных точек служб.
 services: virtual-network
 documentationcenter: na
 author: anithaa
 manager: narayan
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
-ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Конечные точки службы виртуальной сети
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- Узнайте, как [настроить конечные точки служб виртуальной сети](virtual-network-service-endpoints-configure.md).
+- Узнайте, как [настроить конечные точки служб виртуальной сети](tutorial-restrict-network-access-to-resources.md).
 - Узнайте, как [защитить учетную запись хранения Azure с помощью виртуальной сети](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Узнайте, как [защитить базу данных SQL Azure с помощью виртуальной сети](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Узнайте об [интеграции служб Azure в виртуальных сетях](virtual-network-for-azure-services.md).

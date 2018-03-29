@@ -1,11 +1,11 @@
 ---
-title: "Выполнение конвейера и триггеры в фабрике данных Azure | Документация Майкрософт"
-description: "В этой статье объясняется, как выполнить конвейер в фабрике данных Azure по запросу или путем создания триггера."
+title: Выполнение конвейера и триггеры в фабрике данных Azure | Документация Майкрософт
+description: В этой статье объясняется, как выполнить конвейер в фабрике данных Azure по запросу или путем создания триггера.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: e754986cb3653eb4b2a17edff4d57974331cdcbb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Выполнение конвейера и триггеры в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -281,9 +281,9 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | Свойство JSON | type | Обязательно | Значение по умолчанию | Допустимые значения | Пример |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | строка | Yes | None | Дата и время по спецификации ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | Yes | Нет | Объект recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | object | Yes | None | Объект recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Нет  | 1 | От 1 до 1000 | `"interval":10` |
-| **endTime** | строка | Yes | Нет | Значение даты и времени, представляющее время в будущем. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | строка | Yes | None | Значение даты и времени, представляющее время в будущем. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | Нет  | Нет | Объект schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Свойство startTime

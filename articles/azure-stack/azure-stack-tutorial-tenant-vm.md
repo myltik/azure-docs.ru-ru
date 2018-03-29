@@ -1,31 +1,28 @@
 ---
-title: "Предоставление виртуальных машин для пользователей Azure Stack | Документация Майкрософт"
-description: "Руководство по предоставлению виртуальных машин для пользователей Azure Stack"
+title: Предоставление виртуальных машин для пользователей Azure Stack | Документация Майкрософт
+description: Руководство по предоставлению виртуальных машин для пользователей Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Предоставление виртуальных машин для пользователей Azure Stack
-
-*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
-
 Администратор облака Azure Stack может создавать предложения для пользователей (клиентов), на которые они смогут подписаться. Подписка позволяет пользователям работать со службами Azure Stack.
 
 Из этой статьи вы узнаете, как создать и протестировать такое предложение. Для проверки нужно войти на портал от имени пользователя, подписаться на предложение и создать виртуальную машину с использованием этой подписки.
@@ -117,7 +114,7 @@ ms.lasthandoff: 02/22/2018
 
    a. Войдите на пользовательский портал от имени пользователя и щелкните **Get a Subscription** (Получить подписку).
    - В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt;.
-   - При работе с Пакетом средств разработки Azure Stack портал можно найти по адресу https://portal.local.azurestack.external.
+   - Если вы используете набор разработки Azure Stack, адрес портала https://portal.local.azurestack.external.
 
    ![Получение подписки](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -135,7 +132,7 @@ ms.lasthandoff: 02/22/2018
 
    a. Войдите на пользовательский портал в качестве пользователя.
       - В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt;.
-   - При работе с Пакетом средств разработки Azure Stack портал можно найти по адресу https://portal.local.azurestack.external.
+   - Если вы используете набор разработки Azure Stack, адрес портала https://portal.local.azurestack.external.
 
    Б.  На панели мониторинга последовательно выберите элементы **Создать** > **Вычисления** > **Windows Server 2016 Datacenter Eval** и щелкните **Создать**.
 

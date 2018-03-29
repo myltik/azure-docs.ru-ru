@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C. Защита служб RESTful с использованием обычной проверки подлинности HTTP"
-description: "Сведения о защите пользовательского обмена утверждениями REST API в системе Azure AD B2C с помощью обычной проверки подлинности HTTP"
+title: Azure Active Directory B2C. Защита служб RESTful с использованием обычной проверки подлинности HTTP
+description: Сведения о защите пользовательского обмена утверждениями REST API в системе Azure AD B2C с помощью обычной проверки подлинности HTTP
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 90bbcc865f13a1d048ea12fdccd3ca848cf362ba
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Защита служб RESTful с использованием обычной проверки подлинности HTTP
 В [связанной статье об Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md) вы создаете службу RESTful (веб-API), которая интегрируется с Azure Active Directory B2C (Azure AD B2C) в пути взаимодействия пользователя без использования проверки подлинности. 

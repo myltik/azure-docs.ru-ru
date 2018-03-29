@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 587a6badd57aad839b4b03ca9da1b62d97b38f82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Дочерние модули Runbook в службе автоматизации Azure
 Рекомендуется создавать в службе автоматизации Azure повторно используемые модульные Runbook с отдельной функцией, которую могут использовать другие Runbook. Родительский Runbook часто будет вызывать один или несколько дочерних Runbook для выполнения требуемых функций. Существует два способа вызвать дочерний Runbook, и у каждого из них есть определенные отличия, которые следует понимать, чтобы определить, какой способ наилучшим образом подходит для тех или иных сценариев.

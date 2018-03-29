@@ -1,7 +1,7 @@
 ---
-title: "Руководство по ASP.NET MVC для Azure Cosmos DB. Разработка веб-приложения | Документация Майкрософт"
-description: "Это руководство по MVC для ASP.NET поможет вам создать веб-приложение MVC с использованием Azure Cosmos DB. С помощью этого руководства по ASP NET MVC вы сможете сохранить файл JSON и получить доступ к данным из приложения \"Список дел\", размещенного на веб-сайтах Azure."
-keywords: "руководство по asp.net mvc, разработка веб-приложений, веб-приложение mvc, пошаговое руководство asp net mvc"
+title: Руководство по ASP.NET MVC для Azure Cosmos DB. Разработка веб-приложения | Документация Майкрософт
+description: Это руководство по MVC для ASP.NET поможет вам создать веб-приложение MVC с использованием Azure Cosmos DB. С помощью этого руководства по ASP NET MVC вы сможете сохранить файл JSON и получить доступ к данным из приложения "Список дел", размещенного на веб-сайтах Azure.
+keywords: руководство по asp.net mvc, разработка веб-приложений, веб-приложение mvc, пошаговое руководство asp net mvc
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e4f9360bfde5f3212f0bbf184c52f59b2dd43d0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395809351"></a>Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Чтобы показать, как эффективно использовать Azure Cosmos DB для хранения документов JSON и их запроса, в этой статье приведена пошаговая инструкция для создания приложения со списком задач с помощью Azure Cosmos DB. Задачи будут храниться в виде документов JSON в Azure Cosmos DB.
 

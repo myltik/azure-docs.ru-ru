@@ -1,11 +1,10 @@
 ---
-title: "Шлюз управления данными для фабрики данных | Документация Майкрософт"
-description: "Настройка шлюза данных для перемещения данных между локальными узлами и облаком. Используйте шлюз управления данными в фабрике данных Azure для перемещения данных."
+title: Шлюз управления данными для фабрики данных | Документация Майкрософт
+description: Настройка шлюза данных для перемещения данных между локальными узлами и облаком. Используйте шлюз управления данными в фабрике данных Azure для перемещения данных.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
 > [!NOTE]

@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 0270fa207b782d2d89f2408a380b766f58fa05cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 1. На портале в разделе **Все ресурсы** щелкните **+ Добавить**. 
 2. В поле поиска на странице **Все** выполните поиск по словам **шлюз локальной сети**. В результате будет возвращен список. Щелкните **Шлюз локальной сети**, а затем — **Создать**, чтобы открыть страницу **Создание шлюза локальной сети**.
 

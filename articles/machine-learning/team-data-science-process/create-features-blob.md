@@ -1,8 +1,8 @@
 ---
-title: "Создание признаков для данных хранилища BLOB-объектов Azure с помощью Panda | Документация Майкрософт"
-description: "Описание создания характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python Pandas."
+title: Создание признаков для данных хранилища BLOB-объектов Azure с помощью Panda | Документация Майкрософт
+description: Описание создания характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python Pandas.
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: a5a4b92f04fcb4683f792263f3477ecea4d7239e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Создание характеристик для данных хранилища больших двоичных объектов Azure с помощью Panda
 В этом документе демонстрируется создание характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/) . После описания загрузки данных в кадр данных Panda в нем показано создание категориальных характеристик с использованием сценариев Pyrhon со значениями индикатора и характеристиками группирования.

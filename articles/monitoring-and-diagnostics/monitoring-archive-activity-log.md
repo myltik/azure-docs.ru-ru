@@ -1,9 +1,9 @@
 ---
-title: "Архивация журнала действий Azure | Документация Майкрософт"
-description: "Узнайте, как настроить архивацию журнала действий Azure для долгосрочного хранения в учетной записи хранения."
+title: Архивация журнала действий Azure | Документация Майкрософт
+description: Узнайте, как настроить архивацию журнала действий Azure для долгосрочного хранения в учетной записи хранения.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Архивация журнала действий Azure
 В этой статье описано, как настроить архивацию [**журнала действий Azure**](monitoring-overview-activity-logs.md) в учетной записи хранения с помощью портала Azure, командлетов PowerShell или кроссплатформенного интерфейса командной строки. Архивацию целесообразно применять, если вам нужно хранить данные журнала действий дольше 90 дней (с полным контролем над политикой хранения) для аудита, статического анализа или резервного копирования. Если вам требуется хранить события в течение не более 90 дней, не нужно настраивать архивацию в учетную запись хранения, так как события журнала действий можно хранить в течение этого периода на платформе Azure.
@@ -164,7 +164,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 > 
 
 ## <a name="next-steps"></a>Дополнительная информация
-* [Скачивание больших двоичных объектов для анализа](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Скачивание больших двоичных объектов для анализа](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Потоковая передача журнала действий в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
 * [Дополнительные сведения о журнале действий](monitoring-overview-activity-logs.md)
 

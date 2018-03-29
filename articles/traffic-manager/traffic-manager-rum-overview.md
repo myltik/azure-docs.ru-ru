@@ -1,31 +1,28 @@
 ---
-title: "Измерения на стороне пользователей в диспетчере трафика Azure | Документация Майкрософт"
-description: "Обзор измерений на стороне пользователей в диспетчере трафика"
+title: Измерения на стороне пользователей в диспетчере трафика Azure | Документация Майкрософт
+description: Обзор измерений на стороне пользователей в диспетчере трафика
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Общие сведения об измерениях на стороне пользователей в диспетчере трафика
-
->[!NOTE]
->Функция "Измерения на стороне пользователей" в диспетчере трафика доступна в режиме предварительной версии. Она может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в режиме общедоступной версии. Эта функция не поддерживается, может иметь ограничения и быть доступной не во всех расположениях Azure. Актуальные сведения о доступности и состоянии этой функции см. на странице [обновлений для диспетчера трафика Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Когда вы настраиваете в профиле диспетчера трафика использование метода маршрутизации для повышения производительности, служба анализирует, откуда исходят запросы DNS, а затем принимает решения о маршрутизации, чтобы направить эти запрашивающие стороны в регион Azure, обеспечивающий для них минимальную задержку. Это достигается за счет использования аналитики задержки сети, которую диспетчер трафика поддерживает для различных сетей конечных пользователей.
 

@@ -1,11 +1,11 @@
 ---
-title: "Решение \"Емкость и производительность\" в Azure Log Analytics | Документация Майкрософт"
-description: "Используйте решение \"Емкость и производительность\" в службе Log Analytics, чтобы оценивать ресурсы серверов Hyper-V Server."
+title: Решение "Емкость и производительность" в Azure Log Analytics | Документация Майкрософт
+description: Используйте решение "Емкость и производительность" в службе Log Analytics, чтобы оценивать ресурсы серверов Hyper-V Server.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Планирование ресурсов виртуальной машины Hyper-V с помощью решения "Емкость и производительность" (предварительная версия)
 
@@ -120,20 +120,8 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 В приведенной ниже таблице содержатся примеры поисков по журналу для получения сведений о емкости и производительности, собранных и рассчитанных этим решением.
 
+
 | Запрос | ОПИСАНИЕ |
-|---|---|
-| Конфигурация памяти всех узлов | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Конфигурация памяти всех виртуальных машин | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Показатель общего числа дисковых операций ввода-вывода в секунду на всех виртуальных машинах | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Показатель общей пропускной способности дисков на всех виртуальных машинах | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Показатель общего числа операций ввода-вывода в секунду на всех общих томах кластера | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Показатель общей пропускной способности на всех общих томах кластера | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Показатель общей задержки на всех общих томах кластера | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
-
-> | Запрос | ОПИСАНИЕ |
 |:--- |:--- |
 | Конфигурация памяти всех узлов | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Конфигурация памяти всех виртуальных машин | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
@@ -145,4 +133,4 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md), чтобы просмотреть подробные сведения о емкости и производительности.
+* Используйте [поиск по журналам в Log Analytics](log-analytics-log-search.md), чтобы просмотреть подробные сведения о емкости и производительности.

@@ -1,8 +1,8 @@
 ---
-title: "Общие сведения о службе \"Управление затратами Azure\" | Документация Майкрософт"
+title: Общие сведения о службе "Управление затратами Azure" | Документация Майкрософт
 description: "\"Управление затратами Azure\" — это решение по управлению затратами на несколько облачных служб, которое помогает в работе с Azure и другими облачными ресурсами."
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e5caff5ff1af79154baddf39bf465ddea5aadae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-cost-management"></a>Что такое Azure Cost Management?
 
 Служба "Управление затратами Azure" с лицензией Cloudyn, дочернего подразделения Майкрософт, позволяет отслеживать использование облака и затраты на ресурсы Azure и других поставщиков облачных услуг, включая AWS и Google. Простые для понимания отчеты панели мониторинга помогают с распределением затрат, а также с виртуальными счетами и возвратными платежами. Cost Management помогает оптимизировать расходы на облако, выявляя недостаточно нагруженные ресурсы, которые затем можно настроить.
 
-См. ознакомительное видео [Introduction to Azure Cost Management](https://youtu.be/NWIRny6Wpsk) (Общие сведения о службе "Управление затратами Azure").
+См. ознакомительное видео [Introduction to Azure Cost Management](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo) (Общие сведения о службе "Управление затратами Azure").
 
 ## <a name="monitor-usage-and-spending"></a>Отслеживание использования и расходов
 

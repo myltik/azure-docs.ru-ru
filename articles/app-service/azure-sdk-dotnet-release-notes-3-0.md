@@ -1,10 +1,10 @@
 ---
-title: "Заметки о выпуске пакета Azure SDK для .NET 3.0 | Документы Майкрософт"
-description: "Заметки о выпуске пакета Azure SDK для .NET 3.0"
+title: Заметки о выпуске пакета Azure SDK для .NET 3.0 | Документы Майкрософт
+description: Заметки о выпуске пакета Azure SDK для .NET 3.0
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 207aa137b25e44baf73e7f481ebc8b6362dfa245
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Заметки о выпуске пакета Azure SDK для .NET 3.0
 
 В этой статье содержатся заметки о выпуске пакета Azure SDK версий 3.0 и 2.9.6 для .NET.
 
-##<a name="azure-sdk-for-net-30-release-summary"></a>Сводные данные о выпуске пакета Azure SDK для .NET 3.0
+## <a name="azure-sdk-for-net-30-release-summary"></a>Сводные данные о выпуске пакета Azure SDK для .NET 3.0
 
 Дата выпуска: 07.03.2017
  

@@ -1,10 +1,11 @@
 ---
-title: "Создание пользовательских R-модулей в Машинном обучении Azure | Документация Майкрософт"
-description: "Краткое руководство по созданию пользовательских R-модулей в Машинном обучении Azure."
+title: Создание пользовательских R-модулей в Машинном обучении Azure | Документация Майкрософт
+description: Краткое руководство по созданию пользовательских R-модулей в Машинном обучении Azure.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Создание пользовательских R-модулей в Машинном обучении Azure
 В этой статье описывается процедура создания и развертывания пользовательского R-модуля в Машинном обучении Azure. Здесь поясняется, что такое пользовательский R-модуль, и какие файлы используются для его создания. В этом разделе также описан способ создания файлов, определяющих модуль, и регистрации модуля для его развертывания в рабочей области Машинного обучения. Затем более подробно описываются элементы и атрибуты, используемые в определении пользовательского модуля. Кроме этого, здесь рассматриваются способы использования дополнительных функций, файлов и нескольких наборов выходных данных. 
@@ -295,7 +295,7 @@ ms.lasthandoff: 01/08/2018
     * Все
   * **по умолчанию** — варианты выбора по умолчанию, допустимые для выбора столбца: 
     
-    * Нет
+    * None
     * NumericFeature
     * NumericLabel
     * NumericScore

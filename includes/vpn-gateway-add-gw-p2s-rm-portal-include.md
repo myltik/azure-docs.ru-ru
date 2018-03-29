@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 1. На портале слева щелкните **+Создать ресурс** и выполните поиск по запросу "Шлюз виртуальной сети". Найдите **шлюз виртуальной сети** в списке результатов и щелкните соответствующую запись. На странице **Шлюз виртуальной сети** щелкните **Создать** в нижней части страницы, чтобы открыть страницу **Create virtual network gateway** (Создание шлюза виртуальной сети).
 2. На странице **Create virtual network gateway** (Создание шлюза виртуальной сети) укажите необходимые значения параметров.
 

@@ -3,10 +3,10 @@ title: Повторное обучение новой веб-службы маш
 description: Узнайте, как с помощью командлетов управления PowerShell для машинного обучения осуществить программное переобучение модели и обновить веб-службу так, чтобы она использовала заново обученную модель в машинном обучении Azure.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
-ms.author: aashishb
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: ''
+editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: c260c15438afe6140fce92d8d3ce15b60867ec81
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Переобучение нового экземпляра Resource Manager с помощью командлетов PowerShell для управления машинным обучением
 При переобучении новой веб-службы следует обновить определение прогнозной веб-службы, чтобы оно ссылалось на новую обученную модель.  

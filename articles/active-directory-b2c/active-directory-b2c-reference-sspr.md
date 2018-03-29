@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: самостоятельный сброс пароля | Документация Майкрософт"
-description: "Статья о том, как настроить самостоятельный сброс пароля для потребителей в Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: самостоятельный сброс пароля | Документация Майкрософт'
+description: Статья о том, как настроить самостоятельный сброс пароля для потребителей в Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: curtand
-ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f38473989f90bfe6d35bffb17a02a892ad08cf5e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: настройка самостоятельного сброса пароля для потребителей
 С помощью функции самостоятельного сброса пароля ваши потребители (которые зарегистрировали локальные учетные записи) могут самостоятельно сбрасывать пароли. Это значительно упрощает работу службы поддержки, особенно если вашим приложением регулярно пользуются миллионы клиентов. В настоящее время поддерживается только восстановление с помощью подтвержденного адреса электронной почты. В будущем мы добавим другие способы восстановления (подтвержденный номер телефона, секретные вопросы и т. д.).

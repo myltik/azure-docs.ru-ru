@@ -1,8 +1,8 @@
 ---
-title: "Решение \"Управление оповещениями\" в Azure Log Analytics | Документация Майкрософт"
-description: "Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в Log Analytics, оно позволяет импортировать в Log Analytics оповещения из подключенных групп управления System Center Operations Manager."
+title: Решение "Управление оповещениями" в Azure Log Analytics | Документация Майкрософт
+description: Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в Log Analytics, оно позволяет импортировать в Log Analytics оповещения из подключенных групп управления System Center Operations Manager.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Решение "Управление оповещениями" в Azure Log Analytics
 
@@ -109,20 +109,6 @@ ms.lasthandoff: 01/22/2018
 Следующая таблица содержит примеры поисков по журналам для получения записей оповещений, собранных этим решением. 
 
 | Запрос | ОПИСАНИЕ |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Критические оповещения, созданные за последние 24 часа. |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Предупредительные оповещения, созданные за последние 24 часа. |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Источники с активными оповещениями, возникшие за последние 24 часа. |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Все критические оповещения, созданные за последние 24 часа и остающиеся активными. |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Все критические оповещения, созданные за последние 24 часа и уже закрытые. |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Оповещения, созданные за последние 1 день и сгруппированные по уровню серьезности. |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Оповещения, созданные за последние 1 день и сгруппированные по числу повторений. |
-
-
->[!NOTE]
-> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
->
->| Запрос | ОПИСАНИЕ |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Критические оповещения, созданные за последние 24 часа. |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Предупредительные оповещения, созданные за последние 24 часа. |
@@ -131,6 +117,7 @@ ms.lasthandoff: 01/22/2018
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |Все критические оповещения, созданные за последние 24 часа и уже закрытые. |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |Оповещения, созданные за последние 1 день и сгруппированные по уровню серьезности. |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |Оповещения, созданные за последние 1 день и сгруппированные по числу повторений. |
+
 
 
 ## <a name="next-steps"></a>Дополнительная информация

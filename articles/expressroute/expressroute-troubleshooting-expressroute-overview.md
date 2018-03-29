@@ -1,12 +1,12 @@
 ---
-title: "Проверка подключения. Руководство по устранению неполадок Azure ExpressRoute | Документация Майкрософт"
-description: "В этой статье содержатся инструкции по устранению неполадок и проверке сквозного подключения канала ExpressRoute."
+title: Проверка подключения. Руководство по устранению неполадок Azure ExpressRoute | Документация Майкрософт
+description: В этой статье содержатся инструкции по устранению неполадок и проверке сквозного подключения канала ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Проверка подключения ExpressRoute
 Подключение ExpressRoute, расширяющее локальную сеть в Microsoft Cloud посредством частного подключения, которое обеспечивает поставщик услуг подключения, включает в себя следующие три различные сетевые зоны:
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/01/2018
 
 Дополнительные проверки будут добавлены в будущем. Проверяйте ежемесячно!
 
-##<a name="validate-circuit-provisioning-and-state"></a>Проверка подготовки и состояния канала
+## <a name="validate-circuit-provisioning-and-state"></a>Проверка подготовки и состояния канала
 Независимо от модели подключения необходимо создать канал ExpressRoute и соответственно сгенерировать ключ службы для подготовки канала. При подготовке канала ExpressRoute устанавливаются избыточные подключения уровня 2 между маршрутизаторами PE-MSEE (4) и MSEE (5). Дополнительные сведения о создании, изменении, подготовке и проверке канала ExpressRoute см. в статье [Создание и изменение канала ExpressRoute][CreateCircuit].
 
 >[!TIP]
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Проверка на портале Azure
+### <a name="verification-via-the-azure-portal"></a>Проверка на портале Azure
 На портале Azure можно проверить состояние канала ExpressRoute, выбрав ![2][2] в боковом меню слева, а затем выбрав канал ExpressRoute. Выберите канал ExpressRoute в разделе "Все ресурсы", после чего откроется колонка канала ExpressRoute. В ![3][3] разделе колонки отображаются основные сведения об ExpressRoute, как показано на следующем снимке экрана.
 
 ![4][4]    
@@ -90,7 +90,7 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-###<a name="verification-via-powershell"></a>Проверка с помощью PowerShell
+### <a name="verification-via-powershell"></a>Проверка с помощью PowerShell
 Чтобы получить список всех каналов ExpressRoute в группе ресурсов, используйте следующую команду:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>Проверка с помощью PowerShell (классическая модель)
+### <a name="verification-via-powershell-classic"></a>Проверка с помощью PowerShell (классическая модель)
 Чтобы получить список всех каналов ExpressRoute в подписке, используйте следующую команду:
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-##<a name="validate-peering-configuration"></a>Проверка настройки пиринга
+## <a name="validate-peering-configuration"></a>Проверка настройки пиринга
 Когда поставщик услуг завершит подготовку канала, можно создать конфигурацию маршрутизации через канал ExpressRoute между маршрутизаторами MSEE-PR (4) и MSEE (5). Каждый канал ExpressRoute может иметь включенными один, два или три контекста маршрутизации: частный пиринг Azure (трафик к частным виртуальным сетям в Azure), общедоступный пиринг Azure (трафик к общедоступным IP-адресам в Azure) и пиринг Майкрософт (трафик к Office 365 и Dynamics 365). Дополнительные сведения о создании и изменении настроек маршрутизации см. в статье [Создание и изменение маршрутизации для канала ExpressRoute][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Проверка на портале Azure
+### <a name="verification-via-the-azure-portal"></a>Проверка на портале Azure
 
 >[!NOTE]
 >Если поставщик услуг предоставляет уровень 3, а пиринги на портале пусты, обновите конфигурацию схемы с помощью кнопки "Обновить" на портале. Эта операция применит правильную конфигурацию маршрутизации в вашей схеме. 
@@ -188,7 +188,7 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-###<a name="verification-via-powershell"></a>Проверка с помощью PowerShell
+### <a name="verification-via-powershell"></a>Проверка с помощью PowerShell
 Чтобы получить дополнительные сведения о конфигурации частного пиринга Azure, используйте следующие команды:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ ms.lasthandoff: 02/01/2018
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Проверка статистики трафика
+## <a name="check-the-traffic-statistics"></a>Проверка статистики трафика
 Для получения сводной статистики трафика (переданных и полученных байтов) по первичному и вторичному пути для контекста пиринга используйте следующую команду:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

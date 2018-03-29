@@ -1,11 +1,11 @@
 ---
-title: "Основы администрирования Azure Stack | Документация Майкрософт"
-description: "Важные сведения об администрировании Azure Stack."
+title: Основы администрирования Azure Stack | Документация Майкрософт
+description: Важные сведения об администрировании Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Основы администрирования Azure Stack
-
-*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
-
 Если вы не знакомы с администрированием Azure Stack, вам необходимо знать несколько моментов. В этом руководстве представлен обзор роли оператора Azure Stack и сведения, которые необходимо сообщить пользователям, чтобы они сразу же начали продуктивно работать.
 
 ## <a name="understand-the-builds"></a>Сведения о сборках

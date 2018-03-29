@@ -1,11 +1,11 @@
 ---
-title: "Отправка сообщений из облака на устройство с помощью Центра Интернета вещей Azure (Python) | Документация Майкрософт"
-description: "Сведения об отправке сообщений из облака на устройство из Центра Интернета вещей Azure с помощью пакетов SDK для Интернета вещей Azure для Python. Для получения сообщений, отправляемых из облака на устройство, следует изменить приложение имитации устройства, а для отправки таких сообщений следует изменить внутреннее приложение."
+title: Отправка сообщений из облака на устройство с помощью Центра Интернета вещей Azure (Python) | Документация Майкрософт
+description: Сведения об отправке сообщений из облака на устройство из Центра Интернета вещей Azure с помощью пакетов SDK для Интернета вещей Azure для Python. Для получения сообщений, отправляемых из облака на устройство, следует изменить приложение имитации устройства, а для отправки таких сообщений следует изменить внутреннее приложение.
 services: iot-hub
 documentationcenter: python
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
 ms.devlang: javascript
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 592e0cd858d16715f95955194eca4217d9914b05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 9a669bda2a41ea6aa474549ee9798889523a27f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Отправка сообщений из облака на устройства с помощью Центра Интернета вещей (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -191,17 +191,6 @@ ms.lasthandoff: 01/23/2018
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
-    ```
-
-1. Добавьте следующую функцию для вывода результатов операции в консоль.
-   
-    ```python
-    function printResultFor(op) {
-      return function printResult(err, res) {
-        if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ' status: ' + res.constructor.name);
-      };
-    }
     ```
 
 1. Добавьте указанную ниже функцию для вывода ответных сообщений в консоль.

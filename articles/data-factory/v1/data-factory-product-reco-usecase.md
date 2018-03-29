@@ -1,11 +1,10 @@
 ---
-title: "Вариант использования фабрики данных: система рекомендации товаров"
-description: "Сведения о решении, в котором используется фабрика данных Azure и другие службы."
+title: 'Вариант использования фабрики данных: система рекомендации товаров'
+description: Сведения о решении, в котором используется фабрика данных Azure и другие службы.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 41948d8141d0f3c0e41b95f169bcec6c4b641106
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>Вариант использования: система рекомендации товаров
 Фабрика данных Azure — одна из многочисленных служб, используемых для внедрения набора аналитических инструментов Cortana Intelligence Suite для ускорителей решений.  Подробные сведения об этом наборе см. на странице [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). В этой статье мы рассмотрим проверенное и реализованное многими пользователями Azure решение, в котором используется фабрика данных Azure и другие службы компонентов Cortana Intelligence.

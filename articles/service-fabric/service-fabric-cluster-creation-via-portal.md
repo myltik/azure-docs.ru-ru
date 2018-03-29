@@ -1,6 +1,6 @@
 ---
-title: "Создание кластера Service Fabric на портале Azure | Документация Майкрософт"
-description: "В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью портала Azure и хранилища ключей Azure."
+title: Создание кластера Service Fabric на портале Azure | Документация Майкрософт
+description: В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью портала Azure и хранилища ключей Azure.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Создание кластера Service Fabric в Azure с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/21/2018
 
 Чтобы облегчить процесс настройки надежных тестовых кластеров, мы предоставили параметр **Базовый**. Если у вас уже имеется сертификат, который отправлен в хранилище ключей (и оно включено для развертывания), тогда используйте параметр **Пользовательский**.
 
-#####<a name="basic-option"></a>Параметр "Базовый"
+##### <a name="basic-option"></a>Параметр "Базовый"
 Следуйте инструкциям на экране, чтобы добавить или повторно использовать хранилище ключей и добавить сертификат. Добавление сертификата является синхронным процессом, поэтому придется подождать создания сертификата.
 
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 02/21/2018
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Параметр "Пользовательский"
+##### <a name="custom-option"></a>Параметр "Пользовательский"
 Пропустите этот раздел, если вы уже выполнили действия, описанные для параметра **Базовый**.
 
 ![SecurityCustomOption]

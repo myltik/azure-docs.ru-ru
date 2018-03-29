@@ -1,10 +1,11 @@
 ---
-title: "Конкурсы в коллекции решений ИИ Azure | Документация Майкрософт"
-description: "Поиск конкурсов в коллекции решений ИИ Azure."
+title: Конкурсы в коллекции решений ИИ Azure | Документация Майкрософт
+description: Поиск конкурсов в коллекции решений ИИ Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d12da450fe929361b32ea607a09d3afbbd2639b9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Поиск конкурсов в коллекции решений ИИ Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]

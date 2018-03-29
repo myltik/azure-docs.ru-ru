@@ -1,12 +1,12 @@
 ---
-title: "Службы синхронизации Azure AD Connect: изменение учетной записи службы Azure AD | Документация Майкрософт"
-description: "В этой статье описывается назначение ключа шифрования и его прерывание после изменения пароля."
+title: 'Службы синхронизации Azure AD Connect: изменение учетной записи службы Azure AD | Документация Майкрософт'
+description: В этой статье описывается назначение ключа шифрования и его прерывание после изменения пароля.
 services: active-directory
-keywords: "учетная запись службы синхронизации Azure AD, пароль"
-documentationcenter: 
+keywords: учетная запись службы синхронизации Azure AD, пароль
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Изменение пароля учетной записи Azure AD Connect Sync
 Если вы измените пароль учетной записи для Azure AD Connect Sync, служба синхронизации не сможет правильно запуститься, пока вы не сбросите ключ шифрования и не выполните повторную инициализацию пароля учетной записи для Azure AD Connect. 
@@ -30,7 +30,7 @@ Azure AD Connect входит в состав служб синхронизац
 
 Если вам нужно изменить пароль учетной записи для службы, вы можете использовать процедуры из раздела [прерывание ключа шифрования в службе синхронизации Azure АD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key).  Эти процедуры вам пригодятся и в том случае, когда по какой-либо причине вам понадобится сбросить ключ шифрования.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Проблемы, которые возникают из-за смены пароля
+## <a name="issues-that-arise-from-changing-the-password"></a>Проблемы, которые возникают из-за смены пароля
 Есть две вещи, которые необходимо выполнить при изменении пароля учетной записи службы.
 
 Во-первых, нужно изменить пароль в диспетчере управления службами Windows.  Пока вы не устраните эту проблему, будут появляться следующие ошибки.

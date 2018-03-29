@@ -4,7 +4,7 @@ description: Средства исследования и визуализаци
 keywords: средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 96f8d1bcf5a7e51823ed55a1b924d1397eba9da5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: gokuma
+ms.openlocfilehash: a89c51ae5b4b0c9d58aed04515042ed8b08dcce6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Средства исследования и визуализации данных на виртуальной машине для обработки и анализа данных
 

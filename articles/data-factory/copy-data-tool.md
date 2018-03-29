@@ -1,21 +1,21 @@
 ---
-title: "Инструмент копирования данных фабрики данных Azure | Документация Майкрософт"
-description: "В этой статье предоставляются сведения об инструменте копирования данных в пользовательском интерфейсе фабрики данных Azure"
+title: Инструмент копирования данных фабрики данных Azure | Документация Майкрософт
+description: В этой статье предоставляются сведения об инструменте копирования данных в пользовательском интерфейсе фабрики данных Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Инструмент копирования данных в фабрике данных Azure
 Инструмент копирования данных фабрики данных Azure предназначен для оптимизации процесса приема данных в озеро данных, что обычно является первым шагом сценария комплексной интеграции данных.  Это позволяет сэкономить время, особенно при использовании фабрики данных Azure для принятия данных из источников данных впервые. Ниже приведены некоторые преимущества использования этого средства:
