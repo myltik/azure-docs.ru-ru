@@ -4,7 +4,7 @@ description: Сведения об использовании веб-дейст�
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Веб-действие в фабрике данных Azure
 Веб-действие можно использовать для вызова из конвейера фабрики данных пользовательской конечной точки REST. Вы можете передать наборы данных и связанные службы, которые будет использовать это действие и к которым оно будет обращаться. 
@@ -81,7 +81,7 @@ linkedServices | Список связанных служб, переданны�
 
 ## <a name="authentication"></a>Authentication
 
-### <a name="none"></a>Нет
+### <a name="none"></a>None
 Если проверка подлинности не требуется, не включайте свойство authentication.
 
 ### <a name="basic"></a>базовая;

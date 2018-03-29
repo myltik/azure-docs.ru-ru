@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с ADP | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и ADP."
+title: Руководство по интеграции Azure Active Directory с ADP | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Руководство по интеграции Azure Active Directory с ADP
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/02/2018
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для настройки интеграции Azure AD с ADP вам потребуются:
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/02/2018
 1. добавление ADP из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-adp-from-the-gallery"></a>Добавление ADP из коллекции
+## <a name="adding-adp-from-the-gallery"></a>добавление ADP из коллекции.
 Для настройки интеграции ADP с Azure AD необходимо добавить ADP из коллекции в список управляемых приложений SaaS.
 
 **Для добавления ADP из коллекции сделайте следующее:**
@@ -122,7 +122,7 @@ ms.lasthandoff: 03/02/2018
 
     ![Сведения о домене и URL-адресах единого входа приложения ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    В текстовом поле **Идентификатор** введите URL-адрес: `https://fed.adp.com/` 
+    В текстовом поле **Идентификатор** введите URL-адрес: `https://fed.adp.com` 
     
 5. Приложение ADP ожидает проверочные утверждения SAML в определенном формате, поэтому следует добавить настраиваемые сопоставления атрибутов в конфигурацию атрибутов токена SAML. На следующем снимке экрана приведен пример. Утверждение всегда будет носить имя **PersonImmutableID** и иметь значение, которое было сопоставлено с **employeeid**. 
 
@@ -238,10 +238,6 @@ ms.lasthandoff: 03/02/2018
  
 11. После подтверждения успешной проверки назначьте службу федеративного доступа ADP отдельным пользователям или группам пользователей, что описано далее в этом руководстве, и разверните ее для своих сотрудников. 
 
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
@@ -319,6 +315,8 @@ ms.lasthandoff: 03/02/2018
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

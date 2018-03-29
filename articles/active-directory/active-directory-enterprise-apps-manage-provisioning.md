@@ -1,11 +1,11 @@
 ---
-title: "Управление подготовкой пользователей для корпоративных приложений в Azure Active Directory | Документы Майкрософт"
-description: "Узнайте, как управлять подготовкой учетных записей пользователя для корпоративных приложений в Azure Active Directory."
+title: Управление подготовкой пользователей для корпоративных приложений в Azure Active Directory | Документы Майкрософт
+description: Узнайте, как управлять подготовкой учетных записей пользователя для корпоративных приложений в Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure
 В этой статье описывается управление автоматической подготовкой и отзывом учетных записей пользователей для приложений, поддерживающих эту возможность, особенно добавленных в категории "Избранные" [коллекции приложений Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), с помощью [портала Azure](https://portal.azure.com). Дополнительные сведения об автоматической подготовке учетных записей пользователей см. в статье [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2018
 
 Кроме того, здесь указаны ссылки на **отчет о действиях по подготовке**, в котором предоставлен журнал всех созданных, обновленных и удаленных пользователей и групп в Azure AD и целевом приложении, и **отчет об ошибках при подготовке**, в котором предоставлены более подробные сообщения об ошибках для объектов пользователей и групп, которые не удалось прочитать, создать, обновить или удалить. 
 
-##<a name="feedback"></a>Отзыв
+## <a name="feedback"></a>Отзыв
 
 Надеемся, что вам нравятся возможности работы в Azure AD. Поделитесь своими впечатлениями с нами! Вы можете опубликовать свои отзывы и предложения в разделе, посвященном **порталу администрирования** на нашем [форуме для обратной связи](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Мы работаем над новыми интересными возможностями и хотим учитывать ваши отзывы.
 

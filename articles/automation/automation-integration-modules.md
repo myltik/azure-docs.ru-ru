@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e1bcdb2938d1dcb2743b4c1c523ccefb322dd428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b7aa09776045705ce98a472adbbe2f36d827ccc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Модули интеграции службы автоматизации Azure
 Служба автоматизации Azure создана с использованием технологии PowerShell. Поэтому модули PowerShell — основной компонент для расширения службы автоматизации Azure. В этой статье рассматриваются особенности использования модулей PowerShell (которые называются модулями интеграции) в службе автоматизации Azure. Также приводятся рекомендации по созданию своих модулей PowerShell и обеспечению их работы в качестве модулей интеграции в службе автоматизации Azure. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Упаковка и развертывание существующего исполняемого файла вручную
 При упаковке существующего исполняемого файла в качестве [гостевого](service-fabric-guest-executables-introduction.md) вы можете использовать шаблон проекта Visual Studio или [создать пакет приложения вручную](#manually). При использовании Visual Studio шаблон проекта создает для вас структуру пакета приложения и файлы манифеста.

@@ -1,11 +1,10 @@
 ---
-title: "Копирование данных в хранилище данных SQL Azure и из него | Документация Майкрософт"
-description: "Узнайте, как копировать данные в хранилище данных SQL Azure и из него с помощью фабрики данных Azure."
+title: Копирование данных в хранилище данных SQL Azure и из него | Документация Майкрософт
+description: Узнайте, как копировать данные в хранилище данных SQL Azure и из него с помощью фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Копирование данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -198,7 +197,7 @@ PolyBase для хранилища данных SQL напрямую подде�
 1. Тип **связанной службы источника** — **AzureStorage** или **AzureDataLakeStore с проверкой подлинности на основе субъекта-службы**.  
 2. Тип **входного набора данных** — **AzureBlob** или **AzureDataLakeStore**, тип формата в свойствах `type` — **OrcFormat**, **ParquetFormat** или **TextFormat** со следующими конфигурациями.
 
-   1. Параметр `rowDelimiter` должен содержать значение **\n**.
+   1. Параметр `rowDelimiter` должен иметь значение **\n**.
    2. Параметр `nullValue` должен быть **пустой строке** (""), или параметру `treatEmptyAsNull` присваивается значение **true**.
    3. Параметру `encodingName` присваивается значение **utf-8**, которое является значением **по умолчанию**.
    4. Параметры `escapeChar`, `quoteChar`, `firstRowAsHeader` и `skipLineCount` не указываются.

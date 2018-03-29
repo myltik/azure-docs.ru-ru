@@ -1,12 +1,12 @@
 ---
-title: "Рекомендации Azure Advisor по затратам | Документация Майкрософт"
-description: "Использование Azure Advisor для оптимизации затрат на развернутые службы Azure."
+title: Рекомендации Azure Advisor по затратам | Документация Майкрософт
+description: Использование Azure Advisor для оптимизации затрат на развернутые службы Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advisor-cost-recommendations"></a>Рекомендации Azure Advisor по затратам
 
@@ -30,9 +30,6 @@ Advisor помогает оптимизировать и уменьшить об
 Помощник показывает предполагаемую стоимость продолжения работы виртуальной машины, поэтому вы можете завершить ее работу или изменить ее размер.
 
 Если вы хотите интенсивнее определять недостаточно нагруженные виртуальные машины, то можете настроить правило среднего показателя использования ЦП для каждой подписки.
-
-## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Использование экономичного решения для управления показателями производительности нескольких баз данных SQL
-Advisor определяет экземпляры SQL Server, создание пулов эластичных баз данных для которых дает преимущества. Пулы эластичных баз данных обеспечивают простое и экономически выгодное решение для управления целевыми показателями производительности нескольких баз данных с разными моделями использования. Дополнительные сведения о пулах эластичных баз данных Azure см. в статье [Что такое пул эластичных БД Azure?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Сокращение расходов за счет исключения неподготовленных каналов ExpressRoute
 Помощник определяет каналы ExpressRoute, которые находятся в состоянии поставщика *Не подготовлено* больше месяца, и рекомендует удалить такие каналы, если вы не планируете их подготовить с помощью поставщика соединения.

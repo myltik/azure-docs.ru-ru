@@ -1,11 +1,11 @@
 ---
-title: "Добавочное копирование таблицы с помощью фабрики данных Azure | Документация Майкрософт"
-description: "В этом руководстве вы создадите конвейер фабрики данных Azure, который пошагово копирует данные из базы данных SQL Azure в хранилище BLOB-объектов Azure."
+title: Добавочное копирование таблицы с помощью фабрики данных Azure | Документация Майкрософт
+description: В этом руководстве вы создадите конвейер фабрики данных Azure, который пошагово копирует данные из базы данных SQL Azure в хранилище BLOB-объектов Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 545228196a0d510571b2982a836b23acc976ffbf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a543bb1ceb14bb8f618e1cf644cc269a99719c28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
@@ -31,8 +31,8 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * Подготовите хранилище данных для хранения значений предела.
-> * Создадите фабрику данных.
-> * создание связанных служб. 
+> * создадите фабрику данных;
+> * создадите связанные службы; 
 > * Создание наборов данных источника, приемника и предела.
 > * Создали конвейер.
 > * Запустили конвейер.
@@ -148,7 +148,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
    
      ```powershell
@@ -731,8 +731,8 @@ END
 
 > [!div class="checklist"]
 > * Подготовите хранилище данных для хранения значений предела. 
-> * Создадите фабрику данных.
-> * создание связанных служб. 
+> * создадите фабрику данных;
+> * создадите связанные службы; 
 > * Создание наборов данных источника, приемника и предела.
 > * Создали конвейер.
 > * Запустили конвейер.

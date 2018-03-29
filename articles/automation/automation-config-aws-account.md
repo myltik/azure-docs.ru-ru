@@ -9,13 +9,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 476d978bd53f689038ad3ed58b3f64c40925a998
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 93e2a95e8b1ed2cf39b6e839908be54815f8fa63
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Проверка подлинности модулей Runbook с помощью Amazon Web Services
 Автоматизацию стандартных задач с использованием ресурсов в Amazon Web Services (AWS) можно выполнить с помощью модулей Runbook службы автоматизации в Azure.  Многие задачи можно автоматизировать в AWS с помощью модулей Runbook службы автоматизации так же, как и с помощью ресурсов в Azure.  Для этого нужны всего две вещи.

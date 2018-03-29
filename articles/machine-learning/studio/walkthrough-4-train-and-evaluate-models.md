@@ -1,10 +1,11 @@
 ---
-title: "Шаг 4. Обучение и анализ моделей прогнозирующей аналитики | Документация Майкрософт"
-description: "Четвертый этап пошагового руководства по разработке прогнозного решения: обучение и оценка нескольких моделей в студии машинного обучения Azure."
+title: Шаг 4. Обучение и анализ моделей прогнозирующей аналитики | Документация Майкрософт
+description: 'Четвертый этап пошагового руководства по разработке прогнозного решения: обучение и оценка нескольких моделей в студии машинного обучения Azure.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f722fa314b42501e0f6144f71b9d74c0a9127e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Шаг 4. Обучение и анализ моделей прогнозирующей аналитики
 Это четвертая часть пошагового руководства [по разработке решения для прогнозной аналитики в Машинном обучении Azure](walkthrough-develop-predictive-solution.md).

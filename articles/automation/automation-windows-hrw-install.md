@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Развертывание гибридной рабочей роли Runbook для Windows
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/17/2018
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Также вы получите предложение подтвердить установку пакета **NuGet** и указать учетные данные Azure для аутентификации.<br><br> ![Выполнение сценария New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. Также вы получите предложение подтвердить установку пакета **NuGet** и указать учетные данные Azure для аутентификации.<br><br>![Выполнение сценария New-OnPremiseHybridWorker](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. После завершения сценария на странице "Группы гибридных рабочих ролей" отобразится новая группа и число элементов в ней с учетом только что добавленных.  Вы можете выбрать группу из списка на странице **Группы гибридных рабочих ролей** и щелкнуть плитку **Гибридные рабочие роли**.  На странице **Гибридные рабочие роли** отображается список элементов группы.  
 

@@ -1,11 +1,11 @@
 ---
-title: "Добавочное копирование таблицы с помощью фабрики данных Azure | Документация Майкрософт"
-description: "В этом руководстве вы создадите конвейер фабрики данных Azure, который пошагово копирует данные из базы данных SQL Azure в хранилище BLOB-объектов Azure."
+title: Добавочное копирование таблицы с помощью фабрики данных Azure | Документация Майкрософт
+description: В этом руководстве вы создадите конвейер фабрики данных Azure, который пошагово копирует данные из базы данных SQL Azure в хранилище BLOB-объектов Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 

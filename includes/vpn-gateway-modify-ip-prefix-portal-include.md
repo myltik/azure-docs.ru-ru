@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 3b8049515f753cbcf8ca068c1790f716f02d30b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="noconnection"></a>Изменение префиксов IP-адресов для шлюза локальной сети при отсутствии подключения шлюза
 
 #### <a name="to-add-additional-address-prefixes"></a>Чтобы добавить дополнительные префиксы адресов:

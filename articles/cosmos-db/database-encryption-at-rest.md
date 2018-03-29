@@ -1,11 +1,11 @@
 ---
-title: "Шифрование неактивных данных базы данных в Azure Cosmos DB | Документы Майкрософт"
-description: "Сведения о шифровании всех данных по умолчанию в Azure Cosmos DB."
+title: Шифрование неактивных данных базы данных в Azure Cosmos DB | Документы Майкрософт
+description: Сведения о шифровании всех данных по умолчанию в Azure Cosmos DB.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Шифрование неактивных данных базы данных в Azure Cosmos DB
 
@@ -53,7 +53,6 @@ ms.lasthandoff: 01/23/2018
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Вопрос. Можно ли использовать собственные ключи шифрования?
 Ответ. Cosmos DB — это служба PaaS. Мы сделали все возможное, чтобы максимально упростить работу с ней. Мы заметили, что этот вопрос часто задают при обсуждении соответствия требованиям, например PCI-DSS. Разрабатывая эту функцию, мы совместно с аудиторами соответствия старались создать для клиентов такие условия, в которых они могли бы использовать Cosmos DB в соответствии со своими требованиями без необходимости управлять ключами самостоятельно.
-Поэтому сейчас мы не предлагаем пользователям возможность самостоятельно управлять ключами.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Вопрос. В каких регионах включено шифрование?
 Ответ. Шифрование пользовательских данных включено во всех регионах Azure Cosmos DB.

@@ -1,31 +1,28 @@
 ---
-title: "Измерения на стороне пользователей в диспетчере трафика Azure с помощью Visual Studio Mobile Center | Документация Майкрософт"
-description: "Настройка мобильного приложения, разработанного с использованием Visual Studio Mobile Center, для отправки реальных измерений пользователя в диспетчер трафика"
+title: Измерения на стороне пользователей в диспетчере трафика Azure с помощью Visual Studio Mobile Center | Документация Майкрософт
+description: Настройка мобильного приложения, разработанного с использованием Visual Studio Mobile Center, для отправки реальных измерений пользователя в диспетчер трафика
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Отправка измерений на стороне пользователей в диспетчер трафика с помощью Visual Studio Mobile Center
-
->[!NOTE]
->Функция "Измерения на стороне пользователей" в диспетчере трафика доступна в режиме предварительной версии. Она может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в режиме общедоступной версии. Эта функция не поддерживается, может иметь ограничения и быть доступной не во всех расположениях Azure. Актуальные сведения о доступности и состоянии этой функции см. на странице [обновлений для диспетчера трафика Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Чтобы настроить мобильное приложение, разработанное с помощью Visual Studio Mobile Center, для отправки измерений на стороне пользователей в диспетчер трафика, выполните такие действия:
 

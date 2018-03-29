@@ -1,8 +1,8 @@
 ---
-title: "Доменные службы Azure Active Directory: присоединение виртуальной машины CentOS к управляемому домену | Документация Майкрософт"
-description: "Присоединение виртуальной машины CentOS к доменным службам Azure Active Directory"
+title: 'Доменные службы Azure Active Directory: присоединение виртуальной машины CentOS к управляемому домену | Документация Майкрософт'
+description: Присоединение виртуальной машины CentOS к доменным службам Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7095e82605d12221ba7beb0c48fd3eda75a2e7b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины CentOS к управляемому домену
 Из этой статьи вы узнаете, как присоединить виртуальную машину CentOS в Azure к управляемому домену доменных служб Azure AD.
@@ -133,7 +133,7 @@ sudo vi /etc/hosts
 
 
 ## <a name="troubleshooting-domain-join"></a>Устранение неполадок при присоединении к домену
-См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join).
+См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain).
 
 ## <a name="related-content"></a>Похожий контент
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)

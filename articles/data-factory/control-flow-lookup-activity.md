@@ -1,11 +1,11 @@
 ---
-title: "Действие поиска в фабрике данных Azure | Документация Майкрософт"
-description: "Узнайте, как использовать действие поиска для поиска значений во внешнем источнике. На эти выходные данные можно затем ссылаться в последующих действиях."
+title: Действие поиска в фабрике данных Azure | Документация Майкрософт
+description: Узнайте, как использовать действие поиска для поиска значений во внешнем источнике. На эти выходные данные можно затем ссылаться в последующих действиях.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Действие поиска в фабрике данных Azure
 Действие поиска можно использовать для считывания или поиска записи, имени таблицы или значения из внешних источников. На эти выходные данные можно затем ссылаться в последующих действиях. 

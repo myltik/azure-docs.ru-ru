@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>VPN-шлюзы Azure поддерживают BGP для всех классов SKU?
 Нет, BGP поддерживается в VPN-шлюзах Azure класса **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** и **HighPerformance**. **Basic** не поддерживается.
 
@@ -72,4 +88,3 @@ VPN-шлюз Azure выделит один IP-адрес из диапазона
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Что следует добавить в настройки локального VPN-устройства для сеансов пиринга BGP?
 Вам нужно добавить узловой маршрут для IP-адреса узла BGP Azure на VPN-устройство, которое указывает на VPN-туннель IPsec S2S. Например если IP-адрес VPN-узла Azure имеет значение 10.12.255.30, следует добавить для адреса 10.12.255.30 узловой маршрут, в котором интерфейсом следующего прыжка будет соответствующий интерфейс туннелирования IPsec на VPN-устройстве.
-

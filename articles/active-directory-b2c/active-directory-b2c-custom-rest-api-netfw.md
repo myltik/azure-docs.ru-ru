@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C. Интеграция обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверка входных данных"
-description: "Сведения об интеграции обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверки входных данных."
+title: Azure Active Directory B2C. Интеграция обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверка входных данных
+description: Сведения об интеграции обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверки входных данных.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Интеграция обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверка входных данных
 С помощью инфраструктуры процедур идентификации, лежащей в основе Azure Active Directory B2C (Azure AD B2C), можно выполнять интеграцию с RESTful API в пути взаимодействия пользователя. В этом пошаговом руководстве вы узнаете, как Azure AD B2C взаимодействует со службами RESTful (веб-API) .NET Framework.

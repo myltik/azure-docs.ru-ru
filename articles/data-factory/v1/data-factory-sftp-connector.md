@@ -1,11 +1,10 @@
 ---
-title: "Перемещение данных с SFTP-сервера с использованием фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как перемещать данные с локального или облачного SFTP-сервера с помощью фабрики данных Azure."
+title: Перемещение данных с SFTP-сервера с использованием фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как перемещать данные с локального или облачного SFTP-сервера с помощью фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8871012458c97a36b1f8c2cca413319ec7d72e8e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e43e147fa352a38dd8c051725e92245047921689
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Перемещение данных с SFTP-сервера с использованием фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

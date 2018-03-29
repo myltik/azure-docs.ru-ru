@@ -1,11 +1,10 @@
 ---
-title: "Вопросы безопасности при перемещении данных в фабрике данных Azure | Документация Майкрософт"
-description: "Узнайте о безопасном перемещении данных в фабрике данных Azure."
+title: Вопросы безопасности при перемещении данных в фабрике данных Azure | Документация Майкрософт
+description: Узнайте о безопасном перемещении данных в фабрике данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 01/23/2018
 - **Гибридный сценарий**, в котором источник или приемник находятся за брандмауэром или внутри локальной корпоративной сети. Либо хранилище данных находится в частной или виртуальной сети (чаще всего это актуально для источника), а также не является общедоступным. Этот сценарий также охватывает серверы базы данных, расположенные на виртуальных машинах.
 
 ## <a name="cloud-scenarios"></a>Облачные сценарии
-###<a name="securing-data-store-credentials"></a>Защита учетных данных хранилища данных
+### <a name="securing-data-store-credentials"></a>Защита учетных данных хранилища данных
 Фабрика данных Azure защищает учетные данные хранилища данных, выполняя их **шифрование** с помощью **сертификатов, управляемых Майкрософт**. Эти сертификаты меняются каждые **два года**. Изменения включают продление сертификата и перемещение учетных данных. Зашифрованные учетные данные безопасно хранятся в **службе хранилища Azure, которая контролируется службами управления фабрики данных Azure**. Дополнительные сведения о безопасности службы хранилища Azure см. [здесь](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Шифрование данных при передаче

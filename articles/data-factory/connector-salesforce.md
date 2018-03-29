@@ -4,8 +4,8 @@ description: Узнайте, как копировать данные из Sales
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e6440bfd3297ee68cd4ff79c8654b5f97cba077e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Копирование данных в Salesforce и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/27/2018
 Чтобы запросить из корзины Salesforce обратимо удаленные записи, укажите в своем запросе **"IsDeleted = 1"**. Например: 
 
 * Чтобы запросить только удаленные записи, укажите "select \* from MyTable__c **where IsDeleted= 1**".
-* Чтобы запросить все записи, включая существующие и удаленные, укажите "select \* from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
+* Чтобы запросить все записи, включая существующие и удаленные, укажите "select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Извлечение данных с использованием предложения where для столбца даты и времени
 

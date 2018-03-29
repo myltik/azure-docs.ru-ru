@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Инструкции и рекомендации для надежных коллекций в Azure Service Fabric
 В этом разделе приведены инструкции по использованию надежных коллекций и диспетчера надежных состояний. Цель этого руководства — помочь пользователям избежать распространенных ошибок.
@@ -52,7 +52,6 @@ ms.lasthandoff: 03/16/2018
 ### <a name="next-steps"></a>Дополнительная информация
 * [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
 * Управление данными
   * [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
   * [Уведомления](service-fabric-reliable-services-notifications.md)

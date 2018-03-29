@@ -1,31 +1,28 @@
 ---
-title: "Измерения на стороне пользователей в диспетчере трафика Azure с использованием веб-страниц | Документация Майкрософт"
-description: "Настройка веб-страниц для отправки измерений на стороне пользователей в диспетчер трафика"
+title: Измерения на стороне пользователей в диспетчере трафика Azure с использованием веб-страниц | Документация Майкрософт
+description: Настройка веб-страниц для отправки измерений на стороне пользователей в диспетчер трафика
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Как отправить измерения на стороне пользователей в диспетчер трафика Azure с использованием веб-страниц
-
->[!NOTE]
->Функция "Измерения на стороне пользователей" в диспетчере трафика доступна в режиме предварительной версии. Она может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в режиме общедоступной версии. Эта функция не поддерживается, может иметь ограничения и быть доступной не во всех расположениях Azure. Актуальные сведения о доступности и состоянии этой функции см. на странице [обновлений для диспетчера трафика Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Вы можете настроить веб-страницы для отправки измерений на стороне пользователей в диспетчер трафика, получив ключ RUM и внедрив созданный код на веб-страницу.
 

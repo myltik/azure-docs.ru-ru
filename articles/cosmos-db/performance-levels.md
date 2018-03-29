@@ -1,11 +1,11 @@
 ---
-title: "Прекращение использования уровней производительности в Azure Cosmos DB | Документация Майкрософт"
-description: "Сведения об уровнях производительности S1, S2 и S3, ранее доступных в Azure Cosmos DB."
+title: Прекращение использования уровней производительности в Azure Cosmos DB | Документация Майкрософт
+description: Сведения об уровнях производительности S1, S2 и S3, ранее доступных в Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 62ef3c8988b0f11d6d8bcb69080f4e1b98a44641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Прекращение использования уровней производительности S1, S2 и S3
 
 > [!IMPORTANT] 
 > Использование уровней производительности S1, S2 и S3, которые рассматриваются в этой статье, прекращается. Они больше не будут доступны для новых учетных записей Azure Cosmos DB.
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 В этой статье представлен обзор уровней производительности S1, S2 и S3, а также рассматривается процедура переноса коллекций, использующих эти уровни производительности, в односекционные коллекции (это произойдет в конце 2017 года). Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы.
 

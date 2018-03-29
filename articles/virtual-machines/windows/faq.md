@@ -1,11 +1,11 @@
 ---
-title: "Часто задаваемые вопросы о виртуальных машинах Windows в Azure | Документация Майкрософт"
-description: "В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Windows, созданных с помощью модели Resource Manager."
+title: Часто задаваемые вопросы о виртуальных машинах Windows в Azure | Документация Майкрософт
+description: В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Windows, созданных с помощью модели Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Часто задаваемые вопросы по виртуальным машинам Windows
 В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Windows, созданных в Azure с помощью модели развертывания Resource Manager. Версия этой статьи для Linux — [Часто задаваемые вопросы по виртуальным машинам Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/05/2018
 Да, теперь это возможно. Сначала виртуальную машину нужно остановить и отменить ее распределение. Затем можно добавить или удалить сетевую карту (за исключением последней сетевой карты на виртуальной машине). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Есть ли какие-либо требования к имени компьютера?
-Да. Длина имени компьютера не должна превышать 15 знаков. Дополнительные сведения об именовании ресурсов см. в [правилах и ограничениях соглашений об именовании](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Да. Длина имени компьютера не должна превышать 15 знаков. Дополнительные сведения об именовании ресурсов см. в [правилах и ограничениях соглашений об именовании](/azure/architecture/best-practices/naming-conventions#compute).
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Есть ли какие-либо требования к имени группы ресурсов?
 Да. Длина имени группы ресурсов не должна превышать 90 знаков. Дополнительные сведения о группах ресурсов см. в [правилах и ограничениях соглашений об именовании](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).

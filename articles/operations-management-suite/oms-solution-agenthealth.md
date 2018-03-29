@@ -1,24 +1,24 @@
 ---
-title: "Решение для мониторинга работоспособности агентов в OMS | Документация Майкрософт"
-description: "Эта статья поможет вам понять, как использовать это решение для отслеживания работоспособности агентов, которые отправляют отчеты непосредственно в OMS или System Center Operations Manager."
+title: Решение для мониторинга работоспособности агентов в OMS | Документация Майкрософт
+description: Эта статья поможет вам понять, как использовать это решение для отслеживания работоспособности агентов, которые отправляют отчеты непосредственно в OMS или System Center Operations Manager.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Решение для мониторинга работоспособности агентов в OMS
 Решение для мониторинга работоспособности агентов в OMS помогает выявлять среди всех агентов, отправляющих отчеты непосредственно в OMS или подключенную к OMS группу управления System Center Operations Manager, агенты, которые не отвечают на запросы и которые отправляют оперативные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    
@@ -98,25 +98,6 @@ ms.lasthandoff: 01/03/2018
 Следующая таблица содержит примеры поисков по журналу для получения записей, собранных этим решением.
 
 | Запрос | ОПИСАНИЕ |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Общее число агентов |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Число агентов, не отвечающих на запросы за последние 24 часа |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Число агентов, не отвечающих на запросы за последние 15 минут |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Подключенные компьютеры (за последние 24 часа) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Общее число автономных агентов за последние 30 минут (за последние 24 часа) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Получение тенденции изменения числа агентов за промежуток времени по типу ОС|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Распределение по типам ОС |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Распределение по версиям агентов |
-| Type=Heartbeat&#124;measure count() by Category |Распределение по категориям агентов |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Распределение по группам управления |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Географическое расположение агентов |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Число установленных шлюзов OMS |
-
-
->[!NOTE]
-> Если ваша рабочая область переведена на [язык запросов Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
->
->| Запрос | ОПИСАНИЕ |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Общее число агентов |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Число агентов, не отвечающих на запросы за последние 24 часа |
@@ -130,6 +111,9 @@ ms.lasthandoff: 01/03/2018
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Распределение по группам управления |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Географическое расположение агентов |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Число установленных шлюзов OMS |
+
+
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 

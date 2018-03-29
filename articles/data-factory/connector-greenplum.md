@@ -1,11 +1,11 @@
 ---
-title: "Копирование данных из Greenplum с помощью фабрики данных Azure (бета-версия) | Документация Майкрософт"
-description: "Узнайте, как копировать данные из Greenplum в поддерживаемые хранилища данных, используемые в качестве приемников, с помощью действия копирования в конвейере фабрики данных Azure."
+title: Копирование данных из Greenplum с помощью фабрики данных Azure (бета-версия) | Документация Майкрософт
+description: Узнайте, как копировать данные из Greenplum в поддерживаемые хранилища данных, используемые в качестве приемников, с помощью действия копирования в конвейере фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bb273460f8b659d302cd81d2e99cf4e853f1a069
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ee7caf7fa0de75131ffb6917891c07bbf371d9a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory-beta"></a>Копирование данных из Greenplum с помощью фабрики данных Azure (бета-версия)
 

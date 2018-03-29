@@ -1,11 +1,10 @@
 ---
-title: "Перемещение данных с помощью действия копирования | Документация Майкрософт"
-description: "Дополнительные сведения о перемещении данных в конвейерах фабрики данных: перенос данных между облачными хранилищами, а также между локальным и облачным хранилищами. Использование действия копирования."
+title: Перемещение данных с помощью действия копирования | Документация Майкрософт
+description: 'Дополнительные сведения о перемещении данных в конвейерах фабрики данных: перенос данных между облачными хранилищами, а также между локальным и облачным хранилищами. Использование действия копирования.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 09b35483b5ace1523c88576cfe37dfc313b93036
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-by-using-copy-activity"></a>Перемещение данных с помощью действия копирования
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

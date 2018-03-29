@@ -1,12 +1,12 @@
 ---
-title: "Устранение неполадок Azure Load Balancer | Документация Майкрософт"
-description: "Устранение известных неполадок Azure Load Balancer"
+title: Устранение неполадок Azure Load Balancer | Документация Майкрософт
+description: Устранение известных неполадок Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Устранение неполадок Azure Load Balancer
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 3. Если для состояния порта не указано значение **Ожидает вызова**, то настройте соответствующий порт. 
 4. Можно также выбрать другой порт, который находится в состоянии **Ожидает вызова**, и соответствующим образом обновить конфигурацию подсистемы балансировки нагрузки.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Причина 3: брандмауэр или группа безопасности сети блокирует порт на виртуальных машинах внутреннего пула подсистемы балансировки нагрузки  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Причина 3: брандмауэр или группа безопасности сети блокирует порт на виртуальных машинах внутреннего пула подсистемы балансировки нагрузки  
 Если брандмауэр на виртуальной машине блокирует порт пробы, либо одна или несколько групп безопасности сети, настроенных в подсети или на виртуальной машине, не позволяют пробе достигнуть порта, то виртуальная машина не может ответить на пробу работоспособности.          
 
 **Проверка и способы устранения**

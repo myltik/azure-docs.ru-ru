@@ -1,24 +1,24 @@
 ---
-title: "Использование групп компьютеров при поиске по журналам Log Analytics в Azure | Документация Майкрософт"
-description: "В Log Analytics вы можете ограничить поиск по журналам определенной группой компьютеров.  В этой статье описывается, как можно создавать группы компьютеров и использовать их при поиске по журналам."
+title: Использование групп компьютеров при поиске по журналам Log Analytics в Azure | Документация Майкрософт
+description: В Log Analytics вы можете ограничить поиск по журналам определенной группой компьютеров.  В этой статье описывается, как можно создавать группы компьютеров и использовать их при поиске по журналам.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Использование групп компьютеров при поиске по журналам Log Analytics
 
@@ -66,12 +66,6 @@ ms.lasthandoff: 01/10/2018
 5. Укажите значения для каждого свойства группы компьютеров. 
 
 
->[!NOTE]
-> Если ваша рабочая область все еще использует [прежний язык запросов Log Analytics](log-analytics-log-search-upgrade.md), процедура создания группы компьютеров остается неизменной, но в запросе необходимо использовать синтаксис языка запросов прежней версии.
-
-
-### <a name="log-search-api"></a>API поиска по журналам
-Группы компьютеров, созданные с помощью API поиска по журналам и операции поиска по журналам, аналогичны.  Дополнительные сведения о создании группы компьютеров с помощью этого варианта см. в статье [API REST поиска по журналам Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 При настройке Log Analytics для импорта членства в группах Active Directory выполняется анализ членства в группах всех присоединенных к домену компьютеров с агентом OMS.  Группа компьютеров создается в Log Analytics для каждой группы безопасности в Active Directory. При этом каждый компьютер включается в группы компьютеров, соответствующие группам безопасности, членами которых они являются.  Это членство обновляется каждые 4 часа.  
@@ -129,18 +123,6 @@ ms.lasthandoff: 01/10/2018
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> Если ваша рабочая область все еще использует [язык запросов Log Analytics прежней версии](log-analytics-log-search-upgrade.md), примените следующий синтаксис для указания группы компьютеров на странице поиска по журналам.  Параметр **Категория** указывать не обязательно. Он нужен, только если у вас есть группы с одинаковыми именами в разных категориях. 
->
->    `$ComputerGroups[Category: Name]`
->
->При поиске по журналам группы компьютеров обычно используются с предложением **IN**, как показано в следующем примере:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 

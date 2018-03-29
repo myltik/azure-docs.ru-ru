@@ -1,12 +1,12 @@
 ---
-title: "Общие сведения об API SQL для Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов документов JSON и выполнения их запросов с минимальной задержкой с помощью SQL и JavaScript."
-keywords: "база данных JSON, база данных документов"
+title: Общие сведения об API SQL для Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов документов JSON и выполнения их запросов с минимальной задержкой с помощью SQL и JavaScript.
+keywords: база данных JSON, база данных документов
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 28c18be81d184766f7b64199c09620238e47cde4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 32313c28de9065b57ec98d3668813a4b24c0becc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Общие сведения об Azure Cosmos DB: API SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Azure Cosmos DB](introduction.md) — это глобально распределенная, многомодельная служба базы данных Майкрософт, необходимая для работы с критически важными приложениями. Эта служба базы данных обеспечивает [готовое к использованию глобальное распределение](distribute-data-globally.md), [гибкое масштабирование пропускной способности и хранилища](partition-data.md) по всему миру, задержки менее 10 миллисекунд на уровне 99-го процентиля, [пять четко определенных уровней согласованности](consistency-levels.md), а также гарантированную высокую доступность — все это согласно [ведущим в отрасли соглашениям об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [автоматически индексирует данные](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) без необходимости управлять схемой и индексом. Так как эта база данных является многомодельной, она поддерживает модели данных документа, "ключ — значение", графа и столбчатые модели данных.
 

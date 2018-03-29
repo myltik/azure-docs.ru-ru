@@ -1,11 +1,11 @@
 ---
-title: "Ветвление в конвейере фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как контролировать поток данных в фабрике данных Azure с помощью ветвления и создания цепочки действий."
+title: Ветвление в конвейере фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как контролировать поток данных в фабрике данных Azure с помощью ветвления и создания цепочки действий.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: eec2b5f84d11c946c5cae1d7d90d0b96dacc9d8c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ветвления и создание цепочки действий в конвейере фабрики данных
 В этом руководстве создается конвейер фабрики данных, который демонстрирует некоторые функции потока управления. Этот конвейер просто копирует данные из контейнера в хранилище BLOB-объектов Azure в другой контейнер в той же учетной записи хранения. Если действие копирования завершается успешно, нужно отправить подробную информацию об успешной операции копирования (например, количество записанных данных) по электронной почте. Если произошел сбой действия копирования, необходимо отправить данные об ошибке копирования (например, сообщение об ошибке) по электронной почте. В этом руководстве вы научитесь передавать параметры.
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/23/2018
 В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание связанной службы хранилища Azure.
 > * Создание набора данных больших двоичных объектов Azure
 > * Создание конвейера, содержащего действия копирования и веб-действие.
@@ -140,7 +140,7 @@ ms.lasthandoff: 01/23/2018
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 Создайте функцию CreateOrUpdateDataFactory в файле Program.cs:
 
 ```csharp
@@ -739,7 +739,7 @@ Press any key to exit...
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание связанной службы хранилища Azure.
 > * Создание набора данных больших двоичных объектов Azure
 > * Создание конвейера, содержащего действия копирования и веб-действие.

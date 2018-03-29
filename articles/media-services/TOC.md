@@ -237,7 +237,7 @@
 ## спецификации;
 ### [Прием в реальном времени: спецификация приема фрагментированного MP4 в реальном времени](media-services-fmp4-live-ingest-overview.md)
 ### [Прием в реальном времени: сигнализация метаданных времени в потоковой трансляции](media-services-specifications-live-timed-metadata.md)
-### [Smooth Streaming для HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Smooth Streaming для HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Ресурсы
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)

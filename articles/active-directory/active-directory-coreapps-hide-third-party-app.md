@@ -3,7 +3,7 @@ title: Скрытие приложения в пользовательском �
 description: Как скрыть приложение от пользователей на панелях доступа Azure Active Directory или в средствах запуска Office 365.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7da8c60feed7cbb630e5b48653c657cc8fed9e99
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Скрытие приложения в пользовательском интерфейсе Azure Active Directory
 

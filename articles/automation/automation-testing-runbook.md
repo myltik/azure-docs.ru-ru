@@ -1,24 +1,18 @@
 ---
-title: "Тестирование модуля Runbook в службе автоматизации Azure | Документация Майкрософт"
-description: "Перед публикацией модуля Runbook в службе автоматизации Azure его можно протестировать и проверить, работает ли он должным образом.  В этой статье описывается тестирование модулей Runbook и просмотр его выходных данных."
+title: Тестирование модуля Runbook в службе автоматизации Azure
+description: Перед публикацией модуля Runbook в службе автоматизации Azure его можно протестировать и проверить, работает ли он должным образом.  В этой статье описывается тестирование модулей Runbook и просмотр его выходных данных.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: 531fffe1ed24016d47708a729a3ee7642a1db64a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Тестирование модуля Runbook в службе автоматизации Azure
 При тестировании модуля Runbook запускается его [черновая версия](automation-creating-importing-runbook.md#publishing-a-runbook) и завершаются все действия, которые он выполняет. Журнал заданий не создается, однако в области вывода теста отображаются потоки [выходных данных](automation-runbook-output-and-messages.md#output-stream) и [предупреждений и ошибок](automation-runbook-output-and-messages.md#message-streams). Сообщения, предназначенные для [подробного потока](automation-runbook-output-and-messages.md#message-streams), отображаются в области выходных данных, только если [переменная $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) имеет значение Continue.

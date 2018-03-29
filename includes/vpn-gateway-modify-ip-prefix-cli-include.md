@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 9b168231669c50c8f00d3527288fd03ab3bf9ce8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="noconnection"></a>Изменение префиксов IP-адресов для шлюза локальной сети при отсутствии подключения шлюза
 
 Если нет подключения шлюза и нужно добавить или удалить префиксы IP-адресов, выполните ту же команду, что и для создания шлюза локальной сети ([az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway#az_network_local_gateway_create)). Эта команда также используется для обновления IP-адреса шлюза VPN-устройства. Чтобы перезаписать текущие параметры, укажите существующее имя шлюза локальной сети. Если используется другое имя, необходимо создать новый шлюз локальной сети вместо перезаписи существующего.

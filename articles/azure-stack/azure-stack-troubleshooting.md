@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок, связанных с Microsoft Azure Stack | Документация Майкрософт"
-description: "Устранение неполадок, связанных с Azure Stack."
+title: Устранение неполадок, связанных с Microsoft Azure Stack | Документация Майкрософт
+description: Устранение неполадок, связанных с Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Устранение неполадок, связанных с Microsoft Azure Stack
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/24/2018
 Перед развертыванием виртуальных машин в Azure Stack необходимо добавить элемент коллекции и образ Windows Server.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>После перезагрузки узла Azure Stack некоторые виртуальные машины могут не запуститься автоматически.
-После перезагрузки узла можно заметить, что службы Azure Stack доступны не сразу.  Это обусловлено тем, что [виртуальным машинам инфраструктуры](azure-stack-architecture.md#virtual-machine-roles) и поставщикам ресурсов Azure Stack нужно немного времени для проверки согласованности, но в конечном итоге они будут запущены автоматически.
+После перезагрузки узла можно заметить, что службы Azure Stack доступны не сразу.  Это обусловлено тем, что [виртуальным машинам инфраструктуры](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) и поставщикам ресурсов Azure Stack нужно немного времени для проверки согласованности, но в конечном итоге они будут запущены автоматически.
 
 Вы также можете заметить, что клиентские виртуальные машины не запускаются автоматически после перезагрузки узла Пакета средств разработки Azure Stack. Это известная проблема. Чтобы перевести их в рабочее состояние, требуется выполнить несколько действий вручную:
 
