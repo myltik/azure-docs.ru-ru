@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: вход пользователя | Документация Майкрософт"
-description: "Вход пользователя в Azure AD с пользовательскими настройками."
+title: 'Azure AD Connect: вход пользователя | Документация Майкрософт'
+description: Вход пользователя в Azure AD с пользовательскими настройками.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Параметры входа в Azure AD Connect
 Служба Azure Active Directory (Azure AD) Connect позволяет входить в облачные и локальные ресурсы, используя те же пароли. В этой статье рассматриваются основные сведения о каждой модели идентификации, с помощью которых вы можете выбрать удостоверение для входа в Azure AD.
 
 Если вы уже знакомы с моделью идентификации Azure AD и хотите узнать больше о конкретном методе, то выберите соответствующую ссылку:
 
-* [Синхронизация хэша паролей](#password-synchronization) с [простым единым входом (SSO)](active-directory-aadconnect-sso.md)
+* [Синхронизация хэша паролей](#password-hash-synchronization) с [простым единым входом (SSO)](active-directory-aadconnect-sso.md)
 * [Сквозная проверка подлинности](active-directory-aadconnect-pass-through-authentication.md) с [простым единым входом (SSO)](active-directory-aadconnect-sso.md)
 * [Федеративный единый вход (со службами федерации Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/11/2017
 
 ![Синхронизация хэша паролей](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Дополнительные сведения см. в статье [Синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md).
+Дополнительные сведения см. в статье [Синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Сквозная аутентификация
 При сквозной аутентификации пароль пользователя проверяется в локальном контроллере Active Directory. Пароль не должен в каком-либо виде указываться в Azure AD. Это позволяет оценивать соблюдение локальных политик (например, ограничение часов, когда возможен вход) во время аутентификации в облачных службах.
