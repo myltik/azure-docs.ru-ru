@@ -6,6 +6,10 @@
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Начало работы
+## [Создание VPN-шлюза на основе маршрутов (портал Azure)](create-routebased-vpn-gateway-portal.md)
+## [Создание VPN-шлюза на основе маршрутов (PowerShell)](create-routebased-vpn-gateway-powershell.md)
+
+# Основные понятия
 ## [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md)
 ## [Сведения о параметрах VPN-шлюза](vpn-gateway-about-vpn-gateway-settings.md)
 ## [О VPN-устройствах](vpn-gateway-about-vpn-devices.md)

@@ -18,44 +18,56 @@
       href: storage-how-to-use-files-linux.md
     - name: Подключение в Mac
       href: storage-how-to-use-files-mac.md
-    - name: Управление с помощью портала
+    - name: Управление с помощью портала Azure
       href: storage-how-to-use-files-portal.md
+    - name: Управление с помощью PowerShell
+      href: storage-how-to-use-files-powershell.md
+    - name: Управление с помощью Azure CLI
+      href: storage-how-to-use-files-cli.md
+    - name: Управление с помощью обозревателя хранилища
+      href: storage-how-to-use-files-storage-explorer.md
 - name: Практическое руководство
   items:
-    - name: Планирование и проектирование
+    - name: План
       items:
-        - name: Параметры учетной записи хранения
+        - name: Планирование развертывания службы файлов Azure
+          href: storage-files-planning.md
+        - name: Планирование развертывания службы синхронизации файлов Azure
+          href: storage-sync-files-planning.md
+        - name: Сведения об учетных записях хранения
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Развертывание файлов Azure
-          items:
-            - name: Планирование развертывания службы файлов Azure
-              href: storage-files-planning.md
-            - name: Как развернуть службу файлов Azure
-              href: storage-files-deployment-guide.md
-        - name: Развертывание Синхронизации файлов Azure
-          items:
-            - name: Планирование развертывания службы синхронизации файлов Azure
-              href: storage-sync-files-planning.md
-            - name: Как развернуть службу синхронизации файлов Azure
-              href: storage-sync-files-deployment-guide.md
-            - name: Параметры брандмауэра и прокси-сервера Синхронизации файлов Azure
-              href: storage-sync-files-firewall-and-proxy.md
         - name: Сведения о моментальных снимках файловых ресурсов
           href: storage-snapshots-files.md
-        - name: Принципы работы с моментальными снимками файловых ресурсов
-          href: storage-how-to-use-files-snapshots.md
-        - name: Репликация
+        - name: Параметры избыточности хранилища
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Целевые показатели масштабируемости и производительности хранилища
           href: storage-files-scale-targets.md
-        - name: Контрольный список производительности и масштабируемости
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Параллелизм
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Руководство по аварийному восстановлению
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Заметки о выпуске службы "Синхронизация файлов Azure"
+          href: storage-files-release-notes.md
+    - name: Развертывание
+      items:
+        - name: Как развернуть службу файлов Azure
+          href: storage-files-deployment-guide.md
+        - name: Как развернуть службу синхронизации файлов Azure
+          href: storage-sync-files-deployment-guide.md
+        - name: Параметры брандмауэра и прокси-сервера Синхронизации файлов Azure
+          href: storage-sync-files-firewall-and-proxy.md
+    - name: управление
+      items:
+        - name: Регистрация сервера в службе синхронизации файлов Azure
+          href: storage-sync-files-server-registration.md
+        - name: Добавление конечной точки сервера синхронизации файлов Azure
+          href: storage-sync-files-server-endpoint.md
+        - name: 'PowerShell для облаков Azure для Китая, Германии и государственных организаций'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Служба автоматизации Azure
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Разработка
       items:
+        - name: Управление параллелизмом
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-files.md
         - name: Java
@@ -72,26 +84,6 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Настройте строки подключения
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: управление
-      items:
-        - name: PowerShell для службы файлов Azure
-          href: storage-how-to-use-files-powershell.md
-        - name: PowerShell для службы хранилища Azure
-          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 'PowerShell для облаков Azure для Китая, Германии и государственных организаций'
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: "Azure CLI\_2.0"
-          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure CLI 1.0
-          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Регистрация сервера в службе синхронизации файлов Azure
-          href: storage-sync-files-server-registration.md
-        - name: Добавление конечной точки сервера синхронизации файлов Azure
-          href: storage-sync-files-server-endpoint.md
-        - name: Использование обозревателя хранилищ с хранилищем файлов Azure
-          href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Служба автоматизации Azure
-          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Безопасность
       items:
         - name: Руководство по обеспечению безопасности
@@ -238,5 +230,3 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
-    - name: Заметки о выпуске службы "Синхронизация файлов Azure"
-      href: storage-files-release-notes.md
