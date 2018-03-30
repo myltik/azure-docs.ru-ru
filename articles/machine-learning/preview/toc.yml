@@ -197,7 +197,7 @@
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Цены
-      href: aml-services-pricing.md
+      href: aml-pricing.md
     - name: Регионы доступности
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Процесс обработки и анализа данных группы
