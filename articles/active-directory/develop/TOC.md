@@ -45,7 +45,7 @@
 ### [Отладка единого входа на основе SAML](active-directory-saml-debugging.md)
 ### [Протокол единого входа SAML](active-directory-single-sign-on-protocol-reference.md)
 ### [Протокол единого выхода SAML](active-directory-single-sign-out-protocol-reference.md)
-### [Создание клиента](active-directory-howto-tenant.md)
+## [Создание клиента](active-directory-howto-tenant.md)
 ## [Рекомендации по фирменной символике](active-directory-branding-guidelines.md)
 ## Классические и мобильные приложения: единый вход
 ### [Включение единого входа в Android](active-directory-sso-android.md)
