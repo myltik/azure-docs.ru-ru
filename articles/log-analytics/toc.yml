@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Часто задаваемые вопросы по Log Analytics
       href: log-analytics-faq.md
-    - name: Использование данных
-      href: log-analytics-usage.md
     - name: Защита данных
       href: log-analytics-data-security.md
     - name: Управление доступом
@@ -156,7 +154,11 @@
         - name: Управление агентами
           href: log-analytics-agent-manage.md
         - name: Управление затратами на рабочую область
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: Объем данных и хранение
+              href: log-analytics-manage-cost-storage.md
+            - name: Мониторинг использования
+              href: log-analytics-usage.md
         - name: Удаление рабочей области
           href: log-analytics-manage-del-workspace.md
     - name: Устранение неполадок

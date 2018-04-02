@@ -8,6 +8,7 @@
 # Начало работы
 ## [Создание VPN-шлюза на основе маршрутов (портал Azure)](create-routebased-vpn-gateway-portal.md)
 ## [Создание VPN-шлюза на основе маршрутов (PowerShell)](create-routebased-vpn-gateway-powershell.md)
+## [Создание VPN-шлюза на основе маршрутов (CLI)](create-routebased-vpn-gateway-cli.md)
 
 # Основные понятия
 ## [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md)
