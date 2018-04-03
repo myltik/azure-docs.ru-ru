@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Как определить, подходят ли вам доменные службы Azure AD
 Доменные службы Azure AD позволяют развертывать рабочие нагрузки в службах инфраструктуры Azure, не заботясь об обслуживании инфраструктуры удостоверений в Azure. Эта управляемая служба отличается от типичного развертывания Windows Server Active Directory, требующего самостоятельного развертывания и администрирования. Она проста в развертывании и обеспечивает автоматическое отслеживание работоспособности и исправление проблем. Мы постоянно с данную службу, чтобы добавить поддержку наиболее распространенных сценариев развертывания.
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/11/2017
 | --- |:---:|:---:|
 | [**Управляемая служба**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Защищенные развернутые службы**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Администратор должен обеспечить безопасное развертывание. |
-| [**Сервер DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (управляемая служба) |**&#x2713;** |
+| [**Сервер DNS**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;** (управляемая служба) |**&#x2713;** |
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Присоединение к домену**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Аутентификация в домене с помощью NTLM и Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |

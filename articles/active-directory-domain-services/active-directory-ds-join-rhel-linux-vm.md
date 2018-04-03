@@ -1,8 +1,8 @@
 ---
-title: "Доменные службы Azure Active Directory: присоединение виртуальной машины RHEL к управляемому домену | Документация Майкрософт"
-description: "Присоединение виртуальной машины Red Hat Enterprise Linux к доменным службам Azure AD"
+title: 'Доменные службы Azure Active Directory: присоединение виртуальной машины RHEL к управляемому домену | Документация Майкрософт'
+description: Присоединение виртуальной машины Red Hat Enterprise Linux к доменным службам Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b278f5c4c8c87590205aca13a50a82fe8712d909
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
 Эта статья покажет, как присоединить виртуальную машину Red Hat Enterprise Linux (RHEL) 7 к управляемому домену доменных служб Azure AD.
@@ -133,7 +133,7 @@ sudo vi /etc/hosts
 
 
 ## <a name="troubleshooting-domain-join"></a>Устранение неполадок при присоединении к домену
-См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join).
+См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain).
 
 ## <a name="related-content"></a>Похожий контент
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)

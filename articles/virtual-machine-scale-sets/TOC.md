@@ -1,15 +1,38 @@
-# [Документация по масштабируемым наборам виртуальных машин](index.md)
+# [Документация по масштабируемым наборам виртуальных машин](index.yml)
 
 # Обзор
-## [Что такое наборы масштабирования виртуальных машин?](virtual-machine-scale-sets-overview.md)
+## [Что такое наборы масштабирования виртуальных машин?](overview.md)
 
-# Начало работы
-## [Создание с помощью портала Azure](virtual-machine-scale-sets-create-portal.md)
-## [Создание с помощью Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Создание с помощью Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Быстрое начало работы
+## [Создание с помощью портала Azure](quick-create-portal.md)
+## [Создание с помощью Azure CLI 2.0](quick-create-cli.md)
+## [Создание с помощью Azure PowerShell](quick-create-powershell.md)
 ## Создание с помощью шаблона
-### [Масштабируемый набор Linux](virtual-machine-scale-sets-create-template-linux.md)
-### [Масштабируемый набор Windows](virtual-machine-scale-sets-create-template-windows.md)
+### [Масштабируемый набор Linux](quick-create-template-linux.md)
+### [Масштабируемый набор Windows](quick-create-template-windows.md)
+
+# Учебники
+## 1. Создание масштабируемого набора и управление им
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2. Использование дисков данных
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3. Использование настраиваемого образа виртуальной машины
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4. Развертывание приложений в масштабируемый набор
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Шаблон](tutorial-install-apps-template.md)
+## 5. Автоматическое масштабирование масштабируемого набора
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Шаблон](tutorial-autoscale-template.md)
+
+# Примеры
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Практическое руководство
 ## Планирование и проектирование
@@ -24,12 +47,9 @@
 
 ## Развертывание
 ### [Создание с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
 ### [Использование зон доступности](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Автоматическое масштабирование масштабируемого набора](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Использование портала Azure](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Использование Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Использование Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Приложения в масштабируемых наборах](virtual-machine-scale-sets-deploy-app.md)
 ### [Использование дисков данных с масштабируемыми наборами](virtual-machine-scale-sets-attached-disks.md)

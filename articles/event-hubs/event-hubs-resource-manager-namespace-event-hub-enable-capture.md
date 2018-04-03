@@ -1,11 +1,11 @@
 ---
-title: "Создание пространства имен концентраторов событий Azure и включение записи с помощью шаблона | Документация Майкрософт"
-description: "Создание пространства имен концентраторов событий Azure с одним концентратором событий и включение записи с помощью шаблона Azure Resource Manager."
+title: Создание пространства имен концентраторов событий Azure и включение записи с помощью шаблона | Документация Майкрософт
+description: Создание пространства имен концентраторов событий Azure с одним концентратором событий и включение записи с помощью шаблона Azure Resource Manager.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Создание пространства имен с концентратором событий и включение записи с помощью шаблона
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 Формат имени, используемый функцией записи концентраторов событий, для записи файлов Avro. Обратите внимание, что в формате имени для функции записи должны быть поля `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, и `{Second}`. Они могут быть размещены в любом порядке, с разделителями или без них.
  
@@ -236,7 +236,7 @@ ms.lasthandoff: 02/01/2018
 
 Если в качестве места назначения вы выбрали Azure Data Lake Store, используйте указанные ниже параметры. Необходимо назначить разрешения для пути к хранилищу Data Lake Store, в которое необходимо записывать события. Сведения о назначении разрешений см. в [этой статье](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 Идентификатор подписки для пространства имен концентраторов событий и Azure Data Lake Store. Оба ресурса должны использовать один и тот же идентификатор подписки.
 
@@ -249,7 +249,7 @@ ms.lasthandoff: 02/01/2018
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 Имя Azure Data Lake Store для записываемых событий.
 
@@ -262,7 +262,7 @@ ms.lasthandoff: 02/01/2018
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 Путь к целевой папке для записываемых событий. Это папка в Data Lake Store, в которую будут отправляться события во время операции записи. Чтобы настроить разрешения для этой папки, ознакомьтесь со статьей [Запись данных из концентраторов событий с помощью Azure Data Lake Store](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 

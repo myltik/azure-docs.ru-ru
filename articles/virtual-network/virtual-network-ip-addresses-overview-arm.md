@@ -1,11 +1,11 @@
 ---
-title: "Типы IP-адресов в Azure | Документация Майкрософт"
-description: "Сведения об использовании частных и общедоступных IP-адресов в Azure."
+title: Типы IP-адресов в Azure | Документация Майкрософт
+description: Сведения об использовании частных и общедоступных IP-адресов в Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Типы IP-адресов и методы распределения в Azure
 
@@ -68,13 +68,10 @@ ms.lasthandoff: 12/05/2017
 
 - Назначаются только с помощью статического выделения.
 - Назначаются сетевым интерфейсам или подсистемам балансировки нагрузки категории "Стандартный", доступным в Интернете. См. дополнительные сведения см. о [подсистеме балансировки нагрузки Azure с номером SKU "Стандартный"](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- По умолчанию являются избыточными в пределах зоны. Могут создаваться как зональные IP-адреса и гарантироваться в определенной зоне доступности.  См. дополнительные сведения о [зонах доступности](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- По умолчанию являются избыточными в пределах зоны. Могут создаваться как зональные IP-адреса и гарантироваться в определенной зоне доступности. См. дополнительные сведения о [зонах доступности](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Если вы назначаете общедоступный IP-адрес с номером SKU "Стандартный" сетевому интерфейсу виртуальной машины, необходимо явно разрешить предполагаемый трафик в [группе безопасности сети](security-overview.md#network-security-groups).  Обмен данными с ресурсом будет невозможен, пока вы не создадите группу безопасности сети, не свяжете ее с ресурсом и не разрешите соответствующий трафик.
-
-Номер SKU "Стандартный" используется в режиме предварительной версии. Прежде чем создавать общедоступные IP-адреса с номером SKU "Стандартный", сначала зарегистрируйтесь для использования предварительной версии и создайте адрес в поддерживаемом расположении. См. инструкции по [регистрации для использования предварительной версии номера SKU](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). См. список [поддерживаемых расположений (регионов)](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability). Также проверяйте страницу [обновлений виртуальной сети Azure](https://azure.microsoft.com/updates/?product=virtual-network) на наличие дополнительных регионов.
-
+> Если вы назначаете общедоступный IP-адрес с номером SKU "Стандартный" сетевому интерфейсу виртуальной машины, необходимо явно разрешить предполагаемый трафик в [группе безопасности сети](security-overview.md#network-security-groups). Обмен данными с ресурсом будет невозможен, пока вы не создадите и не свяжете группу безопасности сети и явно не разрешите нужный трафик.
 
 ### <a name="allocation-method"></a>Способ выделения
 

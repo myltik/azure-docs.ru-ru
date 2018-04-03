@@ -1,0 +1,158 @@
+- name: Документация по CDN
+  href: index.md
+- name: Обзор
+  href: cdn-overview.md
+  items:
+    - name: Что такое Azure CDN?
+      href: ../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json
+- name: Начало работы
+  items:
+    - name: Включение Azure CDN
+      href: cdn-create-new-endpoint.md
+- name: Практическое руководство
+  items:
+    - name: Интеграция
+      items:
+        - name: Веб-приложения
+          href: ../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json
+        - name: Облачные службы
+          href: cdn-cloud-service-with-cdn.md
+        - name: Хранилище
+          items:
+            - name: Интеграция учетной записи хранения
+              href: cdn-create-a-storage-account-with-cdn.md
+            - name: Поддержка хранилища SAS
+              href: cdn-sas-storage-support.md
+        - name: Общий доступ к ресурсам независимо от источника
+          href: cdn-cors.md
+        - name: Добавление личного домена к конечной точке CDN
+          href: cdn-map-content-to-custom-domain.md
+        - name: Настройка HTTPS в личном домене
+          href: cdn-custom-ssl.md
+    - name: Оптимизация содержимого
+      items:
+        - name: Общие сведения об оптимизации
+          href: cdn-optimization-overview.md
+          items:
+            - name: Оптимизация больших файлов
+              href: cdn-large-file-optimization.md
+            - name: Оптимизация потоковой передачи мультимедиа
+              href: cdn-media-streaming-optimization.md
+            - name: Динамическое ускорение сайтов
+              href: cdn-dynamic-site-acceleration.md
+    - name: управление
+      items:
+        - name: Управление с помощью Azure PowerShell
+          href: cdn-manage-powershell.md
+        - name: Ограничение доступа в зависимости от страны
+          href: cdn-restrict-access-by-country.md
+        - name: Увеличьте производительность путем сжатия файлов
+          href: cdn-improve-performance.md
+        - name: Управление поведением кэширования
+          items:
+            - name: Как выполняется кэширование
+              href: cdn-how-caching-works.md
+            - name: Управление поведением кэширования с помощью правил
+              href: cdn-caching-rules.md
+            - name: Кэширование содержимого по строкам запросов
+              items:
+                - name: Уровень Standard
+                  href: cdn-query-string.md
+                - name: Уровень Premium
+                  href: cdn-query-string-premium.md
+            - name: Удаление кэшированных ресурсов
+              href: cdn-purge-endpoint.md
+            - name: Предварительная загрузка кэшированных ресурсов
+              href: cdn-preload-endpoint.md
+        - name: Настройка срока жизни
+          items:
+            - name: Веб-содержимое Azure
+              href: cdn-manage-expiration-of-cloud-service-content.md
+            - name: Хранилище больших двоичных объектов Azure
+              href: cdn-manage-expiration-of-blob-content.md
+        - name: Аутентификация на основе маркера
+          href: cdn-token-auth.md
+        - name: Мониторинг ресурсов
+          href: cdn-resource-health.md
+        - name: Блокировка поведения с помощью правил
+          href: cdn-rules-engine.md
+        - name: Получение оповещений в реальном времени
+          href: cdn-real-time-alerts.md
+        - name: Поддержка HTTP/2
+          href: cdn-http2.md
+    - name: Анализ
+      items:
+        - name: Анализ вариантов использования CDN Azure
+          href: cdn-log-analysis.md
+          items:
+            - name: Журналы диагностики Azure
+              href: cdn-azure-diagnostic-logs.md
+            - name: Средства аналитики для Azure CDN от Verizon
+              items:
+                - name: Основные отчеты Verizon
+                  href: cdn-analyze-usage-patterns.md
+                - name: Пользовательские отчеты из Verizon
+                  href: cdn-verizon-custom-reports.md
+            - name: Средства аналитики для Azure CDN уровня "Премиум" от Verizon
+              items:
+                - name: Создание расширенных отчетов HTTP
+                  href: cdn-advanced-http-reports.md
+                - name: Просмотр статистики в реальном времени
+                  href: cdn-real-time-stats.md
+                - name: Анализ производительности граничного узла
+                  href: cdn-edge-performance.md
+    - name: Разработка
+      items:
+        - name: .NET
+          href: cdn-app-dev-net.md
+        - name: Node.js
+          href: cdn-app-dev-node.md
+    - name: Устранение неполадок
+      items:
+        - name: Состояние 404
+          href: cdn-troubleshoot-endpoint.md
+        - name: Сжатие файлов
+          href: cdn-troubleshoot-compression.md
+- name: Справочные материалы
+  items:
+    - name: Обработчик правил Azure CDN
+      href: cdn-rules-engine-reference.md
+      items:
+        - name: Условные выражения обработчика правил Azure CDN
+          href: cdn-rules-engine-reference-conditional-expressions.md
+        - name: Условия соответствия для обработчика правил Azure CDN
+          href: cdn-rules-engine-reference-match-conditions.md
+        - name: Функции обработчика правил Azure CDN
+          href: cdn-rules-engine-reference-features.md
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cdn'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.cdn
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.cdn
+    - name: REST
+      href: /rest/api/cdn/
+- name: Ресурсы
+  items:
+    - name: Расположение узлов POP сети Azure CDN
+      items:
+        - name: Расположения POP по региону
+          href: cdn-pop-locations.md
+        - name: Расположения POP по аббревиатуре
+          href: cdn-pop-abbreviations.md
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/cdn/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=cdn'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-cdn'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'

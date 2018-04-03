@@ -1,11 +1,11 @@
 ---
-title: "Преобразование данных с помощью Spark в фабрике данных Azure | Документация Майкрософт"
-description: "В этом руководстве представлены пошаговые инструкции по преобразованию данных с использованием действия Spark в фабрике данных Azure."
+title: Преобразование данных с помощью Spark в фабрике данных Azure | Документация Майкрософт
+description: В этом руководстве представлены пошаговые инструкции по преобразованию данных с использованием действия Spark в фабрике данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: af5e19b212fdebe5220e49eeaa6ec9fc56b1da1c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f01580dce4c7fda2f3d254a7c34399044a97317b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 В этом руководстве вы используете Azure PowerShell для создания конвейера фабрики данных, который преобразовывает данные с помощью действия Spark и служба, связанная по запросу HDInsight. В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных. 
+> * создадите фабрику данных; 
 > * Создание и развертывание связанных служб.
 > * Создание и развертывание конвейера. 
 > * Запуск конвейера.
@@ -183,7 +183,7 @@ ms.lasthandoff: 01/23/2018
 - entryFilePath указывает на файл WordCount_Spark.py во вложенной папке скрипта папки spark. 
 
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных 
+## <a name="create-a-data-factory"></a>Создать фабрику данных 
 Вы создали связанную службу и определения конвейера в файлах JSON. Теперь нужно создать фабрику данных и развернуть связанную службу и конвейер файлов JSON с помощью командлетов PowerShell. Последовательно выполните следующие команды PowerShell: 
 
 1. По очереди задайте переменные.
@@ -337,7 +337,7 @@ ms.lasthandoff: 01/23/2018
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]
-> * Создадите фабрику данных. 
+> * создадите фабрику данных; 
 > * Создание и развертывание связанных служб.
 > * Создание и развертывание конвейера. 
 > * Запуск конвейера.

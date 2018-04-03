@@ -1,11 +1,11 @@
 ---
-title: "Настройка PostgreSQL на виртуальной машине Linux | Документация Майкрософт"
-description: "Узнайте, как установить и настроить PostgreSQL на виртуальной машине Linux в Azure."
+title: Настройка PostgreSQL на виртуальной машине Linux | Документация Майкрософт
+description: Узнайте, как установить и настроить PostgreSQL на виртуальной машине Linux в Azure.
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: mingzhan
-ms.openlocfilehash: 0bccdc1cfdbda06b57da8cd662373ef137768672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Установка и настройка PostgreSQL в Azure
 PostgreSQL — это расширенная открытая СУБД, аналогичная СУБД Oracle и DB2. Она предлагает возможности корпоративного уровня, обеспечивая полное соответствие принципам ACID, надежную обработку транзакций и управление параллелизмом в разных версиях. Она также поддерживает такие стандарты, как ANSI SQL и SQL/MED (включая оболочки для внешних данных Oracle, MySQL, MongoDB и др.). Высокая расширяемость обеспечивается поддержкой более 12 процедурных языков, индексов GIN и GIST, пространственных данных, различных функций NoSQL для JSON и приложений на основе пары "ключ — значение".

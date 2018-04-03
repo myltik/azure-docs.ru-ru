@@ -1,12 +1,12 @@
 ---
-title: "Начало работы с Центрами уведомлений Azure для приложений Android и Firebase Cloud Messaging | Документация Майкрософт"
-description: "Из этого руководства вы узнаете, как использовать центры уведомлений Azure и Firebase Cloud Messaging для отправки push-уведомлений на устройства Android."
+title: Начало работы с Центрами уведомлений Azure для приложений Android и Firebase Cloud Messaging | Документация Майкрософт
+description: Из этого руководства вы узнаете, как использовать центры уведомлений Azure и Firebase Cloud Messaging для отправки push-уведомлений на устройства Android.
 services: notification-hubs
 documentationcenter: android
-keywords: "push-уведомления, push-уведомление, push-уведомление android, FCM, Firebase Cloud Messaging"
+keywords: push-уведомления, push-уведомление, push-уведомление android, FCM, Firebase Cloud Messaging
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 2cac554be145c3bb9ec2c71ef893bba947104a2d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0f4c766bd68227a85e2438bc68b2d61c69ce706c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Начало работы с Центрами уведомлений Azure для приложений Android и Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -145,8 +145,8 @@ ms.lasthandoff: 01/02/2018
     Обязательно обновите эти три заполнителя в следующем коде для класса `NotificationSettings`:
    
    * **SenderId** — идентификатор отправителя, полученный ранее на вкладке **Cloud Messaging** параметров проекта в [консоли Firebase](https://firebase.google.com/console/).
-   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Чтобы скопировать эту строку подключения, щелкните пункт **Политики доступа** в своем центре на [портала Azure].
-   * **HubName**: используйте имя центра уведомлений, которое отображается на [портала Azure]в колонке центра.
+   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Чтобы скопировать эту строку подключения, щелкните пункт **Политики доступа** в своем центре на [портале Azure].
+   * **HubName**: используйте имя центра уведомлений, которое отображается на [портале Azure]в колонке центра.
      
      `NotificationSettings` :
      
@@ -285,9 +285,8 @@ ms.lasthandoff: 01/02/2018
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-    ```
 
-3. В верхней части класса добавьте следующие частные члены. Используйте эту [проверку доступности служб Google Play в соответствии с рекомендациями Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+3. Add the following private members at the top of the class. You use these to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java
         public static MainActivity mainActivity;
@@ -467,7 +466,7 @@ ms.lasthandoff: 01/02/2018
     > 
 
 ## <a name="sending-push-notifications"></a>Отправка push-уведомлений
-Чтобы проверить получение push-уведомлений в приложении, отправьте уведомление с [портала Azure]. Для этого найдите раздел **Устранение неполадок** в центре, как показано ниже.
+Чтобы проверить получение push-уведомлений в приложении, отправьте уведомление с [портале Azure]. Для этого найдите раздел **Устранение неполадок** в центре, как показано ниже.
 
 ![Центры уведомлений Azure — тестовая отправка](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
@@ -510,4 +509,4 @@ ms.lasthandoff: 01/02/2018
 [обзоре Центров уведомлений]: notification-hubs-push-notification-overview.md
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [использованию центров уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[портала Azure]: https://portal.azure.com
+[портале Azure]: https://portal.azure.com

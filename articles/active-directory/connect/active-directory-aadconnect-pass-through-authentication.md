@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: сквозная аутентификация | Документация Майкрософт"
-description: "В этой статье описывается сквозная проверка подлинности Azure Active Directory (Azure AD) и ее применение для входа в Azure AD c помощью проверки пользовательских паролей в локальном каталоге Active Directory."
+title: 'Azure AD Connect: сквозная аутентификация | Документация Майкрософт'
+description: В этой статье описывается сквозная проверка подлинности Azure Active Directory (Azure AD) и ее применение для входа в Azure AD c помощью проверки пользовательских паролей в локальном каталоге Active Directory.
 services: active-directory
-keywords: "Что такое сквозная аутентификация Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
-documentationcenter: 
+keywords: Что такое сквозная аутентификация Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Вход пользователей с помощью сквозной проверки подлинности Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/09/2018
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Сквозная проверка подлинности является альтернативой [синхронизации хэшей паролей Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), которая также обеспечивает преимущество облачной проверки подлинности в организации. Однако политики безопасности и соответствия требованиям в некоторых организациях не позволяют отправлять пароли пользователей за пределы внутренней сети даже в хэшированной форме. Сквозная проверка подлинности является подходящим решением для таких организаций.
+Сквозная проверка подлинности является альтернативой [синхронизации хэшей паролей Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), которая также обеспечивает преимущество облачной проверки подлинности в организации. Однако политики безопасности и соответствия требованиям в некоторых организациях не позволяют отправлять пароли пользователей за пределы внутренней сети даже в хэшированной форме. Сквозная проверка подлинности является подходящим решением для таких организаций.
 
 ![Сквозная аутентификация Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

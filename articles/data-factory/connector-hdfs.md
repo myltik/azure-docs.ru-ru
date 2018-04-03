@@ -1,11 +1,11 @@
 ---
-title: "Копирование данных из HDFS с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как копировать данные из облака или локального источника HDFS на поддерживаемые приемники хранилища данных с помощью действия копирования в конвейере фабрики данных Azure."
+title: Копирование данных из HDFS с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как копировать данные из облака или локального источника HDFS на поддерживаемые приемники хранилища данных с помощью действия копирования в конвейере фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 400c58abf04d28dd0e5f1d7aac204f09c43b942e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 98a03bf1637ce21320b749feb7dfb55096bf091c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Копирование данных из HDFS с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

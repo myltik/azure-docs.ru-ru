@@ -1,10 +1,9 @@
 ---
-title: "Устранение неполадок шлюза управления данными | Документация Майкрософт"
-description: "Эта статья содержит советы по устранению неполадок, связанных со шлюзом управления данными."
+title: Устранение неполадок шлюза управления данными | Документация Майкрософт
+description: Эта статья содержит советы по устранению неполадок, связанных со шлюзом управления данными.
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Устранение неполадок в работе шлюза управления данными
 В этой статье приводятся сведения об устранении неполадок в работе шлюза управления данными.

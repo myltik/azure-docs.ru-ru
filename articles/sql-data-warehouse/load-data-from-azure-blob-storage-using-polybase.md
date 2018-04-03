@@ -1,31 +1,31 @@
 ---
-title: "Руководство. Загрузка данных из Azure Storage Blob в хранилище данных SQL Azure с помощью Polybase | Документация Майкрософт"
-description: "В этом руководстве используется портал Azure и SQL Server Management Studio для загрузки данных такси Нью-Йорка из хранилища BLOB-объектов Azure в хранилище данных SQL Azure."
+title: Руководство. Загрузка данных из Azure Storage Blob в хранилище данных SQL Azure с помощью Polybase | Документация Майкрософт
+description: В этом руководстве используется портал Azure и SQL Server Management Studio для загрузки данных такси Нью-Йорка из хранилища BLOB-объектов Azure в хранилище данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: ckarst
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.custom: mvc,develop data warehouses
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Руководство. Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure с помощью PolyBase
 
-PolyBase — это стандартная технология загрузки данных в хранилище данных SQL. В этом руководстве PolyBase используется для загрузки данных такси Нью-Йорка из хранилища BLOB-объектов Azure в хранилище данных SQL Azure. В рамках этого руководства [портал Azure](https://portal.azure.com) и [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) используются, чтобы выполнить такие действия: 
+PolyBase — это стандартная технология загрузки данных в хранилище данных SQL. В этом руководстве PolyBase используется для загрузки данных такси Нью-Йорка из хранилища BLOB-объектов Azure в хранилище данных SQL Azure. В рамках этого руководства [портал Azure](https://portal.azure.com) и [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) используются, чтобы выполнить такие действия: 
 
 > [!div class="checklist"]
 > * создать хранилище данных на портале Azure;
@@ -41,7 +41,7 @@ PolyBase — это стандартная технология загрузки
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Перед началом работы с этим руководством скачайте и установите последнюю версию [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Перед началом работы с этим руководством скачайте и установите последнюю версию [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
@@ -91,7 +91,7 @@ PolyBase — это стандартная технология загрузки
     ![настройка производительности](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Нажмите кнопку **Применить**.
-9. На странице хранилища данных SQL выберите **Параметры сортировки** для пустой базы данных. В этом руководстве используйте значение по умолчанию. Дополнительные сведения о параметрах сортировки см. в [этой статье](/sql/t-sql/statements/collations.md).
+9. На странице хранилища данных SQL выберите **Параметры сортировки** для пустой базы данных. В этом руководстве используйте значение по умолчанию. Дополнительные сведения о параметрах сортировки см. в [этой статье](/sql/t-sql/statements/collations).
 
 11. Заполнив форму базы данных SQL, нажмите кнопку **Создать**, чтобы подготовить базу данных. Подготовка занимает несколько минут. 
 
@@ -146,7 +146,7 @@ PolyBase — это стандартная технология загрузки
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Подключение к серверу от имени администратора сервера
 
-В этом разделе для подключения к серверу SQL Azure используется [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+В этом разделе для подключения к серверу SQL Azure используется [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 1. Откройте среду SQL Server Management Studio.
 
@@ -221,7 +221,7 @@ PolyBase — это стандартная технология загрузки
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Создание внешних таблиц для примеров данных
 
-Все готово для начала процесса загрузки данных в новое хранилище данных. В этом руководстве показано, как с помощью [Polybase](/sql/relational-databases/polybase/polybase-guide.md) загрузить данные о такси Нью-Йорка из большого двоичного объекта хранилища Azure. Сведения о том, как переместить данные в хранилище BLOB-объектов Azure или загрузить их в хранилище данных SQL непосредственно из источника, см. статью [Загрузка данных в хранилище данных Azure SQL](sql-data-warehouse-overview-load.md).
+Все готово для начала процесса загрузки данных в новое хранилище данных. В этом руководстве показано, как с помощью [Polybase](/sql/relational-databases/polybase/polybase-guide) загрузить данные о такси Нью-Йорка из большого двоичного объекта хранилища Azure. Сведения о том, как переместить данные в хранилище BLOB-объектов Azure или загрузить их в хранилище данных SQL непосредственно из источника, см. статью [Загрузка данных в хранилище данных Azure SQL](sql-data-warehouse-overview-load.md).
 
 Выполните следующие сценарии SQL и укажите сведения о данных, которые требуется загрузить. К этим сведениям относится информация о расположении данных, формате содержимого данных и определении таблицы для данных. 
 
@@ -237,7 +237,7 @@ PolyBase — это стандартная технология загрузки
     CREATE MASTER KEY;
     ```
 
-4. Выполните приведенную ниже инструкцию [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md), чтобы определить расположение большого двоичного объекта Azure. Это и есть расположение внешних данных о такси.  Для выполнения команды, добавленной в окно запроса, выделите команды, которые необходимо выполнить, и нажмите кнопку **Выполнить**.
+4. Выполните приведенную ниже инструкцию [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql), чтобы определить расположение большого двоичного объекта Azure. Это и есть расположение внешних данных о такси.  Для выполнения команды, добавленной в окно запроса, выделите команды, которые необходимо выполнить, и нажмите кнопку **Выполнить**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ PolyBase — это стандартная технология загрузки
     );
     ```
 
-5. Выполните приведенную ниже инструкцию T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md), чтобы указать характеристики и параметры форматирования для внешнего файла данных. Эта инструкция указывает, что внешние данные хранятся в виде текста, а значения разделяются символом вертикальной черты (|). Внешний файл сжимается с помощью Gzip. 
+5. Выполните приведенную ниже инструкцию T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql), чтобы указать характеристики и параметры форматирования для внешнего файла данных. Эта инструкция указывает, что внешние данные хранятся в виде текста, а значения разделяются символом вертикальной черты (|). Внешний файл сжимается с помощью Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +273,7 @@ PolyBase — это стандартная технология загрузки
     );
     ```
 
-6.  Выполните приведенную ниже инструкцию [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md), чтобы создать схему для формата внешних файлов. Эта схема предоставляет способ организации внешних таблиц, которые будут созданы.
+6.  Выполните приведенную ниже инструкцию [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql), чтобы создать схему для формата внешних файлов. Эта схема предоставляет способ организации внешних таблиц, которые будут созданы.
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +456,7 @@ PolyBase — это стандартная технология загрузки
 > В этом руководстве данные загружаются непосредственно в итоговую таблицу. Как правило, в рабочей среде для загрузки данных в промежуточную таблицу используется команда CREATE TABLE AS SELECT. Если данные расположены в промежуточной таблице, вы можете выполнять все необходимые преобразования. Чтобы добавить данные из промежуточной таблицы в рабочую, используйте выражение INSERT...SELECT. Дополнительные сведения см. в разделе [Вставка данных в рабочую таблицу](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-В сценарии используется инструкция T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md), чтобы загрузить данные из Azure Storage Blob в новые таблицы в хранилище данных. CTAS создает таблицу на основе результатов инструкции Select. В новой таблице содержатся те же столбцы и типы данных, которые были выведены инструкцией Select. Если инструкция Select выбирает из внешней таблицы, то хранилище данных SQL импортирует данные в реляционную таблицу в хранилище данных. 
+В сценарии используется инструкция T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse), чтобы загрузить данные из Azure Storage Blob в новые таблицы в хранилище данных. CTAS создает таблицу на основе результатов инструкции Select. В новой таблице содержатся те же столбцы и типы данных, которые были выведены инструкцией Select. Если инструкция Select выбирает из внешней таблицы, то хранилище данных SQL импортирует данные в реляционную таблицу в хранилище данных. 
 
 1. Выполните следующий сценарий для загрузки данных в новые таблицы в хранилище данных.
 

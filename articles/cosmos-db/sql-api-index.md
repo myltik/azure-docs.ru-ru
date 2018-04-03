@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB. Статьи об API SQL | Документация Майкрософт"
-description: "Список всех статей, посвященных созданию баз данных документов с помощью API SQL в Azure Cosmos DB."
+title: Azure Cosmos DB. Статьи об API SQL | Документация Майкрософт
+description: Список всех статей, посвященных созданию баз данных документов с помощью API SQL в Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB. Документация по API SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 В этой статье приведены ссылки на все содержимое Azure Cosmos DB, связанное с API SQL.
 
@@ -34,7 +32,7 @@ ms.lasthandoff: 01/11/2018
 - [Общие сведения об API SQL](sql-api-introduction.md)
 - [Модель ресурсов базы данных](sql-api-resources.md)
 - Веб-сайт [Query Playground](https://www.documentdb.com/sql/demo)
-- Памятка по [грамматике SQL](sql-api-sql-query-cheat-sheet.md)
+- Памятка по [грамматике SQL](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Быстрое начало работы
 

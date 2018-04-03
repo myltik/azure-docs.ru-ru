@@ -25,6 +25,10 @@
   items:
     - name: Структура определения службы "Политика Azure"
       href: policy-definition.md
+- name: Практические руководства
+  items:
+    - name: Программное создание политик
+      href: policy-insights.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

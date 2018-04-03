@@ -1,11 +1,12 @@
 ---
-title: "Импорт данных в Студию машинного обучения | Документация Майкрософт"
-description: "Импорт данных в студию машинного обучения Azure из разных источников данных Узнайте, какие типы данных и форматы данных поддерживаются."
-keywords: "импорт данных, формат данных, типы данных, источники данных, обучающие данные"
+title: Импорт данных в Студию машинного обучения | Документация Майкрософт
+description: Импорт данных в студию машинного обучения Azure из разных источников данных Узнайте, какие типы данных и форматы данных поддерживаются.
+keywords: импорт данных, формат данных, типы данных, источники данных, обучающие данные
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0ecc2262aee34cd3bcc70785915918414eab3ccd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Импорт обучающих данных в Студию машинного обучения Azure из разных источников данных
 Чтобы при разработке решения прогнозной аналитики и обучении работе с таким решением использовать в студии машинного обучения собственные данные, можно выполнить следующие действия: 

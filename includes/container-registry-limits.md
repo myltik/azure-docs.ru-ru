@@ -1,7 +1,23 @@
+---
+title: включение файла
+description: включение файла
+services: container-registry
+author: mmacy
+ms.service: container-registry
+ms.topic: include
+ms.date: 03/23/2018
+ms.author: marsma
+ms.custom: include file
+ms.openlocfilehash: 575483192954f4e05db50e701e223829e041cffc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/28/2018
+---
 | Ресурс | базовая; | Стандартная | Премиум |
 |---|---|---|---|---|
 | Хранилище | 10 ГБ | 100 ГБ| 500 ГБ |
-| Операций чтения в минуту<sup>1, 2</sup> | 1000 | 300 000 | 10 000 000 |
+| Операций чтения в минуту<sup>1, 2</sup> | 1000 | 3000 | 10 000 |
 | Операций записи в минуту<sup>1, 3</sup> | 100 | 500 | 2000 |
 | Пропускная способность скачивания в Мбит/с<sup>1</sup> | 30 | 60 | 100 |
 | Пропускная способность передачи в Мбит/с<sup>1</sup> | 10 | 20 | 50 |

@@ -1,23 +1,23 @@
 ---
-title: "Выполнение проектов обработки и анализа данных — служба \"Машинное обучение Azure\" | Документация Майкрософт"
-description: "В этой статье описывается, как специалист по обработке и анализу данных может отслеживать ход выполнения проекта обработки и анализа данных."
-documentationcenter: 
+title: Выполнение проектов обработки и анализа данных — служба "Машинное обучение Azure" | Документация Майкрософт
+description: В этой статье описывается, как специалист по обработке и анализу данных может отслеживать ход выполнения проекта обработки и анализа данных.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: c8e1882570a8cfcb4a75f0904a2138d007e0bc5b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: fe0c1b4917439221643bf481fdd21828f857e1c4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="track-progress-of-data-science-projects"></a>Ход выполнения проектов обработки и анализа данных
 

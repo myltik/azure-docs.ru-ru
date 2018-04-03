@@ -3,8 +3,6 @@
 - name: Обзор
   expanded: true
   items:
-    - name: Что такое машинное обучение?
-      href: what-is-machine-learning.md
     - name: Студия машинного обучения
       href: what-is-ml-studio.md
     - name: Возможности студии машинного обучения

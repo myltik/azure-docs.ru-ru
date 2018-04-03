@@ -1,11 +1,11 @@
 ---
-title: "Функции и конфигурация синхронизации Azure AD Connect | Документация Майкрософт"
-description: "Описываются функциональные возможности службы синхронизации Azure AD Connect."
+title: Функции и конфигурация синхронизации Azure AD Connect | Документация Майкрософт
+description: Описываются функциональные возможности службы синхронизации Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Функции службы синхронизации Azure AD Connect
 Средство синхронизации Azure AD Connect состоит из двух компонентов.
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/22/2018
 | DeviceWriteback |[Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Синхронизация Azure AD Connect: расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Позволяет поместить атрибут, являющийся копией другого объекта, на карантин, вместо того чтобы прерывать весь процесс экспорта для этого объекта. |
-| PasswordSync |[Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Сейчас не поддерживается. |
 

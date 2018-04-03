@@ -1,12 +1,12 @@
 ---
-title: "Устранение неполадок параметров Enterprise State Roaming в Azure Active Directory | Документация Майкрософт"
-description: "В статье содержится информация о синхронизации параметров и данных приложений, которая может быть полезной для ИТ-администраторов."
+title: Устранение неполадок параметров Enterprise State Roaming в Azure Active Directory | Документация Майкрософт
+description: В статье содержится информация о синхронизации параметров и данных приложений, которая может быть полезной для ИТ-администраторов.
 services: active-directory
-keywords: "параметры enterprise state roaming, облако windows, часто задаваемые вопросы о решении enterprise state roaming"
-documentationcenter: 
+keywords: параметры enterprise state roaming, облако windows, часто задаваемые вопросы о решении enterprise state roaming
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Устранение неполадок параметров Enterprise State Roaming в Azure Active Directory
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/16/2018
 
 **Потенциальная проблема.** Синхронизация может завершиться ошибкой, если администратор настраивает политику условного доступа Многофакторной идентификации в службах AD FS, а срок действия маркера доступа на устройстве истекает. Убедитесь, что для входа в систему и выхода из нее вы используете ПИН-код Microsoft Passport for Work или выполняете проверку подлинности в службе Многофакторной идентификации при получении доступа к другим службам Azure, таким как Office 365.
 
-###<a name="event-viewer"></a>Средство просмотра событий
+### <a name="event-viewer"></a>Средство просмотра событий
 Для расширенного поиска проблем можно использовать средство просмотра событий, чтобы находить конкретные ошибки. Они описаны в следующем разделе. События можно просмотреть, выбрав "Средство просмотра событий > Журналы приложений и служб > **Microsoft** > **Windows** > **SettingSync**". Для просмотра проблем синхронизации, связанных с идентификацией, выберите **Microsoft** > **Windows** > **Azure AD**.
 
 

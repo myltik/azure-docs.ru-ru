@@ -1,7 +1,7 @@
 ---
-title: "Руководство по Node.js для API SQL в Azure Cosmos DB | Документация Майкрософт"
-description: "В этом руководстве по Node.js создается база данных Cosmos DB с помощью API SQL."
-keywords: "node.js, руководство, база данных node"
+title: Руководство по Node.js для API SQL в Azure Cosmos DB | Документация Майкрософт
+description: В этом руководстве по Node.js создается база данных Cosmos DB с помощью API SQL.
+keywords: node.js, руководство, база данных node
 services: cosmos-db
 documentationcenter: node.js
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: de1ac7cb11f3e0d9c2de6dd3e5f635a9c508b2d2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Руководство по Node.js: использование API SQL в Azure Cosmos DB для создания консольного приложения Node.js
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 01/23/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Добро пожаловать в руководство по Node.js, посвященное пакету Azure SDK для Node.js Cosmos DB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
 

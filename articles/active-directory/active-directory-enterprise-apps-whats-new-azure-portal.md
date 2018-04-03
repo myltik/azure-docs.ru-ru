@@ -1,11 +1,11 @@
 ---
-title: "Новые возможности управления корпоративными приложениями в Azure Active Directory | Документация Майкрософт"
-description: "Описание новых возможностей управления корпоративными приложениями в Azure Active Directory."
+title: Новые возможности управления корпоративными приложениями в Azure Active Directory | Документация Майкрософт
+description: Описание новых возможностей управления корпоративными приложениями в Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Новые возможности управления корпоративными приложениями в Azure Active Directory 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 03/13/2018
 1. Щелкните **Самообслуживание** в меню навигации слева и выберите для параметра **Allow users to request access to this application?** (Разрешить пользователям запрашивать доступ к этому приложению?) вариант **Да**. 
 2. Так вы сможете указать, кому разрешено утверждать доступ к этому приложению и какие пользователи из группы самообслуживания будут добавлены. Кроме того, если в приложении настроено использование единого входа по паролю, отобразится еще один параметр, который позволяет при необходимости разрешить утверждающим лицам управлять паролями, назначаемым приложению.
 
-##<a name="feedback"></a>Отзыв
+## <a name="feedback"></a>Отзыв
 
 Мы надеемся, что вам нравится использовать улучшенные возможности Azure AD. Поделитесь своими впечатлениями с нами! Вы можете опубликовать свои отзывы и предложения в разделе, посвященном **порталу администрирования** на нашем [форуме для обратной связи](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Мы работаем над новыми интересными возможностями и хотим учитывать ваши отзывы.
 

@@ -1,11 +1,12 @@
 ---
-title: "Задайте вопрос, на который можно ответить с помощью данных. Задачи обработки и анализа данных в Azure. Машинное обучение Azure | Документация Майкрософт"
-description: "Узнайте, как формулировать точные вопросы обработки и анализа данных. В этом вам поможет видео 3 из цикла \"Обработка и анализ данных для начинающих\". Включает сравнение вопросов классификации и регрессии."
-keywords: "задачи обработки и анализа данных,вопросы обработки и анализа данных,формулирование вопроса,вопросы регрессии,вопросы классификации,точный вопрос"
+title: Задайте вопрос, на который можно ответить с помощью данных. Задачи обработки и анализа данных в Azure. Машинное обучение Azure | Документация Майкрософт
+description: Узнайте, как формулировать точные вопросы обработки и анализа данных. В этом вам поможет видео 3 из цикла "Обработка и анализ данных для начинающих". Включает сравнение вопросов классификации и регрессии.
+keywords: задачи обработки и анализа данных,вопросы обработки и анализа данных,формулирование вопроса,вопросы регрессии,вопросы классификации,точный вопрос
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 225414082c447016cdfdfd1a9e5dbe5e5fbcfaec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Задайте вопрос, на который можно ответить с помощью данных
 ## <a name="video-3-data-science-for-beginners-series"></a>Видео 3. Обработка и анализ данных для начинающих

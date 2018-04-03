@@ -1,24 +1,24 @@
 ---
-title: "Этап развертывания в жизненном цикле процесса обработки и анализа данных группы в Azure | Документация Майкрософт"
-description: "Цели, задачи и конечные результаты на этапе развертывания проектов обработки и анализа данных"
+title: Этап развертывания в жизненном цикле процесса обработки и анализа данных группы в Azure | Документация Майкрософт
+description: Цели, задачи и конечные результаты на этапе развертывания проектов обработки и анализа данных
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 45d801bf0096879143f91feb230445625559379f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 5cb6361ed674ffaaf776adafd6f3ff87272c73eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deployment"></a>Развертывание
 

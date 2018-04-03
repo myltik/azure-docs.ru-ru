@@ -1,23 +1,23 @@
 ---
-title: "Роли и задачи в команде обработки и анализа данных | Документация Майкрософт"
-description: "Обзор основных компонентов, ролей и связанных с ними задач для сотрудников, выполняющих командный проект обработки и анализа данных."
-documentationcenter: 
+title: Роли и задачи в команде обработки и анализа данных | Документация Майкрософт
+description: Обзор основных компонентов, ролей и связанных с ними задач для сотрудников, выполняющих командный проект обработки и анализа данных.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Роли и задачи в команде обработки и анализа данных
 

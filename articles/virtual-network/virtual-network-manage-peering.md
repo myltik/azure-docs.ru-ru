@@ -1,13 +1,13 @@
 ---
-title: "Создание, изменение или удаление пиринга в виртуальных сетях Azure | Документация Майкрософт"
-description: "Узнайте, как создавать, изменять и удалять пиринг в виртуальной сети."
+title: Создание, изменение или удаление пиринга в виртуальных сетях Azure | Документация Майкрософт
+description: Узнайте, как создавать, изменять и удалять пиринг в виртуальной сети.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5cd486d9953979fe8aa9c8354c5fad5a9e11af1e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Создание, изменение и удаление пиринга в виртуальной сети
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/09/2018
 Перед выполнением действий, описанных в любом разделе этой статьи, выполните следующие задачи.
 
 - Если у вас нет учетной записи Azure, зарегистрируйтесь для получения [бесплатной пробной учетной записи](https://azure.microsoft.com/free).
-- При использовании портала Azure перейдите по адресу https://portal.azure.com и войдите с использованием своей учетной записи Azure.
+- При использовании портала перейдите по адресу https://portal.azure.com и войдите с использованием своей учетной записи Azure.
 - При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 5.2.0. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
 - При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI версии не ниже 2.0.26. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI запущен локально, необходимо также выполнить командлет `az login`, чтобы создать подключение к Azure.
 
@@ -140,11 +140,11 @@ Azure CLI: [az network vnet peering list](/cli/azure/network/vnet/peering#az_net
     - Виртуальной сетью 2 и виртуальной сетью 3
 
   Между виртуальными сетями 1 и 3 не установлен пиринг через виртуальную сеть 2. Если вы хотите установить пиринг между виртуальной сетью 1 и виртуальной сетью 3, необходимо создать его.
-- Разрешение имен Azure по умолчанию не поддерживается для пиринговых виртуальных сетей. Разрешить имена в других виртуальных сетях можно при помощи пользовательского DNS-сервера. Дополнительные сведения о настройке собственного DNS-сервера см. в разделе [Разрешение имен с помощью собственного DNS-сервера](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+- Разрешение имен Azure по умолчанию не поддерживается для пиринговых виртуальных сетей. Разрешить имена в других виртуальных сетях можно при помощи пользовательского DNS-сервера. Дополнительные сведения о настройке собственного DNS-сервера см. в разделе [Разрешение имен с помощью собственного DNS-сервера](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Ресурсы в обеих виртуальные сетях с пиринговым подключением могут обмениваться данными с той же пропускной способностью и задержкой, что и ресурсы в одной виртуальной сети. Но для размера каждой виртуальной машины действует отдельная максимальная пропускная способность сети. Дополнительные сведения о максимальной пропускной способности сети для разных размеров виртуальных машин см. в статьях о размерах виртуальных машин для [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Можно создать пиринг между виртуальными сетями, развернутыми с помощью Resource Manager, в одной или разных подписках.
 - Можно установить пиринг между виртуальными сетями, созданными с помощью разных моделей развертывания и находящимися в одной подписке или в разных подписках. 
-- Подписки обеих виртуальных сетей должны быть связаны с одним клиентом Azure Active Directory. Если у вас еще нет клиента AD, можно быстро [создать его](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). С помощью [VPN-шлюза](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) можно подключить две виртуальные сети, которые находятся в разных подписках, связанных с разными клиентами Active Directory.
+- Подписки обеих виртуальных сетей должны быть связаны с одним клиентом Azure Active Directory. Если у вас еще нет клиента AD, можно быстро [создать его](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json##create-a-new-azure-ad-tenant). С помощью [VPN-шлюза](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) можно подключить две виртуальные сети, которые находятся в разных подписках, связанных с разными клиентами Active Directory.
 - Можно создать пиринг между виртуальными сетями и установить между ними подключение через шлюз виртуальной сети Azure. Если виртуальные сети подключены при помощи пиринга и шлюза, трафик между ними проходит через конфигурацию пиринга, а не через шлюз.
 - За входящий и исходящий трафик по пиринговой связи между виртуальными сетями взимается номинальная плата. Дополнительные сведения см. на [странице с расценками](https://azure.microsoft.com/pricing/details/virtual-network).
 

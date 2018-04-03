@@ -1,11 +1,11 @@
 ---
-title: "Среда выполнения интеграции в фабрике данных Azure | Документация Майкрософт"
-description: "Сведения о среде выполнения интеграции в фабрике данных Azure."
+title: Среда выполнения интеграции в фабрике данных Azure | Документация Майкрософт
+description: Сведения о среде выполнения интеграции в фабрике данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 88475c169bd6cc8fc4d653801ec1af58ebc7620e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Среда выполнения интеграции в фабрике данных Azure
 Среда выполнения интеграции (IR) — это инфраструктура вычислений, которую фабрика данных Azure использует для обеспечения перечисленных ниже возможностей интеграции данных в разных сетевых средах.

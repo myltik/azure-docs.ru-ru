@@ -1,25 +1,19 @@
 ---
 title: Создание учетной записи пользователя Azure AD
 description: В этой статье объясняется, как создать учетные данные учетной записи пользователя Azure AD для модулей Runbook в службе автоматизации Azure для аутентификации в Azure.
-services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
 keywords: пользователь azure active directory, управление службами azure, учетная запись пользователя azure ad
-ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
+services: automation
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/13/2017
-ms.author: magoedte
-ms.openlocfilehash: cd9e3ee5900c3928573fbac6809c107b5ac331b5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+manager: carmonm
+ms.openlocfilehash: 43490b8ec2139b5e9f62def614dc67e4274304c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Проверка подлинности модулей Runbook с помощью классического развертывания Azure и Resource Manager
 В этой статье описываются действия по настройке учетной записи пользователя Azure AD для модулей Azure Automation Runbook, запущенных с классической моделью развертывания Azure или с ресурсами Azure Resource Manager. Удостоверение аутентификации для модулей Runbook на основе Azure Resource Manager по-прежнему поддерживается, но мы советуем использовать в Azure учетную запись запуска от имени.       

@@ -59,6 +59,8 @@
       items:
         - name: Статический IP-адрес
           href: static-ip.md
+        - name: внутреннему балансировщику нагрузки;
+          href: internal-lb.md
         - name: Входящий трафик с поддержкой TLS
           href: ingress.md
     - name: Безопасность и проверка подлинности

@@ -1,11 +1,10 @@
 ---
-title: "Часто задаваемые вопросы о фабрике данных Azure | Документация Майкрософт"
-description: "Получите ответы на часто задаваемые вопросы о фабрике данных Azure."
+title: Часто задаваемые вопросы о фабрике данных Azure | Документация Майкрософт
+description: Получите ответы на часто задаваемые вопросы о фабрике данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c240e1a654c80c34f6b612d9126058e5d67c4c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Часто задаваемые вопросы о фабрике данных Azure
 Эта статья относится к версии 2 службы фабрики данных Azure. Она содержит ответы на часто задаваемые вопросы о фабрике данных.  

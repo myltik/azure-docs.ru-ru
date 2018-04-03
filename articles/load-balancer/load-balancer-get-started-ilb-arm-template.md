@@ -1,6 +1,6 @@
 ---
-title: "Создание внутренней подсистемы балансировки нагрузки с помощью шаблона Azure | Документация Майкрософт"
-description: "Узнайте, как создать внутренний балансировщик нагрузки в диспетчере ресурсов с помощью шаблона."
+title: Создание внутренней подсистемы балансировки нагрузки с помощью шаблона Azure | Документация Майкрософт
+description: Узнайте, как создать внутренний балансировщик нагрузки в диспетчере ресурсов с помощью шаблона.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7abb8fb5064ca2ab1e4da6e0a32335f63d87ea02
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f92430cad52edc60a0ab69caec61cc6f20515f61
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Создайте внутренний балансировщик нагрузки с помощью шаблона
 
 > [!div class="op_single_selector"]
-> * [портале Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [портал Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Шаблон](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 

@@ -1,11 +1,11 @@
 ---
-title: "Сопоставление полей в индексаторах Поиска Azure"
-description: "Настройка сопоставлений полей индексатора в поиске Azure для выявления различий в названиях полей и представлениях данных"
+title: Сопоставление полей в индексаторах Поиска Azure
+description: Настройка сопоставлений полей индексатора в поиске Azure для выявления различий в названиях полей и представлениях данных
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Сопоставление полей в индексаторах Поиска Azure
 При использовании индексаторов поиска Azure может возникнуть ситуация, когда входные данные не вписываются в схему целевого индекса. В таком случае можно преобразовать данные в желаемый формат, используя **сопоставления полей** .
@@ -60,7 +60,7 @@ api-key: [admin key]
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
@@ -151,7 +151,7 @@ api-key: [admin key]
 | Base64 с заполнением | `MDA+MDA/MDA=` | Использовать безопасные знаки URL-адреса и удалить заполнение | Использовать стандартные знаки Base64 и добавить заполнение |
 | Base64 без заполнения | `MDA+MDA/MDA` | Использовать безопасные знаки URL-адреса | Использовать стандартные знаки Base64 |
 | Безопасное кодирование строки вводных данных в Base64 с заполнением | `MDA-MDA_MDA=` | Удаление заполнения | Добавление заполнения |
-| Безопасное кодирование строки вводных данных в Base64 без заполнения | `MDA-MDA_MDA` | Нет | Нет |
+| Безопасное кодирование строки вводных данных в Base64 без заполнения | `MDA-MDA_MDA` | None | Нет |
 
 <a name="extractTokenAtPositionFunction"></a>
 

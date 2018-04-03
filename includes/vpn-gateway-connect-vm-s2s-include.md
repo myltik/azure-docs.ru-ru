@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: c04fbd5cc7e27be6bba6dae31f71146ce9a304f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/23/2018
+---
 Вы можете подключиться к виртуальной машине, которая развернута в вашей виртуальной сети, создав подключение к удаленному рабочему столу. Лучший способ проверить, можете ли вы подключиться к своей виртуальной машине, — подключиться, используя частный IP-адрес, а не имя компьютера. Таким образом, вы проверяете, можете ли вы подключиться, а не правильно ли настроено разрешение имен.
 
 1. Найдите частный IP-адрес. Частный IP-адрес виртуальной машины можно найти разными способами. Ниже представлены инструкции для портала Azure и PowerShell.

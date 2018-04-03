@@ -1,11 +1,10 @@
 ---
-title: "Копирование данных в хранилище BLOB-объектов Azure и из него | Документация Майкрософт"
-description: "Как копировать данные BLOB-объектов в фабрике данных Azure. Используйте наш пример: как копировать данные в базу данных SQL Azure и хранилище BLOB-объектов Azure и обратно."
+title: Копирование данных в хранилище BLOB-объектов Azure и из него | Документация Майкрософт
+description: 'Как копировать данные BLOB-объектов в фабрике данных Azure. Используйте наш пример: как копировать данные в базу данных SQL Azure и хранилище BLOB-объектов Azure и обратно.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe7b419a2f4bbc3ae4aa69dad1e3b3e0957cc848
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Копирование данных в хранилище BLOB-объектов Azure и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

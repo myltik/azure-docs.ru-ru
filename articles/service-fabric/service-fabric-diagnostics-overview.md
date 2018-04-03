@@ -1,12 +1,12 @@
 ---
-title: "Обзор мониторинга и диагностики Azure Service Fabric | Документы Майкрософт"
-description: "Сведения о функциях мониторинга и диагностики для кластеров, приложений и служб Azure Service Fabric."
+title: Обзор мониторинга и диагностики Azure Service Fabric | Документы Майкрософт
+description: Сведения о функциях мониторинга и диагностики для кластеров, приложений и служб Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Мониторинг и диагностика для Azure Service Fabric
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/29/2018
 
 ![Панель мониторинга работоспособности SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Помимо отображения последних отчетов о состоянии работоспособности в SFX, каждый отчет также доступен как событие. События работоспособности можно собрать через операционный канал (см. сведения в разделе [Сбор событий работоспособности и нагрузки](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)) и хранить в OMS Log Analytics для оповещений и запросов в будущем. Это помогает выявить проблемы, которые могут повлиять на доступность приложения, поэтому рекомендуем настроить оповещения для соответствующих сценариев сбоев (настраиваемые оповещения через OMS).
+Помимо отображения последних отчетов о состоянии работоспособности в SFX, каждый отчет также доступен как событие. События работоспособности можно собрать через операционный канал (см. сведения в разделе [Сбор событий работоспособности и нагрузки](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) и хранить в OMS Log Analytics для оповещений и запросов в будущем. Это помогает выявить проблемы, которые могут повлиять на доступность приложения, поэтому рекомендуем настроить оповещения для соответствующих сценариев сбоев (настраиваемые оповещения через OMS).
 
 ## <a name="monitoring-workflow"></a>Рабочий процесс мониторинга 
 

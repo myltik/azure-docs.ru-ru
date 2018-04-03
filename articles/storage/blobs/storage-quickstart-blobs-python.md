@@ -2,18 +2,18 @@
 title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью языка Python | Документация Майкрософт
 description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используйте клиентскую библиотеку службы хранилища для языка Python, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
-ms.author: tamram
-ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: cshoe
+ms.openlocfilehash: 9ea8fdcd2d21729117101748e20e52029c315e15
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью языка Python
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/17/2018
 
 Для работы с этим кратким руководством сделайте следующее: 
 * установите [Python](https://www.python.org/downloads/);
-* скачайте и установите [пакет SDK службы хранилища Azure для Python](storage-python-how-to-use-blob-storage.md). 
+* скачайте и установите [пакет SDK службы хранилища Azure для Python](https://github.com/Azure/azure-sdk-for-python). 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 

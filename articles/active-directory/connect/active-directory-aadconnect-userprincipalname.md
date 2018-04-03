@@ -1,6 +1,6 @@
 ---
-title: "Указание атрибута UserPrincipalName в Azure AD"
-description: "В следующем документе описано, как указать атрибут UserPrincipalName."
+title: Указание атрибута UserPrincipalName в Azure AD
+description: В следующем документе описано, как указать атрибут UserPrincipalName.
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018
@@ -9,10 +9,10 @@ ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
 ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Указание атрибута UserPrincipalName в Azure AD
 

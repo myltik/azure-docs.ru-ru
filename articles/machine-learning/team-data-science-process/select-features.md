@@ -1,8 +1,8 @@
 ---
-title: "Выбор признаков в процессе обработки и анализа данных группы | Документация Майкрософт"
-description: "Описывает цели реконструирования характеристик и содержит примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения."
+title: Выбор признаков в процессе обработки и анализа данных группы | Документация Майкрософт
+description: Описывает цели реконструирования характеристик и содержит примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: c69e7a7e86ccea2073209eabe123049e59a2b8e3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 44159516a1785f5d65357935000eccc42a7458aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Выбор характеристик в процессе обработки и анализа данных группы (TDSP)
 В этой статье описаны цели выбора характеристик и приводятся примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения. Эти примеры взяты из Студии машинного обучения Azure. 

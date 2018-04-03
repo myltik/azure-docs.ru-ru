@@ -1,11 +1,11 @@
 ---
-title: "Знакомство с Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте об Azure Cosmos DB. Эта глобально распределенная многомодельная база данных с низкой задержкой, гибкой масштабируемостью и высоким уровнем доступности."
+title: Знакомство с Azure Cosmos DB | Документация Майкрософт
+description: Узнайте об Azure Cosmos DB. Эта глобально распределенная многомодельная база данных с низкой задержкой, гибкой масштабируемостью и высоким уровнем доступности.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.topic: overview
 ms.date: 12/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: e8b1454583e52f2c7a38b375df259a8b66f7d24f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Добро пожаловать в базу данных Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB — это глобально распределенная многомодельная база данных Майкрософт. Azure Cosmos DB позволяет гибко и независимо масштабировать пропускную способность и ресурсы хранилища в любых регионах Azure, стоит лишь нажать кнопку. Она гарантирует пропускную способность, задержку, доступность и согласованность в соответствии с [соглашениями об уровне обслуживания](https://aka.ms/acdbsla) (SLA), которые зачастую не могут предложить другие службы баз данных. [Бесплатную пробную версию Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) можно использовать без подписки Azure, без оплаты и каких-либо обязательств.
 

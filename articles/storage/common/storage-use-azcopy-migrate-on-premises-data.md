@@ -1,20 +1,20 @@
 ---
-title: "Миграция локальных данных в службу хранилища Azure с помощью AzCopy | Документация Майкрософт"
-description: "Утилита AzCopy позволяет перемещать или копировать данные в BLOB-объекты, таблицы и файлы и обратно. Вы можете легко перенести данные из локального хранилища в службу хранилища Azure."
+title: Миграция локальных данных в службу хранилища Azure с помощью AzCopy | Документация Майкрософт
+description: Утилита AzCopy позволяет перемещать или копировать данные в BLOB-объекты, таблицы и файлы и обратно. Вы можете легко перенести данные из локального хранилища в службу хранилища Azure.
 services: storage
-author: ruthogunnnaike
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: rogarana
+ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Миграция локальных данных в службу хранилища Azure с помощью AzCopy
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/11/2018
 > * изменение данных для целей тестирования;
 > * создание запланированных заданий или задач cron для поиска новых файлов для отправки.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы выполнить инструкции из этого руководства, скачайте последнюю версию AzCopy для [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) или [Windows](http://aka.ms/downloadazcopy). 
 

@@ -1,8 +1,8 @@
 ---
-title: "Доменные службы Azure Active Directory: присоединение виртуальной машины CoreOS Linux к управляемому домену | Документация Майкрософт"
-description: "Присоединение виртуальной машины CoreOS Linux к доменным службам Azure Active Directory"
+title: 'Доменные службы Azure Active Directory: присоединение виртуальной машины CoreOS Linux к управляемому домену | Документация Майкрософт'
+description: Присоединение виртуальной машины CoreOS Linux к доменным службам Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины CoreOS Linux к управляемому домену
 Из этой статьи вы узнаете, как присоединить виртуальную машину CoreOS Linux в Azure к управляемому домену доменных служб Azure AD.
@@ -140,7 +140,7 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 ## <a name="troubleshooting-domain-join"></a>Устранение неполадок при присоединении к домену
-См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join).
+См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain).
 
 ## <a name="related-content"></a>Похожий контент
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)

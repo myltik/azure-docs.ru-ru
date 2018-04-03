@@ -1,10 +1,10 @@
 ---
-title: "Сохранение выходных данных заданий и задач в службе хранилища Azure с помощью API пакетной службы Azure | Документы Майкрософт"
-description: "Подробнее об использовании API пакетной службы для сохранения выходных данных заданий и задач в службе хранилища Azure."
+title: Сохранение выходных данных заданий и задач в службе хранилища Azure с помощью API пакетной службы Azure | Документы Майкрософт
+description: Подробнее об использовании API пакетной службы для сохранения выходных данных заданий и задач в службе хранилища Azure.
 services: batch
 author: tamram
 manager: timlt
-editor: 
+editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa124109bfc9d333469c255c50df0af96a26bebf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Сохранение данных для задач в службе хранилища Azure с помощью API пакетной службы
 
@@ -142,7 +142,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Дополнительные сведения о виртуальных каталогах в службе хранилища Azure см. в разделе [Перечисление больших двоичных объектов в контейнере](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Дополнительные сведения о виртуальных каталогах в службе хранилища Azure см. в разделе [Перечисление больших двоичных объектов в контейнере](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Диагностика ошибок при передаче файлов

@@ -1,11 +1,10 @@
 ---
-title: "Копирование данных в базу данных SQL Azure и из нее | Документация Майкрософт"
-description: "Узнайте, как копировать данные в базу данных SQL Azure и из нее с помощью фабрики данных Azure."
+title: Копирование данных в базу данных SQL Azure и из нее | Документация Майкрософт
+description: Узнайте, как копировать данные в базу данных SQL Azure и из нее с помощью фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bf47ad3f401abced4e74260dc9180413d69268c3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Копирование данных в базу данных SQL Azure и из нее с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

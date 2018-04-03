@@ -1,26 +1,18 @@
 ---
-title: "Настройка требуемого состояния серверов и управление смещением с помощью службы автоматизации Azure | Документация Майкрософт"
-description: "Руководство по управлению настройками сервера с помощью DSC службы автоматизации Azure"
+title: Настройка требуемого состояния серверов и управление смещением с помощью службы автоматизации Azure
+description: Руководство по управлению настройками сервера с помощью DSC службы автоматизации Azure
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
+ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Настройка требуемого состояния серверов и управление смещением
 

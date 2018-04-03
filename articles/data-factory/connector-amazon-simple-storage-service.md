@@ -1,20 +1,20 @@
 ---
-title: "Копирование данных из Amazon Simple Storage Service с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как копировать данные из Amazon Simple Storage Service (S3) в поддерживаемые хранилища данных приемника с помощью фабрики данных Azure."
+title: Копирование данных из Amazon Simple Storage Service с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как копировать данные из Amazon Simple Storage Service (S3) в поддерживаемые хранилища данных приемника с помощью фабрики данных Azure.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Копирование данных из Amazon Simple Storage Service с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

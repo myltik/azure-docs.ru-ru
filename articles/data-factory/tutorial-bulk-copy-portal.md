@@ -1,11 +1,11 @@
 ---
-title: "Копирование данных в пакетном режиме с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как использовать фабрику данных Azure и действие копирования для копирования данных из исходного хранилища данных в хранилище данных назначения в пакетном режиме."
+title: Копирование данных в пакетном режиме с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как использовать фабрику данных Azure и действие копирования для копирования данных из исходного хранилища данных в хранилище данных назначения в пакетном режиме.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Копирование нескольких таблиц в пакетном режиме с помощью фабрики данных Azure
 В этом руководстве показано **копирование нескольких таблиц из базы данных SQL Azure в хранилище данных SQL Azure**. Этот подход можно применить и в других сценариях. Например, копирование таблиц из SQL Server или Oracle в базу данных SQL Azure, хранилище данных или большой двоичный объект Azure, копирование различных путей из большого двоичного объекта в таблицы базы данных SQL Azure.

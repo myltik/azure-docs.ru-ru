@@ -1,12 +1,12 @@
 ---
-title: "Приступая к работе с Azure Advisor | Документация Майкрософт"
-description: "Приступая к работе с Azure Advisor"
+title: Приступая к работе с Azure Advisor | Документация Майкрософт
+description: Приступая к работе с Azure Advisor
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Приступая к работе с Azure Advisor
 
@@ -35,10 +35,7 @@ ms.lasthandoff: 02/24/2018
 
 4. На панели мониторинга Помощника будет отображаться сводка рекомендаций для всех выбранных подписок.  Можно выбрать подписки, для которых необходимы рекомендации. Используйте для этого фильтр в раскрывающемся списке подписок.
 
-5. Чтобы получить рекомендации для определенной категории, щелкните одну из вкладок: **Высокий уровень доступности**, **Безопасность**, **Производительность** или **Стоимость**.
- 
-> [!NOTE]
-> Чтобы использовать Помощник по Azure с подпиской, панель мониторинга Помощника должен открыть *Владелец* этой подписки.  Данное действие зарегистрирует подписку в Помощнике.  С этого момента любой *владелец*, *участник* или *читатель* подписки сможет получить доступ к рекомендациям Помощника для данной подписки.  
+5. Чтобы получить рекомендации для определенной категории, щелкните одну из вкладок: **Высокий уровень доступности**, **Безопасность**, **Производительность** или **Стоимость**. 
 
   ![Панель мониторинга Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 

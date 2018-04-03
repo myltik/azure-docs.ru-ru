@@ -1,25 +1,25 @@
 ---
-title: "Примеры и пошаговые руководства для виртуальных машин для обработки и анализа данных в Azure | Документация Майкрософт"
-description: "Примеры и пошаговые руководства для виртуальных машин для обработки и анализа данных"
-keywords: "средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux"
+title: Примеры и пошаговые руководства для виртуальных машин для обработки и анализа данных в Azure | Документация Майкрософт
+description: Примеры и пошаговые руководства для виртуальных машин для обработки и анализа данных
+keywords: средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: gokuma
+ms.openlocfilehash: 6c5b5c8c9dbb03a2189eb5f1539499ace55e7dfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Примеры для виртуальных машин для обработки и анализа данных
 
