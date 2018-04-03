@@ -1,23 +1,23 @@
 ---
-title: "Задачи руководителя командного проекта обработки и анализа данных | Документация Майкрософт"
-description: "Структура задач руководителя командного проекта обработки и анализа данных."
-documentationcenter: 
+title: Задачи руководителя командного проекта обработки и анализа данных | Документация Майкрософт
+description: Структура задач руководителя командного проекта обработки и анализа данных.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Задачи руководителя проекта
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/14/2017
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-При использовании VSTS в качестве платформы для размещения кода _URL-адрес HTTPS репозитория проекта_ обычно имеет такой формат ***https://\<Имя сервера VSTS\>.visualstudio.com/\<Имя командного проекта>/_git/<Имя репозитория проекта\>***. В этом примере это ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
+При использовании VSTS в качестве платформы для размещения кода _URL-адрес HTTPS репозитория проекта_ обычно имеет такой формат ***https://\<Имя сервера VSTS\>.visualstudio.com/\<Имя командного проекта>/_git/<Имя репозитория проекта\>***. В нашем примере это: ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
 
 **Linux**
 

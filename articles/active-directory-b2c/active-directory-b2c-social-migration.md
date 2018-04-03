@@ -3,22 +3,19 @@ title: Azure Active Directory B2C. Перемещение пользовател
 description: В этой статье рассматриваются основные понятия перемещения пользователей с удостоверениями социальных сетей в Azure Active Directory B2C с помощью API Graph.
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
-manager: joroja
+author: davidmu
+manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
-ms.date: 14/03/2018
-ms.author: yoelh
-ms.openlocfilehash: b82805f1c5d83c4d4a11c4b88fd6771c0b85f0f4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/03/2018
+ms.author: davidmu
+ms.openlocfilehash: 76ed4dac40872bf6db07b26c5805a4db62dc9dfc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C. Перемещение пользователей с удостоверениями социальных сетей
 При планировании миграции поставщика удостоверений в Azure Active Directory B2C также может потребоваться перенести пользователей с удостоверениями социальных сетей. В этой статье объясняется, как переносить в Azure AD B2C имеющиеся учетные записи с удостоверениями социальных сетей, такие как Facebook, LinkedIn, Майкрософт, и учетные записи Google. Приведенные здесь сведения также применимы к федеративным удостоверениям, однако такие миграции менее распространены.

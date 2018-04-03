@@ -1,23 +1,23 @@
 ---
-title: "Управление службой хранилища в независимых от Azure облаках с помощью Azure PowerShell | Документация Майкрософт"
-description: "Управление службой хранилища в облаках для Китая, Германии и государственных организаций с помощью Azure PowerShell"
+title: Управление службой хранилища в независимых от Azure облаках с помощью Azure PowerShell | Документация Майкрософт
+description: Управление службой хранилища в облаках для Китая, Германии и государственных организаций с помощью Azure PowerShell
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: 
+author: roygara
+manager: jeconnoc
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
-ms.openlocfilehash: 08e1af929d7ddc30c7dc149f6305ca1ca0bc22ae
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.author: rogarana
+ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Управление службой хранилища в независимых от Azure облаках с помощью Azure PowerShell
 

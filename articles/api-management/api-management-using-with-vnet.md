@@ -1,11 +1,11 @@
 ---
-title: "Как использовать управление API Azure с виртуальными сетями"
-description: "Узнайте, как настроить подключение к виртуальной сети в управлении API Azure и обращаться к веб-службам через него."
+title: Как использовать управление API Azure с виртуальными сетями
+description: Узнайте, как настроить подключение к виртуальной сети в управлении API Azure и обращаться к веб-службам через него.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Как использовать управление API Azure с виртуальными сетями
 Виртуальные сети Azure позволяют размещать любые ресурсы Azure в сети, недоступной из Интернета, доступом к которой управляете вы сами. Эти сети можно подключать к локальным сетям с помощью различных технологий VPN. Начать изучение виртуальных сетей Azure лучше всего со статьи [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md).
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/13/2018
 ## <a name="network-configuration-issues"> </a>Распространенные проблемы конфигурации сети
 Ниже приведен список распространенных ошибок конфигурации, возникающих при развертывании службы управления API в виртуальной сети.
 
-* **Настройка пользовательского DNS-сервера**. Служба управления API зависит от нескольких служб Azure. Если служба управления API размещается в виртуальной сети, в которой используется пользовательский DNS-сервер, она должна разрешить имена узлов этих служб Azure. Следуйте [этим](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) рекомендациям по настройке пользовательского DNS-сервера. Для справки ниже приведена таблица портов, а также другие требования к сети.
+* **Настройка пользовательского DNS-сервера**. Служба управления API зависит от нескольких служб Azure. Если служба управления API размещается в виртуальной сети, в которой используется пользовательский DNS-сервер, она должна разрешить имена узлов этих служб Azure. Следуйте [этим](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) рекомендациям по настройке пользовательского DNS-сервера. Для справки ниже приведена таблица портов, а также другие требования к сети.
 
 > [!IMPORTANT]
 > Если вы планируете использовать настраиваемые DNS-серверы для виртуальной сети, настройте их **перед** развертыванием службы управления API в этой сети. В противном случае службу управления API необходимо обновлять каждый раз при изменении DNS-серверов с помощью [операции применения конфигурации сети](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates).

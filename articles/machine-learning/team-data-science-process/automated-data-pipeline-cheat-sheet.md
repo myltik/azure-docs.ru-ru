@@ -1,8 +1,8 @@
 ---
-title: "Памятка по работе с автоматическим конвейером данных Машинного обучения Azure | Документация Майкрософт"
-description: "Пригодная для печати памятка по настройке автоматического конвейера данных в веб-службу машинного обучения Azure в зависимости от того, хранятся ли данные на локальном компьютере, транслируются в режиме реального времени или находятся в Azure или в независимой облачной службе."
+title: Памятка по работе с автоматическим конвейером данных Машинного обучения Azure | Документация Майкрософт
+description: Пригодная для печати памятка по настройке автоматического конвейера данных в веб-службу машинного обучения Azure в зависимости от того, хранятся ли данные на локальном компьютере, транслируются в режиме реального времени или находятся в Azure или в независимой облачной службе.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mithal;garye
-ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: f07e7cc9c97dcd5ef6ebc2d4c16d31b831869352
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Памятка по работе с автоматическим конвейером данных для создания прогнозов машинного обучения Azure
 **Памятка по работе с автоматическим конвейером данных машинного обучения Microsoft Azure** поможет вам разобраться в технологии, которую вы можете использовать для передачи данных в веб-службу машинного обучения и их последующей оценки с помощью модели прогнозной аналитики.

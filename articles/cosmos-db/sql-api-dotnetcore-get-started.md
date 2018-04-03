@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fb14a2ae6e820c289e7000a4876efe4b4a3b89c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB. Приступая к работе с API SQL и .NET Core
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 03/17/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Добро пожаловать в руководство по началу работы с .NET Core в API SQL для Azure Cosmos DB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
 
@@ -51,9 +49,6 @@ ms.lasthandoff: 03/17/2018
 У вас нет времени? Не беспокойтесь! Полное решение доступно на [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Краткие инструкции см. в разделе [Получение полного решения NoSQL для этого руководства](#GetSolution).
 
 Хотите создать приложение Xamarin iOS, Android или Forms с помощью API SQL и пакета SDK для .NET Core? См. [Создание мобильных приложений с помощью Xamarin и Azure Cosmos DB](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> Пакет SDK .NET Core для Azure Cosmos DB, используемый в этом руководстве, не совместим с приложениями универсальной платформы Windows (UWP). Чтобы получить предварительную версию пакета SDK для .NET Core, которая поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 А теперь приступим к работе!
 

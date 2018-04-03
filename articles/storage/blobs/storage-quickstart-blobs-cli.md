@@ -1,19 +1,19 @@
 ---
-title: "Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью Azure CLI | Документация Майкрософт"
-description: "В этом кратком руководстве вы создадите учетную запись хранения и контейнер, отправите большой двоичный объект в службу хранилища Azure, скачаете его и составите список больших двоичных объектов в контейнере с помощью Azure CLI."
+title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью Azure CLI | Документация Майкрософт
+description: В этом кратком руководстве вы создадите учетную запись хранения и контейнер, отправите большой двоичный объект в службу хранилища Azure, скачаете его и составите список больших двоичных объектов в контейнере с помощью Azure CLI.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
-ms.author: tamram
-ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: rogarana
+ms.openlocfilehash: 673392f393d3fb5d7351c0b4ad4782179a99da2a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью Azure CLI
 

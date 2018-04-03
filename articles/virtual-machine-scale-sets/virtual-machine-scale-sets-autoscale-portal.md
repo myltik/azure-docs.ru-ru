@@ -1,11 +1,11 @@
 ---
-title: "Автомасштабирование масштабируемых наборов виртуальных машин на портале Azure | Документация Майкрософт"
-description: "Узнайте, как создать правила автомасштабирования для масштабируемых наборов виртуальных машин с помощью портала Azure."
+title: Автомасштабирование масштабируемых наборов виртуальных машин на портале Azure | Документация Майкрософт
+description: Узнайте, как создать правила автомасштабирования для масштабируемых наборов виртуальных машин с помощью портала Azure.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Автоматическое масштабирование масштабируемых наборов виртуальных машин на портале Azure
 При создании масштабируемого набора вы определяете количество экземпляров виртуальных машин для запуска. По мере изменения потребностей приложения можно автоматически увеличивать или уменьшать это количество. Возможность автоматического масштабирования позволяет удовлетворить пользовательский спрос или среагировать на изменения производительности приложения на протяжении его жизненного цикла.
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 
 ## <a name="prerequisites"></a>предварительным требованиям
-Чтобы создать правила автомасштабирования, вам понадобится имеющийся масштабируемый набор виртуальных машин. Вы можете создать его с помощью [портала Azure](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) или [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
+Чтобы создать правила автомасштабирования, вам понадобится имеющийся масштабируемый набор виртуальных машин. Вы можете создать его с помощью [портала Azure](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) или [Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Создание правила для автоматического масштабирования

@@ -1,13 +1,13 @@
 ---
-title: "Балансировка нагрузки в конфигурациях с несколькими IP-адресами с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Узнайте, как назначить виртуальной машине несколько IP-адресов с использованием интерфейса командной строки Azure."
+title: Балансировка нагрузки в конфигурациях с несколькими IP-адресами с помощью интерфейса командной строки Azure | Документация Майкрософт
+description: Узнайте, как назначить виртуальной машине несколько IP-адресов с использованием интерфейса командной строки Azure.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: 23dd3bf6a50a30477014081a955c3c154b765c5d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: f40747fe56e2e9f5b41391d78fecc7991b93f108
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Балансировка нагрузки в конфигурациях с несколькими IP-адресами
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 01/19/2018
 > * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 В этой статье описывается, как использовать Azure Load Balancer в конфигурации, когда каждому дополнительному сетевому интерфейсу (сетевой карты) назначено несколько IP-адресов. В этом сценарии у нас есть две виртуальные машины под управлением Windows, оснащенные основной и дополнительной сетевыми картами. В каждом из дополнительных сетевых интерфейсов есть по две IP-конфигурации. На каждой виртуальной машине размещены веб-сайты contoso.com и fabrikam.com. Каждый веб-сайт привязан к одной из IP-конфигураций дополнительной сетевой карты. Мы используем Azure Load Balancer, чтобы предоставить два интерфейсных IP-адреса, по одному для каждого веб-сайта. Это позволит направлять трафик в соответствующую IP-конфигурацию для веб-сайта. В данном сценарии используется одинаковый номер порта для обоих внешних интерфейсов, как и для обоих IP-адресов внутренних пулов.
 

@@ -1,12 +1,12 @@
 ---
-title: "Создание подсистемы балансировки нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать балансировщик нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager."
+title: Создание подсистемы балансировки нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell | Документация Майкрософт
+description: Узнайте, как создать балансировщик нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
+keywords: IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей
 ms.assetid: d4c649e3-84ad-4343-8b6a-0e89f0b9e518
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: a84fd69c568e26bbd1ff06b699b804c70e0e9c09
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: da14cc8723df0a6c7c8b15c8af8d519fa2c62283
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [Шаблон](load-balancer-ipv6-internet-template.md)
 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Балансировщик нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки. Azure Load Balancer может также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 

@@ -56,7 +56,7 @@
 ## Управление синхронизацией Azure AD Connect
 ### [Azure AD Connect и соответствие требованиям GDPR](active-directory-aadconnect-gdpr.md)
 ### [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Синхронизация паролей](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Синхронизации хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Учетная запись службы Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Мастер установки](active-directory-aadconnectsync-installation-wizard.md)
 ### [Заполнение UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
@@ -86,7 +86,7 @@
 ### [Ошибки при синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Объект не синхронизирован](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Синхронизация объектов с помощью задачи устранения неполадок](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [Синхронизация паролей](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Синхронизации хэша паролей](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [Ошибка LargeObject, вызванная userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Восстановление из LocalDB с ограничением в 10 ГБ](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 

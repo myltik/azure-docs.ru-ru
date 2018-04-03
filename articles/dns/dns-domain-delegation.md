@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о делегировании Azure DNS | Документация Майкрософт"
-description: "Узнайте, как изменить делегирование домена и использовать серверы имен Azure DNS для размещения домена."
+title: Общие сведения о делегировании Azure DNS | Документация Майкрософт
+description: Узнайте, как изменить делегирование домена и использовать серверы имен Azure DNS для размещения домена.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 4ba615a1fc607392fa1a2a910b4674cfbcf51da1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: fc79999d240baf18ccf5923908c98791c4e7e7bb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Делегирование зон DNS с помощью Azure DNS
 
@@ -42,7 +42,7 @@ Azure DNS позволяет размещать зону DNS и управлят
 * *Полномочный* DNS-сервер содержит зоны DNS. Он отвечает на запросы DNS для записей только в этих зонах.
 * *Рекурсивный* DNS-сервер не содержит зоны DNS. Он отвечает на все запросы DNS, вызывая полномочные DNS-серверы для сбора необходимых данных.
 
-Служба DNS Azure дает возможность пользоваться полномочной службой DNS,  а не рекурсивной. Облачные службы и виртуальные машины в Azure по умолчанию используют рекурсивные службы DNS, которые предоставляются отдельно в качестве части инфраструктуры Azure. Сведения о том, как изменить эти параметры DNS, см. в разделе [Разрешение имен с помощью собственного DNS-сервера](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Служба DNS Azure дает возможность пользоваться полномочной службой DNS,  а не рекурсивной. Облачные службы и виртуальные машины в Azure по умолчанию используют рекурсивные службы DNS, которые предоставляются отдельно в качестве части инфраструктуры Azure. Сведения о том, как изменить эти параметры DNS, см. в разделе [Разрешение имен с помощью собственного DNS-сервера](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 DNS-клиенты на ПК или мобильных устройствах обычно вызывают рекурсивный DNS-сервер для выполнения любых запросов DNS, необходимых клиентским приложениям.
 

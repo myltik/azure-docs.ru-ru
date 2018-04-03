@@ -1,7 +1,7 @@
 ---
-title: "Azure Cosmos DB. Руководство по началу работы с API SQL | Документация Майкрософт"
-description: "В этом руководстве описывается создание оперативной базы данных и консольного приложения C# с помощью API SQL."
-keywords: "руководство nosql, оперативная база данных, консольное приложение c#"
+title: Azure Cosmos DB. Руководство по началу работы с API SQL | Документация Майкрософт
+description: В этом руководстве описывается создание оперативной базы данных и консольного приложения C# с помощью API SQL.
+keywords: руководство nosql, оперативная база данных, консольное приложение c#
 services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 870bdce0b909a882b99de92bbe5ad1e51db11a39
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB. Руководство по началу работы с API SQL
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 12/18/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Давайте приступим к обзору API SQL службы Azure Cosmos DB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и отправляет запросы к ним.
 

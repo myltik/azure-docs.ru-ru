@@ -93,7 +93,7 @@
       href: service-fabric-architecture.md
     - name: Терминология
       href: service-fabric-technical-overview.md
-    - name: Поддерживаемые модели программирования
+    - name: Создание приложений
       href: service-fabric-choose-framework.md
       items:
         - name: Контейнеры
@@ -106,10 +106,14 @@
         - name: Надежные службы
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Секционирование службы
+              href: service-fabric-concepts-partitioning.md
             - name: 'Жизненный цикл Reliable Services (C#)'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Жизненный цикл Reliable Services (Java)
               href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Жизненный цикл реплики и экземпляра
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: Reliable Collections
               href: service-fabric-reliable-services-reliable-collections.md
             - name: 'Reliable Collections: инструкции и рекомендации'
@@ -122,10 +126,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: Сериализация Reliable Collection
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: Внутренние компоненты Reliable State Manager и Reliable Collection
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: Расширенное использование
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Надежные субъекты
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -153,18 +153,14 @@
           href: service-fabric-application-and-service-manifests.md
         - name: Модель размещения
           href: service-fabric-hosting-model.md
+        - name: Безопасность приложения
+          href: service-fabric-application-and-service-security.md
         - name: Состояние службы
           href: service-fabric-concepts-state.md
-        - name: Секционирование службы
-          href: service-fabric-concepts-partitioning.md
         - name: Масштабируемость приложений
           href: service-fabric-concepts-scalability.md
         - name: Доступность служб
           href: service-fabric-availability-services.md
-        - name: Жизненный цикл реплики и экземпляра
-          href: service-fabric-concepts-replica-lifecycle.md
-        - name: Reconfiguration
-          href: service-fabric-concepts-reconfiguration.md
         - name: Взаимодействие служб
           href: service-fabric-connect-and-communicate-with-services.md
           items:
@@ -242,55 +238,29 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
     - name: Мониторинг и диагностика.
       items:
-        - name: Приложения мониторинга и диагностики
+        - name: Обзор мониторинга
           href: service-fabric-diagnostics-overview.md
-        - name: Создание событий
+        - name: События кластера
+          href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Создание событий на уровне платформы
-              href: service-fabric-diagnostics-event-generation-infra.md
-              items:
-                - name: Операционный канал
-                  href: service-fabric-diagnostics-event-generation-operational.md
-                - name: События Reliable Services
-                  href: service-fabric-reliable-services-diagnostics.md
-                - name: События Reliable Actors
-                  href: service-fabric-reliable-actors-diagnostics.md
-                - name: Метрики производительности
-                  href: service-fabric-diagnostics-event-generation-perf.md
-                - name: Мониторинг удаленного взаимодействия со службой
-                  href: service-fabric-reliable-serviceremoting-diagnostics.md
-            - name: Создание событий на уровне приложения
-              href: service-fabric-diagnostics-event-generation-app.md
-        - name: Проверка работоспособности приложения и кластера
-          items:
-            - name: Отслеживание работоспособности Service Fabric
-              href: service-fabric-health-introduction.md
-            - name: Проверка работоспособности службы и оповещение о проблемах
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Добавление настраиваемых отчетов о работоспособности
-              href: service-fabric-report-health.md
-            - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Просмотр отчетов о работоспособности
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: Статистическая обработка событий
-          items:
-            - name: Статистическая обработка событий с помощью EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Статистическая обработка событий с помощью системы диагностики Azure
-              items:
-                - name: Windows
-                  href: service-fabric-diagnostics-event-aggregation-wad.md
-                - name: Linux
-                  href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Анализ событий
-          items:
-            - name: Анализ событий с помощью Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Анализ событий с помощью OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Устранение неполадок локального кластера
-          href: service-fabric-troubleshoot-local-cluster-setup.md
+            - name: Операционный канал
+              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: События Reliable Services
+              href: service-fabric-reliable-services-diagnostics.md
+            - name: События Reliable Actors
+              href: service-fabric-reliable-actors-diagnostics.md
+            - name: Метрики производительности
+              href: service-fabric-diagnostics-event-generation-perf.md
+            - name: Мониторинг удаленного взаимодействия со службой
+              href: service-fabric-reliable-serviceremoting-diagnostics.md
+        - name: Ведение журнала приложения
+          href: service-fabric-diagnostics-event-generation-app.md
+        - name: Общие сведения о модели работоспособности
+          href: service-fabric-health-introduction.md
+        - name: Создание отчетов о событиях работоспособности
+          href: service-fabric-report-health.md
+        - name: Мониторинг с помощью OMS
+          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Интеграция со службой управления API
       href: service-fabric-api-management-overview.md
 - name: Практические руководства
@@ -347,8 +317,10 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Создание службы контейнеров
           items:
-            - name: Безопасность контейнера
+            - name: Использование сертификата в контейнере
               href: service-fabric-securing-containers.md
+            - name: Настройка gMSA для контейнеров Windows
+              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (предварительная версия)
               href: service-fabric-docker-compose.md
             - name: управление ресурсами для контейнеров и служб;
@@ -383,6 +355,8 @@
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: "Безопасные подключения\_— Java"
                   href: service-fabric-reliable-services-secure-communication-java.md
+                - name: Безопасные подключения WCF
+                  href: service-fabric-reliable-services-secure-communication-wcf.md
             - name: Настройка
               href: service-fabric-reliable-services-configuration.md
             - name: Отправка уведомлений
@@ -419,8 +393,12 @@
           items:
             - name: Управление секретами приложений
               href: service-fabric-application-secret-management.md
-            - name: Настройка политик безопасности для приложения
+            - name: Запуск скрипта запуска службы с использованием локальной или системной учетной записи
+              href: service-fabric-run-script-at-service-startup.md
+            - name: Запуск службы с использованием локальной или системной учетной записи
               href: service-fabric-application-runas-security.md
+            - name: Назначение политики безопасности доступа для конечных точек
+              href: service-fabric-assign-policy-to-endpoint.md
     - name: Работа в среде разработки Windows или Visual Studio
       items:
         - name: Управление приложениями в Visual Studio
@@ -531,6 +509,8 @@
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Delete
               href: service-fabric-cluster-delete.md
+            - name: Удаленное подключение к виртуальной машине узла кластера
+              href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Изолированные кластеры
           items:
             - name: Создание
@@ -545,8 +525,14 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Масштаб
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Настройка управления доступом
-              href: service-fabric-cluster-security-roles.md
+            - name: Настройка безопасности
+              items:
+                - name: Настройка управления доступом
+                  href: service-fabric-cluster-security-roles.md
+                - name: Запуск службы как группы или пользователя AD
+                  href: service-fabric-run-service-as-ad-user-or-group.md
+                - name: Запуск службы как групповой управляемой учетной записи службы
+                  href: service-fabric-run-service-as-gmsa.md
             - name: Настройка
               href: service-fabric-cluster-manifest.md
             - name: Обновление
@@ -559,7 +545,7 @@
           href: service-fabric-patch-orchestration-application.md
     - name: Мониторинг и диагностика
       items:
-        - name: OMS
+        - name: Анализ с помощью OMS
           items:
             - name: Настройка OMS Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
@@ -567,10 +553,28 @@
               href: service-fabric-diagnostics-oms-agent.md
             - name: Мониторинг контейнеров
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Мониторинг производительности
+        - name: Анализ с помощью Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Статистическая обработка событий с помощью EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Статистическая обработка событий с помощью системы диагностики Azure
           items:
-            - name: Мониторинг производительности с помощью WAD
-              href: service-fabric-diagnostics-perf-wad.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Мониторинг производительности с помощью WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Отчеты и проверка работоспособности
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Добавление ведения журнала в службу
+          href: service-fabric-how-to-diagnostics-log.md
+        - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Просмотр отчетов о работоспособности
+          href: service-fabric-view-entities-aggregated-health.md
+        - name: Устранение неполадок локального кластера
+          href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Справочные материалы
   items:
     - name: Azure PowerShell

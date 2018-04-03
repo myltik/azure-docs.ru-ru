@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'Разработка модуля C#'
       href: tutorial-csharp-module.md
+    - name: Разработка модуля Python
+      href: tutorial-python-module.md
     - name: Развертывание Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Развертывание службы "Машинное обучение Azure"
       href: tutorial-deploy-machine-learning.md
     - name: Развертывание решения "Функции Azure"
       href: tutorial-deploy-function.md
+    - name: Использование нескольких модулей в Visual Studio Code
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Практические руководства
   items:
     - name: Создание шлюзов
