@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Краткое руководство. Создание назначения политики для идентификации ресурсов, которые не соответствуют требованиям, с помощью модуля Azure RM PowerShell
 
@@ -48,7 +48,7 @@ New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks A
 - **Name.** Отображаемое имя назначения политики. В этом случае используйте определение *Audit Virtual Machines without Managed Disks*.
 - **Definition.** Определение политики, на основе которого вы создаете назначение. В нашем случае это определение политики *Audit Virtual Machines without Managed Disks*.
 - **Scope.** Область определяет, к каким ресурсам или группе ресурсов принудительно применяется назначение политики. Политика может назначаться разным ресурсам: от подписки до групп ресурсов. Обязательно замените значение &lt;scope&gt; именем своей группы ресурсов.
-- **Sku.** При помощи этой команды создается назначение политики с уровнем "Стандартный". Уровень "Стандартный" позволяет управлять масштабированием, оценивать соответствие и вносить требуемые исправления. Сейчас уровень "Стандартный" доступен бесплатно. В будущем за уровень "Стандартный" будет взимается плата. Дополнительные сведения об изменении цен будут опубликованы [на странице с ценами на службу "Политика Azure"](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku.** При помощи этой команды создается назначение политики с уровнем "Стандартный". Уровень "Стандартный" позволяет управлять масштабированием, оценивать соответствие и вносить требуемые исправления. Подробнее о ценовых категориях см. на странице [с ценами на использование Политики Azure](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 Теперь все готово к выявлению ресурсов, которые не соответствуют требованиям, что позволит оценить состояние соответствия в среде.

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Мониторинг AD FS с помощью Azure AD Connect Health
 Приведенная ниже информация относится к мониторингу инфраструктуры AD FS с помощью Azure AD Connect Health. Сведения о мониторинге синхронизации Azure AD Connect с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health с AD DS](active-directory-aadconnect-health-adds.md).
@@ -126,9 +126,9 @@ Azure AD Connect Health для AD FS предоставляет отчет о 50
 - скачиваемые отчеты для автономного анализа и интеграции с другими системами через автоматизацию.
 
 > [!NOTE]
-> Чтобы применять этот отчет, необходимо убедиться, что включен аудит AD FS. Дополнительные сведения см. в разделе [Включение аудита для AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
->
->
+> Чтобы применять этот отчет, необходимо убедиться, что включен аудит AD FS. Дополнительные сведения см. в разделе [Включение аудита для AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
+> Для доступа к предварительной версии требуются разрешения глобального администратора или [читателя безопасности](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader).  
+> 
 
 ### <a name="what-is-in-the-report"></a>Что есть в этом отчете
 Каждый элемент в отчете о ненадежном IP-адресе показывает статистические данные о неудачных действиях входа AD FS, превышающих указанный порог. Предоставляются следующие сведения: ![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4a.png).

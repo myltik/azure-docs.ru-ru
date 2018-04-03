@@ -1,62 +1,66 @@
 ---
-title: "Руководство по службе \"Экземпляры контейнеров Azure\". Развертывание приложения"
-description: "Руководство по службе \"Экземпляры контейнеров Azure\". Часть 3 из 3. Развертывание приложения"
+title: Руководство по службе "Экземпляры контейнеров Azure". Развертывание приложения
+description: Руководство по службе "Экземпляры контейнеров Azure". Часть 3 из 3. Развертывание приложения
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 29d7114f288f7387d0c7cd5c6afe2eaaa7a8c560
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Развертывание контейнера в службе "Экземпляры контейнеров Azure"
+# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Руководство. Развертывание контейнера в службе "Экземпляры контейнеров Azure"
 
-Это последняя из трех частей руководства. В предыдущих частях мы [создали образ контейнера](container-instances-tutorial-prepare-app.md), который затем [передали в реестр контейнеров Azure](container-instances-tutorial-prepare-acr.md). Эта часть завершает руководство. Мы развернем контейнер в службе "Экземпляры контейнеров Azure".
+Это последняя из трех частей руководства. С помощью предыдущих частей мы [создали образ контейнера](container-instances-tutorial-prepare-app.md), который затем [передали в реестр контейнеров Azure](container-instances-tutorial-prepare-acr.md). Эта часть завершает серию руководств. Мы развернем контейнер в службе "Экземпляры контейнеров Azure".
 
 Изучив это руководство, вы:
 
 > [!div class="checklist"]
-> * Развертывание контейнера из реестра контейнеров Azure с помощью Azure CLI
-> * Просмотр приложения в браузере
-> * Просмотр журналов контейнера
+> * развернете контейнер в службе "Экземпляры контейнеров Azure" из реестра контейнеров Azure;
+> * просмотрите выполняющееся приложение в браузере;
+> * отобразите журналы контейнера.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для выполнения задач из этого руководства требуется Azure CLI 2.0.27 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][azure-cli-install].
-
-Для работы с этим руководством требуется среда разработки Docker, установленная локально. Docker предоставляет пакеты, которые позволяют быстро настроить Docker в любой системе [Mac][docker-mac], [Windows][docker-windows] или [Linux][docker-linux].
-
-Azure Cloud Shell не включает в себя компоненты Docker, необходимые для выполнения каждого шага этого руководства. Для работы с этим руководством вам необходимо установить среду разработки Azure CLI и Docker на свой локальный компьютер.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Развертывание контейнера с помощью Azure CLI
 
-Azure CLI позволяет одной командой развернуть контейнер в службе "Экземпляры контейнеров Azure". Так как образ контейнера размещается в частном реестре контейнеров Azure, необходимо включить учетные данные, необходимые для доступа к нему. Получите учетные данные с помощью следующих команд Azure CLI.
+В этом разделе с помощью Azure CLI вы развернете образ, созданный в [первом руководстве](container-instances-tutorial-prepare-app.md) и переданный в реестр контейнеров Azure во [втором руководстве](container-instances-tutorial-prepare-acr.md). Обязательно выполните инструкции в этих руководствах, прежде чем продолжить.
 
-Сервер входа в реестр контейнеров (укажите используемое имя реестра):
+### <a name="get-registry-credentials"></a>Получение учетных данных реестра
+
+При развертывании образа, который размещен в частном реестре контейнеров, например созданному во [втором руководстве](container-instances-tutorial-prepare-acr.md), нужно предоставить учетные данные реестра.
+
+Сначала необходимо получить полное имя сервера для входа в реестр контейнеров (замените `<acrName>` именем реестра):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Пароль для реестра контейнеров:
+Затем получите пароль для реестра контейнеров:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Вам понадобится [предварительно подготовить][prepare-app] приложение. Чтобы развернуть образ контейнера из реестра контейнеров с запросом ресурсов (1 ядро ЦП и 1 ГБ памяти), выполните команду [az container create][az-container-create]. Замените `<acrLoginServer>` и `<acrPassword>` значениями, полученными посредством предыдущих двух команд. Замените `<acrName>` именем реестра контейнеров. Вы также можете заменить `aci-tutorial-app` именем, которое вы хотите присвоить новому приложению.
+### <a name="deploy-container"></a>Развертывание контейнера
+
+Теперь разверните контейнер с помощью команды [az container create][az-container-create]. Замените `<acrLoginServer>` и `<acrPassword>` значениями, полученными посредством предыдущих двух команд. Замените `<acrName>` именем реестра контейнеров.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-В течение нескольких секунд вы получите исходный ответ Azure Resource Manager. Значение `--dns-name-label` должно быть уникальным в пределах региона Azure, в котором создается экземпляр контейнера. Если при выполнении команды появится сообщение об ошибке **Метка DNS-имени**, обновите значение в предыдущем примере.
+В течение нескольких секунд вы должны получить исходный ответ Azure. Значение `--dns-name-label` должно быть уникальным в пределах региона Azure, в котором создается экземпляр контейнера. Если при выполнении команды появится сообщение об ошибке **Метка DNS-имени**, измените значение в предыдущей команде.
+
+### <a name="verify-deployment-progress"></a>Проверка хода выполнения развертывания
 
 Чтобы просмотреть состояние развертывания, используйте команду [az container show][az-container-show]:
 
@@ -74,7 +78,11 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Пример выходных данных: `"aci-demo.eastus.azurecontainer.io"`
+Например: 
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
 Чтобы увидеть работающее приложение, перейдите к полученному DNS-имени в любом браузере:
 
@@ -86,12 +94,13 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-Выходные данные:
+Выходные данные примера:
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
@@ -104,12 +113,17 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве мы завершили процесс развертывания контейнеров в службе "Экземпляры контейнеров Azure". Были выполнены следующие действия:
+С помощью этого руководства мы завершили процесс развертывания контейнера в службе "Экземпляры контейнеров Azure". Были выполнены следующие действия:
 
 > [!div class="checklist"]
-> * Развертывание контейнера из реестра контейнеров Azure с помощью Azure CLI
+> * развертывание контейнера из реестра контейнеров Azure с помощью Azure CLI;
 > * Просмотр приложения в браузере
 > * Просмотр журналов контейнера
+
+Теперь, когда вы изучили основные принципы работы, узнайте больше о службе "Экземпляры контейнеров Azure", например, о том, как работают группы контейнеров.
+
+> [!div class="nextstepaction"]
+> [Группы контейнеров в службе "Экземпляры контейнеров Azure"](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

@@ -1,11 +1,11 @@
 ---
-title: "Знакомство с фабрикой данных Azure | Документация Майкрософт"
-description: "Сведения о фабрике данных Azure. Это облачная служба интеграции данных, которая организует и автоматизирует перемещение и преобразование данных."
+title: Знакомство с фабрикой данных Azure | Документация Майкрософт
+description: Сведения о фабрике данных Azure. Это облачная служба интеграции данных, которая организует и автоматизирует перемещение и преобразование данных.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Введение в фабрику данных Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/16/2018
 Когда необработанные данные преобразованы в готовую к использованию форму, вы можете передать данные в хранилище данных Azure, базу данных SQL Azure, Azure Cosmos DB или в любую аналитическую платформу, которую могут выбрать бизнес-пользователи для своих средств бизнес-аналитики.
 
 ### <a name="monitor"></a>Мониторинг
-После создания и развертывания конвейера интеграции данных, который извлекает полезные данные из обработанных данных, вам понадобится отслеживать успешное выполнение и сбои запланированных операций и конвейеров. Фабрика данных Azure предоставляет встроенную поддержку мониторинга конвейеров через Azure Monitor, API-интерфейсы, PowerShell, Microsoft Operations Management Suite и панели работоспособности на портале Azure.
+После создания и развертывания конвейера интеграции данных, который извлекает полезные данные из обработанных данных, вам понадобится отслеживать успешное выполнение и сбои запланированных операций и конвейеров. Фабрика данных Azure предоставляет встроенную поддержку мониторинга конвейеров через Azure Monitor, API-интерфейсы, PowerShell, Log Analytics и панели работоспособности на портале Azure.
 
 ## <a name="top-level-concepts"></a>Основные понятия
 В подписке Azure может быть один или несколько экземпляров фабрики данных Azure. Фабрика данных Azure состоит из четырех основных компонентов. Они образуют платформу, на которой можно создавать управляемые данными рабочие процессы, предусматривающие перемещение и преобразование данных.

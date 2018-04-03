@@ -1,216 +1,266 @@
 ---
-title: "Создание внутренней подсистемы балансировки нагрузки с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать внутренний балансировщик нагрузки в Resource Manager с помощью Azure CLI."
+title: Создание внутренней подсистемы балансировки нагрузки уровня "Базовый" с помощью Azure CLI 2.0 | Документация Майкрософт
+description: Сведения о создании внутренней подсистемы балансировки нагрузки с помощью Azure CLI 2.0.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: 920ddecbf81296fd83606f2908e432f5327d4b7e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Создание внутреннего балансировщика нагрузки с помощью Azure CLI
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Создание внутренней подсистемы балансировки нагрузки с помощью Azure CLI 2.0 для распределения нагрузки между виртуальными машинами
 
-> [!div class="op_single_selector"]
-> * [портале Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
-> * [Шаблон](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+В этой статье показано, как создать внутреннюю подсистему балансировки нагрузки для распределения нагрузки между виртуальными машинами. Чтобы протестировать подсистему балансировки нагрузки, мы развернем две виртуальные машины с установленным сервером Ubuntu для распределения между ними нагрузки веб-приложения.
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
-## <a name="deploy-the-solution-by-using-the-azure-cli"></a>Развертывание решения с помощью интерфейса командной строки Azure (Azure CLI)
-
-Ниже описана процедура создания балансировщика нагрузки для Интернета с помощью Azure Resource Manager и интерфейса командной строки. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается единый ресурс.
-
-Чтобы развернуть балансировщик нагрузки, необходимо создать и настроить следующие объекты:
-
-* **Конфигурация интерфейсных IP-адресов**: содержит общедоступные IP-адреса для входящего сетевого трафика.
-* **Пул внутренних адресов**: содержит сетевые интерфейсы (сетевые карты), которые позволяют виртуальным машинам получать трафик от балансировщика нагрузки.
-* **Правила балансировки нагрузки**: содержат правила сопоставления общего порта в балансировщике нагрузки с портом в пуле внутренних адресов.
-* **Правила NAT для входящего трафика**: содержат правила сопоставления общего порта в балансировщике нагрузки с портом на конкретной виртуальной машине в пуле внутренних адресов.
-* **Пробы**: содержат пробы работоспособности, которые используются для проверки доступности экземпляров виртуальных машин в пуле внутренних адресов.
-
-Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](load-balancer-arm.md).
-
-## <a name="set-up-cli-to-use-resource-manager"></a>Настройка интерфейса командной строки для использования Resource Manager
-
-1. Если вы никогда не использовали Azure CLI, см. статью [Установка Azure CLI](../cli-install-nodejs.md). Следуйте инструкциям до того момента, где выбираются учетная запись и подписка Azure.
-2. Выполните команду **azure config mode** , чтобы переключиться в режим Resource Manager, как показано ниже.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-    Ожидаемые выходные данные:
-
-        info:    New mode is arm
-
-## <a name="create-an-internal-load-balancer-step-by-step"></a>Пошаговая инструкция по созданию внутреннего балансировщика нагрузки
-
-1. Войдите в Azure.
-
-    ```azurecli
-    azure login
-    ```
-
-    При появлении запроса введите свои учетные данные Azure.
-
-2. Измените командные инструменты на режим Azure Resource Manager.
-
-    ```azurecli
-    azure config mode arm
-    ```
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.28 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Все ресурсы в Azure Resource Manager связаны с группой ресурсов. Если вы еще этого не сделали, создайте группу ресурсов.
+Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
 
-```azurecli
-azure group create <resource group name> <location>
+В следующем примере создается группа ресурсов с именем *myResourceGroupILB* в расположении *eastus*.
+
+```azurecli-interactive
+  az group create \
+    --name myResourceGroupILB \
+    --location eastus
+```
+## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
+
+С помощью команды [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) создайте виртуальную сеть с именем *myVnet*, содержащую подсеть *mySubnet*, в группе ресурсов *myResourceGroup*.
+
+```azurecli-interactive
+  az network vnet create \
+    --name myVnet
+    --resource-group myResourceGroupILB \
+    --location eastus \
+    --subnet-name mySubnet
+```
+## <a name="create-basic-load-balancer"></a>Создание подсистемы балансировки нагрузки уровня "Базовый"
+
+В этом разделе описано, как создать и настроить следующие компоненты подсистемы балансировки нагрузки:
+  - интерфейсную конфигурацию IP-адресов, которая принимает входной трафик подсистемы балансировки нагрузки;
+  - внутренний пул IP-адресов, на который внешний пул отправляет трафик с балансировкой нагрузки;
+  - зонд работоспособности, определяющий работоспособность серверных экземпляров виртуальной машины;
+  - правило подсистемы балансировки нагрузки, определяющее порядок распределения трафика между виртуальными машинами.
+
+### <a name="create-the-load-balancer"></a>Создание подсистемы балансировки нагрузки
+
+С помощью команды [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) создайте общедоступную подсистему балансировки нагрузки уровня "Базовый" **myLoadBalancer** с интерфейсной конфигурацией IP-адресов **myFrontEnd** и внутренним пулом **myBackEndPool**, связанным с частным IP-адресом **10.0.0.7.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupILB \
+    --name myLoadBalancer \
+    --frontend-ip-name myFrontEnd \
+    --private-ip-address 10.0.0.7 \
+    --backend-pool-name myBackEndPool \
+    --vnet-name myVnet \
+    --subnet mySubnet      
+  ```
+### <a name="create-the-health-probe"></a>Создание зонда работоспособности
+
+Зонд работоспособности проверяет все экземпляры виртуальной машины, чтобы убедиться, что они могут принимать трафик. Экземпляр виртуальной машины с неудачной пробой удаляется из балансировщика нагрузки, пока не перейдет в оперативный режим и проба не определит его работоспособность. Создайте зонд работоспособности с помощью команды [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create), чтобы отслеживать работоспособность виртуальных машин. 
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupILB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
 ```
 
-## <a name="create-an-internal-load-balancer-set"></a>Создание набора внутренних балансировщиков нагрузки
+### <a name="create-the-load-balancer-rule"></a>Создание правила подсистемы балансировки нагрузки
 
-1. Создание внутреннего балансировщика нагрузки
+Правило подсистемы балансировки нагрузки определяет интерфейсную конфигурацию IP-адресов для входящего трафика и внутренний пул IP-адресов для приема трафика, а также порты источника и назначения. С помощью команды [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) создайте правило подсистемы балансировки нагрузки с именем *myLoadBalancerRuleWeb* для прослушивания порта 80, используемого внешним пулом *myFrontEndPool*, и отправки трафика с балансировкой нагрузки внутреннему пулу адресов *myBackEndPool*, который также использует порт 80. 
 
-    В следующем сценарии группа ресурсов с именем nrprg создается в восточном регионе США.
-
-    ```azurecli
-    azure network lb create --name nrprg --location eastus
-    ```
-
-   > [!NOTE]
-   > Все ресурсы для внутреннего балансировщика нагрузки, такие как виртуальные сети и подсети виртуальных сетей, должны находиться в той же группе ресурсов и в том же регионе.
-
-2. Создайте интерфейсный IP-адрес для внутреннего балансировщика нагрузки.
-
-    Используемый IP-адрес должен быть в диапазоне подсети виртуальной сети.
-
-    ```azurecli
-    azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
-    ```
-
-3. Создайте пул внутренних адресов.
-
-    ```azurecli
-    azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
-    ```
-
-    После определения интерфейсного IP-адреса и пула внутренних адресов можно создать правила балансировщика нагрузки, правила NAT для входящего трафика и настроенные пробы работоспособности.
-
-4. Создайте правило балансировщика нагрузки для внутреннего балансировщика нагрузки.
-
-    Во время выполнения описанных выше действий команда создает правило балансировщика нагрузки для прослушивания порта 1433 в интерфейсном пуле и отправки сетевого трафика со сбалансированной нагрузкой во внутренний пул адресов, также используя порт 1433.
-
-    ```azurecli
-    azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
-    ```
-
-5. Создайте правило NAT для входящих подключений.
-
-    Правила NAT для входящего трафика используются для создания конечных точек в балансировщике нагрузки, которые будут направлены к конкретному экземпляру виртуальной машины. Предыдущие действия создали два правила NAT для удаленного рабочего стола.
-
-    ```azurecli
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
-
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
-    ```
-
-6. Создайте пробы работоспособности для балансировщика нагрузки.
-
-    Проба работоспособности проверяет все экземпляры виртуальной машины, чтобы убедиться, что они могут отправлять сетевой трафик. Экземпляр виртуальной машины с неудачной пробой удаляется из балансировщика нагрузки, пока не перейдет в оперативный режим и проба не определит его работоспособность.
-
-    ```azurecli
-    azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
-    ```
-
-    > [!NOTE]
-    > Для различных сценариев администрирования платформа Microsoft Azure использует статические общедоступные маршрутизируемые IPv4-адреса. IP-адрес — 168.63.129.16. Не блокируйте этот IP-адрес брандмауэрами, поскольку это может привести к непредвиденному поведению.
-    > Во внутреннем балансировщике нагрузки Azure этот IP-адрес используется пробами мониторинга для определения состояния работоспособности виртуальных машин в наборе балансировки нагрузки. Если группа безопасности сети используется для ограничения трафика, поступающего на виртуальные машины Azure в наборе внутренней балансировки нагрузки, или если она применяется к подсети виртуальной сети, то убедитесь в наличии правила сетевой безопасности, разрешающего поступление сетевого трафика с адреса 168.63.129.16.
-
-## <a name="create-nics"></a>Создание сетевых адаптеров
-
-Вам необходимо создать сетевые адаптеры (или изменить существующие) и связать их с правилами NAT, правилами балансировщика нагрузки и пробами.
-
-1. Создайте сетевую карту *lb-nic1-be*, а затем свяжите ее с правилом NAT *rdp1* и внутренним пулом адресов *beilb*.
-
-    ```azurecli
-    azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
-    ```
-
-    Ожидаемые выходные данные:
-
-        info:    Executing command network nic create
-        + Looking up the network interface "lb-nic1-be"
-        + Looking up the subnet "nrpvnetsubnet"
-        + Creating network interface "lb-nic1-be"
-        + Looking up the network interface "lb-nic1-be"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-        data:    Name                            : lb-nic1-be
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : eastus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 10.0.0.4
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-        data:      Load balancer backend address pools
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:      Load balancer inbound NAT rules:
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-        data:
-        info:    network nic create command OK
-
-2. Создайте сетевую карту *lb-nic2-be*, а затем свяжите ее с правилом NAT *rdp2* и внутренним пулом адресов *beilb*.
-
-    ```azurecli
-    azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
-    ```
-
-3. Создайте виртуальную машину *DB1*, а затем свяжите ее с сетевой картой *lb-nic1-be*. Учетная запись хранения *web1nrp* создается перед выполнением следующей команды:
-
-    ```azurecli
-    azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-    > [!IMPORTANT]
-    > Виртуальные машины в балансировщике нагрузки должны находиться в одной группе доступности. Создайте группу доступности с помощью команды `azure availset create` .
-
-4. Создайте виртуальную машину *DB2*, а затем свяжите ее с сетевой картой *lb-nic2-be*. Учетная запись хранения *web1nrp* была создана перед выполнением следующей команды:
-
-    ```azurecli
-    azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-## <a name="delete-a-load-balancer"></a>Удаление балансировщика нагрузки
-
-Чтобы удалить балансировщик нагрузки, используйте следующую команду:
-
-```azurecli
-azure network lb delete --resource-group nrprg --name ilbset
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupILB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe  
 ```
+
+## <a name="create-servers-for-the-backend-address-pool"></a>Создание серверов для внутреннего пула IP-адресов
+
+Прежде чем развертывать виртуальные машины и тестировать подсистему балансировки нагрузки, создайте вспомогательные ресурсы виртуальной сети.
+
+###  <a name="create-a-network-security-group"></a>Создание группы безопасности сети
+Создайте группу безопасности сети для определения входящих подключений к виртуальной сети.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupILB \
+    --name myNetworkSecurityGroup
+```
+
+### <a name="create-a-network-security-group-rule"></a>Создание правила группы безопасности сети
+
+Создайте правило группы безопасности сети, чтобы разрешить входящие подключения через порт 80.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupILB \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRuleHTTP \
+    --protocol tcp \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 22 \
+    --access allow \
+    --priority 300
+```
+### <a name="create-nics"></a>Создание сетевых адаптеров
+
+Создайте два сетевых интерфейса с помощью команды [az network nic create](/cli/azure/network/nic#az_network_nic_create) и привяжите их к частному IP-адресу и группе безопасности сети. 
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupILB \
+    --name myNic$i \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+done
+```
+
+## <a name="create-backend-servers"></a>Создание внутренних серверов
+
+В этом примере описано создание двух виртуальных машин для использования в качестве внутренних серверов для подсистемы балансировки нагрузки. Чтобы проверить, успешно ли создана подсистема балансировки нагрузки, установите NGINX на виртуальных машинах.
+
+### <a name="create-an-availability-set"></a>Создание группы доступности
+
+Создайте группу доступности с помощью команды [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create).
+
+ ```azurecli-interactive
+  az vm availability-set create \
+    --resource-group myResourceGroupILB \
+    --name myAvailabilitySet
+```
+
+### <a name="create-two-virtual-machines"></a>Создание двух виртуальных машин
+
+Тот же самый файл конфигурации cloud-init можно использовать и для установки NGINX, а также для запуска простого приложения Node.js "Hello World" на виртуальной машине Linux. В текущей оболочке создайте файл cloud-init.txt и вставьте в него следующую конфигурацию. Убедитесь, что весь файл cloud-init скопирован правильно, особенно первая строка.
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+``` 
+ 
+Создайте виртуальные машины с помощью команды [az vm create](/cli/azure/vm#az_vm_create).
+
+ ```azurecli-interactive
+for i in `seq 1 2`; do
+  az vm create \
+    --resource-group myResourceGroupILB \
+    --name myVM$i \
+    --availability-set myAvailabilitySet \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+    done
+```
+Развертывание виртуальных машин может занять несколько минут.
+
+### <a name="create-a-vm-for-testing-the-load-balancer"></a>Создание виртуальной машины для проверки работы подсистемы балансировки нагрузки
+
+Чтобы протестировать подсистему балансировки нагрузки, создайте виртуальную машину *myVMTest* и привяжите ее к *myNic3*.
+
+```azurecli-interactive
+ az vm create \
+    --resource-group myResourceGroupILB \
+    --name myVMTest \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password myPassword123456!
+```
+
+## <a name="test-the-internal-load-balancer"></a>Тестирование внутренней подсистемы балансировки нагрузки
+
+Чтобы протестировать подсистему балансировки нагрузки, сначала получите ее частный IP-адрес. Затем войдите в виртуальную машину myVMTest и введите частный IP-адрес в адресную строку веб-браузера.
+
+Для получения частного IP-адреса подсистемы балансировки нагрузки используйте команду [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Скопируйте частный IP-адрес и вставьте его в адресную строку веб-браузера виртуальной машины *myVMTest*.
+
+```azurecli-interactive
+  az network lb show \
+    --name myLoadBalancer
+    --resource-group myResourceGroupILB
+``` 
+![Проверка балансировщика нагрузки](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Вы можете удалить ставшие ненужными группу ресурсов, подсистему балансировки нагрузки и все связанные с ними ресурсы, выполнив команду [az group delete](/cli/azure/group#az_group_delete).
+
+```azurecli-interactive 
+  az group delete --name myResourceGroupILB
+```
+
 
 ## <a name="next-steps"></a>Дополнительная информация
-
-[Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
-
-[Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
-
+В этой статье вы создали внутреннюю подсистему балансировки нагрузки уровня "Базовый", подключили к ней виртуальные машины, настроили правило трафика подсистемы балансировки нагрузки, зонд работоспособности, а также проверили работу подсистемы балансировки нагрузки. Дополнительные сведения о подсистемах балансировки нагрузки и связанных с ними ресурсах см. в статьях с инструкциями.

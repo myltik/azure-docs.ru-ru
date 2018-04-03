@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Создание фабрики данных и конвейера с помощью пакета SDK .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ ms.lasthandoff: 03/23/2018
 Скачайте и установите [пакет Azure SDK для .NET](http://azure.microsoft.com/downloads/) на компьютер.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Создание приложения в Azure Active Directory
-Следуйте инструкциям из [этой статьи](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application), чтобы выполнить следующие задачи. 
+Следуйте инструкциям из разделов [этой статьи](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application), чтобы выполнить следующие задачи: 
 
 1. **Создайте приложение Azure Active Directory**. Создайте приложение в Azure Active Directory, которое представляет приложение .NET, создаваемое в этом руководстве. В качестве URL-адреса входа можно указать фиктивный URL-адрес, как показано в статье (`https://contoso.org/exampleapp`).
-2. Получите **идентификатор приложения** и **ключ проверки подлинности****, следуя инструкциям из раздела **Получение идентификатора приложения и ключа проверки подлинности** той же статьи. Запишите эти значения. Они вам понадобятся далее в этом руководстве. 
-3. Получите **идентификатор клиента**, следуя инструкциям из раздела **Получение идентификатора клиента** той же статьи. Запишите это значение. 
-4. Назначьте приложению роль **участника** на уровне подписки, чтобы приложение могло создавать фабрики данных в подписке. Следуйте инструкциям из раздела **Назначение роли приложению** приведенной выше статьи. 
+2. Получите **идентификатор приложения** и **ключ аутентификации** и запишите эти значения. Они потребуются в дальнейшем при выполнении инструкций этого руководства. 
+3. Получите **идентификатор клиента** и запишите это значение. Оно потребуется в дальнейшем при выполнении инструкций этого руководства.
+4. Назначьте приложению роль **участника** на уровне подписки, чтобы приложение могло создавать фабрики данных в подписке.
 
 ## <a name="create-a-visual-studio-project"></a>Создание проекта Visual Studio
 

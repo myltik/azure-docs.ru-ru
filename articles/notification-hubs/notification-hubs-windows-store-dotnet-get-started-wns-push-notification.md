@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с Центрами уведомлений Azure для приложений универсальной платформы Windows | Документация Майкрософт"
-description: "При работе с этим руководством вы узнаете, как отправлять push-уведомления в приложение универсальной платформы Windows с помощью Центров уведомлений Azure."
+title: Начало работы с Центрами уведомлений Azure для приложений универсальной платформы Windows | Документация Майкрософт
+description: При работе с этим руководством вы узнаете, как отправлять push-уведомления в приложение универсальной платформы Windows с помощью Центров уведомлений Azure.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Начало работы с Центрами уведомлений для приложений универсальной платформы Windows
 
@@ -94,11 +94,11 @@ ms.lasthandoff: 01/02/2018
 1. В Visual Studio щелкните решение правой кнопкой мыши, а затем выберите пункт **Управление пакетами NuGet**.  
     Откроется окно **Управление пакетами NuGet**.
 
-2. В поле поиска введите **WindowsAzure.Messaging.Managed**, затем выберите **установить** и примите условия использования.
+2. В поле поиска введите **Microsoft.Azure.NotificationHubs**, выберите **Установить** и примите условия использования.
    
     ![Окно "Управление пакетами NuGet"][20]
    
-    После этого будут выполнены скачивание, установка и добавление ссылки на библиотеку обмена сообщениями Azure для Windows с помощью [пакета NuGet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+    Это действие предназначено для скачивания и установки библиотеки Центров уведомлений Azure для Windows, а также добавления ссылки на нее с помощью [пакета NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Откройте файл проекта App.xaml.cs и добавьте следующие операторы `using`: 
    

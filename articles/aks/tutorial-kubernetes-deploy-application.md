@@ -1,6 +1,6 @@
 ---
-title: "Руководство по Kubernetes в Azure. Развертывание приложения"
-description: "Руководство по AKS.Развертывание приложения"
+title: Руководство по Kubernetes в Azure. Развертывание приложения
+description: Руководство по AKS.Развертывание приложения
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Запуск приложения в Службе контейнеров Azure (AKS)
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Руководство. Запуск приложения в Службе контейнеров Azure (AKS)
 
 В этом руководстве (часть 4 из 8) выполняется развертывание примера приложения в кластер Kubernetes. В частности, рассматриваются такие шаги:
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/12/2018
 > * выполнение приложения в Kubernetes;
 > * Тестирование приложения
 
-В последующих руководствах мы сегментируем это приложение, обновим его, а также настроим Operations Management Suite для отслеживания кластера Kubernetes.
+При помощи последующих руководств выполняется масштабирование и обновление приложения, а также настройка Log Analytics для отслеживания кластера Kubernetes.
 
 Для работы с этим руководством требуется понимание основных концепций Kubernetes. Подробные сведения см. в [документации по Kubernetes][kubernetes-documentation].
 

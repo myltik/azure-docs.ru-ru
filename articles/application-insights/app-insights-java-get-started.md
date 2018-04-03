@@ -1,6 +1,6 @@
 ---
-title: "Анализ веб-приложений Java с помощью Azure Application Insights | Документация Майкрософт"
-description: "Сведения о мониторинге производительности веб-приложений Java с помощью Application Insights. "
+title: Анализ веб-приложений Java с помощью Azure Application Insights | Документация Майкрософт
+description: 'Сведения о мониторинге производительности веб-приложений Java с помощью Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Приступая к работе с Application Insights в веб-проекте Java
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/28/2018
 
 Вам необходимы:
 
-* Oracle JRE 1.6 или более поздней версии либо Zulu JRE 1.6 или более поздней версии;
+* Oracle или Zulu JRE версий 1.7 или 1.8;
 * подписка на [Microsoft Azure](https://azure.microsoft.com/).
 
 *Если у вас уже есть развернутое веб-приложение, воспользуйтесь альтернативным способом, который описан в статье о [добавлении пакета SDK на веб-сервер во время выполнения](app-insights-java-live.md). В этом случае вам не нужно повторно компилировать код, но в то же время вы не сможете написать код для отслеживания действий пользователей.*
@@ -169,8 +169,7 @@ ms.lasthandoff: 02/28/2018
 Вы также можете [задать его в коде](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Добавление фильтра HTTP

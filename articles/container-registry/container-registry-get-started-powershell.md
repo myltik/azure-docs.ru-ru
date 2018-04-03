@@ -1,6 +1,6 @@
 ---
-title: "Краткое руководство. Создание частного реестра Docker в Azure с помощью PowerShell"
-description: "Быстрый способ изучить создание частного реестра контейнеров Docker с помощью Azure PowerShell."
+title: Краткое руководство. Создание частного реестра Docker в Azure с помощью PowerShell
+description: Быстрый способ изучить создание частного реестра контейнеров Docker с помощью Azure PowerShell.
 services: container-registry
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Создание реестра контейнеров Azure с помощью PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Краткое руководство. Создание Реестра контейнеров Azure с помощью PowerShell
 
 Реестр контейнеров Azure — это управляемая служба реестра контейнеров Docker, используемая для хранения частных образов контейнеров Docker. В этом руководстве рассматривается создание экземпляра реестра контейнеров Azure с помощью PowerShell, отправление образа контейнера в реестр и, наконец, развертывание контейнера из реестра в службе "Экземпляры контейнеров Azure" (ACI).
 
@@ -73,7 +73,7 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 docker pull microsoft/aci-helloworld
 ```
 
-Образ должен быть снабжен тегом имени сервера для входа в ACR. Для этого используйте команду [docker tag][docker-tag]. 
+Образ должен быть снабжен тегом имени сервера для входа в ACR. Для этого используйте команду [docker tag][docker-tag].
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

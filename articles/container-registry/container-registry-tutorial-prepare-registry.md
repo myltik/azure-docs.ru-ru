@@ -1,6 +1,6 @@
 ---
-title: "Руководство по реестру контейнеров Azure. Подготовка геореплицированного реестра контейнеров Azure"
-description: "Создайте реестр контейнеров Azure, настройте георепликацию, подготовьте образ Docker и разверните его в реестре. Первая часть руководства из трех частей."
+title: Руководство по реестру контейнеров Azure. Подготовка геореплицированного реестра контейнеров Azure
+description: Создайте реестр контейнеров Azure, настройте георепликацию, подготовьте образ Docker и разверните его в реестре. Первая часть руководства из трех частей.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Подготовка геореплицированного реестра контейнеров Azure
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Руководство. Подготовка геореплицированного реестра контейнеров Azure
 
 Реестр контейнеров Azure — это частный реестр Docker, развернутый в Azure, который можно хранить недалеко от развертываний. Из этого набора из трех руководств вы узнаете, как с помощью георепликации развернуть веб-приложение ASP.NET Core, запущенное в контейнере Linux, на двух экземплярах [веб-приложений для контейнеров](../app-service/containers/index.yml). Вы узнаете, как автоматически развернуть образы для каждого экземпляра веб-приложения из ближайшего геореплицированного репозитория с помощью Azure.
 

@@ -1,26 +1,26 @@
 ---
-title: "Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell | Документация Майкрософт"
-description: "Руководство по созданию виртуальных машин Windows и управлению ими с помощью модуля Azure PowerShell."
+title: Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell | Документация Майкрософт
+description: Руководство по созданию виртуальных машин Windows и управлению ими с помощью модуля Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell
 
@@ -90,9 +90,11 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVM"  | Select IpAd
 mstsc /v:<publicIpAddress>
 ```
 
+В окне **Безопасность Windows** выберите **Варианты выбора** и нажмите **Использовать другую учетную запись**. Введите имя пользователя и пароль, созданные для виртуальной машины, и нажмите кнопку **ОК**.
+
 ## <a name="understand-vm-images"></a>Описание образов виртуальных машин
 
-Azure Marketplace содержит множество образов виртуальных машин, которые можно использовать для создания виртуальной машины. На предыдущих шагах виртуальная машина создавалась с помощью образа Windows Server 2016-Datacenter. На этом шаге модуль PowerShell используется для поиска других образов Windows на сайте Marketplace, которые можно также использовать для создания виртуальных машин. Этот процесс состоит из поиска издателя, предложения и имени образа (SKU). 
+Azure Marketplace содержит множество образов виртуальных машин, которые можно использовать для создания виртуальной машины. На предыдущих шагах виртуальная машина создавалась с помощью образа Windows Server 2016-Datacenter. На этом шаге модуль PowerShell используется для поиска других образов Windows на сайте Marketplace, которые можно также использовать для создания виртуальных машин. Этот процесс заключается в поиске сведений об издателе, предложении, номера SKU и (необязательно) номера версии для [идентификации](cli-ps-findimage.md#terminology) образа. 
 
 Используйте команду [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), чтобы получить список издателей образов:
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Эти сведения можно использовать для развертывания виртуальной машины на основе конкретного образа. В этом примере развертывается виртуальная машина с помощью Windows Server 2016 с образом контейнеров.
+Эти сведения можно использовать для развертывания виртуальной машины на основе конкретного образа. В этом примере развертывается виртуальная машина с помощью последней версии Windows Server 2016 и образа контейнеров.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по Kubernetes в Azure. Обновление приложения"
-description: "Руководство по AKS. Обновление приложения"
+title: Руководство по Kubernetes в Azure. Обновление приложения
+description: Руководство по AKS. Обновление приложения
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>Обновление приложения Службы контейнеров Azure (AKS)
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Руководство. Обновление приложения Службы контейнеров Azure (AKS)
 
 После развертывания приложения в Kubernetes его можно обновить, указав новый образ контейнера или версию образа. При этом обновление выполняется поэтапно, поэтому одновременно обновляется только часть развертывания. Такое поэтапное обновление позволяет приложению продолжать работать во время обновления. Оно также обеспечивает механизм отката на случай, если произойдет сбой развертывания. 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2018
 > * Отправка образа контейнера в реестр контейнеров Azure.
 > * Развертывание обновленного образа контейнера.
 
-В последующих руководствах среда Operations Management Suite настроена для отслеживания кластера Kubernetes.
+В последующих руководствах предполагается, что среда Log Analytics настроена для отслеживания кластера Kubernetes.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -89,7 +89,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Используйте команду [docker push][docker-push], чтобы передать образ в реестр. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure.
+Используйте команду [docker push][docker-push], чтобы передать образ в реестр. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure. Если возникают проблемы с отправкой данных в реестр ACR, убедитесь, что выполнена команда [az acr login][az-acr-login].
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ kubectl get service azure-vote-front
 > * Отправка образа контейнера в реестр контейнеров Azure.
 > * Развертывание обновленного приложения.
 
-Перейдите к следующему руководству, чтобы узнать о мониторинге Kubernetes с помощью Operations Management Suite.
+Перейдите к следующему руководству, чтобы узнать о мониторинге Kubernetes с помощью Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Мониторинг кластера Kubernetes с помощью Log Analytics][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ kubectl get service azure-vote-front
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

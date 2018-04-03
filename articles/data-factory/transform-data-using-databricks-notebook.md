@@ -1,8 +1,8 @@
 ---
-title: "Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure"
-description: "Сведения об использовании действия Databricks Notebook в фабрике данных Azure для выполнения записной книжки Databricks в кластере заданий Databricks."
+title: Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure
+description: Сведения об использовании действия Databricks Notebook в фабрике данных Azure для выполнения записной книжки Databricks в кластере заданий Databricks.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: craigg
 ms.service: data-factory
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 03/12/2018
 
           ![Создание папки](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Создайте записную книжку](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) с именем **mynotebook** в папке **adftutorial****,** выбрав команду **Создать.**
+       3. [Создайте записную книжку](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) с именем **mynotebook** в папке **adftutorial****,** выбрав команду **Создать**.
 
           ![Создание записной книжки](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

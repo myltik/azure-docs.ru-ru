@@ -1,6 +1,6 @@
 ---
-title: "Руководство по Kubernetes в Azure. Масштабирование приложения"
-description: "Руководство по AKS. Масштабирование приложения"
+title: Руководство по Kubernetes в Azure. Масштабирование приложения
+description: Руководство по AKS. Масштабирование приложения
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Масштабирование приложения Службы контейнеров Azure (AKS)
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Руководство. Масштабирование приложения в Службе контейнеров Azure (AKS)
 
 Если вы выполнили инструкции в руководствах, то у вас имеется работающий кластер Kubernetes в AKS и вы развернули в нем приложение Vote Azure.
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/24/2018
 > * масштабирование pod Kubernetes вручную;
 > * настройка автомасштабирования pod, в которых выполняется интерфейсная часть приложения;
 
-В последующих руководствах выполняется обновление приложения Vote Azure, а также настройка Operations Management Suite для отслеживания кластера Kubernetes.
+При помощи последующих руководств выполняется обновление приложения Azure для голосования, а также настройка Log Analytics для отслеживания кластера Kubernetes.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
