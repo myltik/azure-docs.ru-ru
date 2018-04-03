@@ -33,7 +33,7 @@
 ### [Защита API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [Вызов веб-API .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Руководства
@@ -67,6 +67,7 @@
 ## [Пользовательские политики](active-directory-b2c-overview-custom.md)
 ## Руководства
 ### [Начало работы](active-directory-b2c-get-started-custom.md)
+### [Начальный пакет](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Настройка поставщиков OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Учетная запись Майкрософт](active-directory-b2c-custom-setup-msa-idp.md)

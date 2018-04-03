@@ -21,6 +21,10 @@
   items:
     - name: Использование R Server
       items:
+        - name: Управлять кластером R Server
+          href: r-server-hdinsight-manage.md
+        - name: Операционализация кластера R Server
+          href: r-server-operationalize.md
         - name: Варианты хранилищ
           href: r-server-storage.md
         - name: Контекст вычислений

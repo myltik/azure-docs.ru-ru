@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: Агент службы "Наблюдатель за сетями"
           href: extensions-nwa.md
+        - name: Ограничение установки расширения
+          href: extensions-rmpolicy-howto-ps.md
     - name: Перенос виртуальных машин
       items:
         - name: Миграция AWS и локальных виртуальных машин
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Диагностика загрузки
           href: boot-diagnostics.md
+        - name: Последовательная консоль
+          href: serial-console.md
         - name: Создание виртуальной машины
           href: troubleshoot-deployment-new-vm.md
         - name: Проблемы с развертыванием

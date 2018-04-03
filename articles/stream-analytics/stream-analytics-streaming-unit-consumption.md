@@ -1,13 +1,13 @@
 ---
-title: "Azure Stream Analytics: обзор и настройка единиц потоковой передачи | Документация Майкрософт"
-description: "Узнайте, какие факторы влияют на производительность в Azure Stream Analytics."
-keywords: "единица потоковой передачи, производительность запроса"
+title: 'Azure Stream Analytics: обзор и настройка единиц потоковой передачи | Документация Майкрософт'
+description: Узнайте, какие факторы влияют на производительность в Azure Stream Analytics.
+keywords: единица потоковой передачи, производительность запроса
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Обзор и настройка единиц потоковой передачи
 
@@ -88,18 +88,18 @@ Azure Stream Analytics вычисляет показатель производ�
 
 Число несопоставленных событий в соединении влияет на использование памяти для выполнения запроса. Следующий запрос ищет просмотры рекламы, которые привели к переходам:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 Например, возможно, рекламу просмотрело множество людей, но только некоторые щелкнули ее. При этом все события требуется хранить в рамках временного окна. Объем используемой памяти пропорционален размеру окна и частоте событий. 
 
 Чтобы исправить эту ошибку, отправьте в концентратор событий события, разделенные с помощью ключей соединения (в этом случае id), и разверните запрос, разрешив системе обрабатывать каждый входной раздел отдельно, используя **PARTITION BY**, как показано ниже:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Секционированный запрос распределяется между несколькими узлами. В результате уменьшается не только число событий, поступающих на каждый узел, но и размер состояния, сохраненного в окне соединения. 

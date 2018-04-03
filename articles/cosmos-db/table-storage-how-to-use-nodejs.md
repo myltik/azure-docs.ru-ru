@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Использование табличного хранилища Azure из Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 ```
 
 Если обратиться к объекту `continuationToken`, то вы обнаружите, что он имеет такие свойства, как `nextPartitionKey`, `nextRowKey` и `targetLocation`, которые можно использовать для итерации по всем результатам.
-
-Кроме того, в [репозитории azure-storage-node](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) на сайте GitHub доступен пример с маркером продолжения (continuationsample.js). 
 
 ## <a name="work-with-shared-access-signatures"></a>Работа с подписями общего доступа
 Подписанные URL-адреса (SAS) — безопасный способ предоставить детализированный доступ к таблицам без указания имени или ключей своей учетной записи хранения. SAS часто используется для предоставления ограниченного доступа к данным, например, позволяет мобильному приложению запрашивать записи.

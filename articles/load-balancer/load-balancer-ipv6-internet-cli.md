@@ -1,12 +1,12 @@
 ---
-title: "Создание общедоступной подсистемы балансировки нагрузки с поддержкой IPv6 с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать общедоступную подсистему балансировки нагрузки с поддержкой IPv6 в Azure Resource Manager с помощью Azure CLI."
+title: Создание общедоступной подсистемы балансировки нагрузки с поддержкой IPv6 с помощью Azure CLI | Документация Майкрософт
+description: Узнайте, как создать общедоступную подсистему балансировки нагрузки с поддержкой IPv6 в Azure Resource Manager с помощью Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
+keywords: IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Создание общедоступной подсистемы балансировки нагрузки с поддержкой IPv6 в Azure Resource Manager с помощью Azure CLI
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Интерфейс командной строки Azure](load-balancer-ipv6-internet-cli.md)
 > * [Шаблон](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Подсистема балансировки нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе подсистемы балансировки нагрузки. Подсистемы балансировки нагрузки могут также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 

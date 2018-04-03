@@ -1,24 +1,24 @@
 ---
-title: "Использование Azure CLI 2.0 со службой хранилища Azure | Документация Майкрософт"
-description: "Узнайте, как использовать интерфейс командной строки Azure (Azure CLI) версии 2.0 для создания учетных записей хранения и управления ими, а также для работы с большими двоичными объектами и файлами Azure в службе хранилища Azure. Azure CLI 2.0 — это кроссплатформенное средство, написанное на языке Python."
+title: Использование Azure CLI 2.0 со службой хранилища Azure | Документация Майкрософт
+description: Узнайте, как использовать интерфейс командной строки Azure (Azure CLI) версии 2.0 для создания учетных записей хранения и управления ими, а также для работы с большими двоичными объектами и файлами Azure в службе хранилища Azure. Azure CLI 2.0 — это кроссплатформенное средство, написанное на языке Python.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: rogarana
+ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Использование Azure CLI 2.0 со службой хранилища Azure
 

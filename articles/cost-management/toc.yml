@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: Подключение учетной записи AWS
       href: connect-aws-account.md
+    - name: Настройка учетных записей хранения
+      href: storage-accounts.md
     - name: Использование отчетов службы "Управление затратами"
       href: use-reports.md
 - name: Ресурсы

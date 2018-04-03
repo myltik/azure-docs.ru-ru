@@ -1,11 +1,11 @@
 ---
-title: "Руководство по C++ для Azure Cosmos DB | Документация Майкрософт"
-description: "Руководство по C++, в котором создается база данных и консольное приложение C++ с помощью Azure Cosmos DB с поддержкой пакета SDK для C++. Azure Cosmos DB — это глобально масштабируемая служба базы данных."
+title: Руководство по C++ для Azure Cosmos DB | Документация Майкрософт
+description: Руководство по C++, в котором создается база данных и консольное приложение C++ с помощью Azure Cosmos DB с поддержкой пакета SDK для C++. Azure Cosmos DB — это глобально масштабируемая служба базы данных.
 services: cosmos-db
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: b1dc49a9da42aa3630618c8099a7994950b313b4
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 86bf4fbc683efde60765b14b379a2b88c77d3103
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB. Руководство по использованию консольного приложения C++ для API SQL
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/24/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Мы рады представить вам руководство по C++ для соответствующего пакета SDK для API SQL Azure Cosmos DB. По завершении работы с этим руководством у вас будет консольное приложение, которое создает ресурсы Azure Cosmos DB и выполняет запросы этих ресурсов, включая базу данных C++.
 

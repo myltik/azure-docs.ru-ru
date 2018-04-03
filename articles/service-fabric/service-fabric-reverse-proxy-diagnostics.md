@@ -1,11 +1,11 @@
 ---
-title: "Диагностика обратного прокси-сервера Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как осуществлять мониторинг и диагностику обработки запросов на обратном прокси-сервере."
+title: Диагностика обратного прокси-сервера Azure Service Fabric | Документация Майкрософт
+description: Узнайте, как осуществлять мониторинг и диагностику обработки запросов на обратном прокси-сервере.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Мониторинг и диагностика обработки запросов на обратном прокси-сервере
 
 Начиная с выпуска Service Fabric 5.7 для сбора доступны события обратного прокси-сервера. Эти события доступны в двух каналах. Один предоставляет только события ошибок, связанные со сбоями обработки запросов на обратном прокси-сервере, а второй содержит подробные события с записями для успешных и неудачных запросов.
 
-Ознакомьтесь с разделом [Сбор событий обратного прокси-сервера](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events), чтобы включить сбор событий из этих каналов в локальном кластере и кластере Azure Service Fabric.
+Ознакомьтесь с разделом [Сбор событий обратного прокси-сервера](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations), чтобы включить сбор событий из этих каналов в локальном кластере и кластере Azure Service Fabric.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Устранение неполадок с помощью журналов диагностики
 Ниже приведены примеры того, как интерпретировать распространенное содержимое журналов сбоев, с которым вы можете столкнуться.

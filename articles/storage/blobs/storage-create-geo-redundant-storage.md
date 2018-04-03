@@ -1,6 +1,6 @@
 ---
-title: "Обеспечение высокой доступности данных приложений в Azure | Документация Майкрософт"
-description: "Использование геоизбыточного хранилища с доступом на чтение для обеспечения высокой доступности данных приложений"
+title: Обеспечение высокой доступности данных приложений в Azure | Документация Майкрософт
+description: Использование геоизбыточного хранилища с доступом на чтение для обеспечения высокой доступности данных приложений
 services: storage
 author: tamram
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Обеспечение высокой доступности данных приложений в хранилище Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/02/2018
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
 * установите [Python](https://www.python.org/downloads/);
-* Загрузите и установите [пакет SDK службы хранилища Azure для Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python).
+* Загрузите и установите [пакет SDK службы хранилища Azure для Python](https://github.com/Azure/azure-storage-python).
 * Загрузите и установите [Fiddler](https://www.telerik.com/download/fiddler) (необязательно).
 
 ---

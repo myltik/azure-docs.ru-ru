@@ -1,8 +1,8 @@
 ---
-title: "Выборка данных на сервере SQL Server в Azure | Документация Майкрософт"
-description: "Выборка данных на сервере SQL Server в Azure"
+title: Выборка данных на сервере SQL Server в Azure | Документация Майкрософт
+description: Выборка данных на сервере SQL Server в Azure
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgeonlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: a82e4703f68271d6d10719e6be8465efa9b71a79
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: e854f35cb68ddf0bc93e7c7959d14ef79a346c6e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="heading"></a>Выборка данных на сервере SQL Server в Azure
 В этой статье описывается процесс выборки данных, хранящихся на сервере SQL Server в Azure, с помощью SQL или языка программирования Python. В нем также показано, как переместить данные выборки в службу машинного обучения Azure, сохранив их в файл, передав его в BLOB-объект Azure, а затем считав в студии машинного обучения Azure.

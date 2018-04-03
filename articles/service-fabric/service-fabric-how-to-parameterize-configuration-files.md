@@ -1,10 +1,10 @@
 ---
-title: "Как параметризовать файлы конфигурации в Azure Service Fabric | Документация Майкрософт"
-description: "Описывается, как параметризовать файлы конфигурации в Service Fabric."
+title: Как параметризовать файлы конфигурации в Azure Service Fabric | Документация Майкрософт
+description: Описывается, как параметризовать файлы конфигурации в Service Fabric.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Как параметризовать файлы конфигурации в Service Fabric
 
@@ -71,8 +71,6 @@ ms.lasthandoff: 01/16/2018
 > В случае добавления ConfigOverride служба Service Fabric всегда выбирает параметры приложения или значение по умолчанию, указанное в манифесте приложения.
 >
 >
-
-При публикации приложения из Visual Studio с помощью профиля публикации Cloud.xml служба будет использовать порт 80. Если приложение развертывается без указания параметра MyWebAPI_PortNumber, то служба использует порт 8080.
 
 ## <a name="next-steps"></a>Дополнительная информация
 Чтобы узнать больше о некоторых основных понятиях, рассмотренных в данной статье, ознакомьтесь с разделом [Управление параметрами приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md).

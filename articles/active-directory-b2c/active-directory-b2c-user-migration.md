@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C. Подходы к миграции пользователей"
-description: "В этой статье рассматриваются основные и расширенные концепции миграции пользователей с помощью API Graph и с дополнительным использованием настраиваемых политик Azure AD B2C."
+title: Azure Active Directory B2C. Подходы к миграции пользователей
+description: В этой статье рассматриваются основные и расширенные концепции миграции пользователей с помощью API Graph и с дополнительным использованием настраиваемых политик Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C. Миграция пользователей
 При миграции поставщика удостоверений в Azure Active Directory B2C (Azure AD B2C) также может потребоваться перенести учетную запись пользователя. В этой статье описывается процедура переноса имеющихся учетных записей пользователей из любого поставщика удостоверений в Azure AD B2C. Эта статья не является предписанием, а скорее описывает два из нескольких подходов. За пригодность каждого подхода отвечает разработчик.

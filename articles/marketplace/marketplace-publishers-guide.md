@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Руководство по публикации в Azure Marketplace и AppSource
 
@@ -308,7 +308,7 @@ Azure Active Directory (AAD) — это облачная служба удост
 - Разработайте тестовый выпуск для одного клиента.
 - Создайте демонстрационное мультитенантное приложение с SSO.
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Процессы публикации по продуктам: для Office, Dynamics и Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Процессы публикации по продуктам: для Office, Dynamics и Power BI
 Для приложений AppSource, расширяющих возможности Office, Dynamics и Power BI, можно сначала узнать подробнее о дополнительных требованиях в документации по конкретному продукту в этом разделе. 
 
 

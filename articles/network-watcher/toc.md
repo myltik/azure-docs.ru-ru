@@ -74,7 +74,7 @@
 ## Анализ журналов потоков NSG
 ### [Чтение журналов потоков NSG](network-watcher-read-nsg-flow-logs.md)
 ### Аналитика трафика
-#### [Использование Аналитики трафика](traffic-analytics.md)
+#### [Использование аналитики трафика](traffic-analytics.md)
 #### [Часто задаваемые вопросы](traffic-analytics-faq.md)
 ### [Использование Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Использование эластичного пула](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

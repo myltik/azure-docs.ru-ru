@@ -39,7 +39,7 @@
       href: monitor-alerts-unified-log.md
     - name: Оповещения журнала действий (предварительная версия)
       href: monitoring-activity-log-alerts-new-experience.md
-    - name: Расширение оповещений из OMS в Azure
+    - name: Расширение оповещений из Log Analytics в Azure
       href: monitoring-alerts-extend.md
     - name: Группы действий
       href: monitoring-action-groups.md
@@ -53,44 +53,44 @@
   items:
     - name: Пошаговое руководство по Azure Monitor
       href: monitoring-get-started.md
+    - name: Создание диаграмм метрик в обозревателе метрик
+      href: monitoring-metric-charts.md
     - name: Использование оповещений
       items:
-        - name: Настройка новых оповещений на портале Azure
-          href: monitoring-near-real-time-metric-alerts.md
+        - name: Настройка новых метрик или оповещений журналов на портале Azure
+          href: monitor-alerts-unified-usage.md
         - name: Настройка классических оповещений на портале Azure
           href: insights-alerts-portal.md
-        - name: Настройка метрик или оповещений журналов на портале Azure
-          href: monitor-alerts-unified-usage.md
-        - name: Настройка оповещений с помощью интерфейса командной строки
+        - name: Настройка классических оповещений с помощью интерфейса командной строки
           href: insights-alerts-command-line-interface.md
-        - name: Настройка оповещений с помощью Azure PowerShell
+        - name: Настройка классических оповещений с помощью Azure PowerShell
           href: insights-alerts-powershell.md
         - name: Действия веб-перехватчика для оповещений журнала
           href: monitor-alerts-unified-log-webhook.md
-        - name: Создание оповещения метрики с помощью шаблона Resource Manager
+        - name: Создание классического оповещения метрики с помощью шаблона Resource Manager
           href: monitoring-enable-alerts-using-template.md
-        - name: Инициирование расширения оповещений из OMS в Azure
+        - name: Копирование оповещений с портала OMS на портал Azure
           href: monitoring-alerts-extend-tool.md
-    - name: Использование автомасштабирования
+    - name: Использование групп действий с оповещениями
       items:
-        - name: Пошаговое руководство по автомасштабированию
-          href: monitoring-autoscale-get-started.md
-        - name: Основные сведения о параметрах автомасштабирования
-          href: monitoring-understanding-autoscale-settings.md
-        - name: Рекомендации
-          href: insights-autoscale-best-practices.md
-        - name: Распространенные метрики
-          href: insights-autoscale-common-metrics.md
-        - name: Распространенные шаблоны
-          href: monitoring-autoscale-common-scale-patterns.md
-        - name: Автомасштабирование с помощью пользовательской метрики
-          href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: Автомасштабирование масштабируемых наборов виртуальных машин с помощью шаблонов Resource Manager
-          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Автомасштабирование виртуальных машин в масштабируемых наборах виртуальных машин
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Настройка веб-перехватчиков и уведомлений по электронной почте для автомасштабирования
-          href: insights-autoscale-to-webhook-email.md
+        - name: Дополнительные сведения о схеме веб-перехватчика
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Поведение оповещений SMS
+          href: monitoring-sms-alert-behavior.md
+        - name: Ограничение частоты создания оповещений
+          href: monitoring-alerts-rate-limiting.md
+        - name: Создание групп действий с помощью Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Использование журналов диагностики
+      items:
+        - name: Архив
+          href: monitoring-archive-diagnostic-logs.md
+        - name: '"Отправить в Log Analytics".'
+          href: monitor-stream-diagnostic-logs-log-analytics.md
+        - name: Потоковая передача в концентраторы событий
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Включение параметров диагностики с помощью шаблонов Resource Manager
+          href: monitoring-enable-diagnostic-logs-using-template.md
     - name: Использование журнала действий
       items:
         - name: Просмотр событий в журнале действий
@@ -113,27 +113,13 @@
           href: monitoring-service-notifications.md
         - name: Настройка оповещений об уведомлениях службы
           href: monitoring-activity-log-alerts-on-service-notifications.md
-    - name: Использование групп действий
+    - name: Программный доступ
       items:
-        - name: Дополнительные сведения о схеме веб-перехватчика
-          href: monitoring-activity-log-alerts-webhook.md
-        - name: Поведение оповещений SMS
-          href: monitoring-sms-alert-behavior.md
-        - name: Ограничение частоты создания оповещений
-          href: monitoring-alerts-rate-limiting.md
-        - name: Создание групп действий с помощью Resource Manager
-          href: monitoring-create-action-group-with-resource-manager-template.md
-    - name: Использование журналов диагностики
-      items:
-        - name: Архив
-          href: monitoring-archive-diagnostic-logs.md
-        - name: '"Отправить в Log Analytics".'
-          href: monitor-stream-diagnostic-logs-log-analytics.md
-        - name: Потоковая передача в концентраторы событий
-          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-        - name: Включение параметров диагностики с помощью шаблонов Resource Manager
-          href: monitoring-enable-diagnostic-logs-using-template.md
-    - name: Использование REST API
+        - name: "Пошаговое руководство по использованию REST\_API"
+          href: monitoring-rest-api-walkthrough.md
+        - name: Примеры сценариев Azure PowerShell
+          href: insights-powershell-samples.md
+    - name: Использование расширения системы диагностики Azure
       items:
         - name: Отправка в Application Insights
           href: azure-diagnostics-configure-application-insights.md
@@ -141,12 +127,32 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Устранение неполадок
           href: azure-diagnostics-troubleshooting.md
-    - name: Создание диаграмм метрик в обозревателе метрик
-      href: monitoring-metric-charts.md
-    - name: Отправка метрик в Grafana
-      href: monitor-send-to-grafana.md
-    - name: Отправка данных мониторинга в концентратор событий
-      href: monitor-stream-monitoring-data-event-hubs.md
+    - name: Использование автомасштабирования
+      items:
+        - name: Пошаговое руководство по автомасштабированию
+          href: monitoring-autoscale-get-started.md
+        - name: Основные сведения о параметрах автомасштабирования
+          href: monitoring-understanding-autoscale-settings.md
+        - name: Рекомендации
+          href: insights-autoscale-best-practices.md
+        - name: Распространенные метрики
+          href: insights-autoscale-common-metrics.md
+        - name: Распространенные шаблоны
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Автомасштабирование с помощью пользовательской метрики
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Автомасштабирование масштабируемых наборов виртуальных машин с помощью шаблонов Resource Manager
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Автомасштабирование виртуальных машин в масштабируемых наборах виртуальных машин
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Настройка веб-перехватчиков и уведомлений по электронной почте для автомасштабирования
+          href: insights-autoscale-to-webhook-email.md
+    - name: Маршрутизация в другие расположения
+      items:
+        - name: Отправка метрик в Grafana
+          href: monitor-send-to-grafana.md
+        - name: Отправка данных мониторинга в концентратор событий
+          href: monitor-stream-monitoring-data-event-hubs.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
@@ -157,6 +163,8 @@
       href: /rest/api/monitor/
     - name: Поддерживаемые метрики
       href: monitoring-supported-metrics.md
+    - name: Поддерживаемые метрики для новых оповещений
+      href: monitoring-near-real-time-metric-alerts.md
     - name: 'Службы, категории и схемы для журналов диагностики'
       href: monitoring-diagnostic-logs-schema.md
     - name: Схема событий журнала действий
