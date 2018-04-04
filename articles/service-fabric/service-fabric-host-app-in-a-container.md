@@ -1,24 +1,24 @@
 ---
-title: "Развертывание приложения .NET в контейнере в Azure Service Fabric | Документация Майкрософт"
-description: "В этом руководстве объясняется, как упаковать приложение .NET в контейнер Docker с помощью Visual Studio. Затем это приложение-контейнер развертывается в кластер Service Fabric."
+title: Развертывание приложения .NET в контейнере в Azure Service Fabric | Документация Майкрософт
+description: В этом руководстве объясняется, как упаковать приложение .NET в контейнер Docker с помощью Visual Studio. Затем это приложение-контейнер развертывается в кластер Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Развертывание приложения .NET в контейнере Windows в Azure Service Fabric
 
@@ -49,13 +49,6 @@ ms.lasthandoff: 02/01/2018
 Теперь, когда у вас есть работающий в Azure кластер Service Fabric, создайте и разверните контейнерное приложение. Для запуска приложения в контейнере необходимо добавить **поддержку Docker** в проекте Visual Studio. При добавлении в приложение **поддержки Docker** происходят две вещи. Сначала в проект добавляется _Dockerfile_. Этот новый файл описывает способ создания образа контейнера. Затем в решение будет добавлен новый проект _docker-compose_. Новый проект содержит несколько файлов docker-compose. Файлы docker-compose можно использовать для описания порядка выполнения контейнера.
 
 См. дополнительные сведения о работе с [инструментами для контейнера Visual Studio][link-visualstudio-container-tools].
-
->[!NOTE]
->Если вы запускаете образы контейнеров Windows на компьютере впервые, Docker CE потребуется развернуть базовые образы для контейнеров. В этом руководстве используются образы размером 14 ГБ. Выполните следующую команду терминала, чтобы получить базовые образы:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Добавление поддержки Docker
 

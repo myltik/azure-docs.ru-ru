@@ -1,8 +1,8 @@
 ---
-title: "Развертывание Функции Azure с помощью Azure IoT Edge | Документация Майкрософт"
-description: "Развертывание Функции Azure в виде модуля на граничном устройстве"
+title: Развертывание Функции Azure с помощью Azure IoT Edge | Документация Майкрософт
+description: Развертывание Функции Azure в виде модуля на граничном устройстве
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: v-jamebr
@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Развертывание Функции Azure в виде модуля IoT Edge — предварительный просмотр
 Вы можете использовать Функции Azure для развертывания кода, который реализует нужную бизнес-логику, непосредственно на устройствах IoT Edge. В этом руководстве описывается создание и развертывание Функции Azure, которая фильтрует данные датчиков на виртуальном устройстве IoT Edge, созданном по инструкциям в руководствах по развертыванию Azure IoT Edge на виртуальном устройстве в [Windows][lnk-tutorial1-win] или [Linux][lnk-tutorial1-lin]. Из этого руководства вы узнаете, как выполнять такие задачи:     
@@ -174,7 +174,7 @@ ms.lasthandoff: 12/09/2017
 1. Добавьте модуль **filterFunction**.
     1. Снова выберите **Add IoT Edge Modulе** (Добавить модуль IoT Edge).
     2. В поле **Имя** введите `filterFunction`.
-    3. В поле **Образ** введите адрес образа, например `<docker registry address>/filterfunction:latest`.
+    3. В поле **URI изображения** введите адрес образа, например `<your container registry address>/filtermodule:0.0.1-amd64`. Полный адрес образа можно найти в предыдущем разделе.
     74. Выберите команду **Сохранить**.
 2. Нажмите кнопку **Далее**.
 3. На шаге **Specify Routes** (Указание маршрутов) скопируйте приведенный ниже код JSON в текстовое поле. Первый маршрут передает сообщения с датчика температуры модулю фильтра через конечную точку input1. Второй маршрут передает сообщения из модуля фильтра в Центр Интернета вещей. В этом маршруте `$upstream` является специальным пунктом назначения, который говорит концентратору Edge отправлять сообщения в Центр Интернета вещей. 

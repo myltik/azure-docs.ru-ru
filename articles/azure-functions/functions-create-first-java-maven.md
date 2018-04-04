@@ -1,11 +1,11 @@
 ---
-title: "Создание первой функции в Azure с помощью Java и Maven | Документация Майкрософт"
-description: "Создание и публикация в Azure с Java и Maven простой функции, активируемой с помощью HTTP."
+title: Создание первой функции в Azure с помощью Java и Maven | Документация Майкрософт
+description: Создание и публикация в Azure с Java и Maven простой функции, активируемой с помощью HTTP.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "функции azure, функции, обработка событий, вычисления, независимая архитектура"
+keywords: функции azure, функции, обработка событий, вычисления, независимая архитектура
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Создание первой функции с помощью Java и Maven (предварительная версия)
 
@@ -34,18 +34,25 @@ ms.lasthandoff: 01/05/2018
 ## <a name="prerequisites"></a>предварительным требованиям
 Для разработки функций приложения с помощью Java, должны быть установлены следующие компоненты:
 
--  [.NET Core](https://www.microsoft.com/net/core) последней версии.
 -  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) версии 8.
--  [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) 3.0 или более поздней версии.
--  [Node.js ](https://nodejs.org/download/)версии 8.6 или выше.
+-  [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Переменной среде JAVA_HOME необходимо присвоить расположение установки JDK, чтобы завершить выполнение заданий этого краткого руководства.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Установка основных инструментов Функций Azure
 
-[Основные средства Функций Azure версии 2.0](https://www.npmjs.com/package/azure-functions-core-tools) предоставляют локальной среде разработки возможность записи, выполнения и отладки Функций Azure. Установите средства с помощью [npm](https://www.npmjs.com/) вместе с [Node.js](https://nodejs.org/).
+[Основные средства Функций Azure версии 2.0](https://www.npmjs.com/package/azure-functions-core-tools) предоставляют локальной среде разработки возможность записи, выполнения и отладки Функций Azure. 
+
+Ознакомьтесь с разделом об [установке](https://github.com/azure/azure-functions-core-tools#installing) и найдите инструкции, подходящие для вашей ОС (Windows, Linux, Mac).
+
+Кроме того, можно установить средства вручную с помощью [npm](https://www.npmjs.com/) в составе [Node.js](https://nodejs.org/), установив следующие требуемые компоненты:
+
+-  [.NET Core](https://www.microsoft.com/net/core) последней версии.
+-  [Node.js ](https://nodejs.org/download/)версии 8.6 или выше.
+
+Чтобы продолжить установку при помощи npm, выполните следующую команду:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Hello AzureFunctions!
 - Дополнительные сведения о разработке функции Java см. в статье [Azure Functions Java developer guide](functions-reference-java.md) (Руководство разработчика Java для Функций Azure).
 - Добавьте в проект дополнительные функции с помощью различных триггеров целевого объекта Maven`azure-functions:add`.
 - Проведите отладку функций локально с помощью Visual Studio Code. С помощью установленного [пакета расширения Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) и проекта функций, открытого в Visual Studio Code, [присоедините отладчик](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) к порту 5005. Затем установите точку останова в редакторе и активируйте функции во время локального выполнения: ![функции отладки в Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Проведите отладку функций удаленно с помощью Visual Studio Code. Инструкции см. в документе по [созданию бессерверных приложений Java](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud).

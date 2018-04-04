@@ -1,8 +1,8 @@
 ---
-title: "Начало работы с Data Lake Store с помощью портала Azure | Документация Майкрософт"
-description: "Использование портала Azure для создания учетной записи Data Lake Store и выполнения базовых операций в Data Lake Store"
+title: Начало работы с Data Lake Store с помощью портала Azure | Документация Майкрософт
+description: Использование портала Azure для создания учетной записи Data Lake Store и выполнения базовых операций в Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Начало работы с Azure Data Lake Store с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="create-an-azure-data-lake-store-account"></a>Создание учетной записи хранения озера данных Azure
 
 1. Войдите на новый [портал Azure](https://portal.azure.com).
-2. Последовательно выберите **Создать ресурс**, **Данные+хранилище** и **Azure Data Lake Store**. Ознакомьтесь со сведениями в колонке **Azure Data Lake Store** и нажмите кнопку **Создать** в левом нижнем углу колонки.
+2. Последовательно выберите **Создать ресурс > Хранилище > Data Lake Store**.
 3. В колонке **Создать Data Lake Store** задайте значения, как показано на следующем снимке экрана:
    
     ![Создание учетной записи Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Создание учетной записи Azure Data Lake")
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/21/2018
    * **Параметры шифрования**. Доступны три параметра:
      
      * **Не включать шифрование**.
-     * **Использовать ключи, управляемые Azure Data Lake**  (если вы хотите, чтобы хранилище Azure Data Lake Store управляло ключами шифрования).
+     * **Использовать ключи, управляемые Data Lake Store**.  (если вы хотите, чтобы хранилище Azure Data Lake Store управляло ключами шифрования).
      * **Использовать ключи из собственного хранилища ключей**. Вы можете выбрать существующее хранилище Azure Key Vault или создать новое. Чтобы использовать ключи из хранилища Key Vault, учетной записи Azure Data Lake Store необходимо назначить разрешения на доступ к хранилищу Azure Key Vault. Инструкции см. в разделе, посвященном [назначению разрешений для Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
         ![Шифрование Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Шифрование Data Lake Store")
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/21/2018
 
 4. Нажмите кнопку **Создать**. Если вы закрепили учетную запись на панели мониторинга, вы вернетесь на панель мониторинга, где сможете следить за ходом подготовки учетной записи Data Lake Store. После подготовки учетной хранения озера данных появится колонка учетной записи.
 
-### <a name="assign-permissions-to-azure-key-vault"></a> Назначение разрешений для Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a> Назначение разрешений для Azure Key Vault
 Если для настройки шифрования в учетной записи Data Lake Store использовались ключи из хранилища ключей Azure, учетной записи Data Lake Store необходимо назначить разрешения на доступ к хранилищу ключей Azure. Для этого выполните следующие действия.
 
 1. Если вы использовали ключи из хранилища ключей Azure, вверху колонки учетной записи Data Lake Store отображается предупреждение. Щелкните предупреждение, чтобы открыть колонку **Шифрование**.
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="createfolder"></a>Создание папок в учетной записи хранения озера данных Azure
 Чтобы хранить данные и управлять ими, вы можете создать папки в своей учетной записи хранения озера данных.
 
-1. Откройте созданную учетную запись Data Lake Store. В левой панели щелкните **Обзор**, щелкните **Data Lake Store** и затем в колонке Data Lake Store щелкните имя учетной записи, в которой нужно создать папки. Если учетная запись была закреплена на начальной панели, щелкните элемент этой учетной записи.
+1. Откройте созданную учетную запись Data Lake Store. На панели слева щелкните **Все ресурсы** и в колонке "Все ресурсы" выберите имя учетной записи, в которой нужно создать папки. Если учетная запись была закреплена на начальной панели, щелкните элемент этой учетной записи.
 2. В колонке учетной записи «Хранилище озера данных» щелкните **Обозреватель данных**.
    
     ![Создание папок в учетной записи Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Создание папок в учетной записи Data Lake Store")

@@ -1,33 +1,35 @@
 ---
-title: "Подключение Active Directory к Azure Active Directory | Документация Майкрософт"
-description: "Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для Office 365, Azure и SaaS, интегрированных с Azure AD."
-keywords: "Введение в Azure AD Connect, обзор функций Azure AD Connect, что такое Azure AD Connect, установка Аctive Directory."
+title: Подключение Active Directory к Azure Active Directory | Документация Майкрософт
+description: Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для Office 365, Azure и SaaS, интегрированных с Azure AD.
+keywords: Введение в Azure AD Connect, обзор функций Azure AD Connect, что такое Azure AD Connect, установка Аctive Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 83654a406019c4ac3837a3e961a6de640c98f31c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Интеграция локальных каталогов с Azure Active Directory
 Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для приложений Office 365, Azure и программного обеспечения как услуги (SaaS), интегрированных с Azure AD. В этом разделе описаны шаги планирования, развертывания и использования. Здесь представлена коллекция ссылок на статьи, относящиеся к этой области.
 
 > [!IMPORTANT]
-> [Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы используете Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, так как эти продукты являются нерекомендуемыми и не поддерживаются с 13 апреля 2017 года.](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы используете Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, так как эти продукты являются нерекомендуемыми и не поддерживаются с 13 апреля 2017 года.](active-directory-aadconnect-dirsync-deprecated.md)  См. также:
 > 
-> 
+> - Синхронизация пользователей в Azure AD — это **бесплатная функция**, для использования которой подписка не требуется.
+>- Синхронизированным пользователям *лицензии* **автоматически не предоставляются**. Администраторы по-прежнему имеют полный контроль над процессом назначения лицензий. 
+> - Корпорация Майкрософт рекомендует ИТ-администраторам синхронизировать всех своих пользователей. Это не только откроет пользователям доступ к любому интегрированному ресурсу Azure AD, но также предоставит ИТ-администраторам более подробные сведения о том, к каким приложениям их пользователи осуществляют доступ. 
 
 ![Что такое Azure AD Connect?](media/active-directory-aadconnect/arch.png)
 

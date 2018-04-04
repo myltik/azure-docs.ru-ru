@@ -1,8 +1,8 @@
 ---
-title: "Основные сведения об Apache Kafka в Azure HDInsight | Документация Майкрософт"
-description: "Данные об Apache Kafka в HDInsight: предназначение, выполняемые функции, а также сведения о том, где найти примеры и информацию по началу работы."
+title: Основные сведения об Apache Kafka в Azure HDInsight | Документация Майкрософт
+description: 'Данные об Apache Kafka в HDInsight: предназначение, выполняемые функции, а также сведения о том, где найти примеры и информацию по началу работы.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Общие сведения об Apache Kafka в HDInsight
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 
 * __Соглашение об уровне обслуживания (SLA) с гарантией времени доступности Kafka на уровне 99,9 %__. Дополнительные сведения см. в документе [Соглашение об уровне обслуживания для HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Отказоустойчивость и поддержка стойки.__ Служба Kafka разработана с использованием одномерного представления стойки, которое успешно работает в некоторых средах. Однако в некоторых средах, таких как Azure, стойка разделена на два измерения: домены обновления (UD) и домены сбоя (FD). Корпорация Майкрософт предоставляет средства, обеспечивающие перебалансировку секций и реплик Kafka в доменах обновления и сбоя. 
+* __Отказоустойчивость.__ Служба Kafka разработана с использованием одномерного представления стойки, которое успешно работает в некоторых средах. Однако в некоторых средах, таких как Azure, стойка разделена на два измерения: домены обновления (UD) и домены сбоя (FD). Корпорация Майкрософт предоставляет средства, которые могут выполнять перебалансировку секций и реплик Kafka в доменах обновления и сбоя. 
 
     Дополнительные сведения см. в статье [Обеспечение высокого уровня доступности данных с помощью Apache Kafka в HDInsight](apache-kafka-high-availability.md).
 

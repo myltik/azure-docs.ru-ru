@@ -1,12 +1,12 @@
 ---
-title: "Создание функции, активируемой с помощью Azure Cosmos DB | Документация Майкрософт"
-description: "Используйте службу \"Функции Azure\" для создания бессерверной функции, которая вызывается при добавлении данных в базу данных в Azure Cosmos DB."
+title: Создание функции, активируемой с помощью Azure Cosmos DB | Документация Майкрософт
+description: Используйте службу "Функции Azure" для создания бессерверной функции, которая вызывается при добавлении данных в базу данных в Azure Cosmos DB.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: functions; cosmos-db
 ms.devlang: multiple
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
-ms.custom: 
-ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: 435c4bf1c2619e91bbdd089375914ce06fdac6c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Создание функции, активируемой с помощью Azure Cosmos DB
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/02/2018
     | Параметр      | Рекомендуемое значение  | ОПИСАНИЕ                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Идентификатор** | Имя базы данных | Уникальный идентификатор для базы данных Azure Cosmos DB  |
-    | **API** | SQL (DocumentDB) | В этом разделе используется API базы данных документов.  |
+    | **API** | SQL | В этом разделе используются API SQL.  |
     | **Подписка** | Подписка Azure | Подписка, в которой создана учетная запись Cosmos DB.  |
     | **Группа ресурсов** | myResourceGroup |  Используйте имеющуюся группу ресурсов, которая содержит функцию-приложение. |
     | **Местоположение.**  | WestEurope | Выберите расположение рядом с приложением-функцией или другими приложениями, которые используют хранимые документы.  |

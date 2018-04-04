@@ -1,12 +1,12 @@
 ---
-title: "Создание функции, активируемой объектом webhook GitHub, в Azure | Документация Майкрософт"
-description: "Создавайте независимые от сервера функции, активируемые объектом webhook GitHub, с помощью Функций Azure."
+title: Создание функции, активируемой объектом webhook GitHub, в Azure | Документация Майкрософт
+description: Создавайте независимые от сервера функции, активируемые объектом webhook GitHub, с помощью Функций Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cd446c64b8e7627db1c76d652ea1ab6f496eee65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Создание функции, активируемой объектом webhook GitHub
 
@@ -69,11 +69,15 @@ ms.lasthandoff: 02/27/2018
 
 1. На сайте GitHub перейдите в свой репозиторий. Вы можете использовать любые репозитории, для которых создали ответвления. Если вам нужно создать вилку, используйте <https://github.com/Azure-Samples/functions-quickstart>.
 
-1. Щелкните **Параметры**, **Веб-перехватчики**, а затем — **Добавить веб-перехватчик**.
+2. Последовательно выберите **Настройки** > **Параметры** и убедитесь, что в разделе **Функции** включен параметр **Проблемы**.
+
+   ![Включение параметра "Проблемы"](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. В разделе **Настройки** последовательно выберите **Веб-перехватчики** > **Добавить веб-перехватчик**.
 
     ![Добавление объекта webhook GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Используйте настройки, указанные в таблице, и щелкните**Добавить веб-перехватчик**.
+1. Используйте настройки, указанные в следующей таблице, и щелкните**Добавить веб-перехватчик**:
 
     ![Задание URL-адреса объекта webhook и секрета](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

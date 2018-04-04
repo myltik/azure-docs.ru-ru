@@ -1,6 +1,6 @@
 ---
-title: "Руководство по Kubernertes в Azure. Мониторинг Kubernetes"
-description: "Руководство AKS. Мониторинг Kubernetes с помощью Microsoft Operations Management Suite (OMS)"
+title: Руководство по Kubernertes в Azure. Мониторинг Kubernetes
+description: Руководство по AKS. Мониторинг кластера Kubernetes с помощью Azure Log Analytics
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Мониторинг Службы контейнеров Azure (AKS)
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Руководство. Мониторинг Службы контейнеров Azure (AKS)
 
 Мониторинг кластера Kubernetes и контейнеров крайне важен, особенно в том случае, если вы управляете рабочим кластером в нужном масштабе с несколькими приложениями.
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 03/09/2018
 
 ![Добавление решения](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Создайте новую рабочую область OMS или выберите существующую. Выполнить этот процесс поможет форма рабочей области OMS.
+Выберите существующую рабочую область Log Analytics или создайте новую. Выполнить этот процесс поможет форма рабочей области Log Analytics.
 
 При создании рабочей области выберите **Закрепить на панели мониторинга**, чтобы упростить получение информации.
 
-![Рабочая область OMS](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Рабочая область Log Analytics](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 Когда все будет готово, нажмите кнопку **ОК**. После завершения проверки щелкните **Создать**, чтобы создать решение мониторинга контейнеров.
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/09/2018
 
 ## <a name="create-kubernetes-secret"></a>Создание секрета Kubernetes
 
-Сохраните параметры рабочей области OMS в секрете Kubernetes `omsagent-secret` с помощью команды [kubectl create secret][kubectl-create-secret]. Укажите для `WORKSPACE_ID` идентификатор рабочей области OMS, а для `WORKSPACE_KEY` — ключ рабочей области.
+Сохраните параметры рабочей области Log Analytics в секрете Kubernetes `omsagent-secret` с помощью команды [kubectl create secret][kubectl-create-secret]. Укажите для `WORKSPACE_ID` идентификатор рабочей области Log Analytics, а для `WORKSPACE_KEY` — ключ рабочей области.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Через несколько минут после запуска агентов OMS начнет принимать и обрабатывать данные.
+Через несколько минут после запуска агентов Log Analytics начнет принимать и обрабатывать данные.
 
 ## <a name="access-monitoring-data"></a>Доступ к данным мониторинга
 
@@ -166,7 +166,7 @@ omsagent   3         3         3         3            3           beta.kubernete
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве вы выполнили мониторинг кластера Kubernetes с помощью OMS, в частности такие задачи:
+В этом руководстве вы выполнили мониторинг кластера Kubernetes с помощью Log Analytics, выполнив в частности такие задачи:
 
 > [!div class="checklist"]
 > * настройка решения мониторинга контейнеров;

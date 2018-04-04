@@ -1,11 +1,11 @@
 ---
-title: "Создание конвейера фабрики данных с помощью портала Azure | Документация Майкрософт"
-description: "В этом руководстве описано, как с помощью портала Azure создать фабрику данных с конвейером. Этот конвейер использует действие копирования для копирования данных из хранилища BLOB-объектов Azure в базу данных SQL."
+title: Создание конвейера фабрики данных с помощью портала Azure | Документация Майкрософт
+description: В этом руководстве описано, как с помощью портала Azure создать фабрику данных с конвейером. Этот конвейер использует действие копирования для копирования данных из хранилища BLOB-объектов Azure в базу данных SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью фабрики данных Azure
 В этом руководстве вы создадите фабрику данных с помощью пользовательского интерфейса фабрики данных Azure. Конвейер этой фабрики данных копирует данные из хранилища BLOB-объектов Azure в базу данных SQL. Шаблон конфигурации в этом руководстве применяется к копированию из файлового в реляционное хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников, см. в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -303,7 +303,7 @@ ms.lasthandoff: 02/09/2018
     ![Показать уведомления](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Настройка репозитория исходного кода
-Вы можете опубликовать код для артефактов фабрики данных в репозитории кода Visual Studio Team Services. На этом шаге вы создадите репозиторий кода. 
+Вы можете опубликовать код для артефактов фабрики данных в репозитории кода Visual Studio Team Services. На этом шаге вы создадите репозиторий кода.  Дополнительные сведения о визуальной разработке с интеграцией VSTS см. в разделе [Разработка с помощью интеграции Git VSTS](author-visually.md#author-with-vsts-git-integration).
 
 Если вам пока не нужен репозиторий кода Visual Studio Team Services, можете пропустить этот шаг. Продолжайте публикацию в фабрике данных, как описано в предыдущем шаге. 
 

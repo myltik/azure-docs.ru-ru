@@ -1,17 +1,33 @@
+---
+title: включение файла
+description: включение файла
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/28/2018
+---
 ### <a name="supportedclientos"></a>Какие клиентские операционные системы можно использовать для подключения типа "точка — сеть"?
 
 Поддерживаются следующие клиентские операционные системы:
 
-* Windows 7 (32-разрядная и 64-разрядная версии)
-* Windows Server 2008 R2 (только 64-разрядная версия)
-* Windows 8 (32-разрядная и 64-разрядная версии)
-* Windows 8.1 (32-разрядная и 64-разрядная версии)
-* Windows Server 2012 (только 64-разрядная версия)
-* Windows Server 2012 R2 (только 64-разрядная версия)
-* Windows Server 2016 (только 64-разрядная версия)
-* Windows 10
-* OSX версии 10.11 для Mac (El Capitan);
-* macOS версии 10.12 для Mac (Sierra).
+* Windows 7 (32-разрядная и 64-разрядная версии);
+* Windows Server 2008 R2 (только 64-разрядная версия);
+* Windows 8 (32-разрядная и 64-разрядная версии);
+* Windows 8.1 (32-разрядная и 64-разрядная версии);
+* Windows Server 2012 (только 64-разрядная версия);
+* Windows Server 2012 R2 (только 64-разрядная версия);
+* Windows Server 2016 (только 64-разрядная версия);
+* Windows 10;
+* Mac OS X версии 10.11 (El Capitan);
+* Mac OS X версии 10.12 (Sierra).
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Сколько конечных точек VPN-клиента можно настроить в конфигурации "точка — сеть"?
 

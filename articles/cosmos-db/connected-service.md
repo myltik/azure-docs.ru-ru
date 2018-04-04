@@ -1,26 +1,26 @@
 ---
-title: "Подключенная служба Visual Studio для Azure Cosmos DB"
-description: "Разработчики могут легко подключать учетную запись Azure Cosmos DB и управлять ресурсами через подключенные службы Visual Studio"
+title: Подключенная служба Visual Studio для Azure Cosmos DB
+description: Разработчики могут легко подключать учетную запись Azure Cosmos DB и управлять ресурсами через подключенные службы Visual Studio
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: подключенная служба Visual Studio (предварительная версия)
 
@@ -36,11 +36,13 @@ ms.lasthandoff: 12/14/2017
 * Учетная запись Azure Cosmos DB. Если у вас еще нет этой учетной записи, см. инструкции по [ созданию учетной записи Azure Cosmos DB с помощью портала Azure](create-sql-api-dotnet.md). Или см. инструкции по [созданию учетной записи Azure Cosmos DB в средстве подключенной службы](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Если вы хотите использовать локальную среду для разработки, можно использовать [эмулятор Azure Cosmos DB](local-emulator.md). Среда эмулирует службу Azure Cosmos DB.
 * [Visual Studio](http://www.visualstudio.com/).
-* Последняя версия подключенной службы Azure Cosmos DB. Скачайте подключенную службу Azure Cosmos DB из Visual Studio Marketplace, как показано на следующем снимке экрана. Откройте **Visual Studio** на компьютере. В меню **Средства** выберите **Расширения и обновление...**, а затем — **В сети** / **Visual Studio Marketplace**. Для поиска службы введите запрос **cosmosdb**.
+* Последняя версия подключенной службы Azure Cosmos DB. Скачайте подключенную службу Azure Cosmos DB из Visual Studio Marketplace, как показано на следующем снимке экрана. Откройте **Visual Studio** на компьютере. В меню **Средства** щелкните **Расширения и обновление...**, а затем последовательно выберите **В сети** / **Visual Studio Marketplace**. Для поиска службы введите запрос **cosmosdb**.
 
     Можно также установить подключенную службу Azure Cosmos DB из [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
 
     ![Снимок экрана: скачивание подключенной службы](./media/connected-service/connected-service-downloadbits.png) 
+
+Когда вы скачаете расширение подключенной службы Azure Cosmos DB, закройте Visual Studio, чтобы установить расширение.
 
 ## <a id="SetupVS"></a>Настройка решения Visual Studio
 1. Откройте **Visual Studio** у себя на компьютере.

@@ -1,29 +1,28 @@
 ---
-title: "Обеспечение доступности веб-приложений и приложений API для пользователей Azure Stack | Документация Майкрософт"
-description: "Руководство по установке поставщика ресурсов службы приложений и созданию предложений, которые дают вашим пользователям Azure Stack возможность создавать веб-приложения и приложения API."
+title: Обеспечение доступности веб-приложений и приложений API для пользователей Azure Stack | Документация Майкрософт
+description: Руководство по установке поставщика ресурсов службы приложений и созданию предложений, которые дают вашим пользователям Azure Stack возможность создавать веб-приложения и приложения API.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Обеспечение доступности веб-приложений и приложений API для пользователей Azure Stack
-
 Как администратор облака Azure Stack вы можете создавать предложения, которые позволяют пользователям (клиентам) создавать функции Azure, а также веб-приложения и приложения API. Предоставляя пользователям доступ к таким настраиваемым облачным приложениям по запросу, вы помогаете им экономить время и ресурсы. Для этого вам потребуется выполнить следующие действия:
 
 > [!div class="checklist"]
@@ -58,7 +57,7 @@ ms.lasthandoff: 02/22/2018
 Теперь, когда поставщик ресурсов службы приложений развернут и предложение создано, можно войти как пользователь, подписаться на предложение и создать приложение. В этом примере мы создадим систему управления содержимым платформы DNN. Сначала необходимо создать базу данных SQL, а затем веб-приложение DNN.
 
 ### <a name="subscribe-to-the-offer"></a>Оформление подписки на предложение
-1. Войдите на портал Azure Stack (https://portal.local.azurestack.external) в качестве клиента.
+1. Войдите на портал Azure Stack (https://portal.local.azurestack.external) как клиент.
 2. Щелкните **Получить подписку** и введите **TestAppServiceSubscription** в разделе **Отображаемое имя** > **Выберите предложение** > **TestAppServiceOffer** > **Создать**.
 
 ### <a name="create-a-sql-database"></a>Создание базы данных SQL

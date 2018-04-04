@@ -1,8 +1,8 @@
 ---
-title: "Использование Azure AD Connect Health для синхронизации | Документация Майкрософт"
-description: "На этой странице Azure AD Connect Health описывается отслеживание синхронизации Azure AD Connect."
+title: Использование Azure AD Connect Health для синхронизации | Документация Майкрософт
+description: На этой странице Azure AD Connect Health описывается отслеживание синхронизации Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Мониторинг синхронизации Azure AD Connect с помощью Azure AD Connect Health
 Приведенная ниже документация относится к мониторингу синхронизации Azure AD Connect с помощью Azure AD Connect Health.  Сведения о мониторинге AD FS с помощью Azure AD Connect Health см. в [этой статье](active-directory-aadconnect-health-adfs.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health можно найти [здесь](active-directory-aadconnect-health-adds.md).
@@ -83,11 +83,12 @@ ms.lasthandoff: 12/11/2017
 | Повторяющийся атрибут |Ошибки при попытках Azure AD Connect создать или обновить объекты с повторяющимися значениями одного или нескольких атрибутов в Azure AD, которые должны быть уникальными в клиенте, такие как proxyAddresses, UserPrincipalName. |
 | Несоответствие данных |Ошибки синхронизации, возникшие в результате сбоя мягкого сопоставления объектов. |
 | Сбой проверки данных |Ошибки, возникшие из-за недопустимых данных, таких как неподдерживаемые символы в важных атрибутах (например, UserPrincipalName), ошибки формата, не проходящие проверку перед записью в Azure AD. |
+| Смена федеративного домена | Ошибки, которые возникают, когда в учетных записях используются разные федеративные домены. |
 | Большой атрибут |Ошибки, возникающие, если размер, длина и количество атрибутов превышают установленный предел. |
 | Другие |Все другие ошибки, не входящие в категории выше. На основе отзывов эти категории будут разделены на подкатегории. |
 
 ![Сводка по отчету об ошибках синхронизации](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Категории отчета об ошибках синхронизации](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Категории отчета об ошибках синхронизации](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>Вывод списка объектов с ошибками по категориям
 Перейдя к каждой категории ошибок, вы увидите список объектов с ошибками, которые под нее подпадают.

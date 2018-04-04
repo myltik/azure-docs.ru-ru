@@ -20,8 +20,6 @@
 
     ![Колонка "Новая учетная запись" для Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. Создание учетной записи займет несколько минут. Во время создания учетной записи на портале справа будет отображаться элемент **Идет развертывание Azure DB Cosmos**. Прокрутите панель мониторинга вправо, чтобы увидеть этот элемент. В верхней части экрана также будет отображаться индикатор хода выполнения. Следить за выполнением можно с помощью любого из этих элементов.
+4. Создание учетной записи займет несколько минут. Дождитесь, пока на портале откроется страница с сообщением **Congratulations! Your Azure Cosmos DB account was created** (Поздравляем! Ваша учетная запись Azure Cosmos DB создана).
 
-    ![Область "Уведомления" на портале Azure](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
-
-    После создания учетной записи появится страница с сообщением **Congratulations! Your Azure Cosmos DB account was created** (Поздравляем! Ваша учетная запись Azure Cosmos DB создана). 
+    ![Область "Уведомления" на портале Azure](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)

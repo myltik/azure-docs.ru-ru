@@ -1,11 +1,11 @@
 ---
-title: "Настройка среды разработки в Linux | Документация Майкрософт"
-description: "Установите среду выполнения и пакет SDK, а затем создайте локальный кластер разработки в Linux. После этого вы сможете создавать приложения."
+title: Настройка среды разработки в Linux | Документация Майкрософт
+description: Установите среду выполнения и пакет SDK, а затем создайте локальный кластер разработки в Linux. После этого вы сможете создавать приложения.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для разработки Java и .NET Core.
+
+> [!NOTE]
+> Установка среды выполнения Service Fabric и пакета SDK в подсистеме Windows для Linux не поддерживается. Зато поддерживается интерфейс командной строки Azure Service Fabric (CLI), который позволяет управлять сущностями Service Fabric, размещенными в другой сети в облачной или локальной среде. См. дополнительные сведения об [установке и настройке CLI Service Fabric](./service-fabric-cli.md).
+>
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+Среда выполнения Service Fabric, которая поставляется упомянутой выше установкой, содержит пакеты, перечисленные в таблице ниже. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Неявно с использованием npm | последняя |
+
 ## <a name="set-up-a-local-cluster"></a>Настройка локального кластера
   Если установка выполнена, можно запустить локальный кластер.
 
@@ -184,7 +194,7 @@ Ubuntu
 
 2. Чтобы установить подключаемый модуль Service Fabric, выберите **Help** > **Install New Software** (Справка > Установка нового программного обеспечения).
 
-3. В поле **Work with** (Работать с) введите **http://dl.microsoft.com/eclipse**.
+3. В поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse**.
 
 4. Щелкните **Добавить**.
 
