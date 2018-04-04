@@ -1,10 +1,10 @@
 ---
-title: "Создание шлюза приложений с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с помощью портала Azure."
+title: Создание шлюза приложений с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с помощью портала Azure.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article

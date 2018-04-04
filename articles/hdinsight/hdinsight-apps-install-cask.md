@@ -1,13 +1,13 @@
 ---
-title: "Установка опубликованного приложения Datameer в Azure HDInsight | Документация Майкрософт"
-description: "Установка и использование стороннего приложения Hadoop Datameer."
+title: Установка опубликованного приложения Datameer в Azure HDInsight | Документация Майкрософт
+description: Установка и использование стороннего приложения Hadoop Datameer.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

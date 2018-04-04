@@ -1,8 +1,8 @@
 ---
-title: "Интеграция приложений с Azure Active Directory"
-description: "Сведения о том, как добавить, обновить или удалить приложение в Active Directory (Azure AD)."
+title: Интеграция приложений с Azure Active Directory
+description: Сведения о том, как добавить, обновить или удалить приложение в Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin

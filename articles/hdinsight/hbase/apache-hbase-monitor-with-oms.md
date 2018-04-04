@@ -1,13 +1,13 @@
 ---
-title: "Мониторинг HBase с помощью Operations Management Suite (OMS) в Azure HDInsight | Документация Майкрософт"
-description: "Использование OMS с Azure Log Analytics для мониторинга кластеров HDInsight HBase."
+title: Мониторинг HBase с помощью Operations Management Suite (OMS) в Azure HDInsight | Документация Майкрософт
+description: Использование OMS с Azure Log Analytics для мониторинга кластеров HDInsight HBase.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
