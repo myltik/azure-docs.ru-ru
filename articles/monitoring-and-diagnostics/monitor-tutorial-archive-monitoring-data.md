@@ -1,6 +1,6 @@
 ---
-title: "Архивация данных мониторинга Azure | Документация Майкрософт"
-description: "Архивируйте данные журнала и метрик, созданные в Azure, в учетную запись хранения."
+title: Архивация данных мониторинга Azure | Документация Майкрософт
+description: Архивируйте данные журнала и метрик, созданные в Azure, в учетную запись хранения.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics

@@ -1,11 +1,11 @@
 ---
-title: "Настройка VPN-подключений типа \"сеть — сеть\" в режиме \"активный — активный\" для VPN-шлюзов: Azure Resource Manager и PowerShell | Документы Майкрософт"
-description: "В этой статье описана поэтапная настройка подключений в режиме \"активный — активный\" для VPN-шлюзов Azure с помощью Azure Resource Manager и PowerShell."
+title: 'Настройка VPN-подключений типа "сеть — сеть" в режиме "активный — активный" для VPN-шлюзов: Azure Resource Manager и PowerShell | Документы Майкрософт'
+description: В этой статье описана поэтапная настройка подключений в режиме "активный — активный" для VPN-шлюзов Azure с помощью Azure Resource Manager и PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway

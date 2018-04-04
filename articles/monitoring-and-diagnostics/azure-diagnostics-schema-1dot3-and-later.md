@@ -1,12 +1,12 @@
 ---
-title: "Схема конфигурации расширения системы диагностики Azure версии 1.3 и более поздней версии | Документация Майкрософт"
-description: "Схема версии 1.3 и более поздние версии для системы диагностики Azure поставляются в составе пакета SDK 2.4 и более поздней версии для Microsoft Azure."
+title: Схема конфигурации расширения системы диагностики Azure версии 1.3 и более поздней версии | Документация Майкрософт
+description: Схема версии 1.3 и более поздние версии для системы диагностики Azure поставляются в составе пакета SDK 2.4 и более поздней версии для Microsoft Azure.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na

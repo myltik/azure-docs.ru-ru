@@ -1,8 +1,8 @@
 ---
-title: "Приложение Microsoft Authenticator для мобильных телефонов | Документация Майкрософт"
-description: "Узнайте, как выполнить обновление до последней версии Azure Authenticatior."
+title: Приложение Microsoft Authenticator для мобильных телефонов | Документация Майкрософт
+description: Узнайте, как выполнить обновление до последней версии Azure Authenticatior.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba

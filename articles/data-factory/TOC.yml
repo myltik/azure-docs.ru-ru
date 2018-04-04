@@ -118,6 +118,8 @@
   items:
     - name: Визуальная разработка фабрик данных
       href: author-visually.md
+    - name: Непрерывная интеграция и развертывание
+      href: continuous-integration-deployment.md
     - name: Копирование данных
       items:
         - name: Копирование данных с помощью действия копирования

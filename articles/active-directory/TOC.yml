@@ -5,12 +5,18 @@
 - name: Управление доступа на основе ролей
   href: role-based-access-control-what-is.md
   items:
-    - name: Управление назначениями доступа
+    - name: Управление назначением ролей
       items:
         - name: В зависимости от пользователя
           href: role-based-access-control-manage-assignments.md
         - name: В зависимости от ресурса
           href: role-based-access-control-configure.md
+        - name: С помощью Azure CLI
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: С помощью PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: С помощью REST
+          href: role-based-access-control-manage-access-rest.md
     - name: Встроенные роли
       href: role-based-access-built-in-roles.md
     - name: Пользовательские роли
@@ -19,14 +25,6 @@
       href: role-based-access-control-create-custom-roles-for-internal-external-users.md
     - name: Отчеты
       href: role-based-access-control-access-change-history-report.md
-    - name: Дополнительные способы управления ролями
-      items:
-        - name: С помощью Azure CLI
-          href: role-based-access-control-manage-access-azure-cli.md
-        - name: С помощью PowerShell
-          href: role-based-access-control-manage-access-powershell.md
-        - name: С помощью REST
-          href: role-based-access-control-manage-access-rest.md
     - name: Повышение прав доступа администратора клиента
       href: role-based-access-control-tenant-admin-access.md
     - name: Устранение неполадок

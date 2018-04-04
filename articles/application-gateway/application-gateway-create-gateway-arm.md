@@ -1,10 +1,10 @@
 ---
-title: "Создание шлюза приложений с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с помощью Azure PowerShell."
+title: Создание шлюза приложений с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с помощью Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurepowershell

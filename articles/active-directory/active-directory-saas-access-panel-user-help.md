@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок с получением доступа к порталу \"Мои приложения\" в Azure Active Directory и его использование | Документация Майкрософт"
-description: "Сведения по устранению неполадок с входом на панель доступа и выполнения общих задач на ней."
+title: Устранение неполадок с получением доступа к порталу "Мои приложения" в Azure Active Directory и его использование | Документация Майкрософт
+description: Сведения по устранению неполадок с входом на панель доступа и выполнения общих задач на ней.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
