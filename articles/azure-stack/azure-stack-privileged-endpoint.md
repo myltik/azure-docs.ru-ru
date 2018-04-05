@@ -1,24 +1,24 @@
 ---
-title: "Использование привилегированной конечной точки в Azure Stack | Документация Майкрософт"
-description: "Описано использование привилегированной конечной точки (PEP) в Azure Stack (для оператора Azure Stack)."
+title: Использование привилегированной конечной точки в Azure Stack | Документация Майкрософт
+description: Описано использование привилегированной конечной точки (PEP) в Azure Stack (для оператора Azure Stack).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Использование привилегированной конечной точки в Azure Stack
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/24/2018
       ```` 
    При появлении запроса используйте следующие учетные данные:
 
-      - **Имя пользователя**. Укажите учетную запись CloudAdmin в формате **&lt;*домен Azure Stack*&gt;\cloudadmin**. (При использовании ASDK имя пользователя — **azurestack\cloudadmin**.)
+      - **Имя пользователя**. Укажите учетную запись CloudAdmin в формате **&lt;*домен Azure Stack*&gt;\accountname**. (При использовании ASDK имя пользователя — **azurestack\accountname**.) 
       - **Пароль.** Введите пароль, который использовался во время установки учетной записи администратора домена AzureStackAdmin.
     
 3.  После подключения запрос изменится на **[*IP-адрес или имя виртуальной машины ERCS*]: PS>** или на **[azs-ercs01]: PS>**, в зависимости от среды. Теперь запустите командлет `Get-Command`, чтобы просмотреть список доступных командлетов.
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/24/2018
       ```` 
    При появлении запроса используйте следующие учетные данные:
 
-      - **Имя пользователя**. Укажите учетную запись CloudAdmin в формате **&lt;*домен Azure Stack*&gt;\cloudadmin**. (При использовании ASDK имя пользователя — **azurestack\cloudadmin**.)
+      - **Имя пользователя**. Укажите учетную запись CloudAdmin в формате **&lt;*домен Azure Stack*&gt;\accountname**. (При использовании ASDK имя пользователя — **azurestack\accountname**.) 
       - **Пароль.** Введите пароль, который использовался во время установки учетной записи администратора домена AzureStackAdmin.
 
 3. Импорт сеанса привилегированной конечной точки на локальный компьютер

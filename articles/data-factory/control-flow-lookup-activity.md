@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Действие поиска в фабрике данных Azure
 Действие поиска можно использовать для считывания или поиска записи, имени таблицы или значения из внешних источников. На эти выходные данные можно затем ссылаться в последующих действиях. 
@@ -30,12 +30,23 @@ ms.lasthandoff: 03/23/2018
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Сейчас поиск поддерживается для следующих источников данных:
-- JSON-файл в хранилище BLOB-объектов Azure;
-- JSON-файл в файловой системе;
-- база данных SQL Azure (данные JSON, преобразованные из запроса);
-- хранилище данных SQL Azure (данные JSON, преобразованные из запроса);
-- SQL Server (данные JSON, преобразованные из запроса);
-- хранилище таблиц Azure (данные JSON, преобразованные из запроса).
+
+- Amazon Redshift
+- Хранилище больших двоичных объектов Azure
+- Azure Cosmos DB
+- Хранилище озера данных Azure
+- Хранилище файлов Azure
+- Базы данных SQL Azure
+- Хранилище данных SQL Azure
+- табличное хранилище Azure;
+- Dynamics 365
+- Dynamics CRM
+- Файловая система
+- PostgreSQL
+- Salesforce
+- Облачная служба Salesforce
+- SFTP
+- SQL Server;
 
 Максимальное количество строк, возвращенных операцией поиска — **5000** размером до **10 МБ**.
 
@@ -62,9 +73,14 @@ ms.lasthandoff: 03/23/2018
 ## <a name="type-properties"></a>Свойства типа
 ИМЯ | ОПИСАНИЕ | type | Обязательный?
 ---- | ----------- | ---- | --------
-dataset | Предоставляет ссылку на набор данных для поиска. В настоящее время поддерживаются следующие типы наборов данных:<ul><li>`AzureBlobDataset` для [хранилища BLOB-объектов Azure](connector-azure-blob-storage.md#dataset-properties), используемого в качестве источника</li><li>`FileShareDataset` для [файловой системы](connector-file-system.md#dataset-properties), используемой в качестве источника</li><li>`AzureSqlTableDataset` для [базы данных Azure SQL](connector-azure-sql-database.md#dataset-properties) или [хранилища данных Azure SQL](connector-azure-sql-data-warehouse.md#dataset-properties), используемых в качестве источника</li><li>`SqlServerTable` для [SQL Server](connector-sql-server.md#dataset-properties) в качестве источника</li><li>`AzureTableDataset` для [хранилища таблиц Azure](connector-azure-table-storage.md#dataset-properties), используемого в качестве источника</li> | Пара "ключ — значение" | Yes
+dataset | Предоставляет ссылку на набор данных для поиска. Дополнительные сведения можно найти в разделе "Свойства набора данных" в каждой соответствующей статье о соединителе. | Пара "ключ — значение" | Yes
 источник | Содержит свойства источника конкретного набора данных, аналогичные источнику действия копирования. Дополнительные сведения можно найти в разделе "Свойства действия копирования" в каждой соответствующей статье о соединителе. | Пара "ключ — значение" | Yes
 firstRowOnly | Указывает, следует ли возвращать только первую или все строки. | Логическое | Нет. Значение по умолчанию — `true`.
+
+Обратите внимание на следующие моменты.
+
+1. Исходный столбец с типом ByteArray не поддерживается.
+2. Структура не поддерживается в определении набора данных. Для текстовых файлов форматирования можно использовать строку заголовка, чтобы указать имя столбца.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Использование результата действия поиска в следующем действии
 

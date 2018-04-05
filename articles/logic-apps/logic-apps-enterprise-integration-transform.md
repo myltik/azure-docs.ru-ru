@@ -1,6 +1,6 @@
 ---
-title: "Преобразование данных XML с помощью преобразований в Azure Logic Apps | Документация Майкрософт"
-description: "Создание преобразования или сопоставления для преобразования данных XML в разные форматы в приложениях логики с помощью пакета SDK для интеграции Enterprise"
+title: Преобразование данных XML с помощью преобразований в Azure Logic Apps | Документация Майкрософт
+description: Создание преобразования или сопоставления для преобразования данных XML в разные форматы в приложениях логики с помощью пакета SDK для интеграции Enterprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Интеграция Enterprise с преобразованием данных XML
 ## <a name="overview"></a>Обзор
@@ -64,6 +64,7 @@ ms.lasthandoff: 01/08/2018
 
 Теперь можно проверить преобразование, выполнив запрос к конечной точке HTTP.  
 
+
 ## <a name="features-and-use-cases"></a>Функции и варианты использования
 * Преобразование, создаваемое в сопоставлении, может быть простым, таким как копирование имени и адреса из одного документа в другой. Но вы также можете создавать и более сложные преобразования с помощью встроенных операций сопоставления.  
 * Многие операции или функции сопоставления легко доступны, включая строки, функции даты-времени и пр.  
@@ -73,11 +74,49 @@ ms.lasthandoff: 01/08/2018
 * Передача существующих карт  
 * Включена поддержка формата XML.
 
-## <a name="adanced-features"></a>Дополнительные функции
-Доступ к следующим функциям можно получить только в представлении кода.
+## <a name="advanced-features"></a>Дополнительные функции
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Базовая сборка или настраиваемый код из карт 
+Действие преобразования также поддерживает карты или преобразования со ссылкой на внешнюю сборку. Эта возможность позволяет вызывать настраиваемый код .NET непосредственно из карт XSLT. Ниже приведены предварительные требования для использования сборки в картах.
+
+* Карту и сборку, на которую добавлена ссылка в карте, необходимо [передать в учетную запись интеграции](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > Карту и сборку необходимо передавать в определенном порядке. Сначала нужно передать сборку, а затем — карту со ссылкой на сборку.
+
+* Кроме того, в карте должны быть следующие атрибуты и раздел CDATA с вызовом кода сборки:
+
+    * **name** — имя настраиваемой сборки;
+    * **namespace** — пространство имен в сборке, где содержится настраиваемый код.
+
+  В этом примере показана карта, в которую добавлена ссылка на сборку с именем XslUtilitiesLib. В карте выполняется вызов метода `circumreference` из сборки.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Метка порядка байтов
-По умолчанию ответ при преобразовании будет начинаться с метки порядка байтов. Чтобы отключить эту функцию, укажите `disableByteOrderMark` для свойства `transformOptions`:
+По умолчанию ответ при преобразовании начинается с метки порядка байтов. Эта функция доступна только при работе в редакторе представления кода. Чтобы отключить эту функцию, укажите `disableByteOrderMark` для свойства `transformOptions`:
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ ms.lasthandoff: 01/08/2018
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>Подробнее
 * [Обзор пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  

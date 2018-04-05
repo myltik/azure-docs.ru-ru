@@ -1,6 +1,6 @@
 ---
-title: "Управление зонами DNS в службе DNS Azure (Azure CLI 2.0) | Документация Майкрософт"
-description: "Зонами DNS можно управлять с помощью Azure CLI 2.0. В этой статье показано, как обновлять, удалять и создавать зоны DNS в службе DNS Azure."
+title: Управление зонами DNS в службе DNS Azure (Azure CLI 2.0) | Документация Майкрософт
+description: Зонами DNS можно управлять с помощью Azure CLI 2.0. В этой статье показано, как обновлять, удалять и создавать зоны DNS в службе DNS Azure.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Как управлять зонами DNS в службе DNS Azure с помощью Azure CLI 2.0
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 В этом руководстве показано, как управлять зонами DNS с помощью кроссплатформенного интерфейса командной строки Azure, доступного для Windows, Mac и Linux. Зонами DNS также можно управлять с помощью [Azure PowerShell](dns-operations-dnszones.md) или портала Azure.
+
+В этом руководстве рассматриваются именно общедоступные зоны DNS. Сведения об использовании Azure PowerShell для управления частным зонами в Azure DNS см. в статье о [начале работы с Частными зонами Azure DNS с помощью Azure CLI 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Введение
 
@@ -45,7 +47,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
 
-Откройте окно консоли и пройдите проверку подлинности с помощью своих учетных данных. Дополнительные сведения см. в статье "Вход в Azure из командной строки Azure".
+Откройте окно консоли и пройдите проверку подлинности с помощью своих учетных данных. Дополнительную информацию см. в статье о [входе в Azure из командной строки Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ```
 az login
@@ -64,6 +66,12 @@ az account list
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Необязательно. Установка и использование функции "Частные зоны Azure DNS" (предварительная версия)
+Функция "Частные зоны Azure DNS" выпущена в общедоступной предварительной версии через расширение Azure CLI. Установите расширение dns для Azure CLI: 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 

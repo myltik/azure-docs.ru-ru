@@ -1,19 +1,19 @@
 ---
-title: "Непрерывное развертывание Jenkins c помощью Kubernetes в Службе контейнеров Azure"
-description: "Автоматизация процесса непрерывного развертывания с помощью Jenkins для развертывания и обновления контейнерного приложения на платформе Kubernetes в Службе контейнеров Azure."
+title: Непрерывное развертывание Jenkins c помощью Kubernetes в Службе контейнеров Azure
+description: Автоматизация процесса непрерывного развертывания с помощью Jenkins для развертывания и обновления контейнерного приложения на платформе Kubernetes в Службе контейнеров Azure.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1293fda45602203570a0f7f75481f67bdcb6edf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Непрерывное развертывание с помощью Jenkins в Службе контейнеров Azure
 
@@ -160,6 +160,20 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
+
+Если возникают проблемы при входе в Jenkins, создайте сеанс SSH с виртуальной машиной Jenkins и перезапустите службу Jenkins. IP-адрес виртуальной машины имеет тот же адрес, который был указан в скрипте сборки. Имя пользователя администратора виртуальной машины — `azureuser`.
+
+```bash
+ssh azureuser@52.166.118.64
+```
+
+Перезапустите службу Jenkins.
+
+```bash
+sudo service jenkins restart
+```
+
+Обновите окно браузера, чтобы появилась форма входа Jenkins.
 
 ## <a name="jenkins-environment-variables"></a>Переменные среды Jenkins
 

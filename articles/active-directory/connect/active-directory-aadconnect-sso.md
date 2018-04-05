@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Простой единый вход Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/08/2018
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Простой единый вход можно использовать вместе с методами [синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) или [сквозной проверки подлинности](active-directory-aadconnect-pass-through-authentication.md).
+Простой единый вход можно использовать вместе с методами [синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) или [сквозной проверки подлинности](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Простой единый вход](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/08/2018
   - Пользователям не нужно вводить пароль несколько раз.
 - *Простота развертывания и администрирования*
   - Дополнительные локальные компоненты не требуются.
-  - Эта функция работает с любым методом аутентификации в облаке: [синхронизацией хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) и [сквозной аутентификацией](active-directory-aadconnect-pass-through-authentication.md).
+  - Эта функция работает с любым методом аутентификации в облаке: [синхронизацией хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) и [сквозной аутентификацией](active-directory-aadconnect-pass-through-authentication.md).
   - Ее можно развернуть для всех пользователей или их части с помощью групповой политики.
   - Регистрация устройств не под управлением Windows 10 в Azure AD без необходимости в какой-либо инфраструктуре AD FS. Для использования этой возможности требуется версия 2.1 или более поздняя версия [клиента подключения к рабочему месту](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -50,7 +50,8 @@ ms.lasthandoff: 03/08/2018
 
 - Именем пользователя для входа может быть либо локальное имя пользователя по умолчанию (`userPrincipalName`), либо другой атрибут, настроенный в Azure AD Connect (`Alternate ID`). Оба варианта использования работают, так как служба простого единого входа использует утверждение `securityIdentifier` в билете Kerberos для поиска соответствующего объекта-пользователя в Azure AD.
 - Простой единый вход — ситуативно-обусловленная функция. Если в ней происходит сбой, процедура входа выполняется стандартно, то есть пользователь, как и прежде, должен просто ввести пароль на странице входа.
-- Если приложение пересылает параметр `domain_hint` (OpenID Connect), параметр `whr` (SAML), определяющий клиент, или параметр `login_hint`, определяющий пользователя, в запросе на вход в Azure AD, то пользователи автоматически входят в систему, не вводя имена пользователей и пароли.
+- Если приложение (например, https://myapps.microsoft.com/contoso.com)) пересылает параметр `domain_hint` (OpenID Connect), параметр `whr` (SAML), определяющий клиент, или параметр `login_hint`, определяющий пользователя, в запросе на вход в Azure AD, то пользователи автоматически входят в систему, не вводя имена пользователей и пароли.
+- Пользователи могут использовать автоматический единый вход, если приложение (например, https://contoso.sharepoint.com)) отправляет запросы на вход на клиентские конечные точки Azure AD, то есть https://login.microsoftonline.com/contoso.com/<..> или https://login.microsoftonline.com/<tenant_ID>/<..>, вместо обычной конечной точки Azure AD (https://login.microsoftonline.com/common/<...>).
 - Поддерживается выход. Это позволяет пользователям выбрать другую учетную запись Azure AD для входа вместо того, чтобы автоматически входить с помощью простого единого входа.
 - Клиенты Office 365 (версии 16.0.8730.xxxx и более поздних версий) поддерживаются с помощью неинтерактивной процедуры.
 - Функцию можно включить с помощью Azure AD Connect.

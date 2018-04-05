@@ -1,25 +1,25 @@
 ---
-title: "Создание общедоступной подсистемы балансировки нагрузки уровня \"Стандартный\" с избыточным в пределах зоны интерфейсным общедоступным IP-адресом с помощью PowerShell | Документация Майкрософт"
-description: "Сведения о создании общедоступной подсистемы балансировки нагрузки уровня \"Стандартный\" с избыточным в пределах зоны интерфейсным общедоступным IP-адресом с помощью PowerShell."
+title: Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с избыточным в пределах зоны интерфейсным общедоступным IP-адресом с помощью PowerShell | Документация Майкрософт
+description: Сведения о создании общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с избыточным в пределах зоны интерфейсным общедоступным IP-адресом с помощью PowerShell.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: abe970eb72be5ea6944acc253c2c3d9008b20c56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2849ef9b862b4471f348ac83a4a18eb9a3a4d42a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с избыточным в пределах зоны интерфейсным общедоступным IP-адресом с помощью PowerShell
 
@@ -27,17 +27,12 @@ ms.lasthandoff: 03/09/2018
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>Регистрация для использования зон доступности, подсистемы балансировки нагрузки уровня "Стандартный" и общедоступного стандартного IP-адреса (предварительная версия)
+## <a name="register-for-availability-zones-preview"></a>Регистрация для использования предварительной версии зон доступности
 
 Чтобы выполнить процедуры, описанные в этой статье, установите модуль AzureRM версии 4.4.0 или более поздней. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если требуется установка или обновление, установите последнюю версию модуля AzureRM из [коллекции PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
->[!NOTE]
-[Номер SKU подсистемы балансировки нагрузки уровня "Стандартный"](https://aka.ms/azureloadbalancerstandard) сейчас находится в предварительной версии. В период действия предварительной версии эта функция может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в общедоступной версии. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Общедоступный номер SKU подсистемы балансировки нагрузки уровня "Базовый"](load-balancer-overview.md) можно использовать для производственных служб. 
-
 > [!NOTE]
 > Зоны доступности используются в режиме предварительной версии в сценариях разработки и тестирования. Поддержка реализована для некоторых ресурсов, регионов и семейств размеров виртуальных машин Azure. Дополнительные сведения о начале работы и о том, какие ресурсы, регионы и семейства размеров виртуальных машин Azure поддерживаются для зон доступности, см. в разделе [Обзор зон доступности](https://docs.microsoft.com/azure/availability-zones/az-overview). Чтобы получить поддержку, обратитесь на форум [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) или [создайте запрос в службу поддержки Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-
-Перед выбором зоны или избыточного в пределах зоны параметра интерфейсного общедоступного IP-адреса для подсистемы балансировки нагрузки необходимо выполнить действия, описанные в статье [Общие сведения о зонах доступности в Azure (предварительная версия)](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

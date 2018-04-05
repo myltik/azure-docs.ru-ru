@@ -1,12 +1,12 @@
 ---
-title: "Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки | Документация Майкрософт"
-description: "Ознакомление со сценариями управления удостоверениями и доступом и их реализация"
+title: 'Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки | Документация Майкрософт'
+description: Ознакомление со сценариями управления удостоверениями и доступом и их реализация
 services: active-directory
-keywords: "azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC"
-documentationcenter: 
+keywords: azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 02/22/2018
 
 | Предварительные требования | Ресурсы |
 | --- | --- |
-| Определен клиент Azure AD с действительной подпиской Azure | [Как получить клиент Azure Active Directory](active-directory-howto-tenant.md)<br/>**Примечание.** Если у вас уже есть среда с лицензиями Azure AD Premium, вы можете получить подписку нулевой емкости, перейдя по адресу https://aka.ms/accessaad. <br/>Дополнительные сведения: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ и https://technet.microsoft.com/library/dn832618.aspx. |
-| Домены определены и проверены | [Добавление имени личного домена в Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Примечание.** Некоторые рабочие нагрузки, такие как Power BI, могли уже подготовить клиент Azure AD. Чтобы проверить, связан ли конкретный домен с клиентом, перейдите по адресу https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Если вы успешно получили ответ, значит домен уже назначен клиенту и может потребоваться перехват. В этом случае за дальнейшими указаниями обратитесь в корпорацию Майкрософт. Дополнительные сведения о вариантах перехвата см. в статье [Что такое самостоятельная регистрация для Azure?](active-directory-self-service-signup.md). |
+| Определен клиент Azure AD с действительной подпиской Azure | [Как получить клиент Azure Active Directory](active-directory-howto-tenant.md)<br/>**Примечание.** Если у вас уже есть среда с лицензиями Azure AD Premium, вы можете получить подписку нулевой емкости по адресу https://aka.ms/accessaad <br/>Дополнительные сведения см. по ссылкам https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ и https://technet.microsoft.com/library/dn832618.aspx |
+| Домены определены и проверены | [Добавление имени личного домена в Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Примечание.** Некоторые рабочие нагрузки, такие как Power BI, могли уже подготовить клиент Azure AD. Чтобы проверить, связан ли заданный домен с каким-либо клиентом, перейдите по адресу https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Если вы успешно получили ответ, значит домен уже назначен клиенту и может потребоваться перехват. В этом случае за дальнейшими указаниями обратитесь в корпорацию Майкрософт. Дополнительные сведения о вариантах перехвата см. в статье [Что такое самостоятельная регистрация для Azure?](active-directory-self-service-signup.md). |
 | Включена пробная версия EMS или Azure AD Premium | [Бесплатная пробная версия Azure Active Directory Premium на один месяц](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Вы назначили лицензии Azure AD Premium или EMS пользователям подтверждения концепции | [Самостоятельное лицензирование и лицензирование пользователей в Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Учетные данные глобального администратора Azure AD | [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/22/2018
 
 ### <a name="considerations"></a>Рекомендации
 
-1. Ознакомьтесь с замечаниями по безопасности для синхронизации хэша паролей [здесь](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Если синхронизация хэша паролей для пользователей пилотной рабочей среды совершенно неприемлема, рассмотрите следующие альтернативы:
+1. Ознакомьтесь с замечаниями по безопасности для синхронизации хэша паролей [здесь](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Если синхронизация хэша паролей для пользователей пилотной рабочей среды совершенно неприемлема, рассмотрите следующие альтернативы:
    * Создайте тестовых пользователей в рабочем домене. Следите за тем, чтобы не синхронизировать никакие другие учетные записи.
    * Перейдите в среду UAT.
 2.  Если вы хотите сохранить федерацию, следует понимать, с какими затратами сопряжено использование федеративного решения с локальным поставщиком удостоверений за пределами подтверждения концепции, и сопоставлять их с потенциальной выгодой:
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/22/2018
 | Перейдите на портал управления Azure AD. | [Портал управления Azure AD — фирменная символика организации](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Отправьте ресурсы для страницы входа (имиджевый логотип, небольшой логотип, метки и т. д.). Если имеется AD FS, согласуйте эти ресурсы со страницами входа ADFS (необязательно). | [Добавление фирменной символики компании на страницах входа и панели доступа: настраиваемые элементы](customize-branding.md) |
 | Подождите несколько минут, чтобы изменения вступили в силу. |  |
-| Войдите на сайт https://myapps.microsoft.com с помощью учетных данных пользователя подтверждения концепции. |  |
+| Выполните вход с учетными данными пользователя для подтверждения концепции по адресу https://myapps.microsoft.com |  |
 | Оцените внешний вид и удобство использования в браузере. | [Добавление фирменной символики компании на страницах входа и панели доступа](customize-branding.md) |
 | При необходимости проверьте внешний вид и удобство использования на других устройствах. |  |
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 02/22/2018
 
 | Предварительные требования | Ресурсы |
 | --- | --- |
-| Доступна тестовая среда для приложения SaaS. В этом руководстве в качестве примера мы используем ServiceNow.<br/>Настоятельно рекомендуется использовать тестовый экземпляр, чтобы минимизировать взаимодействие с существующими данными и их сопоставлениями. | Перейдите по адресу https://developer.servicenow.com/app.do#!/home, чтобы приступить к получению тестового экземпляра. |
+| Доступна тестовая среда для приложения SaaS. В этом руководстве в качестве примера мы используем ServiceNow.<br/>Настоятельно рекомендуется использовать тестовый экземпляр, чтобы минимизировать взаимодействие с существующими данными и их сопоставлениями. | Перейдите по адресу https://developer.servicenow.com/app.do#!/home, чтобы начать процесс получения тестового экземпляра |
 | Административный доступ к консоли управления ServiceNow. | [Руководство: интеграция Azure Active Directory с ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Целевой набор пользователей для назначения приложения. Рекомендуется использовать группу безопасности, содержащую пользователей подтверждения концепции. <br/>Если создать такую группу невозможно, назначьте пользователей непосредственно приложению для подтверждения концепции. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 02/22/2018
 | Следуйте инструкциям для настройки ServiceNow. |  |
 | В колонке "Подготовка" приложения ServiceNow включите автоматическую подготовку. | [Управление подготовкой учетных записей пользователей для корпоративных приложений на новом портале Azure](active-directory-enterprise-apps-manage-provisioning.md) |
 | Подождите несколько минут, пока подготовка закончится.  В это время можно просмотреть отчеты о подготовке. |  |
-| Войдите на сайт https://myapps.microsoft.com/ в качестве тестового пользователя с правом доступа. | [Что такое панель доступа?](active-directory-saas-access-panel-introduction.md) |
+| Выполните вход по адресу https://myapps.microsoft.com/ как тестовый пользователь, обладающий доступом | [Что такое панель доступа?](active-directory-saas-access-panel-introduction.md) |
 | Щелкните элемент для только что созданного приложения. Подтвердите доступ. |  |
 | При необходимости вы также можете просмотреть отчеты об использовании приложения. Обратите внимание, что имеется некоторая задержка, поэтому для отражения трафика в отчетах нужно немного подождать. | [Отчеты о действиях входа на портале Azure Active Directory: использование управляемых приложений](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Политики хранения отчетов Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 02/22/2018
 | Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Назначьте приложение группе, указанной в предварительных требованиях. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
-| Войдите на сайт https://myapps.microsoft.com/ в качестве тестового пользователя с правом доступа. |  |
+| Выполните вход по адресу https://myapps.microsoft.com/ как тестовый пользователь, обладающий доступом |  |
 | Щелкните элемент для только что созданного приложения. | [Что такое панель доступа? Единый вход по паролю без предоставления идентификатора](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Укажите учетные данные приложения. | [Что такое панель доступа? Единый вход по паролю без предоставления идентификатора](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Закройте браузер и повторите вход. На этот раз пользователь должен получить возможность легкого доступа к приложению. |  |
@@ -209,7 +209,7 @@ ms.lasthandoff: 02/22/2018
 | Предварительные требования | Ресурсы |
 | --- | --- |
 | Список целевых приложений и точные URL-адреса входа заранее. Например, можно использовать Twitter. | [Twitter в Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Регистрация в Twitter](https://twitter.com/signup?lang=en) |
-| Общие учетные данные для этого приложения SaaS. | [Совместное использование учетных записей с помощью Azure AD](active-directory-sharing-accounts.md)<br/>[Автоматическая смена паролей Azure AD для Facebook, Twitter и LinkedIn перешла на этап предварительной версии! — блог по Enterprise Mobility + Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Общие учетные данные для этого приложения SaaS. | [Совместное использование учетных записей с помощью Azure AD](active-directory-sharing-accounts.md)<br/>[Автоматическая смена паролей Azure AD для Facebook, Twitter и LinkedIn перешла на этап предварительной версии! - Блог о корпоративной мобильности и безопасности] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Учетные данные по меньшей мере двух членов группы, которые будут обращаться к одной учетной записи. Они должны входить в группу безопасности. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Доступ локального администратора к компьютеру, чтобы развернуть расширение панели доступа для Internet Explorer, Chrome или Firefox. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -420,7 +420,7 @@ ms.lasthandoff: 02/22/2018
 | --- | --- |
 | Перейдите в колонку "Пользователи и группы" на портале управления Azure AD. | [Портал управления Azure AD: пользователи и группы](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Выберите колонку "Все пользователи". |  |
-| Нажмите кнопку "Многофакторная идентификация" в верхней части. | Прямой URL-адрес для портала Многофакторной идентификации Azure: https://aka.ms/mfaportal |
+| Нажмите кнопку "Многофакторная идентификация" в верхней части. | Прямой URL-адрес портала Azure MFA: https://aka.ms/mfaportal |
 | В параметрах "Пользователь" выберите пользователей подтверждения концепции и включите для них Многофакторную идентификацию. | [Состояние пользователей в службе Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | Войдите в качестве пользователя подтверждения концепции и пройдите процесс подтверждения.  |  |
 
@@ -443,7 +443,7 @@ ms.lasthandoff: 02/22/2018
 | Пользователи подтверждения концепции уже назначены для приложения. |  |
 | Учетные данные для пользователя подтверждения концепции доступны. |  |
 | Пользователь подтверждения концепции зарегистрирован для Многофакторной идентификации. Используется телефон с хорошим приемом. | https://aka.ms/ssprsetup |
-| Устройство во внутренней сети. IP-адрес настроен во внутреннем диапазоне. | Узнайте свой IP-адрес: https://www.bing.com/search?q=what%27s+my+ip |
+| Устройство во внутренней сети. IP-адрес настроен во внутреннем диапазоне. | Найдите свой IP-адрес: https://www.bing.com/search?q=what%27s+my+ip |
 | Устройство во внешней сети (это может быть телефон, использующий сеть оператора мобильной сети). |  |
 
 ### <a name="steps"></a>Действия
@@ -476,10 +476,10 @@ ms.lasthandoff: 02/22/2018
 
 | Шаг | Ресурсы |
 | --- | --- |
-| Войдите на сайт https://portal.azure.com в качестве глобального администратора и выполните начальную загрузку колонки PIM. Глобальный администратор, выполнивший этот шаг, назначается администратором безопасности.  Назовем этот субъект GA1. | [Использование мастера защиты в Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
+| Выполните вход по адресу https://portal.azure.com как глобальный администратор и запустите начальную загрузку колонки PIM. Глобальный администратор, выполнивший этот шаг, назначается администратором безопасности.  Назовем этот субъект GA1. | [Использование мастера защиты в Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Определите глобального администратора и переведите его из постоянного в соответствующий. Для наглядности этот администратор должен отличаться от использованного в шаге 1. Назовем этот субъект GA2. | [Управление привилегированными пользователями Azure AD: добавление и удаление роли пользователя](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Что такое Azure AD Privileged Identity Management? Настройка параметров активации ролей](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| Теперь войдите в качестве GA2 на сайт https://portal.azure.com и попробуйте изменить "Параметры пользователя". Обратите внимание, что некоторые параметры будут недоступны. | |
-| На новой вкладке и в том же сеансе, что и в шаге 3, перейдите на https://portal.azure.com и добавьте колонку PIM на панель мониторинга. | [Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD: добавление приложения для управления привилегированными пользователями](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Теперь войдите как GA2 по адресу https://portal.azure.com и попробуйте изменить "Параметры пользователя". Обратите внимание, что некоторые параметры будут недоступны. | |
+| На новой вкладке в том же сеансе, что и в шаге 3, перейдите по адресу https://portal.azure.com и добавьте колонку PIM на панель мониторинга. | [Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD: добавление приложения для управления привилегированными пользователями](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Запросите активацию для роли глобального администратора. | [Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD: активация роли](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Обратите внимание, что если GA2 никогда не регистрировался для Многофакторной идентификации, потребуется выполнить такую регистрацию. |  |
 | Вернитесь на исходную вкладку в шаге 3 и нажмите кнопку обновления в браузере. Обратите внимание, что теперь вы можете изменять "Параметры пользователя". | |
@@ -506,9 +506,9 @@ ms.lasthandoff: 02/22/2018
 | Шаг | Ресурсы |
 | --- | --- |
 | Откройте браузер Tor. | [Скачайте браузер Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Войдите на сайт https://myapps.microsoft.com с помощью учетной записи пользователя подтверждения концепции. | [Тренировочное задание по защите идентификации Azure Active Directory: моделирование событий риска](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Выполните вход по адресу https://myapps.microsoft.com с учетной записью пользователя для подтверждения концепции | [Тренировочное задание по защите идентификации Azure Active Directory: моделирование событий риска](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Подождите 5–7 минут. |  |
-| Войдите в качестве глобального администратора на https://portal.azure.com и откройте колонку защиты идентификации. | https://aka.ms/aadipgetstarted |
+| Выполните вход по адресу https://portal.azure.com как глобальный администратор и откройте колонку защиты идентификации | https://aka.ms/aadipgetstarted |
 | Откройте колонку событий риска. Вы должны увидеть запись в разделе "Попытки входа с анонимных IP-адресов".  | [Тренировочное задание по защите идентификации Azure Active Directory: моделирование событий риска](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Рекомендации
@@ -532,10 +532,10 @@ ms.lasthandoff: 02/22/2018
 
 | Шаг | Ресурсы |
 | --- | --- |
-| Войдите в качестве глобального администратора на https://portal.azure.com и откройте колонку защиты идентификации. | https://aka.ms/aadipgetstarted |
+| Выполните вход по адресу https://portal.azure.com как глобальный администратор и откройте колонку защиты идентификации | https://aka.ms/aadipgetstarted |
 | Включите политику риска для входа:<br/>— Назначено: пользователь подтверждения концепции<br/>— Условия: риск входа средний или выше (вход из анонимного расположения относится к среднему уровню риска)<br/>— Элементы управления: требовать Многофакторную идентификацию | [Тренировочное задание по защите идентификации Azure Active Directory: риск при входе](active-directory-identityprotection-playbook.md) |
 | Откройте браузер Tor. | [Скачайте браузер Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Войдите на сайт https://myapps.microsoft.com с помощью учетной записи пользователя подтверждения концепции. |  |
+| Выполните вход по адресу https://myapps.microsoft.com с учетной записью пользователя для подтверждения концепции |  |
 | Обратите внимание на запрос Многофакторной идентификации. | [Процедуры входа с защитой идентификации Azure AD: восстановление входа, представлявшего риск](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Рекомендации

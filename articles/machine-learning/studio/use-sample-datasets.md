@@ -1,10 +1,11 @@
 ---
-title: "Использование демонстрационных наборов данных в Студии машинного обучения | Документация Майкрософт"
-description: "Описания наборов данных, используемых в примерах моделей, которые входят в состав Студии машинного обучения. Эти наборы данных можно использовать для собственных экспериментов."
+title: Использование демонстрационных наборов данных в Студии машинного обучения | Документация Майкрософт
+description: Описания наборов данных, используемых в примерах моделей, которые входят в состав Студии машинного обучения. Эти наборы данных можно использовать для собственных экспериментов.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Используйте типовых наборов данных в Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/20/2018
 <p></p>
 <b>Использование:</b> классификация людей на основе демографических данных для прогнозирования, зарабатывает ли человек более 50 000 в год.
 <p></p>
-<b>Связанные исследования:</b> Kohavi, R., Becker, B. (1996 г.). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанные исследования:</b> Kohavi, R., Becker, B. (1996 г.). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ ms.lasthandoff: 01/20/2018
 <p></p>
 <b>Использование:</b> прогнозирование оценки рисков с учетом особенностей с помощью регрессионной или многомерной классификации. 
 <p></p>
-<b>Связанное исследование:</b> Schlimmer, J.C. (1987). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанное исследование:</b> Schlimmer, J.C. (1987). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -99,10 +99,10 @@ ms.lasthandoff: 01/20/2018
 <p></p>
 <b>Использование:</b> прогнозирование того, сдавал ли донор кровь в марте 2007 г., путем классификации, где 1 обозначает донора в течение целевого периода, а 0 — отсутствие донора. 
 <p></p>
-<b>Связанное исследование:</b> Yeh, I.C. (2008 г.). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук 
+<b>Связанное исследование:</b> Yeh, I.C. (2008 г.). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук 
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM model using Bernoulli sequence, Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  .</td>
+  </td>
 </tr>
 
 <tr>
@@ -112,7 +112,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> классификация типа рака на основе 9 атрибутов, некоторые из которых линейные, а некоторые — категориальные. 
 <p></p>
-<b>Связанное исследование:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанное исследование:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -165,7 +165,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> использование регрессии или классификации для прогнозирования оценки энергетического КПД, основанной на одном из двух реальных ответов. Для многоклассовой классификации переменная ответа округляется до ближайшего целого числа. 
 <p></p>
-<b>Связанное исследование:</b> Xifara, A. и Tsanas, A. (2012). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанное исследование:</b> Xifara, A. и Tsanas, A. (2012). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> прогнозирование задержки рейсов. 
 <p></p>
-<b>Связанное исследование:</b> данные Министерства транспорта США <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Связанное исследование:</b> из отдела транспорта США <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -201,7 +201,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> это сложная регрессионная задача, цель которой состоит в прогнозировании площади выгорания из-за лесных пожаров. 
 <p></p>
-<b>Связанное исследование:</b> Cortez, P. и Morais, A. (2008). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук 
+<b>Связанное исследование:</b> Cortez, P. и Morais, A. (2008). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук 
 <p></p>
 [Cortez и Morais, 2007] P. Cortez и A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos и J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 — Portuguese Conference on Artificial Intelligence, декабрь, Гимарайнш, Португалия, с. 512–523, 2007 г. APPIA, ISBN-13 978-989-95618-0-9. Доступно по адресу: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -230,7 +230,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> прогнозирование типа ириса на основе результатов измерений.  
 <p></p>
-<b>Связанное исследование:</b> Fisher, R. A. (1988). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанное исследование:</b> Fisher, R. A. (1988). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -249,7 +249,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование.</b> Прогнозирование уровня экономии топлива на основе трех многозначных дискретных атрибутов и пяти непрерывных атрибутов. 
 <p></p>
-<b>Связанное исследование:</b> StatLib, Университет Карнеги — Меллон (1993 г.). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанное исследование:</b> StatLib, Университет Карнеги — Меллон (1993 г.). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -259,7 +259,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> прогнозирование диабета у людей (двоичная классификация). 
 <p></p>
-<b>Связанное исследование:</b> Sigillito, V. (1990). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
+<b>Связанное исследование:</b> Sigillito, V. (1990). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук  </td>
 </tr>
 
 <tr>
@@ -269,7 +269,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования системы рекомендаций. 
 <p></p>
-<b>Связанное исследование:</b> Bache, K. и Lichman, M. (2013). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
+<b>Связанное исследование:</b> Bache, K. и Lichman, M. (2013). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
@@ -280,7 +280,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования системы рекомендаций. 
 <p></p>
-<b>Связанное исследование:</b> Bache, K. и Lichman, M. (2013). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
+<b>Связанное исследование:</b> Bache, K. и Lichman, M. (2013). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
@@ -291,7 +291,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 <b>Использование:</b> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования системы рекомендаций. 
 <p></p>
-<b>Связанное исследование:</b> Bache, K. и Lichman, M. (2013). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
+<b>Связанное исследование:</b> Bache, K. и Lichman, M. (2013). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
@@ -304,10 +304,10 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 Марка стали соответствует заданному стандарту, определенному ассоциацией SAE и другими организациями. Для конкретной марки стали (переменной класса) вы хотите определить необходимые значения. 
 <p></p>
-<b>Связанное исследование:</b> Sterling, D. и Buntine, W. (нет данных). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук 
+<b>Связанное исследование:</b> Sterling, D. и Buntine, W. (нет данных). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский Университет, школа информационных и компьютерных наук 
 <p></p>
-Полезное руководство по маркам стали: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
-  .</td>
+Руководство по сортам стали см. здесь: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+  </td>
 </tr>
 
 <tr>
@@ -325,7 +325,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <p></p>
 Также учитывайте, что здесь недооценено число фоновых событий (h для адронных потоков). В реальных измерения значение h (класс шума) представляет большую часть событий. 
 <p></p>
-<b>Связанное исследование:</b> Bock, R. K. (1995). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных наук </td>
+<b>Связанное исследование:</b> Bock, R. K. (1995). UCI репозитория машинного обучения <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных наук </td>
 </tr>
 
 <tr>
@@ -346,7 +346,7 @@ Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, Knowledge discovery on RFM mode
 <tr>
   <td>Набор данных SP 500 из Википедии</td>
   <td>
-Данные взяты из Википедии (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) и основаны на статьях о каждой из компаний, включенной в фондовый индекс S&P 500. Они сохранены в формате XML.
+Данные взяты из Википедии (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) и основаны на статьях о каждой из компаний, включенной в фондовый индекс S&P 500. Они сохранены в формате XML.
 <p></p>
 Перед отправкой в Студию машинного обучения Azure набор данных был обработан следующим образом:
 <ul>

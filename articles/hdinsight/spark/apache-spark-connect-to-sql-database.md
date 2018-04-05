@@ -1,8 +1,8 @@
 ---
-title: "Чтение данных из базы данных SQL Azure и запись в нее с использованием Apache Spark | Документация Майкрософт"
-description: "Узнайте, как настроить подключение между кластером HDInsight Spark и базой данных SQL Azure для чтения данных из базы данных SQL, а также записи и потоковой передачи данных в нее."
+title: Чтение данных из базы данных SQL Azure и запись в нее с использованием Apache Spark | Документация Майкрософт
+description: Узнайте, как настроить подключение между кластером HDInsight Spark и базой данных SQL Azure для чтения данных из базы данных SQL, а также записи и потоковой передачи данных в нее.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Чтение данных из базы данных SQL Azure и запись в нее с использованием кластера HDInsight Spark
 
@@ -234,7 +234,7 @@ ms.lasthandoff: 02/01/2018
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Проверьте, что данные передаются в таблицу **hvactable**, выполнив следующий запрос. При каждом выполнении запроса отображется большее число строк в таблице.
+6. Убедитесь, что данные передаются в таблицу **hvactable**, выполнив следующий запрос в SQL Server Management Studio. При каждом выполнении запроса отображется большее число строк в таблице.
 
         SELECT COUNT(*) FROM hvactable
 

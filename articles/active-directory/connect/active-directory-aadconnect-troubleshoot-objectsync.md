@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: устранение неполадок с синхронизацией объектов | Документация Майкрософт"
-description: "В этой статье приводятся пошаговые инструкции по устранению неполадок, связанных с синхронизацией объектов, с помощью задач устранения неполадок."
+title: 'Azure AD Connect: устранение неполадок с синхронизацией объектов | Документация Майкрософт'
+description: В этой статье приводятся пошаговые инструкции по устранению неполадок, связанных с синхронизацией объектов, с помощью задач устранения неполадок.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Устранение неполадок синхронизации объектов с помощью службы синхронизации Azure AD Connect
 В этом документе приводятся пошаговые инструкции по устранению неполадок, связанных с синхронизацией объектов, с помощью задач устранения неполадок.
 
 ## <a name="troubleshooting-task"></a>Задачи по устранению неполадок
-Чтобы устранить неполадки с синхронизацией объектов в развертывании Azure Active Directory (AAD) Connect версии <verison> и выше, используйте задачу устранения неполадок в мастере. Если вы используете более ранние версии, выполните устранение неполадок вручную, как описано [здесь](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Чтобы устранить неполадки с синхронизацией объектов в развертывании Azure Active Directory (AAD) Connect версии 1.1.749.0 и выше, используйте задачу устранения неполадок в мастере. Если вы используете более ранние версии, выполните устранение неполадок вручную, как описано [здесь](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Запуск задачи устранения неполадок в мастере
 Чтобы запустить задачу устранения неполадок в мастере, выполните следующие действия:

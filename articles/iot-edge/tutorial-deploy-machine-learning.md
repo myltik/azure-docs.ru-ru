@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Развертывание службы "Машинное обучение Azure" в качестве модуля IoT Edge (предварительная версия)
 
@@ -35,6 +35,8 @@ ms.lasthandoff: 03/23/2018
 * Строка подключения Центра Интернета вещей, к которому подключается ваше устройство IoT Edge.
 * Учетная запись Студии машинного обучения Azure. Чтобы создать учетную запись, выполните инструкции из статьи [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts) (Создание учетной записи для службы "Машинное обучение Azure" и установка Azure Machine Learning Workbench). Для этого руководства не нужно устанавливать приложение рабочего места (Workbench). 
 * Служба управления модулями для Azure ML на вашем компьютере. Чтобы настроить среду и создать учетную запись, выполните инструкции из раздела о [настройке управления моделью](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+
+Модуль машинного обучения Azure не поддерживает процессоры ARM. 
 
 ## <a name="create-the-azure-ml-container"></a>Создание контейнера машинного обучения Azure
 В этом разделе выполняется скачивание файлов обученной модели и их преобразование в контейнер Azure ML.  

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Сценарий монитора в устойчивых функциях — пример наблюдателя за погодой
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Выполните инструкции в статье об [установке устойчивых функций](durable-functions-install.md), чтобы настроить пример.
-* В этой статье предполагается, что вы уже ознакомлены с пошаговым руководством по примеру [последовательности Hello](durable-functions-sequence.md).
+* [Установите устойчивые функции](durable-functions-install.md).
+* Ознакомьтесь с пошаговым руководством по примеру [последовательности Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Обзор сценария
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/17/2018
 * `E3_GetIsClear`: функция действия, которая проверяет текущие погодные условия для местоположения.
 * `E3_SendGoodWeatherAlert`: функция действия, которая отправляет SMS-сообщение через Twilio.
 
-В следующих разделах рассматривается конфигурация и код, которые используются при разработке с помощью портала Azure. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
+В следующих разделах рассматривается конфигурация и код, которые используются для написания скриптов на языке C#. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Оркестрация мониторинга погоды (пример кода Visual Studio Code и портала Azure).
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="run-the-sample"></a>Запуск примера
 
-С помощью функций, активируемых по HTTP (перечисленных в примере), можно запустить оркестрацию, отправив следующий запрос HTTP POST.
+С помощью функций, активируемых по HTTP (перечисленных в примере), можно запустить оркестрацию, отправив следующий запрос HTTP POST:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor

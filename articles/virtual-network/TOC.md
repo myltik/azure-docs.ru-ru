@@ -29,11 +29,11 @@
 ## Развертывание
 
 ### Группы безопасности сети
-#### [портал Azure](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [интерфейс командной строки Azure](virtual-networks-create-nsg-arm-cli.md)
-#### [Шаблон](virtual-networks-create-nsg-arm-template.md)
-#### [Группы безопасности приложений](create-network-security-group-preview.md)
+#### [Azure PowerShell](tutorial-filter-network-traffic.md)
+#### [интерфейс командной строки Azure](tutorial-filter-network-traffic-cli.md)
+#### Без групп безопасности приложений
+##### [портал Azure](virtual-networks-create-nsg-arm-pportal.md)
+##### [Шаблон](virtual-networks-create-nsg-arm-template.md)
 #### Классический
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)

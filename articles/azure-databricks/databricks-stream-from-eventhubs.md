@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 94b09b824becc8a67adf4edfd2d4b44496a6169c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Руководство по потоковой передаче данных в Azure Databricks при помощи концентраторов событий
 
@@ -356,7 +356,7 @@ ms.lasthandoff: 03/28/2018
     ...
     ...
 
-Вот и все! Вы успешно выполнили потоковую передачу данных в концентраторы событий Azure с помощью Azure Databricks практически в реальном времени. Затем вы применили данные потоковой передачи для Apache Spark, используя соединитель концентраторов событий.
+Вот и все! Вы успешно выполнили потоковую передачу данных в концентраторы событий Azure с помощью Azure Databricks практически в реальном времени. Затем вы применили данные потоковой передачи для Apache Spark, используя соединитель концентраторов событий. Дополнительные сведения о том, как использовать соединитель концентраторов событий для Spark, см. в [документации соединителя](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 

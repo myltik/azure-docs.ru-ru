@@ -1,11 +1,11 @@
 ---
-title: "Обзор веб-пакета SDK для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Последние обновления и процедуры для веб-пакета SDK для Служб мобильного взаимодействия Azure"
+title: Обзор веб-пакета SDK для Служб мобильного взаимодействия Azure | Документация Майкрософт
+description: Последние обновления и процедуры для веб-пакета SDK для Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5bbc2fda-0f3f-43d0-a73d-0f2c0f8dc25b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad0a83e05c6a60953c2f8a0036f823e7ed497f45
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>Веб-пакет SDK для Служб мобильного взаимодействия Azure
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Начните с этой статьи, чтобы получить подробную информацию об интеграции Служб мобильного взаимодействия Azure в веб-приложение. Если вы хотите поэкспериментировать, прежде чем интегрировать свое веб-приложение, ознакомьтесь с нашим [15-минутным руководством](mobile-engagement-web-app-get-started.md).
 
 ## <a name="integration-procedures"></a>Процедуры по интеграции

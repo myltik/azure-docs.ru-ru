@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Поддерживаемые форматы файлов и кодеки сжатия в фабрике данных Azure
 
@@ -444,6 +444,30 @@ ms.lasthandoff: 03/23/2018
 * Данные сложных типов (STRUCT, MAP, LIST, UNION) не поддерживаются.
 * Для ORC-файлов используется три [параметра сжатия](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB и SNAPPY. Фабрика данных поддерживает чтение данных из ORC-файла в любом из этих форматов. Для чтения данных используется кодек сжатия из метаданных. Однако при записи в ORC-файл фабрика данных по умолчанию выбирает ZLIB. В настоящее время изменить это поведение нельзя.
 
+### <a name="data-type-mapping-for-orc-files"></a>Сопоставление типов данных для ORC-файлов
+
+| Тип промежуточных данных фабрики данных | Типы ORC |
+|:--- |:--- |
+| Логическое | Логическое |
+| SByte | Byte |
+| Byte | Сокращение |
+| Int16 | Сокращение |
+| UInt16 | int |
+| Int32 | int |
+| UInt32 | длинное целое |
+| Int64 | длинное целое |
+| UInt64 | Строка |
+| Single | Float |
+| Double | Double |
+| Decimal | Decimal |
+| Строка | Строка |
+| Datetime | Timestamp |
+| DateTimeOffset | Timestamp |
+| Интервал времени | Timestamp |
+| ByteArray | Binary |
+| Guid | Строка |
+| Char | Char(1) |
+
 ## <a name="parquet-format"></a>Формат Parquet
 
 Если требуется проанализировать файлы Parquet или записать данные в формате Parquet, установите для свойства `format` `type` значение **ParquetFormat**. Вам не нужно указывать какие-либо свойства в подразделе Format раздела typeProperties. Пример:
@@ -463,6 +487,31 @@ ms.lasthandoff: 03/23/2018
 
 * Данные сложных типов (MAP, LIST) не поддерживаются.
 * Parquet-файл имеет следующие варианты сжатия: NONE, SNAPPY, GZIP и LZO. Фабрика данных поддерживает чтение данных из ORC-файла в любом из этих форматов. Для чтения данных используется кодек сжатия из метаданных. Однако при записи в Parquet-файл фабрика данных по умолчанию выбирает SNAPPY. В настоящее время изменить это поведение нельзя.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Сопоставление типов данных для файлов Parquet
+
+| Тип промежуточных данных фабрики данных | Тип-примитив Parquet | Исходный тип Parquet (десериализация) | Исходный тип Parquet (сериализация) |
+|:--- |:--- |:--- |:--- |
+| Логическое | Логическое | Недоступно | Недоступно |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Binary или Int64 | UInt64 | Decimal |
+| Single | Float | Недоступно | Недоступно |
+| Double | Double | Недоступно | Недоступно |
+| Decimal | Binary | Decimal | Decimal |
+| Строка | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | Недоступно | Недоступно |
+| Интервал времени | Int96 | Недоступно | Недоступно |
+| DateTimeOffset | Int96 | Недоступно | Недоступно |
+| ByteArray | Binary | Недоступно | Недоступно |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
+| CharArray | Не поддерживается | Недоступно | Недоступно |
 
 ## <a name="compression-support"></a>Поддержка сжатия
 

@@ -1,24 +1,18 @@
 ---
-title: "Интеграция системы управления версиями службы автоматизации Azure с GitHub Enterprise | Документация Майкрософт"
-description: "В статье описано, как настроить интеграцию модулей Runbook системы управления версиями службы автоматизации с GitHub Enterprise."
+title: Интеграция системы управления версиями службы автоматизации Azure с GitHub Enterprise
+description: В статье описано, как настроить интеграцию модулей Runbook системы управления версиями службы автоматизации с GitHub Enterprise.
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Сценарий службы автоматизации Azure: интеграция системы управления версиями службы автоматизации с GitHub Enterprise
 
@@ -52,10 +46,10 @@ GitHRWCredential | Создаваемый ресурс учетных данны
 
 1. Модуль Runbook Sync-LocalGitFolderToAutomationAccount выполняет проверку подлинности с использованием [учетной записи запуска от имени Azure](automation-sec-configure-azure-runas-account.md). 
 
-2. Также понадобится рабочая область Microsoft Operations Management Suite (OMS) с включенным и настроенным решением службы автоматизации Azure. Если у вас нет такой области, связанной с учетной записью службы автоматизации, используемой для установки и настройки этого сценария, она будет создана и настроена автоматически при выполнении сценария **New-OnPremiseHybridWorker.ps1** из гибридной рабочей роли Runbook.        
+2. Рабочая область Log Analytics с включенным и настроенным решением службы автоматизации Azure. Если у вас нет такой области, связанной с учетной записью службы автоматизации, используемой для установки и настройки этого сценария, она будет создана и настроена автоматически при выполнении сценария **New-OnPremiseHybridWorker.ps1** из гибридной рабочей роли Runbook.        
 
     > [!NOTE]
-    > Сейчас интеграция службы автоматизации с OMS поддерживается только для следующих регионов: **Юго-восточная Австралия**, **Восточная часть США 2**, **Юго-Восточная Азия** и **Западная Европа**. 
+    > Сейчас интеграция службы автоматизации с Log Analytics поддерживается только для следующих регионов: **Юго-Восточная Австралия**, **Восточная часть США 2**, **Юго-Восточная Азия** и **Западная Европа**. 
 
 3. Компьютер, который можно использовать в качестве выделенной гибридной рабочей роли Runbook. На нем также будут размещены ПО GitHub и файлы Runbook (*runbook*.ps1) в исходном каталоге файловой системы для синхронизации между GitHub и учетной записью службы автоматизации.
 

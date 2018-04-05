@@ -1,11 +1,11 @@
 ---
-title: "Использование REST API для доступа к интерфейсам API Служб мобильного взаимодействия Azure"
-description: "В этой статье описывается, как использовать интерфейсы REST API Служб мобильного взаимодействия для доступа к интерфейсам API Служб мобильного взаимодействия Azure"
+title: Использование REST API для доступа к интерфейсам API Служб мобильного взаимодействия Azure
+description: В этой статье описывается, как использовать интерфейсы REST API Служб мобильного взаимодействия для доступа к интерфейсам API Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: e8df4897-55ee-45df-b41e-ff187e3d9d12
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 4b21bca6fee7012ce1dba96950ae075eded414f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3c0de39ba13ed47345b1042a9dceda075dc50b3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-rest-to-access-azure-mobile-engagement-service-apis"></a>Использование REST для доступа к интерфейсам API Служб мобильного взаимодействия Azure
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Службы мобильного взаимодействия Azure предоставляют [интерфейс REST API для Служб мобильного взаимодействия Azure](https://msdn.microsoft.com/library/azure/mt683754.aspx), который позволяет управлять устройствами, кампаниями охвата/продвижения и т. д.
 
 > [!NOTE]

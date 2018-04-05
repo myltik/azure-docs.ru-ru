@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f41cc83bfb18146e46e7d8501318acd68ce9c421
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Выполнение фоновых задач с помощью веб-заданий в службе приложений Azure
 
@@ -170,15 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>Выражения CRON
 
-[Выражения CRON](https://en.wikipedia.org/wiki/Cron) состоят из шести полей: `{second} {minute} {hour} {day} {month} {day of the week}`.  Ниже приведены некоторые примеры:
-
-* Каждые 15 минут: `0 */15 * * * *`
-* Каждый час (т. е. когда количество минут — 0): `0 0 * * * *` 
-* Каждый час с 9:00 до 17:00: `0 0 9-17 * * *` 
-* Каждый день в 9:30: `0 30 9 * * *`
-* Каждый рабочий день в 9:30: `0 30 9 * * 1-5`
-
-Выражение CRON можно ввести на портале или включить в файл `settings.job` в корне *ZIP*-файла веб-задания, как показано в следующем примере:
+[Выражение CRON](../azure-functions/functions-bindings-timer.md#cron-expressions) можно ввести на портале или добавьте файл `settings.job` в корне *ZIP-файла* веб-задания, как показано в следующем примере:
 
 ```json
 {

@@ -1,8 +1,8 @@
 ---
-title: "Создание приложений Scala для HDInsight Spark с помощью набора средств Azure для Eclipse | Документация Майкрософт"
-description: "Использование средств HDInsight из набора средств Azure для Eclipse для разработки приложений Spark на языке Scala и их отправки в кластер HDInsight Spark непосредственно из интегрированной среды разработки Eclipse."
+title: Создание приложений Scala для HDInsight Spark с помощью набора средств Azure для Eclipse | Документация Майкрософт
+description: Использование средств HDInsight из набора средств Azure для Eclipse для разработки приложений Spark на языке Scala и их отправки в кластер HDInsight Spark непосредственно из интегрированной среды разработки Eclipse.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для Eclipse
 
@@ -51,6 +51,8 @@ ms.lasthandoff: 02/21/2018
 
 ![Автоматическая установка подключаемого модуля Scala](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+Пользователь может [войти в подписку Azure](#Sign-in-to-your-Azure-subscription) или [связать кластер HDInsight](#Link-a-cluster) с помощью имени пользователя и пароля Ambari или учетных данных присоединения к домену. 
+
 ## <a name="sign-in-to-your-azure-subscription"></a>Войдите в свою подписку Azure.
 1. Запустите интегрированную среду разработки Eclipse и откройте Azure Explorer. В меню **Window** (Окно) выберите пункт **Show View** (Показать представление) и щелкните **Other** (Другие). В открывшемся диалоговом окне разверните **Azure** и щелкните **Azure Explorer**, а затем нажмите кнопку **ОК**.
 
@@ -75,12 +77,13 @@ ms.lasthandoff: 02/21/2018
 
    ![контекстное меню связывания кластера](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Введите **имя кластера**, данные **учетной записи хранилища**, **ключ к хранилищу данных** и выберите контейнер в разделе **Контейнер хранилища**. Затем введите имя пользователя и пароль. Нажмите кнопку "ОК", чтобы связать кластер.
+2. Введите **имя кластера**, **имя пользователя** и **пароль**, затем нажмите кнопку "ОК", чтобы связать кластер. При необходимости введите учетную запись хранения, ключ к хранилищу данных, а затем выберите в представлении в виде дерева контейнер хранилища для обозревателя хранилищ.
    
    ![диалоговое окно связывания кластера](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > Если кластер зарегистрирован в подписке Azure и связан, используется ключ к хранилищу данных, имя пользователя и пароль для связывания.
+   > ![обозреватель хранилищ в Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. Если данные введены правильно, связанный кластер отобразится в узле **HDInsight** после нажатия кнопки "ОК". Теперь в этот связанный кластер можно отправить приложение.
 

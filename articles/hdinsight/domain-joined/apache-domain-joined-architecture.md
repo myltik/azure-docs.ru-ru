@@ -1,8 +1,8 @@
 ---
-title: "Архитектура присоединенного к домену кластера Azure HDInsight | Документация Майкрософт"
-description: "Сведения о планировании архитектуры присоединенного к домену кластера HDInsight."
+title: Архитектура присоединенного к домену кластера Azure HDInsight | Документация Майкрософт
+description: Сведения о планировании архитектуры присоединенного к домену кластера HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Планирование архитектуры присоединенных к домену кластеров Hadoop в Azure HDInsight
 
@@ -47,16 +47,14 @@ ms.lasthandoff: 02/01/2018
 
 ![Подразделение в кластере HDInsight, присоединенном к домену](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Два способа предоставить контроллеры домена Active Directory
-
-Есть два способа предоставить контроллеры домена Active Directory для создания кластеров HDInsight, присоединенных к домену: 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>Способ предоставления контроллеров домена Active Directory
 
 - **Доменные службы Azure Active Directory.** Эта служба предоставляет управляемый домен Active Directory, который полностью совместим с Windows Server Active Directory. Корпорация Майкрософт управляет доменом AD, применяет исправления к домену и осуществляет мониторинг домена. Вы можете развернуть свой кластер, не беспокоясь о поддержке контроллеров домена. Пользователи, группы и пароли синхронизируются из Azure Active Directory. Это позволяет пользователям входить в кластер с обычными корпоративными учетными данными. Дополнительные сведения см. в статье [Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Active Directory на виртуальных машинах Azure IaaS.** В этом сценарии вы развертываете и контролируете собственный домен Windows Server Active Directory на виртуальных машинах Azure IaaS. Дополнительные сведения см. в статье [Настройка среды с присоединенной к домену песочницей HDInsight](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Active Directory больше не поддерживается на виртуальных машинах Azure IaaS.
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Сведения о настройке присоединенного к домену кластера HDInsight см. в [этой статье](apache-domain-joined-configure.md).
 * Сведения об управлении присоединенными к домену кластерами HDInsight см. в [этой статье](apache-domain-joined-manage.md).
 * Сведения о настройке политик Hive и выполнении запросов Hive см. в статье [Настройка политик Hive в присоединенном к домену кластере HDInsight (предварительная версия)](apache-domain-joined-run-hive.md).
 * Сведения о выполнении запросов Hive с помощью SSH в присоединенных к домену кластерах HDInsight см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).

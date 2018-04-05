@@ -1,12 +1,11 @@
 ---
-title: "Выходные данные Data Lake Store в Stream Analytics | Документация Майкрософт"
-description: "Настройка проверки подлинности и авторизации хранилища озера данных в задании Stream Analytics"
-keywords: 
+title: Выходные данные Data Lake Store в Stream Analytics | Документация Майкрософт
+description: Настройка проверки подлинности и авторизации хранилища озера данных в задании Stream Analytics
+keywords: ''
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 802193b9f15cbc35bec32191ccc63df3329b96f9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Выходные данные хранилища озера данных в Stream Analytics
 Задания Stream Analytics поддерживают несколько методов вывода, одним из которых является [хранилище озера данных Azure](https://azure.microsoft.com/services/data-lake-store/). Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.

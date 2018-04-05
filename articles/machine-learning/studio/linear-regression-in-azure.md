@@ -1,11 +1,12 @@
 ---
-title: "Использование линейной регрессии в машинном обучении | Документация Майкрософт"
-description: "Сравнение моделей линейной регрессии в Excel и Студии машинного обучения Azure"
-metakeywords: 
+title: Использование линейной регрессии в машинном обучении | Документация Майкрософт
+description: Сравнение моделей линейной регрессии в Excel и Студии машинного обучения Azure
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Использование линейной регрессии в Машинном обучении Azure
 > *Кейт Барони* (Kate Baroni) и *Бен Боутмен* (Ben Boatman) — архитекторы корпоративных решений в Научно-инновационном центре анализа данных корпорации Майкрософт. В этой статье они описывают свой опыт миграции существующего набора для регрессионного анализа в облачное решение с помощью Машинного обучения Azure. 
@@ -140,9 +140,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="resources"></a>Ресурсы
 Ниже перечислены некоторые ресурсы, которые помогут вам в работе с регрессией. 
 
-* Регрессия в Excel. Если вы никогда не работали с регрессией в Excel, этот учебник упростит задачу: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Сравнение регрессии и прогнозирования. Тайлер Чессмен (Tyler Chessman) написал статью в блоге, в которой он рассказывает, как спрогнозировать временные ряды в Excel. Здесь также представлено хорошее описание линейной регрессии для начинающих: [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts). 
-* Линейная регрессия по методу наименьших квадратов. Недостатки, проблемы и ошибки. Введение в регрессию и ее обсуждение см. по адресу [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/).
+* Регрессия в Excel. Если вы никогда не работали с регрессией в Excel, это руководство упростит задачу: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html).
+* Сравнение регрессии и прогнозирования. Тайлер Чессмен (Tyler Chessman) написал статью в блоге, в которой он рассказывает, как спрогнозировать временные ряды в Excel. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Линейная регрессия по методу наименьших квадратов. Недостатки, проблемы и ошибки. Введение в регрессию и ее обсуждение см. по ссылке [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/).
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

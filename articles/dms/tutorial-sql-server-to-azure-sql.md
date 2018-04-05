@@ -1,21 +1,21 @@
 ---
-title: "Использование Azure Database Migration Service для переноса SQL Server в базу данных SQL Azure | Документация Майкрософт"
-description: "Узнайте, как выполнять миграцию из локального экземпляра SQL Server в SQL Azure с помощью Azure Database Migration Service."
+title: Использование Azure Database Migration Service для переноса SQL Server в базу данных SQL Azure | Документация Майкрософт
+description: Узнайте, как выполнять миграцию из локального экземпляра SQL Server в SQL Azure с помощью Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
 manager: jhubbard
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8dc8b4db80d5e319fad0b681924ab5a8e5642b2e
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 03/29/2018
+ms.openlocfilehash: b16c3666b932beb771c51bb8dec3ebd5fa36e8a0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Миграция с SQL Server в базу данных SQL Azure
 Azure Database Migration Service можно использовать для переноса баз данных из локального экземпляра SQL Server в базу данных Azure. В этом руководстве выполняется миграция базы данных **Adventureworks2012**, восстановленной на локальном экземпляре SQL Server 2016 (или более поздней версии), в базу данных SQL Azure с помощью Azure Database Migration Service.
@@ -39,8 +39,9 @@ Azure Database Migration Service можно использовать для пе
 - Создайте виртуальную сеть для Azure Database Migration Service с помощью модели развертывания Azure Resource Manager, которая обеспечивает подключение "сеть — сеть" к локальным исходным серверам с помощью [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) или [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Убедитесь, что правила группы безопасности сети для виртуальной сети Azure не блокируют порты связи 443, 53, 9354, 445 и 12000. Дополнительные сведения о фильтрации трафика, предназначенного для виртуальной сети Azure, с помощью NSG см. в статье [Фильтрация сетевого трафика с помощью групп безопасности сети](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
 - Настройте [брандмауэр Windows для доступа к ядру СУБД](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Откройте брандмауэр Windows, чтобы предоставить Azure Database Migration Service доступ к исходному серверу SQL Server.
-- Если перед исходной базой данных развернуто устройство брандмауэра, вам может понадобиться добавить правила брандмауэра, чтобы позволить службе Azure Database Migration Service получать доступ к исходной базе данных для выполнения миграции.
+- Откройте брандмауэр Windows, чтобы предоставить Azure Database Migration Service доступ к исходному серверу SQL Server. По умолчанию это TCP-порт 1433.
+- Если вы запустили несколько именованных экземпляров SQL Server, использующих динамические порты, вы можете включить службу обозревателя SQL и разрешить доступ к UDP-порту 1434 через брандмауэры. Это позволит службе Azure Database Migration Service подключиться к именованному экземпляру на исходном сервере.
+- Если перед исходными базами данных развернуто устройство брандмауэра, вам может понадобиться добавить правила брандмауэра, чтобы позволить службе Azure Database Migration Service обращаться к исходным базам данных для выполнения миграции.
 - Создайте [правило брандмауэра](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) уровня сервера для сервера базы данных SQL Azure, чтобы предоставить службе Azure Database Migration Service доступ к целевым базам данных. Задайте диапазон подсети в виртуальной сети, которая используется для Azure Database Migration Service.
 - Убедитесь, что учетные данные, используемые для подключения к исходному экземпляру SQL Server, имеют разрешения [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Убедитесь, что учетные данные, используемые для подключения к целевому экземпляру базы данных SQL Azure, имеют разрешения CONTROL DATABASE в целевых базах данных SQL Azure.

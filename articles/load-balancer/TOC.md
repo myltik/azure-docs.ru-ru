@@ -20,13 +20,19 @@
 
 # Практическое руководство
 
+## [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](load-balancer-get-started-internet-az-portal.md)
+### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Балансировка нагрузки виртуальных машин в пределах зон доступности](load-balancer-standard-public-availability-zones-portal.md)
+###  [Балансировка нагрузки виртуальных машин в пределах зон доступности (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Балансировка нагрузки виртуальных машин в пределах зоны (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Создание Load Balancer уровня "Базовый" (шаблон)](load-balancer-get-started-internet-arm-template.md)
 ## [Создание общедоступной подсистемы балансировки нагрузки с поддержкой IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Создание общедоступной подсистемы балансировки нагрузки с поддержкой IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Создание общедоступной подсистемы балансировки нагрузки с поддержкой IPv6 (шаблон)](load-balancer-ipv6-internet-template.md)
-## [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный"](load-balancer-get-started-internet-az-portal.md)
-### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [Создание Load Balancer уровня "Базовый" (шаблон)](load-balancer-get-started-internet-arm-template.md)
 ## [Настройка внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-portal.md)
 ### [Настройка внутренней подсистемы балансировки нагрузки (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Настройка внутренней подсистемы балансировки нагрузки (CLI)](load-balancer-get-started-ilb-arm-cli.md)

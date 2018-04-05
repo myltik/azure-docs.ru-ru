@@ -1,24 +1,18 @@
 ---
-title: "Управление данными службы автоматизации Azure | Документация Майкрософт"
-description: "Эта статья содержит несколько разделов об управлении средой службы автоматизации Azure.  Сейчас включает в себя хранение данных и резервное копирование для аварийного восстановления службы автоматизации Azure."
+title: Управление данными службы автоматизации Azure
+description: Эта статья содержит несколько разделов об управлении средой службы автоматизации Azure.  Сейчас включает в себя хранение данных и резервное копирование для аварийного восстановления службы автоматизации Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Управление данными службы автоматизации Azure
 Эта статья содержит несколько разделов об управлении средой службы автоматизации Azure.
@@ -43,7 +37,7 @@ ms.lasthandoff: 01/06/2018
 
 Политика хранения применяется ко всем пользователям и в настоящее время не может быть изменена.
 
-Однако, если вам необходимо хранить данные в течение более длительного периода времени, вы можете перенаправить журналы заданий Runbook в Log Analytics.  Дополнительные сведения см. в статье [Пересылка данных задания службы автоматизации Azure в OMS Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Однако, если вам необходимо хранить данные в течение более длительного периода времени, вы можете перенаправить журналы заданий Runbook в Log Analytics.  Дополнительные сведения см. в статье [Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Резервное копирование службы автоматизации Azure
 При удалении учетной записи службы автоматизации в Microsoft Azure все объекты в ней удаляются, включая модули Runbook, модули, параметры, конфигурации, задания и ресурсы. Объекты нельзя восстановить после удаления учетной записи.  Можно использовать следующую информацию, чтобы создать резервную копию содержимого учетной записи службы автоматизации перед его удалением. 

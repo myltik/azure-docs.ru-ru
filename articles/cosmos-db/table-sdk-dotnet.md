@@ -1,24 +1,24 @@
 ---
-title: "Пакет SDK для .NET и ресурсы API таблицы для базы данных Azure Cosmos DB | Документация Майкрософт"
-description: "Сведения об API таблиц Azure Cosmos DB, в том числе даты выпуска и даты вывода из эксплуатации, а также изменения, внесенные в каждую версию."
+title: Пакет SDK для .NET и ресурсы API таблицы для базы данных Azure Cosmos DB | Документация Майкрософт
+description: Сведения об API таблиц Azure Cosmos DB, в том числе даты выпуска и даты вывода из эксплуатации, а также изменения, внесенные в каждую версию.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API таблицы .NET для базы данных Azure Cosmos DB. Скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.lasthandoff: 02/23/2018
 >
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Добавлена проверка тегов сущности неправильного формата в режиме прямого подключения.
+* Исправлена ошибка, связанная с запросом LINQ, в режиме шлюза.
+* Синхронные API теперь запускаются в пуле потоков с помощью SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Добавлены TableRequestOptions TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism и TableQueryContinuationTokenLimitInKb.
@@ -63,6 +68,8 @@ ms.lasthandoff: 02/23/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |26 марта 2018 г.|--- |
+| [1.1.0](#1.1.0) |21 февраля 2018 г.|--- |
 | [1.0.0](#1.0.0) |15 ноября 2017 г.|--- |
 | [0.9.0 (предварительная версия)](#0.9.0-preview) |11 ноября 2017 г. |--- |
 

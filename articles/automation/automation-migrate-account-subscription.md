@@ -1,24 +1,18 @@
 ---
-title: "Перенос учетной записи и ресурсов службы автоматизации | Документация Майкрософт"
-description: "В этой статье описывается, как переместить учетную запись в службе автоматизации Azure и связанные с ней ресурсы из одной подписки в другую."
+title: Перенос учетной записи и ресурсов службы автоматизации
+description: В этой статье описывается, как переместить учетную запись в службе автоматизации Azure и связанные с ней ресурсы из одной подписки в другую.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 40567d1b1f450c499715682cf8c22f0c79c7d0c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: a9e76634a7392bca93ba06749741505e7b34cb41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-automation-account-and-resources"></a>Перенос учетной записи и ресурсов службы автоматизации
 Созданные на портале Azure учетные записи службы автоматизации и связанные с ней ресурсы (ресурсы, модули Runbook, модули, и т. д.), можно перенести из одной группы ресурсов или подписки в другую с помощью функции [Перемещение ресурсов](../azure-resource-manager/resource-group-move-resources.md), доступной на портале Azure. Но перед выполнением этого действия необходимо свериться со следующим [контрольным списком перед перемещением ресурсов](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources), а также приведенным ниже списком, относящимся к службе автоматизации.  

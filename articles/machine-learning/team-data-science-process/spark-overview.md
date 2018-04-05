@@ -1,8 +1,8 @@
 ---
-title: "Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight | Документация Майкрософт"
-description: "Набор средств Spark MLlib предоставляет широкие возможности моделирования машинного обучения в распределенной среде HDInsight."
+title: Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight | Документация Майкрософт
+description: Набор средств Spark MLlib предоставляет широкие возможности моделирования машинного обучения в распределенной среде HDInsight.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]

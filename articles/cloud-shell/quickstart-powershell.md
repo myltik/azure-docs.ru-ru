@@ -1,12 +1,12 @@
 ---
-title: "Краткое руководство по PowerShell в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
-description: "Краткое руководство по использованию PowerShell в Cloud Shell."
+title: Краткое руководство по PowerShell в Azure Cloud Shell (предварительная версия) | Документация Майкрософт
+description: Краткое руководство по использованию PowerShell в Cloud Shell.
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Краткое руководство по использованию PowerShell в Azure Cloud Shell (предварительная версия)
 
@@ -118,7 +118,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 
 ### <a name="navigate-storage-resources"></a>Переход к ресурсам хранилища
     
-Войдя в папку `StorageAccounts`, можно легко перейти к своим ресурсам хранилища.
+Войдите в каталог `StorageAccounts`, чтобы перейти к ресурсам своего хранилища.
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>Вызов сценария PowerShell на удаленных виртуальных машинах
 
  > [!WARNING]
- > Ознакомьтесь с разделом [Устранение неполадок удаленного управления виртуальными машинами Azure](troubleshooting.md#powershell-resolutions).
+ > Ознакомьтесь с разделом [Устранение неполадок удаленного управления виртуальными машинами Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Если у вас есть виртуальная машина MyVM1, воспользуемся `Invoke-AzureRmVMCommand` для вызова сценария PowerShell на удаленном компьютере.
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>Обнаружение веб-приложений
 
-Войдите в папку `WebApps`, чтобы перейти к ресурсам своих веб-приложений.
+Войдите в каталог `WebApps`, чтобы перейти к ресурсам своих веб-приложений.
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Сохранение параметров Git и SSH с помощью пользовательского профиля
 
-Так как после выхода сеансы не сохраняются, сохраните папку `$env:USERPROFILE\.ssh` в `CloudDrive` или создайте символьную ссылку при запуске Cloud Shell.
+Так как после выхода сеансы не сохраняются, сохраните каталог `$env:USERPROFILE\.ssh` в `CloudDrive` или создайте символьную ссылку при запуске Cloud Shell.
 Чтобы создать символьную ссылку на CloudDrive, добавьте приведенный ниже фрагмент кода в файл profile.ps1.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-В следующий раз при использовании PowerShell в Cloud Shell файл `helloworld.ps1` будет находиться в папке `CloudDrive`, которая подключена к вашим файловым ресурсам Azure.
+В следующий раз при использовании PowerShell в Cloud Shell файл `helloworld.ps1` будет находиться в каталоге `CloudDrive`, который подключена к вашим файловым ресурсам Azure.
 
 ## <a name="use-custom-profile"></a>Использование пользовательского профиля
 

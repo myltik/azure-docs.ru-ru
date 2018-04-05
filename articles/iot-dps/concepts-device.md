@@ -1,22 +1,22 @@
 ---
-title: "Понятия устройства в контексте подготовки устройств Azure | Документация Майкрософт"
-description: "Здесь описываются понятия устройства в контексте подготовки устройств Azure с помощью службы подготовки устройств и Центра Интернета вещей"
+title: Понятия устройства в контексте подготовки устройств Azure | Документация Майкрософт
+description: Здесь описываются понятия устройства в контексте подготовки устройств Azure с помощью службы подготовки устройств и Центра Интернета вещей
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Понятия устройства в контексте подготовки устройств в Центре Интернета вещей
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 Служба подготовки устройств поддерживает две формы аттестации:
 * **Сертификаты X.509** на основе стандартного потока проверки подлинности сертификата X.509.
-* **Токены SAS** на основе запроса nonce с использованием стандарта доверенного платформенного модуля ключей. На устройстве не должен присутствовать физический доверенный платформенный модуль (TPM), но для каждой [спецификации TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/) требуется подтверждение с помощью ключа подтверждения.
+* **Доверенный платформенный модуль (TPM)** на основе задачи nonce с использованием стандарта TPM для представления в ключах подписанного URL-адреса (SAS). На устройстве не должен присутствовать физический доверенный платформенный модуль (TPM), но для каждой [спецификации TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/) требуется подтверждение с помощью ключа подтверждения.
 
 ## <a name="hardware-security-module"></a>Аппаратный модуль безопасности
 

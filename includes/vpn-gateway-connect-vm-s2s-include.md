@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c04fbd5cc7e27be6bba6dae31f71146ce9a304f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5acdd54bcf7e253bc21dc3f99207fc1b2bd1ff59
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 Вы можете подключиться к виртуальной машине, которая развернута в вашей виртуальной сети, создав подключение к удаленному рабочему столу. Лучший способ проверить, можете ли вы подключиться к своей виртуальной машине, — подключиться, используя частный IP-адрес, а не имя компьютера. Таким образом, вы проверяете, можете ли вы подключиться, а не правильно ли настроено разрешение имен.
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 03/23/2018
 
   - PowerShell. Воспользуйтесь примером ниже, чтобы просмотреть список виртуальных машин и частных IP-адресов из ваших групп ресурсов. Вам не нужно изменять этот пример перед использованием.
 
-    ```powershell
+    ```azurepowershell-interactive
     $VMs = Get-AzureRmVM
     $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
 

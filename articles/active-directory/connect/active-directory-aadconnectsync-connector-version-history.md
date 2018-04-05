@@ -1,24 +1,24 @@
 ---
-title: "История выпусков версий соединителей | Документация Майкрософт"
-description: "В этой статье перечислены все соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM)."
+title: История выпусков версий соединителей | Документация Майкрософт
+description: В этой статье перечислены все соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>История выпусков версий соединителей
 Соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM) часто обновляются.
@@ -34,9 +34,26 @@ ms.lasthandoff: 01/18/2018
 * [Скачивание последних соединителей.](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [универсальному соединителю LDAP](active-directory-aadconnectsync-connector-genericldap.md) .
 * [универсальному соединителю SQL](active-directory-aadconnectsync-connector-genericsql.md) .
-* [соединителю веб-служб](http://go.microsoft.com/fwlink/?LinkID=226245) .
+* [соединителю веб-служб](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) .
 * [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md) .
 * [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md) .
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Исправленные проблемы:
+* Устранена ошибка ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent (Сообщение: устройство, присоединенное к системе, не работает).
+* В этом выпуске соединителей необходимо обновить перенаправление привязки с версии 3.3.0.0–4.1.3.0 до 4.1.4.0 в файле miiserver.exe.config.
+* Универсальный соединитель веб-служб:
+    * Устранена ошибка при сохранении допустимого ответа JSON в средстве конфигурирования.
+* Универсальный соединитель SQL:
+    * При экспорте всегда создается только запрос на обновление для операции удаления. Добавлено для создания запроса на удаление.
+    * Исправлен SQL-запрос, который получает объекты для операции импорта изменений, если разностная стратегия предусматривает использование режима отслеживания изменений. В этой реализации есть известное ограничение: при импорте изменений в режиме отслеживания изменений не отслеживаются изменения многозначных атрибутов.
+    * Добавлена возможность создавать запрос на удаление, если необходимо удалить последнее значение многозначного атрибута, а в строке отсутствуют другие данные, за исключением значения, которое необходимо удалить.
+    * Обработка System.ArgumentException при реализованных SP параметрах OUTPUT. 
+    * Неправильный запрос на создание операции экспорта в поле, которое имеет тип varbinary(max).
+    * Проблема с переменной parameterList, которая инициализирована дважды (в функциях ExportAttributes и GetQueryForMultiValue).
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -80,6 +97,8 @@ ms.lasthandoff: 01/18/2018
   * Средство Wsconfig не правильно преобразовало массив JSON из примера запроса для метода службы REST. По этой причине возникали проблемы с сериализацией данного массива JSON для запроса REST.
   * Инструмент настройки соединителя веб-служб не поддерживает использование символов пробела в именах атрибутов JSON. 
     * Можно вручную добавить шаблон замены в файл WSConfigTool.exe.config, например ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```.
+> [!NOTE]
+> Требуется ключ JSONSpaceNamePattern, так как при экспорте будет получена ошибка (Сообщение: пустое имя не является допустимым). 
 
 * Lotus Notes:
   * Если параметр **Allow custom certifiers for Organization/Organizational Units** (Разрешить настраиваемые заверители для организаций и подразделений) отключен, то во время экспорта (обновления) происходит сбой соединителя. Затем все атрибуты будут экспортированы в Domino, однако во время экспорта для синхронизации возвращается исключение KeyNotFoundException. 

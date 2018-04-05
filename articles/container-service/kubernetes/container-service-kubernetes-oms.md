@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг кластера Azure Kubernetes с помощью Operations Management"
-description: "Мониторинг кластера Kubernetes в Службе контейнеров Azure с помощью Microsoft Operations Management Suite"
+title: Мониторинг кластера Azure Kubernetes с помощью Operations Management
+description: Мониторинг кластера Kubernetes в Службе контейнеров Azure с помощью Log Analytics
 services: container-service
 author: bburns
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Мониторинг кластера Службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Мониторинг кластера службы контейнеров Azure с помощью Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -56,18 +56,19 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-operations-management-suite-oms"></a>Мониторинг контейнеров с помощью Operations Management Suite (OMS)
+## <a name="monitoring-containers-with-log-analytics"></a>Мониторинг контейнеров с помощью Log Analytics
 
-Microsoft Operations Management (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. Контейнер OMS — это решение в OMS Log Analytics, которое помогает просматривать сведения, касающиеся инвентаризации и производительности контейнеров, а также соответствующие журналы в одном расположении. Оно позволяет выполнять аудит и устранять неполадки контейнеров, просматривая журналы в централизованном расположении, а также находить контейнеры с высоким уровнем потребления ресурсов на узле.
+Log Analytics — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. В Log Analytics реализовано решение для контейнеров, которое помогает просматривать сведения, касающиеся инвентаризации и производительности контейнеров, а также соответствующие журналы в одном расположении. Оно позволяет выполнять аудит и устранять неполадки контейнеров, просматривая журналы в централизованном расположении, а также находить контейнеры с высоким уровнем потребления ресурсов на узле.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Дополнительные сведения об этом решении см. в статье [Решение "Контейнеры" (предварительная версия) в Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-oms-on-kubernetes"></a>Установка OMS в Kubernetes
+## <a name="installing-log-analytics-on-kubernetes"></a>Установка Log Analytics в Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Получение идентификатора и ключа рабочей области
-Чтобы агент OMS мог взаимодействовать со службой, для него нужно настроить идентификатор и ключ рабочей области. Чтобы получить идентификатор и ключ рабочей области, необходимо создать учетную запись OMS, перейдя по адресу <https://mms.microsoft.com>. Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить идентификатор и ключ, щелкнув **Параметры**, **Подключенные источники**, а затем — **Linux Servers** (Серверы Linux), как показано ниже.
+Чтобы агент OMS мог взаимодействовать со службой, для него нужно настроить идентификатор и ключ рабочей области. Чтобы получить идентификатор и ключ рабочей области, необходимо создать учетную запись OMS по адресу <https://mms.microsoft.com>.
+Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить идентификатор и ключ, щелкнув **Параметры**, **Подключенные источники**, а затем — **Linux Servers** (Серверы Linux), как показано ниже.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -84,13 +85,13 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Установка агента OMS с помощью секрета Kubernetes
-Для защиты идентификатора и ключа рабочей области OMS можно использовать секрет Kubernetes как часть YAML-файла DaemonSet.
+Для защиты идентификатора и ключа рабочей области Log Analytics можно использовать секрет Kubernetes как часть YAML-файла DaemonSet.
 
  - Скопируйте сценарий, файл шаблона секретов и YAML-файл DaemonSet (из [репозитория](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) и убедитесь, что они находятся в одном и том же каталоге. 
       - Сценарий создания секретов — secret-gen.sh.
       - Шаблон секретов — secret-template.yaml.
    - YAML-файл DaemonSet — omsagent-ds-secrets.yaml.
- - Выполните скрипт. Сценарий будет запрашивать идентификатор и первичный ключ рабочей области OMS. Вставьте их, и сценарий создаст YAML-файл секрета, который можно запустить.   
+ - Выполните скрипт. Сценарий будет запрашивать идентификатор и первичный ключ рабочей области Log Analytics. Вставьте их, и сценарий создаст YAML-файл секрета, который можно запустить.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```

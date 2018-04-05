@@ -1,24 +1,24 @@
 ---
-title: "Краткое руководство. Горизонтальное масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью T-SQL | Документация Майкрософт"
-description: "Команды T-SQL для изменения вычислительных ресурсов путем настройки единиц DWU."
+title: Краткое руководство. Горизонтальное масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью T-SQL | Документация Майкрософт
+description: Команды T-SQL для изменения вычислительных ресурсов путем настройки единиц DWU.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Краткое руководство. Масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью T-SQL
 
@@ -101,18 +101,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-database-state"></a>Проверка состояния базы данных
+## <a name="check-data-warehouse-state"></a>Проверка состояния хранилища данных
 
-Чтобы проверить состояние базы данных, выполните следующий запрос к базе данных **master**.
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-При выполнении этой команды должно отобразиться одно из следующих значений состояния: "Online" (В сети), "Pausing" (Приостановка), "Resuming" (Возобновление), "Scaling" (Масштабирование) или "Paused" (Приостановлено).
+Если хранилище данных остановлено, вы не сможете подключиться к нему с помощью T-SQL. Чтобы просмотреть текущее состояние хранилища данных, используйте командлет PowerShell. Пример см. в разделе о [проверке состояния хранилища данных с помощью Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
 
 ## <a name="check-operation-status"></a>Проверка состояния операции
 

@@ -1,24 +1,24 @@
 ---
-title: "Установка Azure AD Connect с использованием делегированных разрешений администратора SQL | Документация Майкрософт"
-description: "В этой статье описывается обновление для Azure AD Connect, которое позволяет использовать при установке учетную запись, которая имеет только разрешения владельца базы данных SQL."
-documentationcenter: 
+title: Установка Azure AD Connect с использованием делегированных разрешений администратора SQL | Документация Майкрософт
+description: В этой статье описывается обновление для Azure AD Connect, которое позволяет использовать при установке учетную запись, которая имеет только разрешения владельца базы данных SQL.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Установка Azure AD Connect с использованием делегированных разрешений администратора SQL
 До последней сборки Azure AD Connect административное делегирование при развертывании конфигураций, для которых требовался SQL, не поддерживалось.  Пользователям, которые хотят установить Azure AD Connect, необходимо иметь разрешения администратора сервера на сервере SQL.
@@ -51,6 +51,8 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="additional-information"></a>Дополнительная информация
 После подготовки базы данных администратор Azure AD Connect может для удобства установить и настроить службу локальной синхронизации.  
+
+Флаг **/UseExistingDatabase** является обязательным при использовании предварительно созданной базы данных.  Он используется не только при восстановлении.
 
 Помимо поддержки новых установок Azure AD Connect эта функция также позволяет выполнить делегирование любых сценариев, связанных с флагом **/UseExistingDatabase**.  Дополнительные сведения об установке Azure AD Connect с помощью имеющейся базы данных ADSync см. в [этой статье](active-directory-aadconnect-existing-database.md).
 

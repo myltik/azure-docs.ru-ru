@@ -1,9 +1,9 @@
 ---
-title: "Понятия и модель ресурсов в Azure Cosmos DB | Документация Майкрософт"
-description: "Описание иерархической модели базы данных, коллекций, определяемых пользователем функций (UDF), документов, разрешений на управление ресурсами и т. д."
-keywords: "Иерархическая модель, cosmosdb, azure, Microsoft Azure"
+title: Понятия и модель ресурсов в Azure Cosmos DB | Документация Майкрософт
+description: Описание иерархической модели базы данных, коллекций, определяемых пользователем функций (UDF), документов, разрешений на управление ресурсами и т. д.
+keywords: Иерархическая модель, cosmosdb, azure, Microsoft Azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Ключевые понятия и иерархическая модель ресурсов в Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Сущности базы данных, которыми управляет Azure Cosmos DB, называются **ресурсами**. Каждый ресурс однозначно идентифицируется своими логическим URI. Разработчики могут взаимодействовать с ресурсами, используя стандартные команды HTTP, заголовки запросов или ответов и коды состояний. 
 
@@ -34,6 +32,12 @@ ms.lasthandoff: 12/14/2017
 * Как получить доступ к ресурсу?
 * Как работать с коллекциями?
 * Как работать с хранимыми процедурами, триггерами и пользовательскими функциями?
+
+В следующем видео руководитель программы Azure Cosmos DB Эндрю Лю (Andrew Liu) расскажет о модели ресурсов Azure Cosmos DB. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Иерархическая модель ресурсов
 Как показано на следующей схеме, иерархическая **модель ресурсов** Azure Cosmos DB состоит из наборов ресурсов в учетной записи базы данных, каждый из которых имеет логический постоянный универсальный код ресурса (URI). Набор ресурсов в этой статье называется **веб-каналом**. 

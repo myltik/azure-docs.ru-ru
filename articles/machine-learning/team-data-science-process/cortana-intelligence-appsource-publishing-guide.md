@@ -1,8 +1,8 @@
 ---
-title: "Руководство по публикации Cortana Intelligence в AppSource | Документация Майкрософт"
-description: "Ниже описаны все шаги, которые партнеру корпорации Майкрософт необходимо выполнить для публикации решений Cortana Intelligence в AppSource."
+title: Руководство по публикации Cortana Intelligence в AppSource | Документация Майкрософт
+description: Ниже описаны все шаги, которые партнеру корпорации Майкрософт необходимо выполнить для публикации решений Cortana Intelligence в AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Руководство по публикации Cortana Intelligence в AppSource
 
@@ -109,7 +109,7 @@ AppSource — это единственная площадка, где лица,
 ## <a name="publish-your-app-on-the-publishing-portal"></a>Публикация приложения на портале публикации
 Когда мы оценим все шаги выше для вашего приложения, вы получите доступ к порталу публикации и сможете ознакомиться с подробными инструкциями в разделе [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) (Как публиковать предложения Cortana Intelligence через облачный портал для партнеров).
 
-Для получения сведений о любом из полей отправьте сообщение по адресу <appsourcecissupport@microsoft.com>.
+Чтобы получить сведения о любом из полей, отправьте сообщение по адресу <appsourcecissupport@microsoft.com>.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>Что делать, когда приложение опубликовано на AppSource
 Во-первых, поздравляем с публикацией приложения.
 Отдача, которую вы получите от публикации своего приложения в AppSource, сильно зависит от вашего влияния на целевую аудиторию. Дополнительные сведения о том, как добиться максимальной отдачи, см. в документе [Growth-Hacking your Cortana Intelligence app on AppSource](http://aka.ms/aagrowthhackguide) (Увеличение спроса на приложение Cortana Intelligence в AppSource).

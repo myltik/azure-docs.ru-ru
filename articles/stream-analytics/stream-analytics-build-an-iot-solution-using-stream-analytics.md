@@ -1,8 +1,8 @@
 ---
-title: "Создание решения Центра Интернета вещей с помощью Stream Analytics | Документация Майкрософт"
-description: "Руководство по началу работы с решением IoT Stream Analytics (сценарий с пунктом сбора платы)"
-keywords: "Решение IOT, функции окна"
-documentationcenter: 
+title: Создание решения Центра Интернета вещей с помощью Stream Analytics | Документация Майкрософт
+description: Руководство по началу работы с решением IoT Stream Analytics (сценарий с пунктом сбора платы)
+keywords: Решение IOT, функции окна
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Создание решения IoT с помощью Stream Analytics
 
@@ -41,8 +41,7 @@ ms.lasthandoff: 01/16/2018
 * Visual Studio 2017, Visual Studio 2015 или бесплатная версия [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
 * [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Права администратора на компьютере.
-* Файл [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) , который нужно скачать из Центра загрузки Майкрософт.
-* Исходный код генератора событий TollApp из [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Загрузите исходный код для анализа данных датчика TollApp из [репозитория GitHub azure-stream-analytics](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Этот репозиторий содержит примеры данных и запросов, которые будут использоваться в следующих разделах. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Введение в сценарий "Hello, Toll!"
 Станции сбора дорожной платы представляют собой распространенное явление. Они встречаются на многих скоростных дорогах, мостах и туннелях по всему миру. Каждая станция имеет несколько пунктов сбора платы. В пунктах, работающих в ручном режиме, водитель останавливается и передает деньги служащему. В пунктах, работающих в автоматическом режиме, размещенный на крыше пункта датчик сканирует RFID-карту, прикрепленную на ветровом стекле автомобиля, во время его проезда через пункт. Проезд автомобилей через станции сбора платы можно легко представить в виде потока событий, в котором выполняются интересные операции.
@@ -173,7 +172,7 @@ ms.lasthandoff: 01/16/2018
 
 ![Снимок экрана "Отправка данных в концентратор событий"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-Теперь вы можете просмотреть свои ресурсы на портале Azure. Перейдите по адресу <https://portal.azure.com> и войдите в систему со своими учетными данными. Обратите внимание, что в настоящее время некоторые функции доступны только на классическом портале. Эти действия будут четко указаны.
+Теперь вы можете просмотреть свои ресурсы на портале Azure. Войдите на портал по адресу <https://portal.azure.com>, используя свои учетные данные. Обратите внимание, что в настоящее время некоторые функции доступны только на классическом портале. Эти действия будут четко указаны.
 
 ### <a name="azure-event-hubs"></a>Концентраторы событий Azure
 

@@ -1,8 +1,8 @@
 ---
-title: "Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows"
-description: "В рамках этого руководства вы узнаете, как получить доступ к службе SQL Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows
+description: В рамках этого руководства вы узнаете, как получить доступ к службе SQL Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows
 
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Включение аутентификации Azure AD для сервера SQL
 
-Теперь, когда вы создали группу и добавили MSI виртуальной машины как участника группы, можно [настроить аутентификацию Azure AD для сервера SQL](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) следующим образом:
+Теперь, когда вы создали группу и добавили MSI виртуальной машины как участника группы, можно [настроить аутентификацию Azure AD для сервера SQL](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) следующим образом:
 
 1.  На портале Azure выберите **SQL servers** (Серверы SQL Server) на левой панели навигации.
 2.  Щелкните сервер SQL, для которого нужно включить аутентификацию Azure AD.
@@ -183,7 +183,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 SQL Azure изначально поддерживает проверку подлинности Azure AD, поэтому может напрямую принимать маркеры доступа, полученные с использованием MSI.  Для создания подключения к SQL используется метод на основе **маркера доступа**.  Он реализуется как часть интеграции SQL Azure с Azure AD и отличается от указания учетных данных в строке подключения.
 
-Ниже приведен пример кода .NET для установки подключения к SQL с помощью маркера доступа.  Этот код должен выполняться на виртуальной машине, чтобы иметь доступ к конечной точке MSI виртуальной машины.  Для использования метода с маркером доступа необходима платформа **.NET Framework 4.6** или более поздней версии.  Замените значения AZURE-SQL-SERVERNAME и DATABASE соответствующим образом.  Обратите внимание, что идентификатор ресурса для SQL Azure — "https://database.windows.net/".
+Ниже приведен пример кода .NET для установки подключения к SQL с помощью маркера доступа.  Этот код должен выполняться на виртуальной машине, чтобы иметь доступ к конечной точке MSI виртуальной машины.  Для использования метода с маркером доступа необходима платформа **.NET Framework 4.6** или более поздней версии.  Замените значения AZURE-SQL-SERVERNAME и DATABASE соответствующим образом.  Обратите внимание, что идентификатор ресурса для SQL Azure — https://database.windows.net/.
 
 ```csharp
 using System.Net;

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по использованию групп доступности SQL Server и виртуальных машин Azure | Документация Майкрософт"
-description: "В этом руководстве показано, как создать группу доступности AlwaysOn SQL Server на виртуальных машинах Azure."
+title: Руководство по использованию групп доступности SQL Server и виртуальных машин Azure | Документация Майкрософт
+description: В этом руководстве показано, как создать группу доступности AlwaysOn SQL Server на виртуальных машинах Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Настройка группы доступности AlwaysOn на виртуальной машине Azure вручную
 
@@ -356,7 +356,7 @@ Repeat these steps on the second SQL Server.
    | **Виртуальная сеть** |Используйте имя виртуальной сети Azure. |
    | **Подсеть** |Используйте имя подсети, в которой находится виртуальная машина.  |
    | **Назначение IP-адресов** |Статическое |
-   | **IP-адрес** |Используйте доступный адрес из подсети. |
+   | **IP-адрес** |Используйте доступный адрес из подсети. Обратите внимание, что он отличается от IP-адреса кластера. |
    | **Подписка** |Используйте подписку, в которой находится виртуальная машина. |
    | **Местоположение.** |Используйте расположение, в котором находится виртуальная машина. |
 

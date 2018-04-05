@@ -1,24 +1,24 @@
 ---
-title: "Индексирование хранилища BLOB-объектов Azure с помощью службы поиска Azure"
-description: "Узнайте, как индексировать хранилище BLOB-объектов Azure и извлекать текст из документов с помощью службы поиска Azure."
+title: Индексирование хранилища BLOB-объектов Azure с помощью службы поиска Azure
+description: Узнайте, как индексировать хранилище BLOB-объектов Azure и извлекать текст из документов с помощью службы поиска Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure
 В этой статье показано, как использовать поиск Azure для индексации документов (например, файлов PDF, Microsoft Office и некоторых других распространенных форматов), которые хранятся в хранилище BLOB-объектов Azure. Во-первых, объясняются основные принципы установки и настройки индексатора больших двоичных объектов. Затем предлагается более углубленно изучить возможные сценарии и поведения.
@@ -271,6 +271,10 @@ ms.lasthandoff: 01/02/2018
 Для некоторых больших двоичных объектов служба "Поиск Azure" не может определить тип содержимого или обработать документ либо другой поддерживаемый тип содержимого. Чтобы пропустить этот сбой, задайте для `failOnUnprocessableDocument` параметра конфигурации значение False:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Поиск Azure ограничивает размер больших двоичных объектов, которые индексируются. Эти ограничения описаны в [ограничениях служб в Поиске Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Большие двоичные объекты слишком большого размера по умолчанию считаются ошибками. Но вы все равно можете индексировать метаданные хранилища больших двоичных объектов слишком большого размера, если для параметра конфигурации `indexStorageMetadataOnlyForOversizedDocuments` задать значение true: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 Вы также можете продолжить индексирование, если ошибки возникают в какой-либо момент обработки — при анализе больших двоичных объектов или при добавлении документов в индекс. Чтобы пропустить определенное количество ошибок, задайте для параметров конфигурации `maxFailedItems` и `maxFailedItemsPerBatch` нужные значения. Например: 
 

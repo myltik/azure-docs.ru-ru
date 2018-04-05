@@ -1,24 +1,24 @@
 ---
-title: "Обзор службы \"Работоспособность ресурсов Azure\" | Документация Майкрософт"
-description: "Обзор службы \"Работоспособность ресурсов Azure\""
+title: Обзор службы "Работоспособность ресурсов Azure" | Документация Майкрософт
+description: Обзор службы "Работоспособность ресурсов Azure"
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/01/2017
+ms.date: 03/27/2018
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 99e996f182aac774f2e2565d87fd0debaba1b2d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-resource-health-overview"></a>Обзор службы "Работоспособность ресурсов Azure"
  
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/02/2018
 ![Поле для отправки информации о неправильном состоянии](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Накопленные сведения
-Вы можете просмотреть сведения о работоспособности ресурсов, накопленные за последние 14 дней. Для этого выберите **Просмотреть журнал** в колонке работоспособности ресурсов. 
+Вы можете просмотреть сведения о работоспособности ресурсов, накопленные за последние 14 дней. Для этого выберите раздел **Журнал работоспособности** в колонке работоспособности ресурсов. 
 
 ![Список событий работоспособности ресурсов за последние две недели](./media/resource-health-overview/history-blade.png)
 

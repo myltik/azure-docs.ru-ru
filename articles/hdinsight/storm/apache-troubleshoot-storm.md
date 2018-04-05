@@ -1,12 +1,12 @@
 ---
-title: "Устранение неполадок в Storm с помощью Azure HDInsight | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы об использовании Apache Storm с Azure HDInsight."
-keywords: "Azure HDInsight, Storm, вопросы и ответы, руководство по устранению неполадок, часто задаваемые вопросы"
+title: Устранение неполадок в Storm с помощью Azure HDInsight | Документация Майкрософт
+description: Ответы на часто задаваемые вопросы об использовании Apache Storm с Azure HDInsight.
+keywords: Azure HDInsight, Storm, вопросы и ответы, руководство по устранению неполадок, часто задаваемые вопросы
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Устранение неполадок в Storm с помощью Azure HDInsight
 
@@ -40,7 +40,7 @@ https://\<DNS-имя кластера\>/stormui
 
 Пример:
 
- https://stormcluster.azurehdinsight.net/stormui.
+ https://stormcluster.azurehdinsight.net/stormui
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Как передать сведения о контрольной точке spout концентратора событий Storm из одной топологии в другую?
 
@@ -71,7 +71,7 @@ https://\<DNS-имя кластера\>/stormui
     ```
 
 #### <a name="import-offset-metadata"></a>Импорт метаданных смещения
-1. Используйте SSH для перехода в кластер ZooKeeper в кластере, из которого необходимо экспортировать смещение контрольной точки.
+1. Используйте SSH для перехода в кластер ZooKeeper в кластере, из которого необходимо импортировать смещение контрольной точки.
 2. Выполните следующую команду (после обновления строки версии HDP) для импорта данных смещения ZooKeeper из пути HDFS /stormmetadata/zkdata на сервер ZooKeeper в целевом кластере:
 
     ```apache
@@ -79,7 +79,7 @@ https://\<DNS-имя кластера\>/stormui
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Удалите метаданные смещения, чтобы топологии могли начать обработку данных с начала или метки времени (на усмотрение пользователя).
-1. Используйте SSH для перехода в кластер ZooKeeper в кластере, из которого необходимо экспортировать смещение контрольной точки.
+1. Используйте SSH для перехода в кластер ZooKeeper в кластере, из которого необходимо удалить смещение контрольной точки.
 2. Выполните следующую команду (после обновления строки версии HDP) для удаления всех данных смещения ZooKeeper в текущем кластере:
 
     ```apache

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Пакет SDK для устройств Azure IoT для C — дополнительные сведения о сериализаторе
 В [первой статье](iot-hub-device-sdk-c-intro.md) этого курса вы познакомились с **пакетом SDK для устройств Azure IoT для C**. В следующей статье содержится более подробное описание библиотеки [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Этой статьей завершается изучение пакета SDK, в ней более подробно рассматривается оставшийся компонент — библиотека **serializer** .
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 В первой статье описывается, как использовать библиотеку **serializer** для отправки событий в Центр Интернета вещей и получения сообщений из него. В этой статье мы углубим свои знания, более подробно изучив моделирование данных с помощью макроязыка библиотеки **serializer** . В этой статье также подробнее рассматриваются механизмы, используемые библиотекой для сериализации сообщений (которые в некоторых случаях позволяют управлять поведением сериализации). Также здесь описываются некоторые параметры, доступные для изменения и определяющие размер создаваемой модели.
 

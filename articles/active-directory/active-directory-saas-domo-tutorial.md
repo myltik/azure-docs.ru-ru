@@ -1,23 +1,23 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с Domo | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Domo."
+title: Учебник. Интеграция Azure Active Directory с Domo | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Domo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Учебник. Интеграция Azure Active Directory с Domo
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 12/11/2017
 
    ![Настройка единого входа](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. Чтобы настроить единый вход на стороне **Domo**, нужно отправить скачанный **сертификат**, **идентификатор сущности SAML**, **URL-адрес службы единого входа SAML** и **URL-адрес выхода** в [службу поддержки Domo](mailto:support@domo.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+9. Чтобы настроить единый вход на стороне **Domo**, перейдите к статье базы знаний Domo, размещенной [здесь](http://knowledge.domo.com?cid=azuread), и следуйте инструкциям.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -250,8 +250,6 @@ ms.lasthandoff: 12/11/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

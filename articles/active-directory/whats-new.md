@@ -1,11 +1,11 @@
 ---
-title: "Новые возможности Заметки о выпуске для Azure Active Directory | Документация Майкрософт"
-description: "Узнайте о новых возможностях Azure Active Directory (Azure AD), включая последние заметки о выпуске, известные проблемы, исправления ошибок, нерекомендуемые функции и предстоящие изменения."
+title: Новые возможности Заметки о выпуске для Azure Active Directory | Документация Майкрософт
+description: Узнайте о новых возможностях Azure Active Directory (Azure AD), включая последние заметки о выпуске, известные проблемы, исправления ошибок, нерекомендуемые функции и предстоящие изменения.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Новые возможности Azure Active Directory
 
@@ -39,6 +39,218 @@ Azure AD усовершенствуется на постоянной основ
 -   Планы по изменениям.
 
 Эта страница обновляется ежемесячно, поэтому регулярно пересматривайте ее.
+
+## <a name="march-2018"></a>Март 2018 г.
+ 
+
+### <a name="certificate-expire-notification"></a>Уведомление об истечении срока действия сертификата
+
+**Тип.** Исправление.  
+**Категория службы.** Корпоративные приложения.  
+**Возможности продукта.** Единый вход.
+ 
+Azure AD отправляет уведомление о сертификатах с истекающим сроком действия для приложений из коллекции или не из коллекции. 
+
+Некоторые пользователи не получают уведомления о корпоративных приложениях, для которых настроен единый вход для на основе SAML. Эта проблема была устранена. Azure AD отправляет уведомление для сертификатов, срок действия которых истекает через 7, 30 и 60 дней. Это событие отображается в журналах аудита. 
+
+Дополнительные сведения можно найти в разделе 
+
+- [Управление сертификатами для федеративного единого входа в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [Отчеты о действиях аудита на портале Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+
+ 
+---
+ 
+
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Поставщики удостоверений Twitter и GitHub в Azure AD B2C
+
+**Тип.** Новая функция.  
+**Категория службы.** B2C — управление удостоверениями клиентов.  
+**Возможности продукта.** B2B и B2C.
+ 
+Теперь в Azure AD B2C можно добавить Twitter или GitHub в качестве поставщика удостоверений. От общедоступной предварительной версии Twitter переходит к общедоступной версии. Для GitHub выпускается общедоступная предварительная версия.
+
+
+Дополнительные сведения см. в статье [Что такое служба совместной работы Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+ 
+---
+ 
+
+### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Командлеты для прокси приложения в общедоступной версии модуля PowerShell
+
+**Тип.** Новая функция.  
+**Категория службы.** Прокси-сервер приложения.  
+**Возможность продукта.** Контроль доступа.
+ 
+Теперь в общедоступной версии модуля PowerShell поддерживаются командлеты для прокси приложения. Обратите внимание на то, что для этого требуется своевременно обновлять модули PowerShell. Если используемая версия модуля не будет обновляться более одного года, то некоторые командлеты могут перестать работать. 
+
+
+Дополнительные сведения см. в разделе [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
+ 
+---
+ 
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Поддержка собственных клиентов Office 365 службой простого единого входа с помощью неинтерактивного протокола
+
+**Тип.** Новая функция.  
+**Категория службы.** Проверки подлинности (имена входа).  
+**Возможности продукта.** Проверка подлинности пользователей.
+ 
+Пользователь, применяющий собственные клиенты Office 365 (версии 16.0.8730.xxxx и более поздней версии), может использовать автоматический вход с помощью простого единого входа. Поддержка этой возможности обеспечивается за счет добавления в Azure AD неинтерактивного протокола (WS-Trust).
+
+Дополнительные сведения см. в разделе [Как работает вход с функцией простого единого входа в собственном клиенте?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work)
+
+ 
+---
+ 
+
+### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenanted-endpoints"></a>Пользователи могут использовать автоматический вход с помощью простого единого входа, если приложение отправляет запросы на вход на клиентские конечные точки Azure AD
+
+**Тип.** Новая функция.  
+**Категория службы.** Проверки подлинности (имена входа).  
+**Возможности продукта.** Проверка подлинности пользователей.
+ 
+Пользователи могут использовать автоматический вход с помощью простого единого входа, если приложение (например, `https://contoso.sharepoint.com`) отправляет запросы на вход на клиентские конечные точки Azure AD, то есть `https://login.microsoftonline.com/contoso.com/<..>` или `https://login.microsoftonline.com/<tenant_ID>/<..>`, вместо обычной конечной точки Azure AD (`https://login.microsoftonline.com/common/<...>`).
+
+Дополнительные сведения см. в разделе [Устранение неполадок с простым единым входом Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+
+---
+ 
+
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Необходимо добавить в параметры зоны интрасети пользователей только один URL-адрес Azure AD вместо двух (как было раньше) для развертывания простого единого входа
+
+**Тип.** Новая функция.  
+**Категория службы.** Проверки подлинности (имена входа).  
+**Возможности продукта.** Проверка подлинности пользователей.
+ 
+Чтобы развернуть простой единый вход для пользователей, необходимо добавить только один URL-адрес Azure AD в параметры зоны интрасети пользователей с помощью групповой политики Active Directory: `https://autologon.microsoftazuread-sso.com`. Ранее клиентам требовалось добавить два URL-адреса.
+
+Дополнительные сведения см. в разделе [Устранение неполадок с простым единым входом Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+ 
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Новые федеративные приложения доступны в коллекции приложений Azure AD
+
+**Тип.** Новая функция.  
+**Категория службы.** Корпоративные приложения.  
+**Возможности продукта.** Интеграция с решениями сторонних производителей.
+ 
+В марте 2018 года мы добавили в коллекцию приложений следующие 15 новых приложений с поддержкой федерации:
+
+[Boxcryptor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-boxcryptor-tutorial), [CylancePROTECT](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cylanceprotect-tutorial), Wrike, [SignalFx](https://docs.microsoft.com/azure/active-directory/active-directory-saas-signalfx-tutorial), Assistant by FirstAgenda, [YardiOne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-yardione-tutorial), Vtiger CRM, inwink, [Amplitude](https://docs.microsoft.com/azure/active-directory/active-directory-saas-amplitude-tutorial), [Spacio](https://docs.microsoft.com/azure/active-directory/active-directory-saas-spacio-tutorial), [ContractWorks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-contractworks-tutorial), [Bersin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bersin-tutorial), [Mercell](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mercell-tutorial), [Trisotech Digital Enterprise Server](https://docs.microsoft.com/azure/active-directory/active-directory-saas-trisotechdigitalenterpriseserver-tutorial), [Qumu Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-qumucloud-tutorial).
+ 
+Документацию по этим приложениям можно найти здесь: [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+
+
+ 
+---
+ 
+
+### <a name="pim-for-azure-resources-is-generally-available"></a>Выпущена общедоступная версия PIM для ресурсов Azure
+
+**Тип.** Новая функция.  
+**Категория службы.** Управление привилегированными пользователями.  
+**Возможности продукта.** Управление привилегированными пользователями.
+ 
+Теперь при использовании управления привилегированными пользователями Azure AD для ролей каталога можно применять возможности временного ограничения доступа и назначения для таких ролей ресурсов Azure, как подписки, группы ресурсов, виртуальные машины, а также любого другого ресурса, поддерживаемого Azure Resource Manager. Вы можете применять Многофакторную идентификацию при JIT-активации ролей и планировать активацию в соответствии с утвержденными периодами изменений. Кроме того, в этом выпуске добавлены усовершенствования, отсутствующие в общедоступной предварительной версии, включая обновленный пользовательский интерфейс, рабочие процессы утверждения и возможность расширения ролей с истекающим сроком действия и обновления ролей с истекшим сроком действия.
+
+Дополнительные сведения см. в статье [PIM для ресурсов Azure (предварительная версия)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
+ 
+---
+ 
+
+### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Добавление необязательных утверждений для токенов приложений (предварительная версия)
+
+**Тип.** Новая функция.  
+**Категория службы.** Проверки подлинности (имена входа).  
+**Возможности продукта.** Проверка подлинности пользователей.
+ 
+Теперь приложение Azure AD может запрашивать пользовательские или необязательные утверждения в токенах JWT или SAML.  Это утверждения о пользователе или клиенте, которые не включены по умолчанию в токен из-за ограничения размера или применимости.  В настоящий момент доступна общедоступная предварительная версия этой функции для приложений Azure AD в конечных точках версии 1.0 и версии 2.0.  Ознакомьтесь с соответствующей документацией, чтобы получить сведения о том, какие утверждения могут быть добавлены и как изменить манифест приложения, чтобы запросить их.  
+
+Дополнительные сведения см. в статье [Optional claims in Azure AD (preview)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) (Необязательные утверждения в Azure AD (предварительная версия)).
+ 
+---
+ 
+
+### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD поддерживает PKCE для более безопасных потоков OAuth
+
+**Тип.** Новая функция.  
+**Категория службы.** Проверки подлинности (имена входа).  
+**Возможности продукта.** Проверка подлинности пользователей.
+ 
+Документация по Azure AD была обновлена с учетом поддержки PKCE, что обеспечивает более безопасную связь во время потока предоставления кода авторизации OAuth 2.0.  S256 и code_challenge без шифрования поддерживаются в конечных точках версии 1.0 и версии 2.0. 
+
+Дополнительные сведения см. в статье [Request an authorization code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code) (Запрос кода авторизации). 
+
+ 
+---
+ 
+
+### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Поддержка подготовки всех значений атрибутов пользователя, доступных в API Get_Workers Workday
+
+**Тип.** Новая функция.  
+**Категория службы.** Подготовка приложений.  
+**Возможности продукта.** Интеграция с решениями сторонних производителей.
+ 
+Общедоступная предварительная версия функции подготовки входящих данных из Workday в Active Directory и Azure AD теперь поддерживает возможность извлечения и подготовки всех значений атрибутов в API Get_Workers Workday. Добавлена поддержка сотен дополнительных стандартных и пользовательских атрибутов, не входящих в состав первоначальной версии соединителя подготовки входящих данных Workday.
+
+Дополнительные сведения см. в разделе [Настройка списка атрибутов пользователя Workday](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes).
+
+---
+
+
+
+### <a name="changing-group-membership-from-dynamic-to-static-and-vice-versa"></a>Изменение динамического членства в группе на статическое (и наоборот)
+
+**Тип.** Новая функция.  
+**Категория службы.** Управление группами.  
+**Возможности продукта.** Совместная работа.
+ 
+Можно изменить способ управления членством в группе. Это удобно, если требуется сохранить имя и идентификатор группы в системе, чтобы все существующие ссылки на эту группу по-прежнему были действительны. При создании новой группы эти ссылки потребовалось бы обновить.
+Мы обновили центр администрирования Azure AD, добавив поддержку этой функции. Теперь клиенты могут изменять динамическое членство в существующих группах на статическое (и наоборот). Существующие командлеты PowerShell по-прежнему доступны.
+
+Дополнительные сведения см. в разделе [Изменение динамического членства на статическое (и наоборот)](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa).
+
+ 
+
+ 
+---
+ 
+
+### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Улучшенный выход при простом едином входе
+
+**Тип.** Измененная функция.  
+**Категория службы.** Проверки подлинности (имена входа).  
+**Возможности продукта.** Проверка подлинности пользователей.
+ 
+Ранее, если пользователи даже после явного выхода из приложения, защищенного Azure AD, пытались получить доступ к приложению Azure AD в своей корпоративной сети с собственных устройств, присоединенных к домену, они автоматически повторяли вход с помощью простого единого входа. Благодаря данному изменению поддерживается выход.  Это позволяет пользователям выбрать другую или ту же учетную запись Azure AD для входа вместо того, чтобы автоматически входить с помощью простого единого входа.
+
+Дополнительные сведения см. в разделе [Устранение неполадок с простым единым входом Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso).
+
+ 
+---
+ 
+
+### <a name="application-proxy-connector-version-154020-released"></a>Выпущен соединитель прокси приложения версии 1.5.402.0
+
+**Тип.** Измененная функция.  
+**Категория службы.** Прокси-сервер приложения.  
+**Возможности продукта.** Безопасность и защита удостоверений.
+ 
+Эта версия соединителя постепенно разворачивалась в ноябре. Данная новая версия соединителя включает в себя следующие изменения.
+
+- Теперь соединитель задает файлы cookie уровня домена, а не уровня поддомена. Это обеспечивает более удобный единый вход и позволяет избежать избыточных запросов аутентификации.
+- Поддержка запросов на поблочное кодирование.
+- Улучшенный мониторинг работоспособности соединителей. 
+- Устранено несколько ошибок и повышена стабильность.
+
+Дополнительные сведения см. в разделе [Сведения о соединителях прокси приложения Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+
+ 
+---
+ 
+
+ 
 
 
 

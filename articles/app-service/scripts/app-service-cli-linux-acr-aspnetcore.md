@@ -1,11 +1,11 @@
 ---
-title: "Пример скрипта Azure CLI. Создание веб-приложения ASP.NET Core в контейнере Docker из реестра контейнеров Azure | Документация Майкрософт"
-description: "Пример скрипта Azure CLI. Создание веб-приложения ASP.NET Core в контейнере Docker из реестра контейнеров Azure"
+title: Пример скрипта Azure CLI. Создание веб-приложения ASP.NET Core в контейнере Docker из реестра контейнеров Azure | Документация Майкрософт
+description: Пример скрипта Azure CLI. Создание веб-приложения ASP.NET Core в контейнере Docker из реестра контейнеров Azure
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.service: app-service
@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ec6fa209d9db700bfb525bd56ac11d9799b1f029
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 194755a2770a6ed0e023000267dafe810647e85c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>Создание веб-приложения ASP.NET Core в контейнере Docker из реестра контейнеров Azure
 
@@ -45,10 +45,10 @@ ms.lasthandoff: 03/09/2018
 
 | Get-Help | Заметки |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Создает план службы приложений. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Создает веб-приложение Azure. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) | Настраивает контейнер Docker для веб-приложения Azure. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Создает план службы приложений. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Создает веб-приложение Azure. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Настраивает контейнер Docker для веб-приложения Azure. |
 
 ## <a name="next-steps"></a>Дополнительная информация
 

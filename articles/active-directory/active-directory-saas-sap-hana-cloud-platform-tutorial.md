@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с SAP Cloud Platform | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в SAP Cloud Platform."
+title: Руководство по интеграции Azure Active Directory с SAP Cloud Platform | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в SAP Cloud Platform.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Руководство по интеграции Azure Active Directory с SAP Cloud Platform
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. В другом окне веб-браузера войдите в панель SAP Cloud Platform по адресу `https://account.<landscape host>.ondemand.com/cockpit` (например, https://account.hanatrial.ondemand.com/cockpit).
+6. В другом окне браузера войдите на панель SAP Cloud Platform по адресу `https://account.<landscape host>.ondemand.com/cockpit` (например, https://account.hanatrial.ondemand.com/cockpit)).
 
 7. Щелкните вкладку **Доверие** .
    
@@ -228,7 +228,7 @@ ms.lasthandoff: 12/11/2017
  
     c. Имена и значения для **атрибута субъекта** , показанные на снимке экрана, зависят от способа разработки приложения. Возможно, приложению требуются другие сопоставления.
 
-###<a name="assertion-based-groups"></a>Группы на основе утверждений
+### <a name="assertion-based-groups"></a>Группы на основе утверждений
 
 При необходимости для поставщика удостоверений Azure Active Directory можно настроить группы на основе утверждений.
 

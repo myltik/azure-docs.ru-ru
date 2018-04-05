@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: динамическая настройка пользовательского интерфейса Azure AD B2C с помощью пользовательских политик"
-description: "Сведения о том, как обеспечить поддержку нескольких фирменных символик с помощью содержимого HTML5 или каскадных таблиц стилей (CSS), которое динамически изменяется в среде выполнения."
+title: 'Azure Active Directory B2C: динамическая настройка пользовательского интерфейса Azure AD B2C с помощью пользовательских политик'
+description: Сведения о том, как обеспечить поддержку нескольких фирменных символик с помощью содержимого HTML5 или каскадных таблиц стилей (CSS), которое динамически изменяется в среде выполнения.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: настройка пользовательского интерфейса с динамическим содержимым, используя пользовательские политики
 Пользовательские политики Azure Active Directory B2C (Azure AD B2C) позволяют отправлять параметр в строке запроса. Передавая параметр в конечную точку HTML, вы можете динамически изменять содержимое страницы. Например, можно изменить фоновое изображение страницы регистрации или входа в Azure AD B2C на основе параметра, передаваемого из веб-приложения или мобильного приложения. 

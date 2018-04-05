@@ -1,25 +1,25 @@
 ---
-title: "Создание задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure | Документация Майкрософт"
-description: "Используйте задачи подготовки на уровне задания для минимизации передачи данных на вычислительные узлы пакетной службы Azure и задачи снятия для очистки узла после завершения задания."
+title: Создание задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure | Документация Майкрософт
+description: Используйте задачи подготовки на уровне задания для минимизации передачи данных на вычислительные узлы пакетной службы Azure и задачи снятия для очистки узла после завершения задания.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Выполнение задач подготовки и задач завершения заданий на вычислительных узлах пакетной службы
 

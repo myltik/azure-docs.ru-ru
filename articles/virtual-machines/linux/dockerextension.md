@@ -1,11 +1,11 @@
 ---
-title: "Использование расширения виртуальной машины Docker для Azure | Документация Майкрософт"
-description: "Узнайте, как использовать расширение виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure с помощью шаблонов Resource Manager и Azure CLI 2.0."
+title: Использование расширения виртуальной машины Docker для Azure | Документация Майкрософт
+description: Узнайте, как использовать расширение виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure с помощью шаблонов Resource Manager и Azure CLI 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: fe4013eefc0a7a896d6e8eb737ee8e2bc26ecf61
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Создание среды Docker в Azure с помощью расширения виртуальной машины Docker
 Docker — это популярная платформа для управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux. В Azure развертывание Docker можно выполнить несколькими разными способами в соответствии с конкретными потребностями. В этой статье рассматривается использование расширения виртуальной машины Docker и шаблонов Azure Resource Manager с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](dockerextension-nodejs.md).
+
+> [!WARNING]
+> Расширение виртуальной машины Azure Docker для Linux не рекомендуется использовать, его поддержка будет прекращена с ноября 2018 г.
+> Расширение просто устанавливает Docker, поэтому лучше использовать для этой цели альтернативные варианты, например cloud-init или расширение настраиваемых скриптов. Дополнительные сведения об использовании cloud-init см. в статье [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Общие сведения о расширении виртуальных машин Docker для Azure
 Расширение виртуальных машин Docker для Azure устанавливает и настраивает управляющую программу Docker, клиент Docker и Docker Compose на виртуальной машине Linux. В отличие от использования только машины Docker или самостоятельного создания узла Docker с этим расширением вы получаете дополнительные элементы управления и компоненты. Благодаря этим дополнительным компонентам, таким как [Docker Compose](https://docs.docker.com/compose/overview/), расширение виртуальных машин Docker для Azure подходит для более надежных сред разработки или рабочих сред.

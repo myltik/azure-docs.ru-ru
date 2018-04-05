@@ -3,8 +3,8 @@ title: Изменения, вносимые в проект MVC при подк�
 description: Описывает, что происходит с проектом MVC при подключении к приложению Azure AD с помощью подключенных служб Visual Studio
 services: active-directory
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: b17c5fe500f3e2a8370ec5c4a09b62737d9afb84
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1925a32ce5745673c08af3f9cfe63090d4adfa23
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory?
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 03/16/2018
 
 Сведения о работе с подключенной службой см. в статье [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)](vs-active-directory-dotnet-getting-started.md).
 
-## <a name="added-references"></a>Добавлены ссылки
+## <a name="added-references"></a>Добавленные ссылки
 
-Влияет на файлы проекта * (ссылки .NET) и `packages.config` (ссылки NuGet).
+Это изменение влияет на файлы проекта (ссылки .NET) и `packages.config` (ссылки NuGet).
 
 | type | Справочные материалы |
 | --- | --- |
@@ -166,5 +166,5 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
-- [Добавление возможности входа в веб-приложение ASP.NET с помощью учетной записи Майкрософт](guidedsetups/active-directory-aspnetwebapp-v1.md).
+- [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
+- [Добавление возможности входа в веб-приложение ASP.NET с помощью учетной записи Майкрософт](guidedsetups/active-directory-aspnetwebapp-v1.md)

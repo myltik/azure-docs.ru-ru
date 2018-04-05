@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: вспомогательное средство для настройки пользовательского интерфейса страницы | Документация Майкрософт"
-description: "Вспомогательное средство, которое используется для демонстрации настройки пользовательского интерфейса страницы в Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: вспомогательное средство для настройки пользовательского интерфейса страницы | Документация Майкрософт'
+description: Вспомогательное средство, которое используется для демонстрации настройки пользовательского интерфейса страницы в Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: вспомогательное средство, используемое для демонстрации настройки пользовательского интерфейса для страницы пользователя
 Эта статья дополняет [основную статью о настройке пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md) в Azure Active Directory (Azure AD) B2C. Описанные ниже действия показывают, как работать с функцией настройки пользовательского интерфейса страницы на основе предоставленных нами примеров HTML и CSS.
@@ -80,7 +77,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 Этот репозиторий включает в себя каталог `sample_templates\wingtip` , который содержит пример кода HTML и CSS, а также изображения. Для того чтобы эти шаблоны ссылались именно на вашу учетную запись в хранилище больших двоичных объектов Azure, необходимо изменить HTML-файлы. Откройте `unified.html` и `selfasserted.html`, затем замените все экземпляры `https://localhost` URL-адресом вашего контейнера, записанным ранее. Необходимо использовать абсолютный путь к HTML-файлам, так как в этом случае Azure AD будет обслуживать HTML в домене `https://login.microsoftonline.com`.
 
 ### <a name="upload-the-sample-files"></a>Загрузка образцов файлов
-В том же репозитории распакуйте `B2CAzureStorageClient.zip` и запустите файл `B2CAzureStorageClient.exe` из этого архива. Эта программа просто загружает все файлы в каталог, указанный в вашей учетной записи хранения, и обеспечивает доступ к этим файлам с помощью CORS. Если вы выполнили описанные выше шаги, HTML и CSS-файлы будут указывать на учетную запись хранения. Обратите внимание, что имя вашей учетной записи хранения представляет собой часть, предшествующую `blob.core.windows.net`, например `contoso`. Вы можете проверить, что содержимое отправлено правильно, попробовав получить доступ к `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` в браузере. Кроме того, откройте адрес [http://test-cors.org/](http://test-cors.org/) и проверьте, включен ли для содержимого доступ CORS. (Ищите "XHR status: 200" в результате проверки.)
+В том же репозитории распакуйте `B2CAzureStorageClient.zip` и запустите файл `B2CAzureStorageClient.exe` из этого архива. Эта программа просто загружает все файлы в каталог, указанный в вашей учетной записи хранения, и обеспечивает доступ к этим файлам с помощью CORS. Если вы выполнили описанные выше шаги, HTML и CSS-файлы будут указывать на учетную запись хранения. Обратите внимание, что имя вашей учетной записи хранения представляет собой часть, предшествующую `blob.core.windows.net`, например `contoso`. Вы можете проверить, что содержимое отправлено правильно, попробовав получить доступ к `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` в браузере. Кроме того, перейдите по адресу [http://test-cors.org/](http://test-cors.org/) и проверьте, включен ли для содержимого доступ CORS. (Ищите "XHR status: 200" в результате проверки.)
 
 ### <a name="customize-your-policy-again"></a>Повторная настройка политики
 Теперь, когда образец содержимого загружен в свою учетную запись хранения, политику регистрации нужно изменить таким образом, чтобы она ссылалась на этот образец. Повторите действия из приведенного выше раздела [Настройка политики](#customize-your-policy) , но на этот раз используйте URL-адреса вашей учетной записи хранения. Например, файл `unified.html` будет расположен по адресу `<url-of-your-container>/wingtip/unified.html`.

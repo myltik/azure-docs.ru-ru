@@ -1,11 +1,11 @@
 ---
-title: "Начало работы со Службами мобильного взаимодействия Azure для Xamarin.Android"
-description: "Узнайте, как использовать Службы мобильного взаимодействия Azure с аналитическими функциями и push-уведомлениями для приложений Xamarin.Android."
+title: Начало работы со Службами мобильного взаимодействия Azure для Xamarin.Android
+description: Узнайте, как использовать Службы мобильного взаимодействия Azure с аналитическими функциями и push-уведомлениями для приложений Xamarin.Android.
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7b3d01b32c2d5a40448fc22861cd45f612238f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ac6e85a0143fc083c22a92e99503689f463d813
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Начало работы со Службами мобильного взаимодействия Azure для приложений Xamarin.Android
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 В этой статье показано, как применять Службы мобильного взаимодействия Azure для анализа использования приложения и как отправлять push-уведомления сегментированным пользователям приложения Xamarin.Android.

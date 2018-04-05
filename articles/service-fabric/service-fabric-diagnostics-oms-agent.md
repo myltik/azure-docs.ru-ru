@@ -1,31 +1,31 @@
 ---
-title: "Azure Service Fabric: настройка мониторинга с помощью агента OMS | Документация Майкрософт"
-description: "Узнайте о том, как настраивать агент OMS для наблюдения за контейнерами и счетчиками производительности для кластеров Azure Service Fabric."
+title: 'Azure Service Fabric: настройка мониторинга с помощью агента OMS | Документация Майкрософт'
+description: Узнайте о том, как настраивать агент OMS для наблюдения за контейнерами и счетчиками производительности для кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Добавление агента OMS в кластер
 
-В этой статье рассматриваются шаги, позволяющие добавить агент OMS как расширение масштабируемого набора виртуальных машин в кластер и подключить его к существующей рабочей области OMS Log Analytics. Это активирует сбор данных диагностики о контейнерах и приложениях, а также мониторинг производительности. Если вы добавите агент в качестве расширения, Azure Resource Manager гарантирует его установку на каждом узле, даже при масштабировании кластера.
+В этой статье рассматриваются шаги, позволяющие добавить агент OMS как расширение масштабируемого набора виртуальных машин в кластер и подключить его к существующей рабочей области Azure Log Analytics. Это активирует сбор данных диагностики о контейнерах и приложениях, а также мониторинг производительности. Если вы добавите агент в качестве расширения, Azure Resource Manager гарантирует его установку на каждом узле, даже при масштабировании кластера.
 
 > [!NOTE]
-> В этой статье предполагается наличие настроенной рабочей области OMS Log Analytics. Если ее нет, перейдите к статье [Настройка OMS Log Analytics для кластера](service-fabric-diagnostics-oms-setup.md).
+> В этой статье предполагается наличие настроенной рабочей области Azure Log Analytics. Если ее нет, перейдите к статье о [настройке Azure Log Analytics](service-fabric-diagnostics-oms-setup.md).
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Добавление расширения агента через Azure CLI
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 01/17/2018
 
 1. Как только придет запрос Cloud Shell, убедитесь, что вы работаете в той же подписке, что и ресурс. Проверьте это с помощью `az account show` и убедитесь, что значение "name" соответствует подписке кластера.
 
-2. На портале перейдите к группе ресурсов, где находится рабочая область OMS. В области навигации справа щелкните ресурс Log Analytics (тип ресурса будет Log Analytics), прокрутите вниз и выберите **Свойства**.
+2. На портале перейдите к группе ресурсов, где находится рабочая область Log Analytics. В области навигации справа щелкните ресурс Log Analytics (тип ресурса будет Log Analytics), прокрутите вниз и выберите **Свойства**.
 
-    ![Страница свойств OMS](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Страница свойств Log Analytics](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     Запишите значение `workspaceId`. 
 
@@ -59,7 +59,14 @@ ms.lasthandoff: 01/17/2018
 
     ![Команда cli агента OMS](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
-    Добавление агента на узлы займет меньше 15 минут. Вы можете проверить, что агенты были добавлены, с помощью API `az vmss extension list`:
+5. Выполните следующую команду, чтобы применить эту конфигурацию к существующим экземплярам виртуальных машин:  
+
+
+    ```sh
+    az vmss update-instances
+    ```
+
+Добавление агента на узлы займет меньше 15 минут. Вы можете проверить, что агенты были добавлены, с помощью API `az vmss extension list`:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
@@ -67,11 +74,11 @@ ms.lasthandoff: 01/17/2018
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Добавление агента через шаблон Resource Manager
 
-Примеры шаблонов Resource Manager, которые развертывают рабочую область OMS Log Analytics и добавляют агент на каждый из узлов, доступны для [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) и [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Примеры шаблонов Resource Manager, при помощи которых развертывается рабочую область Azure Log Analytics и добавляется агент на каждый из узлов, доступны для [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) и [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 Вы можете скачать и изменить такой шаблон для развертывания кластера с учетом ваших требований.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Включите сбор соответствующих [счетчиков производительности](service-fabric-diagnostics-event-generation-perf.md). Чтобы настроить агент OMS для сбора конкретных счетчиков производительности, перейдите на портал OMS (ссылка в верхней части ресурса OMS Log Analytics). Затем щелкните **Главная > Параметры > Данные > Счетчики производительности Windows** или **Счетчики производительности Linux** и выберите счетчики, данные которых необходимо собрать.
-* Настройте OMS, чтобы настроить [автоматические оповещения](../log-analytics/log-analytics-alerts.md), которые помогают выполнять обнаружение и диагностику.
+* Включите сбор соответствующих [счетчиков производительности](service-fabric-diagnostics-event-generation-perf.md). Чтобы настроить агент OMS для сбора данных определенных счетчиков производительности, ознакомьтесь с разделом [Настройка источников данных](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Настройте в Log Analytics [автоматические оповещения](../log-analytics/log-analytics-alerts.md), которые помогают выполнять обнаружение и диагностику.

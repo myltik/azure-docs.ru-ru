@@ -1,11 +1,11 @@
 ---
-title: "Интеграция пакета SDK универсальных приложений Windows для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Интеграция универсальных приложений для Windows с пакетом SDK для Служб мобильного взаимодействия Azure"
+title: Интеграция пакета SDK универсальных приложений Windows для Служб мобильного взаимодействия Azure | Документация Майкрософт
+description: Интеграция универсальных приложений для Windows с пакетом SDK для Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c513d5b05afaee4c49d0d2e96a0dcda78761421
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Интеграция пакета SDK универсальных приложений для Windows для Служб мобильного взаимодействия Azure
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 В этом документе описываются все параметры интеграции и конфигурации, доступные для пакета SDK универсальных приложений для Windows для Служб мобильного взаимодействия Azure.
 
 ## <a name="prerequisites"></a>предварительным требованиям

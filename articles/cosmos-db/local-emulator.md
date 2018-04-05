@@ -1,12 +1,12 @@
 ---
-title: "Разработка с помощью эмулятора Cosmos DB в локальной среде | Документация Майкрософт"
-description: "С помощью эмулятора Azure Cosmos DB вы можете бесплатно разрабатывать и тестировать приложения локально. Для этого вам не нужно создавать подписку Azure."
+title: Разработка с помощью эмулятора Cosmos DB в локальной среде | Документация Майкрософт
+description: С помощью эмулятора Azure Cosmos DB вы можете бесплатно разрабатывать и тестировать приложения локально. Для этого вам не нужно создавать подписку Azure.
 services: cosmos-db
-documentationcenter: 
-keywords: "Эмулятор Azure Cosmos DB"
+documentationcenter: ''
+keywords: Эмулятор Azure Cosmos DB
 author: David-Noble-at-work
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
 
@@ -312,7 +312,7 @@ ms.lasthandoff: 02/28/2018
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 Чтобы изменить число доступных для эмулятора Azure Cosmos DB коллекций, сделайте следующее.

@@ -1,10 +1,10 @@
 ---
-title: "Заметки о выпуске пакета SDK для Azure для .NET 2.9"
-description: "Заметки о выпуске пакета SDK для Azure для .NET 2.9"
+title: Заметки о выпуске пакета SDK для Azure для .NET 2.9
+description: Заметки о выпуске пакета SDK для Azure для .NET 2.9
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Заметки о выпуске пакета Azure SDK для .NET 2.9
 
 В этой статье содержатся заметки о выпуске для версий 2.9 и 2.9.6 пакета Azure SDK для .NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Сведения о выпуске Azure SDK для .NET 2.9.6
+## <a name="azure-sdk-for-net-296-release-summary"></a>Сведения о выпуске Azure SDK для .NET 2.9.6
 
 Дата выпуска: 16.11.2016
  
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="visual-studio-2017-release-candidate"></a>релиз-кандидат Visual Studio 2017
 
-- В версии-кандидате Visual Studio 2017 этот выпуск пакета Azure SDK для .NET встроен в рабочую нагрузку Azure. Все средства, необходимые для разработки Azure, будут входить в эту версию. Для Visual Studio 2015 и Visual Studio 2013 пакет SDK по-прежнему будет доступен через WebPI. Когда Visual Studio 2017 будет выпущен в качестве конечного продукта, версии пакета Azure SDK для .NET больше не будут доступны для Visual Studio 2013. Чтобы скачать версию-кандидат Visual Studio 2017, перейдите по этой ссылке: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- В версии-кандидате Visual Studio 2017 этот выпуск пакета Azure SDK для .NET встроен в рабочую нагрузку Azure. Все средства, необходимые для разработки Azure, будут входить в эту версию. Для Visual Studio 2015 и Visual Studio 2013 пакет SDK по-прежнему будет доступен через WebPI. Когда Visual Studio 2017 будет выпущен в качестве конечного продукта, версии пакета Azure SDK для .NET больше не будут доступны для Visual Studio 2013. Чтобы скачать версию-кандидат Visual Studio 2017, перейдите по этой ссылке: https://www.visualstudio.com/vs/visual-studio-2017-rc/.
 
 ### <a name="azure-diagnostics"></a>Диагностика Azure
 

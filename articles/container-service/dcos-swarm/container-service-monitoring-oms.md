@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг кластера DC/OS Azure с помощью Operations Management"
-description: "Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Microsoft Operations Management Suite."
+title: Мониторинг кластера DC/OS Azure с помощью Operations Management
+description: Мониторинг кластера DC/OS Службы контейнеров Azure с использованием Log Analytics.
 services: container-service
 author: keikhara
 manager: timlt
@@ -9,45 +9,46 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ba76f8480dedb37326505f7ed756eb51a41ee0fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Operations Management Suite
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Мониторинг кластера DC/OS Службы контейнеров Azure с использованием Log Analytics
 
-Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. Контейнер OMS — это решение в OMS Log Analytics, которое помогает просматривать сведения, касающиеся инвентаризации и производительности контейнеров, а также соответствующие журналы в одном расположении. Оно позволяет выполнять аудит и устранять неполадки контейнеров, просматривая журналы в централизованном расположении, а также находить контейнеры с высоким уровнем потребления ресурсов на узле.
+Log Analytics — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. В Log Analytics реализовано решение для контейнеров, которое помогает просматривать сведения, касающиеся инвентаризации и производительности контейнеров, а также соответствующие журналы в одном расположении. Оно позволяет выполнять аудит и устранять неполадки контейнеров, просматривая журналы в централизованном расположении, а также находить контейнеры с высоким уровнем потребления ресурсов на узле.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Дополнительные сведения об этом решении см. в статье [Решение "Контейнеры" (предварительная версия) в Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="setting-up-oms-from-the-dcos-universe"></a>Настройка OMS в среде DC/ОS
+## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Настройка Log Analytics в среде DC/ОS
 
 
 В этой статье предполагается, что вы настроили DC/OS и развернули простые приложения веб-контейнера в кластере.
 
 ### <a name="pre-requisite"></a>Предварительные требования
 - [Подписка Microsoft Azure](https://azure.microsoft.com/free/) — ее можно получить бесплатно.  
-- Настройка рабочей области Microsoft OMS — см. раздел "Шаг 3" ниже.
+- Настройка рабочей области Log Analytics (см. раздел "Шаг 3" ниже).
 - Установленный [интерфейс командной строки DC/OS](https://dcos.io/docs/1.8/usage/cli/install/).
 
 1. На панели мониторинга DC/OS щелкните "Вселенная" и выполните поиск по запросу "OMS", как показано ниже.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. Щелкните **Install**(Установить). Отобразится всплывающее окно со сведениями о версии OMS и кнопкой **Установить пакет** или **Advanced Installation** (Расширенная установка). Нажав кнопку **Advanced Installation** (Расширенная установка), вы перейдете на страницу **OMS specific configuration properties** (Свойства конфигурации OMS).
+2. Щелкните **Install**(Установить). Отобразится всплывающее окно со сведениями о версии и кнопкой **Установить пакет** или **Advanced Installation** (Расширенная установка). Нажав кнопку **Advanced Installation** (Расширенная установка), вы перейдете на страницу **OMS specific configuration properties** (Свойства конфигурации OMS).
 
 ![](media/container-service-monitoring-oms/image3.png)
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Здесь вам будет предложено ввести `wsid` (идентификатор рабочей области OMS) и `wskey` (первичный ключ OMS для идентификатора рабочей области). Чтобы получить `wsid` и `wskey`, необходимо создать учетную запись OMS, перейдя по адресу <https://mms.microsoft.com>. Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить `wsid` и `wskey`, щелкнув **Параметры**, **Подключенные источники**, а затем — **Серверы с Linux**, как показано ниже.
+3. Здесь вам будет предложено ввести `wsid` (идентификатор рабочей области Log Analytics) и `wskey` (первичный ключ для идентификатора рабочей области). Чтобы получить `wsid` и `wskey`, необходимо создать учетную запись по адресу <https://mms.microsoft.com>.
+Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить `wsid` и `wskey`, щелкнув **Параметры**, **Подключенные источники**, а затем — **Серверы с Linux**, как показано ниже.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Выберите необходимое количество экземпляров OMS и нажмите кнопку "Просмотреть и установить". Как правило, требуется количество экземпляров OMS, равное количеству виртуальных машин в кластере агента. Агент OMS для Linux устанавливается в качестве отдельных контейнеров на каждой виртуальной машине, о которой необходимо собирать сведения для мониторинга и ведения журнала.
+4. Выберите необходимое количество экземпляров и нажмите кнопку Review and Install (Просмотреть и установить). Как правило, требуется количество экземпляров, равное количеству виртуальных машин в кластере агента. Агент OMS для Linux устанавливается в качестве отдельных контейнеров на каждой виртуальной машине, о которой необходимо собирать сведения для мониторинга и ведения журнала.
 
 ## <a name="setting-up-a-simple-oms-dashboard"></a>Настройка простой панели мониторинга OMS
 
@@ -81,7 +82,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Дополнительные сведения о решении контейнера OMS см. в статье [Решение "Контейнеры" (предварительная версия) в Log Analytics](../../log-analytics/log-analytics-containers.md).
+Дополнительные сведения см. в статье [Решение для мониторинга контейнеров в Log Analytics](../../log-analytics/log-analytics-containers.md).
 
 ### <a name="how-to-scale-oms-agent-with-acs-dcos"></a>Масштабирование агента OMS с помощью среды DC/OS службы ACS 
 
@@ -106,4 +107,4 @@ $ dcos package uninstall msoms
 
 ## <a name="next-steps"></a>Дополнительная информация
 
- Теперь, когда вы настроили OMS для мониторинга контейнеров, [просмотрите свою панель мониторинга контейнера](../../log-analytics/log-analytics-containers.md).
+ Теперь, когда вы настроили Log Analytics для мониторинга контейнеров, [просмотрите свою панель мониторинга для контейнера](../../log-analytics/log-analytics-containers.md).

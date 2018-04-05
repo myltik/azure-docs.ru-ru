@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: a5c3a0cdef488e4c4788a22976d78db72bdd55fc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bbf322b698f9237799c05f2ab85297452b7f9a10
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: создание графовой базы данных с помощью Java и портала Azure
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. С помощью Azure Cosmos DB вы можете быстро создавать базы данных управляемых документов, таблиц и диаграмм и обращаться к ним. 
 
-Выполнив это краткое руководство, вы создадите простую базу данных графа с помощью средств портала Azure для Azure Cosmos DB. В этом руководстве также объясняется, как быстро создать консольное приложение Java с помощью базы данных графа и драйвера OSS [Apache TinkerPop](http://tinkerpop.apache.org/). Указания в этом руководстве применимы к любой операционной системе, с которой может работать Java. Из этого краткого руководства вы узнаете, как создавать и изменять графы с помощью пользовательского интерфейса или программных средств. 
+Выполнив это краткое руководство, вы создадите простую базу данных графа с помощью средств портала Azure для Azure Cosmos DB. В этом руководстве также объясняется, как быстро создать консольное приложение Java с помощью базы данных [API Graph](graph-introduction.md) и драйвера [OSS Apache TinkerPop](http://tinkerpop.apache.org/). Указания в этом руководстве применимы к любой операционной системе, с которой может работать Java. Из этого краткого руководства вы узнаете, как создавать и изменять графы с помощью пользовательского интерфейса или программных средств. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

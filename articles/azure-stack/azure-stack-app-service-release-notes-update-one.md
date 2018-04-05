@@ -1,5 +1,5 @@
 ---
-title: Пакет обновлений 1 службы приложений в Azure Stack | Документация Майкрософт
+title: Заметки о выпуске обновления 1 для службы приложений в Azure Stack | Документация Майкрософт
 description: Узнайте о том, что находится в пакете обновлений 1 службы приложений в Azure Stack, об известных проблемах и где можно загрузить обновление.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>Заметки о выпуске обновлений 1 службы приложений в Azure Stack
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Служба приложений в заметках о выпуске обновления 1 Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/16/2018
 ### <a name="prerequisites"></a>предварительным требованиям
 
 > [!IMPORTANT]
-> Служба приложений Azure в Azure Stack теперь требует [трехсубъектного группового сертификата](azure-stack-app-service-before-you-get-started.md#get-certificates) из-за улучшения в способе выполнения единого входа для Kudu в службе приложений Azure.  Новый субъект — ***.sso.appservice.<region>.<domainname>.<extension>**
+> Теперь для новых развертываний службы приложений Azure в Azure Stack нужен [трехсубъектный групповой сертификат](azure-stack-app-service-before-you-get-started.md#get-certificates). Это связано с улучшением обработки единого входа для Kudu в службе приложений Azure.  Новый субъект — ***.sso.appservice.<region>.<domainname>.<extension>**
 >
 >
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/16/2018
 
 - **Высокий уровень доступности службы приложений Azure**. С обновлением 1802 Azure Stack стало возможным развертывать рабочие нагрузки в доменах сбоя.  Поэтому инфраструктура службы приложений может быть отказоустойчивой, так как она будет развернута в доменах сбоя.  По умолчанию все новые развертывания службы приложений Azure будут иметь эту возможность, однако для развертываний, завершенных до применения обновления 1802 Azure Stack, перейдите к [документации по доменам сбоя службы приложений](azure-stack-app-service-fault-domain-update.md).
 
-- **Развертывание в существующей виртуальной сети**. Теперь клиенты могут развертывать службу приложений в Azure Stack в существующей виртуальной сети.  Развертывание в существующей виртуальной сети позволяет клиентам подключаться через частные порты к SQL Server и файловому серверу, которые необходимы для службы приложений Azure.  Во время развертывания клиенты могут выбрать развертывание в существующей виртуальной сети, однако до развертывания они [должны создать подсети для использования службой приложений](azure-stack-app-service-before-you-get-started.md#virtual-network).
+- **Развертывание в существующей виртуальной сети**. Теперь клиенты могут развертывать службу приложений в Azure Stack в существующей виртуальной сети.  Развертывание в существующей виртуальной сети позволяет клиентам подключаться через частные порты к SQL Server и файловому серверу, которые необходимы для службы приложений Azure.  Во время развертывания клиенты могут выбрать развертывание в существующей виртуальной сети, но до этого они [должны создать подсети для использования службой приложений](azure-stack-app-service-before-you-get-started.md#virtual-network).
 
 - Обновления для **клиента, администратора службы приложений, портала функций и средств Kudu**.  Согласованы с версией пакета SDK для портала Azure Stack.
 
@@ -103,7 +103,13 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="known-issues-with-the-deployment-process"></a>Известные проблемы с процессом развертывания
 
-- Нет известных проблем, возникающих при развертывании пакета обновления 1 службы приложений Azure в Azure Stack.
+- Ошибки при проверке сертификата
+
+У некоторых клиентов при развертывании интегрированных систем возникали проблемы с предоставлением сертификатов для установщика службы приложений, связанные с чрезмерно строгими ограничениями проверки в установщике.  Теперь выпущена новая версия установщика службы приложений, и клиентам следует [скачать обновленный установщик](https://aka.ms/appsvconmasinstaller).  Если и с обновленным установщиком у вас возникнут проблемы при проверке сертификатов, обратитесь в службу поддержки.
+
+- Ошибка при извлечении корневого сертификата Azure Stack из интегрированной системы
+
+Ошибка в Get-AzureStackRootCert.ps1 приводила к тому, что клиентам не удавалось извлечь корневой сертификат Azure Stack при выполнении скрипта на компьютере без корневого сертификата.  Теперь выпущена новая версия этого скрипта, в которой проблема устранена. Клиентам следует [скачать обновленные вспомогательные скрипты](https://aka.ms/appsvconmashelpers).  Если и с обновленным скриптом у вас возникнут проблемы при извлечении корневого сертификата, обратитесь в службу поддержки.
 
 ### <a name="known-issues-with-the-update-process"></a>Известные проблемы с процессом обновления
 
@@ -111,13 +117,91 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="known-issues-post-installation"></a>Известные проблемы (после установки)
 
-- Нет известных проблем, возникающих при установке пакета обновления 1 службы приложений Azure в Azure Stack.
+- Не работает переключение слотов
+
+В этом выпуске неправильно функционировало переключение слотов сайта.  Чтобы восстановить эту функциональность, выполните следующие действия:
+
+1. Измените параметры группы безопасности сети ControllersNSG, чтобы **разрешить** подключения удаленного рабочего стола к экземплярам контроллера службы приложений.  Замените имя AppService.local именем группы ресурсов, в которой вы развернули службу приложений.
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. Найдите **CN0-VM** в группе виртуальных машин на портале администратора Azure Stack и щелкните **Подключиться**, чтобы открыть подключение удаленного рабочего стола к экземпляру контроллера.  Используйте учетные данные, указанные при развертывании службы приложений.
+3. **Запустите PowerShell с правами администратора** и выполните следующий скрипт:
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. Закройте сеанс удаленного рабочего стола.
+5. Верните прежние параметры группы безопасности сети ControllersNSG, которые **запрещают** подключения удаленного рабочего стола к экземплярам контроллера службы приложений.  Замените имя AppService.local именем группы ресурсов, в которой вы развернули службу приложений.
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Известные проблемы для облачных администраторов, работающих со службой приложений Azure в Azure Stack
 
 Обратитесь к документации в разделе [Обновление 1802 Azure Stack](azure-stack-update-1802.md).
 
-## <a name="see-also"></a>См. также
+## <a name="next-steps"></a>Дополнительная информация
 
 - Обзор службы приложений Azure в Azure Stack см. в [этой статье](azure-stack-app-service-overview.md).
 - Дополнительные сведения о том, как подготовиться к развертыванию службы приложений Azure в Azure Stack, см. в разделе [Подготовка к работе со службой приложений в Azure Stack](azure-stack-app-service-before-you-get-started.md).

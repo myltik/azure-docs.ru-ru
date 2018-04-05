@@ -1,8 +1,8 @@
 ---
-title: "Отладка пользовательского кода C# для заданий U-SQL Azure Data Lake с ошибками | Документация Майкрософт"
-description: "Узнайте, как выполнять отладку вершин U-SQL с ошибками с помощью Средств Azure Data Lake для Visual Studio"
+title: Отладка пользовательского кода C# для заданий U-SQL Azure Data Lake с ошибками | Документация Майкрософт
+description: Узнайте, как выполнять отладку вершин U-SQL с ошибками с помощью Средств Azure Data Lake для Visual Studio
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Отладка определяемого пользователем кода C# для заданий U-SQL, завершившихся сбоем
 
@@ -41,7 +41,7 @@ U-SQL поддерживает для C# модель расширяемости
 
 1. Нажмите кнопку **Скачать** , чтобы скачать все необходимые ресурсы и входные потоки. Нажмите кнопку **Повторить**, если не удалось скачать.
 
-2. Когда загрузка завершится, щелкните **Открыть** для создания локальной среды отладки. Будет создан и автоматически открыт новый экземпляр Visual Studio с решением для отладки.
+2. Когда загрузка завершится, щелкните **Открыть** для создания локальной среды отладки. Откроется новое решение для отладки. Если в Visual Studio открыто существующее решение, сохраните и закройте его перед отладкой.
 
 ![Azure Data Lake Analytics U-SQL отладка visual studio скачивание вершины](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
