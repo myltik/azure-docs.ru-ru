@@ -1,23 +1,22 @@
 ---
-title: "Устранение прерывания работы служб с помощью заданий Azure Stream Analytics | Документация Майкрософт"
-description: "Руководство по обеспечению надежности заданий Stream Analytics при установке новых версий служб."
+title: Устранение прерывания работы служб с помощью заданий Azure Stream Analytics | Документация Майкрософт
+description: Руководство по обеспечению надежности заданий Stream Analytics при установке новых версий служб.
 services: stream-analytics
-documentationCenter: 
-authors: samacha
-manager: jhubbard
-editor: cgronlun
+documentationCenter: ''
+author: jseb225
+manager: ryanw
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 76e347ee62ffc07db1d8e74cf0ac5327a154fe4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 9f5306e4cbcfc2b554a688e2d502cc4b40845d60
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Обеспечение надежности заданий Stream Analytics во время обновления служб
 

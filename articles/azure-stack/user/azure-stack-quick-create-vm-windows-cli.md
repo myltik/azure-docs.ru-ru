@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальной машины Windows в Azure Stack с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную машину Windows в Azure Stack с помощью Azure CLI"
+title: Создание виртуальной машины Windows в Azure Stack с помощью Azure CLI | Документация Майкрософт
+description: Узнайте, как создать виртуальную машину Windows в Azure Stack с помощью Azure CLI
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Создание виртуальной машины Windows в Azure Stack с помощью Azure CLI
 
@@ -29,7 +29,7 @@ Azure CLI используется для создания ресурсов Azur
 
 * Убедитесь, что оператор Azure Stack добавил образ Windows Server 2016 в Azure Stack Marketplace.  
 
-* Для создания ресурсов и управления ими в Azure CLI требуется определенная версия Azure Stack. Если вы еще не настроили Azure CLI для Azure Stack, выполните действия по [установке и настройке](azure-stack-connect-cli.md) Azure CLI.
+* Для создания ресурсов и управления ими в Azure CLI требуется определенная версия Azure Stack. Если вы еще не настроили Azure CLI для Azure Stack, выполните действия по [установке и настройке](azure-stack-version-profiles-azurecli2.md) Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 

@@ -1,11 +1,11 @@
 ---
-title: "Планирование заданий с помощью Центра Интернета вещей Azure (Java) | Документация Майкрософт"
-description: "Планирование заданий в Центре Интернета вещей Azure для вызова прямого метода или изменения требуемых свойств на нескольких устройствах. Вы создадите приложения имитации устройства с помощью пакета SDK для устройств Azure IoT для Java, а также приложение-службу для выполнения заданий с помощью пакета SDK для служб Azure IoT для Java."
+title: Планирование заданий с помощью Центра Интернета вещей Azure (Java) | Документация Майкрософт
+description: Планирование заданий в Центре Интернета вещей Azure для вызова прямого метода или изменения требуемых свойств на нескольких устройствах. Вы создадите приложения имитации устройства с помощью пакета SDK для устройств Azure IoT для Java, а также приложение-службу для выполнения заданий с помощью пакета SDK для служб Azure IoT для Java.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Планирование и трансляция заданий (Java)
 
@@ -35,6 +35,8 @@ ms.lasthandoff: 01/18/2018
 
 * Информация о двойниках устройств и их свойствах представлена в статье [Get started with device twins (Java)](iot-hub-java-java-twin-getstarted.md) (Приступая к работе с двойниками устройств).
 * Прямые методы: [Общие сведения о прямых методах и информация о вызове этих методов из Центра Интернета вещей](iot-hub-devguide-direct-methods.md) и [Использование прямых методов (Java)](iot-hub-java-java-direct-methods.md).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 В этом учебнике описаны следующие процедуры.
 

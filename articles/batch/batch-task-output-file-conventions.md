@@ -1,25 +1,25 @@
 ---
-title: "Сохранение выходных данных заданий и задач в службе хранилища Azure с помощью библиотеки соглашений об именовании файлов для .NET — пакетная служба Azure | Документы Майкрософт"
-description: "Узнайте, как использовать библиотеку соглашений для пакетных файлов Azure для .NET для сохранения выходных данных задач и заданий пакетной службы в службе хранилища Azure и просматривать сохраненные выходные данные на портале Azure."
+title: Сохранение выходных данных заданий и задач в службе хранилища Azure с помощью библиотеки соглашений об именовании файлов для .NET — пакетная служба Azure | Документы Майкрософт
+description: Узнайте, как использовать библиотеку соглашений для пакетных файлов Azure для .NET для сохранения выходных данных задач и заданий пакетной службы в службе хранилища Azure и просматривать сохраненные выходные данные на портале Azure.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbfb40b3740f9ea43df327a01ba6f4cf52d80457
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Сохранение данных заданий и задач в службе хранилища Azure с помощью библиотеки соглашений о пакетных файлах для .NET 
 

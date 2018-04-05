@@ -1,12 +1,11 @@
 ---
-title: "Моделирование высокочастотного трейдинга с помощью Stream Analytics | Документация Майкрософт"
-description: "Обучение и оценка модели линейной регрессии в одном задании Stream Analytics"
+title: Моделирование высокочастотного трейдинга с помощью Stream Analytics | Документация Майкрософт
+description: Обучение и оценка модели линейной регрессии в одном задании Stream Analytics
 keywords: machine learning, advanced analytics, linear regression, simulation, UDA, user defined function
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: zhongc
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 349dc5c5277260b664d7214979ef15d1689b2716
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Моделирование высокочастотного трейдинга с помощью Stream Analytics
 Совместное использование языка SQL, пользовательских функций и пользовательских агрегатных функций в Azure Stream Analytics позволяет пользователям выполнять расширенную аналитику. Расширенная аналитика может включать обучающие онлайн-сценарии машинного обучения и оценки, а также моделирование процесса с отслеживанием состояния. В этой статье описывается, как работать с линейной регрессией в задании Azure Stream Analytics, которое выполняет непрерывное обучение и оценку в сценарии с высокочастным трейдингом.

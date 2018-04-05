@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Разработка модуля IoT Edge с кодом C# и его развертывание на имитированном устройстве (предварительная версия)
 
@@ -223,6 +223,7 @@ ms.lasthandoff: 03/28/2018
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   Чтобы найти имя пользователя, пароль и сервер входа для использования в этой команде, перейдите на [портал Azure] (https://portal.azure.com). В разделе **Все ресурсы** щелкните плитку вашего реестра контейнеров Azure, чтобы открыть его свойства, а затем щелкните **Ключи доступа**. Скопируйте значения полей **Имя пользователя**, **Пароль** и **Сервер входа**. 
 
 2. В обозревателе VS Code щелкните правой кнопкой мыши файл **module.json** и выберите действие **Build and Push IoT Edge module Docker image** (Создать и отправить образ Docker для модуля IoT Edge). Во всплывающем раскрывающемся списке в верхней части окна VS Code выберите платформу контейнера: **amd64** для контейнера Linux или **windows-amd64** для контейнера Windows. VS Code соберет код, поместит в контейнер файл `FilterModule.dll` и передаст его в указанный вами реестр контейнеров.
 

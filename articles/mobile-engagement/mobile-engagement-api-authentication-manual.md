@@ -1,11 +1,11 @@
 ---
-title: "Аутентификация с помощью интерфейсов REST API Службы мобильного взаимодействия Azure (настройка вручную)"
-description: "Описание ручной настройки проверки подлинности для REST API Служб мобильного взаимодействия"
+title: Аутентификация с помощью интерфейсов REST API Службы мобильного взаимодействия Azure (настройка вручную)
+description: Описание ручной настройки проверки подлинности для REST API Служб мобильного взаимодействия
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Аутентификация с помощью интерфейсов REST API Службы мобильного взаимодействия Azure (настройка вручную)
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Проверка подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия — настройка вручную
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Этот документ является приложением к статье [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md) (Аутентификация с помощью интерфейсов REST API Службы мобильного взаимодействия). Обязательно изучите эту статью, чтобы понять контекст. Также в ней описывается альтернативный способ однократной настройки на портале Azure для аутентификации с помощью интерфейсов REST API Службы мобильного взаимодействия.
 
 > [!NOTE]

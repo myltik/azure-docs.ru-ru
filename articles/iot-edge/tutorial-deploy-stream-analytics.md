@@ -1,19 +1,19 @@
 ---
-title: "Развертывание Azure Stream Analytics для Azure IoT Edge | Документация Майкрософт"
-description: "Развертывание Azure Stream Analytics в качестве модуля для устройства Edge"
+title: Развертывание Azure Stream Analytics для Azure IoT Edge | Документация Майкрософт
+description: Развертывание Azure Stream Analytics в качестве модуля для устройства Edge
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Развертывание Azure Stream Analytics в качестве модуля IoT Edge (предварительная версия)
 
@@ -36,7 +36,7 @@ Azure Stream Analytics предоставляет расширенный син�
 > * Подключение нового задания Azure Stream Analytics с другими модулями IoT Edge.
 > * Развертывать задания Azure Stream Analytics на устройстве IoT Edge.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Центр Интернета вещей. 
 * Устройство, созданное и настроенное с помощью действий в кратком руководстве или статье о развертывании Azure IoT Edge на имитированном устройстве в [Windows][lnk-tutorial1-win] или [Linux][lnk-tutorial1-lin]. Необходимо знать ключ подключения устройства и идентификатор устройства. 

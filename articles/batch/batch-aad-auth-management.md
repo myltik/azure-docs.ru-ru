@@ -1,25 +1,25 @@
 ---
-title: "Аутентификация решений по управлению пакетной службой с помощью Azure Active Directory | Документация Майкрософт"
-description: "Аутентификация приложений, созданных с помощью Azure Resource Manager и поставщика ресурсов пакетной службы, выполняется с использование Azure AD."
+title: Аутентификация решений по управлению пакетной службой с помощью Azure Active Directory | Документация Майкрософт
+description: Аутентификация приложений, созданных с помощью Azure Resource Manager и поставщика ресурсов пакетной службы, выполняется с использование Azure AD.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: tamram
-ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: danlep
+ms.openlocfilehash: a16d60dd48efeced7735562884acd26640d36483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Аутентификация решений по управлению пакетной службой с помощью Active Directory
 

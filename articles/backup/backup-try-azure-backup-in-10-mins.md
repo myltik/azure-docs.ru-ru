@@ -1,12 +1,12 @@
 ---
-title: "Архивация файлов и папок Windows в Azure (Resource Manager) | Документация Майкрософт"
-description: "Описание архивации файлов и папок Windows в Azure с использованием модели развертывания с помощью Resource Manager."
+title: Архивация файлов и папок Windows в Azure (Resource Manager) | Документация Майкрософт
+description: Описание архивации файлов и папок Windows в Azure с использованием модели развертывания с помощью Resource Manager.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "как выполнять резервное копирование, резервное копирование файлов и папок"
+editor: ''
+keywords: как выполнять резервное копирование, резервное копирование файлов и папок
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Первое знакомство. Резервное копирование файлов и папок с использованием модели развертывания с помощью Resource Manager
 В этой статье описывается, как выполнить резервное копирование файлов и папок Windows Server (на компьютере с Windows) в Azure с помощью службы архивации Azure, используя модель развертывания с помощью Resource Manager. В этом руководстве приведены общие сведения, и с помощью него вы сможете опробовать службу архивации Azure.
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="to-create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
 1. Используя подписку Azure, войдите на [портал Azure](https://portal.azure.com/) (если вы еще этого не сделали).
-2. В главном меню щелкните **Все службы**, а затем в списке ресурсов введите **Службы восстановления** и щелкните **Хранилища служб восстановления**.
+2. В главном меню выберите **Все службы**, а затем в списке ресурсов введите **Службы восстановления** и щелкните **Хранилища служб восстановления**.
 
     ![Создание хранилища служб восстановления — шаг 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/21/2018
 
     ![Варианты конфигурации хранилища](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, выберите **геоизбыточное хранилище**, а если нет, — **локально избыточное** (это позволит снизить плату за хранилище Azure). Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/common/storage-redundancy.md).
+    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, выберите **геоизбыточное хранилище**, а если нет, — **локально избыточное** (это позволит снизить плату за хранилище Azure). Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy-grs.md) и [локально избыточном](../storage/common/storage-redundancy-lrs.md) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/common/storage-redundancy.md).
 
 Теперь, когда вы создали хранилище, настройте в нем резервное копирование файлов и папок.
 

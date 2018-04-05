@@ -3,7 +3,7 @@ title: Настройка мониторинга с помощью OMS Log Analy
 description: Узнайте, как настроить визуализацию и анализ событий в Operations Management Suite для мониторинга кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Настройка Log Analytics в Operations Management Suite для кластера
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/16/2018
 
 При развертывании кластера с помощью шаблона Resource Manager этот шаблон создает рабочую область OMS, добавляет в нее решение Service Fabric и настраивает в ней чтение данных из соответствующих таблиц службы хранилища.
 
-Вы можете использовать [этот пример шаблона](https://azure.microsoft.com/resources/templates/service-fabric-oms/), а также изменить его в соответствии со своими потребностями. Шаблоны, которые предоставляют различные возможности для настройки рабочей области OMS, можно найти на странице [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Вы можете использовать [этот пример шаблона](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms), а также изменить его в соответствии со своими потребностями.
 
 Внесите следующие изменения:
 1. Добавьте значения `omsWorkspaceName` и `omsRegion` в свои параметры, добавив следующий фрагмент кода в параметры, определенные в файле *template.json*. При необходимости вы можете изменить значения по умолчанию. Также добавьте два новых параметра в файл *parameters.json* для определения их значений при развертывании ресурсов:

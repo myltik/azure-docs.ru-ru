@@ -1,12 +1,11 @@
 ---
-title: "Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности | Документация Майкрософт"
-description: "Узнайте, как масштабировать задания Stream Analytics с помощью настройки входных разделов, настройки определения запроса и определения единиц потоковой передачи."
-keywords: "потоковая передача данных, обработка потоковой передачи данных, настройка аналитики"
+title: Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности | Документация Майкрософт
+description: Узнайте, как масштабировать задания Stream Analytics с помощью настройки входных разделов, настройки определения запроса и определения единиц потоковой передачи.
+keywords: потоковая передача данных, обработка потоковой передачи данных, настройка аналитики
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности
 В этой статье описано, как настроить запрос Stream Analytics для увеличения пропускной способности заданий Streaming Analytics. Руководство ниже можно использовать для масштабирования заданий, чтобы обрабатывать большую нагрузку и использовать больше ресурсов системы (таких как пропускная способность, ресурсы ЦП, память).
