@@ -1,36 +1,34 @@
 ---
-title: "Обработка файлов мультимедиа с помощью технологии Hyperlapse служб мультимедиа Azure | Документация Майкрософт"
-description: "Azure Media Hyperlapse создает плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер. В этом разделе показано, как использовать индексатор мультимедийных данных."
+title: Обработка файлов мультимедиа с помощью технологии Hyperlapse служб мультимедиа Azure | Документация Майкрософт
+description: Azure Media Hyperlapse создает плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер. В этом разделе показано, как использовать индексатор мультимедийных данных.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: asolanki
 manager: johndeu
-editor: 
+editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 86a9d44a93d7717d2ed949db2b1d1e94963781d0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Файлы мультимедиа Hyperlapse с Azure Media Hyperlapse
 Azure Media Hyperlapse представляет собой обработчик мультимедиа, создающий плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер.  Microsoft Hyperlapse для служб мультимедиа Azure, облачный аналог [настольной системы Hyperlapse Pro и телефонной системы Hyperlapse Mobile от Microsoft Research](http://aka.ms/hyperlapse), использует обширные возможности масштабирования платформы обработки мультимедиа служб мультимедиа Azure, чтобы реализовать горизонтальное масштабирование и параллелизовать массовую обработку Hyperlapse.
 
 > [!IMPORTANT]
-> Продукт Microsoft Hyperlapse оптимально подходит для работы с содержимым от первого лица с перемещающейся камерой.  Хотя материал с неподвижной камеры может обрабатываться, производительность и качество обработчика мультимедиа Azure Media Hyperlapse не позволяет гарантировать работу с другими типами содержимого.  Чтобы получить дополнительные сведения о Microsoft Hyperlapse для служб мультимедиа Azure и увидеть некоторые видеоматериалы с примерами, ознакомьтесь с [вводной записью блога](http://aka.ms/azurehyperlapseblog) из общедоступной предварительной версии.
+> Продукт Microsoft Hyperlapse оптимально подходит для работы с содержимым от первого лица с перемещающейся камерой. Хотя материал с неподвижной камеры может обрабатываться, производительность и качество обработчика мультимедиа Azure Media Hyperlapse не позволяет гарантировать работу с другими типами содержимого.
 > 
 > 
 
 Задание Azure Media Hyperlapse принимает в качестве входных данных файлы ресурсов MP4, MOV или WMV вместе с файлом конфигурации, который определяет, какие кадры видео должны быть замедлены и на какой скорости (например, первые 10 000 кадров на скорости 2x).  Результатом является стабилизированное и замедленное представление входного видео.
-
-Последние новости о Azure Media Hyperlapse см. в [блогах служб мультимедиа](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Использование Hyperlapse для обработки ресурса-контейнера
 Сначала необходимо загрузить требуемый входной файл для служб мультимедиа Azure.  Дополнительные сведения об основных понятиях, связанных с загрузкой содержимого и управлением им, см. в статье [об управлении содержимым](media-services-portal-vod-get-started.md).

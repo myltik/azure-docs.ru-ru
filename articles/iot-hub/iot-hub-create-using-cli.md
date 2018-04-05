@@ -1,12 +1,12 @@
 ---
-title: "Создание центра Интернета вещей с помощью Azure CLI (az.py) | Документация Майкрософт"
-description: "Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI 2.0 (az.py)."
+title: Создание центра Интернета вещей с помощью Azure CLI (az.py) | Документация Майкрософт
+description: Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI 2.0 (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c89ecc31754d355d6469d54dcd45e1cc2ef106f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Создание Центра Интернета вещей с помощью Azure CLI 2.0
 
@@ -88,7 +88,6 @@ ms.lasthandoff: 11/18/2017
 
 > [!NOTE]
 > Предыдущая команда создает Центр Интернета вещей в оплачиваемой ценовой категории S1. Дополнительные сведения см. на странице с [ценами на Центр Интернета вещей Azure][lnk-iot-pricing].
->
 >
 
 ## <a name="remove-an-iot-hub"></a>Удаление Центра Интернета вещей

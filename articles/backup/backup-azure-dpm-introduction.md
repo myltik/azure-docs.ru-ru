@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Подготовка к архивированию рабочих нагрузок в Azure с помощью DPM
 > [!div class="op_single_selector"]
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/17/2018
    Сразу после создания хранилище откроется на портале.
 
 ### <a name="set-storage-replication"></a>Настройка репликации хранилища
-При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если данная резервная копия является основной, оставьте установленный параметр. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/common/storage-redundancy.md).
+При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если данная резервная копия является основной, оставьте установленный параметр. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy-grs.md) и [локально избыточном](../storage/common/storage-redundancy-lrs.md) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/common/storage-redundancy.md).
 
 Чтобы изменить параметр репликации хранилища:
 

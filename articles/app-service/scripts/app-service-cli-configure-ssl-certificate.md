@@ -1,11 +1,11 @@
 ---
-title: "Пример сценария Azure CLI. Привязка пользовательского SSL-сертификата к веб-приложению | Документация Майкрософт"
-description: "Пример сценария Azure CLI. Привязка пользовательского SSL-сертификата к веб-приложению"
+title: Пример сценария Azure CLI. Привязка пользовательского SSL-сертификата к веб-приложению | Документация Майкрософт
+description: Пример сценария Azure CLI. Привязка пользовательского SSL-сертификата к веб-приложению
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.service: app-service-web
@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: cc48d8c3db9b73d99d4580658a8f3a48efb2b8aa
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f806b523543657e4241ec5bfbb4b84b85ebd9355
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Привязка SSL-сертификата к веб-приложению
 
@@ -47,12 +47,12 @@ ms.lasthandoff: 03/09/2018
 
 | Get-Help | Заметки |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Создает план службы приложений. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Создает веб-приложение Azure. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az_webapp_config_hostname_add) | Сопоставляет пользовательский домен с веб-приложением. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az_webapp_config_ssl_upload) | Отправляет SSL-сертификат в веб-приложение. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az_webapp_config_ssl_bind) | Привязывает отправленный SSL-сертификат к веб-приложению. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Создает план службы приложений. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Создает веб-приложение Azure. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Сопоставляет пользовательский домен с веб-приложением. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Отправляет SSL-сертификат в веб-приложение. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Привязывает отправленный SSL-сертификат к веб-приложению. |
 
 ## <a name="next-steps"></a>Дополнительная информация
 

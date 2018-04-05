@@ -1,22 +1,22 @@
 ---
-title: "Событие создания пула пакетной службы Azure | Документы Майкрософт"
-description: "Справочник по событию создания пула пакетной службы."
+title: Событие создания пула пакетной службы Azure | Документы Майкрософт
+description: Справочник по событию создания пула пакетной службы.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bf7dfc2600c3d94faeb8d03561f6f2b30a0ee2d2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="pool-create-event"></a>Событие создания пула
 

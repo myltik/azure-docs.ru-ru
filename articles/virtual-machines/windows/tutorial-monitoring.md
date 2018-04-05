@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Мониторинг и обновление виртуальных машин Windows с помощью Azure PowerShell
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 03/28/2018
 > * Просмотр метрик виртуальной машины
 > * Создание оповещения
 > * Управление обновлениями Windows
+> * Мониторинг изменений и инвентаризация
 > * Настройка расширенного мониторинга
 
 Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -274,6 +275,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
 > * Просмотр метрик виртуальной машины
 > * Создание оповещения
 > * Управление обновлениями Windows
+> * Мониторинг изменений и инвентаризация
 > * Настройка расширенного мониторинга
 
 Перейдите к следующему руководству, чтобы узнать о центре безопасности Azure.

@@ -1,12 +1,11 @@
 ---
-title: "Примеры запросов для распространенных шаблонов использования Stream Analytics | Документация Майкрософт"
-description: "Общие шаблоны запросов Azure Stream Analytics"
-keywords: "примеры запросов"
+title: Примеры запросов для распространенных шаблонов использования Stream Analytics | Документация Майкрософт
+description: Общие шаблоны запросов Azure Stream Analytics
+keywords: примеры запросов
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jenniehubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
-ms.author: samacha
-ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: jeanb
+ms.openlocfilehash: 9632a77afff6ba47d6ce80457e02f1f6194362a1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Примеры запросов для распространенных шаблонов использования Stream Analytics
 ## <a name="introduction"></a>Введение
@@ -512,7 +511,7 @@ GROUP BY
 
 **Входные данные**
 
-| время | deviceId | sensorName | value |
+| Twitter в режиме реального | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" (Печь 1) | "temp" (температура) |120 |
 | "2018-01-01T16:01:00" | "Oven1" (Печь 1) | "power" (питание) |15 |

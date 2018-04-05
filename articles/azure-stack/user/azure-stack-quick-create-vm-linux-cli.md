@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальной машины Linux с помощью Azure CLI в Azure Stack | Документация Майкрософт"
-description: "Создание виртуальной машины Linux с помощью CLI в Azure Stack."
+title: Создание виртуальной машины Linux с помощью Azure CLI в Azure Stack | Документация Майкрософт
+description: Создание виртуальной машины Linux с помощью CLI в Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 69036b522b375eced604256340b532ad14a8708e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Создание виртуальной машины Linux с помощью Azure CLI в Azure Stack
 
@@ -31,7 +31,7 @@ Azure CLI используется для создания ресурсов Azur
 
 * Убедитесь в том, что оператор Azure Stack добавил образ Ubuntu Server 16.04 LTS в Azure Stack Marketplace. 
 
-* Для создания ресурсов и управления ими в Azure CLI требуется определенная версия Azure Stack. Если Azure CLI не настроен для Azure Stack, войдите в [пакет средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) (или внешний клиент на базе Windows в случае [подключения через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)) и выполните действия по [установке и настройке Azure CLI](azure-stack-connect-cli.md).
+* Для создания ресурсов и управления ими в Azure CLI требуется определенная версия Azure Stack. Если Azure CLI не настроен для Azure Stack, войдите в [пакет средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) (или внешний клиент на базе Windows в случае [подключения через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)) и выполните действия по [установке и настройке Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 * В каталоге .ssh вашего профиля пользователя Windows должен быть создан открытый ключ SSH с именем id_rsa.pub. Дополнительные сведения о создании ключей SSH см. в статье [Использование ключей SSH с Windows в Azure](../../virtual-machines/linux/ssh-from-windows.md). 
 

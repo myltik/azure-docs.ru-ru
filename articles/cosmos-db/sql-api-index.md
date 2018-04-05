@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 20b8cabded739335e9615d001138bde16e6308e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB. Документация по API SQL
 
@@ -102,8 +102,8 @@ Azure Cosmos DB предоставляет различные пакеты SDK �
 
 ## <a name="reference"></a>Справочные материалы
 
-- [REST](/rest/api/documentdb/)
-- [Поставщик ресурсов REST](/rest/api/documentdbresourceprovider/)
+- [REST](/rest/api/cosmos-db/)
+- [Поставщик ресурсов REST](/rest/api/cosmos-db-resource-provider/)
 - [Справочник по SQL-запросам](sql-api-sql-query-reference.md)
 - [Справочник по решению "Функции Azure"](../azure-functions/functions-bindings-cosmosdb.md)
 

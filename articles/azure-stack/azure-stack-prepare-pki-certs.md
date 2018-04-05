@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c195cc0bacd9eea7e75fa35cd155845f03dd21cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Подготовка сертификатов PKI Azure Stack к развертыванию
 Файлы сертификатов, [полученные из выбранного центра сертификации](azure-stack-get-pki-certs.md), необходимо импортировать и экспортировать со свойствами, которые соответствуют требованиям к сертификату Azure Stack.
@@ -79,4 +79,4 @@ ms.lasthandoff: 04/02/2018
   k.    Повторите эту процедуру для всех сертификатов, импортированных для развертывания на шаге 2 выше.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Validate Azure Stack PKI certificates](validate-pki-certs.md) (Проверка сертификатов PKI Azure Stack)
+[Validate Azure Stack PKI certificates](azure-stack-validate-pki-certs.md) (Проверка сертификатов PKI Azure Stack)

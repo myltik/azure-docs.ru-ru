@@ -1,12 +1,11 @@
 ---
-title: "Масштабирование задания с помощью функций Azure Stream Analytics и Машинного обучения Azure | Документация Майкрософт"
-description: "Узнайте, как правильно масштабировать задания Stream Analytics (секционирование, количество SU и т. д.) при использовании функций машинного обучения Azure."
-keywords: 
-documentationcenter: 
+title: Масштабирование задания с помощью функций Azure Stream Analytics и Машинного обучения Azure | Документация Майкрософт
+description: Узнайте, как правильно масштабировать задания Stream Analytics (секционирование, количество SU и т. д.) при использовании функций машинного обучения Azure.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Масштабирование заданий Stream Analytics с помощью функций машинного обучения Azure
 В большинстве случаев настроить задание Stream Analytics и запустить демонстрационные данные можно без особых усилий. А что делать, если необходимо выполнить то же задание с большим объемом данных? Мы должны разобраться, как настроить задание Stream Analytics таким образом, чтобы его можно было масштабировать. В этом документе основное внимание уделено специфическим аспектам масштабирования заданий Stream Analytics с помощью функций машинного обучения. Общие сведения о масштабировании заданий Stream Analytics см. в статье [Масштабирование заданий](stream-analytics-scale-jobs.md).

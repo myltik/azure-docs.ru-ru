@@ -1,8 +1,8 @@
 ---
-title: "Как отслеживать учетную запись хранения Azure | Документация Майкрософт"
-description: "Выполнение мониторинга учетной записи хранения в Azure с помощью портала Azure."
+title: Как отслеживать учетную запись хранения Azure | Документация Майкрософт
+description: Выполнение мониторинга учетной записи хранения в Azure с помощью портала Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Мониторинг учетной записи хранения на портале Azure
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > За изучение данных мониторинга на портале Azure взимается плата. Дополнительные сведения см. в разделе [Аналитика и выставление счетов для хранилища](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Сейчас служба "Файлы Azure" поддерживает метрики решения "Аналитика службы хранилища", но не поддерживает ведение журналов.
->
-> Учетные записи хранения с типом репликации "хранилище, избыточное в пределах зоны" (ZRS) поддерживают использование метрик или ведение журналов. Предыдущие учетные записи ZRS, которые переименованы в классические учетные записи ZRS, не поддерживают использование метрик или ведение журналов. Дополнительные сведения о ZRS см. в [этом разделе](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Дополнительные указания о функциях аналитики хранилища и других инструментах идентификации, диагностики и устранения неполадок, связанных со службой хранилища Azure, см. в статье [Мониторинг, диагностика и устранение неполадок службы хранилища Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
 >
