@@ -2,7 +2,6 @@
 title: 'Azure AD Connect: приступая к работе с использованием стандартных параметров | Документация Майкрософт'
 description: Узнайте, как скачать, установить и запустить мастер установки Azure AD Connect.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 024736ed76e9b268e85db3ecc62b853d6c276fbf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Приступая к работе с Azure AD Connect с использованием стандартных параметров
-**Стандартные параметры** Azure AD Connect применяются, если вы используете для проверки подлинности топологию с одним лесом и [синхронизацию паролей](active-directory-aadconnectsync-implement-password-synchronization.md). **Стандартные параметры** заданы по умолчанию и используются в большинстве часто развертываемых сценариев. Выполнив всего несколько простых действий, можно расширить локальный каталог в облако.
+**Стандартные параметры** Azure AD Connect применяются, если вы используете для проверки подлинности топологию с одним лесом и [синхронизацию хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md). **Стандартные параметры** заданы по умолчанию и используются в большинстве часто развертываемых сценариев. Выполнив всего несколько простых действий, можно расширить локальный каталог в облако.
 
 Перед установкой Azure AD Connect, [скачайте Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) и выполните предварительные шаги, перечисленные в статье [Необходимые условия для Azure AD Connect](active-directory-aadconnect-prerequisites.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Создание среды службы приложений Azure, используя шаблон Resource Manager"
-description: "Описание способов создания внешнего или внутреннего балансировщика нагрузки среды службы приложений Azure с помощью шаблона Resource Manager"
+title: Создание среды службы приложений Azure, используя шаблон Resource Manager
+description: Описание способов создания внешнего или внутреннего балансировщика нагрузки среды службы приложений Azure с помощью шаблона Resource Manager
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d85384620b2e4c7ba0de84e0fe82ef3e83376dd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Создание среды ASE с помощью шаблона Azure Resource Manager
 
@@ -54,15 +54,17 @@ ASE можно создать на портале Azure или с помощью
 
 Когда файл *azuredeploy.parameters.json* будет заполнен, можно приступить к созданию ASE с помощью приведенного ниже фрагмента кода PowerShell. Измените пути к файлам в соответствии с расположением файлов шаблонов Resource Manager на вашем компьютере. Введите собственные значения для имени развертывания Resource Manager и группы ресурсов.
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Для создания ASE потребуется около часа. Созданная ASE появится на портале в списке сред службы приложений для подписки, использованной для развертывания.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Загрузка и настройка SSL-сертификата по умолчанию
-Среде ASE необходимо назначить SSL-сертификат по умолчанию, который будет использоваться для установки SSL-подключений к приложениям. Если DNS-суффикс по умолчанию среды службы приложений — *internal-contoso.com*, для подключения к https://случайному_приложению.internal-contoso.com требуется сертификат SSL, действительный для домена *.internal-contoso.com*. 
+Среде ASE необходимо назначить SSL-сертификат по умолчанию, который будет использоваться для установки SSL-подключений к приложениям. Если DNS-суффикс по умолчанию среды службы приложений — *internal-contoso.com*, для подключения к https://some-random-app.internal-contoso.com требуется сертификат SSL, действительный для домена **.internal-contoso.com*. 
 
 Можно получить действительный SSL-сертификат от внутреннего центра сертификации, приобрести у внешнего поставщика или использовать самозаверяющий сертификат. Независимо от источника SSL-сертификата для него необходимо соответствующим образом настроить следующие атрибуты:
 
@@ -82,17 +84,19 @@ PFX-файл необходимо преобразовать в строку Bas
 
 Код PowerShell для преобразования в строку в кодировке Base64 взят из [блога скриптов PowerShell][examplebase64encoding].
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Когда SSL-сертификат будет создан и преобразован в строку в кодировке Base64, можно приступить к [настройке сертификата SSL по умолчанию][quickstartconfiguressl] с использованием шаблона Resource Manager, размещенного на сайте GitHub. 
 
@@ -107,41 +111,45 @@ PFX-файл необходимо преобразовать в строку Bas
 
 Ниже приведен сокращенный пример файла *azuredeploy.parameters.json*.
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 Когда файл *azuredeploy.parameters.json* будет заполнен, переходите к настройке SSL-сертификата по умолчанию, используя фрагмент кода PowerShell. Измените пути к файлам в соответствии с расположением файлов шаблонов Resource Manager на вашем компьютере. Введите собственные значения для имени развертывания Resource Manager и группы ресурсов.
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Применение изменений для одного внешнего интерфейса ASE занимает примерно 40 минут. Например, для среды ASE с размером по умолчанию, содержащей два внешних интерфейса, реализация шаблона займет примерно один час и двадцать минут. Во время выполнения шаблона нельзя масштабировать среду ASE.  
 
-Когда шаблон будет реализован, к приложениям в среде ASE с внутренним балансировщиком нагрузки можно будет получать доступ по протоколу HTTPS, а подключения будут защищены с помощью SSL-сертификата по умолчанию. SSL-сертификат по умолчанию будет использоваться, если обращение к приложениям в ASE с внутренним балансировщиком нагрузки осуществляется с помощью сочетания имени приложения и имени узла по умолчанию. Например, в https://mycustomapp.internal-contoso.com используется сертификат SSL по умолчанию для *.internal-contoso.com*.
+Когда шаблон будет реализован, к приложениям в среде ASE с внутренним балансировщиком нагрузки можно будет получать доступ по протоколу HTTPS, а подключения будут защищены с помощью SSL-сертификата по умолчанию. SSL-сертификат по умолчанию будет использоваться, если обращение к приложениям в ASE с внутренним балансировщиком нагрузки осуществляется с помощью сочетания имени приложения и имени узла по умолчанию. Например, в https://mycustomapp.internal-contoso.com используется сертификат SSL по умолчанию для **.internal-contoso.com*.
 
 Так же как и для приложений в общедоступной мультитенантной службе, разработчики могут настроить для отдельных приложений пользовательские имена узлов и уникальные привязки сертификатов SNI SSL.
 

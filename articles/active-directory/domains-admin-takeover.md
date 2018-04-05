@@ -1,11 +1,11 @@
 ---
-title: "Смена неуправляемого каталога или теневого клиента администратором в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как выполнить смену доменного имени DNS в неуправляемом каталоге (теневом клиенте) в Azure Active Directory."
+title: Смена неуправляемого каталога или теневого клиента администратором в Azure Active Directory | Документация Майкрософт
+description: Узнайте, как выполнить смену доменного имени DNS в неуправляемом каталоге (теневом клиенте) в Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Смена неуправляемого каталога от имени администратора в Azure Active Directory
 В этой статье описывается два способа смены доменного имени DNS в неуправляемом каталоге в Azure Active Directory (Azure AD). Когда пользователь самостоятельно регистрируется в облачной службе, использующей Azure AD, он добавляется в неуправляемый каталог Azure AD на основе домена электронной почты. Дополнительные сведения о самостоятельной (или "вирусной") регистрации в службе см. в разделе [What is self-service signup for Azure Active Directory?]() (Что такое самостоятельная регистрация для Azure Active Directory?).
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="external-admin-takeover"></a>Внешняя смена администратором
 
-Когда вы уже управляете клиентом с помощью служб Azure или Office 365, то вы не можете добавить имя личного домена, если оно уже проверено в другом клиенте Azure AD. Однако из управляемого клиента в Azure AD можно выполнить смену неуправляемого клиента в рамках внешней смены администратором. Общая процедура соответствует той, которая описана в статье [Краткое руководство. Добавление личного домена в Azure Active Directory](add-custom-domain.md).
+Если вы уже управляете клиентом с помощью служб Azure или Office 365, то вы не можете добавить имя личного домена, если оно уже проверено в другом клиенте Azure AD. Однако из управляемого клиента в Azure AD можно выполнить смену неуправляемого клиента в рамках внешней смены администратором. Общая процедура соответствует той, которая описана в статье [Краткое руководство. Добавление личного домена в Azure Active Directory](add-custom-domain.md).
 
 Когда выполняется проверка принадлежности доменного имени, Azure AD удаляет доменное имя из неуправляемого клиента и перемещает его в существующий клиент. При внешней смене администратором неуправляемого каталога требуется выполнить тот же процесс проверки DNS с помощью записи TXT, как и при внутренней смене администратором. Разница заключается в том, что с доменным именем также переносятся следующие компоненты:
 

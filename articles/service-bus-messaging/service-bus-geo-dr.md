@@ -1,11 +1,11 @@
 ---
-title: "Географическое аварийное восстановление в служебной шине Azure | Документация Майкрософт"
-description: "Способы использования географических регионов для отработки отказа и аварийного восстановления в служебной шине Azure"
+title: Географическое аварийное восстановление в служебной шине Azure | Документация Майкрософт
+description: Способы использования географических регионов для отработки отказа и аварийного восстановления в служебной шине Azure
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Географическое аварийное восстановление в служебной шине Azure
 
@@ -86,12 +86,13 @@ ms.lasthandoff: 02/11/2018
 
 ## <a name="samples"></a>Примеры
 
-В [примере из GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) показано, как настроить и инициировать отработку отказа. В этих примерах демонстрируются следующие понятия:
+В [примере из GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) показано, как настроить и инициировать отработку отказа. В этих примерах демонстрируются следующие понятия:
 
-- параметры, необходимые в Azure Active Directory для использования Azure Resource Manager со служебной шиной; 
-- шаги, необходимые для выполнения примера кода; 
-- отправка и получение из текущего основного пространства имен; 
+- Пример .NET и параметры, необходимые в Azure Active Directory для настройки и включения географически избыточного восстановления с помощью Azure Resource Manager и служебной шины.
+- шаги, необходимые для выполнения примера кода;
 - использование имеющегося пространства имен в качестве псевдонима.
+- Инструкции по включению географически избыточного восстановления с помощью PowerShell или CLI.
+- [Отправка и получение](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) из текущего основного и дополнительного пространства имен с помощью псевдонима.
 
 ## <a name="considerations"></a>Рекомендации
 

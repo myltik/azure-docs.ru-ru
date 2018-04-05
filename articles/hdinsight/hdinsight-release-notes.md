@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Заметки о выпуске для компонентов Hadoop в Azure HDInsight
 
@@ -29,9 +29,10 @@ ms.lasthandoff: 03/16/2018
 > [!IMPORTANT]
 > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в [статье об управлении версиями HDInsight](hdinsight-component-versioning.md).
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Заметки о выпуске Spark 2.2 в HDInsight 3.6 от 08.03.2018
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Заметки о выпуске Spark 2.2 в HDInsight 3.6 от 20.03.2018
 
 - Spark 2.2.0 повышает стабильность Spark Core, SQL и ML. В этом выпуске функция структурированной потоковой передачи реализована а общедоступной версии. Теперь версия Spark 2.2.0 доступна в HDInsight 3.6.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Заметки о выпуске HDinsight от 01.08.2017
 

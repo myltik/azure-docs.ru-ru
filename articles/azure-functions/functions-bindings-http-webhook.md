@@ -3,7 +3,7 @@ title: Привязки HTTP и webhook в функциях Azure
 description: Узнайте, как использовать триггеры и привязки HTTP и webhook в функциях Azure.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
 
@@ -536,7 +536,7 @@ module.exports = function (context, req) {
 
 ## <a name="trigger---limits"></a>Триггер — ограничения
 
-Длина HTTP-запроса ограничена 100 КБ (102 400 байт), а длина URL-адреса — 4 КБ (4096 байт). Эти ограничения задает элемент `httpRuntime` [файла Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) среды выполнения.
+Длина HTTP-запроса ограничена 100 МБ (104 857 600 байт), а длина URL-адреса — 4 КБ (4096 байт). Эти ограничения задает элемент `httpRuntime` [файла Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) среды выполнения.
 
 Если функция, которая использует триггер HTTP, выполняется дольше 2,5 минут, будет превышено время ожидания шлюза и шлюз вернет ошибку HTTP 502. Функция продолжит работу, но вернуть ответ HTTP будет невозможно. Для долго выполняющихся функций рекомендуем следовать асинхронным шаблонам и возвращать расположение, в котором можно проверить состояние запроса. Чтобы узнать, как долго может выполняться функция, см. раздел [Масштабирование и размещение — план](functions-scale.md#consumption-plan). 
 

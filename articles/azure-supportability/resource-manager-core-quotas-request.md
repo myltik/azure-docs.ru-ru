@@ -1,17 +1,17 @@
 ---
-title: "Запросы на увеличение квоты виртуальных ЦП Azure Resource Manager | Документация Майкрософт"
-description: "Запросы на увеличение квоты виртуальных ЦП Azure Resource Manager"
+title: Запросы на увеличение квоты виртуальных ЦП Azure Resource Manager | Документация Майкрософт
+description: Запросы на увеличение квоты виртуальных ЦП Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 3/15/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Запросы на увеличение квоты виртуальных ЦП Resource Manager
 
@@ -24,21 +24,22 @@ ms.lasthandoff: 11/11/2017
 > [!NOTE]
 > Узнайте, как [создать запрос на поддержку](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) на портале Azure.
 
-1. На странице создания запроса на поддержку выберите тип проблемы "Квота" и тип квоты как "Ядра".
+1. Выберите **Подписки**.
 
-    ![Колонка "Основные" для квоты](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Подписки](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Выберите модель развертывания "Resource Manager" и укажите расположение.
+2. Выберите подписку, которая требует увеличенную квоту.
 
-    ![Колонка "Проблема" для квоты](./media/resource-manager-core-quotas-request/Problem-step.png)
+   ![Выберите подписку.](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-3. Выберите семейства SKU, которые требуют увеличения квоты.
+3. Выберите **Использование и квоты**.
 
-    ![Выбранные семейства SKU](./media/resource-manager-core-quotas-request/SKU-selected.png)
+   ![Использование и квоты](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-4. Введите желаемые ограничения для подписки.
+4. В правом верхнем углу выберите **Запросить увеличение**.
 
-    ![Новый запрос квоты для SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
+   ![Запросить увеличение](./media/resource-manager-core-quotas-request/request-increase.png)
 
-- Чтобы удалить строку, снимите флажок SKU в раскрывающемся списке семейства SKU или щелкните значок отмены "x".
-После ввода требуемой квоты для каждого семейства SKU нажмите кнопку "Далее" на странице "Проблема", чтобы продолжить создание запроса на поддержку.
+5. В качестве типа квоты выберите **Ядра**. 
+
+   ![Заполнение формы](./media/resource-manager-core-quotas-request/forms.png)

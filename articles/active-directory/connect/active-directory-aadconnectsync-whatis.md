@@ -1,11 +1,11 @@
 ---
-title: "Синхронизация Azure AD Connect: общие сведения о синхронизации и ее настройка | Документация Майкрософт"
-description: "В этой статье описываются принципы работы и настройка служб синхронизации Azure AD Connect."
+title: 'Синхронизация Azure AD Connect: общие сведения о синхронизации и ее настройка | Документация Майкрософт'
+description: В этой статье описываются принципы работы и настройка служб синхронизации Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка
 Службы синхронизации Azure Active Directory Connect (службы синхронизации Azure AD Connect) являются основным компонентом Azure AD Connect. Они отвечают за все операции, относящиеся к синхронизации идентификационных данных между локальной средой и Azure AD. Служба синхронизации Azure AD Connect — это преемник таких решений, как DirSync, Azure AD Sync и Forefront Identity Manager с настроенным соединителем Azure Active Directory.
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/29/2018
 | **Функции и сценарии** | |
 | [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Описание функции *предотвращения случайного удаления* и рекомендации по ее настройке. |
 | [Планировщик](active-directory-aadconnectsync-feature-scheduler.md) |Описывает встроенный планировщик, который импортирует, синхронизирует и экспортирует данные. |
-| [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md) |Описано, как работает синхронизация паролей, как реализовать и использовать эту функцию, а также как устранять связанные с ней неполадки. |
+| [Реализация синхронизации хэшированных паролей в службе синхронизации Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Описано, как работает синхронизация паролей, как реализовать и использовать эту функцию, а также как устранять связанные с ней неполадки. |
 | [Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md) |Описывается, как работает обратная запись устройства в Azure AD Connect. |
 | [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) |Описывается, как расширить схему Azure AD с помощью собственных пользовательских атрибутов. |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Объясняется, как разместить ресурсы Office 365 пользователя в том же регионе, в котором находится пользователь. |

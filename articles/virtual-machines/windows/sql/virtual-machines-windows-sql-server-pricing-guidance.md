@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Руководство по выбору ценовой категории для виртуальных машин SQL Server в Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/08/2018
 
 ### <a name="pay-per-usage"></a>Оплата за использование
 
-**Оплата за использование лицензий SQL Server** означает, что стоимость минуты выполнения виртуальной машины Azure включает в себя стоимость лицензии SQL Server. Цены на разные выпуски SQL Server (Web, Standard, Enterprise) можно узнать на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Стоимость одинакова для всех версий SQL Server (от версии 2012 SP3 до 2017). Как и стоимость лицензий SQL Server в общем случае, стоимость минуты лицензии зависит от числа ядер виртуальной машины.
+**Оплата за использование лицензий SQL Server** означает, что стоимость секунды выполнения виртуальной машины Azure включает в себя стоимость лицензии SQL Server. Цены на разные выпуски SQL Server (Web, Standard, Enterprise) можно узнать на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Стоимость одинакова для всех версий SQL Server (от версии 2012 SP3 до 2017). Как и стоимость лицензий SQL Server в общем случае, стоимость секунды лицензии зависит от числа ядер виртуальной машины.
 
 Оплата за использование лицензий SQL Server рекомендуется в следующих случаях.
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/08/2018
 > Сообщите нам в течение 10 дней количество лицензий на SQL Server, которые вы будете использовать в Azure. По ссылкам на предыдущие образы доступны инструкции о том, как это сделать.
 
 > [!NOTE]
-> Невозможно изменить модель лицензирования с поминутной оплатой для виртуальной машины SQL Server для использования собственной лицензии. В этом случае необходимо создать виртуальную машину BYOL и перенести в нее базы данных. 
+> Невозможно изменить модель лицензирования с посекундной оплатой для виртуальной машины SQL Server для использования собственной лицензии. В этом случае необходимо создать виртуальную машину BYOL и перенести в нее базы данных. 
 
 ## <a name="avoid-unnecessary-costs"></a>Устранение лишних затрат
 

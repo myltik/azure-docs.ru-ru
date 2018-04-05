@@ -1,11 +1,11 @@
 ---
-title: "Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure | Документация Майкрософт"
-description: "В нем описан уникальный опыт Cloud Cruiser — партнера по выставлению счетов Microsoft Azure — по интеграции API выставления счетов Azure в свои продукты.  Эти сведения особенно полезны для клиентов Azure и Cloud Cruiser, которые хотели бы использовать Cloud Cruiser для Microsoft Azure Pack или уже рассматривают такой вариант."
-services: 
-documentationcenter: 
-author: BryanLa
+title: Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure | Документация Майкрософт
+description: В нем описан уникальный опыт Cloud Cruiser — партнера по выставлению счетов Microsoft Azure — по интеграции API выставления счетов Azure в свои продукты.  Эти сведения особенно полезны для клиентов Azure и Cloud Cruiser, которые хотели бы использовать Cloud Cruiser для Microsoft Azure Pack или уже рассматривают такой вариант.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure
 В этой статье описаны способы использования сведений, собранных из новых API выставления счетов Microsoft Azure , в Cloud Cruiser для моделирования и анализа стоимости рабочих процессов.

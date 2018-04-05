@@ -1,9 +1,9 @@
 ---
-title: "Отправка данных для заданий Hadoop в HDInsight | Документация Майкрософт"
-description: "Сведения об отправке данных и получении доступа к ним для заданий Hadoop в HDInsight с помощью интерфейса командной строки Azure, обозревателя хранилищ Azure, Azure PowerShell, командной строки Hadoop или Sqoop."
-keywords: "etl hadoop, вставка данных в hadoop, загрузка данных hadoop"
+title: Отправка данных для заданий Hadoop в HDInsight | Документация Майкрософт
+description: Сведения об отправке данных и получении доступа к ним для заданий Hadoop в HDInsight с помощью интерфейса командной строки Azure, обозревателя хранилищ Azure, Azure PowerShell, командной строки Hadoop или Sqoop.
+keywords: etl hadoop, вставка данных в hadoop, загрузка данных hadoop
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Отправка данных для заданий Hadoop в HDInsight
 
@@ -176,7 +176,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Список других команд Hadoop, которые работают с файлами, см. на странице [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html).
+Список других команд Hadoop, которые работают с файлами, см. здесь: [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > В кластерах HBase при записи данных используется размер блока по умолчанию (256 КБ). Это подходит, когда используются API HBase или REST API. Но при попытке записать более 12 ГБ данных с помощью команды `hadoop` или `hdfs dfs` возникнет ошибка. Подробные сведения см. в разделе [Исключение хранилища для записи большого двоичного объекта](#storageexception) этой статьи.
@@ -188,7 +188,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 | Клиент | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools для HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio Tools для HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer;](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2;](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer;](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,10 +196,10 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio Tools для HDInsight
-Подробные сведения см. в разделе [Переход на связанные ресурсы](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Подробные сведения см. в разделе [Переход на связанные ресурсы](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer;
-*Обозреватель хранилищ Azure* — это полезное средство для проверки и изменения данных в больших двоичных объектах. Это бесплатный инструмент с открытым кодом. Его можно скачать на сайте [http://storageexplorer.com/](http://storageexplorer.com/). Исходный код доступен также по ссылке.
+*Обозреватель хранилищ Azure* — это полезное средство для проверки и изменения данных в больших двоичных объектах. Это бесплатный инструмент с открытым кодом. Его можно скачать на сайте[http://storageexplorer.com/](http://storageexplorer.com/). Исходный код доступен также по ссылке.
 
 Прежде чем использовать средство, необходимо узнать ваше имя учетной записи хранения Azure и ключ учетной записи. Инструкции по получению этой информации см. в статье "Об учетных записях хранения Azure" в разделах о [создании и удалении учетной записи хранения, а также об управлении ею][azure-create-storage-account].
 
@@ -280,7 +280,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Можно также глобально увеличить значение `fs.azure.write.request.size` с помощью Ambari. Чтобы изменить значение в веб-интерфейсе Ambari, сделайте следующее:
 
-1. В браузере перейдите к веб-интерфейсу Ambari для кластера по адресу https://CLUSTERNAME.azurehdinsight.net, где **CLUSTERNAME** — это имя кластера.
+1. В браузере перейдите к веб-интерфейсу Ambari для кластера Это https://CLUSTERNAME.azurehdinsight.net, где **ИМЯ_КЛАСТЕРА** — имя кластера.
 
     При появлении запроса введите имя и пароль администратора для кластера.
 2. В левой части экрана выберите **HDFS**, а затем перейдите на вкладку **Configs** (Конфигурации).

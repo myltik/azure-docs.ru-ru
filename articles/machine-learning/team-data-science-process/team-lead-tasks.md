@@ -1,23 +1,23 @@
 ---
-title: "Задачи руководителя команды при командной обработке и анализе данных | Документация Майкрософт"
-description: "Структура задач руководителя команды в проекте обработки и анализа данных."
-documentationcenter: 
+title: Задачи руководителя команды при командной обработке и анализе данных | Документация Майкрософт
+description: Структура задач руководителя команды в проекте обработки и анализа данных.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-lead-tasks"></a>Задачи руководителя команды
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 11/14/2017
 
 Чтобы скопировать содержимое локальной папки **GroupProjectTemplate** (D1) в локальный каталог **MyTeamProjectTemplate** (D3), выполните один из следующих скриптов оболочки. 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>В командной строке PowerShell для Windows:        
+#### <a name="from-the-powershell-command-line-for-windows"></a>В командной строке PowerShell для Windows:       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/14/2017
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>В оболочке Linux для **виртуальной машины для обработки и анализа данных Linux**:
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>В оболочке Linux для **виртуальной машины для обработки и анализа данных Linux**:
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2

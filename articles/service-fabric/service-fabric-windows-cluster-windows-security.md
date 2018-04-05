@@ -1,11 +1,11 @@
 ---
-title: "Защита кластера, работающего под управлением Windows, с помощью системы безопасности Windows | Документация Майкрософт"
-description: "Узнайте, как настроить безопасность обмена данными между узлами или между клиентом и узлом в изолированном кластере, работающем под управлением Windows, с помощью системы безопасности Windows."
+title: Защита кластера, работающего под управлением Windows, с помощью системы безопасности Windows | Документация Майкрософт
+description: Узнайте, как настроить безопасность обмена данными между узлами или между клиентом и узлом в изолированном кластере, работающем под управлением Windows, с помощью системы безопасности Windows.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: e093a631b0cf81195981a8e3d345504ebce02723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eac453ad866910839088892de457c2cec48791c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Защита изолированного кластера под управлением Windows с помощью системы безопасности Windows
 Чтобы предотвратить несанкционированный доступ к кластеру Service Fabric, его необходимо защитить. Безопасность особенно важна при выполнении в кластере производственных рабочих нагрузок. В этой статье описывается, как настроить безопасность обмена данными между узлами или между клиентом и узлом с помощью системы безопасности Windows и файла *ClusterConfig.JSON*.  Описываемый процесс соответствует шагу по настройке безопасности из раздела [Создание изолированного кластера под управлением Windows Server](service-fabric-cluster-creation-for-windows-server.md). Дополнительные сведения об использовании системы безопасности Windows в Service Fabric см. в статье [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md).
@@ -32,10 +32,12 @@ ms.lasthandoff: 10/11/2017
 В примере файла конфигурации *ClusterConfig.gMSA.Windows.MultiMachine.JSON*, скачанном с пакетом автономного кластера [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690), содержится шаблон для настройки безопасности Windows с помощью [групповой управляемой учетной записи службы](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```  
-"security": {  
+"security": {
+            "ClusterCredentialType": "Windows",
+            "ServerCredentialType": "Windows",
             "WindowsIdentities": {  
-                "ClustergMSAIdentity": "accountname@fqdn"  
-                "ClusterSPN": "fqdn"  
+                "ClustergMSAIdentity": "[gMSA Identity]", 
+                "ClusterSPN": "[Registered SPN for the gMSA account]",
                 "ClientIdentities": [  
                     {  
                         "Identity": "domain\\username",  
@@ -45,16 +47,18 @@ ms.lasthandoff: 10/11/2017
             }  
         }  
 ```  
-  
-| **Параметр конфигурации** | **Описание** |  
-| --- | --- |  
+
+| **Параметр конфигурации** | **Описание** |
+| --- | --- |
+| ClusterCredentialType |Задайте значение *Windows*, чтобы включить систему безопасности Windows для связи между узлами.  | 
+| ServerCredentialType |Задайте значение *Windows*, чтобы включить систему безопасности Windows для связи между узлом и клиентом. |  
 | WindowsIdentities |Содержит удостоверения кластера и клиента. |  
 | ClustergMSAIdentity |Настраивает безопасность обмена данными между узлами. Групповая управляемая учетная запись службы. |  
-| ClusterSPN |Полное доменное имя субъекта-службы для групповой управляемой учетной записи службы|  
-| ClientIdentities |Настраивает безопасность обмена данными между клиентами и узлами. Массив учетных записей клиентов. |  
-| Удостоверение |Удостоверение клиента, пользователь домена. |  
-| IsAdmin |Значение true указывает, что у пользователя домена есть клиентский доступ с правами администратора, а значение false — клиентский доступ с правами пользователя. |  
-  
+| ClusterSPN |Зарегистрированное имя участника-службы для учетной записи gMSA|  
+| ClientIdentities |Настраивает безопасность обмена данными между клиентами и узлами. Массив учетных записей клиентов. | 
+| Удостоверение |Добавьте пользователя домена "домен\имя_пользователя" для удостоверения клиента. |  
+| IsAdmin |Задайте значение true, чтобы указать, что у пользователя домена есть клиентский доступ с правами администратора, или значение false, чтобы указать наличие клиентского доступа с правами пользователя. |  
+
 [Безопасный обмен данными между узлами](service-fabric-cluster-security.md#node-to-node-security) можно настроить с помощью параметра **ClustergMSAIdentity**, когда Service Fabric необходимо использовать групповую управляемую учетную запись службы. Чтобы создать отношения доверия между узлами, им нужно сообщить друг о друге. Это можно сделать двумя разными способами: указав групповую управляемую учетную запись службы, которая включает все узлы в кластере, или указав группу компьютеров домена, которая включает все узлы в кластере. Настоятельно рекомендуем применять подход с использованием [групповой управляемой учетной записи службы](https://technet.microsoft.com/library/hh831782.aspx), в частности для больших кластеров (более 10 узлов) или для кластеров, размер которых может изменяться.  
 Кроме того, этот подход не требует создания группы домена, администраторам кластера которой были предоставлены права доступа для добавления и удаления участников. Эти учетные записи также можно использовать для автоматического управления паролями. Дополнительные сведения см. в статье [Начало работы с групповыми управляемыми учетными записями служб](http://technet.microsoft.com/library/jj128431.aspx).  
  
@@ -63,10 +67,12 @@ ms.lasthandoff: 10/11/2017
 В следующем примере раздела **security** настраивается безопасность Windows с помощью групповой управляемой учетной записи службы и указывается, что компьютеры в группе *ServiceFabric/clusterA.contoso.com* — это часть кластера, а также что у *CONTOSO\usera* есть клиентский доступ с правами администратора:  
   
 ```  
-"security": {  
+"security": {
+    "ClusterCredentialType": "Windows",            
+    "ServerCredentialType": "Windows",
     "WindowsIdentities": {  
         "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "clusterA.contoso.com",  
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
         "ClientIdentities": [{  
             "Identity": "CONTOSO\\usera",  
             "IsAdmin": true  
@@ -76,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 ```  
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Настройка безопасности Windows с использованием группы компьютеров  
-В примере файла конфигурации *ClusterConfig.Windows.MultiMachine.JSON*, скачанном с пакетом автономного кластера [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690), содержится шаблон для настройки безопасности Windows.  Безопасность Windows настраивается в разделе **Properties** . 
+Эту модель не рекомендуется использовать. Рекомендуется использовать gMSA, как описано выше. В примере файла конфигурации *ClusterConfig.Windows.MultiMachine.JSON*, скачанном с пакетом автономного кластера [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690), содержится шаблон для настройки безопасности Windows.  Безопасность Windows настраивается в разделе **Properties** . 
 
 ```
 "security": {
@@ -94,8 +100,8 @@ ms.lasthandoff: 10/11/2017
 
 | **Параметр конфигурации** | **Описание** |
 | --- | --- |
-| ClusterCredentialType |Для параметра **ClusterCredentialType** задано значение *Windows*, если ClusterIdentity указывает имя группы компьютеров Active Directory. |  
-| ServerCredentialType |Задайте значение *Windows*, чтобы включить систему безопасности Windows для клиентов.<br /><br />Это указывает, что клиенты кластера и сам кластер работают внутри домена Active Directory. |  
+| ClusterCredentialType |Задайте значение *Windows*, чтобы включить систему безопасности Windows для связи между узлами.  | 
+| ServerCredentialType |Задайте значение *Windows*, чтобы включить систему безопасности Windows для связи между узлом и клиентом. |  
 | WindowsIdentities |Содержит удостоверения кластера и клиента. |  
 | ClusterIdentity |Используйте имя группы компьютеров "домен\группа_компьютеров", чтобы настроить защиту обмена данными между узлами. |  
 | ClientIdentities |Настраивает безопасность обмена данными между клиентами и узлами. Массив учетных записей клиентов. |  

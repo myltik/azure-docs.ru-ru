@@ -1,11 +1,11 @@
 ---
-title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — Моя учетная запись"
-description: "Управление профилем учетной записи и тестовыми устройствами с помощью Служб мобильного взаимодействия Azure"
+title: Пользовательский интерфейс Служб мобильного взаимодействия Azure — Моя учетная запись
+description: Управление профилем учетной записи и тестовыми устройствами с помощью Служб мобильного взаимодействия Azure
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89ef4f97a03ab0334f5474fb5b0ad2fd44f23518
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Управление профилем учетной записи и тестовыми устройствами
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 В этой статье описывается страница **Главная** портала **Служб мобильного взаимодействия**. Портал **Служб мобильного взаимодействия** используется для отслеживания мобильных приложений и управления ими. 
 
 Чтобы перейти на страницу **своей учетной записи** , щелкните свою учетную запись в верхней части страницы.

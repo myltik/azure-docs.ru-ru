@@ -6,9 +6,10 @@
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Начало работы
-## [Создание VPN-шлюза на основе маршрутов (портал Azure)](create-routebased-vpn-gateway-portal.md)
-## [Создание VPN-шлюза на основе маршрутов (PowerShell)](create-routebased-vpn-gateway-powershell.md)
-## [Создание VPN-шлюза на основе маршрутов (CLI)](create-routebased-vpn-gateway-cli.md)
+## Создание VPN-шлюза на основе маршрутов
+### [портал Azure](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [интерфейс командной строки Azure](create-routebased-vpn-gateway-cli.md)
 
 # Основные понятия
 ## [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md)
@@ -87,13 +88,16 @@
 ### [Пример: устройство Cisco ASA (IKEv2/без BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Миграция из классической модели развертывания в модель Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## [Устранение неполадок](vpn-gateway-troubleshoot.md)
-### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Предлагаемые сообществом параметры устройств VPN или брандмауэра](vpn-gateway-third-party-settings.md)
-### [Проблемы с подключением "точка — сеть"](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [Проблемы с подключением "точка — сеть" для VPN-клиента Mac OS X ](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [Проблемы с подключением "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Настройка и проверка VPN-подключений и подключений между виртуальными сетями](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
+### Проблемы с подключением "точка — сеть"
+#### [Проблемы с подключением "точка — сеть"](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Проблемы с подключением "точка — сеть" для VPN-клиента Mac OS X ](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### Проблемы с подключением "сеть-сеть"
+#### [Проблемы с подключением "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

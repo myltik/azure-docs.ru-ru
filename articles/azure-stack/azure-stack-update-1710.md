@@ -1,11 +1,11 @@
 ---
-title: "Обновление 1710 Azure Stack (сборка 20171020.1) | Документация Майкрософт"
-description: "Узнайте, что находится в обновлении 1710 для интегрированных систем Azure Stack, об известных проблемах и где можно скачать обновление."
+title: Обновление 1710 Azure Stack (сборка 20171020.1) | Документация Майкрософт
+description: Узнайте, что находится в обновлении 1710 для интегрированных систем Azure Stack, об известных проблемах и где можно скачать обновление.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
 ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Обновление 1710 Azure Stack (сборка 20171020.1)
 

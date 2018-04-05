@@ -1,11 +1,11 @@
 ---
-title: "Создание прогнозирующих конвейеров данных с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как создать прогнозирующий конвейер с помощью действия выполнения пакета службы \"Машинное обучение Azure\" в фабрике данных Azure."
+title: Создание прогнозирующих конвейеров данных с помощью фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как создать прогнозирующий конвейер с помощью действия выполнения пакета службы "Машинное обучение Azure" в фабрике данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Создание прогнозирующих конвейеров с помощью машинного обучения Azure и фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,11 +71,11 @@ ms.lasthandoff: 01/23/2018
 
 В статье [Вычисление поддерживаемых сред с помощью фабрики данных Azure](compute-linked-services.md) описаны свойства в определении JSON. 
 
-Служба "Машинного обучения Azure" поддерживает как классические, так и новые веб-службы для прогнозного эксперимента. В фабрике данных можно выбрать один из них для использования. Чтобы получить сведения, необходимые для создания связанной службы Машинного обучения Azure, перейдите на сайт https://services.azureml.net, где перечислены все (новые и классические) веб-службы. Щелкните веб-службу, к которой требуется получить доступ, а затем щелкните страницу **Использование**. Скопируйте **первичный ключ** для свойства **apiKey** и **запросы пакетной службы** для свойства **mlEndpoint**. 
+Служба "Машинного обучения Azure" поддерживает как классические, так и новые веб-службы для прогнозного эксперимента. В фабрике данных можно выбрать один из них для использования. Чтобы получить сведения, необходимые для создания связанной службы машинного обучения Azure, перейдите на сайт https://services.azureml.net, где перечислены все (новые и классические) веб-службы. Щелкните веб-службу, к которой требуется получить доступ, а затем щелкните страницу **Использование**. Скопируйте **первичный ключ** для свойства **apiKey** и **запросы пакетной службы** для свойства **mlEndpoint**. 
 
 ![Веб-службы Машинного обучения Azure](./media/transform-data-using-machine-learning/web-services.png)
 
-##<a name="azure-machine-learning-batch-execution-activity"></a>Действие выполнения пакета Машинного обучения Azure
+## <a name="azure-machine-learning-batch-execution-activity"></a>Действие выполнения пакета Машинного обучения Azure
 
 Следующий фрагмент кода JSON определяет действие выполнения пакета в службе "Машинное обучение Azure". Определение действия содержит ссылку на созданную ранее связанную службу Машинного обучения Azure. 
 

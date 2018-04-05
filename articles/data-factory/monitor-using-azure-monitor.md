@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг фабрик данных с помощью Azure Monitor | Документация Майкрософт"
-description: "Сведения об использовании Azure Monitor для мониторинга конвейеров фабрики данных с помощью включения журналов диагностики с данными из фабрики данных Azure."
+title: Мониторинг фабрик данных с помощью Azure Monitor | Документация Майкрософт
+description: Сведения об использовании Azure Monitor для мониторинга конвейеров фабрики данных с помощью включения журналов диагностики с данными из фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Мониторинг фабрик данных с помощью Azure Monitor  
 Облачные приложения являются сложными и содержат множество подвижных частей. Мониторинг дает возможность отслеживать данные, чтобы обеспечить работоспособность приложения, а также позволяет предотвратить потенциальные проблемы или устранить неполадки. Кроме того, данные мониторинга можно использовать для получения подробных сведений о приложении. Эти знания могут помочь повысить его производительность и улучшить возможности обслуживания, а также автоматизировать действия, которые в противном случае выполнялись бы вручную.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Дополнительные сведения см. по ссылке (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+Дополнительные сведения см. здесь](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Схема журналов и событий
 
@@ -381,7 +381,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Строка | Время запуска триггера в формате UTC. | `2017-06-26T20:55:29.5007959Z`|
 |status| Строка | Конечное состояние запуска триггера (Succeeded или Failed). | `Succeeded`|
 
-### <a name="metrics"></a>Метрики
+## <a name="metrics"></a>Метрики
 
 Azure Monitor позволяет использовать данные телеметрии, чтобы получать сведения о производительности и работоспособности рабочих нагрузок в Azure. Наиболее важным типом данных телеметрии Azure являются метрики (также называемые счетчиками производительности), создаваемые большинством ресурсов Azure. Azure Monitor предоставляет несколько способов настройки и использования этих метрик для мониторинга и устранения неполадок.
 
@@ -396,7 +396,52 @@ ADFV2 выводит следующие метрики.
 | TriggerSucceededRuns | Метрики успешных запусков триггеров.  | Count    | Всего                | Общее количество успешных запусков триггеров в минутном окне.   |
 | TriggerFailedRuns    | Метрики неудачных запусков триггеров.     | Count    | Всего                | Общее количество успешных запусков триггеров в минутном окне.      |
 
-Чтобы открыть окно метрики, следуйте инструкциям в статье https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Следуйте инструкциям из этой статьи: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Оповещения
+
+Вы можете создавать оповещения на основе поддерживаемых метрик фабрики данных. Нажмите кнопку **Оповещения** кнопку на странице **Монитор** фабрики данных.
+
+![Параметры оповещений](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Откроется страница **Оповещений**.
+
+![Страница оповещений](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Можно также войти на портал Azure и щелкнуть **Монитор -&gt; Оповещения**, чтобы сразу открыть страницу **Оповещения**.
+
+![Оповещения в меню портала](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Создание оповещений
+
+1.  Нажмите кнопку **+Новое правило генерации оповещений**, чтобы создать оповещение.
+
+    ![Новое правило генерации оповещений](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Определите **условия оповещения**.
+
+    > [!NOTE]
+    > Выберите значение **Все** для параметра **фильтрации по типу ресурсов**.
+
+    ![Условие оповещения, экран 1 из 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Условие оповещения, экран 2 из 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Условие оповещения, экран 3 из 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Определите **сведения об оповещении**.
+
+    ![Сведения об оповещении](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Определите **группу действий**.
+
+    ![Группа действий, экран 1 из 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Группа действий, экран 2 из 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Группа действий, экран 3 из 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Группа действий, экран 4 из 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о мониторинге и управлении конвейерами см. в статье [Отслеживание фабрики данных Azure](monitor-programmatically.md). 

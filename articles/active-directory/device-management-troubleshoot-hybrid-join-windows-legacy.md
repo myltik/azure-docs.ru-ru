@@ -1,8 +1,8 @@
 ---
-title: "Устранение неполадок на устройствах нижнего уровня с гибридным присоединением к Azure Active Directory | Документация Майкрософт"
-description: "Устранение неполадок на устройствах нижнего уровня с гибридным присоединением к Azure Active Directory."
+title: Устранение неполадок на устройствах нижнего уровня с гибридным присоединением к Azure Active Directory | Документация Майкрософт
+description: Устранение неполадок на устройствах нижнего уровня с гибридным присоединением к Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Устранение неполадок на устройствах нижнего уровня с гибридным присоединением к Azure Active Directory 
 
@@ -88,10 +88,10 @@ ms.lasthandoff: 02/24/2018
     
     2. Если по какой-либо причине программе Autoworkplace.exe не удалось выполнить автоматическую аутентификацию с помощью Azure AD или AD FS. Причинами могут быть проблемы с исходящим сетевым подключением по URL-адресам Azure AD (проверьте предварительные требования) или ситуация, когда для пользователя включена или настроена многофакторная проверка подлинности, но настройка WIAORMUTLIAUTHN на сервере федерации не выполнена (проверьте действия по настройке). Другой вариант — страница обнаружения домашней области (HRD) ожидает взаимодействия с пользователем, что предотвращает автоматическое получение токена программой Autoworkplace.exe.
     
-    3. Если в организации используется эффективный единый вход Azure AD, в настройках интрасети IE устройства отсутствуют следующие URL-адреса:
+    3. Если в организации используется эффективный единый вход Azure AD, в настройках интрасети IE устройства отсутствует следующий URL-адрес:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        Для зоны интрасети необходимо включить параметр "Разрешить обновление строки состояния в сценарии".
 

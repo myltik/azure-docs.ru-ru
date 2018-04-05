@@ -1,11 +1,11 @@
 ---
-title: "Настройка конечных точек службы Service Fabric | Документация Майкрософт"
-description: "В этой статье поясняется, как описать ресурсы конечной точки в манифесте служб, включая настройку конечных точек HTTPS."
+title: Настройка конечных точек службы Service Fabric | Документация Майкрософт
+description: В этой статье поясняется, как описать ресурсы конечной точки в манифесте служб, включая настройку конечных точек HTTPS.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Указание ресурсов в манифесте службы
 ## <a name="overview"></a>Обзор
@@ -154,7 +154,7 @@ Service Fabric автоматически создает список управ
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Переопределение конечных точек в файле ServiceManifest.xml
 
-В ApplicationManifest добавьте раздел ResourceOverrides, который будет находиться на одном уровне с разделом ConfigOverrides. В этом разделе можно задать параметры переопределения для раздела конечных точек в разделе ресурсов, указанном в манифесте служб.
+В ApplicationManifest добавьте раздел ResourceOverrides, который будет находиться на одном уровне с разделом ConfigOverrides. В этом разделе можно задать параметры переопределения для раздела конечных точек в разделе ресурсов, указанном в манифесте служб. Переопределение конечных точек поддерживается в среде выполнения 5.7.217 и пакете SDK 2.7.217 и более поздних версий.
 
 Чтобы переопределить EndPoint в ServiceManifest, используя ApplicationParameters, измените ApplicationManifest следующим образом:
 

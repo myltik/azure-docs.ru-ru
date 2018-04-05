@@ -1,12 +1,12 @@
 ---
-title: "Запланированные события для виртуальных машин Windows в Azure | Документация Майкрософт"
-description: "Запланированные события, использующие службу метаданных Azure, для виртуальных машин Windows."
+title: Запланированные события для виртуальных машин Windows в Azure | Документация Майкрософт
+description: Запланированные события, использующие службу метаданных Azure, для виртуальных машин Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 8f78f476e28ec04acfea9fe45d57a4c18d5db678
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4740f3f189746a9ea0956d832678858b0528311e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Служба метаданных Azure. Запланированные события для виртуальных машин Windows
 
@@ -118,7 +118,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
 | ResourceType | Тип ресурса, на который влияет это событие. <br><br> Значения: <ul><li>`VirtualMachine`|
 | Ресурсы| Список ресурсов, на которые влияет это событие. Обязательно будет содержать виртуальные машины максимум из одного [домена обновления](manage-availability.md), но не может содержать все машины в таком домене. <br><br> Пример: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Состояние этого события. <br><br> Значения: <ul><li>`Scheduled`. Это запланированное событие состоится по истечении времени, указанного в свойстве `NotBefore`.<li>`Started`. Это событие запущено.</ul> Состояние `Completed` (или аналогичное) никогда не предоставляется; событие не возвращается после завершения события.
-| NotBefore| Время, после которого может быть запущено это событие. <br><br> Пример: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Время, после которого может быть запущено это событие. <br><br> Пример: <br><ul><li> Пн, 19 сентября 2016 г., 18:29:47 (GMT)  |
 
 ### <a name="event-scheduling"></a>Планирование события
 В зависимости от типа каждое будущее событие будет выполняться минимальное количество времени. Это время отражается в свойстве события `NotBefore`. 

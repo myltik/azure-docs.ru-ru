@@ -1,25 +1,25 @@
 ---
-title: "Региональная отработка отказа в Azure Cosmos DB | Документы Майкрософт"
-description: "Сведения о принципах ручной и автоматической отработки отказа в Azure Cosmos DB."
+title: Региональная отработка отказа в Azure Cosmos DB | Документы Майкрософт
+description: Сведения о принципах ручной и автоматической отработки отказа в Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Автоматическая отработка отказа между регионами для обеспечения непрерывности бизнес-процессов в Azure Cosmos DB
 Azure Cosmos DB упрощает глобальное распространение данных, предлагая полностью управляемые учетные [записи базы данных в нескольких регионах](distribute-data-globally.md), которые обеспечивают четкие компромиссы между согласованностью, доступностью и производительностью с соответствующими гарантиями. Учетные записи Cosmos DB обеспечивают высокий уровень доступности, задержки в единицы миллисекунд, [четко определенные уровни согласованности](consistency-levels.md), прозрачную региональную отработку отказа с API многосетевого подключения, а также возможность эластично масштабировать пропускную способность и хранилище по всему миру. 
@@ -30,9 +30,10 @@ Cosmos DB поддерживает явную отработку отказа и
 * как работает автоматическая отработка отказа в Cosmos DB и что происходит, когда в центре обработки данных возникает неполадка;
 * как использовать ручную отработку отказа в архитектурах приложений.
 
-Узнайте больше об отработке отказа между регионами в этом видео из цикла "Пятница с Azure" от Скотта Хенсельмана (Scott Hanselman) и главного технического руководителя Картика Рамана (Karthik Raman).
+Вы также можете узнать об отработке отказов между регионами из этого видео, где руководитель программы Azure Cosmos DB Эндрю Лю (Andrew Liu) рассказывает о функциях глобального распределения, в том числе об отработке отказов между регионами.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Настройка приложений в нескольких регионах
 Прежде чем углубляться в режимы отработки отказа, рассмотрим, как настроить приложение, чтобы воспользоваться преимуществами доступности нескольких регионов и меньше зависеть от отработок отказа между регионами.

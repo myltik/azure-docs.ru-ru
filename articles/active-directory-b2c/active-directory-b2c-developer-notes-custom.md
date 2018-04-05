@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C. Примечания по использованию настраиваемых политик для разработчиков | Документация Майкрософт"
-description: "Примечания для разработчиков по настройке и обслуживанию Azure AD B2C с помощью настраиваемых политик"
+title: Azure Active Directory B2C. Примечания по использованию настраиваемых политик для разработчиков | Документация Майкрософт
+description: Примечания для разработчиков по настройке и обслуживанию Azure AD B2C с помощью настраиваемых политик
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/13/2017
-ms.author: joroja
-ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Заметки о выпуске общедоступной предварительной версии настраиваемой политики Azure Active Directory B2C
 Набор функций настраиваемой политики теперь доступен для оценки в общедоступной предварительной версии для всех клиентов Azure Active Directory B2C (Azure AD B2C). Этот набор функций предназначен для опытных разработчиков удостоверений, создающих самые сложные решения удостоверений.  
@@ -60,7 +57,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="features-by-stage-and-known-issues"></a>Доступность функций на различных стадиях и известные проблемы
 Пользовательские возможности Identity Experience Framework и инфраструктуры политики постоянно и быстро разрабатываются.  Эта таблица содержит индекс доступности функций и компонентов.
 
-Задавайте вопросы на сайте Stack Overflow по адресу [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
+Задавайте вопросы на сайте Stack Overflow по адресу [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso).
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Поставщики удостоверений, токены и протоколы

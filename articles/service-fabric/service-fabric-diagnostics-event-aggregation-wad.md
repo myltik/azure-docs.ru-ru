@@ -1,24 +1,24 @@
 ---
-title: "Агрегация событий Azure Service Fabric c помощью системы диагностики Microsoft Azure | Документация Майкрософт"
-description: "Ознакомьтесь со сведениями об агрегации и сборе событий с использованием WAD для мониторинга и диагностики кластеров Azure Service Fabric."
+title: Агрегация событий Azure Service Fabric c помощью системы диагностики Microsoft Azure | Документация Майкрософт
+description: Ознакомьтесь со сведениями об агрегации и сборе событий с использованием WAD для мониторинга и диагностики кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure
 > [!div class="op_single_selector"]
@@ -170,67 +170,87 @@ ms.lasthandoff: 12/21/2017
 
 После изменения файла template.json (как описано выше) повторно опубликуйте шаблон Resource Manager. Если шаблон экспортирован, для повторной публикации шаблона выполните файл deploy.ps1. После развертывания убедитесь, что параметр **ProvisioningState** имеет значение **Succeeded**.
 
-## <a name="collect-health-and-load-events"></a>Сбор событий работоспособности и нагрузки
+> [!TIP]
+> Если планируется развернуть контейнеры в кластере, разрешите WAD получать статистику Docker, добавив в раздел **WadCfg > DiagnosticMonitorConfiguration** следующий код:
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-Начиная с выпуска Service Fabric 5.4 для сбора доступны события метрик работоспособности и нагрузки. Это события, создаваемые системой или кодом с помощью интерфейсов API для создания отчетов о работоспособности или нагрузке, в том числе [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) или [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Это обеспечивает статистическую обработку и просмотр состояния работоспособности системы с течением временем, а также оповещение на основе событий работоспособности или нагрузки. Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000008 в список поставщиков трассировки событий Windows.
+## <a name="log-collection-configurations"></a>Настройка сбора журналов
+Для сбора доступны журналы из нескольких дополнительных каналов, и здесь мы опишем несколько распространенных конфигураций, которые можно применить в шаблоне для кластеров, работающих в Azure.
 
-Для сбора событий кластера измените `scheduledTransferKeywordFilter` в WadCfg шаблона Resource Manager на `4611686018427387912`.
+* Операционный канал — базовые сведения (включен по умолчанию). Содержит события высокоуровневых операций, выполняемых Service Fabric и кластером, таких как открытие узла, развертывание нового приложения, откат обновления и т. д. Список поддерживаемых событий вы найдете [здесь](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Операционный канал — подробные сведения. Включает отчеты о работоспособности и решения о балансировке нагрузки, а также все содержимое операционного канала базовых сведений. Эти события создаются системой или кодом через API отчетов о работоспособности и (или) нагрузке, такие как [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) или [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000008 в список поставщиков трассировки событий Windows.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Сбор событий обратного прокси-сервера
-
-Начиная с выпуска Service Fabric 5.7, для сбора через каналы данных и обмен сообщениями доступны события [обратного прокси-сервера](service-fabric-reverseproxy.md). 
-
-Обратный прокси-сервер принудительно отправляет только события ошибок через основной канал данных и обмена сообщениями, которые отражают сбои обработки запросов и критические проблемы. В подробном канале содержатся подробные события о всех запросах, обрабатываемых обратным прокси-сервером. 
-
-Чтобы просмотреть эти события ошибок в окне просмотра событий диагностики Visual Studio, добавьте "Microsoft-ServiceFabric:4:0x4000000000000010" в список поставщиков трассировки событий Windows. Для всей телеметрии запросов измените запись "Microsoft-ServiceFabric" в списке поставщиков трассировки событий Windows, указав "Microsoft-ServiceFabric:4:0x4000000000000020".
-
-Для кластеров, выполняемых в Azure.
-
-Чтобы получить трассировки в главном канале данных и обмена сообщениями, измените значение `scheduledTransferKeywordFilter` в WadCfg шаблона Resource Manager на `4611686018427387920`.
+* Канал данных и обмена сообщениями — базовые сведения. Содержит критически важные журналы и события, создаваемые в системе обмена сообщениями (пока только ReverseProxy) и пути обработки данных, а также подробные журналы операционного канала. Эти события также включают сбои при обработке запросов и другие критические проблемы для ReverseProxy и обрабатываемых запросов. **Мы рекомендуем использовать этот уровень для ведения подробного журнала**. Чтобы просмотреть эти события в средстве просмотра диагностических событий Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000010 в список поставщиков трассировки событий Windows.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Чтобы собрать все события обработки запросов, включите подробный канал данных и обмена сообщениями, изменив значение `scheduledTransferKeywordFilter` в WadCfg шаблона Resource Manager на `4611686018427387936`.
+* Канал данных и обмена сообщениями — подробные сведения. Этот канал содержит развернутую информацию из некритических журналов для процессов обработки данных и обмена сообщениями в кластере, а также все содержимое операционного канала подробных сведений. Подробные сведения об устранении любых неполадок, связанных с событиями обратного прокси-сервера, приведены в [руководстве по диагностике обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md).  Чтобы просмотреть эти события в средстве просмотра диагностических событий Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000020 в список поставщиков трассировки событий Windows.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-Включение сбора данных о событиях из результатов этого подробного канала приводит к тому, что многие трассировки генерируются быстро и могут потреблять емкость хранилища. Включайте этот режим в случае крайней необходимости.
-Подробные сведения об устранении неполадок, связанных с событиями обратного прокси-сервера, приведены в [руководстве по диагностике обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Этот канал содержит огромный объем сведений о событиях, поэтому включение сбора этих данных приводит к быстрому созданию множества трассировок, которые могут потреблять емкость хранилища. Включайте этот режим только при крайней необходимости.
+
+
+Чтобы включить рекомендуемый режим подробного ведения журналов (**Канал данных и обмена сообщениями — базовые сведения**), используйте следующее значение для `EtwManifestProviderConfiguration` в шаблоне `WadCfg`:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Сбор из новых каналов EventSource
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Планирование развертывания службы синхронизации файлов Azure (предварительная версия)
 С помощью службы синхронизации файлов Azure (предварительная версия) вы можете централизованно хранить файловые ресурсы организации в службе файлов Azure, обеспечивая гибкость, производительность и совместимость локального файлового сервера. Это достигается путем преобразования Windows Server в быстрый кэш общего файлового ресурса Azure. Для локального доступа к данным вы можете использовать любой протокол, доступный в Windows Server, в том числе SMB, NFS и FTPS. Кроме того, вы можете создать любое количество кэшей в любом регионе.
@@ -160,9 +160,14 @@ ms.lasthandoff: 03/09/2018
 |--------|---------------------|
 | Восточная часть Австралии | Новый Южный Уэльс |
 | Центральная Канада | Торонто |
+| Центральный регион США | Айова |
+| Восточная Азия | Гонконг |
 | Восток США | Виргиния |
+| Восток США 2 | Виргиния |
+| Северная Европа | Ирландия |
 | Юго-Восточная Азия | Сингапур |
 | Южная часть Великобритании | Лондон |
+| Центрально-западная часть США |
 | Западная Европа | Нидерланды |
 | Запад США | Калифорния |
 
@@ -172,6 +177,7 @@ ms.lasthandoff: 03/09/2018
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
+* [Параметры брандмауэра и прокси-сервера Синхронизации файлов Azure](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md) (Планирование развертывания службы файлов Azure)
 * [Как развернуть службу файлов Azure](storage-files-deployment-guide.md)
 * [Как развернуть службу синхронизации файлов Azure (предварительная версия)](storage-sync-files-deployment-guide.md)

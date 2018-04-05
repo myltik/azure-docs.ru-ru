@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: история выпусков версий
 Команда Azure Active Directory регулярно добавляет в Azure AD Connect Health новые функции и возможности. В этой статье перечислены выпущенные версии и компоненты.
 
 ## <a name="march-2018"></a>Март 2018 г.
+**Новые функции предварительной версии:**
+* Azure AD Connect Health для AD FS — оповещение и отчет о ненадежном IP-адресе.
+
 **Обновление агента:**
 
 *   Агент Azure AD Connect Health для AD DS (версия 3.0.176.0).
@@ -64,7 +67,7 @@ ms.lasthandoff: 03/09/2018
   1. Исправления ошибок и общие улучшения.
   2. Поддержка независимого облака.
 * Агент Azure AD Connect Health для синхронизации (версия 3.0.68.0) выпущен вместе с Azure AD Connect версии 1.1.614.0.
-1. Поддержка облака Microsoft Azure для государственных организаций и Microsoft Cloud для Германии.
+  1. Поддержка облака Microsoft Azure для государственных организаций и Microsoft Cloud для Германии.
 
 ## <a name="april-2017"></a>Апрель 2017 г.      
 **Обновление агента:**

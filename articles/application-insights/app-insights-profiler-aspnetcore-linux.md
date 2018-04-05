@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Профилирование веб-приложений ASP.NET Core в Azure для Linux с помощью Application Insights Profiler
 
@@ -143,6 +143,18 @@ ms.lasthandoff: 03/16/2018
 5. Перейдите в область производительности Application Insights на портале Azure. В правом нижнем углу будут доступны трассировки профилировщика.
 
     ![Просмотр трассировок](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Известные проблемы
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Кнопка включения на панели конфигурации профилировщика не работает
+**При размещении приложения с помощью среды Linux для службы приложений снова включать профилировщик на панели производительности на портале App Insights не нужно. Для включения профилировщика достаточно включить пакет NuGet в проект и указать ключ iKey для App Insights в настройках приложения**.
+
+Если вы следуете рабочему процессу [Профилировщик App Insights для Windows](./app-insights-profiler.md), чтобы нажать на кнопку **Включить** на панели настройки профилировщика, появится сообщение об ошибке, как будет предпринята попытка установки версию агента профилировщика Windows в среде Linux.
+
+Мы работаем над устранением этой проблемы.
+
+![Вам не нужно снова включать профилировщик на панели производительности, чтобы активировать его для работы со службами приложений Linux.](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы используете пользовательские контейнеры, размещенные в службе приложений, чтобы включить Application Insights Profiler, следуйте инструкциям из статьи о [включении профилировщика службы для контейнерного приложения ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp).

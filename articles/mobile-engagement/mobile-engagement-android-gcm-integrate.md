@@ -1,11 +1,11 @@
 ---
-title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
-description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
+title: Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure
+description: Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d72b5014-a22b-4a7f-a470-d2b8145b5b86
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21f9c1007c6b7dabc625555c66f267b2b7c579f8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Интеграция GCM с помощью Служб мобильного взаимодействия
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 > [!IMPORTANT]
 > Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе "Интеграция Engagement на платформе Android".
 > 

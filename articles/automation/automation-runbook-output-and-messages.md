@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Выходные данные и сообщения Runbook в службе автоматизации Azure
 В большинстве модулей runbook в службе автоматизации Azure используются выходные данные определенного типа, например сообщение об ошибке для пользователя или сложный объект, предназначенный для использования другим рабочим процессом. Windows PowerShell предоставляет [несколько потоков](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) для отправки выходных данных из сценария или рабочего процесса. Служба автоматизации Azure по-разному работает с каждым из этих потоков, и необходимо следовать рекомендациям по их использованию при создании Runbook.
@@ -204,8 +204,8 @@ Windows PowerShell использует [привилегированные пе
    
    ![Колонка ведения журналов и трассировки графической разработки](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Log Analytics в Microsoft Operations Management Suite (OMS)
-Служба автоматизации может отправлять состояние задания Runbook и потоки заданий в рабочую область Log Analytics в Microsoft Operations Management Suite (OMS). С помощью Log Analytics можно:
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+Служба автоматизации может отправлять состояние задания runbook и потоки заданий в рабочую область Log Analytics. С помощью Log Analytics можно:
 
 * получить информацию о заданиях службы автоматизации; 
 * активировать отправку электронного сообщения или оповещения в соответствии с состоянием задания Runbook (например, сбой или приостановка); 
@@ -213,7 +213,7 @@ Windows PowerShell использует [привилегированные пе
 * коррелировать задания и учетные записи службы автоматизации; 
 * визуализировать журнал задания по прошествии времени.    
 
-Дополнительные сведения о настройке интеграции с Log Analytics для сбора, сопоставления и действия по данным заданий см. в статье [Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Дополнительные сведения о настройке интеграции с Log Analytics для сбора, корреляции и действия по данным заданий см. в статье [Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Чтобы узнать больше о выполнении модулей Runbook, отслеживании заданий Runbook и других технических деталях, ознакомьтесь с [отслеживанием задания Runbook](automation-runbook-execution.md)

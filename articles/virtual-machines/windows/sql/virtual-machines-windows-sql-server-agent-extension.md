@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d9cb4a3bdc5776c4ac70ac376d8b839193e3fc3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Автоматизация задач управления на виртуальных машинах Azure с помощью расширения агента SQL Server (модель с использованием Resource Manager)
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!IMPORTANT]
 > Если расширение не установлено, при его установке перезапускается служба SQL Server.
 
-Можно также установить расширение агента IaaS для SQL Server на виртуальной машине Windows Server, содержащей только операционную систему. Это возможно, если вы вручную установили SQL Server на этом компьютере. После этого вручную установите расширение с помощью того же командлета **Set-AzureVMSqlServerExtension** PowerShell.
+Можно также установить расширение агента IaaS для SQL Server на виртуальной машине Windows Server, содержащей только операционную систему. Это возможно, если вы вручную установили SQL Server на этом компьютере. После этого вручную установите расширение с помощью того же командлета PowerShell **Set-AzureRmVMSqlServerExtension**.
 
 > [!NOTE]
 > При ручной установке расширения агента IaaS SQL Server на виртуальной машине Windows Server, содержащей только операционную систему, вы не можете управлять параметрами конфигурации SQL Server на портале Azure. В этом случае все изменения нужно вносить с помощью PowerShell.
@@ -82,7 +82,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 
 ![Расширение агента IaaS для SQL Server на портале Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-Вы также можете использовать командлет Azure PowerShell **Get-AzureVMSqlServerExtension**.
+Вы также можете использовать командлет Azure PowerShell **Get-AzureRmVMSqlServerExtension**.
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 

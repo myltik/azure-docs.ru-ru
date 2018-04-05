@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Часто задаваемые вопросы о репликации из VMware в Azure
 
@@ -48,6 +48,13 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="what-do-i-need-on-premises"></a>Что требуется в локальной среде?
 В локальной среде вам требуются компоненты Site Recovery, установленные на одной виртуальной машине VMware. Также нужна инфраструктура VMware с как минимум одним узлом ESXi и (рекомендуется) сервер vCenter. Кроме того, требуется одна или несколько виртуальных машин VMware для репликации. [Дополнительные сведения](vmware-azure-architecture.md) об репликации VMware в архитектуру Azure.
+
+Развернуть локальный сервер конфигурации можно одним из двух следующих способов:
+
+1. Развертывание при помощи шаблона виртуальной машины с предварительно установленным сервером конфигурации. [Дополнительные сведения см. здесь](vmware-azure-tutorial.md#download-the-vm-template).
+2. Развертывание при помощи программы установки на выбранном компьютере с Windows Server 2016. [Дополнительные сведения см. здесь](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+Чтобы приступить к развертыванию сервера конфигурации на собственном компьютере Windows Server с включением защиты, выполните инструкции в разделе **To Azure (В Azure) > Без виртуализации или иное**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Куда реплицируются локальные виртуальные машины?
 Данные реплицируются в хранилище Azure. При выполнении отработки Site Recovery автоматически создаст виртуальные машины Azure из учетной записи хранения.

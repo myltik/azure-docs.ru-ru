@@ -1,24 +1,24 @@
 ---
-title: "Бессерверные вычисления для баз данных. Служба \"Функции Azure\" и Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как можно использовать Azure Cosmos DB и служб \"Функции Azure\" для создания бессерверных вычислительных приложений, управляемых событиями."
+title: Бессерверные вычисления для баз данных. Служба "Функции Azure" и Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как можно использовать Azure Cosmos DB и служб "Функции Azure" для создания бессерверных вычислительных приложений, управляемых событиями.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: обработка данных бессерверных баз данных с помощью службы "Функции Azure"
 
@@ -113,12 +113,16 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="tooling"></a>Инструментарий
 
-Естественная интеграция между службой "Функции Azure" и Azure Cosmos DB доступна на портале Azure.
+Естественная интеграция между службой "Функции Azure" и Azure Cosmos DB доступна на портале Azure и в Visual Studio 2017.
 * На портале службы "Функции Azure" можно создать триггер Azure Cosmos DB. Краткое руководство приведено в разделах [Создание триггера Azure Cosmos DB на портале Azure](https://aka.ms/cosmosdbtriggerportalfunc) и ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) (Создание триггера Azure Cosmos DB на портале службы "Функции Azure"). 
 * На портале службы "Функции Azure" можно также добавлять входные и выходные привязки Azure Cosmos DB для триггеров других типов. Краткое руководство приведено в разделе [Хранение неструктурированных данных с помощью служб Функции Azure и Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Создание триггера Azure Cosmos DB на портале службы "Функции Azure"](./media/serverless-computing-database/function-portal-input-binding.png)
 *   На портале Azure Cosmos DB триггер Azure Cosmos DB можно добавить в приложение-функцию Azure в той же группе ресурсов.
     ![Создание триггера Azure Cosmos DB на портале службы "Функции Azure"](./media/serverless-computing-database/cosmos-db-portal.png)
+* В Visual Studio 2017 можно создать триггер Azure Cosmos DB с помощью встроенного шаблона.
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>В чем преимущества интеграции службы "Функции Azure" для бессерверных вычислений?
 

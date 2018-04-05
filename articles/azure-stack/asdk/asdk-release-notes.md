@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Заметки к выпуску Пакета средств разработки Azure Stack
 В этой статье содержатся сведения об улучшениях, исправлениях и известных проблемах Пакета средств разработки Azure Stack. Если вы не знаете, какая версия используется, проверьте ее [с помощью портала](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ ms.lasthandoff: 03/17/2018
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (Ошибка. Отсутствует шаблон FaultType ResourceProviderTimeout).
 
     Это оповещение можно проигнорировать. 
+
+- Если на портале администрирования и пользовательском портале выбрать колонку "Обзор" для учетных записей хранения, созданных в более ранней версии API (например, 2015-06-15), колонка не загрузится. 
+
+  Чтобы избежать этой проблемы, выполните в PowerShell скрипт **Start-ResourceSynchronization.ps1**. Это позволит восстановить доступ к сведениям об учетной записи хранения. [Скрипт можно найти в GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts). Если вы используете ASDK, этот скрипт нужно выполнить с учетными данными администратора на узле комплекта разработки.  
+
 
 #### <a name="health-and-monitoring"></a>Работоспособность и мониторинг
 На портале администрирования Azure Stack может появиться критическое оповещение **Pending external certificate expiration** (Ожидание истечения срока действия внешнего сертификата).  Это предупреждение можно проигнорировать — оно никак не влияет на работу пакета средств разработки Azure Stack. 
@@ -273,9 +278,11 @@ ms.lasthandoff: 03/17/2018
     > Некоторые из элементов, перечисленные в разделе **Новые функции и исправления**, применимы только к интегрированным системам Azure Stack.
 
 ### <a name="known-issues"></a>Известные проблемы
+
  
 #### <a name="deployment"></a>Развертывание
 - Во время развертывания для сервера времени необходимо указать IP-адрес.
+- Начиная с версии 1711 **CloudAdmin** является зарезервированным именем учетной записи, которое не нужно указывать вручную при развертывании пакета средств разработки. 
 
 #### <a name="infrastructure-management"></a>Управление инфраструктурой
 - Не включайте резервное копирование инфраструктуры в колонке **Infrastructure backup** (Архивация инфраструктуры).

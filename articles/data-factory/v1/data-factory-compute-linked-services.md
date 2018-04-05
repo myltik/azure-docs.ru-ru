@@ -1,11 +1,10 @@
 ---
-title: "Вычислительные среды, поддерживаемые фабрикой данных Azure | Документация Майкрософт"
-description: "Сведения о вычислительных средах, которые можно использовать в конвейерах фабрики данных Azure (например, Azure HDInsight) для преобразования или обработки данных."
+title: Вычислительные среды, поддерживаемые фабрикой данных Azure | Документация Майкрософт
+description: Сведения о вычислительных средах, которые можно использовать в конвейерах фабрики данных Azure (например, Azure HDInsight) для преобразования или обработки данных.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Вычислительные среды, поддерживаемые фабрикой данных Azure
 > [!NOTE]
@@ -51,7 +50,7 @@ Azure HDInsight поддерживает несколько версий кла�
 После 15 декабря 2017 г.:
 
 - Вы больше не можете создавать кластеры HDInsight версии 3.3 под управлением Linux (или более ранних версий) с помощью связанной службы HDInsight по запросу в фабрике данных версии 1. 
-- Если [свойства **osType** и **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) явно не указаны в определении JSON для имеющихся связанных служб HDInsight по запросу фабрики данных версии 1, значение по умолчанию изменяется с **Version=3.1, osType=Windows** на **Version=\<новейшая версия HDI по умолчанию\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
+- Если [свойства **osType** и **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) не указаны явно в определении JSON для связанной службы HDInsight по запросу фабрики данных версии 1, значение по умолчанию будет изменено с **Version=3.1, osType=Windows** на **Version=\<новейшая версия HDI по умолчанию\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
 
 После 31 июля 2018 г.:
 

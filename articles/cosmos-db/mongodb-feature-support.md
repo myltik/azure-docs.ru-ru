@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Поддержка возможностей и синтаксиса MongoDB в API-интерфейсе MongoDB
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете обмениваться данными с API-интерфейсом базы данных MongoDB, используя любой из [драйверов](https://docs.mongodb.org/ecosystem/drivers) с открытым кодом для клиента MongoDB. API-интерфейс MongoDB поддерживает существующие драйверы клиента благодаря [сетевому протоколу](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-С помощью API-интерфейса базы данных MongoDB для Azure Cosmos DB вы можете не только продолжать пользоваться существующими функциями MongoDB, но и применять новые возможности Azure Cosmos DB, включая [глобальное распространение](distribute-data-globally.md), [автоматическое сегментирование](partition-data.md), гарантии по уровням доступности и задержкам, автоматическое индексирование каждого поля, шифрование хранимых данных, резервное копирование и многое другое.
+С помощью API-интерфейса MongoDB для Azure Cosmos DB вы можете пользоваться всеми функциями API MongoDB, к которым вы привыкли, и возможностями Azure Cosmos DB для организаций: [глобальное распространение](distribute-data-globally.md), [автоматическое сегментирование](partition-data.md), гарантии по уровням доступности и задержкам, автоматическое индексирование каждого поля, шифрование хранимых данных, резервное копирование и многое другое.
 
 ## <a name="mongodb-query-language-support"></a>Поддержка языка запросов MongoDB
 
@@ -92,6 +92,7 @@ Azure Cosmos DB поддерживает конвейер статистичес
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Статистические выражения
 

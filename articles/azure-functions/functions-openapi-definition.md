@@ -1,13 +1,13 @@
 ---
-title: "Создание определения OpenAPI функции | Документация Майкрософт"
-description: "Создание определения OpenAPI, которое позволяет другим приложениям и службам вызывать функцию в Azure."
+title: Создание определения OpenAPI функции | Документация Майкрософт
+description: Создание определения OpenAPI, которое позволяет другим приложениям и службам вызывать функцию в Azure.
 services: functions
-keywords: "OpenAPI, Swagger, облачные приложения, облачные службы"
-documentationcenter: 
+keywords: OpenAPI, Swagger, облачные приложения, облачные службы
+documentationcenter: ''
 author: mgblythe
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
-ms.custom: mvc
-ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Создание определения OpenAPI функции
 Интерфейсы REST API часто описываются с помощью определения OpenAPI (ранее известное как файл [Swagger](http://swagger.io/)). Это определение содержит сведения о доступных операция в API и о том, как необходимо структурировать данные запросов и ответов для API.
@@ -40,8 +40,6 @@ ms.lasthandoff: 01/24/2018
 Для выполнения функций вам понадобится приложение-функция, позволяющее группировать функции в логические единицы и упростить развертывание, масштабирование и совместное использование ресурсов, а также управление ими. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 
 ## <a name="create-the-function"></a>Создание функции

@@ -4,17 +4,18 @@ description: "\"Политика Azure\" — это служба в Azure, ко�
 services: azure-policy
 keywords: ''
 author: bandersmsft
-ms.author: banders; nini
-ms.date: 03/14/2018
+ms.author: banders
+ms.reviewer: nini
+ms.date: 03/29/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 72b3e46e4755d50589eeefeeb0478ab9af49e97b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-policy"></a>Что такое служба "Политика Azure"?
 

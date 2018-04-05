@@ -1,13 +1,13 @@
 ---
-title: "Использование Terraform для создания готовой виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как использовать Terraform для создания готовой среды виртуальных машин Linux в Azure и управления ею"
+title: Использование Terraform для создания готовой виртуальной машины Linux в Azure | Документация Майкрософт
+description: Узнайте, как использовать Terraform для создания готовой среды виртуальных машин Linux в Azure и управления ею
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: timlt
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 2a6fb8b6b096a029db1ab88bd578461549db9776
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: aaa8235d5fe47e72963ef4942876ea9827a38ef6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Создание готовой инфраструктуры виртуальных машин Linux в Azure с помощью Terraform
 
@@ -450,7 +450,7 @@ Note: You didn’t specify an “-out” parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-Если все выглядит правильно и вы готовы для создания инфраструктуры в Azure, примените шаблон в Terraform:
+Если все выглядит правильно и вы готовы создать инфраструктуру в Azure, примените шаблон в Terraform:
 
 ```bash
 terraform apply

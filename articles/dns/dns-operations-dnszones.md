@@ -1,6 +1,6 @@
 ---
-title: "Управление зонами DNS в службе DNS Azure с помощью PowerShell | Документация Майкрософт"
-description: "Зонами DNS можно управлять с помощью Azure Powershell. В этой статье описывается, как обновлять, удалять и создавать зоны DNS в службе DNS Azure."
+title: Управление зонами DNS в службе DNS Azure с помощью PowerShell | Документация Майкрософт
+description: Зонами DNS можно управлять с помощью Azure Powershell. В этой статье описывается, как обновлять, удалять и создавать зоны DNS в службе DNS Azure.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Как управлять зонами DNS с помощью PowerShell
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 В этой статье описывается, как управлять зонами DNS с помощью Azure PowerShell. Зонами DNS также можно управлять с помощью кроссплатформенного [интерфейса командной строки Azure](dns-operations-dnszones-cli.md) или портала Azure.
+
+В этом руководстве рассматриваются именно общедоступные зоны DNS. Сведения об использовании Azure PowerShell для управления частным зонами в Azure DNS см. в статье [Приступая к работе с частными зонами Azure DNS с помощью PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Теперь Azure DNS также поддерживает частные зоны DNS (в настоящее время в виде предварительной версии).  Инструкции по созданию частной зоны DNS см. в статье [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md) (Начало работы с частными зонами Azure DNS с помощью PowerShell).
+Теперь Azure DNS также поддерживает частные зоны DNS (сейчас в виде общедоступной предварительной версии).  Дополнительные сведения об использовании частных зон DNS см. в статье [Using Azure DNS for private domains](private-dns-overview.md) (Использование Azure DNS для частных доменов). Инструкции по созданию частной зоны DNS см. в статье [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md) (Начало работы с частными зонами Azure DNS с помощью PowerShell).
 
 ## <a name="get-a-dns-zone"></a>Получение зоны DNS
 

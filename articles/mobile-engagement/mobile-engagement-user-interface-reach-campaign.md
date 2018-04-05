@@ -1,11 +1,11 @@
 ---
-title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — Рекламная кампания"
-description: "Узнайте, как создавать кампании push-уведомлений с помощью Служб мобильного взаимодействия Azure, а также управлять ими"
+title: Пользовательский интерфейс Служб мобильного взаимодействия Azure — Рекламная кампания
+description: Узнайте, как создавать кампании push-уведомлений с помощью Служб мобильного взаимодействия Azure, а также управлять ими
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Создание кампаний по рассылке push-уведомлений и управление ими
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 В разделе «Охват» можно создать новую кампанию push-уведомлений по сложной формуле, предоставив всю информацию, необходимую для отправки push-уведомлений. Параметры кампании по рассылке push-уведомлений немного отличаются в зависимости от типа кампании. Этих типов всего четыре: объявления, опросы, отправленные данные и плитки (только для Windows Phone).
 
 ### <a name="option-applies-to"></a>Параметр применяется к таким разделам:

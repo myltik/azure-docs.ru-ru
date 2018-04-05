@@ -1,11 +1,10 @@
 ---
-title: "Перемещение данных из Salesforce с помощью фабрики данных | Документация Майкрософт"
-description: "Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure."
+title: Перемещение данных из Salesforce с помощью фабрики данных | Документация Майкрософт
+description: Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Перемещение данных из Salesforce с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +71,7 @@ ms.lasthandoff: 01/23/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
 | Тип |Для свойства type нужно задать значение **Salesforce**. |Yes |
-| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br><br> — URL-адрес по умолчанию — https://login.salesforce.com. <br> — Чтобы скопировать данные из песочницы, укажите URL-адрес https://test.salesforce.com. <br> — Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например https://[домен].my.salesforce.com. |Нет  |
+| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br><br> Значение по умолчанию — https://login.salesforce.com. <br> Чтобы скопировать данные из песочницы, укажите https://test.salesforce.com. <br> — Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например https://[домен].my.salesforce.com. |Нет  |
 | Имя пользователя |Укажите имя пользователя для учетной записи пользователя. |Yes |
 | password |Укажите пароль для учетной записи пользователя. |Yes |
 | securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). |Yes |

@@ -1,11 +1,11 @@
 ---
-title: "Управление регистрацией"
-description: "В этом разделе описывается регистрация устройств в центрах уведомлений для получения push-уведомлений."
+title: Управление регистрацией
+description: В этом разделе описывается регистрация устройств в центрах уведомлений для получения push-уведомлений.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Управление регистрацией
 ## <a name="overview"></a>Обзор
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 * Установка упрощает отправку индивидуальных push-уведомлений, предназначенных для конкретного устройства. В каждую регистрацию через установку автоматически добавляется системный тег **"$InstallationId:[installationId]"** . Поэтому можно организовывать отправку по этому тегу для конкретного устройства без необходимости создавать дополнительный код.
 * Установка также позволяет частично обновлять регистрацию. Частичное обновление установки запрашивается с помощью метода PATCH из [стандарта JSON-Patch](https://tools.ietf.org/html/rfc6902). Это особенно удобно в тех случаях, когда нужно обновить теги в регистрации. Нет необходимости удалять всю регистрацию и заново отправлять все прошлые теги.
 
-Установка может содержать следующие свойства. Полный список свойств установки см. в статье о [создании или замене установки с помощью REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) или в статье [Класс Installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Установка может содержать следующие свойства. Полный список свойств установки см. в статье об [установке или перезаписи установки с помощью REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) или в статье [Класс Installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {

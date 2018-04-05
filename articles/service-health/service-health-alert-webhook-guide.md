@@ -1,30 +1,30 @@
 ---
-title: "Настройка уведомлений о работоспособности для существующих систем управления проблемами с помощью веб-перехватчика | Документация Майкрософт"
-description: "Передача персонализированных уведомлений о событиях работоспособности служб в существующую систему управления проблемами."
+title: Настройка уведомлений о работоспособности для существующих систем управления проблемами с помощью веб-перехватчика | Документация Майкрософт
+description: Передача персонализированных уведомлений о событиях работоспособности служб в существующую систему управления проблемами.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Настройка уведомлений о работоспособности для существующих систем управления проблемами с помощью веб-перехватчика
 
 В этой статье показано, как настроить оповещения о работоспособности служб для отправки данных через веб-перехватчики в существующую систему уведомлений.
 
-Сейчас можно настроить оповещения о работоспособности службы таким образом, чтобы в случае, если вас затронет инцидент со службой Azure, вы получили уведомление через SMS или электронную почту.
+Сейчас можно настроить оповещения о работоспособности службы таким образом, чтобы в случае, если вас затронет инцидент со службой Azure, вы получили уведомление в сообщении SMS или по электронной почте.
 Однако у вас уже может быть установлена внешняя система уведомлений, которую вы хотите использовать.
 В этом документе показаны наиболее важные части полезных данных веб-перехватчика, а также способы создания пользовательских оповещений для получения уведомлений в случае, если вас затронут проблемы со службами.
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Настройка пользовательского уведомления с помощью полезных данных веб-перехватчика работоспособности служб
 Если вы хотите настроить собственную интеграцию пользовательского веб-перехватчика, необходимо проанализировать полезные данные JSON, которые отправляются во время уведомлений о работоспособности служб.
 
-Просмотрите [пример](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) того, как выглядят полезные данные веб-перехватчика `Service Health`.
+Просмотрите [пример](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) того, как выглядят полезные данные веб-перехватчика `ServiceHealth`.
 
 Оповещение о работоспособности службы можно распознать по `context.eventSource == "ServiceHealth"`. Наиболее значимые свойства для приема:
  * `data.context.activityLog.status`
@@ -48,13 +48,13 @@ ms.lasthandoff: 11/16/2017
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Создание прямой ссылки на работоспособность службы Azure для инцидента
-Можно создать прямую ссылку на персонализированный инцидент работоспособности службы Azure на рабочем столе или мобильном устройстве с помощью создания специализированного URL-адреса. Используйте `trackingId`, а также первую и последние три цифры вашего `subscriptionId`, чтобы создать такой адрес:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Создание прямой ссылки на панель мониторинга "Работоспособность служб" для инцидента
+Можно добавить прямую ссылку на панель мониторинга "Работоспособность служб" на рабочем столе или мобильном устройстве, создав специализированный URL-адрес. Используйте `trackingId`, а также первую и последние три цифры вашего `subscriptionId`, чтобы создать такой адрес:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Например если `subscriptionId` = `bba14129-e895-429b-8809-278e836ecdb3`, а `trackingId` = `0DET-URB`, то персонализированным URL-адресом работоспособности службы Azure будет:
+Например если `subscriptionId` = `bba14129-e895-429b-8809-278e836ecdb3`, а `trackingId` = `0DET-URB`, то URL-адресом панели мониторинга "Работоспособность служб" будет:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -101,16 +101,16 @@ https://app.azure.com/h/0DET-URB/bbadb3
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Проверка интеграции с веб-перехватчиком с помощью запроса HTTP POST
-1. Создайте полезные данные о работоспособности служб, которые вы хотите отправить. Пример полезных данных для веб-перехватчика службы работоспособности служб см. в статье [Веб-перехватчики для оповещений журнала действий Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Создайте полезные данные о работоспособности служб, которые хотите отправить. Пример полезных данных для веб-перехватчика службы работоспособности служб см. в статье [Веб-перехватчики для оповещений журнала действий Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Создайте запрос HTTP POST следующим образом.
+2. Создайте запрос HTTP POST следующим образом:
 
     ```
     POST        https://your.webhook.endpoint
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Вы должны получить ответ `2XX - Successful`.
 

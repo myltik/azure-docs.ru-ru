@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Сценарии развертывания и объединения в устойчивых функциях. Пример резервного копирования в облако
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Выполните инструкции в статье об [установке устойчивых функций](durable-functions-install.md), чтобы настроить пример.
-* В этой статье предполагается, что вы уже ознакомлены с пошаговым руководством по примеру [последовательности Hello](durable-functions-sequence.md).
+* [Установите устойчивые функции](durable-functions-install.md).
+* Ознакомьтесь с пошаговым руководством по примеру [последовательности Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Обзор сценария
 
@@ -41,13 +41,13 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="the-functions"></a>Функции
 
-В этой статье описываются следующие функции в примере приложения:
+В этой статье описаны следующие функции в примере приложения:
 
 * `E2_BackupSiteContent`
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-В следующих разделах рассматривается конфигурация и код, которые используются при разработке с помощью портала Azure. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
+В следующих разделах рассматривается конфигурация и код, которые используются для написания скриптов на языке C#. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Оркестрация облачной резервной копии (пример кода Visual Studio Code и портала Azure)
 

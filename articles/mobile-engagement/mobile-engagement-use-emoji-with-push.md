@@ -1,11 +1,11 @@
 ---
-title: "Использование смайликов эмодзи в Службах мобильного взаимодействия Azure"
-description: "Как использовать смайлики эмодзи в push-уведомлениях"
+title: Использование смайликов эмодзи в Службах мобильного взаимодействия Azure
+description: Как использовать смайлики эмодзи в push-уведомлениях
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 663317d7-3c93-4e8f-b13d-c6fb342124ee
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bbb7ce5e95b229a7505c5e97b6866d5a302a1d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5b0e7bfe07054d093dc164cb5f72bde4ba28170
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-emoji-emoticon-within-push-notifications"></a>Использование смайликов эмодзи в push-уведомлениях
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Вы легко можете включать смайлики эмодзи в свои push-уведомления. 
 
 1. Сначала вам нужно найти смайлик эмодзи, который будет добавлен в сообщение. Убедитесь, что выбранный смайлик эмодзи будет отображаться на целевом устройстве, так как производителям устройств обычно требуется некоторое время, чтобы добавить новые смайлики эмодзи на платформы устройств. 

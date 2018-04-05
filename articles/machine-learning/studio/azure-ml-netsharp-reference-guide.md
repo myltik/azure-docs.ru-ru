@@ -1,11 +1,12 @@
 ---
-title: "Руководство по языку спецификаций нейронных сетей Net# для машинного обучения Azure | Документация Майкрософт"
-description: "Синтаксис языка спецификации нейронных сетей Net# и примеры создания пользовательской модели нейронной сети с помощью Net#"
+title: Руководство по языку спецификаций нейронных сетей Net# для машинного обучения Azure | Документация Майкрософт
+description: Синтаксис языка спецификации нейронных сетей Net# и примеры создания пользовательской модели нейронной сети с помощью Net#
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: cgronlun
-editor: 
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
+editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.author: jeannt
-ms.openlocfilehash: a166b45e7e482092006ddad276986b6f8b0f378c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 599dc158cde0508aa0836c7028a87ed708ba1d86
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Руководство по языку спецификаций нейронных сетей Net# для машинного обучения Azure
 
@@ -255,7 +255,7 @@ hidden P1 [5, 12, 12]
 
 Дополнительную информацию о группирующих слоях см. в статьях:  
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
++ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Раздел 3.4)
 + [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
 + [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 

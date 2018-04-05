@@ -1,24 +1,24 @@
 ---
-title: "Использование задач с несколькими экземплярами для выполнения приложений MPI с помощью пакетной службы Azure | Документация Майкрософт"
-description: "Узнайте, как выполнять приложения с интерфейсом передачи сообщений (MPI), используя тип задачи с несколькими экземплярами в пакетной службе Azure."
+title: Использование задач с несколькими экземплярами для выполнения приложений MPI с помощью пакетной службы Azure | Документация Майкрософт
+description: Узнайте, как выполнять приложения с интерфейсом передачи сообщений (MPI), используя тип задачи с несколькими экземплярами в пакетной службе Azure.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе
 
@@ -49,6 +49,10 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Требования к задачам с несколькими экземплярами
 При выполнении многоэкземплярной задачи требуется, чтобы в пуле был **включен обмен данными между узлами** и **отключено параллельное выполнение задач**. Чтобы отключить параллельное выполнение задач, задайте для свойства [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) значение 1.
+
+> [!NOTE]
+> Пакетная служба [ограничит](batch-quota-limit.md#other-limits) размера пула, для которого включен обмен данными между узлами.
+
 
 В этом фрагменте кода показано, как создать пул для многоэкземплярных задач, используя библиотеку .NET для пакетной службы.
 
@@ -107,8 +111,7 @@ await myCloudPool.CommitAsync();
   * [Размеры виртуальных машин в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Чтобы воспользоваться преимуществами RDMA на [вычислительных узлах Linux](batch-linux-nodes.md), на узлах необходимо использовать **Intel MPI**. Дополнительные сведения о пулах CloudServiceConfiguration и VirtualMachineConfiguration см. в разделе "Пул" статьи [Обзор функций пакетной службы для разработчиков](batch-api-basics.md).
->
+> Чтобы воспользоваться преимуществами RDMA на [вычислительных узлах Linux](batch-linux-nodes.md), на узлах необходимо использовать **Intel MPI**. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Создание задачи с несколькими экземплярами с помощью .NET для пакетной службы

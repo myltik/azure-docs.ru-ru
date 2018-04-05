@@ -1,11 +1,11 @@
 ---
-title: "Системные представления хранилища данных SQL | Документация Майкрософт"
-description: "Ссылки на системные представления для хранилища данных SQL."
+title: Системные представления хранилища данных SQL | Документация Майкрософт
+description: Ссылки на системные представления для хранилища данных SQL.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 01/22/2018
 ms.author: barbkess
-ms.openlocfilehash: 51e2bf8e9e0bbd6b2e61d37b438bf51325192058
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="system-views"></a>Системные представления
 ## <a name="sql-data-warehouse-catalog-views"></a>Представления каталога хранилища данных SQL
@@ -238,7 +238,7 @@ ms.lasthandoff: 03/12/2018
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

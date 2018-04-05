@@ -1,11 +1,11 @@
 ---
-title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — практическое руководство по рекламным кампаниям"
-description: "Обзор пользовательского интерфейса для Служб мобильного взаимодействия Azure"
+title: Пользовательский интерфейс Служб мобильного взаимодействия Azure — практическое руководство по рекламным кампаниям
+description: Обзор пользовательского интерфейса для Служб мобильного взаимодействия Azure
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c536d378023ee4a9675bb2d67262fb485c8052b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Начало работы с push-уведомлениями и управление ими для взаимодействия с конечными пользователями
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 После полной интеграции пакета SDK в приложение вы можете использовать раздел «Рекламная компания» в пользовательском интерфейсе для отправки push-уведомлений пользователям приложения.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>Создание первой кампании push-уведомлений

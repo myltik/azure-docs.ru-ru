@@ -1,9 +1,9 @@
 ---
-title: "Создание оповещений для служб Azure с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как активировать сообщения электронной почты, уведомления, вызовы URL-адресов веб-сайтов (webhook) или автоматизированные операции при выполнении заданных условий."
+title: Создание оповещений для служб Azure с помощью PowerShell | Документация Майкрософт
+description: Узнайте, как активировать сообщения электронной почты, уведомления, вызовы URL-адресов веб-сайтов (webhook) или автоматизированные операции при выполнении заданных условий.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Создание оповещений метрик в Azure Monitor для служб Azure с помощью PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Создание классических оповещений на основе метрик в Azure Monitor для служб Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Обзор
+
+> [!NOTE]
+> В этой статье объясняется, как создать оповещение метрики прежней версии. Azure Monitor теперь поддерживает [новые улучшенные оповещения на основе метрик](monitoring-near-real-time-metric-alerts.md). Эти оповещения поддерживают мониторинг нескольких метрик и охватывают метрики размерностей. В PowerShell поддержка новых оповещений на основе метрик ожидается в ближайшее время.
+>
+>
+
 В этой статье показано, как настроить оповещения метрик Azure с помощью PowerShell.  
 
 Вы можете получать оповещения на основе отслеживания метрик или событий в службах Azure.
 
 * **Значения метрик**. Оповещение активируется, когда значение указанной метрики выходит за рамки заданного порогового значения. То есть сначала оно активируется, когда условие выполняется, а затем — когда условие перестает выполняться.    
-* **События журнала действий**. Оповещение может активироваться при *каждом* событии или только тогда, когда выполняются определенные события. Чтобы узнать больше об оповещениях журнала действий, [щелкните здесь](monitoring-activity-log-alerts.md).
+* **События журнала действий**. Оповещение может активироваться при *каждом* событии или только тогда, когда выполняется определенное событие. Чтобы узнать больше об оповещениях журнала действий, [щелкните здесь](monitoring-activity-log-alerts.md).
 
 Для оповещения метрики можно настроить действие, выполняемое при его активации:
 

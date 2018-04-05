@@ -1,26 +1,30 @@
 ---
-title: "Общие сведения о потоковой трансляции с использованием служб мультимедиа Azure | Документация Майкрософт"
-description: "В этой статье приводятся общие сведения о потоковой трансляции с использованием служб мультимедиа Azure."
+title: Общие сведения о потоковой трансляции с использованием служб мультимедиа Azure | Документация Майкрософт
+description: В этой статье приводятся общие сведения о потоковой трансляции с использованием служб мультимедиа Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Общие сведения о потоковой трансляции с использованием служб мультимедиа Azure
+
+> [!NOTE]
+> С 12 мая 2018 г. динамические каналы больше не будут поддерживать протокол приема транспортного потока RTP/MPEG-2. Выполните миграцию из RTP/MPEG-2 в протокол приема RTMP или фрагментированный протокол MP4 (Smooth Streaming).
+
 ## <a name="overview"></a>Обзор
 При трансляции мероприятий путем динамической потоковой передачи с помощью служб мультимедиа Azure обычно используется следующее:
 

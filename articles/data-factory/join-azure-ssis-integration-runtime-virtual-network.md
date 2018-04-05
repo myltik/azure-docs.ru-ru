@@ -4,8 +4,7 @@ description: Узнайте, как присоединить среду выпо
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
 Присоедините среду выполнения интеграции (IR) Azure SSIS к виртуальной сети в одной из следующих ситуаций: 
@@ -52,7 +51,7 @@ ms.lasthandoff: 03/08/2018
 - Если существует виртуальная сеть Azure Resource Manager, подключенная к локальной сети в расположении, отличном от вашей среды выполнения интеграции Azure SSIS, вы можете сначала создать [виртуальную сеть Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) для присоединения IR Azure SSIS. Затем настройте подключение типа "виртуальная сеть Azure Resource Manager — виртуальная сеть Azure Resource Manager". Кроме того, вы можете создать [классическую виртуальную сеть](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) для присоединения IR Azure SSIS. Затем настройте подключение типа [классическая виртуальная сеть — виртуальная сеть Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="domain-name-services-server"></a>Сервер служб доменных имен 
-Если необходимо использовать собственный сервер служб доменных имен (DNS) в виртуальной сети, присоединенной средой выполнения интеграции Azure SSIS, следуйте инструкциям этого руководства и [убедитесь, что узлы вашей среды выполнения интеграции Azure SSIS в виртуальной сети могут разрешать конечные точки Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Если необходимо использовать сервер служб доменных имен (DNS) в виртуальной сети, соединенной с помощью среды выполнения интеграции, следуйте инструкциям в статье [Разрешение имен для виртуальных машин и экземпляров ролей](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="network-security-group"></a>Группа безопасности сети
 Если необходимо реализовать группу безопасности сети (NSG) в виртуальной сети, присоединенной средой выполнения интеграции Azure SSIS, разрешите входящий и исходящий трафик через следующие порты:

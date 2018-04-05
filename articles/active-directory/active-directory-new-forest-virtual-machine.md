@@ -1,12 +1,12 @@
 ---
-title: "Установка леса Active Directory в виртуальной сети Azure | Документация Майкрософт"
-description: "В этом руководстве объясняется, как создать новый лес Active Directory на виртуальной машине в виртуальной сети Microsoft Azure."
+title: Установка леса Active Directory в виртуальной сети Azure | Документация Майкрософт
+description: В этом руководстве объясняется, как создать новый лес Active Directory на виртуальной машине в виртуальной сети Microsoft Azure.
 services: active-directory, virtual-network
-keywords: "виртуальная машина active directory, установка леса active directory, видео azure active directory  "
-documentationcenter: 
+keywords: 'виртуальная машина active directory, установка леса active directory, видео azure active directory  '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Установка нового леса Active Directory в виртуальной сети Azure
 В этой статье показано, как создать новую среду Windows Server Active Directory на виртуальной машине (VM) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/22/2018
 * Концептуальное руководство об установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в статье [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Схема сценария
-В этом сценарии внешним пользователям требуется доступ к приложениям, работающим на серверах, входящих в домен. Виртуальные машины, в которых работают серверы приложений, и виртуальные машины, в которых работают контроллеры домена, устанавливаются в своих облачных службах в виртуальной сети Azure. Для повышения отказоустойчивости их также включает в себя группа доступности.
+В этом сценарии внешним пользователям требуется доступ к приложениям, работающим на серверах, входящих в домен. Виртуальные машины, которые работают под управлением серверов приложений и контроллеров домена, устанавливаются в своих облачных службах в виртуальной сети Azure. Для повышения отказоустойчивости их также включает в себя группа доступности.
 
 ![Лес Active Directory на виртуальных машинах виртуальной сети Azure][1] 7
 

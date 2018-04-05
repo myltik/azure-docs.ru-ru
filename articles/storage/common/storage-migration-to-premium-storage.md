@@ -1,6 +1,6 @@
 ---
-title: "Перенос виртуальных машин в хранилище Azure класса Premium | Документация Майкрософт"
-description: "Перенесите существующие виртуальные машины в хранилище Azure класса Premium. Хранилище Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для интенсивных рабочих нагрузок ввода-вывода на виртуальных машинах Azure."
+title: Перенос виртуальных машин в хранилище Azure класса Premium | Документация Майкрософт
+description: Перенесите существующие виртуальные машины в хранилище Azure класса Premium. Хранилище Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для интенсивных рабочих нагрузок ввода-вывода на виртуальных машинах Azure.
 services: storage
 documentationcenter: na
 author: yuemlu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Перенос в хранилище Azure класса Premium (использующее неуправляемые диски)
 
@@ -257,7 +257,7 @@ C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceCont
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Пример <Uri> может выглядеть следующим образом: ***https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd***. Пример <FileInfo>: ***C:\path\to\upload.vhd***.
+Пример <Uri>: ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Пример <FileInfo>: ***C:\path\to\upload.vhd***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Способ 2. Передача VHD-файла с помощью AzCopy
 Средство AzCopy позволяет легко передать VHD через Интернет. В зависимости от размера виртуальных жестких дисков это может занять определенное время. Не забывайте проверять ограничения для исходящих и входящих данных учетной записи хранения при использовании этого параметра. Дополнительные сведения см. в статье [Целевые показатели производительности и масштабируемости службы хранилища Azure](storage-scalability-targets.md).

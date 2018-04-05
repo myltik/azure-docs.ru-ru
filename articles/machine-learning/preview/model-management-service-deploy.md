@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Развертывание модели машинного обучения в качестве веб-службы
 
@@ -22,10 +22,17 @@ ms.lasthandoff: 03/17/2018
 
 В этом документе рассматриваются действия по развертыванию модели в виде веб-службы с помощью интерфейса командной строки службы управления моделями Машинного обучения Azure.
 
+## <a name="what-you-need-to-get-started"></a>Что необходимо для начала работы
+
+Чтобы получить оптимальный результат, нужны права владельца на доступ к подписке или группе ресурсов Azure, в которой вы сможете развернуть модели.
+Интерфейс командной строки поставляется предварительно установленным в Azure Machine Learning Workbench и на [виртуальных машинах Azure для обработки и анализа данных](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  Его также можно установить в виде автономного пакета.
+
+Кроме того, необходимы уже настроенные учетная запись управления моделями и среда развертывания.  Дополнительные сведения о настройке учетной записи управления моделями и среды для локального и кластерного развертывания см. в статье [Установка службы управления моделями](deployment-setup-configuration.md).
+
 ## <a name="deploying-web-services"></a>Развертывание веб-служб
 С помощью интерфейсов командной строки можно развернуть веб-службы для запуска на локальном компьютере или в кластере.
 
-Мы советуем начинать с локального развертывания. Сначала убедитесь, что модель и код работают, а затем разверните веб-службу в кластер для использования в производственных масштабах. Дополнительные сведения о настройке среды для развертывания кластера см. в статье [Установка службы управления моделями](deployment-setup-configuration.md). 
+Мы советуем начинать с локального развертывания. Сначала убедитесь, что модель и код работают, а затем разверните веб-службу в кластер для использования в производственных масштабах.
 
 Ниже приведены действия по развертыванию.
 1. Использование сохраненной обученной модели машинного обучения.
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Создание файла schema.json
-Этот шаг не является обязательным. 
+
+Создавать схему не обязательно, но мы настоятельно рекомендуем определить формат запроса и входных переменных для улучшения обработки.
 
 Создайте схему для автоматической проверки входных и выходных данных веб-службы. Интерфейс командной строки также использует схему для создания документа Swagger для веб-службы.
 
@@ -77,6 +85,13 @@ generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+В следующем примере используется универсальный формат JSON:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to score
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Или же создать манифест и образ одной командой. 
+>[!NOTE] 
+>Кроме того, можно использовать одну команду для создания манифеста и модели, а также регистрации модели. Используйте -h с командой service create, чтобы получить более подробные сведения.
+
+В качестве альтернативы можно использовать одну команду для регистрации модели, создания манифеста и создания образа (но пока еще без создания и развертывания веб-службы) в один шаг, как показано ниже.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Вы можете также использовать одну команду для выполнения четырех предыдущих шагов. Используйте -h с командой service create, чтобы получить более подробные сведения.
+>Также можно выполнить все предыдущие 4 шага с помощью одной команды. Используйте -h с командой service create, чтобы получить более подробные сведения.
+
+В качестве альтернативы можно использовать одну команду для регистрации модели, создания манифеста, создания образа, а также создания и развертывания веб-службы в один шаг, как показано ниже.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. Тестирование службы
 Чтобы получить сведения о том, как вызвать службу, выполните следующую команду:
