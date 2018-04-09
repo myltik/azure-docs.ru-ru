@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: События Reliable Actors
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Метрики производительности
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Мониторинг удаленного взаимодействия со службой
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Ведение журнала приложения
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Метрики производительности
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Общие сведения о модели работоспособности
           href: service-fabric-health-introduction.md
         - name: Создание отчетов о событиях работоспособности
@@ -387,7 +387,7 @@
               href: service-fabric-application-secret-management.md
             - name: Настройка обратного прокси-сервера для безопасного подключения
               href: service-fabric-reverseproxy-configure-secure-communication.md
-            - name: Запуск скрипта запуска службы с использованием локальной или системной учетной записи
+            - name: Выполнение скрипта при запуске службы от имени локального пользователя или системной учетной записи
               href: service-fabric-run-script-at-service-startup.md
             - name: Запуск службы с использованием локальной или системной учетной записи
               href: service-fabric-application-runas-security.md
@@ -395,7 +395,7 @@
               href: service-fabric-assign-policy-to-endpoint.md
             - name: Запуск службы как группы или пользователя AD
               href: service-fabric-run-service-as-ad-user-or-group.md
-            - name: Запуск службы как групповой управляемой учетной записи службы
+            - name: Запуск службы в групповой управляемой учетной записи службы
               href: service-fabric-run-service-as-gmsa.md
             - name: Использование сертификата в контейнере
               href: service-fabric-securing-containers.md
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Рекомендации
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Рефакторинг перенесенного приложения
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Управление жизненным циклом приложения
       items:
         - name: Создание пакета приложения

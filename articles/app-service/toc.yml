@@ -139,6 +139,8 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Проверка подлинности с помощью Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: Настройка authN и authZ
+          href: app-service-authentication-how-to.md
         - name: Использование удостоверения управляемой службы
           href: app-service-managed-service-identity.md
         - name: Использование SSL-сертификата в коде приложения

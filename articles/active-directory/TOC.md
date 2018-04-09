@@ -215,11 +215,12 @@
 ##### [Пользовательская домашняя страница](application-proxy-office365-app-launcher.md)
 ##### [Преобразование встроенных ссылок](application-proxy-link-translation.md)
 ##### [Шаблоны приложений](active-directory-application-proxy-wildcard.md)
-##### [Azure Active Directory Application Proxy и Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### Пошаговые руководства по публикации
 ##### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
 

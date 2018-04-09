@@ -19,16 +19,18 @@
       href: tutorial-prioritized-routes.md
 - name: Основные понятия
   items:
-    - name: Уровни масштаба и параметры сетки
+    - name: Уровни увеличения и параметры сетки
       href: zoom-levels-and-tile-grid.md
     - name: Наличие информации о геокодировании
       href: geocoding-coverage.md
     - name: Наличие информации о дорожном движении
       href: traffic-coverage.md
-    - name: Отображения покрытия
+    - name: Наличие информации об отображении
       href: render-coverage.md
-    - name: Маршрутизация покрытия
+    - name: Наличие информации о маршрутизации
       href: routing-coverage.md
+    - name: Поддерживаемые языки
+      href: supported-languages.md
 - name: Практические руководства
   items:
     - name: Управление учетной записью и ключами
