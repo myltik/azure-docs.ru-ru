@@ -342,13 +342,20 @@
         - name: Расширение сборщика журналируемых данных Azure
           href: log-collector-extension.md
         - name: Расширение системы диагностики Azure
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Схема расширения
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: Включение с помощью PowerShell
+              href: ps-extensions-diagnostics.md
+            - name: Включение с помощью шаблонов
+              href: extensions-diagnostics-template.md
+            - name: Устранение неполадок
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: Экспорт расширений виртуальной машины
           href: extensions-export-templates.md
         - name: Устранение неполадок расширений
           href: extensions-troubleshoot.md
-        - name: Расширение мониторинга и диагностики
-          href: extensions-diagnostics-template.md
         - name: Агент службы "Наблюдатель за сетями"
           href: extensions-nwa.md
         - name: Ограничение установки расширения
