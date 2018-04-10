@@ -17,18 +17,18 @@
       href: tutorial-simulate-device-linux.md
     - name: Имитация пограничного устройства — Windows
       href: tutorial-simulate-device-windows.md
-    - name: 'Разработка модуля C#'
-      href: tutorial-csharp-module.md
-    - name: Разработка модуля Python
-      href: tutorial-python-module.md
+    - name: Развертывание кода в модуле
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
     - name: Развертывание Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Развертывание службы "Машинное обучение Azure"
       href: tutorial-deploy-machine-learning.md
     - name: Развертывание решения "Функции Azure"
       href: tutorial-deploy-function.md
-    - name: Использование нескольких модулей в Visual Studio Code
-      href: tutorial-multiple-modules-in-vscode.md
 - name: Практические руководства
   items:
     - name: Создание шлюзов
@@ -53,6 +53,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Отладка решения "Функции Azure"
           href: how-to-vscode-debug-azure-function.md
+        - name: Использование нескольких облаков
+          href: tutorial-multiple-modules-in-vscode.md
     - name: Хранение данных в граничной системе
       href: sql-storage.md
     - name: Устранение неполадок
