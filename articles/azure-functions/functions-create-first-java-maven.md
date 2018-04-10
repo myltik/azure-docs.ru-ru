@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 04/02/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Создание первой функции с помощью Java и Maven (предварительная версия)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/28/2018
 
 [Основные средства Функций Azure версии 2.0](https://www.npmjs.com/package/azure-functions-core-tools) предоставляют локальной среде разработки возможность записи, выполнения и отладки Функций Azure. 
 
-Ознакомьтесь с разделом об [установке](https://github.com/azure/azure-functions-core-tools#installing) и найдите инструкции, подходящие для вашей ОС (Windows, Linux, Mac).
+Для установки посетите раздел об [установке](https://github.com/azure/azure-functions-core-tools#installing) в проекте "Основные инструменты службы «Функции Azure»", чтобы найти конкретные инструкции для вашей операционной системы.
 
 Кроме того, можно установить средства вручную с помощью [npm](https://www.npmjs.com/) в составе [Node.js](https://nodejs.org/), установив следующие требуемые компоненты:
 
@@ -80,7 +80,9 @@ mvn archetype:generate ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven запрашивает значения, необходимые для завершения создания проекта. Дополнительную информацию о значениях _groupId_, _artifactId_ и о _версии_ см. по ссылке [соглашения об именовании Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Значение _appName_ должно быть уникальным в Azure, поэтому Maven создает имя приложения на основе ранее заданного по умолчанию _artifactId_. Значение _ackageName_ определяет пакет Java для создаваемого кода функции.
+Maven запросит значения, необходимые для завершения создания проекта. Дополнительную информацию о значениях _groupId_, _artifactId_ и о _версии_ см. по ссылке [соглашения об именовании Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Значение _appName_ должно быть уникальным в Azure, поэтому Maven создает имя приложения на основе ранее заданного по умолчанию _artifactId_. Значение _ackageName_ определяет пакет Java для создаваемого кода функции.
+
+Идентификаторы `com.fabrikam.functions` и `fabrikam-functions` ниже используются в качестве примера и для понимания дальнейших шагов в этом кратком руководстве. Рекомендуется ввести собственные значения для Maven на этом шаге.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -91,7 +93,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven создает файлы проекта в новой папке с именем _artifactId_. Созданный в проекте код — это простая функция [активации HTTP](/azure/azure-functions/functions-bindings-http-webhook), возвращающая текст запроса.
+Maven создает файлы проекта в новой папке с именем _artifactId_, в этом примере — `fabrikam-functions`. Созданный в проекте и готовый для запуска код — это простая функция [активации HTTP](/azure/azure-functions/functions-bindings-http-webhook), возвращающая текст запроса.
 
 ```java
 public class Function {
@@ -133,7 +135,7 @@ mvn azure-functions:run
 > [!NOTE]
 > При возникновении исключения `javax.xml.bind.JAXBException` с Java 9 инструкции по его устранению см. на [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
-При выполнении функции отображаются такие выходные данные:
+Вы увидите эти выходные данные, если функция выполняется локально на компьютере и готова отвечать на запросы HTTP:
 
 ```Output
 Listening on http://localhost:7071
@@ -144,7 +146,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-Вызовите функцию из командной строки, используя перелистывание в новом терминале.
+Вызовите функцию из командной строки, используя curl в новом окне терминала:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -158,10 +160,15 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>Развертывание функции для Azure
 
-В процессе развертывания для Функций Azure используются данные учетной записи из Azure CLI. [Войдите с помощью Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), а затем разверните свой код в новом приложении-функции, используя целевой объект Maven `azure-functions:deploy`.
+В процессе развертывания для Функций Azure используются данные учетной записи из Azure CLI. Прежде чем продолжить, [войдите с помощью Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+
+```azurecli
+az login
+```
+
+Разверните свой код в новом приложении-функции, используя целевой объект Maven `azure-functions:deploy`.
 
 ```
-az login
 mvn azure-functions:deploy
 ```
 
@@ -175,7 +182,7 @@ mvn azure-functions:deploy
 [INFO] ------------------------------------------------------------------------
 ```
 
-Проверьте функцию-приложение, работающее в Azure, используя перелистывание.
+Проверьте приложение-функцию, работающее в Azure, используя `cURL`. Необходимо изменить URL-адрес из примера ниже, чтобы он соответствовал развернутому URL-адресу приложения-функции из предыдущего шага.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

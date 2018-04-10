@@ -1,13 +1,13 @@
 ---
-title: "Пример PowerShell. Обновление схемы синхронизации компонента \"Синхронизация данных SQL\" | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell для обновления схемы синхронизации компонента \"Синхронизация данных SQL\""
+title: Пример PowerShell. Обновление схемы синхронизации компонента "Синхронизация данных SQL" (предварительная версия) | Документация Майкрософт
+description: Пример скрипта Azure PowerShell для обновления схемы синхронизации компонента "Синхронизация данных SQL"
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,20 +17,20 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 66bf084f585b86979e6521321daf466c571de10c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Использование PowerShell для обновления схемы синхронизации в существующей группе синхронизации
 
-Этот пример скрипта PowerShell обновляет схему синхронизации в существующей группе синхронизации. Если вы синхронизируете несколько таблиц, этот скрипт поможет вам эффективно обновить схему синхронизации.
+Этот пример скрипта PowerShell обновляет схему синхронизации в существующей группе синхронизации компонента "Синхронизация данных SQL" (предварительная версия). Если вы синхронизируете несколько таблиц, этот скрипт поможет вам эффективно обновить схему синхронизации.
 
 В этом примере показано использование скрипта **UpdateSyncSchema**, который можно найти в репозитории GitHub (файл [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1)).
 
 Общие сведения о синхронизации данных SQL см. в статье [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL Azure (предварительная версия)](../sql-database-sync-data.md).
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  

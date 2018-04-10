@@ -1,13 +1,13 @@
 ---
-title: "Пример PowerShell. Синхронизация данных между базой данных SQL и локальной базой данных SQL Server | Документация Майкрософт"
-description: "Пример сценария PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server."
+title: Пример PowerShell. Синхронизация данных между базой данных SQL и локальной базой данных SQL Server | Документация Майкрософт
+description: Пример сценария PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server.
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,15 +17,15 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: a29c8c7fbd583b45849be6fcab046c578dbbb98a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 31be6bc80b147e106066c064903c6eb9e1900e12
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Использование PowerShell для синхронизации данных между базой данных SQL и локальной базой данных SQL Server
 
-Этот пример PowerShell настраивает синхронизацию данных между базой данных SQL Azure и локальной базой данных SQL Server. 
+Этот пример PowerShell настраивает синхронизацию данных (предварительная версия) между базой данных SQL Azure и локальной базой данных SQL Server. 
 
 Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  

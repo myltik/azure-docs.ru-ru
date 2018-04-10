@@ -1,13 +1,13 @@
 ---
-title: "Пример PowerShell. Синхронизация данных между несколькими базами данных SQL Azure | Документация Майкрософт"
-description: "Пример сценария PowerShell для синхронизации данных между несколькими базами данных SQL Azure."
+title: Пример PowerShell. Синхронизация данных между несколькими базами данных SQL Azure | Документация Майкрософт
+description: Пример сценария PowerShell для синхронизации данных между несколькими базами данных SQL Azure.
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,15 +17,15 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a6dbf6e8cdd2fe066c11cc14ae587912873f7e4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Использование PowerShell для синхронизации данных между несколькими базами данных SQL
  
-Этот пример PowerShell настраивает синхронизацию данных между несколькими базами данных SQL Azure.
+Этот пример PowerShell настраивает синхронизацию данных (предварительная версия) между несколькими базами данных SQL Azure.
 
 Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
@@ -28,17 +28,25 @@ ms.lasthandoff: 03/28/2018
 >
 >  
 
-Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для разработки Java и .NET Core.
+Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для разработки Java и .NET Core. 
 
-> [!NOTE]
-> Установка среды выполнения Service Fabric и пакета SDK в подсистеме Windows для Linux не поддерживается. Зато поддерживается интерфейс командной строки Azure Service Fabric (CLI), который позволяет управлять сущностями Service Fabric, размещенными в другой сети в облачной или локальной среде. См. дополнительные сведения об [установке и настройке CLI Service Fabric](./service-fabric-cli.md).
->
+В этой статье предполагается, что установка выполняется изначально в ОС Linux или используется образ контейнера Service Fabric OneBox `microsoft/service-fabric-onebox`. 
+
+Установка среды выполнения Service Fabric и пакета SDK в подсистеме Windows для Linux не поддерживается. Зато поддерживается интерфейс командной строки Azure Service Fabric (CLI), который позволяет управлять сущностями Service Fabric, размещенными в другой сети в облачной или локальной среде. См. дополнительные сведения об [установке и настройке CLI Service Fabric](./service-fabric-cli.md).
+
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Для разработки поддерживаются следующие операционные системы:
+* Для разработки поддерживаются следующие операционные системы:
 
-* Ubuntu 16.04 (`Xenial Xerus`).
+    * Ubuntu 16.04 (`Xenial Xerus`).
+
+* Убедитесь, что установлен пакет `apt-transport-https`:
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## <a name="installation-methods"></a>Методы установки
 

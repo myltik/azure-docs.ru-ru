@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Руководство по созданию масштабируемого набора виртуальных машин с помощью Azure PowerShell
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. На протяжении жизненного цикла масштабируемого набора виртуальных машин может возникнуть необходимость выполнить одну или несколько задач управления. Из этого руководства вы узнали, как выполнять такие задачи:
@@ -45,7 +45,6 @@ ms.lasthandoff: 03/28/2018
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 Имя группы ресурсов указывается при создании или изменении масштабируемого набора в этом руководстве.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 В следующем примере выходных данных показано два экземпляра виртуальной машины в масштабируемом наборе.
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Чтобы просмотреть дополнительные сведения о конкретном экземпляре виртуальной машины, добавьте параметр `-InstanceId` в командлет [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Следующий пример возвращает сведения об экземпляре виртуальной машины *1*.
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-При создании масштабируемого набора в начале этого руководство для экземпляров виртуальной машины был указан стандартный номер SKU виртуальной машины *Standard_D1_v2*. Вы можете указать другой размер экземпляра виртуальной машины на основе выходных данных командлета [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). В указанном ниже примере будет создан масштабируемый набор с использованием параметра `-VmSize`, который позволяет указать размер экземпляра виртуальной машины *Standard_F1*. Так как создание и настройка всех ресурсов и экземпляров виртуальных машин масштабируемого набора занимает несколько минут, вам не нужно развертывать следующий масштабируемый набор.
+При создании масштабируемого набора в начале этого руководства для экземпляров виртуальной машины был указан стандартный номер SKU виртуальной машины *Standard_DS1_v2*. Вы можете указать другой размер экземпляра виртуальной машины на основе выходных данных командлета [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). В указанном ниже примере будет создан масштабируемый набор с использованием параметра `-VmSize`, который позволяет указать размер экземпляра виртуальной машины *Standard_F1*. Так как создание и настройка всех ресурсов и экземпляров виртуальных машин масштабируемого набора занимает несколько минут, вам не нужно развертывать следующий масштабируемый набор.
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
