@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Приступая к работе с Application Insights в веб-проекте Java
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 03/29/2018
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Добавление в проект пакета SDK Application Insights для Java
 *Выберите подходящий метод для проекта.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Если вы используете Eclipse для создания проекта Maven или динамического веб-проекта…
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Если вы используете Eclipse для создания динамического веб-проекта
 Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse].
 
-#### <a name="if-youre-using-maven"></a>Если вы используете Maven...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Если вы используете Maven<a name="maven-setup" />
 Если проект уже настроен для сборки с использованием Maven, добавьте следующий код в файл pom.xml.
 
 Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
@@ -75,15 +75,15 @@ ms.lasthandoff: 03/29/2018
     </dependencies>
 ```
 
-* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>2.0.n</version>`. Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>2.0.n</version>`. Сведения о последней версии см. в [заметках о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
-#### <a name="if-youre-using-gradle"></a>Если вы используете Gradle...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Если вы используете Gradle<a name="gradle-setup" />
 Если проект уже настроен для сборки с использованием Gradle, добавьте следующий фрагмент кода в файл build.gradle.
 
 Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +95,24 @@ ms.lasthandoff: 03/29/2018
     }
 ```
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'2.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Обновление пакета SDK до новой версии*
-  * Обновите зависимости проекта.
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `version:'2.0.n'`. Сведения о последней версии см. в [заметках о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Для обновления до последней версии пакета SDK* обновите зависимости проекта.
 
-#### <a name="otherwise-"></a>В противном случае...
-Вручную добавьте пакет SDK.
-
-1. Загрузите [пакет SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Извлеките из ZIP-файла двоичные файлы и добавьте их в проект.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Если вы вручную управляете зависимостями
+Скачайте [последнюю версию](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и скопируйте необходимые файлы в проект, заменив все предыдущие версии.
 
 ### <a name="questions"></a>Вопросы
-* *Каковы отношения между компонентами `-core` и `-web` в ZIP-архиве?*
-
+* *Каковы отношения между компонентами `-core` и `-web`?*
   * `applicationinsights-core` предоставляет чистый API. Этот компонент требуется всегда.
   * Компонент `applicationinsights-web` предоставляет метрики для отслеживания количества запросов HTTP и значений времени ответа. Его можно опустить, если автоматический сбор данных телеметрии не требуется, например, если вы хотите написать собственный код сбора данных.
-* *Чтобы обновить пакет SDK после появления новой версии:*
+  
+* *Как обновить пакет SDK до последней версии?*
+  * Если вы используете Gradle или Maven
+    * Обновите файл сборки, чтобы указать последнюю версию либо используйте синтаксис подстановочных знаков Gradle или Maven, чтобы автоматически включить последнюю версию. Затем обновите зависимости проекта. Синтаксис подстановочных знаков можно найти в приведенных выше примерах [Gradle](#gradle-setup) или [Maven](#maven-setup).
+  * Если вы вручную управляете зависимостями
+    * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и установите ее вместо более старых версий. Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и установите ее вместо более старых версий.
-  * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Добавление XML-файла Application Insights
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. Добавление файла ApplicationInsights.xml
 Добавьте ApplicationInsights.xml в папку ресурсов проекта или проверьте, добавлен ли этот файл в путь класса развертывания проекта. Скопируйте в него следующий код XML.
 
 Замените ключ инструментирования на полученный в портале Azure.
@@ -127,12 +124,10 @@ ms.lasthandoff: 03/29/2018
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ ms.lasthandoff: 03/29/2018
     </ApplicationInsights>
 ```
 
+При необходимости файл конфигурации может находиться в любом месте, доступном для приложения.  Системное свойство `-Dapplicationinsights.configurationDirectory` указывает на каталог, содержащий файл ApplicationInsights.xml. Например, файл конфигурации, расположенный в каталоге `E:\myconfigs\appinsights\ApplicationInsights.xml`, будет настроен со свойством `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * Ключ инструментирования пересылается вместе с каждым элементом телеметрии; служба Application Insights отобразит его в ресурсе.
 * Компонент HTTP-запросов является необязательным. Он автоматически передает на портал телеметрию о запросах и значения времени ответа.
-* Корреляционные данные для событий являются дополнением к компоненту HTTP-запросов. Это дополнение назначает идентификатор для каждого запроса, полученного сервером, и добавляет его в качестве свойства каждого элемента телеметрии в форме "Операция.ИД". Благодаря этому можно выделить данные телеметрии, связанные с каждым из запросов. Для этого нужно установить фильтр [Diagnostic search][diagnostic] (Поиск по журналу диагностики).
-* Ключ Application Insights можно динамически передать с портала Azure в качестве свойства системы (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Если свойство не указано, оно проверяет Azure Appsetting на наличие переменной среды (APPLICATION_INSIGHTS_IKEY). Если оба свойства не определены, по умолчанию используется InstrumentationKey из ApplicationInsights.xml. Эта последовательность позволяет динамически управлять разными ключами InstrumentationKey для разных сред.
+* Корреляция события является дополнением к компоненту HTTP-запросов. Это дополнение назначает идентификатор для каждого запроса, полученного сервером, и добавляет его в качестве свойства каждого элемента телеметрии в форме "Операция.ИД". Благодаря этому можно выделить данные телеметрии, связанные с каждым из запросов. Для этого нужно установить фильтр [Diagnostic search][diagnostic] (Поиск по журналу диагностики).
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Другие способы задать ключ инструментирования
 Пакет SDK Application Insights ищет ключ в следующем порядке:
@@ -219,7 +214,7 @@ ms.lasthandoff: 03/29/2018
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(При наличии перехватчиков, определенных в стандартном стеке, перехватчик можно просто добавить в стек.)
+При наличии перехватчиков, определенных в стандартном стеке, перехватчик можно добавить в стек.
 
 ## <a name="5-run-your-application"></a>5. Запуск приложения
 Запустите приложение в режиме отладки на компьютере разработки или опубликуйте его на своем сервере.

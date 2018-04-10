@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f9487067ae77fbb261fb683ddd15207670f9576f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aab864696be7121be049ce4e907b10431a7b63cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure-with-powershell"></a>Развертывание пакетов SQL Server Integration Services в Azure с помощью PowerShell
 В этом руководстве представлены шаги по подготовке среды выполнения интеграции (IR) Azure SSIS в фабрике данных. Затем можно использовать SQL Server Data Tools (SSDT) ​​или SQL Server Management Studio (SSMS) для развертывания пакетов служб SSIS для этой среды выполнения в Azure. Вот какие шаги выполняются в этом руководстве:
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 > В этой статье используется Azure PowerShell для подготовки служб среды выполнения интеграции Integration Services Azure. Дополнительные сведения о работе с пользовательским интерфейсом фабрики данных для подготовки среды выполнения интеграции Integration Services Azure см. в руководстве по [созданию среды выполнения интеграции SSIS Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 > [!div class="checklist"]
-> * создадите фабрику данных;
+> * Создадите фабрику данных.
 > * Создание среды выполнения интеграции Azure SSIS.
 > * Запуск среды выполнения интеграции Azure SSIS.
 > * Развертывание пакетов служб SSIS.
@@ -83,7 +83,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
@@ -145,7 +145,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 Чтобы создать фабрику данных, выполните следующие команды:
 
 ```powershell
@@ -246,7 +246,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
@@ -300,7 +300,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
-Если вы используете управляемый экземпляр SQL Azure (закрытая предварительная версия) в качестве каталога SQL Server Integration Services (SSIS) внутри виртуальной сети, вам нужно присоединить среду выполнения интеграции Azure SSIS к той же виртуальной сети. Фабрика данных Azure версии 2 (предварительная версия) позволяет присоединить среду выполнения интеграции Azure SSIS к виртуальной сети. Дополнительные сведения см. в статье [Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети](join-azure-ssis-integration-runtime-virtual-network.md).
+Если вы используете управляемый экземпляр SQL Azure (предварительная версия) в качестве каталога SQL Server Integration Services (SSIS) внутри виртуальной сети, вам нужно присоединить среду выполнения интеграции Azure SSIS к той же виртуальной сети. Фабрика данных Azure версии 2 (предварительная версия) позволяет присоединить среду выполнения интеграции Azure SSIS к виртуальной сети. Дополнительные сведения см. в статье [Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети](join-azure-ssis-integration-runtime-virtual-network.md).
 
 Полный скрипт для создания среды выполнения Azure SSIS, которая присоединяется к виртуальной сети, см. в статье [Создание среды выполнения интеграции Azure SSIS в фабрике данных Azure](create-azure-ssis-integration-runtime.md).
 
@@ -314,7 +314,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 Из этого руководства вы узнали, как выполнить следующие задачи: 
 
 > [!div class="checklist"]
-> * создадите фабрику данных;
+> * Создадите фабрику данных.
 > * Создание среды выполнения интеграции Azure SSIS.
 > * Запуск среды выполнения интеграции Azure SSIS.
 > * Развертывание пакетов служб SSIS.

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Получение журналов действий Azure в службе Log Analytics в разных подписках
 
@@ -324,9 +324,9 @@ ms.lasthandoff: 03/28/2018
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Шаг 5. Просмотр журнала действий Azure в службе Log Analytics
 Теперь следует проверить рабочее пространство Log Analytics, чтобы убедиться, что сбор данных выполняется как ожидалось.
 
-1. На портале Azure выберите **Log Analytics**.
-2. Выберите рабочую область, а затем плитку **Поиск по журналу**.
-3. На панели поиска запросов введите `AzureActivity_CL` и нажмите кнопку поиска. Если вы дали пользовательскому журналу имя, отличное от *AzureActivity*, введите имя, которое вы выбрали, и добавьте `_CL`.
+1. На портале Azure щелкните **Все службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
+2. В списке рабочих областей Log Analytics выберите нужную рабочую область.
+3.  Щелкните плитку **Log Search** (Поиск по журналам) и в соответствующей области в поле запроса введите `AzureActivity_CL`, а затем нажмите клавишу ВВОД и нажмите кнопку "Поиск" справа от поля запроса. Если вы дали пользовательскому журналу имя, отличное от *AzureActivity*, введите имя, которое вы выбрали, и добавьте `_CL`.
 
 >[!NOTE]
 > Когда новый пользовательский журнал впервые отправляется в Log Analytics, может потребоваться около часа, прежде чем он станет доступен для поиска.
