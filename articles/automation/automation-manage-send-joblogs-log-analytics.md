@@ -1,6 +1,6 @@
 ---
 title: Пересылка данных задания службы автоматизации Azure в Log Analytics
-description: В этой статье показано, как отправлять состояние задания Runbook и потоки заданий в Log Analytics (Microsoft Operations Management Suite) для получения дополнительных сведений и возможностей управления.
+description: В этой статье показано, как отправлять состояние задания runbook и потоки заданий в Azure Log Analytics для получения дополнительных сведений и возможностей управления.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics
 Служба автоматизации может отправлять состояние задания runbook и потоки заданий в рабочую область Log Analytics. На портале Azure или с помощью PowerShell можно просмотреть журналы заданий и потоки заданий для отдельных заданий. Это дает возможность выполнять простые исследования. С помощью Log Analytics теперь можно:

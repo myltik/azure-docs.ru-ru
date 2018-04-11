@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux
 Microsoft Azure обеспечивает конфиденциальность и независимость ваших данных всеми возможными способами. К данным, размещенным в Azure, можно применять целый ряд современных технологий для шифрования данных, контроля ключей шифрования и управления ими, а также контроля и аудита доступа к данным. Благодаря этому клиенты Azure получают гибкость в выборе решения, которое лучше всего соответствует потребностям их компании. В этом документе описывается новое технологическое решение «Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux», которое защитит ваши данные в соответствии с корпоративными критериями безопасности и соответствия. Этот документ содержит подробные инструкции по использованию возможностей дискового шифрования Azure, а также описывает поддерживаемые сценарии и взаимодействие с пользователем.
@@ -780,14 +780,10 @@ Microsoft Azure обеспечивает конфиденциальность и
 > Чтобы получить внешний ключ с использованием BitLocker, подготовьте виртуальную машину с отдельным виртуальным жестким диском для данных и ресурсов.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Шифрование диска ОС на работающей виртуальной машине Linux
-Шифрование диска ОС работающей виртуальной машины Linux поддерживается в следующих дистрибутивах:
-
-* RHEL 7.2;
-* CentOS 7.2;
-* Ubuntu 16.04.
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Предварительные требования для шифрования диска ОС
 
+* Виртуальная машина должна использовать дистрибутив, который совместим с шифрованием диска ОС. Список дистрибутивов приведен в разделе [Какие дистрибутивы Linux поддерживает шифрование дисков Azure?](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * Виртуальная машина должна быть создана из образа Marketplace в Azure Resource Manager.
 * Виртуальная машина Azure по крайней мере с 4 ГБ ОЗУ (рекомендуемый размер — 7 ГБ).
 * (Для RHEL и CentOS.) Отключите SELinux. Чтобы отключить SELinux на виртуальной машине, ознакомьтесь с разделом "4.4.2. Disabling SELinux" (4.4.2. Отключение SELinux) [руководства пользователя и администратора SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux).

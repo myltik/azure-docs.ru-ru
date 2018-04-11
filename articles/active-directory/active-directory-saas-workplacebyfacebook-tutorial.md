@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Workplace by Facebook | Документация Майкрософт"
-description: "Сведения о настройке единого входа между Azure Active Directory и Workplace by Facebook."
+title: Руководство по интеграции Azure Active Directory с Workplace by Facebook | Документация Майкрософт
+description: Сведения о настройке единого входа между Azure Active Directory и Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: a1f4243eafc6a2d5c632220ec80b28b29f8ae985
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Руководство по интеграции Azure Active Directory с Workplace by Facebook
 
@@ -45,6 +45,9 @@ ms.lasthandoff: 02/11/2018
 
 - Не используйте рабочую среду без необходимости.
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> В Facebook имеются два продукта, Workplace Standard (бесплатный) и Workplace Premium (платный). Любой клиент Workplace Premium позволяет настроить SCIM и интеграцию единого входа без какой-либо дополнительной оплаты или лицензий. Единый вход и SCIM недоступны в экземплярах Workplace Standard.
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
@@ -160,11 +163,7 @@ ms.lasthandoff: 02/11/2018
 
     При необходимости можно настроить URL-адрес выхода SAML, с помощью которого можно указать страницу выхода из Azure AD. После активации и настройки этого параметра пользователи больше не будут направляться на страницу выхода из Workplace. Вместо этого они будут переходить по URL-адресу, указанному в параметре перенаправления для выхода SAML.
 
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-
-### <a name="configuring-reauthentication-frequency"></a>Настройка частоты повторной аутентификации
+### <a name="configuring-reauthentication-frequency"></a>Настройка частоты повторной проверки подлинности
 
 Вы можете настроить в Workplace запрос на проверку SAML каждый день, каждые 3 дня, каждую неделю, каждые 2 недели, каждый месяц или никогда.
 
@@ -271,4 +270,3 @@ ms.lasthandoff: 02/11/2018
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-

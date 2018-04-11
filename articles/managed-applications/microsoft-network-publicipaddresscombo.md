@@ -1,6 +1,6 @@
 ---
-title: "Элемент пользовательского интерфейса PublicIpAddressCombo управляемого приложения Azure | Документация Майкрософт"
-description: "Сведения об элементе пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo для управляемых приложений Azure"
+title: Элемент пользовательского интерфейса PublicIpAddressCombo для портала Azure | Документация Майкрософт
+description: Сведения об элементе пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo для портала Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990b84cf0df74b7b08a5fa105c2c2213aa251f9d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: bced85abaf24beb0997ec906a68e5947f0e67cca
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo
-Группа элементов управления для выбора нового или имеющегося общедоступного IP-адреса. Этот элемент используется при [создании управляемого приложения Azure](publish-service-catalog-app.md).
+Группа элементов управления для выбора нового или имеющегося общедоступного IP-адреса.
 
 ## <a name="ui-sample"></a>Пример элемента пользовательского интерфейса
 ![Элемент пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/22/2017
   },
   "defaultValue": {
     "publicIpAddressName": "ip01",
-    "domainNameLabel": "foobar"
+    "domainNameLabel": "mydomain"
   },
   "constraints": {
     "required": {
@@ -79,7 +79,7 @@ ms.lasthandoff: 12/22/2017
 {
   "name": "ip01",
   "resourceGroup": "rg01",
-  "domainNameLabel": "foobar",
+  "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
@@ -88,6 +88,5 @@ ms.lasthandoff: 12/22/2017
 - Если для `options.hideDomainNameLabel` указать значение **true**, `domainNameLabel` не объявляется.
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](create-uidefinition-elements.md).

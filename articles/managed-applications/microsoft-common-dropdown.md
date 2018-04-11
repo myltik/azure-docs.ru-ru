@@ -1,6 +1,6 @@
 ---
-title: "Элемент пользовательского интерфейса DropDown управляемого приложения Azure | Документация Майкрософт"
-description: "Сведения об элементе пользовательского интерфейса Microsoft.Common.DropDown для управляемых приложений Azure"
+title: Элемент пользовательского интерфейса DropDown для портала Azure | Документация Майкрософт
+description: Сведения об элементе пользовательского интерфейса Microsoft.Common.DropDown для портала Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: a3cbb7363c04043eb253e91e058753bc271e4e01
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 6c92304ae623807ffba05dcdbb576e1cef63b10c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Common.DropDown
-Элемент управления для выбора с раскрывающимся списком. Этот элемент используется при [создании управляемого приложения Azure](publish-service-catalog-app.md).
+Элемент управления для выбора с раскрывающимся списком.
 
 ## <a name="ui-sample"></a>Пример элемента пользовательского интерфейса
 ![Элемент пользовательского интерфейса Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
@@ -31,17 +31,17 @@ ms.lasthandoff: 10/27/2017
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
   "label": "Some drop down",
-  "defaultValue": "Foo",
+  "defaultValue": "my value",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Foo",
-        "value": "Bar"
+        "label": "Value one",
+        "value": "one"
       },
       {
-        "label": "Baz",
-        "value": "Qux"
+        "label": "Value two",
+        "value": "two"
       }
     ]
   },
@@ -61,6 +61,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](create-uidefinition-elements.md).

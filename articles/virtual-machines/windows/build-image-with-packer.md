@@ -4,7 +4,7 @@ description: Сведения об использовании Packer для со
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Использование Packer для создания образов виртуальных машин Windows в Azure
-Каждая виртуальная машина в Azure создается из образа, который определяет дистрибутив Windows и версию операционной системы. Образы могут содержать предварительно установленные приложения и конфигурации. Azure Marketplace предоставляет большое количество образов Майкрософт и сторонних разработчиков для наиболее распространенных операционных систем и приложений. Кроме того, вы можете создать собственные настраиваемые образы, отвечающие конкретным потребностям. В этой статье описывается определение и создание пользовательских образов в Azure с использованием средства с открытым кодом [Packer](https://www.packer.io/).
+Каждая виртуальная машина в Azure создается из образа, который определяет дистрибутив Windows и версию операционной системы. Образы могут содержать предварительно установленные приложения и конфигурации. Azure Marketplace предоставляет большое количество образов Майкрософт и сторонних разработчиков для наиболее распространенных операционных систем и приложений. Кроме того, вы можете создать собственные настраиваемые образы, отвечающие конкретным потребностям. В этой статье описывается определение и создание пользовательских образов в Azure с использованием инструмента с открытым кодом [Packer](https://www.packer.io/).
 
 
 ## <a name="create-azure-resource-group"></a>Создание группы ресурсов Azure
@@ -51,8 +51,8 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 ```powershell
 $sub = Get-AzureRmSubscription
-$sub.TenantId
-$sub.SubscriptionId
+$sub.TenantId[0]
+$sub.SubscriptionId[0]
 ```
 
 Эти идентификаторы используются в следующем шаге.
@@ -117,7 +117,7 @@ $sub.SubscriptionId
 }
 ```
 
-Этот шаблон создает виртуальную машину Windows Server 2016, устанавливает службы IIS, а затем подготавливает виртуальную машину с помощью средства Sysprep.
+Этот шаблон создает виртуальную машину Windows Server 2016, устанавливает службы IIS, а затем подготавливает виртуальную машину с помощью средства Sysprep. Установка IIS показывает, как можно использовать средство подготовки PowerShell для выполнения дополнительных команд. В этом случае окончательный образ Packer включает в себя также установочные файлы и параметры необходимого программного обеспечения.
 
 
 ## <a name="build-packer-image"></a>Создание образа Packer
@@ -206,90 +206,35 @@ ManagedImageLocation: eastus
 Через несколько минут Packer создаст виртуальную машину, запустит средства подготовки и очистит развертывание.
 
 
-## <a name="create-vm-from-azure-image"></a>Создание виртуальной машины на основе образа Azure
-Теперь можно создать виртуальную машину из образа с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Сначала укажите имя и пароль администратора для виртуальной машины с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+## <a name="create-a-vm-from-the-packer-image"></a>Создание виртуальной машины на основе образа Packer
+Теперь можно создать виртуальную машину из образа с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Если они еще не существуют, создаются поддерживающие сетевые ресурсы. При появлении запроса введите имя пользователя с правами администратора и пароль. Этот пользователь будет создан на виртуальной машине. В следующем примере создается виртуальная машина *myVM* из образа *myPackerImage*.
 
 ```powershell
-$cred = Get-Credential
-```
-
-В следующем примере создается виртуальная машина с именем *myVM* из образа *myPackerImage*.
-
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+New-AzureRmVm `
     -ResourceGroupName $rgName `
+    -Name "myVM" `
     -Location $location `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod "Static" `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Define the image created by Packer
-$image = Get-AzureRMImage -ImageName myPackerImage -ResourceGroupName $rgName
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -Id $image.Id | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Image "myPackerImage"
 ```
 
 Создание виртуальной машины из образа Packer занимает несколько минут.
 
 
-## <a name="test-vm-and-iis"></a>Тестирование виртуальной машины и служб IIS
+## <a name="test-vm-and-webserver"></a>Тестирование виртуальной машины и веб-сервера
 Получите общедоступный IP-адрес своей виртуальной машины с помощью командлета [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Следующий пример позволяет получить IP-адрес для созданного ранее *myPublicIP*.
 
 ```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName $rgName `
-    -Name "myPublicIP" | select "IpAddress"
+    -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-После этого можно ввести общедоступный IP-адрес в веб-браузер.
+Чтобы увидеть в действии виртуальную машину, которая включает в себя установленный экземпляр IIS из средства подготовки Packer, введите общедоступный IP-адрес в веб-браузере.
 
 ![Сайт IIS по умолчанию](./media/build-image-with-packer/iis.png) 
 

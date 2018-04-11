@@ -1,24 +1,24 @@
 ---
-title: "Устранение проблемы подключения VPN типа \"сеть — сеть\" Azure | Документация Майкрософт"
-description: "Узнайте, как устранить проблемы подключения VPN типа \"сеть — сеть\", которое внезапно завершается сбоем и его невозможно восстановить."
+title: Устранение проблемы подключения VPN типа "сеть — сеть" Azure | Документация Майкрософт
+description: Узнайте, как устранить проблемы подключения VPN типа "сеть — сеть", которое внезапно завершается сбоем и его невозможно восстановить.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Устранение проблемы подключения VPN типа "сеть — сеть" Azure
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/24/2018
 
 Чтобы просмотреть общий ключ для подключения VPN Azure, используйте один из методов ниже.
 
-**Портал Azure**
+**портал Azure**
 
 1. Перейдите к созданному вами подключению типа "сеть — сеть" через VPN-шлюз Azure.
 
@@ -92,7 +92,9 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Шаг 7. Проверка работоспособности шлюза Azure
 
-1. Перейдите к пробе работоспособности.
+1. Перейдя по указанному URL-адресу, вы откроете проверку работоспособности.
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Просмотрите предупреждение о сертификате.
 3. Если вы получите ответ, шлюз VPN считается работоспособным. Если вы не получите ответ, шлюз может быть неработоспособным, или проблема может быть вызвана наличием группы безопасности сети (NSG) в подсети шлюза. Пример ответа приведен ниже:

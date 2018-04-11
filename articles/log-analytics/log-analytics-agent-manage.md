@@ -1,24 +1,24 @@
 ---
-title: "Управление агентом Azure Log Analytics | Документация Майкрософт"
-description: "В этой статье описаны разные задачи управления, которые обычно можно выполнять в течение жизненного цикла развернутого на компьютере агента Microsoft Monitoring Agent (MMA)."
+title: Управление агентом Azure Log Analytics | Документация Майкрософт
+description: В этой статье описаны разные задачи управления, которые обычно можно выполнять в течение жизненного цикла развернутого на компьютере агента Microsoft Monitoring Agent (MMA).
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Обслуживание агента Log Analytics для Windows и Linux и управление им
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >Если ранее вы устанавливали или настраивали агент с помощью командной строки или сценария, теперь вместо `EnableAzureOperationalInsights` используется `AddCloudWorkspace` и `RemoveCloudWorkspace`.
 >
+
+### <a name="linux-agent"></a>Агент Linux
+Ниже описывается, как перенастроить агент для Linux, если вы решили зарегистрировать его в другой рабочей области или хотите удалить рабочую область из его конфигурации.  
+
+1.  Чтобы убедиться, что он зарегистрирован в рабочей области, выполните следующую команду.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Результат выполнения команды должен иметь следующий вид. 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    Важно, чтобы по состоянию было видно, что агент выполняется. В противном случае приведенные ниже шаги по перенастройке агент выполнить не удастся.  
+
+2. Если он уже зарегистрирован в рабочей области, удалите ее, выполнив следующую команду.  Если агент еще не зарегистрирован, перейдите к следующему шагу.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. Чтобы зарегистрировать агент в другой рабочей области, выполните команду `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`. 
+4. Чтобы проверить внесенные изменения, выполните следующую команду.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Результат выполнения команды должен иметь следующий вид. 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+Службу агента не нужно перезапускать, чтобы изменения вступили в силу.
 
 ## <a name="update-proxy-settings"></a>Обновление параметров прокси-сервера 
 Чтобы настроить взаимодействие агента после развертывания со службой через прокси-сервер или [шлюз OMS](log-analytics-oms-gateway.md), используйте один из приведенных ниже способов.

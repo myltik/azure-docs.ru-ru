@@ -1,24 +1,25 @@
 ---
-title: "Настройка параметров приложения-функции Azure | Документация Майкрософт"
-description: "Узнайте, как настроить параметры приложения-функции Azure."
-services: 
+title: Настройка параметров приложения-функции Azure | Документация Майкрософт
+description: Узнайте, как настроить параметры приложения-функции Azure.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Управление приложением-функцией на портале Azure 
 
@@ -27,6 +28,24 @@ ms.lasthandoff: 03/02/2018
 Для начала перейдите на [портал Azure](http://portal.azure.com) и войдите, используя свою учетную запись Azure. На панели поиска в верхней части портала введите имя приложения-функции и выберите его в списке. После выбора приложения-функции появляется следующая страница:
 
 ![Обзор приложения-функции на портале Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Избранные функции на портале 
+
+Иногда бывает трудно найти ресурсы на [портале Azure]. Чтобы упростить поиск приложений-функций, которые вы создали, добавьте их в список "Избранное" на портале. 
+
+1. Войдите на [портале Azure].
+
+2. Щелкните стрелку в нижнем левом углу, чтобы развернуть все службы, введите `Functions` в поле **Фильтр**, а затем щелкните звездочку рядом с пунктом **Приложения-функции**.  
+ 
+    ![Создание приложения-функции на портале Azure](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    При этом значок Функций добавится в меню слева на портале.
+
+3. Закройте меню, а затем прокрутите вниз, чтобы увидеть значок функции. Щелкните этот значок, чтобы просмотреть список всех приложений-функций. Щелкните приложение-функцию для работы с функциями в этом приложении. 
+ 
+    ![Приложения-функции в разделе "Избранное"](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[портале Azure]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Вкладка параметров приложения-функции
 

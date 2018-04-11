@@ -1,11 +1,11 @@
 ---
-title: "Общие сведения о Наблюдателе за сетями Azure | Документация Майкрософт"
-description: "На этой странице представлен обзор службы Наблюдателя за сетями, предназначенной для мониторинга и визуализации сетевых ресурсов в Azure."
+title: Общие сведения о Наблюдателе за сетями Azure | Документация Майкрософт
+description: На этой странице представлен обзор службы Наблюдателя за сетями, предназначенной для мониторинга и визуализации сетевых ресурсов в Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Обзор мониторинга сети Azure
 
@@ -47,6 +47,7 @@ ms.lasthandoff: 02/21/2018
 * **[Ограничения сетевых ресурсов подписки](#network-subscription-limits)**. Возможность просмотреть данные об использовании сетевых ресурсов относительно установленных ограничений.
 * **[Настройка журналов диагностики](#diagnostic-logs)**. Предоставляет отдельную область для включения или отключения журналов диагностики сетевых ресурсов в группе ресурсов.
 * **[Устранение неполадок с подключением.](network-watcher-connectivity-overview.md)** Позволяет проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой с предоставлением контекста Azure.
+* **[Монитор подключения](connection-monitor.md)**. Отслеживает проблемы задержки и конфигурации между виртуальной машиной Azure и IP-адресом, используя исходный и конечный IP-адрес и порт.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Управление доступом на основе ролей (RBAC) в Наблюдателе за сетями
 

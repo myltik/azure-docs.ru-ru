@@ -1,8 +1,8 @@
 ---
-title: "Сохраненные поиски и оповещения в решениях OMS | Документация Майкрософт"
-description: "Как правило, решения в OMS содержат сохраненные условия поиска в Log Analytics для анализа собранных этим решением данных.  Они могут также определить оповещения для уведомления пользователя или автоматического выполнения действия в ответ на критическую ошибку.  Из этой статьи вы узнаете, как определить сохраненные условия поиска и оповещения Log Analytics в шаблоне Resource Manager, чтобы добавлять их в решения по управлению."
+title: Сохраненные поисковые запросы и оповещения в решениях по управлению | Документация Майкрософт
+description: Решения по управлению обычно включают в себя возможность сохранения поисковых запросов в Log Analytics для анализа данных, собранных этим решением.  Они могут также определить оповещения для уведомления пользователя или автоматического выполнения действия в ответ на критическую ошибку.  Из этой статьи вы узнаете, как определить сохраненные условия поиска и оповещения Log Analytics в шаблоне Resource Manager, чтобы добавлять их в решения по управлению.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Добавление сохраненных поисковых запросов и оповещений Log Analytics в решении по управлению OMS (предварительная версия)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Добавление сохраненных поисковых запросов и оповещений Log Analytics в решение по управлению (предварительная версия)
 
 > [!NOTE]
-> Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.   
+> Это предварительная версия документации по созданию решений по управлению, доступных в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.   
 
 
-Как правило, [решения для управления в OMS](operations-management-suite-solutions.md) включают в себя возможность [сохранения поисков](../log-analytics/log-analytics-log-searches.md) в Log Analytics для анализа данных, собранных решением.  Они могут также определять [оповещения](../log-analytics/log-analytics-alerts.md) для уведомления пользователя или автоматического выполнения действия в ответ на критическую ошибку.  В этой статье описывается, как определить сохраненные поиски и оповещения Log Analytics в [шаблоне Resource Manager](../resource-manager-template-walkthrough.md), чтобы их можно было добавлять в [решения для управления](operations-management-suite-solutions-creating.md).
+[Решения по управлению](operations-management-suite-solutions.md) обычно включают в себя возможность [сохранения поисковых запросов](../log-analytics/log-analytics-log-searches.md) в Log Analytics для анализа данных, собранных этим решением.  Они могут также определять [оповещения](../log-analytics/log-analytics-alerts.md) для уведомления пользователя или автоматического выполнения действия в ответ на критическую ошибку.  В этой статье описывается, как определить сохраненные поиски и оповещения Log Analytics в [шаблоне Resource Manager](../resource-manager-template-walkthrough.md), чтобы их можно было добавлять в [решения для управления](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> В примерах здесь используются обязательные или общие параметры и переменные для решений по управлению, описанные в статье [Создание решений для управления в Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md).  
+> В примерах этой статьи используются обязательные или общие параметры и переменные для решений по управлению, описанные в статье [Проектирование и сборка решения по управлению в Azure (предварительная версия)](operations-management-suite-solutions-creating.md).  
 
 ## <a name="prerequisites"></a>предварительным требованиям
 В этой статье предполагается, что вы уже знаете, как [создать решение по управлению](operations-management-suite-solutions-creating.md), а также знакомы со структурой [шаблона ARM](../resource-group-authoring-templates.md) и файла решения.
 
 
 ## <a name="log-analytics-workspace"></a>Рабочая область Log Analytics
-Все ресурсы в Log Analytics размещаются в [рабочей области](../log-analytics/log-analytics-manage-access.md).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), рабочая область не включается в решение по управлению и ее нужно отдельно создать перед установкой решения.  Если она недоступна, установка решения завершается сбоем.
+Все ресурсы в Log Analytics размещаются в [рабочей области](../log-analytics/log-analytics-manage-access.md).  Как описано в разделе [Рабочая область Log Analytics и учетная запись службы автоматизации](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), рабочая область не включена в решение по управлению и ее нужно создать до его установки.  Если она недоступна, установка решения завершается сбоем.
 
 Имя рабочей области указывается в имени каждого ресурса Log Analytics.  Для этого в решении используется параметр **workspace**, как показано в следующем примере ресурса savedsearch.
 

@@ -1,11 +1,11 @@
 ---
-title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
-description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
+title: Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure
+description: Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Интеграция ADM с платформой Engagement
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 > [!IMPORTANT]
 > Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе "Интеграция Engagement на платформе Android".
 > 
@@ -41,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="sign-up-to-adm"></a>Подписка на ADM
 Если это еще не сделано, необходимо включить ADM в учетной записи Amazon.
 
-Эта процедура подробно описана на странице [<https://developer.amazon.com/sdk/adm/credentials.html>].
+Процедура подробно описана здесь: [<https://developer.amazon.com/sdk/adm/credentials.html>].
 
 После завершения процедуры вы получаете в свое распоряжение:
 

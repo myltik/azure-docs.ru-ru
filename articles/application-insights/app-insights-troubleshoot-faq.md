@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: вопросы и ответы
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="how-much-is-it-costing"></a>Сколько это стоит?
 
-* Откройте страницу **Компоненты и расценки** в ресурсе Application Insights. На ней приводится диаграмма недавнего использования. При желании можно задать ограничение на объем данных.
+* Откройте страницу **Usage and estimated costs** (Данные об использовании и предполагаемые расходы) для ресурса Application Insights. На ней приводится диаграмма недавнего использования. При желании можно задать ограничение на объем данных.
 * Откройте [колонку подписок и выставления счетов Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview), чтобы просмотреть счета за все ресурсы.
 
 ## <a name="q14"></a>Что Application Insights изменяет в моем проекте?

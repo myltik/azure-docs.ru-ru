@@ -1,6 +1,6 @@
 ---
-title: "Элемент пользовательского интерфейса PasswordBox управляемого приложения Azure | Документация Майкрософт"
-description: "Сведения об элементе пользовательского интерфейса Microsoft.Common.PasswordBox для управляемых приложений Azure"
+title: Элемент пользовательского интерфейса PasswordBox для портала Azure | Документация Майкрософт
+description: Сведения об элементе пользовательского интерфейса Microsoft.Common.PasswordBox для портала Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9f2b7cf56375d3a609cff20e928307c13bf2b8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 19c027819b83f10a7a3de714d690964507311da0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Common.PasswordBox
-Элемент управления, который может использоваться для указания и подтверждения пароля. Этот элемент используется при [создании управляемого приложения Azure](publish-service-catalog-app.md).
+Элемент управления, который может использоваться для указания и подтверждения пароля.
 
 ## <a name="ui-sample"></a>Пример элемента пользовательского интерфейса
 ![Элемент пользовательского интерфейса Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
@@ -58,6 +58,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](create-uidefinition-elements.md).

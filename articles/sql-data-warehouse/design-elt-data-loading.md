@@ -1,29 +1,24 @@
 ---
-title: "Разработка ELT для хранилища данных SQL Azure | Документация Майкрософт"
-description: "Объединяйте технологии перемещения данных в Azure, а также их загрузки в хранилище данных SQL для разработки процесса извлечения, загрузки и преобразования (ELT) в хранилище данных SQL Azure."
+title: Создание пакетов ELT вместо ETL для хранилища данных SQL в Azure | Документация Майкрософт
+description: Для загрузки данных в хранилище данных SQL Azure вместо пакетов ETL создавайте процессы извлечения, загрузки и преобразования данных (ELT).
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Разработка процесса извлечения, загрузки и преобразования (ELT) для хранилища данных SQL Azure
 
-Объединяйте технологии размещения данных в службе хранилища Azure, а также их загрузки в хранилище данных SQL для разработки процесса извлечения, загрузки и преобразования (ELT) для хранилища данных SQL Azure. В этой статье описаны технологии, поддерживающие загрузку с помощью Polybase, а также рассматривается разработка ELT-процесса, в котором используется PolyBase с T-SQL для загрузки данных в хранилище данных SQL из службы хранилища Azure.
+Для загрузки данных в хранилище данных SQL Azure вместо извлечения, преобразования и загрузки (ETL) используйте механизм извлечения, загрузки и преобразования данных (ELT). В этой статье описаны способы проектирования ELT-процесса для перемещения данных в хранилище данных Azure.
 
 ## <a name="what-is-elt"></a>Что такое ELT?
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Управление обновлениями для нескольких виртуальных машин
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/17/2018
 
 У агентов Linux должен быть доступ к репозиторию обновлений.
 
-Это решение не поддерживает агент Operations Management Suite (OMS) для Linux, настроенный для отправки отчетов в несколько рабочих областей OMS.
+Это решение не поддерживает агент OMS для Linux, настроенный для отправки отчетов в несколько рабочих областей Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Включение управления обновлениями для виртуальных машин Azure
 
@@ -176,5 +176,5 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* Дополнительные сведения об управлении обновлениями, включая журналы, выходные данные и ошибки, см. в статье [Решение для управления обновлениями в OMS](../operations-management-suite/oms-solution-update-management.md).
+* Дополнительные сведения об управлении обновлениями, включая журналы, выходные данные и ошибки, см. в статье [Решение для управления обновлениями в Azure](../operations-management-suite/oms-solution-update-management.md).
 

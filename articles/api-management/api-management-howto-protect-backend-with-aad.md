@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Защита API с помощью протокола OAuth 2.0 и службы управления API в Azure Active Directory
 
@@ -181,9 +181,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Настройка политики проверки JWT для запросов предварительной авторизации
 
-На этом этапе, если пользователь попытается выполнить вызов из консоли разработчика, ему будет предложено войти в систему, а консоль разработчика получит маркер доступа от имени пользователя. Все работает правильно. Однако что делать, если кто-то вызывает API без маркера или используя недопустимый маркер? Например, вы попытались удалить заголовок `Authorization`, но все еще можете вызывать API. Причина в том, что на этом этапе экземпляр службы управления API не проверяет маркер доступа. Он передает заголовок `Auhtorization` в API внутреннего сервера.
+На этом этапе, если пользователь попытается выполнить вызов из консоли разработчика, ему будет предложено войти в систему, а консоль разработчика получит маркер доступа от имени пользователя. Все работает правильно. Однако что делать, если кто-то вызывает API без маркера или используя недопустимый маркер? Например, вы попытались удалить заголовок `Authorization`, но все еще можете вызывать API. Причина в том, что на этом этапе экземпляр службы управления API не проверяет маркер доступа. Он просто передает заголовок `Auhtorization` в API серверной части.
 
-Используйте политику [Проверка JWT](api-management-access-restriction-policies.md#ValidateJWT) для предварительной авторизации запросов путем проверки маркеров доступа каждого входящего запроса. Запрос, имеющий недопустимый маркер, будет заблокирован управлением API. Его невозможно будет передать на сервер. Мы можем добавить приведенную ниже политику в раздел `Echo API`. 
+Используйте политику [Проверка JWT](api-management-access-restriction-policies.md#ValidateJWT) для предварительной авторизации запросов путем проверки маркеров доступа каждого входящего запроса. Запрос, имеющий недопустимый маркер, будет заблокирован управлением API. Его невозможно будет передать на сервер. Например, можно добавить приведенную ниже политику в раздел политики `<inbound>` интерфейса `Echo API`. Она проверяет наличие утверждения "Аудитория" в маркере доступа и возвращает сообщение об ошибке, если маркер является недопустимым. Сведения о настройке политик см. в статье [How to set or edit Azure API Management policies](set-edit-policies.md) (Как настроить или изменить политики в службе управления API Azure).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>Создание приложения для вызова API
+
+В этом руководстве мы использовали консоль разработчика в APIM как пример клиентского приложения для вызова `Echo API`, защищенного OAuth 2.0. Чтобы узнать больше о том, как создать приложение и реализовать поток OAuth 2.0, изучите [примеры кода Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Дополнительная информация
+* Узнайте больше об [Azure Active Directory и OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md).
 * См. другие [видео](https://azure.microsoft.com/documentation/videos/index/?services=api-management) об управлении API.
 * Другие способы защиты внутренней службы см. в разделе [Взаимная аутентификация на основе сертификатов](api-management-howto-mutual-certificates.md).
 

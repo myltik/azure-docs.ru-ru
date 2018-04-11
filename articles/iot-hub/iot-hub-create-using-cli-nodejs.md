@@ -3,7 +3,7 @@ title: Создание Центра Интернета вещей с помощ
 description: Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. Имя группы ресурсов. Может содержать 1–64 знака (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
 * **name**. Имя создаваемого Центра Интернета вещей. Может содержать 3–50 знаков (буквы, цифры и дефисы). Регистр знаков не учитывается.
 * **location**. Расположение (регион или центр обработки данных Azure) для подготовки Центра Интернета вещей.
-* **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Наиболее актуальный и полный список доступен на странице цен на Центр Интернета вещей.
-* **units**. Количество подготовленных единиц. Диапазон: F1 [1]; S1, S2 [1–200]; S3 [1–10]. Единицы Центра Интернета вещей зависят от общего количества сообщений и количества устройств, к которым требуется подключаться.
+* **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Дополнительные сведения о каждом SKU см. в статье [Цены на Центр Интернета вещей](https://azure.microsoft.com/pricing/details/iot-hub/). В настоящее время уровень "Базовый" доступен только на портале. 
+* **units**. Количество подготовленных единиц. Дополнительные сведения об ограничениях единиц см. в статье [Цены на Центр Интернета вещей](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
