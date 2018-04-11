@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Средство миграции данных Azure Cosmos DB
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/28/2018
 Хотя средство импорта предоставляет графический интерфейс пользователя (dtui.exe), им также можно управлять из командной строки (dt.exe). К слову, существует параметр для вывода соответствующей команды после настройки импорта в пользовательском интерфейсе. Табличный источник данных (например, SQL Server или CSV-файлы) можно преобразовать так, чтобы создать иерархические связи (вложенные документы) во время импорта. Читайте дальше, чтобы узнать о доступных источниках, примерах команд для импорта из каждого источника, возможных целевых объектах и просмотре результатов импорта.
 
 ## <a id="Install"></a>Установка
-Исходный код средства миграции можно найти в [этом репозитории](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub. Вы можете скачать решение и скомпилировать его локально, а затем запустить одну из версий:
+Исходный код средства миграции можно найти в [этом репозитории](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub. Вы можете скачать решение и скомпилировать его локально, или [скачать предварительно скомпилированный двоичный файл](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), а затем запустить одну из версий:
 
 * **Dtui.exe**— версия средства с графическим интерфейсом;
 * **Dt.exe**— версия средства с командной строкой.

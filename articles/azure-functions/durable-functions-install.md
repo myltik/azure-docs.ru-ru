@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Установка расширения устойчивых функций и примеров (Функции Azure)
 
 Расширение [устойчивых функций](durable-functions-overview.md) для Функций Azure предоставляется в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). В этой статье показано, как установить пакет и набор примеров для следующих сред разработки:
 
 * Visual Studio 2017 (рекомендуется) 
-
+* Visual Studio Code.
 * Портал Azure
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ ms.lasthandoff: 03/23/2018
 Следуйте тем же инструкциям, что и в начале работы с примерами, но вместо скачивания *ZIP*-файла выполните следующие действия.
 
 1. Создайте проект приложения-функции.
-2. Добавьте следующую ссылку на пакет NuGet в файл с расширением *.csproj*:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Найдите ссылку на приведенный ниже пакет NuGet, щелкнув *Управление пакетами Nuget*, и добавьте его в проект: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (для поиска этого пакета установите флажок *Включить предварительные выпуски*).
    
 ## <a name="visual-studio-code"></a>Visual Studio Code.
 
@@ -129,6 +125,8 @@ Visual Studio Code поддерживает процесс локальной р
 1. Создайте приложение-функцию на сайте [functions.azure.com](https://functions.azure.com/signin).
 
 2. Настройте в приложении-функции [использование среды выполнения версии 2.0](set-runtime-version.md).
+
+   Расширение "Устойчивые функции" работает со средами выполнения версий 1.X и 2.0, но шаблоны портала Azure доступны только при нацеливании на среду выполнения версии 2.0.
 
 3. Создайте новую функцию, выбрав действие **Создайте настраиваемую функцию**.
 

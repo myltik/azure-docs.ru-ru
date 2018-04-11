@@ -1,12 +1,12 @@
 ---
-title: "Диагностика в устойчивых функциях — Azure"
-description: "Сведения о том, как диагностировать неполадки в расширении устойчивых функций для Функций Azure."
+title: Диагностика в устойчивых функциях — Azure
+description: Сведения о том, как диагностировать неполадки в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Диагностика в устойчивых функциях (Функции Azure)
 
@@ -50,6 +50,7 @@ ms.lasthandoff: 10/11/2017
 * **reason.** Дополнительные данные, связанные с событием отслеживания. Например, если экземпляр ожидает уведомления о внешних событиях, это поле указывает имя события, которое он ожидает. Если выполнение функции завершилось сбоем, оно будет содержать сведения об ошибке.
 * **isReplay.** Логическое значение, указывающее, следует ли повторно выполнять событие отслеживания.
 * **extensionVersion.** Версия расширения устойчивых задач. Эти данные очень важны в рамках отчетности о возможных ошибках в расширении. Долго выполняющиеся экземпляры могут сообщать о нескольких версиях, если возникает обновление при их выполнении. 
+* **sequenceNumber**: порядковый номер выполнения события. В сочетании с меткой времени позволяет упорядочить события по времени выполнения. *Обратите внимание на то, что это число будет сброшено до нуля при перезапуске узла, когда экземпляр работает. Поэтому важно всегда сначала сортировать по метке времени, а затем по значению sequenceNumber.*
 
 Уровень детализации данных отслеживания, переданных в Application Insights, можно настроить в разделе `logger` файла `host.json`.
 
@@ -72,11 +73,11 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="single-instance-query"></a>Одноэкземплярный запрос
 
-Указанный ниже запрос содержит данные отслеживания журнала для одного экземпляра оркестрации функции [последовательности Hello](durable-functions-sequence.md). Он написан с помощью [языка запросов Application Insights (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Этот экземпляр фильтрует выполнение воспроизведения, поэтому показан только *логический* путь выполнения.
+Указанный ниже запрос содержит данные отслеживания журнала для одного экземпляра оркестрации функции [последовательности Hello](durable-functions-sequence.md). Он написан с помощью [языка запросов Application Insights (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Этот экземпляр фильтрует выполнение воспроизведения, поэтому показан только *логический* путь выполнения. События могут быть упорядочены путем сортировки по `timestamp` и `sequenceNumber`, как показано в следующем запросе. 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-Результатом является список событий отслеживания, который отображает путь выполнения оркестрации, включая любые функции действий.
 
-![Запрос Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+Результатом является список событий отслеживания, который отображает путь выполнения оркестрации, включая любые функции действий, упорядоченные по времени выполнения в возрастающем порядке.
 
-> [!NOTE]
-> Некоторые из этих событий отслеживания могут быть неупорядоченными из-за недостатка точности в столбце `timestamp`. Эта проблема отслеживается в GitHub под номером [71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Запрос Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Сводный запрос экземпляров
 

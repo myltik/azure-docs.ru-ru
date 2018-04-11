@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением Slack | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Slack."
+title: Руководство по интеграции Azure Active Directory с приложением Slack | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6a4c64fb8400eaf2e09be049b032535e09969fb8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Учебник. Интеграция Azure Active Directory с Slack
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/02/2018
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
@@ -122,7 +122,7 @@ ms.lasthandoff: 03/02/2018
     ![Настройка единого входа](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > Если пользователю назначен **адрес электронной почты** с помощью Office 365, то указывается только он. В противном случае в токене SAML не отобразится утверждение **адреса электронной почты**.
+    > Если у вас есть пользователи, которым предоставлен **адрес электронной почты** без использования лицензии Office 365, то утверждение **User.Email** не будет присутствовать в маркере SAML. В таких случаях мы советуем указать **user.userprincipalname** в качестве значения атрибута **User.Email**, чтобы использовать сопоставление с параметром **Уникальный идентификатор**.
 
 5. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** выберите значение **user.mail** для параметра **Идентификатор пользователя**, а в каждой строке в таблице ниже выполните следующие действия:
     
@@ -180,12 +180,6 @@ ms.lasthandoff: 03/02/2018
     d. Настройте три показанных выше параметра для своей группы Slack. Дополнительные сведения о параметрах см. в статье **Guide to single sign-on with Slack** (Руководство по настройке единого входа в Slack). `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     д.  Щелкните **Сохранить конфигурацию**.
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -271,8 +265,6 @@ ms.lasthandoff: 03/02/2018
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -1,11 +1,10 @@
 ---
-title: "Заметки о выпуске Stream Analytics | Документация Майкрософт"
-description: "Заметки о выпуске Stream Analytics"
+title: Заметки о выпуске Stream Analytics | Документация Майкрософт
+description: Заметки о выпуске Stream Analytics
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
 ms.service: stream-analytics
 ms.devlang: na
@@ -13,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/03/2017
-ms.author: samacha
-ms.openlocfilehash: 3251cd47bb917912d63330345dbf392e724448ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 645c9e7014beba0312de3784bbc04734927929a9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-release-notes"></a>Заметки о выпуске Stream Analytics
 
@@ -84,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 | Название | ОПИСАНИЕ |
 | --- | --- |
-| Новое поведение оператора SELECT |Оператор SELECT в службе Stream Analytics был расширен и теперь позволяет использовать * как метод доступа к свойству вложенной записи. Дополнительные сведения см. по адресу [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Сложные типы данных"). |
+| Новое поведение оператора SELECT |Оператор SELECT в службе Stream Analytics был расширен и теперь позволяет использовать * как метод доступа к свойству вложенной записи. Дополнительные сведения см. в статье [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Complex Data Types (Stream Analytics)") (Сложные типы данных (Stream Analytics)). |
 
 ## <a name="notes-for-10222015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 22.10.15
 Этот выпуск содержит описанные ниже обновления.

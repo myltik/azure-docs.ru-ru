@@ -1,42 +1,42 @@
 ---
 title: Подключение виртуальных сетей с помощью пиринговой связи (Azure CLI) | Документация Майкрософт
-description: Сведения о том, как подключать виртуальные сети с помощью пиринговой связи.
+description: В этой статье вы узнаете, как подключить виртуальные сети между собой с помощью пиринга, используя Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29ab957e97c6aa57be6192e6ee4d86fe642ae95d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Подключение виртуальных сетей с помощью пиринговой связи с использованием Azure CLI
 
 Виртуальные сети можно подключить друг к другу с помощью пиринговой связи. После установки пиринговой связи ресурсы в обеих виртуальных сетях могут взаимодействовать друг с другом с такой же задержкой и пропускной способностью, как если бы эти ресурсы находились в одной виртуальной сети. В этой статье раскрываются следующие темы:
 
-> [!div class="checklist"]
-> * создание двух виртуальных сетей;
-> * соединение двух виртуальных сетей с помощью пиринговой связи;
-> * развертывание виртуальной машины в каждой из виртуальных сетей;
-> * взаимодействие между виртуальными машинами.
+* создание двух виртуальных сетей;
+* соединение двух виртуальных сетей с помощью пиринговой связи;
+* развертывание виртуальной машины в каждой из виртуальных сетей;
+* Взаимодействие между виртуальными машинами
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать CLI локально, для выполнения инструкций из этого руководства вам потребуется Azure CLI 2.0.28 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0.28 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Создание виртуальных сетей
 
@@ -127,7 +127,7 @@ az network vnet peering show \
 
 ### <a name="create-the-first-vm"></a>Создание первой виртуальной машины
 
-Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В приведенном ниже примере в виртуальной сети *myVirtualNetwork1* создается виртуальная машина с именем *myVm1*. Также команда создает ключи SSH, если они не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`. Параметр `--no-wait` позволяет создать виртуальную машину в фоновом режиме, чтобы можно было перейти к следующему шагу.
+Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В приведенном ниже примере в виртуальной сети *myVirtualNetwork1* создается виртуальная машина с именем *myVm1*. Также команда создает ключи SSH, если они не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`. Чтобы можно было перейти к следующему шагу, параметр `--no-wait` позволяет создать виртуальную машину в фоновом режиме.
 
 ```azurecli-interactive
 az vm create \
@@ -197,30 +197,8 @@ ping 10.0.0.4 -c 4
 az group delete --name myResourceGroup --yes
 ```
 
-**<a name="register"></a>Регистрация для использования предварительной версии функции пиринга между виртуальными сетями в разных регионах**
-
-Функция создания пиринговых связей между виртуальными сетями в одном регионе является общедоступной. Функция пиринга между виртуальными сетями в разных регионах сейчас находится на этапе предварительной версии. Доступные регионы перечислены в разделе [Обновления Azure](https://azure.microsoft.com/updates/?product=virtual-network). Чтобы создать пиринг между виртуальными сетями в разных регионах, сначала нужно зарегистрироваться для использования предварительной версии, выполнив описанные ниже действия (в подписке каждой виртуальной сети, для которой требуется пиринг).
-
-1. Зарегистрируйтесь для использования предварительной версии, выполнив следующие команды:
-
-  ```azurecli-interactive
-  az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  az provider register --name Microsoft.Network
-  ```
-
-2. Убедитесь, что регистрация прошла успешно, выполнив следующую команду:
-
-  ```azurecli-interactive
-  az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  ```
-
-  Если вы попытаетесь установить пиринговую связь между виртуальными сетями в разных регионах до того, как параметр **RegistrationState** в выходных данных предыдущей команды для обеих подписок получит значение **Зарегистрировано**, пиринговая связь не будет установлена.
-
 ## <a name="next-steps"></a>Дополнительная информация
 
-Из этой статьи вы узнали, как соединить две виртуальные сети с помощью пиринга. Из этой статьи вы узнали, как с помощью пиринговой связи соединить две виртуальные сети в одном расположении Azure. Пиринг можно использовать и для связи виртуальных сетей из [разных регионов](#register) или [разных подписок Azure](create-peering-different-subscriptions.md#portal), а также для создания [звездообразной топологии сети](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering). Прежде чем настраивать пиринговую связь между рабочими виртуальными сетями, внимательно ознакомьтесь с [общими сведениями о пиринге](virtual-network-peering-overview.md), [сведениями об управлении пирингом](virtual-network-manage-peering.md) и [ограничениями виртуальных сетей](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Из этой статьи вы узнали, как с помощью пиринга соединить две виртуальные сети в одном регионе Azure. Пиринг можно использовать и для подключения виртуальных сетей из разных [поддерживаемых регионов](virtual-network-manage-peering.md#cross-region) или [разных подписок Azure](create-peering-different-subscriptions.md#cli), а также для создания [звездообразной топологии сети](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering). Чтобы узнать больше о пиринге виртуальных сетей, ознакомьтесь с разделами [Пиринг между виртуальными сетями](virtual-network-peering-overview.md) и [Создание, изменение и удаление пиринга в виртуальной сети](virtual-network-manage-peering.md).
 
-Теперь вы можете [подключить свой компьютер к виртуальной сети](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) через VPN и взаимодействовать с ресурсами в виртуальной сети или в виртуальных сетях, соединенных пиринговой связью. Перейдите к примерам скриптов для многократного использования, с помощью которых можно выполнять многие задачи, описанные в статьях о виртуальных сетях.
-
-> [!div class="nextstepaction"]
-> [Примеры скриптов для виртуальных сетей](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Теперь вы можете [подключить свой компьютер к виртуальной сети](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) через VPN и взаимодействовать с ресурсами в виртуальной сети или в виртуальных сетях, соединенных пиринговой связью. Примеры сценариев для многократного использования, с помощью которых можно выполнять многие задачи, описанные в статьях о виртуальных сетях, можно найти [здесь](cli-samples.md).

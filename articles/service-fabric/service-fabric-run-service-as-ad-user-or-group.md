@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Запуск службы как группы или пользователя Active Directory
-Платформа Azure Service Fabric помогает защищать приложения, работающие в кластере под разными учетными записями. Это позволяет изолировать друг от друга выполняемые приложения, даже если они запущены в общей среде. По умолчанию приложения Service Fabric выполняются под учетной записью, используемой процессом Fabric.exe. В автономном кластере Windows Server вы можете запустить службу как [групповую управляемую учетную запись службы (gMSA)](service-fabric-run-service-as-gmsa.md), а также как пользователя или группу Active Directory с помощью политики запуска от имени. Обратите внимание, что в вашем домене используется локальная служба Active Directory, а не Azure Active Directory (Azure AD).
+В автономном кластере Windows Server вы можете запустить службу в качестве пользователя или группы Active Directory с помощью политики запуска от имени.  По умолчанию приложения Service Fabric выполняются под учетной записью, используемой процессом Fabric.exe. Запуск приложений в разных учетных записях позволяет изолировать друг от друга выполняемые приложения, даже если они запущены в общей среде. Обратите внимание, что в вашем домене используется локальная служба Active Directory, а не Azure Active Directory (Azure AD).  Кроме того, можно запустить службу в [групповой управляемой учетной записи службы (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 С помощью пользователей или групп домена вы можете обращаться к другим ресурсам в домене (например, к общим файловым ресурсам), для которых предоставлены разрешения на доступ.
 

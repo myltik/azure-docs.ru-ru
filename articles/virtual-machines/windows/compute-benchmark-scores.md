@@ -1,11 +1,11 @@
 ---
-title: "Вычисление результатов теста производительности для виртуальных машин Windows | Документация Майкрософт"
-description: "Сравнение результатов теста производительности SPECint для виртуальных машин Azure под управлением Windows Server."
+title: Вычисление результатов теста производительности для виртуальных машин Windows | Документация Майкрософт
+description: Сравнение результатов теста производительности SPECint для виртуальных машин Azure под управлением Windows Server.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb77a058e72b8f08cb8974d5ec5088bc498e071d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Вычисление результатов теста производительности для виртуальных машин Windows
-Ниже приведены результаты теста производительности SPECInt линейки высокопроизводительных виртуальных машин Azure под управлением Windows Server. Вы можете также ознакомиться с результатами теста производительности для [виртуальных машин Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ниже приведены результаты теста производительности SPECInt линейки высокопроизводительных виртуальных машин Azure под управлением Windows Server. Вы можете также ознакомиться с результатами теста производительности для [виртуальных машин Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+> [!NOTE]
+> Показатели для Linux были недавно обновлены и содержат более широкий набор виртуальных машин.
 
 ## <a name="a-series---compute-intensive"></a>Серия А: для ресурсоемких вычислений
 | Размер | Число виртуальных ЦП | Число узлов NUMA | ЦП | Запуски | Ср. базовая производительность | StdDev |

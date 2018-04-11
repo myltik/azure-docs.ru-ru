@@ -1,6 +1,6 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Развертывание шаблона из Cloud Shell
 
-Для развертывания шаблона можно использовать [Cloud Shell](../articles/cloud-shell/overview.md). Однако сначала необходимо загрузить шаблон в общий файловый ресурс для Cloud Shell. Если вы еще не использовали Cloud Shell, ознакомьтесь со статьей [Обзор Azure Cloud Shell (предварительная версия)](../articles/cloud-shell/overview.md), чтобы узнать о настройке службы.
+Для развертывания шаблона можно использовать [Cloud Shell](../articles/cloud-shell/overview.md). Однако сначала необходимо загрузить шаблон для Cloud Shell в учетную запись хранения. Если вы еще не использовали Cloud Shell, ознакомьтесь со статьей [Обзор Azure Cloud Shell (предварительная версия)](../articles/cloud-shell/overview.md), чтобы узнать о настройке службы.
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 
@@ -12,33 +12,37 @@
 
    ![Выбор учетной записи хранения](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Выберите **Файлы**.
+1. Выберите **Большие двоичные объекты**.
 
-   ![Выбор файлов](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![Выберите "Большие двоичные объекты"](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Выберите общий файловый ресурс для Cloud Shell. Шаблон имени — `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Выберите **+ Container** (+ Контейнер).
 
-   ![Выбор общего файлового ресурса](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Добавление контейнера](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Выберите **Добавить каталог**.
+1. Задайте контейнеру название и уровень доступа. Образец шаблона в данной статье не содержит конфиденциальных сведений и поэтому разрешает анонимный доступ для чтения. Нажмите кнопку **ОК**.
 
-   ![Добавление каталога](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Указание значений для контейнера](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Назовите его **templates** и нажмите кнопку **ОК**.
+1. Выберите созданный контейнер.
 
-   ![Присвоение имени каталогу](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Выберите новый каталог.
-
-   ![Выбор каталога](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Выберите новый контейнер](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Щелкните **Отправить**.
 
-   ![Кнопка "Отправить"](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![Отправка большого двоичного объекта](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Найдите и отправьте свой шаблон.
 
-   ![Отправка файла](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Отправка файла](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. После отправки выберите шаблон.
+
+   ![Выберите новый шаблон](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. Скопируйте URL-адрес.
+
+   ![Копирование URL-адреса](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Откройте командную строку.
 

@@ -1,8 +1,8 @@
 ---
-title: "Live Metrics Stream с пользовательскими метриками и диагностика в Azure Application Insights | Документы Майкрософт"
-description: "Мониторинг веб-приложения в реальном времени с помощью пользовательских метрик и диагностика проблем с помощью динамического веб-канала сбоев, трассировок и событий."
+title: Live Metrics Stream с пользовательскими метриками и диагностика в Azure Application Insights | Документы Майкрософт
+description: Мониторинг веб-приложения в реальном времени с помощью пользовательских метрик и диагностика проблем с помощью динамического веб-канала сбоев, трассировок и событий.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 866fc729b3167863c2d423d0e6ac0d7640e3425e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: мониторинг и диагностика с задержкой в 1 секунду 
 
@@ -115,12 +115,15 @@ ms.lasthandoff: 11/01/2017
 ![Создание ключа API](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>Добавление ключа API в конфигурацию
+
+# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+
 В файле applicationinsights.config добавьте AuthenticationApiKey в QuickPulseTelemetryModule.
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add> 
+</Add>
 
 ```
 Или задайте его в коде для QuickPulseTelemetryModule.
@@ -130,6 +133,34 @@ ms.lasthandoff: 11/01/2017
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
+# <a name="net-core-tabnet-core"></a>[.NET Core] (#tab/.net-core)
+
+Измените файл startup.cs следующим образом.
+
+Сначала добавьте приведенный ниже код.
+
+``` C#
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
+```
+
+Затем в метод Configure добавьте следующий код.
+
+``` C#
+  QuickPulseTelemetryModule dep;
+            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
+            foreach (var module in modules)
+            {
+                if (module is QuickPulseTelemetryModule)
+                {
+                    dep = module as QuickPulseTelemetryModule;
+                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+                    dep.Initialize(TelemetryConfiguration.Active);
+                }
+            }
+```
+
+---
 
 Однако, если все подключенные серверы опознаны и надежны, можно использовать настраиваемые фильтры без аутентифицированного канала. Эта возможность доступна в течение шести месяцев. Это переопределение требуется после каждого создания сеанса или подключения нового сервера.
 

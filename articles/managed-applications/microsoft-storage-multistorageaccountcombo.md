@@ -1,6 +1,6 @@
 ---
-title: "Элемент пользовательского интерфейса MultiStorageAccountCombo управляемого приложения Azure | Документация Майкрософт"
-description: "Сведения об элементе пользовательского интерфейса Microsoft.Storage.MultiStorageAccountCombo для управляемых приложений Azure"
+title: Элемент пользовательского интерфейса MultiStorageAccountCombo для портала Azure | Документация Майкрософт
+description: Сведения об элементе пользовательского интерфейса Microsoft.Storage.MultiStorageAccountCombo для портала Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: e1dda7917988146807ca6cfab10a3a4eac0b7bb2
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c395c076a4910e124c1b93ebc61b5e491b2b53ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Storage.MultiStorageAccountCombo
-Группа элементов управления для создания нескольких учетных записей хранения с именами, которые начинаются с общего префикса. Этот элемент используется при [создании управляемого приложения Azure](publish-service-catalog-app.md).
+Группа элементов управления для создания нескольких учетных записей хранения с именами, которые начинаются с общего префикса.
 
 ## <a name="ui-sample"></a>Пример элемента пользовательского интерфейса
 ![Элемент пользовательского интерфейса Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -70,6 +70,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](create-uidefinition-elements.md).

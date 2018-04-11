@@ -1,68 +1,52 @@
 ---
-title: "Создание моментального снимка виртуального жесткого диска в Azure | Документация Майкрософт"
-description: "Узнайте, как создать копию виртуального жесткого диска (VHD) в Azure в качестве резервной копии или для устранения неполадок."
-documentationcenter: 
+title: Создание моментального снимка виртуального жесткого диска в Azure | Документация Майкрософт
+description: Узнайте, как создать копию виртуального жесткого диска (VHD) в Azure в качестве резервной копии или для устранения неполадок.
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 03/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e5882b2ddc708544a7715da13c1f0d18384ce4e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-snapshot"></a>Создание моментального снимка 
 
-Создание моментального снимка операционной системы или виртуального жесткого диска данных для резервного копирования или устранения неполадок с виртуальной машиной. Моментальный снимок — это полная копия виртуального жесткого диска, доступная только для чтения. 
+Создайте моментальный снимок операционной системы или диска данных для резервного копирования или устранения неполадок с виртуальной машиной. Моментальный снимок — это полная копия виртуального жесткого диска, доступная только для чтения. 
 
-## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Создание моментального снимка с помощью Azure CLI 2.0
+## <a name="use-azure-cli"></a>Использование интерфейса командной строки Azure 
 
 В следующем примере требуется, чтобы вы установили Azure CLI 2.0 и выполнили вход в систему с учетной записью Azure. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Ниже показано, как создать моментальный снимок, выполнив команду `az snapshot create` с параметром `--source-disk`. В приведенном примере предполагается, что существует виртуальная машина `myVM` с управляемым диском ОС, созданная в группе ресурсов `myResourceGroup`.
+Ниже показано, как создать моментальный снимок, выполнив команду `az snapshot create` с параметром `--source-disk`. В приведенном примере предполагается, что в группе ресурсов `myResourceGroup` существует виртуальная машина `myVM`.
 
+Получите идентификатор диска.
 ```azure-cli
-# take the disk id with which to create a snapshot
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ```
 
-Результат должен выглядеть следующим образом.
+Создайте моментальный снимок с именем *osDisk-backup*.
 
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Copy",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/osdisk_6NexYgkFQU",
-    "storageAccountId": null
-  },
-  "diskSizeGb": 30,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/osDisk-backup",
-  "location": "westus",
-  "name": "osDisk-backup",
-  "osType": "Linux",
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-06T21:27:10.172980+00:00",
-  "type": "Microsoft.Compute/snapshots"
-}
+```azurecli-interactive
+az snapshot create \
+    -g myResourceGroup \
+    --source "$osDiskId" \
+    --name osDisk-backup
 ```
 
-## <a name="use-azure-portal-to-take-a-snapshot"></a>Создание моментального снимка с помощью портала Azure 
+> [!NOTE]
+> Перед сохранением моментального снимка в хранилище, избыточном в пределах зоны, его необходимо создать в регионе, который поддерживает [зоны доступности](../../availability-zones/az-overview.md) и в котором включен параметр `--sku Standard_ZRS`.
+
+## <a name="use-azure-portal"></a>Использование портала Azure 
 
 1. Войдите на [портале Azure](https://portal.azure.com).
 2. В левом верхнем углу щелкните **Создать ресурс** и выполните поиск фразы **моментальный снимок**.
@@ -73,8 +57,6 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 7. В поле **Исходный диск** выберите управляемый диск, моментальный снимок которого необходимо создать.
 8. Выберите **тип учетной записи**, которая будет использоваться для хранения моментального снимка. Мы рекомендуем тип **Standard_LRS**, если вам не требуется хранить моментальный снимок на высокопроизводительном диске.
 9. Нажмите кнопку **Создать**.
-
-Если вы планируете использовать моментальный снимок, чтобы создать управляемый диск и подключить его к виртуальной машине, которая должна быть высокопроизводительной, используйте параметр `--sku Premium_LRS` в команде `az snapshot create`. Это позволит создать моментальный снимок таким образом, чтобы он хранился в качестве управляемого диска уровня "Премиум". Управляемые диски уровня "Премиум" работают быстрее, так как это твердотельные накопители (SSD), однако их использование обойдется дороже, чем диски уровня "Стандартный" (жесткие диски).
 
 
 ## <a name="next-steps"></a>Дополнительная информация

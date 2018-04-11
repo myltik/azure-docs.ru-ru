@@ -1,11 +1,11 @@
 ---
-title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — Содержимое рекламных кампаний"
-description: "Информация об управлении уникальным контентом для различных типов кампаний push-уведомлений в Службах мобильного взаимодействия Azure"
+title: Пользовательский интерфейс Служб мобильного взаимодействия Azure — Содержимое рекламных кампаний
+description: Информация об управлении уникальным контентом для различных типов кампаний push-уведомлений в Службах мобильного взаимодействия Azure
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Управление уникальным контентом для различных типов кампаний push-уведомлений
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 С помощью раздела «Содержимое» новой рекламной кампании можно изменять содержимое объявлений, опросов, отправок данных и плиток (только для Windows Phone). Параметр «Содержимое» кампаний push-уведомлений зависит от типа кампании. 
 
 ### <a name="content-types"></a>Типы содержимого
@@ -56,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 * **Действия для Android и iOS**
   * Открытие веб-страницы
   * http://\[домен_веб_сайта\]; 
-  * например, http://www.azure.com;
+  * Пример:http://www.azure.com
   * Отправка сообщения электронной почты
   * mailto:\[получатель\]?subject=\[тема\]&body=\[сообщение\]; 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
@@ -75,12 +79,12 @@ ms.lasthandoff: 10/11/2017
   * Пример:geo:0,0?q=starbucks,paris
 * **Действия только для iOS**
   * Скачивание приложения из магазина App Store
-  * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-  * например, http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8;
+  * http://itunes.apple.com/[страна]/app/[имя_приложения]/id[ИД_приложения]?mt=8 
+  * Пример:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Действия для Windows
   * Открытие веб-страницы
   * http://\[домен_веб_сайта\]; 
-  * например, http://www.azure.com;
+  * Пример:http://www.azure.com
   * Отправка сообщения электронной почты
   * mailto:\[получатель\]?subject=\[тема\]&body=\[сообщение\]; 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!

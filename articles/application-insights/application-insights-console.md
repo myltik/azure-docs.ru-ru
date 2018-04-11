@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights для консольных приложений | Документация Майкрософт"
-description: "Отслеживайте доступность, производительность и использование веб-приложений."
+title: Azure Application Insights для консольных приложений | Документация Майкрософт
+description: Отслеживайте доступность, производительность и использование веб-приложений.
 services: application-insights
 documentationcenter: .net
 author: lmolkova
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
-ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: lmolkova; mbullwin
+ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights для консольных приложений .NET
 [Application Insights](app-insights-overview.md) позволяет отслеживать доступность, производительность и использование вашего веб-приложения.
@@ -26,8 +26,8 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-* На [портале Azure](https://portal.azure.com) [создайте ресурс Application Insights](app-insights-create-new-resource.md). Для параметра типа приложения выберите приложение ASP.NET.
-* Сделайте копию ключа инструментирования. Найдите ключ в раскрывающемся списке "Основные компоненты" нового ресурса, который вы создали. 
+* На [портале Azure](https://portal.azure.com) [создайте ресурс Application Insights](app-insights-create-new-resource.md). Для параметра типа приложения выберите приложение **Общий**.
+* Сделайте копию ключа инструментирования. Найдите ключ в раскрывающемся списке **Основные компоненты** нового ресурса, который вы создали. 
 * Установите последнюю версию пакета [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights).
 * Прежде чем отслеживать телеметрию, задайте ключ инструментирования в коде или переменную среды APPINSIGHTS_INSTRUMENTATIONKEY. После этого вы сможете отслеживать телеметрию вручную и просматривать данные телеметрии на портале Azure.
 
@@ -39,7 +39,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * Установите последнюю версию пакета [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector), который позволяет автоматически отслеживать HTTP-вызовы, SQL-вызовы или другие внешние вызовы зависимостей.
 
-Вы можете инициализировать и настроить Application Insights с помощью кода или файла `ApplicationInsights.config`. Выполните инициализацию как можно раньше.
+Вы можете инициализировать и настроить Application Insights с помощью кода или файла `ApplicationInsights.config`. Выполните инициализацию как можно раньше. 
+
+> [!NOTE]
+> Инструкции для **ApplicationInsights.config** применимы только к приложениям, которые нацелены на платформу .NET Standard, и не подходят для платформы .NET Core. 
 
 ### <a name="using-config-file"></a>Использование файла конфигурации
 

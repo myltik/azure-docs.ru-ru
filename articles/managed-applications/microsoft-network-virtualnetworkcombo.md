@@ -1,6 +1,6 @@
 ---
-title: "Элемент пользовательского интерфейса VirtualNetworkCombo управляемого приложения Azure | Документация Майкрософт"
-description: "Сведения об элементе пользовательского интерфейса Microsoft.Network.VirtualNetworkCombo для управляемых приложений Azure"
+title: Элемент пользовательского интерфейса VirtualNetworkCombo для портала Azure | Документация Майкрософт
+description: Сведения об элементе пользовательского интерфейса Microsoft.Network.VirtualNetworkCombo для портала Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c17ef740dcc709b5b344c4e60ef997a948b2e5de
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 38202b3b669a162f1cdbe88663d050d8d791c964
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Network.VirtualNetworkCombo
-Группа элементов управления для выбора новой или имеющейся виртуальной сети. Этот элемент используется при [создании управляемого приложения Azure](publish-service-catalog-app.md).
+Группа элементов управления для выбора новой или имеющейся виртуальной сети.
 
 ## <a name="ui-sample"></a>Пример элемента пользовательского интерфейса
 ![Элемент пользовательского интерфейса Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
@@ -115,6 +115,5 @@ ms.lasthandoff: 10/27/2017
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](create-uidefinition-elements.md).

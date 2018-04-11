@@ -1,11 +1,11 @@
 ---
-title: "Ограничения и известные проблемы при импорте API в службу управления API Azure | Документация Майкрософт"
-description: "Сведения об известных проблемах и ограничениях при импорте в службу управления API Azure с помощью форматов Open API, WSDL и WADL."
+title: Ограничения и известные проблемы при импорте API в службу управления API Azure | Документация Майкрософт
+description: Сведения об известных проблемах и ограничениях при импорте в службу управления API Azure с помощью форматов Open API, WSDL и WADL.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 758babce3ed387ed4864f1934650cf701bda788f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Ограничения и известные проблемы при импорте API
 ## <a name="about-this-list"></a>Об этом списке
@@ -29,7 +29,10 @@ ms.lasthandoff: 12/04/2017
 
 * **Имя узла**: для службы управления API требуется указать атрибут имени узла.
 * **Базовый путь**: для службы управления API требуется указать атрибут базового пути.
-* **Схемы**: для службы управления API требуется указать массив схем. 
+* **Схемы**: для службы управления API требуется указать массив схем.
+
+> [!IMPORTANT]
+> Важные сведения и советы, связанные с импортом OpenAPI, см. в этом [документе](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/).
 
 ## <a name="wsdl"> </a>WSDL
 WSDL-файлы используются для создания сквозных интерфейсов API SOAP, а также служат в качестве серверной части интерфейса API между SOAP и REST.

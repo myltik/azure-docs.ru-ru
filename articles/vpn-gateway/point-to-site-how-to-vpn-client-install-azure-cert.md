@@ -1,25 +1,25 @@
 ---
-title: "Установка сертификата клиента для подключений типа \"точка — сеть\" | Azure"
-description: "Установка сертификата клиента Mac или Windows для аутентификации на основе сертификата для подключений типа \"точка — сеть\"."
+title: Установка сертификата клиента для подключений типа "точка — сеть" | Azure
+description: Установка сертификата клиента Mac или Windows для аутентификации на основе сертификата для подключений типа "точка — сеть".
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager, azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 04/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: bf2788fff64ab8b3a5ccf75b8a80f2bd5aba5151
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Установка сертификата клиента для аутентификации Azure на основе сертификата при подключениях типа "точка — сеть"
 
@@ -29,17 +29,13 @@ ms.lasthandoff: 02/14/2018
 
 Вы можете создать сертификат клиента либо на основе корневого сертификата, созданного с помощью корпоративного ЦС, либо на основе самозаверяющего сертификата. Дополнительные сведения см. в инструкциях по использованию [PowerShell](vpn-gateway-certificates-point-to-site.md) или [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Создав сертификаты клиента, экспортируйте их как PFX-файлы. Не забудьте при экспорте включить всю цепочку сертификатов.
 
-## <a name="installwin"></a>Установка сертификата на клиентах Windows
+## <a name="installwin"></a>Установка сертификата для Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Установка сертификата на клиентах Mac
+## <a name="installmac"></a>Установка сертификата для Mac
 
 VPN-клиенты Mac поддерживают только модель развертывания на основе Resource Manager. Классическую модель использовать нельзя.
-
-> [!NOTE]
->  Протокол IKEv2 сейчас доступен в предварительной версии.
->
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 

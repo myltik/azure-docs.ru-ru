@@ -1,5 +1,5 @@
 -- title: 'Руководство. Проектирование Базы данных Azure для PostgreSQL с помощью Azure CLI' description: В этом руководстве объясняется, как создать и настроить Базу данных Azure для PostgreSQL с помощью Azure CLI и отправлять к ней запросы.
-services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 03/20/2018
+services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 01.04.2018.
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI 
 Из этого руководства вы узнаете, как с помощью Azure CLI (интерфейса командной строки) и других служебных программ выполнять следующие операции:
@@ -45,11 +45,11 @@ az extension list
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-Если возвращается версия, отличная от 0.0.4, выполните следующую команду, чтобы обновить расширение. 
+Если возвращается версия, отличная от 0.0.5, выполните следующую команду, чтобы обновить расширение: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
