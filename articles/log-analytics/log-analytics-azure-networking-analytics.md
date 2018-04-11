@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Решения для мониторинга сетей Azure в Log Analytics
 
@@ -28,18 +28,19 @@ Log Analytics предлагает следующие решения для мо
 * Анализ шлюзов приложений Azure для проверки:
  * журналы шлюза приложений Azure;
  * метрику шлюза приложений Azure.
-* Анализ групп безопасности сети Azure для проверки:
- * журналы групп безопасности сети Azure.
+* Решения для отслеживания и аудита сетевой активности в облачной сети.
+* [Анализ трафика](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics). 
+* Анализ групп безопасности сети Azure
 
 ## <a name="network-performance-monitor-npm"></a>Монитор производительности сети
 
-Решение по управлению [Монитор производительности сети](log-analytics-network-performance-monitor.md) — это решение для мониторинга сети, которое отслеживает работоспособность и доступность сетей.  Оно используется для отслеживания подключения между следующими ресурсами:
+Решение по управлению [Монитор производительности сети](https://docs.microsoft.com/azure/networking/network-monitoring-overview) — это решение для мониторинга сети, которое отслеживает работоспособность и доступность сетей.  Оно используется для отслеживания подключения между следующими ресурсами:
 
 * общедоступное облако и локальная среда;
 * центры обработки данных и расположения пользователей (филиалы);
 * подсети, в которых размещены различные уровни многоуровневого приложения.
 
-Дополнительную информацию см. в статье [Решение монитора производительности сети в Azure Log Analytics](log-analytics-network-performance-monitor.md).
+Дополнительную информацию см. в статье [Решение монитора производительности сети в Azure Log Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Шлюз приложений Azure и анализ групп безопасности сети
 Чтобы использовать эти решения, выполните следующие действия.

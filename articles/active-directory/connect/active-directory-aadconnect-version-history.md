@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect. История выпусков версий
 Команда Azure Active Directory (Azure AD) регулярно обновляет службу Azure AD Connect, добавляя новые функции и возможности. Не все эти дополнения применимы для всех пользователей.
@@ -49,6 +49,7 @@ ms.lasthandoff: 03/28/2018
 #### <a name="fixed-issues"></a>Исправленные проблемы
 
 * Командлет Set-ADSyncAutoUpgrade раньше блокировал автоматическое обновление, если для этой функции было установлено состояние "Приостановлено". После внесения изменений этот командлет не будет блокировать автоматическое обновление в последующих сборках.
+* На странице **Вход пользователя** параметр "Синхронизация паролей" изменен на "Синхронизация хэша паролей".  Azure AD Connect синхронизирует хэши паролей, а не пароли, что и отражено в этом изменении.  Дополнительные сведения см. в статье о [реализации синхронизации хэша паролей с помощью службы синхронизации Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 ## <a name="117490"></a>1.1.749.0
 Состояние: выпущено для выбранных клиентов.
@@ -558,7 +559,7 @@ CBool(
   * Атрибут **userType** добавлен в схему метавселенной и схему соединителя AAD. Клиенты, которым требуется обновить какие-либо атрибуты в Azure AD, могут использовать для этого настраиваемые правила синхронизации.
 
 * Azure AD Connect теперь автоматически обеспечивает использование атрибута ConsistencyGuid в качестве атрибута привязки к источнику для локальных объектов AD. Более того, Azure AD Connect заполняет атрибут ConsistencyGuid значением атрибута objectGuid, если оно пустое. Эта функция применима только к новому развертыванию. Дополнительные сведения об этой функции см. в [разделе "Использование msDS-ConsistencyGuid в качестве sourceAnchor" статьи "Azure AD Connect: принципы проектирования"](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* Добавлен новый командлет для устранения неполадок Invoke-ADSyncDiagnostics, который помогает диагностировать проблемы, связанные с синхронизацией хэша паролей. Сведения об использовании командлета см.в статье [Устранение неполадок синхронизации паролей с помощью службы синхронизации Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Добавлен новый командлет для устранения неполадок Invoke-ADSyncDiagnostics, который помогает диагностировать проблемы, связанные с синхронизацией хэша паролей. Сведения об использовании командлета см.в статье [Устранение неполадок синхронизации хэшированных паролей в службе синхронизации Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Теперь Azure AD Connect поддерживает синхронизацию объектов общедоступной папки с поддержкой электронной почты из локальной службы AD в Azure AD. Эту функцию можно включить с помощью мастера Azure AD Connect в разделе "Дополнительные возможности". Сведения об этой функции см. в записи блога [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders) (Пограничная блокировка на основе каталогов Office 365 для локальных общедоступных папок с поддержкой почты).
 * Для синхронизации из локального каталога AD службе Azure AD Connect требуются учетные записи AD DS. Раньше при экспресс-установке Azure AD Connect можно было предоставить учетные данные учетной записи администратора предприятия, а Azure AD Connect создавал необходимую учетную запись службы AD DS. Но при выборочной установке и при добавлении лесов в существующее развертывание необходимо предоставить учетную запись AD DS. Теперь у вас есть возможность предоставить учетные данные учетной записи администратора предприятия при выборочной установке, а также разрешить Azure AD Connect создать необходимую учетную запись AD DS.
 * Azure AD Connect теперь поддерживает функцию SQL AOA. Перед установкой Azure AD Connect включите функцию SQL AOA. При установке Azure AD Connect определяет, включена ли в указанном экземпляре SQL функция SQL AOA. Если функция SQL AOA включена, то Azure AD Connect определяет, какая в SQL AOA настроена репликация (синхронная или асинхронная). При настройке прослушивателя группы доступности рекомендуется задать свойству RegisterAllProvidersIP значение 0. Это требуется то той причине, что для подключения к SQL служба Azure AD Connect сейчас использует SQL Native Client, а SQL Native Client не поддерживает свойство MultiSubNetFailover.
@@ -748,7 +749,7 @@ Desktop SSO
 **Исправленные проблемы и внесенные улучшения:**
 
 * Службу Azure AD Connect теперь можно устанавливать на FIPS-совместимом сервере.
-  * Дополнительные сведения о синхронизации паролей см. в разделе [Синхронизация паролей и FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * Дополнительные сведения о синхронизации паролей см. в разделе [Синхронизация хэшированных паролей и FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Исправлена проблема, при которой NetBIOS-имя не удавалось разрешить в полное доменное имя в соединителе Active Directory.
 
 ## <a name="111800"></a>1.1.180.0

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
 Эта статья содержит ответы на часто задаваемые вопросы о расширении Azure Active Directory (Azure AD) Connect Health. Здесь представлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
@@ -178,6 +178,10 @@ CheckForMS17-010
 **Вопрос. Почему командлет PowerShell <i>Get-MsolDirSyncProvisioningError</i> показывает меньше ошибок синхронизации в результате?**
 
 Командлет <i>Get-MsolDirSyncProvisioningError</i> вернет только ошибки подготовки DirSync. Кроме этого, портал Connect Health также показывает другие типы ошибок синхронизации, такие как ошибки экспорта. Это согласуется с разностным результатом Azure AD Connect. Дополнительные сведения см. в статье [Ошибки синхронизации Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**В. Почему не создаются журналы аудита ADFS?**
+
+Включите журналы аудита с помощью командлета PowerShell <i>Get-AdfsProperties -AuditLevel</i>. Подробнее о [журналах аудита ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016).
 
 
 ## <a name="related-links"></a>Связанные ссылки
