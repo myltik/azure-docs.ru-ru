@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: f4755d6cce0787a411fee7d32c887ae71c134c94
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f1fa79ed32969f5087107d6105fd2f4baf7640e3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Копирование данных из Веб-таблицы с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -143,6 +143,8 @@ ms.lasthandoff: 03/23/2018
 ```
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>Получение индекса таблицы на HTML-странице
+
+Для получения индекса таблицы, которую необходимо настроить в [свойствах набора данных](#dataset-properties), можно использовать, например, Excel 2016:
 
 1. Запустите **Excel 2016** и перейдите на вкладку **Данные**.
 2. На панели инструментов щелкните **Создать запрос**, выберите **Из других источников** и щелкните **Из Интернета**.

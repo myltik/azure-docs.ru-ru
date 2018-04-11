@@ -1,0 +1,246 @@
+---
+title: 'Фильтрация сетевого трафика: Azure CLI | Документация Майкрософт'
+description: В этой статье вы узнаете, как фильтровать сетевой трафик в подсети с помощью группы безопасности сети, используя Azure CLI.
+services: virtual-network
+documentationcenter: virtual-network
+author: jimdial
+manager: jeconnoc
+editor: ''
+tags: azure-resource-manager
+Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
+ms.assetid: ''
+ms.service: virtual-network
+ms.devlang: azurecli
+ms.topic: article
+ms.tgt_pltfrm: virtual-network
+ms.workload: infrastructure
+ms.date: 03/30/2018
+ms.author: jdial
+ms.custom: ''
+ms.openlocfilehash: dfda95d2340d7dd57ac7b4d7ed7b0665c8e9294e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/03/2018
+---
+# <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Фильтрация сетевого трафика с помощью групп безопасности сети, используя Azure CLI
+
+Вы можете отфильтровать входящий и исходящий трафик в подсети виртуальной сети с помощью группы безопасности сети. Группы безопасности сети содержат правила безопасности, которые фильтруют трафик по IP-адресу, порту и протоколу. Правила безопасности применяются к ресурсам, развернутым в подсети. В этой статье раскрываются следующие темы:
+
+* Создание группы безопасности сети и правил безопасности.
+* Создание виртуальной сети и привязка группы безопасности сети к подсети.
+* Развертывание виртуальных машин в подсеть.
+* Тестирование фильтров трафика.
+
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0.28 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
+
+
+## <a name="create-a-network-security-group"></a>Создание группы безопасности сети
+
+Группа безопасности сети содержит правила безопасности. Правила безопасности указывают источник и назначение. Источники и назначения могут быть группами безопасности приложений.
+
+### <a name="create-application-security-groups"></a>Создание групп безопасности приложений
+
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create) для всех ресурсов, созданных в рамках этой статьи. В следующем примере создается группа ресурсов в расположении *eastus*. 
+
+```azurecli-interactive
+az group create \
+  --name myResourceGroup \
+  --location eastus
+```
+
+Создайте группу безопасности приложений с помощью команды [az network asg create](/cli/azure/network/asg#az_network_asg_create). Группа безопасности приложений позволяет группировать серверы с аналогичными требованиями к фильтрации портов. В следующем примере создаются две группы безопасности приложений.
+
+```azurecli-interactive
+az network asg create \
+  --resource-group myResourceGroup \
+  --name myAsgWebServers \
+  --location eastus
+
+az network asg create \
+  --resource-group myResourceGroup \
+  --name myAsgMgmtServers \
+  --location eastus
+```
+
+### <a name="create-a-network-security-group"></a>Создание группы безопасности сети
+
+Создайте группу безопасности сети с помощью команды [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). В следующем примере создается группа безопасности сети с именем *myNsg*: 
+
+```azurecli-interactive 
+# Create a network security group
+az network nsg create \
+  --resource-group myResourceGroup \
+  --name myNsg
+```
+
+### <a name="create-security-rules"></a>Создание правил безопасности
+
+Создайте правило безопасности с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). В следующем примере создается правило, разрешающее входящий поток трафика из Интернета в группу безопасности приложений *myWebServers* через порты 80 и 443:
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group myResourceGroup \
+  --nsg-name myNsg \
+  --name Allow-Web-All \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 100 \
+  --source-address-prefix Internet \
+  --source-port-range "*" \
+  --destination-asgs "myAsgWebServers" \
+  --destination-port-range 80 443
+```
+
+В следующем примере создается правило, разрешающее входящий поток трафика из Интернета в группу безопасности приложений *myMgmtServers* через порт 22:
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group myResourceGroup \
+  --nsg-name myNsg \
+  --name Allow-SSH-All \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 110 \
+  --source-address-prefix Internet \
+  --source-port-range "*" \
+  --destination-asgs "myAsgMgmtServers" \
+  --destination-port-range 22
+```
+
+В этой статье SSH-подключение (порт 22) доступно в Интернете для виртуальной машины *myAsgMgmtServers*. В рабочих средах вместо открытия порта 22 для доступа из Интернета рекомендуется подключиться к ресурсам Azure, которыми вы хотите управлять, с помощью [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [частного](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) сетевого подключения.
+
+## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
+
+Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). В следующем примере создается виртуальная сеть с именем *myVirtualNetwork*:
+
+```azurecli-interactive 
+az network vnet create \
+  --name myVirtualNetwork \
+  --resource-group myResourceGroup \
+  --address-prefixes 10.0.0.0/16
+```
+
+Добавьте подсеть в виртуальную сеть при помощи команды [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). В следующем примере добавляется подсеть с именем *mySubnet* в виртуальную сеть и ей назначается группа безопасности сети *myNsg*:
+
+```azurecli-interactive
+az network vnet subnet create \
+  --vnet-name myVirtualNetwork \
+  --resource-group myResourceGroup \
+  --name mySubnet \
+  --address-prefix 10.0.0.0/24 \
+  --network-security-group myNsg
+```
+
+## <a name="create-virtual-machines"></a>Создание виртуальных машин
+
+Создайте две виртуальные машины в виртуальной сети, чтобы вы могли проверить фильтрацию трафика на более позднем этапе. 
+
+Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В следующем примере создается виртуальная машина, которая будет служить веб-сервером. Параметр `--asgs myAsgWebServers` предписывает Azure делать сетевой интерфейс, создаваемый для виртуальной машины, членом группы безопасности приложений *myAsgWebServers*.
+
+Параметр `--nsg ""` указан для того, чтобы предотвратить создание в Azure группы безопасности сети по умолчанию для сетевого интерфейса, который Azure создает при создании виртуальной машины. Для упрощения работы с этой статьей используется пароль. Ключи обычно используются в рабочей среде. Если вы используете ключи, для выполнения оставшихся инструкций необходимо также настроить перенаправление агента SSH. Дополнительные сведения см. в документации по своему клиенту SSH. В следующей команде замените значение `<replace-with-your-password>` паролем по своему выбору.
+
+```azurecli-interactive
+adminPassword="<replace-with-your-password>"
+
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVmWeb \
+  --image UbuntuLTS \
+  --vnet-name myVirtualNetwork \
+  --subnet mySubnet \
+  --nsg "" \
+  --asgs myAsgWebServers \
+  --admin-username azureuser \
+  --admin-password $adminPassword
+```
+
+Создание виртуальной машины занимает несколько минут. После создания виртуальной машины возвращается результат, аналогичный приведенному ниже. 
+
+```azurecli 
+{
+  "fqdns": "",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmWeb",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "13.90.242.231",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+Запишите значение **publicIpAddress**. На следующем шаге этот адрес потребуется для доступа к виртуальной машине из Интернета.  Создайте виртуальную машину в качестве сервера управления:
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVmMgmt \
+  --image UbuntuLTS \
+  --vnet-name myVirtualNetwork \
+  --subnet mySubnet \
+  --nsg "" \
+  --asgs myAsgMgmtServers \
+  --admin-username azureuser \
+  --admin-password $adminPassword
+```
+
+Создание виртуальной машины занимает несколько минут. Посл создания виртуальной машины запишите значение **publicIpAddress** из полученных выходных данных. Этот адрес будет использоваться для доступа к виртуальной машине на следующем шаге. Не переходите к следующему шагу, пока Azure не закончит создание виртуальной машины.
+
+## <a name="test-traffic-filters"></a>Тестирование фильтров трафика
+
+Создайте сеанс SSH с виртуальной машиной *myVmMgmt* при помощи приведенной ниже команды. Замените *<publicIpAddress>* общедоступным IP-адресом, который присвоен виртуальной машине. В примере выше используется IP-адрес *13.90.242.231*.
+
+```bash 
+ssh azureuser@<publicIpAddress>
+```
+
+При запросе пароля введите пароль, указанный при работе с разделом [Создание виртуальных машин](#create-virtual-machines).
+
+Подключение будет установлено успешно, так как через порт 22 разрешено получать входящий трафик из Интернета в группу безопасности приложений *myAsgMgmtServers*, в которой находится сетевой интерфейс, подключенный к виртуальной машине *myVmMgmt*.
+
+Используйте следующую команду для установки SSH-подключения к виртуальной машине *myVmWeb* из виртуальной машины *myVmMgmt*:
+
+```bash 
+ssh azureuser@myVmWeb
+```
+
+Подключение будет установлено успешно, так как правило безопасности по умолчанию в каждой группе безопасности сети разрешает трафик через все порты между всеми IP-адресами в виртуальной сети. Вы не можете установить SSH-подключение к виртуальной машине *myVmWeb* из Интернета, потому что правило безопасности для *myAsgWebServers* не разрешает получение входящего траф ика через порт 22 из Интернета.
+
+Используйте следующие команды, чтобы установить веб-сервер nginx на виртуальную машину *myVmWeb*.
+
+```bash 
+# Update package source
+sudo apt-get -y update
+
+# Install NGINX
+sudo apt-get -y install nginx
+```
+
+Виртуальной машине*myVmWeb* разрешено исходящие подключение к Интернету для извлечения nginx, так как правило безопасности по умолчанию разрешает весь исходящий трафик в Интернет. Закройте сеанс SSH с *myVmWeb*, сохраняя подключение `username@myVmMgmt:~$` к виртуальной машине *myVmMgmt*. Чтобы получить экран приветствия nginx из виртуальной машины *myVmWeb*, введите следующую команду.
+
+```bash
+curl myVmWeb
+```
+
+Выйдите из виртуальной машины *myVmMgmt*. Чтобы убедиться, что вы можете получить доступ к веб-серверу *myVmWeb*  извне Azure, введите `curl <publicIpAddress>` на вашем компьютере. Подключение будет установлено успешно, так как через порт 80 разрешено получать входящий трафик из Интернета в группу безопасности приложений *myAsgWebServers*, в которой находится сетевой интерфейс, подключенный к виртуальной машине *myVmWeb*.
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Вы можете удалить ненужную группу ресурсов и все содержащиеся в ней ресурсы, выполнив команду [az group delete](/cli/azure/group#az_group_delete).
+
+```azurecli-interactive 
+az group delete --name myResourceGroup --yes
+```
+
+## <a name="next-steps"></a>Дополнительная информация
+
+В этой статье вы создали группу безопасности сети и связали ее с подсетью виртуальной сети. Дополнительные сведения о группах безопасности сети см. в статьях [Безопасность сети](security-overview.md) и [Create, change, or delete a network security group](virtual-network-manage-nsg-arm-ps.md) (Создание, изменение или удаление группы безопасности сети).
+
+Azure маршрутизирует трафик между подсетями по умолчанию. Вместо этого вы можете перенаправлять трафик между подсетями через виртуальную машину, которая используется в качестве брандмауэра. Дополнительные сведения см. в статье [Маршрутизация сетевого трафика с помощью таблицы маршрутов с использованием портала Azure](tutorial-create-route-table-cli.md).

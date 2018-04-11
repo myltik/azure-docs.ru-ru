@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Настройка кластера Pacemaker в SUSE Linux Enterprise Server в Azure.
 
@@ -280,7 +280,7 @@ sudo systemctl restart target
 1. **[A]** Установите разрешения имен.   
 
    Можно использовать DNS-сервер или внести изменения в файл /etc/hosts на всех узлах. В этом примере показано, как использовать файл /etc/hosts.
-   Замените IP-адрес и имя узла в следующих командах.
+   Замените IP-адрес и имя узла в следующих командах. Преимущество использования /etc/hosts в том, что кластер становится независимым от службы DNS, которая также может являться единой точкой отказа.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -329,10 +329,16 @@ sudo systemctl restart target
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Добавьте в этот файл приведенное ниже содержимое, выделенное полужирным шрифтом.
+   Добавьте следующее содержимое, выделенное полужирным шрифтом, в файл, если значения отсутствуют или отличаются.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }
