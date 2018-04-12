@@ -1,11 +1,11 @@
 ---
-title: "Добавление расширительных узлов в кластер пакета HPC | Документация Майкрософт"
-description: "Узнайте, как расширить кластер пакета HPC в Azure по запросу, добавляя экземпляры рабочих ролей, выполняемых в облачной службе."
+title: Добавление расширительных узлов в кластер пакета HPC | Документация Майкрософт
+description: Узнайте, как расширить кластер пакета HPC в Azure по запросу, добавляя экземпляры рабочих ролей, выполняемых в облачной службе.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Добавление "расширительных" узлов по запросу в кластер пакета HPC в Azure
 Если вы настроили кластер [пакета Microsoft HPC](https://technet.microsoft.com/library/cc514029) в Azure, то вам может понадобиться способ быстро масштабировать емкость кластера, не обслуживая набор предварительно настроенных вычислительных узлов. В этой статье показано, как добавить расширительные узлы по запросу (экземпляры рабочей роли, запущенные в облачной службе) в качестве вычислительных ресурсов на головной узел в Azure. 

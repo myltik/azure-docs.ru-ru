@@ -1,11 +1,11 @@
 ---
-title: "Как использовать управление доступом на основе ролей в службе управления API Azure | Документация Майкрософт"
-description: "Узнайте, как использовать встроенные роли и создавать пользовательские роли в службе управления API Azure."
+title: Как использовать управление доступом на основе ролей в службе управления API Azure | Документация Майкрософт
+description: Узнайте, как использовать встроенные роли и создавать пользовательские роли в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Как использовать управление доступом на основе ролей в службе управления API Azure
 Служба управления API Azure использует управление доступом на основе ролей (RBAC) для детализированного контроля доступа к службам и сущностям управления API (например, к интерфейсам API и политикам). В этой статье содержатся общие сведения о встроенных и пользовательских ролях в службе управления API. Дополнительные сведения об управлении доступом на портале Azure, см. в руководстве по [началу работы с управлением доступом на портале Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).

@@ -1,12 +1,12 @@
 ---
-title: "Использование расширения виртуальной машины Docker для Azure с Azure CLI 1.0 | Документация Майкрософт"
-description: "Сведения об использовании расширения виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure с помощью шаблона Resource Manager."
+title: Использование расширения виртуальной машины Docker для Azure с Azure CLI 1.0 | Документация Майкрософт
+description: Сведения об использовании расширения виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure с помощью шаблона Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f981a50887138660d26a9d011870a05f1270c94
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Создание среды Docker в Azure с использованием расширения виртуальной машины Docker посредством Azure CLI 1.0
 Docker — это популярная платформа управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux (а также в Windows). В Azure развертывание Docker можно выполнить несколькими разными способами в соответствии с конкретными потребностями. В этой статье рассматривается использование расширения виртуальной машины Docker и шаблонов Azure Resource Manager. 

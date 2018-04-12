@@ -1,25 +1,24 @@
 ---
-title: "Использование параметров чтения MongoDB в API MongoDB Azure Cosmos DB | Документация Майкрософт"
-description: "Сведения об использовании параметров чтения MongoDB в API MongoDB Azure Cosmos DB."
+title: Использование параметров чтения MongoDB в API MongoDB Azure Cosmos DB | Документация Майкрософт
+description: Сведения об использовании параметров чтения MongoDB в API MongoDB Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: vidhoonv
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
-ms.custom: 
-ms.workload: 
+ms.custom: ''
+ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cc9f22bc5e7b54ed03fbf83b58dda0aff0114737
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Глобальное распространение операций чтения с применением параметров чтения в API MongoDB в Azure Cosmos DB 
 

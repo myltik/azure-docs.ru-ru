@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Операции поставщиков ресурсов Azure Resource Manager
 
@@ -1210,7 +1210,7 @@ ms.lasthandoff: 03/23/2018
 |/accounts/storageAccounts/Containers/read|Получение контейнеров учетной записи хранения, связанной с учетной записью Data Lake Analytics.|
 |/accounts/storageAccounts/delete|Удаление связи учетной записи хранения с учетной записью Data Lake Analytics.|
 |/accounts/storageAccounts/read|Получение сведений об учетной записи хранения, связанной с учетной записью Data Lake Analytics.|
-|/accounts/storageAccounts/write|Создание или обновление учетной записи хранения, связанной с учетной записью Data Lake Analytics.|
+|/accounts/storageAccounts/write|Создание или обновление связанной учетной записи хранения для учетной записи Data Lake Analytics.|
 |/accounts/TakeOwnership/action|Предоставление разрешений на отмену заданий, отправленных другими пользователями.|
 |/accounts/write|Создание или обновление учетной записи Data Lake Analytics.|
 |/locations/capability/read|Получение сведений о возможностях подписки в отношении использования Data Lake Analytics.|

@@ -1,11 +1,11 @@
 ---
-title: "Транзакции в хранилище данных SQL | Документация Майкрософт"
-description: "Советы по реализации транзакций Transact-SQL в хранилище данных SQL Azure для разработки решений."
+title: Транзакции в хранилище данных SQL | Документация Майкрософт
+description: Советы по реализации транзакций Transact-SQL в хранилище данных SQL Azure для разработки решений.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Транзакции в хранилище данных SQL
 Как и следовало ожидать, хранилище данных SQL поддерживает транзакции как часть своей рабочей нагрузки. Однако, чтобы производительность хранилища данных SQL оставалась на уровне, по сравнению с SQL Server некоторые возможности ограничены. Эта статья посвящена отличиям этого продукта от аналогичных систем. 

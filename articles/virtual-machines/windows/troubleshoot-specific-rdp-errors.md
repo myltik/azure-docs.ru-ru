@@ -1,12 +1,12 @@
 ---
-title: "Некоторые сообщения об ошибках протокола удаленного рабочего стола для виртуальных машин Azure | Документация Майкрософт"
-description: "Сведения о некоторых ошибках, которые могут происходить при попытке подключения к удаленному рабочему столу виртуальной машины Windows в Azure."
-keywords: "Ошибка удаленного рабочего стола, ошибка подключения к удаленному рабочему столу, не удается подключиться к виртуальной машине, диагностика удаленного рабочего стола"
+title: Некоторые сообщения об ошибках протокола удаленного рабочего стола для виртуальных машин Azure | Документация Майкрософт
+description: Сведения о некоторых ошибках, которые могут происходить при попытке подключения к удаленному рабочему столу виртуальной машины Windows в Azure.
+keywords: Ошибка удаленного рабочего стола, ошибка подключения к удаленному рабочему столу, не удается подключиться к виртуальной машине, диагностика удаленного рабочего стола
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 199f8c62b7aa3310bebd33c88edf57ea3bce804b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4d13d32e0269be3715a18484157519e1a0556ade
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Устранение некоторых ошибок подключения по протоколу RDP к виртуальной машине Windows в Azure
 При попытке подключиться к удаленному рабочему столу виртуальной машины Windows в Azure могут возникать определенные ошибки. В этой статье описаны некоторые наиболее распространенные сообщения об ошибках, а также действия по их устранению. Если вам не удается подключиться к виртуальной машине по протоколу RDP, но сообщение об ошибке не появляется, см. [руководство по устранению неполадок с подключением к удаленному рабочему столу](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Автоматизация ресурсов в центре обработки данных или облаке с помощью гибридной рабочей роли Runbook
 
@@ -93,6 +93,7 @@ ms.lasthandoff: 03/30/2018
 Выполните первые два шага для среды автоматизации, а затем повторите остальные шаги для каждого компьютера с компонентом Worker.
 
 #### <a name="1-create-log-analytics-workspace"></a>1. Создание рабочей области Log Analytics
+
 Если у вас еще нет рабочей области Log Analytics, [создайте](../log-analytics/log-analytics-manage-access.md) ее. Если у вас уже есть рабочая область, вы можете использовать ее.
 
 #### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Добавление решения для автоматизации в рабочую область Log Analytics
@@ -102,6 +103,7 @@ ms.lasthandoff: 03/30/2018
 Выполните инструкции в статье [Добавление решений для управления Azure Log Analytics в рабочую область](../log-analytics/log-analytics-add-solutions.md), чтобы добавить решение **автоматизации** в рабочую область Log Analytics.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Установка Microsoft Monitoring Agent
+
 Microsoft Monitoring Agent подключает компьютеры к Log Analytics. Когда агент устанавливается на локальный компьютер и подключается к рабочей области, он автоматически скачивает компоненты, необходимые для гибридной рабочей роли Runbook.
 
 Установите агент на локальный компьютер, следуя инструкциям в статье [Подключение компьютеров Windows к Log Analytics](../log-analytics/log-analytics-windows-agent.md). Выполните эту процедуру на нескольких компьютерах, чтобы добавить в среду несколько компонентов Worker.

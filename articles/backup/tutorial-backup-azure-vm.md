@@ -1,13 +1,13 @@
 ---
-title: "Резервное копирование большого числа виртуальных машин Azure в Azure | Документы Майкрософт"
-description: "В этом руководстве рассматривается резервное копирование нескольких виртуальных машин Azure в хранилище служб восстановления."
+title: Резервное копирование большого числа виртуальных машин Azure в Azure | Документы Майкрософт
+description: В этом руководстве рассматривается резервное копирование нескольких виртуальных машин Azure в хранилище служб восстановления.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "резервное копирование виртуальных машин; резервное копирование виртуальной машины; резервное копирование и аварийное восстановление"
-ms.assetid: 
+editor: ''
+keywords: резервное копирование виртуальных машин; резервное копирование виртуальной машины; резервное копирование и аварийное восстановление
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Резервное копирование большого числа виртуальных машин Azure в Azure
 
@@ -46,7 +46,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Для многих командлетов службы архивации Azure требуется объект хранилища служб восстановления в качестве входных данных. По этой причине объект хранилища служб восстановления резервных копий удобно хранить в переменной. Затем используйте командлет **Set-AzureRmRecoveryServicesBackupProperties**, чтобы задать для параметра **-BackupStorageRedundancy** значение [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Для многих командлетов службы архивации Azure требуется объект хранилища служб восстановления в качестве входных данных. По этой причине объект хранилища служб восстановления резервных копий удобно хранить в переменной. Затем используйте командлет **Set-AzureRmRecoveryServicesBackupProperties**, чтобы задать для параметра **-BackupStorageRedundancy** значение [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

@@ -1,6 +1,6 @@
 ---
-title: "Использование хранилища таблиц службы хранилища Azure или API таблиц Azure Cosmos DB в PHP | Документация Майкрософт"
-description: "Сведения о том, как использовать API хранилища таблиц в PHP для создания и удаления таблиц, вставки и удаления строк, а также создания запросов к таблицам."
+title: Использование хранилища таблиц службы хранилища Azure или API таблиц Azure Cosmos DB в PHP | Документация Майкрософт
+description: Сведения о том, как использовать API хранилища таблиц в PHP для создания и удаления таблиц, вставки и удаления строк, а также создания запросов к таблицам.
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Использование хранилища таблиц службы хранилища Azure или API таблиц Cosmos DB в PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -72,7 +72,7 @@ php composer.phar install
 ## <a name="add-required-references"></a>Добавление обязательных ссылок
 Чтобы использовать хранилище таблиц службы хранилища Azure или API-интерфейсы Azure Cosmos DB, необходимо указать следующее:
 
-* ссылку на файл автозагрузчика с использованием оператора [require_once][require_once];
+* Ссылка на файл автозагрузчика с использованием оператора [require_once][require_once].
 * ссылку на все используемые классы.
 
 В следующем примере показано, как включить файл автозагрузчика и добавить ссылку на класс **TableRestProxy**.
@@ -435,9 +435,6 @@ catch(ServiceException $e){
 * **addDeleteEntity** (добавляет операцию deleteEntity)
 
 В следующем примере показано, как выполнить операции **insertEntity** и **deleteEntity** в одном запросе. 
-
-> [!NOTE]
-> Azure Cosmos DB пока не поддерживает пакетные операции для таблиц. 
 
 ```php
 require_once 'vendor/autoload.php';

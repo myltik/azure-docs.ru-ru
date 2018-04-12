@@ -1,6 +1,6 @@
 ---
-title: "Шифрование неактивных данных в Microsoft Azure | Документация Майкрософт"
-description: "В этой статье описывается шифрование неактивных данных в Microsoft Azure, общие возможности и рекомендации."
+title: Шифрование неактивных данных в Microsoft Azure | Документация Майкрософт
+description: В этой статье описывается шифрование неактивных данных в Microsoft Azure, общие возможности и рекомендации.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Шифрование неактивных данных в Azure
 В Microsoft Azure существует несколько средств для защиты данных в соответствии с требованиями безопасности и соблюдения стандартов в организации. В этой статье основное внимание уделяется следующим вопросам:

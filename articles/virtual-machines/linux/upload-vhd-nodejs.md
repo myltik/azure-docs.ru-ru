@@ -1,10 +1,10 @@
 ---
-title: "Отправка пользовательского образа Linux с помощью интерфейса командной строки Azure 1.0 | Документация Майкрософт"
-description: "Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux на основе модели развертывания Resource Manager с помощью Azure CLI 1.0"
+title: Отправка пользовательского образа Linux с помощью интерфейса командной строки Azure 1.0 | Документация Майкрософт
+description: Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux на основе модели развертывания Resource Manager с помощью Azure CLI 1.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Отправка пользовательского образа диска и создание на его основе виртуальной машины Linux с помощью Azure CLI 1.0
 В этой статье показано, как передать виртуальный жесткий диск (VHD-файл) в Azure с использованием модели развертывания с помощью Resource Manager и создавать на его основе виртуальные машины Linux. Эта функциональная возможность позволяет установить и настроить дистрибутив Linux в соответствии с требованиями, а затем использовать этот VHD для быстрого создания виртуальных машин Azure.

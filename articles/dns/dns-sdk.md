@@ -1,6 +1,6 @@
 ---
-title: "Создание зон и наборов записей DNS в Azure DNS с помощью пакета SDK для .NET | Документация Майкрософт"
-description: "Здесь описывается, как создать зоны и наборы записей DNS в Azure DNS с помощью пакета SDK для .NET."
+title: Создание зон и наборов записей DNS в Azure DNS с помощью пакета SDK для .NET | Документация Майкрософт
+description: Здесь описывается, как создать зоны и наборы записей DNS в Azure DNS с помощью пакета SDK для .NET.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Создание зон и наборов записей DNS с помощью пакета SDK для .NET
 

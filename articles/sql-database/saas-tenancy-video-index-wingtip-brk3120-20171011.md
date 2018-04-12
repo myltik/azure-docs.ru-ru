@@ -2,18 +2,18 @@
 title: Индексированное видео, приложение SQL SaaS Azure | Документация Майкрософт
 description: В этой статье индексированы различные точки во времени нашего 81-минутного видео о создании клиентских приложений базы данных SaaS с конференции Ignite, проведенной 11 октября 2017 года. Можно сразу перейти к интересующей вас части. Описано как минимум 3 шаблона. Описываются компоненты Azure, которые упрощают разработку и управление.
 services: sql-database
-ms.date: 12/06/2017
+ms.date: 04/01/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 0d9182abda03aef3ffe35e10114fa045d8b0ca74
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Видео индексировано и снабжено заметками для мультитенатного приложения SaaS, использующего базу данных SQL Azure
 

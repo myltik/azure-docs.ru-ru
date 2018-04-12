@@ -3,9 +3,8 @@ title: Поддержка брандмауэра Azure Cosmos DB и контро
 description: Сведения о настройке поддержки брандмауэра в учетных записях базы данных Azure Cosmos DB с помощью политик контроля доступа на основе IP-адресов.
 keywords: Контроль доступа на основе IP-адресов, поддержка брандмауэра
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: mimig
-ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Поддержка брандмауэра для Azure Cosmos DB
 Для защиты данных, хранящихся в учетных записях базы данных Azure Cosmos DB, в Cosmos DB реализована поддержка [модели авторизации](https://msdn.microsoft.com/library/azure/dn783368.aspx) на основе секретов. Проверка целостности данных в этой модели осуществляется с помощью надежного кода проверки подлинности сообщений, использующего хэш-функции (HMAC). Теперь, помимо модели авторизации на основе секрета, для поддержки входящего трафика брандмауэра база данных Azure Cosmos DB использует политики контроля доступа на основе IP-адресов. Эта модель похожа на использование правил брандмауэра в традиционной системе базы данных. Она предоставляет дополнительный уровень защиты для учетных записей базы данных Azure Cosmos DB. Кроме того, эта модель позволяет настроить доступ к учетной записи базы данных Azure Cosmos DB только из утвержденных компьютеров и (или) облачных служб. Для доступа к ресурсам Azure Cosmos DB из этих утвержденных компьютеров и служб пользователь (вызывающая сторона) по-прежнему должен предоставить допустимый маркер проверки подлинности.

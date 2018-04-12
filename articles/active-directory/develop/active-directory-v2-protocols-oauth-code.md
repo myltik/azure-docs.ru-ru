@@ -16,10 +16,10 @@ ms.date: 03/18/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: c6af6fb6ab957d79d71c816e6a23b0526f016a71
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Протоколы версии 2.0 — поток кода авторизации OAuth 2.0
 Код авторизации OAuth 2.0 может использоваться в приложениях, установленных на устройстве, для получения доступа к защищенным ресурсам, таким как веб-API.  С помощью реализации OAuth 2.0 в модели приложений версии 2.0 можно добавить возможности входа и доступа к API в мобильные и классические приложения.  Для выполнения задач этого руководства не предусмотрено использование конкретного языка. Здесь объясняется, как отправлять и получать сообщения HTTP без применения [библиотек аутентификации Azure с открытым кодом](active-directory-authentication-libraries.md).
