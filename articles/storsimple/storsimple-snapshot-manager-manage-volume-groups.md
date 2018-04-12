@@ -1,11 +1,11 @@
 ---
-title: "Группы томов StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Узнайте, как использовать оснастку консоли MMC \"Диспетчер моментальных снимков StorSimple\" для создания групп томов и управления ими."
+title: Группы томов StorSimple Snapshot Manager | Документация Майкрософт
+description: Узнайте, как использовать оснастку консоли MMC "Диспетчер моментальных снимков StorSimple" для создания групп томов и управления ими.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple
 ## <a name="overview"></a>Обзор

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/27/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: cfc3fbf5432108222ee7941d92d78e49d3eaed78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Создание виртуальной машины Linux в зоне доступности с помощью Azure CLI
 
@@ -78,7 +78,7 @@ az group create --name myResourceGroupVM --location eastus2
 При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM* под управлением Ubuntu Server. Она создается в зоне доступности *1*. По умолчанию она имеет размер *Standard_DS1_v2*.
 
 ```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 Создание виртуальной машины может занять несколько минут. После создания виртуальной машины Azure CLI выводит информацию о ней. Запишите значение `zones`. Оно указывает на зону доступности, в которой запущена виртуальная машина. 
