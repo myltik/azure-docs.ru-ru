@@ -1,13 +1,13 @@
 ---
-title: "Шифрование дисков виртуальной машины Linux с помощью Azure CLI 1.0 | Документация Майкрософт"
-description: "Сведения о шифровании дисков в виртуальной машине Linux с использованием Azure CLI 1.0 и модели развертывания Resource Manager."
+title: Шифрование дисков виртуальной машины Linux с помощью Azure CLI 1.0 | Документация Майкрософт
+description: Сведения о шифровании дисков в виртуальной машине Linux с использованием Azure CLI 1.0 и модели развертывания Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1704ba37b1d2acc595cb0c354b22bfcf1c57036
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Шифрование дисков на виртуальной машине Linux с помощью Azure CLI 1.0
 Для улучшения уровня безопасности и соответствия требованиям виртуальной машины содержание виртуальных дисков в Azure можно зашифровать при хранении. Диски можно зашифровать с использованием криптографических ключей, защищенных в хранилище ключей Azure. Вы будете управлять этими криптографическими ключами и проводить аудит их использования. В этой статье подробно описывается шифрование дисков на виртуальной машине Linux с использованием Azure CLI 1.0 и модели развертывания Resource Manager.

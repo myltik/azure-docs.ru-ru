@@ -1,11 +1,11 @@
 ---
-title: "Проблемы при входе в приложение из панели доступа | Документы Майкрософт"
-description: "Устранение проблем с обращением к приложению из панели доступа Microsoft Azure AD на сайте myapps.microsoft.com"
+title: Проблемы при входе в приложение из панели доступа | Документы Майкрософт
+description: Устранение проблем с обращением к приложению из панели доступа Microsoft Azure AD на сайте myapps.microsoft.com
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -90,7 +90,7 @@ ms.lasthandoff: 02/21/2018
 
 7.  Войдите в панель доступа и посмотрите, можете ли вы **запустить** приложения с единым входом по паролю.
 
-Чтобы скачать расширение для Chrome и Edge, воспользуйтесь следующими ссылками:
+Чтобы скачать расширение для Chrome и Microsotf Edge, воспользуйтесь следующими ссылками:
 
 -   [Расширение "Панель доступа" для Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 

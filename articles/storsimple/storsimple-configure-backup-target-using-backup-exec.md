@@ -1,12 +1,12 @@
 ---
-title: "Использование StorSimple серии 8000 в качестве целевого объекта архивации с помощью Backup Exec | Документация Майкрософт"
-description: "Описание настройки целевого объекта архивации StorSimple с помощью Veritas Backup Exec."
+title: Использование StorSimple серии 8000 в качестве целевого объекта архивации с помощью Backup Exec | Документация Майкрософт
+description: Описание настройки целевого объекта архивации StorSimple с помощью Veritas Backup Exec.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Использование StorSimple в качестве целевого объекта архивации с помощью Backup Exec
 

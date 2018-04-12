@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fba872b01d4ddf0bb4e6aa8d0217042617688b8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Использование клиентской библиотеки эластичных баз данных с Entity Framework
 В этом документе показаны изменения, которые следует внести в приложение Entity Framework для интеграции со [средствами эластичных баз данных](sql-database-elastic-scale-introduction.md). Основное внимание уделяется совмещению методов [управления картой сегментов](sql-database-elastic-scale-shard-map-management.md) и [маршрутизации, зависящей от данных](sql-database-elastic-scale-data-dependent-routing.md), с помощью подхода Entity Framework **Code First**. Руководство [Code First — создание базы данных](http://msdn.microsoft.com/data/jj193542.aspx) для Entity Framework используется в этом документе как пример. Примером кода для этого документа является часть набора примеров для эластичной базы данных в Visual Studio.

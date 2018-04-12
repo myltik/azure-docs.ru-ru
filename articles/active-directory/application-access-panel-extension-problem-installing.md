@@ -1,11 +1,11 @@
 ---
-title: "Установка расширения браузера для панели доступа к приложениям в Azure | Документация Майкрософт"
-description: "Исправление распространенных ошибок при установке расширения браузера для панели доступа."
+title: Установка расширения браузера для панели доступа к приложениям в Azure | Документация Майкрософт
+description: Исправление распространенных ошибок при установке расширения браузера для панели доступа.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/29/2018
 
 7.  Войдите в панель доступа и проверьте, можете ли вы запускать приложения с помощью единого входа с паролем.
 
-Вы также можете скачать расширение для Chrome и Edge отсюда:
+Вы также можете скачать расширение для Chrome и Microsoft Edge отсюда:
 
 - [Расширение для Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Расширение для Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
@@ -105,7 +105,7 @@ ms.lasthandoff: 01/29/2018
 Сведения о доступе к средству диагностики и инструкции по настройке расширения для Internet Explorer см. в руководстве по [устранению неполадок расширения "Панель доступа" для Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> Для браузера Internet Explorer доступна ограниченная поддержка — обновления программного обеспечения больше не доступны. Рекомендуется использовать браузер Edge.
+> Для браузера Internet Explorer доступна ограниченная поддержка — обновления программного обеспечения больше не доступны. Рекомендуется использовать браузер Microsoft Edge.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Если описанные выше шаги не устранят проблему
 
