@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальной машины Windows с помощью шаблона в Azure | Документация Майкрософт"
-description: "Простое создание виртуальной машины Windows с помощью шаблона Resource Manager и PowerShell."
+title: Создание виртуальной машины Windows с помощью шаблона в Azure | Документация Майкрософт
+description: Простое создание виртуальной машины Windows с помощью шаблона Resource Manager и PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 141dbd6b16bf7e2b6316bd05991026b007668b11
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Создание виртуальной машины Windows с использованием шаблона Resource Manager
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Процедура, описанная в этой статье, занимает около 5 минут.
 
-## <a name="install-azure-powershell"></a>Установите Azure PowerShell
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Как установить и настроить службы Azure PowerShell](../../powershell-install-configure.md).
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.3 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]" 
       },
       "resources": [
         {

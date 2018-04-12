@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev
 ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="team-lead-tasks"></a>Задачи руководителя команды
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 03/28/2018
     git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
     
     
-![13.](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
+![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
 Эти команды клонируют репозиторий **GroupProjectTemplate** (R1) на сервере VSTS группы в локальный каталог в папке **GitRepos\GroupCommon** на локальном компьютере. После клонирования каталог **GroupProjectTemplate** (D1) создается в каталоге **GitRepos\GroupCommon**. Предполагается, что менеджер группы создал командный проект **GroupCommon**, и репозиторий **GroupProjectTemplate** находится в этом командном проекте. 
 

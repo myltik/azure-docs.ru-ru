@@ -1,13 +1,13 @@
 ---
-title: "Создание конвейера CI/CD в Azure с помощью служб Team Services | Документация Майкрософт"
-description: "Сведения о создании с помощью Visual Studio Team Services конвейера для непрерывной интеграции и доставки, который выполняет развертывание веб-приложения в IIS на виртуальной машине Windows"
+title: Создание конвейера CI/CD в Azure с помощью служб Team Services | Документация Майкрософт
+description: Сведения о создании с помощью Visual Studio Team Services конвейера для непрерывной интеграции и доставки, который выполняет развертывание веб-приложения в IIS на виртуальной машине Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Создание конвейера для непрерывной интеграции с помощью Visual Studio Team Services и IIS
 Чтобы автоматизировать этапы создания, тестирования и развертывания проекта приложения, вы можете использовать конвейер для непрерывной интеграции и развертывания (CI/CD). В рамках этого руководства вы создадите конвейер CI/CD с помощью Visual Studio Team Services и виртуальной машины Windows в Azure, где выполняются службы IIS. Вы узнаете, как выполнять такие задачи.

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/30/2018
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 356521c0d1771906e41c816d523d687fe8902acd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c0abc96b074f6226ae8153237c5e96b8b0dec0b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Создание назначения политики для идентификации ресурсов, не соответствующих требованиям, в среде Azure с помощью Azure CLI | Документация Майкрософт
 
@@ -34,7 +34,7 @@ Azure CLI используется для создания ресурсов Azur
 Зарегистрируйте поставщик ресурсов Policy Insights с помощью Azure CLI. Регистрация поставщика ресурсов необходима для надлежащей работы вашей подписки с этим поставщиком. Чтобы зарегистрировать поставщик ресурсов, необходимо иметь разрешение на действие регистрации для поставщика ресурсов. Эта операция включается в роли участника и владельца. Выполните указанную ниже команду для регистрации поставщика ресурсов.
 
 ```
-az provider register –-namespace 'Microsoft.PolicyInsights
+az provider register –-namespace 'Microsoft.PolicyInsights'
 ```
 Дополнительные сведения о регистрации и просмотре поставщиков ресурсов см. в статье [Поставщики и типы ресурсов](../azure-resource-manager/resource-manager-supported-services.md).
 

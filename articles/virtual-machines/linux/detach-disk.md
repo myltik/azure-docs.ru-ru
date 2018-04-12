@@ -1,13 +1,13 @@
 ---
-title: "Отключение диска данных от виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как отключить диск данных от виртуальной машины в Azure с использованием CLI 2.0 или портала Azure."
+title: Отключение диска данных от виртуальной машины Linux в Azure | Документация Майкрософт
+description: Узнайте, как отключить диск данных от виртуальной машины в Azure с использованием CLI 2.0 или портала Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 572fe5bd4d6d79bb9dd94353732e273282e2a0af
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Отключение диска данных от виртуальной машины Linux
 

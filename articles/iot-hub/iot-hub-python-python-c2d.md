@@ -3,7 +3,7 @@ title: Отправка сообщений из облака на устройс
 description: Сведения об отправке сообщений из облака на устройство из Центра Интернета вещей Azure с помощью пакетов SDK для Интернета вещей Azure для Python. Для получения сообщений, отправляемых из облака на устройство, следует изменить приложение имитации устройства, а для отправки таких сообщений следует изменить внутреннее приложение.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
-ms.openlocfilehash: 7fd8bd87a4b7cf5a0f55b9fa7b5ab2ed43083d2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 9cd2423d2d235ed97e51178528dddd7419a718c2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Отправка сообщений из облака на устройства с помощью Центра Интернета вещей (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]

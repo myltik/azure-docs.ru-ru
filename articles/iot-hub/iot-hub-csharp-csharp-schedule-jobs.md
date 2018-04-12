@@ -3,7 +3,7 @@ title: Планирование заданий c помощью Центра И�
 description: Планирование заданий с помощью Центра Интернета вещей Azure для вызова прямого метода на нескольких устройствах. Используйте пакеты SDK для устройств Azure IoT для .NET, чтобы реализовать приложения имитации устройства и приложение службы, на которых будет выполнено задание.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 59d78c390e479acd16d47b70e8af5e164d746905
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 8ea2a5bc0a2f017c17bce4d366cb39acfba935aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Планирование и трансляция заданий (.NET и .NET)
 

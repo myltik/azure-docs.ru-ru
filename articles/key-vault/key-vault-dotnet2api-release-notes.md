@@ -1,6 +1,6 @@
 ---
-title: "Заметки о выпуске API для хранилища ключей .NET 2.x | Документация Майкрософт"
-description: "Разработчики .NET смогут использовать этот API в коде при работе с хранилищем ключей Azure."
+title: Заметки о выпуске API для хранилища ключей .NET 2.x | Документация Майкрософт
+description: Разработчики .NET смогут использовать этот API в коде при работе с хранилищем ключей Azure.
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/02/2017
 ms.author: alleonar
 ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Хранилище ключей Azure .NET 2.0. Руководство по миграции и заметки о выпуске
 Приведенные ниже сведения помогут перейти к использованию версии 2.0 библиотеки Azure Key Vault для C# и .NET.  Приложения, написанные для предыдущих версий, необходимо обновить для поддержки последней версии.  Эти изменения необходимы для полной поддержки новых и усовершенствованных возможностей, таких как **сертификаты Key Vault**.

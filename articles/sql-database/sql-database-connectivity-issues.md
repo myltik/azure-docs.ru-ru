@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: daleche
-ms.openlocfilehash: f6b5f825d7f8111075fe37b5dc29d174928d913e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 27e565845ec538a1982ec0742d7ca723fa9c348c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Устранение, диагностика и предотвращение ошибок подключения SQL и временных ошибок для базы данных SQL
 Эта статья содержит информацию о предотвращении, диагностике и устранении ошибок подключения и временных ошибок, которые происходят в клиентском приложении во время взаимодействия с базой данных SQL Azure. Узнайте, как настроить логику повторных попыток, создать строку подключения и настроить другие параметры подключения.

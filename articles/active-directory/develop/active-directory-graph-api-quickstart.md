@@ -3,7 +3,7 @@ title: Краткое руководство по API Graph Azure AD | Доку�
 description: API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать API Azure AD Graph для выполнения операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов.
 services: active-directory
 documentationcenter: n/a
-author: viv-liu
+author: mtillman
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: viviali
+ms.date: 04/02/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 6869fc8ec582ea857128e91f1f127e9255e77865
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d195d808e07b872c11379f13b6e89794da39f70e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Краткое руководство по API Graph Azure AD
 API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать API Azure AD Graph для выполнения операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов. Например, можно использовать API Azure AD Graph для создания нового пользователя, просмотра или обновления свойств пользователя, изменения пароля пользователя, проверки членства в группе для доступа на основе ролей, а также отключения или удаления пользователя. Дополнительные сведения о функциях API Azure AD Graph и сценариях приложений см. в статьях [Azure AD Graph API reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) (Справочник по API Azure AD Graph) и [API Graph Azure Active Directory](https://msdn.microsoft.com/library/hh974476.aspx). 

@@ -1,8 +1,8 @@
 ---
-title: "Повышение прав доступа администратором клиентов в Azure AD | Документация Майкрософт"
-description: "В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC)."
+title: Повышение прав доступа администратором клиентов в Azure AD | Документация Майкрософт
+description: В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: rqureshi
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
 ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Повышение прав доступа администратором клиентов с помощью управления доступом на основе ролей
 

@@ -1,10 +1,10 @@
 ---
-title: "Настройка программного RAID-массива на виртуальной машине под управлением Linux | Документация Майкрософт"
-description: "Узнайте, как использовать mdadm для настройки RAID-массива на платформе Linux в Azure."
+title: Настройка программного RAID-массива на виртуальной машине под управлением Linux | Документация Майкрософт
+description: Узнайте, как использовать mdadm для настройки RAID-массива на платформе Linux в Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-software-raid-on-linux"></a>Настройка программного RAID-массива в Linux
 Это обычный сценарий для использования программного RAID-массива на виртуальных машинах Linux в Azure, который позволяет представить множество дисков данных в виде одного RAID-устройства. Обычно это делается для повышения производительности и обеспечения возможности увеличения пропускной способности по сравнению с использованием только одного диска.
@@ -61,7 +61,7 @@ zypper install mdadm
                     sectors (command 'u').
     ```
 
-2. Нажмите "n" в командной строке, чтобы создать (**n**) раздел:
+2. Нажмите «n» в командной строке, чтобы создать новый ( **n**ew) раздел:
 
     ```bash
     Command (m for help): n

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 99d10cfd9e1e0eb078d1f90396a87e5e5dc4a7a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Вычислительные среды, поддерживаемые фабрикой данных Azure
 В этой статье описываются различные среды вычислений, которые можно использовать для обработки и преобразования данных. Здесь содержатся также сведения о различных конфигурациях (конфигурациях по запросу и ваших собственных), которые поддерживаются фабрикой данных при настройке связанных служб, связывающих эти среды вычислений с фабрикой данных Azure.
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/23/2018
 | [Пакетная служба Azure](#azure-batch-linked-service) | [Настраиваемая](transform-data-using-dotnet-custom-activity.md) |
 | [машинное обучение Azure](#azure-machine-learning-linked-service) | [Действия машинного обучения: выполнение пакета и обновление ресурса](transform-data-using-machine-learning.md) |
 | [Аналитика озера данных Azure](#azure-data-lake-analytics-linked-service) | [Аналитика озера данных U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-linked-service), [хранилище данных Azure SQL](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Хранимая процедура](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [хранилище данных Azure SQL](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Хранимая процедура](transform-data-using-stored-procedure.md) |
 
 >  
 

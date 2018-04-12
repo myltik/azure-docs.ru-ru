@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Мониторинг и обновление виртуальных машин Windows с помощью Azure PowerShell
 
@@ -238,7 +238,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 ## <a name="advanced-monitoring"></a>Расширенный мониторинг
 
-Вы можете применить более развернутый мониторинг для виртуальной машины с помощью специальных решений, таких как "Управление обновлениями" и "Изменения и инвентаризация", которые предоставляет служба автоматизации Azure. [Operations Management Suite](../../automation/automation-intro.md).
+Вы можете применить более развернутый мониторинг для виртуальной машины с помощью специальных решений, таких как "Управление обновлениями" и Change and Inventory (Изменения и инвентаризация), которые предоставляет [служба автоматизации Azure](../../automation/automation-intro.md).
 
 Если у вас есть доступ к рабочей области Log Analytics, идентификатор и ключ рабочей области вы можете получить, выбрав **Дополнительные параметры** в разделе **Параметры**. Используйте команду [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension), чтобы добавить расширение Microsoft Monitoring Agent на виртуальную машину. Измените значения переменных в примере ниже, задав идентификатор и ключ вашей рабочей области Log Analytics.
 

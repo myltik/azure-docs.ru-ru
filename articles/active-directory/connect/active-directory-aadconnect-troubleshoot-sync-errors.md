@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: устранение ошибок синхронизации | Документация Майкрософт"
-description: "В этой статье объясняется, как устранить ошибки, возникшие во время синхронизации с Azure AD Connect."
+title: 'Azure AD Connect: устранение ошибок синхронизации | Документация Майкрософт'
+description: В этой статье объясняется, как устранить ошибки, возникшие во время синхронизации с Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Устранение ошибок синхронизации
 При синхронизации данных удостоверений Windows Server Active Directory (AD DS) с Azure Active Directory (Azure AD) могут возникать ошибки. В этой статье предоставляются общие сведения о различных типах ошибок синхронизации, некоторые возможные сценарии возникновения этих ошибок, а также возможные способы их устранения. Здесь содержатся сведения о распространенных типах ошибок, возможно, рассматриваются не все возможные ошибки.

@@ -1,11 +1,11 @@
 ---
-title: "Непредвиденная ошибка при предоставлении согласия для приложения | Документы Майкрософт"
-description: "Здесь описаны ошибки, возникающие при предоставлении согласия для приложения, и способы их устранения."
+title: Непредвиденная ошибка при предоставлении согласия для приложения | Документы Майкрософт
+description: Здесь описаны ошибки, возникающие при предоставлении согласия для приложения, и способы их устранения.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Непредвиденная ошибка при предоставлении согласия для приложения
 

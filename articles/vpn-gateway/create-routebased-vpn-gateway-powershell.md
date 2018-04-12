@@ -4,7 +4,7 @@ description: Быстрое создание VPN-шлюза на основе м
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 17e27ce81ea73b687f65dcd0a05573d28f109676
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 57da0d1f6878ce31f0e47680a4750a90115c93f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Создание VPN-шлюза на основе маршрутов с помощью PowerShell
 
-Эта статья поможет быстро создать VPN-шлюз Azure на основе маршрутов, используя PowerShell. VPN-шлюз используется при создании VPN-подключения к локальной сети. Также можно использовать VPN-шлюз для подключения виртуальных сетей.
+Эта статья поможет быстро создать VPN-шлюз Azure на основе маршрутов, используя PowerShell. VPN-шлюз используется при создании VPN-подключения к локальной сети. Также вы можете использовать VPN-шлюз для подключения виртуальных сетей.
 
 Инструкции в этой статье позволяют создать виртуальную сеть, подсеть, подсеть шлюза и VPN-шлюз на основе маршрутов (шлюз виртуальной сети). Создав шлюз, можно создавать подключения. Для этих действий требуется подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -94,7 +94,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 VPN-шлюза должен иметь динамически выделяемый общедоступный IP-адрес. При создании подключения к шлюзу VPN это — IP-адрес, который вы указываете. Воспользуйтесь следующим примером для запроса общедоступного IP-адреса:
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>Создание конфигурации IP-адреса шлюза
@@ -145,7 +145,7 @@ IpConfigurations       : [
                              },
                              "PublicIpAddress": {
                                "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
-                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP"
+                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP"
                              },
                              "Name": "default",
                              "Etag": "W/\"0952d-9da8-4d7d-a8ed-28c8ca0413\"",
@@ -174,17 +174,17 @@ BgpSettings            : {
 Чтобы просмотреть общедоступный IP-адрес VPN-шлюза, используйте командлет [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress).
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
+Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 В примере ответа значение IpAddress будет общедоступным IP-адресом.
 
 ```
-Name                     : VNet1GWPIP
+Name                     : VNet1GWIP
 ResourceGroupName        : TestRG1
 Location                 : eastus
 Id                       : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provi
-                           ders/Microsoft.Network/publicIPAddresses/VNet1GWPIP
+                           ders/Microsoft.Network/publicIPAddresses/VNet1GWIP
 Etag                     : W/"5001666a-bc2a-484b-bcf5-ad488dabd8ca"
 ResourceGuid             : 3c7c481e-9828-4dae-abdc-f95b383
 ProvisioningState        : Succeeded

@@ -1,11 +1,11 @@
 ---
-title: "Использование виртуальной машины Linux для устранения неполадок с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как устранять неполадки с виртуальными машинами Linux, подключив диск операционной системы к виртуальной машине восстановления с помощью портала Azure."
+title: Использование виртуальной машины Linux для устранения неполадок с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как устранять неполадки с виртуальными машинами Linux, подключив диск операционной системы к виртуальной машине восстановления с помощью портала Azure.
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Устранение неполадок с виртуальной машиной Linux при присоединении диска операционной системы к виртуальной машине восстановления с помощью портала Azure
 Если возникает проблема с загрузкой или диском на виртуальной машине Linux, возможно, вам нужно устранить неполадки, связанные с самим виртуальным жестким диском. Например, такая ситуация возникает из-за неправильной записи в `/etc/fstab`, которая мешает успешно загрузить виртуальную машину. В этой статье подробно описано, как с помощью портала Azure подключить виртуальный жесткий диск к другой виртуальной машине Linux для устранения ошибок, а затем восстановить исходную виртуальную машину.

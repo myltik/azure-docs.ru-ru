@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Хранилище таблиц Azure: веб-приложение Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/03/2018
 3. В окне Azure Powershell введите следующий командлет, чтобы получить сведения об учетной записи хранения:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    Этот командлет извлекает список учетных записей хранения и ключей учетной записи, связанных с вашей размещенной службой.
@@ -342,9 +342,20 @@ ms.lasthandoff: 04/03/2018
 
 1. Загрузите и извлеките файлы [Twitter Bootstrap](http://getbootstrap.com/). Скопируйте файл **bootstrap.min.css** из папки **bootstrap\\dist\\css** в каталог **public\\stylesheets** своего приложения tasklist.
 2. В папке **views** откройте файл **layout.jade** в текстовом редакторе и замените его содержимое следующим:
-
-    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Сохраните файл **layout.jade**.
 
 ### <a name="running-the-application-in-the-emulator"></a>Запуск приложения в эмуляторе

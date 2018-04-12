@@ -1,12 +1,12 @@
 ---
-title: "Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений | Документация Майкрософт"
-description: "Узнайте, как работать с пакетом SDK для внутреннего сервера .NET для мобильных приложений службы приложений Azure."
-keywords: "служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure"
+title: Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений | Документация Майкрософт
+description: Узнайте, как работать с пакетом SDK для внутреннего сервера .NET для мобильных приложений службы приложений Azure.
+keywords: служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]

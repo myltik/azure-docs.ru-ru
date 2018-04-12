@@ -1,8 +1,8 @@
 ---
-title: "Использование Hadoop в Azure HDInsight на компьютере с Windows | Документация Майкрософт"
-description: "Сведения об использовании Hadoop в HDInsight на компьютере с Windows, а также о запросе кластеров и управлении ими с помощью PowerShell, Visual Studio и средств Linux. Разработка решений для работы с большими данными на языке .NET."
+title: Использование Hadoop в Azure HDInsight на компьютере с Windows | Документация Майкрософт
+description: Сведения об использовании Hadoop в HDInsight на компьютере с Windows, а также о запросе кластеров и управлении ими с помощью PowerShell, Visual Studio и средств Linux. Разработка решений для работы с большими данными на языке .NET.
 services: hdinsight
-keywords: "hadoop в windows, hadoop для windows"
+keywords: hadoop в windows, hadoop для windows
 author: cjgronlund
 manager: jhubbard
 ms.author: cgronlun
@@ -11,10 +11,10 @@ ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Работа в экосистеме Hadoop в HDInsight на компьютере с Windows
 

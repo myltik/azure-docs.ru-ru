@@ -1,13 +1,13 @@
 ---
-title: "Настройка создаваемой в Azure виртуальной машины Linux с помощью cloud-init | Документация Майкрософт"
-description: "Как с помощью cloud-init настроить виртуальную машину Linux во время создания посредством Azure CLI 1.0."
+title: Настройка создаваемой в Azure виртуальной машины Linux с помощью cloud-init | Документация Майкрософт
+description: Как с помощью cloud-init настроить виртуальную машину Linux во время создания посредством Azure CLI 1.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e9182a18a2827ed7f54f5fd042e5934b3b1fd5c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Использование cloud-init для настройки виртуальной машины Linux во время создания с помощью Azure CLI 1.0
 В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей.  Сценарии cloud-init вызываются во время создания виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI).  Для работы с этой статьей потребуется:

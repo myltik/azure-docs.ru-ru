@@ -1,8 +1,8 @@
 ---
-title: "Доступ к отчетам с помощью Azure RBAC | Документация Майкрософт"
-description: "Создайте отчет, в котором указаны все изменения доступа к подпискам Azure с управлением доступом на основе ролей за последние 90 дней."
+title: Доступ к отчетам с помощью Azure RBAC | Документация Майкрософт
+description: Создайте отчет, в котором указаны все изменения доступа к подпискам Azure с управлением доступом на основе ролей за последние 90 дней.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Создание отчета о доступе для управления доступом на основе ролей
 Когда кто-то предоставляет или отменяет доступ в рамках ваших подписок, изменения регистрируются в журнале событий Azure. Чтобы просмотреть все изменения за последние 90 дней, создайте отчет по журналу изменений доступа.

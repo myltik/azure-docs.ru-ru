@@ -1,10 +1,10 @@
 ---
-title: "Краткое руководство. Использование API Cassandra с Java в Azure Cosmos DB | Документация Майкрософт"
-description: "В этом руководстве показано, как использовать API Cassandra Azure Cosmos DB для создания приложения профиля с помощью портала Azure и Java."
+title: Краткое руководство. Использование API Cassandra с Java в Azure Cosmos DB | Документация Майкрософт
+description: В этом руководстве показано, как использовать API Cassandra Azure Cosmos DB для создания приложения профиля с помощью портала Azure и Java.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: 4d12fe3890b1d3190af1bc94eba7b93059a03f10
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sngun
+ms.openlocfilehash: f132c20f1bcb2de2af708e87f869fbe06fe6914b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Краткое руководство. Создание приложения Cassandra с помощью Java и Azure Cosmos DB
 

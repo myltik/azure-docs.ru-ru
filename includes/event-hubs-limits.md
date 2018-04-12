@@ -1,6 +1,6 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: event-hubs
 author: sethmanheim
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: ab4c5b98ed9f6fcc8c271797db2d81dcc7ec4449
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 В следующей таблице перечислены квоты и ограничения для [концентраторов событий Azure](https://azure.microsoft.com/services/event-hubs/). См. сведения о [ценах на концентраторы событий](https://azure.microsoft.com/pricing/details/event-hubs/).
 

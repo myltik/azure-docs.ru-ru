@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 Во время создания шлюза виртуальной сети нужно указать SKU шлюза, который вы хотите использовать. Выберите номер SKU, который соответствует требованиям, в зависимости от типов рабочих нагрузок, пропускной способности, функций и соглашений об уровне обслуживания.
 

@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a9b0b2c0541504954c4a1352180552cc650a31f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-dependent-routing"></a>Маршрутизация, зависящая от данных
 **Маршрутизация на основе данных** — это возможность использования данных в запросе для направления запроса к соответствующей базе данных. Это основная модель при работе с сегментированными базами данных. Контекст запроса может также использоваться для маршрутизации запроса, особенно в том случае, если ключ сегментирования не является частью запроса. Каждый конкретный запрос или транзакция в приложении, которое использует зависящую от данных маршрутизацию, ограничены обращением только к одной базе данных за раз. Для средств эластичной базы данных SQL Azure эта маршрутизация выполняется с помощью класса **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)).

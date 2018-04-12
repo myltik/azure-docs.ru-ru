@@ -4,8 +4,7 @@ description: Сведения о георепликации в масштаба�
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: ''
+manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 567f035bdb293353090ee107f8d24da845e15154
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Как работает глобальное распределение данных в Azure с помощью Cosmos DB
 Среда Azure вездесуща: она используется более чем в 30 географических регионах по всему миру и постоянно растет. Благодаря повсеместному присутствию одной из отличительных возможностей, предлагаемых Azure разработчикам, является возможность легко выполнять сборку, развертывание и управление глобально распределенными приложениями. 

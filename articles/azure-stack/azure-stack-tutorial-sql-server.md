@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Обеспечение доступности баз данных SQL для пользователей Azure Stack
 В качестве администратора облака Azure Stack вы можете создавать предложения, позволяющие пользователям (клиентам) создавать базы данных SQL, которые они смогут использовать с собственными облачными приложениями, веб-сайтами и рабочими нагрузками. Предоставляя пользователям такие настраиваемые облачные базы данных по запросу, вы помогаете им экономить время и ресурсы. Для этого вам потребуется выполнить следующие действия:

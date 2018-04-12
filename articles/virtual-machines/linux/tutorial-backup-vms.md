@@ -1,13 +1,13 @@
 ---
-title: "Архивация виртуальных машин Linux в Azure | Документы Майкрософт"
-description: "Защита виртуальных машин Linux путем их архивации с помощью службы архивации Azure."
+title: Архивация виртуальных машин Linux в Azure | Документы Майкрософт
+description: Защита виртуальных машин Linux путем их архивации с помощью службы архивации Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c07fa40964fdcbae6ec1cbbbf77094753956cf1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Архивация виртуальных машин Linux в Azure
 
@@ -172,5 +172,5 @@ ms.lasthandoff: 02/23/2018
 Перейдите к следующему руководству, чтобы узнать о мониторинге виртуальных машин.
 
 > [!div class="nextstepaction"]
-> [Virtual machine governance with Azure PowerShell](tutorial-govern-resources.md) (Управление виртуальными машинами с помощью Azure PowerShell)
+> [Управление виртуальными машинами](tutorial-govern-resources.md)
 

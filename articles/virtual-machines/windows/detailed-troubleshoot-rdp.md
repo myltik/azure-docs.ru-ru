@@ -1,13 +1,13 @@
 ---
-title: "Подробное руководство по устранению неполадок с удаленным рабочим столом в Azure | Документация Майкрософт"
-description: "Подробное руководство по устранению неполадок с удаленным рабочим столом, не позволяющих подключиться к виртуальным машинам Windows в Azure"
+title: Подробное руководство по устранению неполадок с удаленным рабочим столом в Azure | Документация Майкрософт
+description: Подробное руководство по устранению неполадок с удаленным рабочим столом, не позволяющих подключиться к виртуальным машинам Windows в Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "не удается подключиться к удаленному рабочему столу, устранение неполадок удаленного рабочего стола, удаленному рабочему столу не удается подключиться, ошибки удаленного рабочего стола, устранение неполадок удаленного рабочего стола, проблемы удаленного рабочего стола"
+keywords: не удается подключиться к удаленному рабочему столу, устранение неполадок удаленного рабочего стола, удаленному рабочему столу не удается подключиться, ошибки удаленного рабочего стола, устранение неполадок удаленного рабочего стола, проблемы удаленного рабочего стола
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Подробное руководство по устранению неполадок с подключением к удаленному рабочему столу на виртуальной машине Windows в Azure
 В этой статье приводятся подробные инструкции по диагностике и устранению сложных ошибок удаленного рабочего стола для виртуальных машин Azure на базе Windows.

@@ -3,7 +3,7 @@ title: Отправка файлов с устройств в Центр Инт�
 description: Сведения об отправке файлов с устройства в облако с помощью пакета SDK для устройств Azure IoT для Node.js. Отправленные файлы хранятся в контейнере больших двоичных объектов службы хранилища Azure.
 services: iot-hub
 documentationcenter: nodejs
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
-ms.author: v-masebo
-ms.openlocfilehash: dd6f25173806d6e420bfeebaae3f81e39f8fd97f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Передача файлов с устройства в облако с помощью Центра Интернета вещей
 

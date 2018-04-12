@@ -4,7 +4,7 @@ description: Краткое руководство по созданию вир�
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d4bd596257b7430a03ec81a0f378286fda8cbace
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6585f28e2b70aee6efbfa99bf2ec4320d6d15382
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Создание виртуальной машины Linux с помощью портала Azure
 

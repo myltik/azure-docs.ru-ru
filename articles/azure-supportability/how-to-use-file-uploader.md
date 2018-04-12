@@ -1,11 +1,11 @@
 ---
-title: "Инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure | Документация Майкрософт"
-description: "В статье представлены инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure"
-services: 
-documentationcenter: 
+title: Инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure | Документация Майкрософт
+description: В статье представлены инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: mbaldwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: eb13bc8012e2d58e1a9b68bb1cf2da11d65e8159
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure
 При [создании запроса в службу поддержки](https://portal.azure.com/#create/Microsoft.Support) служебная программа передачи файлов поможет легко передать файлы диагностики и любые другие файлы, которые могут быть связаны с инцидентом.  

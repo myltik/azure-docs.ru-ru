@@ -2,9 +2,8 @@
 title: Примеры Azure CLI для Azure Cosmos DB | Документация Майкрософт
 description: Примеры Azure CLI для создания учетных записей, баз данных, контейнеров, регионов и брандмауэров Azure Cosmos DB и управления ими.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
 ms.assetid: ''
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 11/29/2017
-ms.author: mimig
-ms.openlocfilehash: 5a649279385da882687c50edd53e16f5ebaed163
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 38b211ec17a2bbe70f2975bd6c8f668c3c30a036
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Примеры Azure CLI для Azure Cosmos DB
 

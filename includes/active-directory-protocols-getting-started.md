@@ -1,11 +1,11 @@
 ---
-title: "Обзор протокола .NET Azure AD | Документация Майкрософт"
-description: "Использование HTTP-сообщений для авторизации доступа к веб-приложениям и веб-API в клиенте с использованием Azure AD."
+title: Обзор протокола .NET Azure AD | Документация Майкрософт
+description: Использование HTTP-сообщений для авторизации доступа к веб-приложениям и веб-API в клиенте с использованием Azure AD.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Регистрация приложения в клиенте AD
 Для начала необходимо зарегистрировать приложение в клиенте Azure Active Directory (Azure AD). После этого вашему приложению будет присвоен идентификатор, и оно сможет получать маркеры.

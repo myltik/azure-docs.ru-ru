@@ -1,11 +1,11 @@
 ---
-title: "Оптимизация виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "В этой статье приводятся советы по оптимизации, которые помогут вам настроить виртуальную машину Linux так, чтобы обеспечить ее оптимальную производительность в Azure."
-keywords: "виртуальная машина linux,linux виртуальная машина,виртуальная машина ubuntu"
+title: Оптимизация виртуальной машины Linux в Azure | Документация Майкрософт
+description: В этой статье приводятся советы по оптимизации, которые помогут вам настроить виртуальную машину Linux так, чтобы обеспечить ее оптимальную производительность в Azure.
+keywords: виртуальная машина linux,linux виртуальная машина,виртуальная машина ubuntu
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Оптимизация виртуальной машины Linux в Azure
 Вы можете легко создать виртуальную машину (VM) Linux с помощью портала или командной строки. В этом руководстве показано, как при помощи настроек оптимизировать производительность VM на платформе Microsoft Azure. В этой статье описывается виртуальная машина Ubuntu Server, но вы можете также создавать виртуальные машины Linux, используя [собственные образы в качестве шаблонов](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
