@@ -2,18 +2,17 @@
 title: Резервное копирование файлов в Azure
 description: В этой статье описывается, как создавать резервные копии и восстанавливать файловые ресурсы Azure, а также объясняются задачи управления.
 services: backup
-keywords: Не добавляйте и не изменяйте ключевые слова, не посоветовавшись с консультантом SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>Резервное копирование файловых ресурсов Azure
 В этой статье описывается, как с помощью портала Azure создавать резервные копии и восстанавливать [файловые ресурсы Azure](../storage/files/storage-files-introduction.md).
@@ -32,7 +31,7 @@ ms.lasthandoff: 03/29/2018
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Ограничения резервного копирования файловых ресурсов Azure в предварительной версии
 Функция резервного копирования файловых ресурсов Azure находится в стадии предварительной версии. На этапе предварительной версии необходимо учитывать следующие ограничения:
-- Вы не можете защитить файловые ресурсы Azure в учетных записях хранения, в которых используется репликация в [хранилище, избыточное в пределах зоны (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage), или в [геоизбыточное хранилище с доступом на чтение (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- Вы не можете защитить файловые ресурсы Azure в учетных записях хранения, в которых используется репликация в [хранилище, избыточное в пределах зоны (ZRS)](../storage/common/storage-redundancy-zrs.md), или в [геоизбыточное хранилище с доступом на чтение (RA-GRS)](../storage/common/storage-redundancy-grs.md).
 - Вы не можете защитить файловые ресурсы Azure в учетных записях хранения, в которых активированы виртуальные сети.
 - Для применения защиты файлов Azure использовать PowerShell или CLI нельзя.
 - Максимальное число запланированных резервных копий в день — одна.

@@ -1,11 +1,11 @@
 ---
-title: "Загрузка данных из SQL Server в хранилище данных SQL Azure (PolyBase) | Документация Майкрософт"
-description: "Экспорт данных из SQL Server в неструктурированные файлы, AZCopy, а также импорт данных в хранилище BLOB-объектов Azure и PolyBase для приема данных в хранилище данных SQL Azure с помощью программы bcp."
+title: Загрузка данных из SQL Server в хранилище данных SQL Azure (PolyBase) | Документация Майкрософт
+description: Экспорт данных из SQL Server в неструктурированные файлы, AZCopy, а также импорт данных в хранилище BLOB-объектов Azure и PolyBase для приема данных в хранилище данных SQL Azure с помощью программы bcp.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 860c86e0-90f7-492c-9a84-1bdd3d1735cd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: f8c251fb9b8275eeea2940f8856669d2ef9f3549
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Загрузка данных в хранилище данных SQL с помощью PolyBase
 > [!div class="op_single_selector"]
