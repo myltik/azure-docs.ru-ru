@@ -1,11 +1,11 @@
 ---
-title: "Создание приложения ASP.NET в Azure с подключением к базе данных SQL | Документация Майкрософт"
-description: "Узнайте, как создать в Azure приложение ASP.NET с подключением к базе данных SQL."
+title: Создание приложения ASP.NET в Azure с подключением к базе данных SQL | Документация Майкрософт
+description: Узнайте, как создать в Azure приложение ASP.NET с подключением к базе данных SQL.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Создание приложения ASP.NET в Azure с подключением к базе данных SQL
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Руководство. Создание приложения ASP.NET в Azure с подключением к базе данных SQL
 
 [Веб-приложения Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как развернуть управляемое данными веб-приложение ASP.NET в Azure, а затем подключить его к [базе данных SQL Azure](../sql-database/sql-database-technical-overview.md). Выполнив описанные здесь действия, вы получите приложение ASP.NET, запущенное в Azure и подключенное к базе данных SQL.
 
@@ -48,6 +48,8 @@ ms.lasthandoff: 02/01/2018
   - **разработка Azure.**
 
   ![ASP.NET и веб-разработка, разработка Azure (в разделе Web & Cloud (Сеть и облако))](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Если вы уже установили Visual Studio, добавьте в него рабочие нагрузки. Для этого последовательно выберите **Инструменты** > **Get Tools and Features (Получить инструменты и функции)**.
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 

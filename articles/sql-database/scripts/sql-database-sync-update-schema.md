@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6b117484eaa1a9ac3ed85dfe547b3f6163d702cf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Использование PowerShell для обновления схемы синхронизации в существующей группе синхронизации
 
@@ -97,7 +97,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 -   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL](../sql-database-sync-data.md)
 -   [Начало работы с синхронизацией данных SQL Azure (предварительная версия)](../sql-database-get-started-sql-data-sync.md)
 -   [Best practices for SQL Data Sync (Preview)](../sql-database-best-practices-data-sync.md) (Рекомендации по синхронизации данных SQL (предварительная версия))
--   [Мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics](../sql-database-sync-monitor-oms.md).
+-   [Мониторинг синхронизации данных SQL Azure с помощью Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](../sql-database-troubleshoot-data-sync.md)
 
 -   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL:

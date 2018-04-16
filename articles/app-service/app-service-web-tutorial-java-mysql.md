@@ -1,12 +1,12 @@
 ---
-title: "Создание веб-приложения Java в Azure с подключением к базе данных MySQL"
-description: "Узнайте, как создать приложение Java, которое подключается к службе базы данных MySQL в Azure и работает в службе приложений Azure."
+title: Создание веб-приложения Java в Azure с подключением к базе данных MySQL
+description: Узнайте, как создать приложение Java, которое подключается к службе базы данных MySQL в Azure и работает в службе приложений Azure.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Создание веб-приложения Java в Azure с подключением к базе данных MySQL
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Руководство. Создание веб-приложения Java в Azure с подключением к базе данных MySQL
 
 > [!NOTE]
 > В этой статье мы развернем приложение в службе приложений на платформе Windows. Чтобы развернуть приложение в службе приложений на платформе _Linux_, см. статью [Развертывание приложения Spring Boot в Azure с помощью подключаемого модуля Maven для веб-приложений Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
@@ -137,7 +137,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>Создание сервера MySQL
 
-В Cloud Shell создайте сервер в службе "База данных Azure для MySQL" (предварительная версия), выполнив команду [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). В приведенной команде замените заполнитель `<mysql_server_name>` уникальным именем сервера MySQL. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.mysql.database.azure.com`), поэтому оно должно быть глобально уникальным. Кроме того, замените `<admin_user>` и `<admin_password>` собственными значениями.
+В Cloud Shell создайте сервер в службе "База данных Azure для MySQL", выполнив команду [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). В приведенной команде замените заполнитель `<mysql_server_name>` уникальным именем сервера MySQL. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.mysql.database.azure.com`), поэтому оно должно быть глобально уникальным. Кроме того, замените `<admin_user>` и `<admin_password>` собственными значениями.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> База данных Azure для MySQL (предварительная версия) пока не поддерживает автоматическое подключение из служб Azure. Так как IP-адреса в Azure назначаются динамически, на данный момент рекомендуется включить все IP-адреса. Так как служба находится на этапе предварительной версии, позднее будут добавлены более надежные методы защиты базы данных.
+> Служба "База данных Azure для MySQL" пока не поддерживает автоматическое подключение из служб Azure. Так как IP-адреса в Azure назначаются динамически, на данный момент рекомендуется включить все IP-адреса. Будут добавлены более надежные методы защиты базы данных.
 
 ## <a name="configure-the-azure-mysql-database"></a>Настройка базы данных MySQL в Azure
 

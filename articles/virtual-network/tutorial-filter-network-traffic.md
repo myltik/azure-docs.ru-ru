@@ -1,6 +1,6 @@
 ---
-title: Фильтрация сетевого трафика с помощью Azure PowerShell | Документация Майкрософт
-description: В этой статье вы узнаете, как фильтровать сетевой трафик в подсети с помощью группы безопасности сети, используя PowerShell.
+title: Руководство. Фильтрация сетевого трафика с помощью Azure PowerShell | Документация Майкрософт
+description: В этом руководстве описано, как фильтровать сетевой трафик в подсети с помощью группы безопасности сети и PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,21 +11,21 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 53406150cfc2ec4229ecd9cf3356ad03d60f8e7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: 8e04ed7ad16b673597b62d947c3f782ee0d27c7c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Фильтрация сетевого трафика с помощью группы безопасности сети посредством PowerShell
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Руководство. Фильтрация сетевого трафика с помощью группы безопасности сети и PowerShell
 
-Вы можете отфильтровать входящий и исходящий трафик в подсети виртуальной сети с помощью группы безопасности сети. Группы безопасности сети содержат правила безопасности, которые фильтруют трафик по IP-адресу, порту и протоколу. Правила безопасности применяются к ресурсам, развернутым в подсети. В этой статье раскрываются следующие темы:
+Вы можете отфильтровать входящий и исходящий трафик в подсети виртуальной сети с помощью группы безопасности сети. Группы безопасности сети содержат правила безопасности, которые фильтруют трафик по IP-адресу, порту и протоколу. Правила безопасности применяются к ресурсам, развернутым в подсети. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Создание группы безопасности сети и правил безопасности.
@@ -33,13 +33,13 @@ ms.lasthandoff: 04/03/2018
 > * Развертывание виртуальных машин в подсеть.
 > * Тестирование фильтров трафика
 
-При необходимости инструкции из этой статьи можно выполнить с помощью [Azure CLI](tutorial-filter-network-traffic-cli.md).
+При необходимости инструкции из этого руководства можно выполнить с помощью [Azure CLI](tutorial-filter-network-traffic-cli.md).
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Чтобы установить и использовать PowerShell локально, для работы с этой статьей вам понадобится модуль Azure PowerShell 5.4.1 или более поздней версии. Выполните командлет ` Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.4.1 или более поздней версии. Выполните командлет ` Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 ## <a name="create-a-network-security-group"></a>Создание группы безопасности сети
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="create-application-security-groups"></a>Создание групп безопасности приложений
 
-Создайте группу ресурсов для всех ресурсов, созданных в рамках этой статьи, выполнив командлет [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). В следующем примере создается группа ресурсов в расположении *eastus*. 
+Создайте группу ресурсов для всех ресурсов, созданных в рамках этого руководства, выполнив командлет [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). В следующем примере создается группа ресурсов в расположении *eastus*. 
 
 
 ```azurepowershell-interactive
@@ -98,7 +98,7 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-В этой статье RDP-подключение (порт 3389) доступно в Интернете для виртуальной машины *myAsgMgmtServers*. В рабочих средах вместо открытия порта 3389 для доступа из Интернета рекомендуется подключиться к ресурсам Azure, которыми вы хотите управлять, с помощью [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-подключения или [частного](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) сетевого подключения.
+В этом руководстве RDP-подключение (порт 3389) доступно в Интернете для виртуальной машины *myAsgMgmtServers*. В рабочих средах вместо открытия порта 3389 для доступа из Интернета рекомендуется подключиться к ресурсам Azure, которыми вы хотите управлять, с помощью [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-подключения или [частного](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) сетевого подключения.
 
 ### <a name="create-a-network-security-group"></a>Создание группы безопасности сети
 
@@ -297,9 +297,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этой статье вы создали группу безопасности сети и связали ее с подсетью виртуальной сети. Дополнительные сведения о группах безопасности сети см. в статьях [Безопасность сети](security-overview.md) и [Create, change, or delete a network security group](virtual-network-manage-nsg-arm-ps.md) (Создание, изменение или удаление группы безопасности сети).
+В этом руководстве вы создали группу безопасности сети и связали ее с подсетью виртуальной сети. Дополнительные сведения о группах безопасности сети см. в статьях [Безопасность сети](security-overview.md) и [Create, change, or delete a network security group](virtual-network-manage-nsg-arm-ps.md) (Создание, изменение или удаление группы безопасности сети).
 
-Azure маршрутизирует трафик между подсетями по умолчанию. Вместо этого вы можете перенаправлять трафик между подсетями через виртуальную машину, которая используется в качестве брандмауэра. Чтобы узнать, как создать таблицу маршрутов, перейдите к следующей статье.
+Azure маршрутизирует трафик между подсетями по умолчанию. Вместо этого вы можете перенаправлять трафик между подсетями через виртуальную машину, которая используется в качестве брандмауэра. Чтобы узнать, как создать таблицу маршрутов, перейдите к следующему руководству.
 
 > [!div class="nextstepaction"]
 > [Создание таблицы маршрутов](./tutorial-create-route-table-portal.md)

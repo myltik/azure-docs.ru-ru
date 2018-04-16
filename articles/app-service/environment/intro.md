@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о среде службы приложений Azure"
-description: "Краткий обзор среды службы приложений Azure."
+title: Общие сведения о средах службы приложений Azure
+description: Краткий обзор сред службы приложений Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Общие сведения о среде службы приложения #
+# <a name="introduction-to-the-app-service-environments"></a>Общие сведения о средах службы приложений #
  
 ## <a name="overview"></a>Обзор ##
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="dedicated-environment"></a>Выделенная среда ##
 
-Среда ASE выделяется исключительно для одной подписки и может вмещать 100 экземпляров. Это может быть от 100 экземпляров в одном плане службы приложений до 100 одноэкземплярных планов службы приложений, а также все, что находится между ними.
+Среда ASE выделяется исключительно для одной подписки. В ней можно разместить 100 экземпляров плана службы приложений. Это может быть от 100 экземпляров в одном плане службы приложений до 100 одноэкземплярных планов службы приложений, а также все, что находится между ними.
 
 ASE состоит из внешних интерфейсов и рабочих ролей. Внешние интерфейсы отвечают за завершение HTTP/HTTPS, а также за автоматическую балансировку нагрузки запросов приложения в среде ASE. Внешние интерфейсы автоматически добавляются по мере развертывания планов службы приложений в среде ASE.
 

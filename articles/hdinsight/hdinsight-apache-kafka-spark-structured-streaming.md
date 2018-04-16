@@ -1,33 +1,33 @@
 ---
-title: "Структурированная потоковая передача Apache Spark с Kafka в Azure HDInsight | Документы Майкрософт"
-description: "Узнайте об использовании потоковой передачи Apache Spark (DStream) для двунаправленного обмена данными с Apache Kafka. В этом примере показано, как выполнить потоковую передачу данных, используя записную книжку Jupyter из Spark в HDInsight."
+title: Структурированная потоковая передача Apache Spark с Kafka в Azure HDInsight | Документы Майкрософт
+description: Узнайте об использовании потоковой передачи Apache Spark (DStream) для двунаправленного обмена данными с Apache Kafka. В этом примере показано, как выполнить потоковую передачу данных, используя записную книжку Jupyter из Spark в HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 78f89d1355545a944d981d6d65ed41a1afa2fec3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49c13bbea537d7de60ecf509bc28675191c0b34d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Использование структурированной потоковой передачи Spark с Kafka в HDInsight
 
 Узнайте, как использовать структурированную потоковую передачу Spark для чтения данных из Apache Kafka в Azure HDInsight.
 
-Структурированная потоковая передача Spark — это механизм обработки потока, встроенный в Spark SQL. Он позволяет выражать потоковые вычисления так же, как пакетные вычисления статических данных. Дополнительные сведения о структурированной потоковой передаче см. в разделе [Руководство по программированию структурированной потоковой передачи [альфа-версия]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) на Apache.org.
+Структурированная потоковая передача Spark — это механизм обработки потока, встроенный в Spark SQL. Он позволяет выражать потоковые вычисления так же, как пакетные вычисления статических данных. Дополнительные сведения о структурированной потоковой передаче см. в разделе [Руководство по программированию структурированной потоковой передачи [альфа-версия]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) на Apache.org.
 
 > [!IMPORTANT]
-> В этом примере используется Spark 2.1 в HDInsight 3.6. Структурированная потоковая передача рассматривается как __альфа-версия__ в Spark 2.1.
+> В этом примере используется Spark 2.2 в HDInsight 3.6.
 >
 > Вы узнаете, как создать группу ресурсов Azure, которая содержит кластеры Spark и Kafka в HDInsight. Оба этих кластера находятся в виртуальной сети Azure, что позволяет кластеру Spark напрямую обмениваться данными с кластером Kafka.
 >
@@ -35,97 +35,60 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="create-the-clusters"></a>Создание кластеров
 
-Apache Kafka в HDInsight не предоставляет доступ к брокерам Kafka через общедоступный сегмент Интернета. Все объекты, обращающиеся к Kafka, должны находиться в той же виртуальной сети Azure, что и узлы в кластере Kafka. В этом примере кластеры Kafka и Spark расположены в виртуальной сети Azure. На следующей схеме показано, как взаимодействуют кластеры.
+Apache Kafka в HDInsight не предоставляет доступ к брокерам Kafka через общедоступный сегмент Интернета. Все ресурсы, которые использует Kafka, должны находиться в одной виртуальной сети Azure. В рамках этого руководства кластеры Kafka и Spark расположены в одной и той же виртуальной сети Azure. 
+
+На следующей схеме показано, как происходит обмен данными между Spark и Kafka:
 
 ![Схема кластеров Spark и Kafka в виртуальной сети Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
 > Служба Kafka ограничена обменом данными в пределах виртуальной сети. Другие службы в кластере, например SSH и Ambari, могут быть доступны через Интернет. Дополнительные сведения об общих портах, доступных в HDInsight, см. в статье [Порты и универсальные коды ресурсов (URI), используемые кластерами HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Хотя виртуальную сеть Azure, а также кластеры Kafka и Spark можно создать вручную, проще использовать шаблон Azure Resource Manager. Выполните следующие действия, чтобы развернуть виртуальную сеть Azure, а также кластеры Kafka и Spark в подписке Azure.
+Для удобства в приведенных ниже действиях для создания кластеров Kafka и Spark в виртуальной сети используется шаблон Azure Resource Manager.
 
 1. Нажмите эту кнопку, чтобы войти в Azure и открыть шаблон на портале Azure.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Шаблон Azure Resource Manager находится здесь: **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
+    Шаблон Azure Resource Manager доступен по адресу **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**.
 
     Этот шаблон создает следующие ресурсы:
 
     * Kafka в кластере HDInsight 3.6;
-    * Spark в кластере HDInsight 3.6;
+    * Spark 2.2.0 в кластере HDInsight 3.6;
     * виртуальную сеть Azure, содержащую кластеры HDInsight.
 
     > [!IMPORTANT]
     > Записная книжка структурированной потоковой передачи, используемая в этом примере, требует Spark в HDInsight 3.6. Если используется более ранняя версия Spark в HDInsight, возникнут ошибки при использовании этой записной книжки.
 
-2. Используйте следующие сведения, чтобы заполнить раздел **Настраиваемое развертывание**:
+2. Заполните раздел **Настроенный шаблон**, используя следующие сведения:
+
+    | Параметр | Значение |
+    | --- | --- |
+    | Подписка | Ваша подписка Azure. |
+    | Группа ресурсов | Группа ресурсов, в которой содержатся ресурсы. |
+    | Расположение | Регион Azure, в котором создаются ресурсы. |
+    | Spark Cluster Name (Имя кластера Spark) | Имя кластера Spark. |
+    | Kafka Cluster Name (Имя кластера Kafka) | Имя кластера Kafka. |
+    | Имя пользователя для входа в кластер | Имя администратора кластеров. |
+    | Пароль для входа в кластер | Пароль администратора кластеров. |
+    | Имя пользователя SSH | Пользователь SSH, который создается для кластеров. |
+    | Пароль SSH | Пароль пользователя SSH. |
    
-    ![Настраиваемое развертывание в HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
-   
-    * **Группа ресурсов.** Создайте новую группу ресурсов или выберите существующую. Эта группа содержит кластер HDInsight.
+    ![Снимок экрана с настроенным шаблоном](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-    * **Расположение.** Выберите близкое к вам географическое расположение.
-
-    * **Базовое имя кластера**. Это значение будет использоваться в качестве базового имени для кластеров Spark и Kafka. Например, если ввести **hdi**, будет создан кластер Spark с именем spark-hdi__ и кластер Kafka с именем **kafka-hdi**.
-
-    * **Cluster Login User Name** (Имя пользователя для входа в кластер). Имя администратора для кластеров Spark и Kafka.
-
-    * **Cluster Login User Password** (Пароль пользователя для входа в кластер). Имя администратора для кластеров Spark и Kafka.
-
-    * **Имя пользователя SSH.** Создаваемый пользователь SSH для кластеров Spark и Kafka.
-
-    * **Пароль SSH.** Пароль пользователя SSH для кластеров Spark и Kafka.
-
-3. Прочтите **условия использования** и установите флажок **Я принимаю указанные выше условия**.
-
-4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. Процесс создания кластеров занимает около 20 минут.
-
-Когда ресурсы будут созданы, отобразится страница со сводными сведениями.
-
-![Сведения о группе ресурсов для виртуальной сети и кластеров](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
-
-> [!IMPORTANT]
-> Обратите внимание, что кластерам HDInsight присвоены имена **spark-BASENAME** и **kafka-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам.
-
-## <a name="get-the-kafka-brokers"></a>Получение брокеров Kafka
-
-Код в этом примере подключается к узлам брокера Kafka в кластере Kafka. Чтобы найти адреса двух узлов брокера Kafka, используйте следующий пример PowerShell или Bash:
-
-```powershell
-$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
-$clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
-    -Credential $creds
-$respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
-($brokerHosts -join ":9092,") + ":9092"
-```
-
-```bash
-curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
-```
-
-При появлении запроса введите пароль для учетной записи администратора, чтобы войти в кластер.
+4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. 
 
 > [!NOTE]
-> В этом примере в `$CLUSTERNAME` должно содержаться имя кластера Kafka.
->
-> В этом примере используется служебная программа [jq](https://stedolan.github.io/jq/) для анализа данных из документа JSON.
+> Создание кластеров может занять до 20 минут.
 
-Результат будет аналогичен приведенному ниже:
+## <a name="get-the-notebook"></a>Получение записной книжки
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
-
-Сохраните эти сведения, так как они вам понадобятся в следующих разделах этого документа.
-
-## <a name="get-the-notebooks"></a>Получение записных книжек
-
-Код для примера, описанного в этом документе, доступен по адресу [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
+Код для примера, описанного в этом документе: [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
 ## <a name="upload-the-notebooks"></a>Отправка записных книжек
 
-Чтобы отправить записные книжки из проекта в кластер Spark в HDInsight, выполните следующие действия.
+Чтобы отправить записные книжки из проекта в кластер Spark в HDInsight, выполните следующие действия:
 
 1. В веб-браузере подключитесь к записной книжке Jupyter в вашем кластере Spark. В следующем URL-адресе замените `CLUSTERNAME` именем вашего кластера __Spark__:
 
@@ -133,25 +96,35 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
     При появлении запроса введите имя администратора кластера и пароль, которые использовались при создании кластера.
 
-2. В правой верхней части страницы нажмите кнопку __Отправить__, чтобы отправить файл __Stream-Tweets-To_Kafka.ipynb__ в кластер. Нажмите __Открыть__ для запуска отправки.
+2. В правой верхней части страницы нажмите кнопку __Отправить__, чтобы отправить файл __spark-structured-streaming-kafka.ipynb__ в кластер. Нажмите __Открыть__ для запуска отправки.
 
     ![Использование кнопки "Отправить" для выбора и загрузки блокнота](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
 
     ![Выбор файла KafkaStreaming.ipynb](./media/hdinsight-apache-kafka-spark-structured-streaming/select-notebook.png)
 
-3. Найдите запись __Stream-Tweets-To_Kafka.ipynb__ в списке записных книжек, а затем нажмите расположенную рядом кнопку __Отправка__.
+3. Найдите запись __spark-structured-streaming-kafka.ipynb__ в списке записных книжек, а затем нажмите расположенную рядом кнопку __Отправить__.
 
     ![Чтобы отправить записную книжку, нажмите кнопку отправки рядом с записью KafkaStreaming.ipynb.](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
-4. Повторите шаги 1–3 для загрузки записной книжки __Spark-Structured-Streaming-From-Kafka.ipynb__.
 
-## <a name="load-tweets-into-kafka"></a>Загрузка твитов в Kafka
+## <a name="use-the-notebook"></a>Использование записной книжки
 
-После отправки файлов выберите запись __Stream-Tweets-To_Kafka.ipynb__, чтобы открыть записную книжку. Выполните действия в записной книжке, чтобы загрузить твиты в Kafka.
+После отправки файлов выберите запись __spark-structured-streaming-kafka.ipynb__, чтобы открыть записную книжку. Чтобы узнать, как использовать структурированную потоковую передачу Spark с Kafka в HDInsight, следуйте инструкциям в записной книжке.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>Обработка твитов с помощью структурированной потоковой передачи
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
-На домашней странице записной книжки Jupyter выберите запись __Spark-Structured-Streaming-From-Kafka.ipynb__. Выполните действия в записной книжке, чтобы загрузить твиты из Kafka с помощью структурированной потоковой передачи Spark.
+Чтобы очистить ресурсы, созданные при работе с этим руководством, удалите группу ресурсов. При этом будет удален связанный кластер HDInsight и другие ресурсы, связанные с этой группой ресурсов.
+
+Чтобы удалить группу ресурсов с помощью портала Azure, сделайте следующее:
+
+1. На портале Azure разверните меню слева, чтобы открыть меню служб, а затем выберите __Группы ресурсов__, чтобы просмотреть список групп ресурсов.
+2. Найдите группу ресурсов, которую нужно удалить, и щелкните правой кнопкой мыши кнопку __Дополнительно__ (…) справа от списка.
+3. Выберите __Удалить группу ресурсов__ и подтвердите выбор.
+
+> [!WARNING]
+> Начисление оплаты начинается после создания кластера HDInsight и прекращается только после его удаления. Кластеры оплачиваются поминутно, поэтому всегда следует удалять кластер, когда он больше не нужен.
+> 
+> При удалении кластера Kafka в HDInsight удаляются все данные, хранящиеся в Kafka.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

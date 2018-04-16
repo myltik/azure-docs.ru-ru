@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
@@ -194,11 +194,16 @@ Ubuntu
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>Установка подключаемого модуля Eclipse Neon (необязательно)
+## <a name="install-the-eclipse-plug-in-optional"></a>Установка подключаемого модуля Eclipse (необязательно)
 
 Подключаемый модуль Eclipse для Service Fabric можно установить из интегрированной среды разработки Eclipse для разработчиков Java. Eclipse можно использовать для создания приложений с гостевыми исполняемыми файлами и контейнерами Service Fabric в дополнение к Java-приложениям Service Fabric.
 
-1. Откройте Eclipse и убедитесь, что у вас установлена последняя версия Eclipse Neon и Buildship (версия 1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help** > **Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями на странице [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship. Подключаемые модули Eclipse для Gradle).
+> [!IMPORTANT]
+> Для подключаемого модуля Service Fabric требуется Eclipse Neon или более поздняя версия. Чтобы проверить версию Eclipse, выполните инструкции под этим примечанием. Если у вас установлена более ранняя версия Eclipse, скачайте более новые версии с [сайта Eclipse](https://www.eclipse.org). Не рекомендуется устанавливать Eclipse поверх существующей установки (перезаписывать). Вы можете удалить ее перед запуском установщика или установить новую версию в другом каталоге. 
+> 
+> В Ubuntu мы рекомендуем установить Eclipse непосредственно с сайта, а не с помощью установщика пакета (`apt` или `apt-get`). Так вы получите последнюю версию Eclipse. 
+
+1. Откройте Eclipse и убедитесь, что у вас установлена версия Eclipse Neon или выше и последняя версия Buildship (1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help** > **Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями на странице [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship. Подключаемые модули Eclipse для Gradle).
 
 2. Чтобы установить подключаемый модуль Service Fabric, выберите **Help** > **Install New Software** (Справка > Установка нового программного обеспечения).
 

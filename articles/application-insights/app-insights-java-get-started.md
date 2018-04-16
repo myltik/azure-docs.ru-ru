@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Приступая к работе с Application Insights в веб-проекте Java
 
@@ -46,9 +46,6 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Добавление в проект пакета SDK Application Insights для Java
 *Выберите подходящий метод для проекта.*
-
-#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Если вы используете Eclipse для создания динамического веб-проекта
-Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse].
 
 #### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Если вы используете Maven<a name="maven-setup" />
 Если проект уже настроен для сборки с использованием Maven, добавьте следующий код в файл pom.xml.
@@ -94,6 +91,9 @@ ms.lasthandoff: 04/03/2018
       // or applicationinsights-core for bare API
     }
 ```
+
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Если вы используете Eclipse для создания динамического веб-проекта
+Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse]. Примечание. Хотя с помощью этого подключаемого модуля и Application Insights настройка и запуск выполняются быстрее (при условии, что вы не используете Maven или Gradle), это не система управления зависимостями. Таким образом, при обновлении подключаемого модуля библиотеки Application Insights в проекте не будут обновляться автоматически.
 
 * *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `version:'2.0.n'`. Сведения о последней версии см. в [заметках о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Для обновления до последней версии пакета SDK* обновите зависимости проекта.
@@ -170,6 +170,61 @@ ms.lasthandoff: 04/03/2018
 ## <a name="4-add-an-http-filter"></a>4. Добавление фильтра HTTP
 Последний шаг настройки позволяет компоненту HTTP-запросов выполнить протоколирование каждого веб-запроса. (Не обязательно, если используется только упрощенный интерфейс API.)
 
+### <a name="spring-boot-applications"></a>Приложения Spring Boot
+Зарегистрируйте `WebRequestTrackingFilter` Application Insights в классе конфигурации:
+
+```Java
+package devCamp.WebApp.configurations;
+
+    import javax.servlet.Filter;
+
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.core.Ordered;
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.context.annotation.Configuration;
+    import com.microsoft.applicationinsights.TelemetryConfiguration;
+    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+
+
+    @Configuration
+    public class AppInsightsConfig {
+
+    //Initialize AI TelemetryConfiguration via Spring Beans
+        @Bean
+        public String telemetryConfig() {
+            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
+            if (telemetryKey != null) {
+                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
+            }
+            return telemetryKey;
+        }
+    
+    //Set AI Web Request Tracking Filter
+        @Bean
+        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
+           FilterRegistrationBean registration = new FilterRegistrationBean();
+           registration.setFilter(new WebRequestTrackingFilter(applicationName));
+           registration.setName("webRequestTrackingFilter");
+           registration.addUrlPatterns("/*");
+           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+           return registration;
+       } 
+
+    //Set up AI Web Request Tracking Filter
+        @Bean(name = "WebRequestTrackingFilter")
+        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+            return new WebRequestTrackingFilter(applicationName);
+        }   
+    }
+```
+
+Этот класс настроит `WebRequestTrackingFilter` в качестве первого фильтра в цепочке фильтров HTTP. Он также извлечет ключ инструментирования из переменной среды операционной системы, если он доступен.
+
+> Мы используем конфигурацию веб-фильтра HTTP, а не конфигурацию Spring MVC, свойственную для приложения Spring Boot. Дополнительные сведения о конфигурации Spring MVC см. в разделах ниже.
+
+
+### <a name="applications-using-webxml"></a>Приложения, использующие Web.xml
 Найдите и откройте файл web.xml в проекте, добавьте следующий фрагмент кода в узел web-app, где настраиваются фильтры вашего приложения.
 
 Для получения наиболее точных результатов этот фильтр должен применяться до всех остальных фильтров.

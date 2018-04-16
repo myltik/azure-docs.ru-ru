@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Краткое руководство по развертыванию приложения-контейнера Service Fabric для Windows в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
@@ -28,12 +28,12 @@ Azure Service Fabric — это платформа распределенных 
 
 ![Страница служб IIS по умолчанию][iis-default]
 
-Из этого краткого руководства вы узнаете, как выполнить следующие задачи:
-> [!div class="checklist"]
-> * упаковка контейнера образов Docker;
-> * Настройка обмена данными
-> * Создание и упаковка приложений Service Fabric
-> * развертывание приложения-контейнера в Azure.
+Из этого краткого руководства вы узнаете, как выполнять следующие задачи:
+
+* упаковка контейнера образов Docker;
+* Настройка обмена данными
+* Создание и упаковка приложений Service Fabric
+* развертывание приложения-контейнера в Azure.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 * Подписка Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -210,16 +210,16 @@ Thumbprint                                Subject
 
 ## <a name="next-steps"></a>Дополнительная информация
 Из этого руководства вы узнали, как выполнить следующие действия:
-> [!div class="checklist"]
-> * упаковка контейнера образов Docker;
-> * Настройка обмена данными
-> * Создание и упаковка приложений Service Fabric
-> * развертывание приложения-контейнера в Azure.
 
-* Дополнительные сведения о запуске [контейнеров в Service Fabric](service-fabric-containers-overview.md).
-* Ознакомьтесь с руководством [Развертывание приложения-контейнера .NET в Azure Service Fabric](service-fabric-host-app-in-a-container.md).
-* Дополнительные сведения о [жизненном цикле приложения](service-fabric-application-lifecycle.md) Service Fabric.
-* Извлечение [примеров кода контейнера Service Fabric](https://github.com/Azure-Samples/service-fabric-containers) на GitHub.
+* упаковка контейнера образов Docker;
+* Настройка обмена данными
+* Создание и упаковка приложений Service Fabric
+* развертывание приложения-контейнера в Azure.
+
+Дополнительные сведения о работе с контейнерами Windows в Service Fabric см. в руководстве для приложений-контейнеров Windows.
+
+> [!div class="nextstepaction"]
+> [Создание приложения-контейнера Windows](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

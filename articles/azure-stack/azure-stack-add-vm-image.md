@@ -1,28 +1,28 @@
 ---
-title: "Добавление образа виртуальной машины в Azure Stack | Документация Майкрософт"
-description: "Добавление образа виртуальной машины Windows или Linux организации для использования клиентами."
+title: Добавление образа виртуальной машины в Azure Stack | Документация Майкрософт
+description: Добавление образа виртуальной машины Windows или Linux организации для использования клиентами.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Создание настраиваемого образа виртуальной машины, доступного в Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 В Azure Stack операторы могут сделать настраиваемые образы виртуальных машин доступными своим пользователям. На эти образы можно ссылаться с помощью шаблонов Azure Resource Manager или добавлять к пользовательскому интерфейсу Azure Marketplace в качестве элемента Marketplace.
 
@@ -126,6 +126,7 @@ ms.lasthandoff: 01/20/2018
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 Команда выполняет следующие действия:
 
 * выполняет проверку подлинности в среде Azure Stack;
@@ -133,9 +134,9 @@ ms.lasthandoff: 01/20/2018
 * добавляет образ виртуальной машины в репозиторий образов;
 * создает элемент Marketplace.
 
-Чтобы убедиться, что команда выполнена успешно, на портале перейдите в Marketplace. Убедитесь, что образ виртуальной машины доступен в категории **Виртуальные машины**.
+Чтобы убедиться, что команда выполнена успешно, на портале перейдите в Marketplace. Убедитесь, что образ виртуальной машины доступен в категории **Вычисления**.
 
-![Образ виртуальной машины успешно добавлен](./media/azure-stack-add-vm-image/image5.PNG)
+![Образ виртуальной машины успешно добавлен](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Удаление образа виртуальной машины с помощью PowerShell
 

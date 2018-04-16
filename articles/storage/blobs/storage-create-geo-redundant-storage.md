@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 86fb0ae7c9ee5a2856c81603a4e08ae7016b022f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Обеспечение высокой доступности данных приложений в хранилище Azure
 
@@ -45,6 +45,11 @@ ms.lasthandoff: 04/03/2018
 * установите [Python](https://www.python.org/downloads/);
 * Загрузите и установите [пакет SDK службы хранилища Azure для Python](https://github.com/Azure/azure-storage-python).
 * Загрузите и установите [Fiddler](https://www.telerik.com/download/fiddler) (необязательно).
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+* Установите и настройте [Maven](http://maven.apache.org/download.cgi) для работы из командной строки.
+* Установите и настройте [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 ---
 
@@ -95,6 +100,13 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+[Скачайте пример проекта](https://github.com/Azure-Samples/storage-java-ha-ra-grs) и извлеките файл storage-java-ragrs.zip. Вы также можете использовать команду [git](https://git-scm.com/), чтобы загрузить копию приложения в среду разработки. Пример проекта содержит простое приложение Java.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
 ---
 
 
@@ -135,15 +147,20 @@ setx storageconnectionstring "\<yourconnectionstring\>"
  
 Перед скачиванием определяется функция объекта службы [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) и [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python). Эти функции определяют обработчики событий, которые срабатывают при успешном завершении скачивания или при сбое и повторной попытке.  
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+Вы можете запустить приложение, открыв терминал или командную строку в папке скачанного приложения. После этого введите `mvn compile exec:java`, чтобы запустить приложение. Затем приложение передаст изображение **HelloWorld.png** из каталога в вашу учетную запись хранения и проверит, реплицировано ли оно во вторичную конечную точку RA-GRS. По завершении проверки приложение начнет скачивать изображение и передавать результат в конечную точку, из которой выполняется скачивание.
+
+Для функции повтора объекта хранилища задана линейная политика повтора. Функция повтора определяет, следует ли повторять запрос, и указывает время ожидания (в секундах) между повторными выполнениями запроса. Для свойства **LocationMode** класса **BlobRequestOptions** задано значение **PRIMARY\_THEN\_SECONDARY**. Это позволяет приложению автоматически переключаться на вторичное расположение, если не удается перейти в первичное расположение при попытке скачать файл **HelloWorld.png**.
+
 ---
 
-### <a name="retry-event-handler"></a>Обработчик события при повторном запуске
+## <a name="understand-the-sample-code"></a>Разбор примера кода
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Обработчик событий `OperationContextRetrying` вызывается, когда скачивание завершается с ошибкой и настроено на повторный запуск. Если достигнуто максимальное количество попыток, определенных для приложения, значение параметра [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) запроса изменяется на `SecondaryOnly`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.
+### <a name="retry-event-handler"></a>Обработчик события при повторном запуске
 
-В примере кода задача `RunCircuitBreakerAsync` в файле `Program.cs` используется для скачивания изображения из учетной записи хранения с помощью метода [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Перед скачиванием определяется [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Контекст операции определяет обработчики событий, которые срабатывают при успешном завершении скачивания или при сбое и повторной попытке.
+Обработчик событий `OperationContextRetrying` вызывается, когда скачивание завершается с ошибкой и настроено на повторный запуск. Если достигнуто максимальное количество попыток, определенных для приложения, значение параметра [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) запроса изменяется на `SecondaryOnly`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -169,34 +186,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
-Обработчик событий `retry_callback` вызывается, когда скачивание завершается с ошибкой и настроено на повторный запуск. Если достигнуто максимальное количество попыток, определенных для приложения, значение параметра [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) запроса изменяется на `SECONDARY`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.  
-
-```python
-def retry_callback(retry_context):
-    global retry_count
-    retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
-    sys.stdout.flush()
-
-    # Check if we have more than n-retries in which case switch to secondary
-    if retry_count >= retry_threshold:
-
-        # Check to see if we can fail over to secondary.
-        if blob_client.location_mode != LocationMode.SECONDARY:
-            blob_client.location_mode = LocationMode.SECONDARY
-            retry_count = 0
-        else:
-            raise Exception("Both primary and secondary are unreachable. "
-                            "Check your application's network connection.")
-```
-
----
-
-
 ### <a name="request-completed-event-handler"></a>Обработчик события при успешном выполнении запроса
- 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
 Обработчик события `OperationContextRequestCompleted` вызывается при успешном выполнении запроса. Если приложение использует вторичную конечную точку, приложение запрашивает эту конечную точку до 20 раз. После 20 раза приложение обратно устанавливает для параметра [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) значение `PrimaryThenSecondary` и повторно запрашивает основную конечную точку. При успешном выполнении запроса приложение продолжает выполнять чтение из основной конечной точки.
  
@@ -219,6 +209,31 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
+### <a name="retry-event-handler"></a>Обработчик события при повторном запуске
+
+Обработчик событий `retry_callback` вызывается, когда скачивание завершается с ошибкой и настроено на повторный запуск. Если достигнуто максимальное количество попыток, определенных для приложения, значение параметра [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) запроса изменяется на `SECONDARY`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+### <a name="request-completed-event-handler"></a>Обработчик события при успешном выполнении запроса
+
 Обработчик события `response_callback` вызывается при успешном выполнении запроса. Если приложение использует вторичную конечную точку, приложение запрашивает эту конечную точку до 20 раз. После 20 раза приложение обратно устанавливает для параметра [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) значение `PRIMARY` и повторно запрашивает основную конечную точку. При успешном выполнении запроса приложение продолжает выполнять чтение из основной конечной точки.
 
 ```python
@@ -234,7 +249,20 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+В Java не нужно определять обработчики обратных вызовов, если для свойства **LocationMode** класса **BlobRequestOptions** задано значение **PRIMARY\_THEN\_SECONDARY**. Это позволяет приложению автоматически переключаться на вторичное расположение, если не удается перейти в первичное расположение при попытке скачать файл **HelloWorld.png**.
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
 ---
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 

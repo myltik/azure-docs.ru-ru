@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 04/04/2018
 ms.author: pareshmu
-ms.openlocfilehash: bad06add368c42970d235b335d14185eb8abf3a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e675600b326bb5269f8bb91aaa067a5842c0f8dd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
 
@@ -85,7 +85,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Поддерживаются |Поддерживаются |Чикаго, Денвер, Лос-Анджелес, Нью-Йорк, Кремниевая долина, Вашингтон (округ Колумбия) |
 | **eir** |Поддерживаются |Поддерживаются |Дублин|
 | **Epsilon Global Communications** |Поддерживаются |Поддерживаются |Сингапур |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Поддерживаются |Амстердам, Атланта, Вашингтон (округ Колумбия), Гонконг, Даллас, Кремниевая долина, Лондон, Лос-Анджелес, Майами, Мельбурн, Нью-Йорк, Осака, Париж, Сан-Пауло, Сидней, Сингапур, Сиэтл, Токио, Торонто, Чикаго |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Поддерживаются |Амстердам, Атланта, Вашингтон (округ Колумбия), Гонконг (САР), Даллас, Кремниевая долина, Лондон, Лос-Анджелес, Майами, Мельбурн, Нью-Йорк, Осака, Париж, Сан-Пауло, Сидней, Сингапур, Сиэтл, Токио, Торонто, Чикаго |
 | **euNetworks** |Поддерживаются |Поддерживаются |Амстердам, Лондон |
 | **GÉANT** |Поддерживаются |Поддерживаются |Амстердам |
 | **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Поддерживаются| Поддерживаются | Ченнаи, Мумбаи |
@@ -120,6 +120,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Поддерживаются |Поддерживаются |Амстердам, Дублин, Лондон |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Поддерживаются |Поддерживаются |Амстердам, Сан-Паулу |
 | **[Telehouse — KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Поддерживаются |Поддерживаются |Лондон |
+| **Telmex Uninet**| Скоро | Скоро | Dallas+ |
 | **Telenor** |Поддерживаются |Поддерживаются |Амстердам, Лондон |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Поддерживаются |Поддерживаются |Мельбурн, Сидней |
 | **[Telus](http://www.telus.com)** |Поддерживаются |Поддерживаются |Монреаль, Торонто |

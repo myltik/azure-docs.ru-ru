@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/23/2018
+ms.date: 04/05/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee94025a12a004fda806183c47d5a336b958478
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Создание и перенаправление пользовательских событий с помощью портала Azure и службы "Сетка событий"
 
@@ -118,25 +118,48 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="send-an-event-to-your-topic"></a>Отправка события в тему
 
-Сначала получите URL-адрес и ключ для темы. Используйте имя раздела для `<topic_name>`.
+Отправьте тестовое событие в пользовательский раздел с помощью PowerShell или Azure CLI.
+
+В первом примере используется Azure CLI. Он возвращает URL-адрес, ключ раздела и пример данных события. Используйте имя раздела для `<topic_name>`. Чтобы просмотреть полное событие, используйте `echo "$body"`. Элемент `data` JSON отображает полезные данные события. Любое значение JSON с правильным форматом может быть в этом поле. Кроме того, можно использовать поле темы для дополнительной маршрутизации и фильтрации. CURL — это служебная программа, которая отправляет HTTP-запросы.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
-```
 
-Ниже приведен пример получения примера данных события:
-
-```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+
+curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Чтобы просмотреть полное событие, используйте `echo "$body"`. Элемент `data` JSON отображает полезные данные события. Любое значение JSON с правильным форматом может быть в этом поле. Кроме того, можно использовать поле темы для дополнительной маршрутизации и фильтрации.
+Во втором примере для выполнения аналогичных действий используется PowerShell.
 
-CURL — это служебная программа, которая отправляет HTTP-запросы. В этой статье мы используем CURL для отправки события в пользовательский раздел. 
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
-```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+$eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
+$eventDate = Get-Date -Format s
+
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
 Вы активировали событие, а служба "Сетка событий" отправила сообщение в конечную точку, настроенную вами при оформлении подписки. Чтобы увидеть данные события, просмотрите журналы.

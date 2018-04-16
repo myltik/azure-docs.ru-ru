@@ -11,11 +11,11 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 509cff23609896a019c110d8046935dfbce793f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0c011ba84033655432ceee34295c2b1908a3ab58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Создание отдельной базы данных SQL Azure с помощью Azure CLI
 
@@ -29,7 +29,7 @@ Azure CLI используется для создания ресурсов Azur
 
 ## <a name="define-variables"></a>Определение переменных
 
-Определите переменные для использования в скриптах этого руководства.
+Определите переменные для использования в скриптах этого краткого руководства.
 
 ```azurecli-interactive
 # The data center and resource name for your resources
@@ -87,7 +87,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Другие краткие руководства в этой коллекции созданы на основе этого документа. 
+Другие краткие руководства в этой серии созданы на основе этого документа. 
 
 > [!TIP]
 > Если вы планируете продолжать работу с этими краткими руководствами, не удаляйте созданные ресурсы. Если вы не планируете продолжать работу, удалите все созданные ресурсы, выполнив на портале Azure следующие действия.
