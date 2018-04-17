@@ -7,9 +7,9 @@
 ### [Обзор](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (классические приложения Windows)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Универсальные приложения Windows)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## веб-приложений:
@@ -96,11 +96,16 @@
 ### Классические и мобильные приложения
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [Платформа .NET для классических приложений Windows](guidedsetups/active-directory-windesktop.md)
+#### [.NET (классические приложения Windows)](guidedsetups/active-directory-windesktop.md)
 ### веб-приложений:
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [Веб-сервер ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-#### [Веб-приложение Node.js](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Одностраничные приложения
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### Веб-API
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Вызовы между службами
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Руководства
 ### [Регистрация приложения](active-directory-v2-app-registration.md)
 ## Справочные материалы
@@ -109,11 +114,11 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Предоставление кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 #### [Неявное разрешение Oauth 2.0](active-directory-v2-protocols-implicit.md)
-#### [Предоставление учетных данных клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Поток On-Behalf-Of в Oauth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Справочник по маркерам](active-directory-v2-tokens.md)
+#### [Предоставление учетных данных клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Поток On-Behalf-Of в Oauth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Учетные данные сертификата](active-directory-certificate-credentials.md)
-### [Области действия](active-directory-v2-scopes.md)
+### [Маркеры](active-directory-v2-tokens.md)
+### [Области и согласие](active-directory-v2-scopes.md)
 # Ресурсы
 ## [Получение справки](active-directory-develop-help-support.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

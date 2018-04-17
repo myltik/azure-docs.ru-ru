@@ -56,6 +56,7 @@
 #### [Сообщение электронной почты с приглашением](active-directory-b2b-invitation-email.md)
 #### [Активация приглашения](active-directory-b2b-redemption-experience.md)
 #### [Добавление пользователей B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
+#### [Предоставление или отзыв приглашений](active-directory-b2b-allow-deny-list.md)
 #### [Условный доступ для B2B](active-directory-b2b-mfa-instructions.md)
 #### [Политики общего доступа к B2B](active-directory-b2b-delegate-invitations.md)
 #### [Добавление B2B-пользователя к роли](active-directory-b2b-add-guest-to-role.md)
@@ -327,9 +328,6 @@
 #### [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
 #### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Проверка подлинности без использования паролей](active-directory-azureadjoin-passport.md)
-#### [Включение Windows Hello для бизнеса](active-directory-azureadjoin-passport-deployment.md)
 ### Аутентификация на основе сертификата
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

@@ -55,11 +55,11 @@
         - name: Требования к инфраструктуре открытых ключей (PKI) для развертывания Azure Stack
           href: azure-stack-pki-certs.md
           items:
-            - name: Получение сертификатов PKI Azure Stack
+            - name: Создание сертификатов PKI
               href: azure-stack-get-pki-certs.md
             - name: Подготовка сертификатов PKI Azure Stack
               href: azure-stack-prepare-pki-certs.md
-            - name: Проверка сертификатов PKI Azure Stack
+            - name: Проверка сертификатов PKI
               href: azure-stack-validate-pki-certs.md
         - name: Интеграция удостоверений
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Проверка для Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Повторное развертывание Пакета средств разработки Azure Stack
-          href: azure-stack-redeploy.md
 - name: Справочные материалы
   items:
     - name: PowerShell для Azure Stack

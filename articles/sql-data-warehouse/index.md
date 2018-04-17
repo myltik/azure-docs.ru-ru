@@ -1,26 +1,25 @@
 ---
-title: "Документация по хранилищу данных SQL Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как использовать хранилище данных SQL для объединения SQL Server и вычислений с массовым параллелизмом. В документации описывается загрузка, анализ, контроль и экспорт данных."
+title: Руководства и справочники. Документация по хранилищу данных SQL Azure | Документация Майкрософт
+description: Узнайте, как использовать хранилище данных SQL Azure, в котором объединена реляционная база данных SQL и вычисления с массовым параллелизмом. В руководствах и другой документации показано, как проектировать, загружать, администрировать и анализировать данные с использованием хранилища данных.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 42db87fd64bca58ee3e86589acdc85107e057665
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>Документация по хранилищу данных SQL
 
-Узнайте, как использовать хранилище данных SQL, в котором объединена реляционная база данных SQL Server и вычисления с массовым параллелизмом. В руководствах и другой документации показано, как загрузить данные в хранилище, а затем анализировать, экспортировать их и управлять ими.
+Узнайте, как использовать хранилище данных SQL Azure, в котором объединена реляционная база данных SQL и вычисления с массовым параллелизмом. В руководствах и другой документации показано, как проектировать, загружать, администрировать и анализировать данные с использованием хранилища данных. 
 
 <ul class="panelContent cardsFTitle">
     <li>

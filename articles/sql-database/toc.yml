@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: "1.\_Проектирование базы данных с помощью .NET"
       href: sql-database-design-first-database-csharp.md
-    - name: 2. Перенос в базу данных SQL Server
+    - name: 2. Перенос в базу данных SQL Server с помощью DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: "3.\_Защита базы данных SQL"
       href: sql-database-security-tutorial.md
     - name: "4.\_Реализация географически распределенной базы данных"
       href: sql-database-implement-geo-distributed-database.md
     - name: 5. Создание управляемого экземпляра
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6. Восстановление резервной копии в управляемый экземпляр
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7. Перенос в управляемый экземпляр с помощью DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: 'Извлечение, преобразование и загрузка для анализа'
               href: saas-tenancy-tenant-analytics.md
+            - name: Аварийное восстановление с использованием георепликации
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Аварийное восстановление с использованием георепликации базы данных
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Мультитенантная база данных
           items:
             - name: Развертывание примера приложения

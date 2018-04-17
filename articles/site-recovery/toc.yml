@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: Мониторинг и устранение неполадок
           items:
-            - name: Устранение неполадок с отработкой отказа в Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Устранение неполадок с репликацией Hyper-V
+              href: hyper-v-azure-troubleshoot.md
             - name: Мониторинг Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: "Hyper-V\_— дополнительный сайт"

@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: 'Резервное копирование общих папок Azure: часто задаваемые вопросы'
           href: backup-azure-files-faq.md
-        - name: Устранение неполадок резервного копирования общих папок Azure
-          href: troubleshoot-azure-files.md
     - name: Виртуальные машины Azure
       items:
         - name: Подготовка виртуальной машины
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Устранение неполадок
       items:
-        - name: Неполадки резервного копирования виртуальных машин Azure на портале Azure
+        - name: Сообщения об ошибках резервного копирования виртуальных машин IaaS
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Ошибка резервного копирования виртуальной машины Azure: "Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"'
+        - name: Истечение времени ожидания агента Azure Backup (MARS) или расширения виртуальной машины
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Медленное резервное копирование файлов и папок в Azure Backup
+        - name: Резервное копирование файлов и папок выполняется медленно
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Устранение неполадок Azure Backup Server
+        - name: Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
-        - name: Устранение неполадок при работе с System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Устранение неполадок агента Azure Backup
+        - name: Агент службы архивации Azure
           href: backup-azure-mars-troubleshoot.md
+        - name: Резервное копирование файловых ресурсов Azure
+          href: troubleshoot-azure-files.md
 - name: Справочные материалы
   items:
     - name: Azure PowerShell

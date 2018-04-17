@@ -25,32 +25,25 @@
 ### [портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [интерфейс командной строки Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
-
 ## [Загрузка скриптов конфигурации VPN-устройства](vpn-gateway-download-vpndevicescript.md)
-
 ## Настройка подключений "точка — сеть". Собственная проверка подлинности Azure на основе сертификата
 ### Настройка VPN для подключений "точка — сеть"
 #### [портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-#### [Портал Azure (классический)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Создание самозаверяющих сертификатов
 #### [Azure PowerShell](vpn-gateway-certificates-point-to-site.md)
 #### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ### [Создание и установка файлов конфигурации VPN-клиента](point-to-site-vpn-client-configuration-azure-cert.md)
 ### [Установка сертификатов клиента](point-to-site-how-to-vpn-client-install-azure-cert.md)
-
 ## Настройка подключений "точка — сеть". Проверка подлинности RADIUS
 ### Настройка VPN для подключений "точка — сеть"
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Создание и установка файлов конфигурации VPN-клиента](point-to-site-vpn-client-configuration-radius.md)
 ### [Интеграция аутентификации VPN-подключений "точка — сеть" по протоколу RADIUS и сервера политики сети](vpn-gateway-radiuis-mfa-nsp.md)
-
 ## Настройка подключений между виртуальными сетями
 ### [портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [интерфейс командной строки Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-### [Портал Azure (классический)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Настройка подключения между виртуальными сетями для разных моделей развертывания
 ### [портал Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -58,7 +51,6 @@
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Настройка нескольких подключений типа "сеть — сеть"
 ### [портал Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Azure PowerShell (классическая модель)](vpn-gateway-multi-site.md)
 ## Подключение нескольких VPN-устройств на основе политик
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## Настройка политик IPsec/IKE для подключений
@@ -70,7 +62,6 @@
 ### [интерфейс командной строки Azure](bgp-how-to-cli.md)
 ## Настройка принудительного туннелирования
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [Azure PowerShell (классическая модель)](vpn-gateway-about-forced-tunneling.md)
 ## Изменение настроек локального сетевого шлюза
 ### [портал Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
@@ -80,13 +71,10 @@
 ## Удаление VPN-шлюза
 ### [портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Azure PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [SKU шлюзов (устаревшая версия)](vpn-gateway-about-skus-legacy.md)
 ## Настройка сторонних VPN-устройств
 ### [Общие сведения и конфигурация Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Пример: устройство Cisco ASA (IKEv2/без BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
-## [Миграция из классической модели развертывания в модель Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## [Устранение неполадок](vpn-gateway-troubleshoot.md)
 ### [Предлагаемые сообществом параметры устройств VPN или брандмауэра](vpn-gateway-third-party-settings.md)
 ### [Настройка и проверка VPN-подключений и подключений между виртуальными сетями](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
@@ -98,6 +86,15 @@
 #### [Проблемы с подключением "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
+## Статьи о классической модели развертывания
+### [Настройка подключения "сеть — сеть"](vpn-gateway-howto-site-to-site-classic-portal.md)
+### [Настройка подключения "точка — сеть"](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Настройка подключения между виртуальными сетями на портале Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [Настройка принудительного туннелирования](vpn-gateway-about-forced-tunneling.md)
+### [Удаление VPN-шлюза](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+### [Настройка нескольких подключений "сеть — сеть"](vpn-gateway-multi-site.md)
+### [Настройка VPN-шлюза](vpn-gateway-configure-vpn-gateway-mp.md)
+### [Миграция из классической модели развертывания в модель Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

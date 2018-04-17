@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: b20283e1189e4f1a3555e2dd8d25972c9a677cd6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-management---monitoring"></a>Управление Azure — мониторинг
 
@@ -54,3 +54,14 @@ ms.lasthandoff: 03/30/2018
 
 ## <a name="migrate"></a>Миграция 
 Под миграцией понимаются рабочие нагрузки перехода из локальной среды в облако Azure.  Служба [Миграция Azure](../migrate/migrate-overview.md) помогает выполнять перенос локальных виртуальных машин в Azure, рассчитывая соответствующие расходы и размеры на основе производительности.  Azure Site Recovery позволяет выполнять фактический перенос виртуальных машин из [локальной среды](../site-recovery/migrate-tutorial-on-premises-azure.md) или [Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  Служба [Azure Database Migration Service](../dms/dms-overview.md) поможет вам выполнить перенос нескольких баз данных-источников на платформы данных Azure.
+
+
+## <a name="operations-management-suite"></a>Operations Management Suite
+Предыдущая техническая документация, связанная с управлением Azure, включала сведения об Operations Management Suite (OMS) — наборе следующих служб управления Azure:
+
+- Служба автоматизации Azure
+- Служба архивации Azure
+- Служба Log Analytics
+- Site Recovery
+
+Мы прекращаем описание этого набора в нашей технической документации, так как решения по полному управлению в Azure теперь включают другие службы. Службы, которые являются частью OMS, не изменены. Все они по-прежнему играют важную роль в управлении приложениями и ресурсами Azure. Мы рекомендуем вам обратить внимание на актуальные задачи управления, которые можно выполнить с использованием разных служб Azure.

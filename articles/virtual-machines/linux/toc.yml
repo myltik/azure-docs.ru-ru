@@ -89,6 +89,8 @@
           href: sizes-hpc.md
         - name: Единицы вычислений Azure (ACU)
           href: acu.md
+        - name: Результаты теста производительности
+          href: compute-benchmark-scores.md
     - name: Рекомендуемые дистрибутивы
       href: endorsed-distros.md
     - name: Обслуживание и обновления
@@ -145,7 +147,7 @@
         - name: шифрование;
           href: encrypt-disks.md
         - name: Использование элементов управления доступом
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Использование политик
           href: policy.md
         - name: создать хранилище ключей;
@@ -400,6 +402,8 @@
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Назначение общедоступного DNS-имени
           href: portal-create-fqdn.md
+        - name: Поиск и удаление неподключенных сетевых адаптеров
+          href: find-unattached-nics.md
         - name: Разрешение DNS
           href: azure-dns.md
           items:

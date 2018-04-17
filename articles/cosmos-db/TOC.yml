@@ -6,8 +6,6 @@ items:
     items:
       - name: О базе данных Azure Cosmos
         href: introduction.md
-      - name: Эксперимент с документацией
-        href: experiment.md
   - name: Быстрое начало работы
     expanded: true
     items:
@@ -185,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: SQL Playground
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Секционирование
+              - name: Секционирование данных SQL
                 href: sql-api-partition-data.md
               - name: 'Хранимые процедуры, триггеры и определяемые пользователем функции'
                 href: programming.md
@@ -288,6 +286,8 @@ items:
             items:
               - name: Поддержка Gremlin
                 href: gremlin-support.md
+              - name: Секционирование данных Graph
+                href: graph-partitioning.md
           - name: API таблицы
             items:
               - name: Разработка с помощью средств для работы с таблицами
@@ -330,8 +330,6 @@ items:
             href: geospatial.md
           - name: Индексация
             href: indexing-policies.md
-          - name: Подключенная служба в Visual Studio
-            href: connected-service.md
       - name: управление
         items:
           - name: Экономичные операции чтения и записи
@@ -396,7 +394,7 @@ items:
           - name: Визуализация данных с помощью драйвера ODBC
             href: odbc-driver.md
           - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Справочные материалы
     items:
       - name: Примеры кода
