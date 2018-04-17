@@ -24,7 +24,7 @@
 ###[Развертывание шаблонов с помощью Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Безопасность (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Использование назначений ролей для управления ресурсами](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Использование назначений ролей для управления ресурсами](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Виртуальные машины](azure-operations-guide.md#azure-virtual-machines)
 ### [Размеры виртуальных машин для Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
