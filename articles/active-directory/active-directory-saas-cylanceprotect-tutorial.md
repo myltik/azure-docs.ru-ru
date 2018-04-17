@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Руководство. Интеграция Azure Active Directory с CylancePROTECT
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/12/2018
 1. Добавление CylancePROTECT из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-cylanceprotect-from-the-gallery"></a>Добавление CylancePROTECT из коллекции
+## <a name="adding-cylanceprotect-from-the-gallery"></a>Добавление CylancePROTECT из коллекции.
 Чтобы настроить интеграцию CylancePROTECT с Azure AD, необходимо добавить CylancePROTECT из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить CylancePROTECT из коллекции, сделайте следующее:**
@@ -138,7 +138,7 @@ ms.lasthandoff: 03/12/2018
 
     ![Конфигурация CylancePROTECT](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Чтобы настроить единый вход на стороне **CylancePROTECT**, нужно отправить **скачанный сертификат в кодировке Base64, URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** в [группу поддержки CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+7. Чтобы настроить единый вход на стороне **CylancePROTECT**, нужно отправить **скачанный сертификат в кодировке Base64, URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** администратору консоли. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -177,7 +177,7 @@ ms.lasthandoff: 03/12/2018
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Создание тестового пользователя CylancePROTECT
 
-Из этого раздела вы узнаете, как создать пользователя Britta Simon в приложении CylancePROTECT. Чтобы добавить пользователей на платформе CylancePROTECT, обратитесь в [службу технической поддержки CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
+Из этого раздела вы узнаете, как создать пользователя Britta Simon в приложении CylancePROTECT. Чтобы добавить пользователей на платформе CylancePROTECT, обратитесь к администратору консоли. Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 

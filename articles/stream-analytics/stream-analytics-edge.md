@@ -1,24 +1,19 @@
 ---
-title: "Azure Stream Analytics в IoT Edge (предварительная версия)"
-description: "Создание заданий Edge в Azure Stream Analytics и их развертывание на устройствах, запущенных в Azure IoT Edge."
-keywords: "поток данных, iot, edge"
+title: Azure Stream Analytics в IoT Edge (предварительная версия)
+description: Создание заданий Edge в Azure Stream Analytics и их развертывание на устройствах, запущенных в Azure IoT Edge.
 services: stream-analytics
-documentationcenter: 
 author: jseb225
-manager: jhubbard
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
+ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics в IoT Edge (предварительная версия)
 
@@ -207,7 +202,7 @@ ASA в IoT Edge доступна в качестве образов Windows и L
 * [Уведомление сторонних производителей для Azure Stream Analytics в IoT Edge (предварительная версия)](https://go.microsoft.com/fwlink/?linkid=862828)
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 
 ## <a name="next-steps"></a>Дополнительная информация

@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio"
-description: "Узнайте, как устранять неполадки в работе веб-приложения Azure с помощью удаленной отладки, трассировки и средств ведения журналов, которые встроены в Visual Studio 2013."
+title: Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio
+description: Узнайте, как устранять неполадки в работе веб-приложения Azure с помощью удаленной отладки, трассировки и средств ведения журналов, которые встроены в Visual Studio 2013.
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio
 ## <a name="overview"></a>Обзор
@@ -125,12 +125,14 @@ Visual Studio обеспечивает доступ к сокращенному 
 
 3. Удалите метод `About()` и вставьте вместо него следующий код.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Задайте точку останова](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) в строке `ViewBag.Message`.
 
 5. В **обозревателе решений** щелкните правой кнопкой мыши проект и выберите **Опубликовать**.
@@ -241,10 +243,12 @@ Visual Studio обеспечивает доступ к сокращенному 
 * Во время отладки сервер отправляет данные в среду Visual Studio, что может повлиять на расходы, связанные с пропускной способностью. Сведения о тарифах на пропускную способность см. в разделе [Цены на Azure](https://azure.microsoft.com/pricing/calculator/).
 * Убедитесь, что атрибут `debug` элемента `compilation` в файле *Web.config* имеет значение true. По умолчанию при публикации отладочной конфигурации сборки для него задано значение true.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Если вы обнаружите, что отладчик не осуществляет пошаговое выполнение кода, который требуется отладить, может потребоваться изменить параметр "Только мой код".  Дополнительные сведения см. в разделе [Ограничение выполнения шагов только моим кодом](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * При активации функции удаленной отладки на сервере запускается таймер, который автоматически отключает эту функцию по истечении 48 часов. Это 48-часовое ограничение установлено в целях повышения безопасности и производительности. Вы можете в любое время снова активировать эту функцию. Если вы не ведете отладку, эту функцию рекомендуется оставить отключенной.
 * Вы можете вручную присоединить отладчик к любому процессу, а не только к процессу веб-приложения (w3wp.exe). Дополнительные сведения о том, как использовать режим отладки в Visual Studio, см. в разделе [Отладка в Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ Visual Studio обеспечивает доступ к сокращенному 
 ### <a name="add-tracing-statements-to-the-application"></a>Добавление инструкций трассировки в приложение
 1. Откройте файл *Controllers\HomeController.cs* и замените методы `Index`, `About` и `Contact` приведенным ниже кодом, чтобы добавить инструкции `Trace` и инструкцию `using` для `System.Diagnostics`.
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Добавьте в начало файла инструкцию `using System.Diagnostics;` .
 
 ### <a name="view-the-tracing-output-locally"></a>Просмотр результатов трассировки локально
@@ -315,25 +322,30 @@ Visual Studio обеспечивает доступ к сокращенному 
     Ниже показано, как просмотреть выходные данные трассировки на веб-странице без компиляции в режиме отладки.
 2. Откройте файл Web.config приложения (находится в папке проекта) и добавьте элемент `<system.diagnostics>` в конец файла непосредственно перед закрывающим элементом `</configuration>`:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    `WebPageTraceListener` позволяет просматривать результаты трассировки, открыв `/trace.axd`.
+`WebPageTraceListener` позволяет просматривать результаты трассировки, открыв `/trace.axd`.
 3. Добавьте <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">элемент трассировки</a> под `<system.web>` в файле Web.config, например так:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Для запуска приложения нажмите сочетание клавиш CTRL+F5.
-5. В адресной строке окна браузера добавьте *trace.axd* к URL-адресу и нажмите клавишу ВВОД (URL-адрес должен иметь вид http://localhost:53370/trace.axd).
+5. В адресной строке окна браузера добавьте *trace.axd* к URL-адресу и нажмите клавишу "ВВОД" (URL-адрес должен иметь вид http://localhost:53370/trace.axd)).
 6. На странице **Трассировка приложения** щелкните **Просмотр сведений** в первой строке (не в строке BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -362,7 +374,7 @@ Visual Studio обеспечивает доступ к сокращенному 
     ![Просмотр журналов потоковой передачи в контекстном меню](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 4. В окне браузера с открытой главной страницей щелкните пункт **Contact**.
 
-    Через несколько секунд в окне `Contact`Вывод **появятся результаты трассировки уровня ошибки, добавленные в метод** .
+    Через несколько секунд в окне `Contact`Вывод**появятся результаты трассировки уровня ошибки, добавленные в метод**.
 
     ![Трассировка ошибок в окне вывода](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -646,15 +658,18 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 * [Трассировка в представлениях ASP.NET MVC Razor](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Помимо трассировки в представлениях Razor, в этом посте также описывается, как создать фильтр ошибок, чтобы регистрировать все необработанные исключения в приложении MVC. Сведения о записи в журнал всех необработанных исключений в приложении Web Forms представлены в примере Global.asax в разделе [Полный пример для обработчиков ошибок](http://msdn.microsoft.com/library/bb397417.aspx) на сайте MSDN. Если в MVC или Web Forms понадобится зарегистрировать определенные исключения, но позволить платформе их обрабатывать, можно перехватить и повторно создать элементы, как показано на следующем примере:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Потоковая передача диагностических журналов трассировки из командной строки Azure (включая Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Как использовать командную строку, чтобы сделать все, что показано в этом руководстве на примере Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) – это средство для отладки приложений ASP.NET.
 * [Использование функций диагностики и ведения журнала для веб-приложений с Дэвидом Эббо (David Ebbo)](/documentation/videos/azure-web-site-logging-and-diagnostics/) и [Потоковая передача журналов из веб-приложений с Дэвидом Эббо (David Ebbo)](/documentation/videos/log-streaming-with-azure-web-sites/)<br>

@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Справочник по синтаксису SQL в Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB позволяет выполнять запросы к документам с помощью знакомой грамматики SQL, например к иерархическим файлам JSON, без использования явных схем или создания вторичных индексов. В этой статье содержится справочная документация по языку SQL-запросов, совместимому с учетными записями API SQL.
 
@@ -465,7 +463,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Представляет значение указанного имени параметра. Имена параметров должны начинаться со знака "\@\".  
+     Представляет значение указанного имени параметра. Имена параметров должны начинаться со знака \"\@\".  
   
  **Примечания**  
   

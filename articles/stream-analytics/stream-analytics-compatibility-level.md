@@ -1,13 +1,12 @@
 ---
-title: "Общие сведения об уровне совместимости заданий Azure Stream Analytics. | Документация Майкрософт"
-description: "Узнайте, как установить уровень совместимости для задания Azure Stream Analytics и основные изменения в последнем уровне совместимости."
-keywords: "Уровень совместимости, потоковая передача данных"
-documentationcenter: 
+title: Общие сведения об уровне совместимости заданий Azure Stream Analytics. | Документация Майкрософт
+description: Узнайте, как установить уровень совместимости для задания Azure Stream Analytics и основные изменения в последнем уровне совместимости.
+keywords: Уровень совместимости, потоковая передача данных
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
-editor: 
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6f7f2314d225aa02be28fa817151f8f245478cf0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Уровень совместимости заданий Azure Stream Analytics
  
@@ -46,7 +45,7 @@ ms.lasthandoff: 02/09/2018
 
   * **Предыдущие версии.** Azure Stream Analytics использует DataContractSerializer, поэтому в содержимое сообщения включены XML-теги. Например: 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **Текущая версия.** Содержимое сообщения напрямую содержит поток без дополнительных тегов. Например: 
   

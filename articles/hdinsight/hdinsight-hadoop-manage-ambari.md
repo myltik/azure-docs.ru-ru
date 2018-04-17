@@ -1,8 +1,8 @@
 ---
-title: "Мониторинг и управление кластерами Azure HDInsight с помощью веб-интерфейса Ambari | Документация Майкрософт"
-description: "Узнайте, как использовать Ambari для наблюдения за кластерами HDInsight на платформе Linux и управления их функционированием. В этом документе рассказывается об использовании веб-интерфейса Ambari, предоставляемого с кластерами HDInsight."
+title: Мониторинг и управление кластерами Azure HDInsight с помощью веб-интерфейса Ambari | Документация Майкрософт
+description: Узнайте, как использовать Ambari для наблюдения за кластерами HDInsight на платформе Linux и управления их функционированием. В этом документе рассказывается об использовании веб-интерфейса Ambari, предоставляемого с кластерами HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Управление кластерами HDInsight с помощью веб-интерфейса Ambari
 
@@ -41,7 +41,7 @@ Apache Ambari упрощает управление кластером Hadoop и
 
 ## <a name="connectivity"></a>Соединение
 
-Веб-интерфейс Ambari доступен по адресу HTTPS://CLUSTERNAME.azurehdidnsight.net, где **CLUSTERNAME** — это имя вашего кластера HDInsight.
+Веб-интерфейс Ambari доступен по адресу HTTPS://CLUSTERNAME.azurehdinsight.net, где **CLUSTERNAME** — это имя вашего кластера HDInsight.
 
 > [!IMPORTANT]
 > Подключение к Ambari в HDInsight выполняется по протоколу HTTPS. При появлении запроса на прохождение проверки подлинности используйте имя и пароль учетной записи администратора, указанные при создании кластера.

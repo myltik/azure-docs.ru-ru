@@ -1,11 +1,11 @@
 ---
-title: "Заметки о выпуске пакета SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Заметки о выпуске пакета SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure"
+title: Заметки о выпуске пакета SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure | Документация Майкрософт
+description: Заметки о выпуске пакета SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b87045c-79c2-46da-a147-c075bf276b89
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ef242cd4b1924092714325ce744f37af42c101b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Заметки о выпуске пакета SDK для Windows Phone Silverlight
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 ##<a name="331-11032016"></a>3.3.1 (11/03/2016)
 Входит в пакет NuGet *MicrosoftAzure.MobileEngagement***версии 3.4.1**
 

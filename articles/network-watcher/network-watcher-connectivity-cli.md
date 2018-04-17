@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок подключений с помощью службы \"Наблюдатель за сетями Azure\" в Azure CLI 2.0 | Документация Майкрософт"
-description: "Узнайте, как использовать функцию устранения неполадок подключений с помощью службы \"Наблюдатель за сетями Azure\" с помощью Azure CLI 2.0."
+title: Устранение неполадок подключений с помощью службы "Наблюдатель за сетями Azure" в Azure CLI 2.0 | Документация Майкрософт
+description: Узнайте, как использовать функцию устранения неполадок подключений с помощью службы "Наблюдатель за сетями Azure" с помощью Azure CLI 2.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article

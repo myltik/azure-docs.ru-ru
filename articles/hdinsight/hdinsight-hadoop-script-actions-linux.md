@@ -1,8 +1,8 @@
 ---
-title: "Разработка действий сценариев с помощью кластера HDInsight под управлением Linux (Azure) | Документация Майкрософт"
-description: "Узнайте, как настраивать кластеры HDInsight под управлением Linux с помощью bash-сценариев. Действия сценариев в HDInsight позволяют выполнять сценарии во время или после создания кластера. С помощью сценария можно изменить параметры конфигурации кластера или установить дополнительное программное обеспечение."
+title: Разработка действий сценариев с помощью кластера HDInsight под управлением Linux (Azure) | Документация Майкрософт
+description: Узнайте, как настраивать кластеры HDInsight под управлением Linux с помощью bash-сценариев. Действия сценариев в HDInsight позволяют выполнять сценарии во время или после создания кластера. С помощью сценария можно изменить параметры конфигурации кластера или установить дополнительное программное обеспечение.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Разработка действий сценариев с помощью HDInsight
 
@@ -103,7 +103,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Полный сценарий с этими фрагментами кода см. по адресу https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+Полный скрипт, который содержит эти фрагменты кода, находится здесь: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
 Сведения о версии Ubuntu, используемой в HDInsight, см. в документе [HDInsight component version](hdinsight-component-versioning.md) (Версия компонента HDInsight).
 
@@ -168,7 +168,7 @@ echo "Getting ready to install Foo"
 >&2 echo "An error occurred installing Foo"
 ```
 
-Информация, записываемая в STDOUT, перенаправляется STDERR (2). Дополнительные сведения о перенаправлении ввода-вывода см. на странице [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Информация, записываемая в STDOUT, перенаправляется STDERR (2). Дополнительные сведения о перенаправлении операций ввода и вывода см. здесь: [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Дополнительные сведения о просмотре журналов, созданных действиями сценариев, см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
@@ -221,7 +221,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Вспомогательные методы для пользовательских сценариев
 
-Вспомогательные методы действий сценариев — это служебные программы, которые можно использовать при создании пользовательских сценариев. Эти методы содержатся в сценарии [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh). Чтобы скачать и использовать их как часть сценария, используйте следующую команду:
+Вспомогательные методы действий сценариев — это служебные программы, которые можно использовать при создании пользовательских сценариев. Эти методы содержатся в скрипте [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh). Чтобы скачать и использовать их как часть сценария, используйте следующую команду:
 
 ```bash
 # Import the helper method module.
@@ -317,7 +317,7 @@ fi
 Ниже приведены шаги для подготовки к развертыванию сценария:
 
 * Поместите файлы, содержащие пользовательские сценарии, в месте, доступном из узлов кластера во время развертывания. Например, в хранилище по умолчанию для кластера. Файлы также могут храниться в общедоступных службах размещения.
-* Убедитесь, что сценарий является идемпотентным. Это обеспечит многократное выполнение сценария на одном узле.
+* Скрипт должен быть идемпотентным. Это обеспечит многократное выполнение сценария на одном узле.
 * Используйте папку для временных файлов, например /tmp, чтобы хранить скачанные файлы, используемый сценариями. После выполнения сценариев очистите эту папку.
 * В случае изменений параметров на уровне операционной системы или файлов конфигурации службы Hadoop может потребоваться перезапуск служб HDInsight.
 

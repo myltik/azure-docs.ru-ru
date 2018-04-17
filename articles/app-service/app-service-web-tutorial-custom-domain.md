@@ -1,12 +1,12 @@
 ---
-title: "Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure | Документация Майкрософт"
-description: "Узнайте, как добавить имеющееся DNS-имя личного домена (именного домена) для веб-приложения, серверной части мобильного приложения или приложения API в службе приложений Azure."
-keywords: "служба приложений, служба приложений Azure, сопоставление доменов, доменное имя, существующий домен, имя узла"
+title: Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure | Документация Майкрософт
+description: Узнайте, как добавить имеющееся DNS-имя личного домена (именного домена) для веб-приложения, серверной части мобильного приложения или приложения API в службе приложений Azure.
+keywords: служба приложений, служба приложений Azure, сопоставление доменов, доменное имя, существующий домен, имя узла
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Руководство. Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure
 
 [Веб-приложения Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как сопоставить имеющееся DNS-имя личного домена с веб-приложением Azure.
 
@@ -292,7 +292,7 @@ ms.lasthandoff: 02/01/2018
 
 ![Настройка виртуального каталога](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-После завершения операции приложение должно вернуть соответствующую страницу в корневом каталоге (например, http://contoso.com).
+По завершении операции приложение должно вернуть соответствующую страницу в корневом каталоге (например, http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Автоматизация с помощью сценариев
 

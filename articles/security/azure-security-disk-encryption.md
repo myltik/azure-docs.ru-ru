@@ -1,6 +1,6 @@
 ---
-title: "Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux | Документация Майкрософт"
-description: "В этой статье приведен обзор шифрования дисков Microsoft Azure для виртуальных машин IaaS под управлением Windows и Linux."
+title: Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux | Документация Майкрософт
+description: В этой статье приведен обзор шифрования дисков Microsoft Azure для виртуальных машин IaaS под управлением Windows и Linux.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux
 Microsoft Azure обеспечивает конфиденциальность и независимость ваших данных всеми возможными способами. К данным, размещенным в Azure, можно применять целый ряд современных технологий для шифрования данных, контроля ключей шифрования и управления ими, а также контроля и аудита доступа к данным. Благодаря этому клиенты Azure получают гибкость в выборе решения, которое лучше всего соответствует потребностям их компании. В этом документе описывается новое технологическое решение «Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux», которое защитит ваши данные в соответствии с корпоративными критериями безопасности и соответствия. Этот документ содержит подробные инструкции по использованию возможностей дискового шифрования Azure, а также описывает поддерживаемые сценарии и взаимодействие с пользователем.
@@ -157,12 +157,12 @@ Microsoft Azure обеспечивает конфиденциальность и
 * Для URL-адресов секрета и ключа шифрования ключей (KEK) хранилища ключей необходимо включить управление версиями. Это требование Azure. Ниже приведены примеры действительных URL-адресов секрета и ключа шифрования ключей.
 
   * Пример допустимого URL-адреса секрета: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
-  * Пример допустимого ключа шифрования ключей: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
+  * Пример допустимого URL-адреса ключа шифрования ключей: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
 
 * Шифрование дисков Azure не поддерживает указание номеров портов в URL-адресах секрета и ключа шифрования ключей для хранилища ключей. Ниже приведены примеры недопустимых и допустимых URL-адресов хранилища ключей.
 
-  * Недопустимый URL-адрес хранилища ключей: *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
-  * Допустимый URL-адрес хранилища ключей: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
+  * Неприемлемый URL-адрес хранилища ключей: *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
+  * Приемлемый URL-адрес хранилища ключей: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*.
 
 * Чтобы использовать функцию шифрования дисков Azure, конфигурация конечной точки виртуальной машины IaaS должна соответствовать приведенным ниже требованиям.
   * Виртуальная машина IaaS должна иметь возможность подключиться к конечной точке Azure Active Directory \[login.microsoftonline.com\], чтобы получить маркер для подключения к хранилищу ключей.
@@ -172,7 +172,7 @@ Microsoft Azure обеспечивает конфиденциальность и
   > [!NOTE]
   > Если ваша политика безопасности ограничивает доступ к Интернету с виртуальных машин Azure, можно разрешить указанный выше универсальный код ресурса (URI) и настроить определенное правило, чтобы разрешить исходящие подключения к данным IP-адресам.
   >
-  >Сведения о настройке Azure Key Vault и доступе к нему через брандмауэр: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
+  >Ознакомьтесь со сведениями о настройке Azure Key Vault с защитой брандмауэра и доступе к нему (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall).
 
 * Для настройки шифрования диска Azure используйте последнюю версию пакета SDK для Azure PowerShell. Скачайте последнюю версию [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -193,7 +193,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 * Для настройки необходимых компонентов шифрования дисков с помощью Azure CLI ознакомьтесь с [этим сценарием Bash](https://github.com/ejarvi/ade-cli-getting-started).
 * Чтобы использовать службу архивации Azure для архивации и восстановления зашифрованных виртуальных машин, использующих шифрование дисков Azure, необходимо шифровать виртуальные машины с помощью конфигурации с ключом шифрования для шифрования дисков Azure. Служба Backup поддерживает только виртуальные машины, зашифрованные с помощью конфигурации с ключом шифрования ключей (KEK) или без него. См. раздел [Архивация и восстановление зашифрованных виртуальных машин с помощью службы архивации Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Обратите внимание, что сейчас после завершения шифрования тома операционной системы Linux нужно перезагрузить виртуальную машину. Это можно сделать через портал, а также с использованием PowerShell или интерфейса командной строки.   Чтобы отслеживать ход шифрования, периодически запрашивайте сообщение о состоянии, возвращаемое командлетом Get-AzureRmVMDiskEncryptionStatus (https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus).  После завершения шифрования возвращенное этой командой сообщение о состоянии будет указывать на это.  Например, "Сообщение о ходе выполнения: диск ОС успешно зашифрован, перезапустите виртуальную машину". На этом этапе виртуальную машину можно перезапустить и использовать.  
+* Обратите внимание, что сейчас после завершения шифрования тома операционной системы Linux нужно перезагрузить виртуальную машину. Это можно сделать через портал, а также с использованием PowerShell или интерфейса командной строки.   Чтобы отслеживать ход шифрования, периодически подавайте запрос на сообщение о состоянии, возвращаемое методом Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  По завершении шифрования эта команда вернет соответствующее сообщение. Например, "Сообщение о ходе выполнения: диск ОС успешно зашифрован, перезапустите виртуальную машину". На этом этапе виртуальную машину можно перезапустить и использовать.  
 
 * До шифрования дисков Azure для Linux необходимо, чтобы диски данных были подключены к файловой системе Linux.
 
@@ -224,25 +224,25 @@ Microsoft Azure обеспечивает конфиденциальность и
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Настройка идентификатора и секрета клиента Azure AD на портале Azure
 Можно также настроить идентификатор и секрет клиента Azure AD с помощью портала Azure. Для этого выполните следующее.
 
-1. Щелкните вкладку **Active Directory**.
+1. Последовательно выберите **Все службы > Azure Active Directory**
 
- ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Нажмите кнопку **Добавить приложение** и введите имя приложения.
+2. Последовательно выберите **Регистрация приложений > Регистрация нового приложения**
 
- ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Нажмите кнопку со стрелкой и настройте свойства приложения.
+3. Укажите запрашиваемые сведения и создайте приложение:
 
- ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Щелкните флажок в левом нижнем углу, чтобы завершить процесс. Откроется страница настройки приложения. Идентификатор клиента Azure AD отображается в нижней части этой страницы.
+4. Выберите только что созданное приложение, чтобы просмотреть его свойства, включая идентификатор приложения.  Чтобы создать ключ для приложения, последовательно выберите **Параметры > Ключи**, добавьте описание и срок действия ключа, а затем щелкните **Сохранить**
 
- ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Сохраните секрет клиента Azure AD, щелкнув кнопку **Сохранить**. Запишите секрет клиента Azure AD, указанный в текстовом поле ключей. Храните его с соблюдением мер предосторожности.
+5. Скопируйте созданное значение секрета и сохраните его с соблюдением мер предосторожности.
 
- ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Дисковое шифрование Azure](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Использование существующего приложения
@@ -698,15 +698,15 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 ### <a name="enable-encryption-on-pre-encrypted-iaas-vm-with-azure-managed-disk"></a>Включение шифрования для предварительно зашифрованной виртуальной машины IaaS с управляемым диском Azure
 Для создания зашифрованной виртуальной машины на основе предварительно зашифрованного виртуального жесткого диска используйте шаблон ARM управляемого диска Azure, расположенный на странице   
-[Создание зашифрованного управляемого диска на основе предварительно зашифрованного виртуального жесткого диска или BLOB-объекта] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+[Create a new encrypted managed disk from a pre-encrypted VHD/storage blob (Создание нового зашифрованного управляемого диска из предварительно зашифрованного виртуального жесткого диска или большого двоичного объекта хранилища)] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk).
 
 ### <a name="enable-encryption-on-a-new-linux-iaas-vm-with-azure-managed-disk"></a>Включение шифрования для новой виртуальной машины IaaS с ОС Linux и управляемым диском Azure
 Для создания зашифрованной виртуальной машины IaaS с ОС Linux используйте шаблон ARM управляемого диска Azure, расположенный на странице   
-[Развертывание RHEL 7.2 с полным шифрованием дисков] (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+[Deployment of RHEL 7.2 with full disk encryption (Развертывание RHEL 7.2 с полным шифрованием диска)] (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel).
 
 ### <a name="enable-encryption-on-a-new-windows-iaas-vm-with-azure-managed-disk"></a>Включение шифрования для новой виртуальной машины IaaS с ОС Windows и управляемым диском Azure
  Для создания зашифрованной виртуальной машины IaaS с ОС Linux используйте шаблон ARM управляемого диска Azure, расположенный на странице   
- [Создание зашифрованной виртуальной машины IaaS с ОС Windows и управляемым диском на основе образа из коллекции] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+ [Create a new encrypted Windows IaaS Managed Disk VM from gallery image (Создание новой зашифрованной виртуальной машины с управляемым диском Windows IaaS на основе образа из коллекции)] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks).
 
   > [!NOTE]
   >Нужно обязательно создать образ или резервную копию экземпляра виртуальной машины на основе управляемого диска вне шифрования дисков Azure и перед включением этой функции.  Моментальный снимок управляемого диска можно создать с портала или использовать для этого Azure Backup.  Резервные копии обеспечивают возможность восстановления при любом непредвиденном сбое во время шифрования.  После создания резервной копии можно зашифровать управляемые диски с помощью командлета Set-AzureRmVMDiskEncryptionExtension, указав параметр -skipVmBackup.  Эта команда будет завершаться ошибкой при использовании с виртуальными машинами на основе управляемых дисков, пока не будет сделана резервная копия и указан определенный параметр.    
@@ -780,14 +780,10 @@ Microsoft Azure обеспечивает конфиденциальность и
 > Чтобы получить внешний ключ с использованием BitLocker, подготовьте виртуальную машину с отдельным виртуальным жестким диском для данных и ресурсов.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Шифрование диска ОС на работающей виртуальной машине Linux
-Шифрование диска ОС работающей виртуальной машины Linux поддерживается в следующих дистрибутивах:
-
-* RHEL 7.2;
-* CentOS 7.2;
-* Ubuntu 16.04.
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Предварительные требования для шифрования диска ОС
 
+* Виртуальная машина должна использовать дистрибутив, который совместим с шифрованием диска ОС. Список дистрибутивов приведен в разделе [Какие дистрибутивы Linux поддерживает шифрование дисков Azure?](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * Виртуальная машина должна быть создана из образа Marketplace в Azure Resource Manager.
 * Виртуальная машина Azure по крайней мере с 4 ГБ ОЗУ (рекомендуемый размер — 7 ГБ).
 * (Для RHEL и CentOS.) Отключите SELinux. Чтобы отключить SELinux на виртуальной машине, ознакомьтесь с разделом "4.4.2. Disabling SELinux" (4.4.2. Отключение SELinux) [руководства пользователя и администратора SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux).

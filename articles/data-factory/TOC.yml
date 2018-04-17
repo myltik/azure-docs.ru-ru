@@ -116,8 +116,14 @@
       href: concepts-integration-runtime.md
 - name: Практические руководства
   items:
-    - name: Визуальная разработка фабрик данных
-      href: author-visually.md
+    - name: Автор
+      items:
+        - name: Визуальная разработка фабрик данных
+          href: author-visually.md
+        - name: Непрерывная интеграция и развертывание
+          href: continuous-integration-deployment.md
+        - name: Последовательная разработка и отладка
+          href: iterative-development-debugging.md
     - name: Копирование данных
       items:
         - name: Копирование данных с помощью действия копирования

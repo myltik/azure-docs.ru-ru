@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: be8e58cd998abf0105c3ef17bd3e192605f15ecd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью PHP
 Из этого краткого руководства вы узнаете, как использовать PHP для передачи, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
 Эта команда клонирует репозиторий в локальную папку git. Чтобы открыть пример приложения PHP, найдите папку storage-blobs-php-quickstart и откройте файл phpqs.php.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Настройка строки подключения хранилища
 В приложении нужно указать имя и ключ учетной записи хранения, чтобы создать экземпляр **BlobRestProxy** для вашего приложения. Рекомендуем хранить эти идентификаторы в переменной среды на локальном компьютере, где выполняется приложение. Чтобы создать переменную среды, используйте один из следующих примеров в зависимости от операционной системы. Замените строки **youraccountname** и **youraccountkey** фактическими значениями имени и ключа учетной записи.
@@ -206,10 +208,10 @@ This is the content of the blob uploaded: Hello Azure!
 
 ## <a name="next-steps"></a>Дополнительная информация
  
-В этом кратком руководстве вы узнали, как передавать файлы между локальным диском и хранилищем BLOB-объектов Azure с помощью PHP. Дополнительные сведения о работе с хранилищем BLOB-объектов см. в соответствующем практическом руководстве.
+В этом кратком руководстве вы узнали, как передавать файлы между локальным диском и хранилищем BLOB-объектов Azure с помощью PHP. Чтобы узнать подробнее о работе с PHP, перейдите на сайт Центра разработчиков PHP.
 
 > [!div class="nextstepaction"]
-> [Практическое руководство по операциям в хранилище BLOB-объектов](./storage-php-how-to-use-blobs.md)
+> [Центр разработчиков PHP](https://azure.microsoft.com/en-us/develop/php/)
 
 
 Дополнительные сведения об обозревателе объектов и BLOB-объектах см. в статье [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

@@ -1,23 +1,23 @@
 ---
-title: "Руководство по службе \"Экземпляры контейнеров Azure. Подготовка приложения"
-description: "Руководство по службе \"Экземпляры контейнеров Azure\" —часть 1 из 3. Подготовка приложения для развертывания в службе \"Экземпляры контейнеров Azure\"."
+title: Руководство по службе "Экземпляры контейнеров Azure. Подготовка приложения
+description: Руководство по службе "Экземпляры контейнеров Azure" —часть 1 из 3. Подготовка приложения для развертывания в службе "Экземпляры контейнеров Azure".
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 5012412ec642a04102836274caea253635376efb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 134cc6ea84a5851755c757cbcf20130bf890575c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-container-for-deployment-to-azure-container-instances"></a>Создание контейнера для развертывания в службе "Экземпляры контейнеров Azure"
+# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Руководство. Создание контейнера для развертывания в службе "Экземпляры контейнеров Azure"
 
-Служба "Экземпляры контейнеров Azure" позволяет развертывать контейнеры Docker в инфраструктуре Azure без подготовки виртуальных машин или применения службы более высокого уровня. В этом руководстве мы создадим небольшое веб-приложение на Node.js и упакуем его в контейнер, который можно запустить в службе "Экземпляры контейнеров Azure".
+Служба "Экземпляры контейнеров Azure" позволяет развертывать контейнеры Docker в инфраструктуре Azure без подготовки виртуальных машин или применения службы более высокого уровня. С помощью этого руководства мы создадим пакет небольшого веб-приложения Node.js в образе контейнера, который можно запустить в службе "Экземпляры контейнеров Azure".
 
 В этой статье (первой части цикла) вы:
 
@@ -26,33 +26,29 @@ ms.lasthandoff: 02/27/2018
 > * создадите образ контейнера из источника приложения;
 > * протестируете образ в локальном окружении Docker.
 
-В последующих руководствах мы отправим образ в реестр контейнеров Azure, а затем развернем его в службе "Экземпляры контейнеров Azure".
+С помощью следующих руководств мы отправим образ в Реестр контейнеров Azure, а затем развернем его в службе "Экземпляры контейнеров Azure".
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для этого руководства требуется Azure CLI 2.0.23 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][azure-cli-install].
-
-Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды `docker`. При необходимости см. руководство по [началу работы с Docker][docker-get-started], чтобы ознакомиться с базовыми сведениями о контейнерах.
-
-Для работы с этим руководством требуется среда разработки Docker, установленная локально. Docker предоставляет пакеты, которые позволяют быстро настроить Docker в любой системе [Mac][docker-mac], [Windows][docker-windows] или [Linux][docker-linux].
-
-Azure Cloud Shell не включает в себя компоненты Docker, необходимые для выполнения каждого шага этого руководства. Для работы с этим руководством вам необходимо установить среду разработки Azure CLI и Docker на свой локальный компьютер.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="get-application-code"></a>Получение кода приложения
 
-Пример в этом руководстве включает простое веб-приложение, написанное на [Node.js][nodejs]. Приложение работает как статическая HTML-страница и выглядит следующим образом:
+Пример приложения в этом руководстве включает простое веб-приложение, написанное на [Node.js][nodejs]. Приложение является статической HTML-страницей и выглядит примерно так:
 
 ![Приложение из руководства, отображающееся в браузере][aci-tutorial-app]
 
-Скачайте пример с помощью следующей команды git:
+Используйте Git, чтобы клонировать репозиторий с примером приложения:
 
 ```bash
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
+Вы также можете [скачать ZIP-архив][aci-helloworld-zip] напрямую из GitHub.
+
 ## <a name="build-the-container-image"></a>Создание образа контейнера
 
-Файл Dockerfile в примере репозитория демонстрирует, как создается контейнер. Он запускается из [официального образа Node.js][docker-hub-nodeimage] на основе [Alpine Linux][alpine-linux], небольшого дистрибутива, который хорошо подходит для использования с контейнерами. Затем файлы приложения копируются в контейнер, при помощи диспетчера пакетов узла устанавливаются зависимости и, наконец, запускается приложение.
+На примере файла Dockerfile в примере приложения показано, как создается контейнер. Он запускается из [официального образа Node.js][docker-hub-nodeimage] на основе [Alpine Linux][alpine-linux], небольшого дистрибутива, который хорошо подходит для использования с контейнерами. Затем файлы приложения копируются в контейнер, при помощи диспетчера пакетов узла устанавливаются зависимости, после чего запускается приложение.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -63,7 +59,7 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Используйте команду [docker build][docker-build], чтобы создать образ контейнера, добавив тег *aci-tutorial-app*:
+Используйте команду [docker build][docker-build], чтобы создать образ контейнера, и добавьте тег *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
@@ -71,7 +67,8 @@ docker build ./aci-helloworld -t aci-tutorial-app
 
 Выходные данные команды [docker build][docker-build] будут выглядеть примерно так (сокращено для удобства):
 
-```bash
+```console
+$ docker build ./aci-helloworld -t aci-tutorial-app
 Sending build context to Docker daemon  119.3kB
 Step 1/6 : FROM node:8.9.3-alpine
 8.9.3-alpine: Pulling from library/node
@@ -96,44 +93,53 @@ Successfully tagged aci-tutorial-app:latest
 docker images
 ```
 
-Выходные данные:
+Созданный образ должен отображаться в списке:
 
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```console
+$ docker images
+REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
+aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 ```
 
 ## <a name="run-the-container-locally"></a>Локальный запуск контейнера
 
-Прежде чем развертывать контейнер в службе "Экземпляры контейнеров Azure", запустите его локально, чтобы убедиться, что он работает. При помощи параметра `-d` можно запустить контейнер в фоновом режиме, а при помощи `-p` — сопоставить произвольный порт на компьютере с портом 80 в контейнере.
+Прежде чем развертывать контейнер в службе "Экземпляры контейнеров Azure", запустите его локально с помощью команды [docker run][docker-run], чтобы проверить, работает ли он. При помощи параметра `-d` можно запустить контейнер в фоновом режиме, а при помощи `-p` — сопоставить произвольный порт на компьютере с портом 80 в контейнере.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app
 ```
 
-Откройте в браузере страницу http://localhost:8080, чтобы убедиться, что контейнер запущен.
+Выходные данные команды `docker run` отображают идентификатор запущенного контейнера, если команда выполнена успешно:
+
+```console
+$ docker run -d -p 8080:80 aci-tutorial-app
+a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
+```
+
+Откройте в браузере страницу http://localhost:8080, чтобы проверить, запущен ли контейнер. Вы должны увидеть похожую страницу:
 
 ![Локальный запуск приложения в браузере][aci-tutorial-app-local]
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве мы создали образ контейнера, который можно развернуть в службе "Экземпляры контейнеров Azure". Были выполнены следующие действия:
+В этом руководстве вы создали образ контейнера, который можно развернуть в службе "Экземпляры контейнеров Azure", и проверили его запуск локально. На этом этапе вы выполнили следующие задачи:
 
 > [!div class="checklist"]
 > * клонирование источника приложения из GitHub;
-> * создание образов контейнеров из источника приложения;
+> * создание образа контейнера из источника приложения;
 > * локальное тестирование контейнера.
 
-Переходите к следующему руководству, чтобы узнать о хранении образов контейнеров в реестре контейнеров Azure.
+Переходите к следующему руководству, чтобы узнать о хранении образов контейнеров в Реестре контейнеров Azure.
 
 > [!div class="nextstepaction"]
-> [Развертывание реестра контейнеров Azure и его использование](./container-instances-tutorial-prepare-acr.md)
+> [Передача образа в Реестр контейнеров Azure](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
 [aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
 
 <!-- LINKS - External -->
+[aci-helloworld-zip]: https://github.com/Azure-Samples/aci-helloworld/archive/master.zip
 [alpine-linux]: https://alpinelinux.org/
 [docker-build]: https://docs.docker.com/engine/reference/commandline/build/
 [docker-get-started]: https://docs.docker.com/get-started/
@@ -143,6 +149,7 @@ docker run -d -p 8080:80 aci-tutorial-app
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 [nodejs]: http://nodejs.org

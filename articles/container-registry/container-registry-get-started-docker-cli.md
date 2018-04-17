@@ -1,6 +1,6 @@
 ---
-title: "Отправка образа Docker в частный реестр Azure"
-description: "Отправка образов Docker в частный реестр контейнеров в Azure и их получение с помощью интерфейса командной строки Docker"
+title: Отправка образа Docker в частный реестр Azure
+description: Отправка образов Docker в частный реестр контейнеров в Azure и их получение с помощью интерфейса командной строки Docker
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Отправка первого образа в частный реестр контейнеров Docker с помощью интерфейса командной строки Docker
 
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Теперь, когда вы знаете основы, можно приступать к использованию реестра. Например, разверните образы контейнера из реестра в кластер [службы контейнеров Azure](../aks/tutorial-kubernetes-prepare-app.md).
+Теперь, когда вы знаете основы, можно приступать к использованию реестра. Разверните образы контейнера из реестра в следующие службы:
+
+* [Служба контейнеров Azure](../aks/tutorial-kubernetes-prepare-app.md)
+* [Экземпляры контейнеров Azure](../container-instances/container-instances-tutorial-prepare-app.md);
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

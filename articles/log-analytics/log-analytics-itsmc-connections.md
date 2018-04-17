@@ -1,10 +1,10 @@
 ---
-title: "Поддерживаемые подключения с использованием соединителя управления ИТ-службами в Azure Log Analytics | Документы Майкрософт"
-description: "В этой статье описывается, как подключить продукты и службы ITSM с помощью соединителя управления ИТ-службами (ITSM) в OMS Log Analytics, чтобы централизованно отслеживать рабочие элементы ITSM и управлять ими."
-documentationcenter: 
+title: Поддерживаемые подключения с использованием соединителя управления ИТ-службами в Azure Log Analytics | Документы Майкрософт
+description: В этой статье описывается, как подключить продукты и службы ITSM с помощью соединителя управления ИТ-службами (ITSM) в OMS Log Analytics, чтобы централизованно отслеживать рабочие элементы ITSM и управлять ими.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами
 В этой статье описывается, как настроить в Log Analytics связь между продуктами или службами ITSM и соединителем управления ИТ-службами (ITSM), чтобы централизованно управлять рабочими элементами ITSM. Дополнительные сведения об ITSMC см. в [этом обзоре](log-analytics-itsmc-overview.md).
@@ -271,13 +271,7 @@ ms.lasthandoff: 02/22/2018
 
 > [!NOTE]
 
-> Чтобы разрешить пользователю создавать **оповещения** и **события** в ServiceNow из Azure, сделайте следующее:
-
-> - В экземпляре ServiceNow установите модуль управления событиями.
-
-> - Добавьте следующие роли для пользователя интеграции:
->      - evt_mgmt_integration;
->      - evt_mgmt_operator.  
+> Соединитель ITSM могут отправлять инциденты ServiceNow. Для этого на экземпляре ServiceNow не нужно устанавливать модули. Если в вашем экземпляре ServiceNow используется модуль EventManagement и вы хотите создать события или предупреждения в ServiceNow с помощью соединителя, добавьте следующие роли для пользователя интеграции: - evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Подключение Provance к Соединителю управления ИТ-услугами в Azure

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Часто задаваемые вопросы о простом едином входе Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>С какими методами входа работает простой единый вход?
 
-Простой единый вход можно использовать вместе с методами [синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) или [сквозной проверки подлинности](active-directory-aadconnect-pass-through-authentication.md). Однако эту функцию нельзя использовать со службами федерации Active Directory (AD FS).
+Простой единый вход можно использовать вместе с методами [синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) или [сквозной проверки подлинности](active-directory-aadconnect-pass-through-authentication.md). Однако эту функцию нельзя использовать со службами федерации Active Directory (AD FS).
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Простой единый вход — это бесплатная функция?
 
@@ -38,16 +38,23 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Какие приложения используют возможность параметра `domain_hint` или `login_hint` простого единого входа?
 
-Ниже приведен неполный список приложений, отправляющих эти параметры в Azure AD и тем самым обеспечивающих автоматический вход пользователей с помощью простого единого входа.
+Ниже приведен неполный список приложений, отправляющих эти параметры в Azure AD и тем самым обеспечивающих автоматический вход пользователей с помощью простого единого входа (то есть пользователю не требуется вводить имя пользователя):
 
 | имя приложения; | Используемый URL-адрес приложения |
 | -- | -- |
 | Панель доступа | myapps.microsoft.com/contoso.com |
 | Outlook on Web | outlook.office365.com/contoso.com |
 
-В приведенной выше таблице замените contoso.com своим доменным именем, чтобы получить соответствующие URL-адреса приложений для своего клиента.
+Кроме того, пользователи могут использовать автоматический единый вход, если приложение отправляет запросы на вход на клиентские конечные точки Azure AD, то есть https://login.microsoftonline.com/contoso.com/<..> или https://login.microsoftonline.com/<tenant_ID>/<..>, вместо обычной конечной точки Azure AD (https://login.microsoftonline.com/common/<...>). Ниже приведен неполный список приложений, которые выполняют такие типы запросов на вход.
 
-Если вас интересуют другие приложения, свяжитесь с нами в разделе "Комментарии".
+| имя приложения; | Используемый URL-адрес приложения |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Портал Azure | portal.azure.com/contoso.com |
+
+В приведенных выше таблицах замените contoso.com своим доменным именем, чтобы получить соответствующие URL-адреса приложений для своего клиента.
+
+Если вы хотите использовать автоматический единый вход для других приложений, сообщите нам об этом в разделе отзывов.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Поддерживает ли простой единый вход `Alternate ID` в качестве имени пользователя, а не `userPrincipalName`?
 
@@ -55,7 +62,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>В чем разница между технологией единого входа, предоставленной после [присоединения к Azure AD](../active-directory-azureadjoin-overview.md), и простым единым входом?
 
-После [присоединения к Azure AD](../active-directory-azureadjoin-overview.md) пользователи могут воспользоваться возможностями единого входа, если их устройства зарегистрированы в Azure AD. Эти устройства не должны быть присоединены к домену. Возможность единого входа обеспечивается с помощью *основных токенов обновления* (*PRT*), а не протокола Kerberos. Лучше всего эта возможность работает на устройствах с Windows 10. В браузере Edge единый вход выполняется автоматически. Эта возможность также работает в Chrome с использованием расширения браузера.
+После [присоединения к Azure AD](../active-directory-azureadjoin-overview.md) пользователи могут воспользоваться возможностями единого входа, если их устройства зарегистрированы в Azure AD. Эти устройства не должны быть присоединены к домену. Возможность единого входа обеспечивается с помощью *основных токенов обновления* (*PRT*), а не протокола Kerberos. Лучше всего эта возможность работает на устройствах с Windows 10. В браузере Microsoft Edge единый вход выполняется автоматически. Эта возможность также работает в Chrome с использованием расширения браузера.
 
 В клиенте можно настроить и технологию единого входа, предоставленную после присоединения к Azure AD, и простой единый вход. Эти две возможности дополняют друг друга. Если включены обе эти технологии, приоритет имеет единый вход, предоставленный после присоединения к Azure AD.
 
@@ -75,7 +82,7 @@ ms.lasthandoff: 03/08/2018
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Шаг 1. Получение списка лесов AD, где включен простой единый вход
 
 1. Для начала скачайте и установите [помощник по входу в Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Затем скачайте и установите [64-разрядный модуль Azure Active Directory для Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+2. Затем скачайте и установите [64-разрядный модуль Azure Active Directory для Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Перейдите в папку `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Импортируйте модуль PowerShell для простого единого входа с помощью следующей команды: `Import-Module .\AzureADSSO.psd1`.
 5. Откройте PowerShell от имени администратора. В PowerShell вызовите `New-AzureADSSOAuthenticationContext`. Появится всплывающее окно для ввода учетных данных глобального администратора клиента.

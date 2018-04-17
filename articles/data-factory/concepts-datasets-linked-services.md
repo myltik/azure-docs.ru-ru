@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: ''
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d88e4a068841f68feffb094b2aa07faaf5a6a8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Наборы данных и связанные службы в фабрике данных Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +125,7 @@ connectVia | [Среда выполнения интеграции](concepts-int
 Свойство | ОПИСАНИЕ | Обязательно |
 -------- | ----------- | -------- |
 name | Имя набора данных. Дополнительные сведения см. в статье [Фабрика данных Azure — правила именования](naming-rules.md). |  Yes |
-Тип | Тип набора данных. Укажите один из типов, которые поддерживает фабрика данных (например: AzureBlob, AzureSqlTable). <br/><br/>Дополнительные сведения см. в разделе [о типах наборов данных](#dataset-types). | Yes |
+Тип | Тип набора данных. Укажите один из типов, которые поддерживает фабрика данных (например: AzureBlob, AzureSqlTable). <br/><br/>Дополнительные сведения см. в разделе [о типах наборов данных](#dataset-type). | Yes |
 structure | Схема набора данных. Дополнительные сведения см. в разделе [Структура набора данных](#dataset-structure). | Нет  |
 typeProperties | Свойства каждого типа отличаются (например, свойства большого двоичного объекта Azure и таблицы SQL Azure). Сведения о поддерживаемых типах и их свойствах см. в разделе [Тип набора данных](#dataset-type). | Yes |
 

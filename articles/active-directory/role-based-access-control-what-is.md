@@ -1,8 +1,8 @@
 ---
-title: "Управление доступом и разрешениями с помощью Azure RBAC | Документация Майкрософт"
-description: "Начало работы с управлением доступом с помощью RBAC Azure на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге."
+title: Управление доступом и разрешениями с помощью Azure RBAC | Документация Майкрософт
+description: Начало работы с управлением доступом с помощью RBAC Azure на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d6911b8deb92fe6781bf79b4d5794101b266c63e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Начало работы с управлением доступом на основе ролей на портале Azure
 Ориентированным на информационную безопасность компаниям следует сосредоточиться на предоставлении сотрудникам именно тех разрешений, которые им необходимы. Слишком большое число разрешений делает учетную запись уязвимой для злоумышленников. Недостаточное число разрешений мешает эффективной работе сотрудников. Управление доступом на основе ролей (RBAC) Azure помогает решить эту задачу, обеспечивая точное управление доступом для Azure.

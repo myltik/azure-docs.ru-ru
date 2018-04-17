@@ -1,11 +1,11 @@
 ---
-title: "Проверки доступа Azure AD | Документация Майкрософт"
-description: "Проверки доступа Azure Active Directory позволяют управлять членством в группе и доступом к приложению, чтобы соответствовать требованиям к контролю, управлению рисками и соответствию в вашей организации."
+title: Проверки доступа Azure AD | Документация Майкрософт
+description: Проверки доступа Azure Active Directory позволяют управлять членством в группе и доступом к приложению, чтобы соответствовать требованиям к контролю, управлению рисками и соответствию в вашей организации.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c5d09b6f17fe8ae9be73d23d7aef6beae2ae43c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Проверки доступа Azure AD (предварительная версия)
+# <a name="azure-ad-access-reviews"></a>Проверки доступа Azure AD
 
-Проверки доступа Azure Active Directory (Azure AD) позволяют организациям эффективно управлять членством в группе и доступом к корпоративным приложениям. 
+Проверки доступа Azure Active Directory (Azure AD) позволяют организациям эффективно управлять членством в группе, доступом к корпоративным приложениям и назначением привилегированных ролей. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Какие возможности предоставляют проверки доступа?
    
@@ -30,6 +30,8 @@ ms.lasthandoff: 12/11/2017
 - С их помощью можно повторно подтвердить доступ сотрудников к приложениям и их членство в группах.
    
 - Можно собирать элементы управления проверки доступа в программы, соответствующие вашей организации, чтобы отслеживать доступ для приложений, чувствительных к риску или нарушениям соответствия.
+
+- Можно повторно сертифицировать назначение ролей для администраторов, которым назначены роли Azure AD, например роли глобального администратора или ролей в подписке Azure.  Эта возможность входит в состав Azure AD Privileged Identity Management.
     
 
 ## <a name="next-steps"></a>Дополнительная информация

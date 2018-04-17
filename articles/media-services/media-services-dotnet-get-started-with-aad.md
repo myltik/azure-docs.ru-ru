@@ -1,23 +1,23 @@
 ---
-title: "Использование аутентификации Azure AD для доступа к API служб мультимедиа Azure с помощью .NET | Документация Майкрософт"
-description: "В этом разделе показано, как использовать аутентификацию Azure Active Directory (Azure AD) для доступа к API служб мультимедиа Azure (AMS) с помощью .NET."
+title: Использование аутентификации Azure AD для доступа к API служб мультимедиа Azure с помощью .NET | Документация Майкрософт
+description: В этом разделе показано, как использовать аутентификацию Azure Active Directory (Azure AD) для доступа к API служб мультимедиа Azure (AMS) с помощью .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Использование аутентификации Azure AD для доступа к API служб мультимедиа Azure с помощью .NET
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 - **Аутентификация субъекта-службы** позволяет проверить подлинность службы. Этот метод аутентификации обычно используют приложения, которые выполняют службы управляющей программы, службы среднего уровня или запланированные задания, например веб-приложения, приложения-функции, приложения логики, интерфейсы API или микрослужбы.
 
 >[!IMPORTANT]
->Службы мультимедиа Azure в настоящее время поддерживают модель аутентификации с помощью службы контроля доступа Azure. Тем не менее авторизация посредством службы контроля доступа будет объявлена устаревшей 1 июня 2018 года. Мы рекомендуем как можно быстрее перейти на использование модели аутентификации Azure Active Directory.
+>Службы мультимедиа Azure в настоящее время поддерживают модель аутентификации с помощью службы контроля доступа Azure. Тем не менее авторизация с помощью службы контроля доступа будет считаться нерекомендуемой с 22 июня 2018 г. Мы рекомендуем как можно быстрее перейти на использование модели аутентификации Azure Active Directory.
 
 ## <a name="get-an-azure-ad-access-token"></a>Получение маркера доступа Azure AD
 

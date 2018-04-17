@@ -37,37 +37,49 @@
           href: how-to-use-vm-sign-in.md
         - name: Использование с пакетами Azure SDK
           href: how-to-use-vm-sdk.md
-    - name: Использование MSI виртуальной машины для доступа к Azure Data Lake Store
+    - name: Использование управляемого удостоверения виртуальной машины или масштабируемого набора виртуальных машин Windows
       items:
-        - name: С помощью виртуальной машины Windows
+        - name: Доступ к Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
-        - name: С помощью виртуальной машины Linux
-          href: tutorial-linux-vm-access-datalake.md
-    - name: Использование виртуальной машины MSI для доступа к Azure Resource Manager
-      items:
-        - name: С помощью виртуальной машины Windows
+        - name: Доступ к Azure Resource Manager
           href: tutorial-windows-vm-access-arm.md
-        - name: С помощью виртуальной машины Linux
-          href: tutorial-linux-vm-access-arm.md
-    - name: Использование виртуальной машины MSI для доступа к Azure SQL
-      items:
-        - name: С помощью виртуальной машины Windows
+        - name: Доступ к Azure SQL
           href: tutorial-windows-vm-access-sql.md
-    - name: Использование виртуальной машины MSI для доступа к хранилищу Azure
-      items:
-        - name: С помощью виртуальной машины Windows и ключа доступа
+        - name: Доступ к службе хранилища Azure с помощью ключа доступа
           href: tutorial-windows-vm-access-storage.md
-        - name: С помощью виртуальной машины Windows и SAS
+        - name: Доступ к службе хранилища Azure с помощью SAS
           href: tutorial-windows-vm-access-storage-sas.md
-        - name: С помощью виртуальной машины Linux и ключа доступа
-          href: tutorial-linux-vm-access-storage.md
-        - name: С помощью виртуальной машины Linux и SAS
-          href: tutorial-linux-vm-access-storage-sas.md
-    - name: Использование MSI виртуальной машины для доступа к Azure Key Vault
-      items:
-        - name: С помощью виртуальной машины Windows
+        - name: Доступ к Azure Key Vault
           href: tutorial-windows-vm-access-nonaad.md
-        - name: С помощью виртуальной машины Linux
+    - name: Использование управляемого удостоверения виртуальной машины или масштабируемого набора виртуальных машин Linux
+      items:
+        - name: Доступ к Azure Data Lake Store
+          href: tutorial-linux-vm-access-datalake.md
+        - name: Доступ к Azure Resource Manager
+          href: tutorial-linux-vm-access-arm.md
+        - name: Доступ к службе хранилища Azure с помощью ключа доступа
+          href: tutorial-linux-vm-access-storage.md
+        - name: Доступ к службе хранилища Azure с помощью SAS
+          href: tutorial-linux-vm-access-storage-sas.md
+        - name: Доступ к Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
     - name: Часто задаваемые вопросы и известные проблемы
       href: known-issues.md
+    - name: Справочные материалы
+      items:
+        - name: Интерфейс командной строки
+          href: /cli/azure/identity
+        - name: PowerShell
+          href: '/powershell/module/azurerm.managedserviceidentity#managed_service_identity'
+        - name: .NET
+          href: '/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet'
+        - name: Java
+          href: 'https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines'
+        - name: Python
+          href: /python/api/azure.mgmt.msi
+        - name: Ruby
+          href: 'https://rubygems.org/gems/azure_mgmt_msi'
+        - name: Node.js
+          href: /javascript/api/ms-rest-azure
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi'

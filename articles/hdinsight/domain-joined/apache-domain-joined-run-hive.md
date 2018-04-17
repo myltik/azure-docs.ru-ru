@@ -1,8 +1,8 @@
 ---
-title: "Настройка политик Hive в присоединенном к домену кластере HDInsight — Azure | Документы Майкрософт"
-description: "Дополнительные сведения"
+title: Настройка политик Hive в присоединенном к домену кластере HDInsight — Azure | Документы Майкрософт
+description: Дополнительные сведения
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Настройка политик Hive в присоединенном к домену кластере HDInsight
 Узнайте, как настроить политики Apache Ranger для Hive. В этой статье вы создадите две политики Ranger, чтобы ограничить доступ к таблице hivesampletable. Таблица hivesampletable поставляется с кластерами HDInsight. После настройки политик подключитесь к таблицам Hive в HDInsight с помощью Excel и драйвера ODBC.
@@ -45,10 +45,10 @@ ms.lasthandoff: 01/18/2018
     В настоящее время Ranger работает только с Yarn и Hive.
 
 ## <a name="create-domain-users"></a>Создание пользователей домена
-При работе со статьей [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Настройка присоединенных к домену кластеров HDInsight) вы создали два пользователя: hiveruser1 и hiveuser2. В этом руководстве вы используете эти две учетные записи.
+Сведения о создании учетных записей hiveruser1 и hiveuser2 см. в разделе [Создание присоединенного к домену кластера HDInsight](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). В этом руководстве вы используете эти две учетные записи.
 
 ## <a name="create-ranger-policies"></a>Создание политик Ranger
-В этом разделе вы создадите две политики Ranger для доступа к таблице hivesampletable. Вам нужно будет предоставить разрешение select для разных наборов столбцов. Оба пользователя созданы при выполнении указаний статьи о [настройке присоединенных к домену кластеров HDInsight](apache-domain-joined-configure.md#optional-create-ad-users-and-groups).  В следующем разделе вы протестируете две политики в Excel.
+В этом разделе вы создадите две политики Ranger для доступа к таблице hivesampletable. Вам нужно будет предоставить разрешение select для разных наборов столбцов. Оба пользователя созданы при работе с разделом [Создание присоединенного к домену кластера HDInsight](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). В следующем разделе вы протестируете две политики в Excel.
 
 **Создание политик Ranger**
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Копирование данных из источника HTTP с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ ms.lasthandoff: 03/23/2018
 - Копирование ответа HTTP "как есть" или его анализ с использованием [поддерживаемых форматов файлов и сжатия кодеков](supported-file-formats-and-compression-codecs.md).
 
 Разница между этим соединителем и [соединителем для веб-таблиц](connector-web-table.md) заключается в том, что соединитель для веб-таблиц используется для извлечения содержимого таблицы из веб-страницы HTML.
+
+>[!TIP]
+>Для проверки HTTP-запроса на получение данных перед настройкой соединителя HTTP в ADF ознакомьтесь с требованиями к оформлению заголовка и текста в спецификации API и используйте такие средства, как Postman или веб-браузер.
 
 ## <a name="getting-started"></a>Приступая к работе
 

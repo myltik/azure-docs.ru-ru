@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Развертывание гибридной рабочей роли Runbook для Linux
 
@@ -32,13 +30,13 @@ ms.lasthandoff: 03/17/2018
 Когда вы запускаете модуль runbook в гибридной рабочей роли Runbook, вы выбираете группу для его выполнения. Члены группы самостоятельно определят, какая из служб рабочей роли будет обслуживать этот запрос. Указание конкретного компонента Worker для выполнения конкретной задачи не предусмотрено.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Установка гибридной рабочей роли Runbook Linux
-Для установки и настройки гибридной рабочей роли Runbook на компьютере под управлением Linux используется простая процедура, позволяющая вручную установить и настроить роль. Для этого необходимо включить решение **гибридной рабочей роли службы автоматизации** в рабочей области OMS, а затем выполнить несколько команд для регистрации компьютера в качестве рабочей роли и его добавления в новую или имеющуюся группу. 
+Для установки и настройки гибридной рабочей роли Runbook на компьютере под управлением Linux используется простая процедура, позволяющая вручную установить и настроить роль. Для этого необходимо включить решение **гибридной рабочей роли службы автоматизации** в рабочей области Log Analytics, а затем выполнить несколько команд для регистрации компьютера в качестве рабочей роли и его добавления в новую или существующую группу. 
 
 Прежде чем продолжить, необходимо записать рабочую область Log Analytics, к которой привязана ваша учетная запись службы автоматизации, а также первичный ключ для учетной записи службы автоматизации. Эти данные можно найти на портале, выбрав учетную запись службы автоматизации, а затем указав **Workspace** в качестве идентификатора рабочей области и **Keys** в качестве первичного ключа.  
 
-1.  Включите решение "Гибридная рабочая роль службы автоматизации" в OMS. Для этого нужно:
+1.  Включите решение "Гибридная рабочая роль службы автоматизации" в Azure. Для этого нужно:
 
-   1. Из коллекции решений на [портале OMS](https://mms.microsoft.com) включите решение **Гибридная рабочая роль службы автоматизации**.
+   1. Добавьте решение **Гибридная рабочая роль службы автоматизации** в свою подписку, используя процедуру, описанную в статье [Добавление решений для управления Azure Log Analytics в рабочую область](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Выполните следующий командлет:
 
         ```powershell
@@ -47,18 +45,18 @@ ms.lasthandoff: 03/17/2018
 
 2.  Выполните следующую команду, изменив значения параметров *-w*, *-k*, *-g* и *-e*. Для параметра *-g* замените значение именем группы гибридной рабочей роли Runbook, к которой требуется присоединить новую гибридную рабочую роль Runbook Linux. Если имя уже существует в учетной записи службы автоматизации, группа гибридной рабочей роли Runbook создается с этим именем.
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    ```python
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. После выполнения команды в колонке "Группы гибридных рабочих ролей" на портале Azure отобразится новая группа и число элементов в ней с учетом только что добавленных. Вы можете выбрать группу из списка на вкладке **Группы гибридных рабочих ролей** и щелкнуть колонку **Гибридные рабочие роли**. В колонке **Гибридные рабочие роли** отображается список элементов группы.  
 
 
 ## <a name="turning-off-signature-validation"></a>Отключение проверки подписи 
-По умолчанию для гибридных рабочих ролей Runbook Linux требуется проверка подписи. При выполнении модуля runbook для рабочей роли вы увидите сообщение об ошибке проверки подписи. Чтобы отключить проверку подписи, выполните следующую команду, заменив второй параметр своим идентификатором рабочей области OMS:
+По умолчанию для гибридных рабочих ролей Runbook Linux требуется проверка подписи. При выполнении модуля runbook для рабочей роли вы увидите сообщение об ошибке проверки подписи. Чтобы отключить проверку подписи, выполните следующую команду, заменив второй параметр своим идентификатором рабочей области Log Analytics:
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## <a name="supported-runbook-types"></a>Поддерживаемые типы runbook
 

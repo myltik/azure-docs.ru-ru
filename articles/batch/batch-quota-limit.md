@@ -1,25 +1,25 @@
 ---
-title: "Квоты и ограничения служб для пакетной службы Azure | Документация Майкрософт"
-description: "Узнайте о квотах по умолчанию, лимитах и ограничениях пакетной службы Azure, а также о том, как запросить увеличение квоты."
+title: Квоты и ограничения служб для пакетной службы Azure | Документация Майкрософт
+description: Узнайте о квотах по умолчанию, лимитах и ограничениях пакетной службы Azure, а также о том, как запросить увеличение квоты.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Квоты и ограничения пакетной службы
 
@@ -53,6 +53,7 @@ ms.lasthandoff: 02/23/2018
 | Размер пакета приложения (каждый) |Примерно 195 ГБ<sup>1</sup> |
 | Максимальный размер задачи запуска | 32 768 символов<sup>2</sup> |
 | Максимальное время существования задачи | 7 дней<sup>3</sup> |
+| Вычислительные узлы в пуле с включенной связью между узлами | 100 |
 
 <sup>1</sup> Ограничение службы хранилища Azure для максимального размера блочного BLOB-объекта.<br />
 <sup>2</sup> Включая файлы ресурсов и переменные среды.<br />

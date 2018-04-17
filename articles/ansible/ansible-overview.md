@@ -1,6 +1,6 @@
 ---
-title: "Использование Ansible с Azure"
-description: "Основные сведения об использовании Ansible для автоматизированной подготовки облачных решений, управления конфигурацией и развертывания приложений."
+title: Использование Ansible с Azure
+description: Основные сведения об использовании Ansible для автоматизированной подготовки облачных решений, управления конфигурацией и развертывания приложений.
 ms.service: ansible
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 author: tomarcher

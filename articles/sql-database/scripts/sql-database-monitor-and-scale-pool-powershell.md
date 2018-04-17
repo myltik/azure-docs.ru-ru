@@ -1,26 +1,26 @@
 ---
-title: "Пример для PowerShell. Мониторинг и масштабирование эластичного пула SQL в Базе данных SQL Azure | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для отслеживания и масштабирования эластичного пула SQL в Базе данных SQL Azure."
+title: Пример для PowerShell. Мониторинг и масштабирование эластичного пула SQL в Базе данных SQL Azure | Документация Майкрософт
+description: Пример сценария Azure PowerShell для отслеживания и масштабирования эластичного пула SQL в Базе данных SQL Azure.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 3c7d655ba8893cdd427b2b77cd57608fcb275b59
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a66aca8420e5512eb139325f9f1b9603540f1fa7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Отслеживание и масштабирование эластичного пула SQL в Базе данных SQL Azure с помощью PowerShell
 

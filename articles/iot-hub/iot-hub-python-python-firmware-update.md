@@ -1,11 +1,11 @@
 ---
-title: "Обновление встроенного ПО устройства c помощью Центра Интернета вещей Azure (Python) | Документация Майкрософт"
-description: "Запуск обновления встроенного ПО устройства с помощью функции управления устройствами в Центре Интернета вещей. Используйте пакеты SDK для Центра Интернета вещей Azure для Python, чтобы реализовать приложение имитации устройства и приложение службы, которое активирует обновление встроенного ПО."
+title: Обновление встроенного ПО устройства c помощью Центра Интернета вещей Azure (Python) | Документация Майкрософт
+description: Запуск обновления встроенного ПО устройства с помощью функции управления устройствами в Центре Интернета вещей. Используйте пакеты SDK для Центра Интернета вещей Azure для Python, чтобы реализовать приложение имитации устройства и приложение службы, которое активирует обновление встроенного ПО.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,17 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: e7ca0d95da3fd36e6dad081bad0aa5a178436159
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 4a042723e6bebebb891640950e579e031e27e61d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Использование функции управления устройствами для начала обновления встроенного ПО устройства (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 В руководстве по [началу управления устройством][lnk-dm-getstarted] вы узнали, как использовать [двойник устройства][lnk-devtwin] и [прямые методы][lnk-c2dmethod] для удаленной перезагрузки устройства. В этом руководстве используются те же примитивы Центра Интернета вещей, а также содержатся рекомендации по комплексному обновлению имитации встроенного ПО.  Этот шаблон используется в реализации обновления встроенного ПО для примера устройства Intel Edison.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 В этом учебнике описаны следующие процедуры.
 
@@ -140,7 +142,7 @@ ms.lasthandoff: 02/21/2018
 * активируете обновление имитации встроенного ПО;
 * используете сообщаемые свойства в запросах двойника устройства для определения устройств и времени последнего обновления встроенного ПО.
 
-1. В командной строке выполните следующую команду, чтобы установить пакет **azure-iothub-device-client**.
+1. Чтобы установить пакет **azure-iothub-device-client**, в командной строке выполните следующую команду.
    
     ```cmd/sh
     pip install azure-iothub-device-client

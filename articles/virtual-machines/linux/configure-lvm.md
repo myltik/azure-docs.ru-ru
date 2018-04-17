@@ -1,10 +1,10 @@
 ---
-title: "Настройка диспетчера логических томов на виртуальной машине Linux | Документация Майкрософт"
-description: "Узнайте, как настроить диспетчер логических томов на виртуальной машине Linux в Azure."
+title: Настройка диспетчера логических томов на виртуальной машине Linux | Документация Майкрософт
+description: Узнайте, как настроить диспетчер логических томов на виртуальной машине Linux в Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Настройка диспетчера логических томов на виртуальной машине Linux в Azure
 В этом документе рассматривается, как настроить диспетчер логических томов (LVM) на виртуальной машине Azure. Хотя диспетчер логических томов можно настроить на любом диске, подключенном к виртуальной машине, по умолчанию он не настроен на диске ОС большинства облачных образов. Это позволяет предотвратить возникновение проблем (например, во время выполнения сценария аварийного восстановления), связанных с одинаковыми группами томов, если диск ОС подключен к двум виртуальным машинам одного типа и версии дистрибутива. Поэтому рекомендуется использовать диспетчер логических томов только на дисках данных.

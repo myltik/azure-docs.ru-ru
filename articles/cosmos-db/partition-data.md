@@ -1,33 +1,33 @@
 ---
-title: "Секционирование и горизонтальное масштабирование в базе данных Azure Cosmos DB"
-description: "Сведения о работе секционирования в базе данных Azure Cosmos DB, настройке секционирования и ключей секций, а также о выборе подходящего ключа секции для вашего приложения."
+title: Секционирование и горизонтальное масштабирование в базе данных Azure Cosmos DB
+description: Сведения о работе секционирования в базе данных Azure Cosmos DB, настройке секционирования и ключей секций, а также о выборе подходящего ключа секции для вашего приложения.
 services: cosmos-db
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Секционирование и масштабирование в Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) — это глобально распределенная, многомодельная служба базы данных, предназначенная для обеспечения высокой и прогнозируемой производительности. Она легко масштабируется по мере расширения вашего приложения. В этой статье представлены сведения о работе секционирования для всех моделей данных в Azure Cosmos DB. В ней также описывается настройка контейнеров Azure Cosmos DB для эффективного масштабирования приложений.
 
-Секционирование и ключи секций также рассматриваются в этом видео из цикла "Пятница с Azure" от Скотта Хансельмана (Scott Hanselman) и главного технического руководителя базы данных Azure Cosmos DB, Ширеша Тоты (Shireesh Thota):
+В этом видео с руководителем программы Azure Cosmos DB Эндрю Лю (Andrew Liu) обсуждается секционирование и ключи секций:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Секционирование в базе данных Azure Cosmos DB

@@ -1,11 +1,11 @@
 ---
-title: "Расширение виртуальной машины OMS Azure для Windows | Документация Майкрософт"
-description: "Разверните агент OMS на виртуальной машине Windows, используя расширение виртуальной машины."
+title: Расширение виртуальной машины OMS Azure для Windows | Документация Майкрософт
+description: Разверните агент OMS на виртуальной машине Windows, используя расширение виртуальной машины.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 09e23885bf9773712bd9c2ce5a6441c467642858
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Расширение виртуальной машины OMS для Windows
 
@@ -151,7 +151,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS ` 
+    -Location WestUS 
 ```
 
 ## <a name="troubleshoot-and-support"></a>Устранение неполадок и поддержка

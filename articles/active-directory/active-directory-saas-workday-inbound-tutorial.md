@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Руководство по настройке Workday для автоматической подготовки пользователей
 
@@ -397,9 +397,9 @@ Azure Active Directory поддерживает готовые соединит�
 
 **Команда 1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization Agent\\Modules\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Команда 2**
 
@@ -416,6 +416,9 @@ Azure Active Directory поддерживает готовые соединит�
 
 >[!IMPORTANT]
 >В настоящее время существует известная проблема, когда учетные данные глобального администратора не работают, если в них используется личный домен (например, admin@contoso.com). В качестве обходного пути создайте и используйте учетную запись глобального администратора с доменом onmicrosoft.com (например, admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>В настоящее время существует известная проблема, когда учетные данные глобального администратора не работают, если для них включена многофакторная проверка подлинности. Чтобы избежать этого, отключите многофакторную проверку подлинности для глобального администратора.
 
 
 **Команда 4**

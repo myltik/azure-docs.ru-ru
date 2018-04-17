@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Решение для управления обновлениями в Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 Чтобы установить подключение агента к Log Analytics на компьютере с Windows, сделайте следующее:
 
-1.  Откройте Microsoft Monitoring Agent на панели управления. На вкладке **Azure Log Analytics (OMS)** агент отобразит сообщение **Microsoft Monitoring Agent успешно подключен к службе Microsoft Operations Management Suite**.   
+1.  Откройте Microsoft Monitoring Agent на панели управления. На вкладке **Azure Log Analytics** агент отобразит сообщение **The Microsoft Monitoring Agent has successfully connected to Log Analytics** (Microsoft Monitoring Agent успешно подключен к Log Analytics).   
 2.  Откройте журнал событий Windows, перейдите к **журналам приложения и служб или Operations Manager** и выполните поиск идентификатора события 3000 или 5002 в исходном соединителе службы. Эти события указывают, что компьютер был зарегистрирован для рабочей области Log Analytics и получает конфигурации.  
 
 Если агент не взаимодействует с Log Analytics и настроен на взаимодействие с Интернетом через брандмауэр или прокси-сервер, вам необходимо проверить, правильно ли настроен брандмауэр или прокси-сервер. Для этого ознакомьтесь с разделом о [настройке сети для агента Windows](../log-analytics/log-analytics-agent-windows.md) или [агента Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Heartbeat
 
 Добавленные агенты Linux отобразят статус **обновления** после оценки. Этот процесс может занять до 6 часов.
 
-Чтобы подтвердить, что группа управления Operations Manager взаимодействует с Log Analytics, ознакомьтесь с разделом о [проверке интеграции Operations Manager с OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+О том, как подтвердить, что группа управления Operations Manager взаимодействует с Log Analytics, описывается в разделе [Проверка интеграции Operations Manager с OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Сбор данных
 
@@ -173,7 +173,7 @@ Heartbeat
 
 ## <a name="viewing-update-deployments"></a>Просмотр развертываний обновлений
 
-Щелкните **Развертывания обновлений**, чтобы просмотреть список имеющихся развертываний. Если щелкнуть какое-либо развертывание обновления в списке, откроется страница **Обновление запуска развертывания** для этого развертывания обновления.
+Щелкните вкладку **Развертывания обновлений**, чтобы просмотреть список существующих развертываний обновлений. Если щелкнуть какое-либо развертывание обновления в таблице, откроется страница **Обновление запуска развертывания** для этого развертывания обновления.
 
 ![Обзор результатов развертывания обновлений](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Heartbeat
 | ИМЯ |Уникальное имя для идентификации развертывания обновлений. |
 |Операционная система| Windows или Linux|
 | Компьютеры, на которые нужно установить обновления |Щелкните сохраненный поиск или выберите компьютеры в раскрывающемся списке и выберите нужные компьютеры. |
-|Категория обновления|Выберите все необходимые категории обновления.|
+|Классификации обновлений|Выберите все необходимые категории обновления.|
 |Исключаемые обновления|Введите все базы знаний, которые нужно исключить, без префикса "KB".|
 |Параметры расписания|Выберите время запуска, а затем — однократное применение или повторяющееся.|
 | Период обслуживания |Количество минут, установленное для обновлений. Значение должно составлять не менее 30 минут, но не более 6 часов. |
@@ -213,7 +213,7 @@ Heartbeat
 
 Клиенты, которые инвестировали в System Center Configuration Manager для управления компьютерами, серверами и мобильными устройствами, также полагаются на его надежность и зрелость при управлении обновлениями программного обеспечения в рамках цикла управления обновлениями программного обеспечения (SUM).
 
-Сведения об интеграции решения для управления обновлениями OMS с Sytem Center Configuration Manager см. в статье [Интеграция Integrate System Center Configuration Manager с решением "Управление обновлениями OMS"](oms-solution-updatemgmt-sccmintegration.md).
+Сведения об интеграции решения по управлению с Sytem Center Configuration Manager см. в статье [Интеграция Integrate System Center Configuration Manager с решением "Управление обновлениями"](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Установка исправлений для компьютеров Linux
 

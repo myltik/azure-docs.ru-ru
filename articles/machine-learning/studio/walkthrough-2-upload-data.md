@@ -1,10 +1,11 @@
 ---
-title: "Шаг 2. Отправка данных в эксперимент машинного обучения | Документация Майкрософт"
-description: "Второй этап разработки прогнозного решения: передача сохраненных общедоступных данных в Студию машинного обучения Azure."
+title: Шаг 2. Отправка данных в эксперимент машинного обучения | Документация Майкрософт
+description: 'Второй этап разработки прогнозного решения: передача сохраненных общедоступных данных в Студию машинного обучения Azure.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -12,13 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Шаг 2 пошагового руководства: отправка существующих данных в эксперимент Машинного обучения Azure
 Это второй этап из пошагового руководства [Разработка решения для прогнозной аналитики в службе машинного обучения Azure](walkthrough-develop-predictive-solution.md)
@@ -32,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 - - -
 Для разработки модели прогнозирования кредитного риска потребуются данные, которые можно использовать для обучения и последующей проверки модели. В данном случае будет использоваться набор данных UCI Statlog (German Credit Data) Data Set из репозитория машинного обучения UC Irvine Machine Learning Repository. Его можно найти по следующей ссылке:   
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>.
+<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Будет использоваться файл с именем **german.data**. Загрузите этот файл на свой жесткий диск.  
 
@@ -66,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="upload-the-dataset-to-machine-learning-studio"></a>Передача набора данных в Студию машинного обучения
 После преобразования данных в формат CSV необходимо отправить их в Студию машинного обучения. 
 
-1. Откройте домашнюю страницу Студии машинного обучения ([https://studio.azureml.net/Home](https://studio.azureml.net)). 
+1. Откройте домашнюю страницу Студии машинного обучения ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. В ![меню][1] в верхнем левом углу окна щелкните **Машинное обучение Azure**, **Студия** и выполните вход.
 

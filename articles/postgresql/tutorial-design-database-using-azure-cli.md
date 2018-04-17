@@ -1,21 +1,5 @@
----
-title: Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI
-description: Это руководство содержит сведения о создании, настройке первого сервера службы "База данных Azure для PostgreSQL" и выполнении запросов к нему с помощью Azure CLI.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql
-ms.custom: mvc
-ms.devlang: azure-cli
-ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+-- title: 'Руководство. Проектирование Базы данных Azure для PostgreSQL с помощью Azure CLI' description: В этом руководстве объясняется, как создать и настроить Базу данных Azure для PostgreSQL с помощью Azure CLI и отправлять к ней запросы.
+services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 01.04.2018.
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI 
 Из этого руководства вы узнаете, как с помощью Azure CLI (интерфейса командной строки) и других служебных программ выполнять следующие операции:
@@ -61,11 +45,11 @@ az extension list
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.5"
 }
 ```
 
-Если возвращается версия, отличная от 0.0.3, выполните следующую команду, чтобы обновить расширение. 
+Если возвращается версия, отличная от 0.0.5, выполните следующую команду, чтобы обновить расширение: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -149,7 +133,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   Например, следующая команда устанавливает подключение к базе данных по умолчанию **postgres** на сервере PostgreSQL **mydemoserver.postgres.database.azure.com**, используя учетные данные для доступа. Введите `<server_admin_password>`, указанный при появлении запроса на ввод пароля.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Подключившись к серверу, создайте пустую базу данных с помощью командной строки:

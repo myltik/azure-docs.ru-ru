@@ -1,6 +1,6 @@
 ---
-title: "Анализ веб-приложений Java с помощью Azure Application Insights | Документация Майкрософт"
-description: "Сведения о мониторинге производительности веб-приложений Java с помощью Application Insights. "
+title: Анализ веб-приложений Java с помощью Azure Application Insights | Документация Майкрософт
+description: 'Сведения о мониторинге производительности веб-приложений Java с помощью Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Приступая к работе с Application Insights в веб-проекте Java
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/28/2018
 
 Вам необходимы:
 
-* Oracle JRE 1.6 или более поздней версии либо Zulu JRE 1.6 или более поздней версии;
+* Oracle или Zulu JRE версий 1.7 или 1.8;
 * подписка на [Microsoft Azure](https://azure.microsoft.com/).
 
 *Если у вас уже есть развернутое веб-приложение, воспользуйтесь альтернативным способом, который описан в статье о [добавлении пакета SDK на веб-сервер во время выполнения](app-insights-java-live.md). В этом случае вам не нужно повторно компилировать код, но в то же время вы не сможете написать код для отслеживания действий пользователей.*
@@ -47,10 +47,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Добавление в проект пакета SDK Application Insights для Java
 *Выберите подходящий метод для проекта.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Если вы используете Eclipse для создания проекта Maven или динамического веб-проекта…
-Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse].
-
-#### <a name="if-youre-using-maven"></a>Если вы используете Maven...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Если вы используете Maven<a name="maven-setup" />
 Если проект уже настроен для сборки с использованием Maven, добавьте следующий код в файл pom.xml.
 
 Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
@@ -75,15 +72,15 @@ ms.lasthandoff: 02/28/2018
     </dependencies>
 ```
 
-* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>2.0.n</version>`. Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>2.0.n</version>`. Сведения о последней версии см. в [заметках о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
-#### <a name="if-youre-using-gradle"></a>Если вы используете Gradle...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Если вы используете Gradle<a name="gradle-setup" />
 Если проект уже настроен для сборки с использованием Gradle, добавьте следующий фрагмент кода в файл build.gradle.
 
 Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +92,27 @@ ms.lasthandoff: 02/28/2018
     }
 ```
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'2.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Обновление пакета SDK до новой версии*
-  * Обновите зависимости проекта.
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Если вы используете Eclipse для создания динамического веб-проекта
+Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse]. Примечание. Хотя с помощью этого подключаемого модуля и Application Insights настройка и запуск выполняются быстрее (при условии, что вы не используете Maven или Gradle), это не система управления зависимостями. Таким образом, при обновлении подключаемого модуля библиотеки Application Insights в проекте не будут обновляться автоматически.
 
-#### <a name="otherwise-"></a>В противном случае...
-Вручную добавьте пакет SDK.
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `version:'2.0.n'`. Сведения о последней версии см. в [заметках о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Для обновления до последней версии пакета SDK* обновите зависимости проекта.
 
-1. Загрузите [пакет SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Извлеките из ZIP-файла двоичные файлы и добавьте их в проект.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Если вы вручную управляете зависимостями
+Скачайте [последнюю версию](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и скопируйте необходимые файлы в проект, заменив все предыдущие версии.
 
 ### <a name="questions"></a>Вопросы
-* *Каковы отношения между компонентами `-core` и `-web` в ZIP-архиве?*
-
+* *Каковы отношения между компонентами `-core` и `-web`?*
   * `applicationinsights-core` предоставляет чистый API. Этот компонент требуется всегда.
   * Компонент `applicationinsights-web` предоставляет метрики для отслеживания количества запросов HTTP и значений времени ответа. Его можно опустить, если автоматический сбор данных телеметрии не требуется, например, если вы хотите написать собственный код сбора данных.
-* *Чтобы обновить пакет SDK после появления новой версии:*
+  
+* *Как обновить пакет SDK до последней версии?*
+  * Если вы используете Gradle или Maven
+    * Обновите файл сборки, чтобы указать последнюю версию либо используйте синтаксис подстановочных знаков Gradle или Maven, чтобы автоматически включить последнюю версию. Затем обновите зависимости проекта. Синтаксис подстановочных знаков можно найти в приведенных выше примерах [Gradle](#gradle-setup) или [Maven](#maven-setup).
+  * Если вы вручную управляете зависимостями
+    * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и установите ее вместо более старых версий. Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) и установите ее вместо более старых версий.
-  * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Добавление XML-файла Application Insights
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. Добавление файла ApplicationInsights.xml
 Добавьте ApplicationInsights.xml в папку ресурсов проекта или проверьте, добавлен ли этот файл в путь класса развертывания проекта. Скопируйте в него следующий код XML.
 
 Замените ключ инструментирования на полученный в портале Azure.
@@ -127,12 +124,10 @@ ms.lasthandoff: 02/28/2018
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ ms.lasthandoff: 02/28/2018
     </ApplicationInsights>
 ```
 
+При необходимости файл конфигурации может находиться в любом месте, доступном для приложения.  Системное свойство `-Dapplicationinsights.configurationDirectory` указывает на каталог, содержащий файл ApplicationInsights.xml. Например, файл конфигурации, расположенный в каталоге `E:\myconfigs\appinsights\ApplicationInsights.xml`, будет настроен со свойством `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * Ключ инструментирования пересылается вместе с каждым элементом телеметрии; служба Application Insights отобразит его в ресурсе.
 * Компонент HTTP-запросов является необязательным. Он автоматически передает на портал телеметрию о запросах и значения времени ответа.
-* Корреляционные данные для событий являются дополнением к компоненту HTTP-запросов. Это дополнение назначает идентификатор для каждого запроса, полученного сервером, и добавляет его в качестве свойства каждого элемента телеметрии в форме "Операция.ИД". Благодаря этому можно выделить данные телеметрии, связанные с каждым из запросов. Для этого нужно установить фильтр [Diagnostic search][diagnostic] (Поиск по журналу диагностики).
-* Ключ Application Insights можно динамически передать с портала Azure в качестве свойства системы (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Если свойство не указано, оно проверяет Azure Appsetting на наличие переменной среды (APPLICATION_INSIGHTS_IKEY). Если оба свойства не определены, по умолчанию используется InstrumentationKey из ApplicationInsights.xml. Эта последовательность позволяет динамически управлять разными ключами InstrumentationKey для разных сред.
+* Корреляция события является дополнением к компоненту HTTP-запросов. Это дополнение назначает идентификатор для каждого запроса, полученного сервером, и добавляет его в качестве свойства каждого элемента телеметрии в форме "Операция.ИД". Благодаря этому можно выделить данные телеметрии, связанные с каждым из запросов. Для этого нужно установить фильтр [Diagnostic search][diagnostic] (Поиск по журналу диагностики).
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Другие способы задать ключ инструментирования
 Пакет SDK Application Insights ищет ключ в следующем порядке:
@@ -169,13 +164,67 @@ ms.lasthandoff: 02/28/2018
 Вы также можете [задать его в коде](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Добавление фильтра HTTP
 Последний шаг настройки позволяет компоненту HTTP-запросов выполнить протоколирование каждого веб-запроса. (Не обязательно, если используется только упрощенный интерфейс API.)
 
+### <a name="spring-boot-applications"></a>Приложения Spring Boot
+Зарегистрируйте `WebRequestTrackingFilter` Application Insights в классе конфигурации:
+
+```Java
+package devCamp.WebApp.configurations;
+
+    import javax.servlet.Filter;
+
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.core.Ordered;
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.context.annotation.Configuration;
+    import com.microsoft.applicationinsights.TelemetryConfiguration;
+    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+
+
+    @Configuration
+    public class AppInsightsConfig {
+
+    //Initialize AI TelemetryConfiguration via Spring Beans
+        @Bean
+        public String telemetryConfig() {
+            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
+            if (telemetryKey != null) {
+                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
+            }
+            return telemetryKey;
+        }
+    
+    //Set AI Web Request Tracking Filter
+        @Bean
+        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
+           FilterRegistrationBean registration = new FilterRegistrationBean();
+           registration.setFilter(new WebRequestTrackingFilter(applicationName));
+           registration.setName("webRequestTrackingFilter");
+           registration.addUrlPatterns("/*");
+           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+           return registration;
+       } 
+
+    //Set up AI Web Request Tracking Filter
+        @Bean(name = "WebRequestTrackingFilter")
+        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+            return new WebRequestTrackingFilter(applicationName);
+        }   
+    }
+```
+
+Этот класс настроит `WebRequestTrackingFilter` в качестве первого фильтра в цепочке фильтров HTTP. Он также извлечет ключ инструментирования из переменной среды операционной системы, если он доступен.
+
+> Мы используем конфигурацию веб-фильтра HTTP, а не конфигурацию Spring MVC, свойственную для приложения Spring Boot. Дополнительные сведения о конфигурации Spring MVC см. в разделах ниже.
+
+
+### <a name="applications-using-webxml"></a>Приложения, использующие Web.xml
 Найдите и откройте файл web.xml в проекте, добавьте следующий фрагмент кода в узел web-app, где настраиваются фильтры вашего приложения.
 
 Для получения наиболее точных результатов этот фильтр должен применяться до всех остальных фильтров.
@@ -220,7 +269,7 @@ ms.lasthandoff: 02/28/2018
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(При наличии перехватчиков, определенных в стандартном стеке, перехватчик можно просто добавить в стек.)
+При наличии перехватчиков, определенных в стандартном стеке, перехватчик можно добавить в стек.
 
 ## <a name="5-run-your-application"></a>5. Запуск приложения
 Запустите приложение в режиме отладки на компьютере разработки или опубликуйте его на своем сервере.

@@ -1,6 +1,6 @@
 ---
-title: "Группы безопасности сети в Azure | Документация Майкрософт"
-description: "Узнайте, как использовать распределенный брандмауэр в Azure и группы безопасности сети для изоляции и контроля потока трафика в виртуальных сетях."
+title: Группы безопасности сети в Azure | Документация Майкрософт
+description: Узнайте, как использовать распределенный брандмауэр в Azure и группы безопасности сети для изоляции и контроля потока трафика в виртуальных сетях.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Фильтрация сетевого трафика с помощью групп безопасности сети
 
@@ -123,10 +123,10 @@ ms.lasthandoff: 03/12/2018
 
 | Средство развертывания | Классический | Диспетчер ресурсов |
 | --- | --- | --- |
-| Портал Azure   | Нет  | [Да](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Да](virtual-networks-create-nsg-classic-ps.md) | [Да](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **1.0**   | [Да](virtual-networks-create-nsg-classic-cli.md) | [Да](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **2.0**   | Нет  | [Да](virtual-networks-create-nsg-arm-cli.md) |
+| Портал Azure   | Yes | [Да](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Да](virtual-networks-create-nsg-classic-ps.md) | [Да](tutorial-filter-network-traffic.md) |
+| Azure CLI **1.0**   | [Да](virtual-networks-create-nsg-classic-cli.md) | [Да](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **2.0**   | Нет  | [Да](tutorial-filter-network-traffic-cli.md) |
 | Шаблон диспетчера ресурсов Azure   | Нет   | [Да](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Планирование
@@ -262,4 +262,4 @@ ms.lasthandoff: 03/12/2018
 * [Создание групп безопасности сети с помощью портала Azure](virtual-networks-create-nsg-arm-pportal.md)
 * [Как создать группы безопасности сети (классические) в PowerShell](virtual-networks-create-nsg-classic-ps.md)
 * [Управление журналами групп безопасности сети](virtual-network-nsg-manage-log.md).
-* [Устранение проблем с группами безопасности сети на портале Azure] (virtual-network-nsg-troubleshoot-portal.md)
+* [Устранение неполадок с группами NSG](virtual-network-nsg-troubleshoot-portal.md)

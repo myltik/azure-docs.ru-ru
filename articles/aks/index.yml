@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Служба контейнеров Azure (AKS)"
+title: Служба контейнеров Azure (AKS)
 metadata:
   document_id: 
-  title: "Документация по Службе контейнеров Azure (AKS). Руководства и справочник по API | Документация Майкрософт"
+  title: Документация по Службе контейнеров Azure (AKS). Руководства и справочник по API | Документация Майкрософт
   meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -14,47 +14,47 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: effec3747fef172e3124c4d2ea6fef86b0b80590
-  ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+  ms.openlocfilehash: a381697e27a2d85d99fcbb1eb54bd7c0ab7d743a
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 10/27/2017
+  ms.lasthandoff: 04/16/2018
 abstract:
-  description: "Служба контейнеров Azure (AKS) управляет размещенной средой Kubernetes, позволяя быстро и легко развертывать контейнерные приложения и управлять ими, даже если вы никогда не оркестрировали контейнеры. Также вам не нужно выполнять текущие операции и обслуживание, так как эта служба подготавливает, обновляет и масштабирует ресурсы по требованию, не отключая приложения от сети."
+  description: Служба контейнеров Azure (AKS) управляет размещенной средой Kubernetes, позволяя быстро и легко развертывать контейнерные приложения и управлять ими, даже если вы никогда не оркестрировали контейнеры. Также вам не нужно выполнять текущие операции и обслуживание, так как эта служба подготавливает, обновляет и масштабирует ресурсы по требованию, не отключая приложения от сети.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Дополнительные сведения о развертывании кластера AKS"
+    text: Дополнительные сведения о развертывании кластера AKS
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/media/index/ContainerService.svg
-      text: "Создание кластера AKS"
+      text: Создание кластера AKS
       href: /azure/aks/kubernetes-walkthrough
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Сведения о развертывании, администрировании и обновлении приложений в кластере AKS."
+    text: Сведения о развертывании, администрировании и обновлении приложений в кластере AKS.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-app\">Создание образов контейнеров из приложения</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-acr\">Передача образов контейнеров в реестр контейнеров Azure</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-deploy-cluster\">Развертывание кластера AKS</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-deploy-application\">Запуск образов контейнеров в Kubernetes</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-scale\">Масштабирование приложений и инфраструктуры Kubernetes</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-app-update\">Обновление приложений, выполняющихся в Kubernetes</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-monitor\">Мониторинг кластера Kubernetes с помощью Operations Management Suite</a>"
-    - html: "<a href=\"/azure/aks/tutorial-kubernetes-upgrade-cluster\">Обновление кластера AKS</a>"
-- title: "Справочные материалы"
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Создание образов контейнеров из приложения</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Передача образов контейнеров в реестр контейнеров Azure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Развертывание кластера AKS</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Запуск образов контейнеров в Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Масштабирование приложений и инфраструктуры Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Обновление приложений, выполняющихся в Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Мониторинг кластера Kubernetes с помощью Log Analytics</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Обновление кластера AKS</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Команда"
-      html: "<p><a href=\"/cli/azure/aks\">интерфейс командной строки Azure</a></p>"
+    - title: Команда
+      html: <p><a href="/cli/azure/aks">интерфейс командной строки Azure</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>

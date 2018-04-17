@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Приобретение и настройка сертификата SSL для службы приложений Azure
 
@@ -42,8 +42,8 @@ ms.lasthandoff: 03/14/2018
 
 Выберите **подписку**, **группу ресурсов** и **SKU сертификата**.
 
-> [!WARNING]
-> Сертификаты службы приложений доступны лишь другим службам приложений в той же подписке.  
+> [!TIP]
+> Сертификаты службы приложений можно использовать для любой службы Azure или сторонней службы, а не только в службах приложений. Для этого нужно создать локальную копию (PFX-файл) сертификата службы приложений, чтобы использовать ее с любой службой. Дополнительные сведения см. в записи блога о [создании локальной копии (PFX-файла) сертификата службы приложения](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Шаг 3. Сохранение сертификата в Azure Key Vault

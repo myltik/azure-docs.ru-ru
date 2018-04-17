@@ -1,30 +1,32 @@
 ---
-title: "Обновление встроенного ПО устройства c помощью Центра Интернета вещей Azure (.NET и .NET) | Документация Майкрософт"
-description: "Запуск обновления встроенного ПО устройства с помощью функции управления устройствами в Центре Интернета вещей. С помощью пакета SDK для устройств Azure IoT для .NET можно реализовать приложение имитации устройства и пакет SDK для служб Azure IoT для .NET, чтобы реализовать приложение-службу, которое запустит процесс обновления встроенного ПО."
+title: Обновление встроенного ПО устройства c помощью Центра Интернета вещей Azure (.NET и .NET) | Документация Майкрософт
+description: Запуск обновления встроенного ПО устройства с помощью функции управления устройствами в Центре Интернета вещей. С помощью пакета SDK для устройств Azure IoT для .NET можно реализовать приложение имитации устройства и пакет SDK для служб Azure IoT для .NET, чтобы реализовать приложение-службу, которое запустит процесс обновления встроенного ПО.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
-ms.author: v-jamebr
-ms.openlocfilehash: bd0a227861d75dc66af8fb4865a17a3b6d0f70ba
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Использование функции управления устройствами для начала обновления встроенного ПО устройства (.NET и .NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Введение
 В руководстве по [началу управления устройством][lnk-dm-getstarted] вы узнали, как использовать [двойник устройства][lnk-devtwin] и [прямые методы][lnk-c2dmethod] для удаленной перезагрузки устройства. В этом руководстве используются те же примитивы Центра Интернета вещей, а также содержатся рекомендации по комплексному обновлению имитации встроенного ПО.  Этот шаблон используется в реализации обновления встроенного ПО для [примера реализации устройства Raspberry Pi][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 В этом учебнике описаны следующие процедуры.
 

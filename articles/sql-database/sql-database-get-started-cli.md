@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 10/11/2017
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 73639d59d047fbf1e07b242e21605a83e3c4b837
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0c011ba84033655432ceee34295c2b1908a3ab58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Создание отдельной базы данных SQL Azure с помощью Azure CLI
 
@@ -29,7 +29,7 @@ Azure CLI используется для создания ресурсов Azur
 
 ## <a name="define-variables"></a>Определение переменных
 
-Определите переменные для использования в скриптах этого руководства.
+Определите переменные для использования в скриптах этого краткого руководства.
 
 ```azurecli-interactive
 # The data center and resource name for your resources
@@ -87,7 +87,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Другие краткие руководства в этой коллекции созданы на основе этого документа. 
+Другие краткие руководства в этой серии созданы на основе этого документа. 
 
 > [!TIP]
 > Если вы планируете продолжать работу с этими краткими руководствами, не удаляйте созданные ресурсы. Если вы не планируете продолжать работу, удалите все созданные ресурсы, выполнив на портале Azure следующие действия.
@@ -99,14 +99,9 @@ az group delete --name $resourcegroupname
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Теперь, когда у вас есть база данных, вы можете подключиться и создать запрос, используя привычные средства. См. дополнительные сведения о доступных средствах:
+- Теперь, когда у вас есть база данных, вы можете [подключиться и создать запрос](sql-database-connect-query.md), используя одно из привычных средств или языков. 
+- Научитесь разрабатывать базы данных, создавать таблицы и вставлять данные при помощи одного из следующих руководств:
+ - [Разработка первой базы данных SQL Azure с использованием SSMS](sql-database-design-first-database.md)
+  - [Проектирование базы данных SQL Azure и подключение к ней с помощью C# и ADO.NET](sql-database-design-first-database-csharp.md)
 
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с ZwayamSSO | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и ZwayamSSO."
+title: Руководство по интеграции Azure Active Directory с ZwayamSSO | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и ZwayamSSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 62e3d3baa936b37a4d86c923d8ebcfc296f41f9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4d834cfb5bd6cff30b7e1dfebb3dfd6e651d315a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayamsso"></a>Руководство по интеграции Azure Active Directory с ZwayamSSO
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/21/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление ZwayamSSO из коллекции.
+1. Добавление ZwayamSSO из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-zwayamsso-from-the-gallery"></a>Добавление ZwayamSSO из коллекции

@@ -1,8 +1,8 @@
 ---
-title: "Настройка кластеров HDInsight с помощью действий скрипта — Azure | Документы Майкрософт"
-description: "Добавление настраиваемых компонентов в кластеры HDInsight на основе Linux с помощью действий сценариев. Действия сценариев — это сценарии Bash, которые можно использовать для настройки конфигурации кластера или добавления дополнительных служб и служебных программ, таких как Hue, Solr или R."
+title: Настройка кластеров HDInsight с помощью действий скрипта — Azure | Документы Майкрософт
+description: Добавление настраиваемых компонентов в кластеры HDInsight на основе Linux с помощью действий сценариев. Действия сценариев — это сценарии Bash, которые можно использовать для настройки конфигурации кластера или добавления дополнительных служб и служебных программ, таких как Hue, Solr или R.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Настройка кластеров HDInsight под управлением Linux с помощью действий сценариев
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 02/01/2018
 | **Установка Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Ознакомьтесь со статьей [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md). |
 | **Установка Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Ознакомьтесь со статьей [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | **Предварительная загрузка библиотек Hive** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. См статью [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
-| **Установка или обновление Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash См. статью [Установка или обновление Mono в HDInsight](hdinsight-hadoop-install-mono.md). |
+| **Установка или обновление Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash. См. статью [Установка или обновление Mono в HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Использование действия сценария при создании кластера
 
@@ -210,17 +210,19 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Использование действия сценария на основе шаблонов Azure Resource Manager
 
-Действия сценария можно использовать с шаблонами Azure Resource Manager. Пример см. в статье [Create HDInsight Linux Cluster and run a script action](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/) (Создание кластера HDInsight под управлением Linux и запуск действия сценария).
+Действия сценария можно использовать с шаблонами Azure Resource Manager. Пример см. здесь: [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
 В этом примере добавляется действие сценария с помощью следующего кода:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Дополнительные сведения о развертывании шаблона см. в следующих документах:
 
@@ -305,15 +307,21 @@ ms.lasthandoff: 02/01/2018
 
 1. Чтобы переключиться в режим Azure Resource Manager, выполните в командной строке следующую команду:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Выполните приведенную далее команду для аутентификации в подписке Azure.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Выполните приведенную далее команду, чтобы применить действие сценария к работающему кластеру.
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Если параметры для этой команды не заданы, вам будет предложено сделать это. Если сценарий, указанный с помощью `-u`, принимает параметры, их можно задать с помощью параметра `-p`.
 
@@ -337,7 +345,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Применение действия сценария в работающем кластере с помощью пакета SDK HDInsight для .NET
 
-Пример использования пакета SDK для .NET для применения скриптов к кластеру см. на странице [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Пример использования пакета SDK .NET для применения скриптов в кластера см. здесь: [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Просмотр журнала, повышение уровня и изменение типа действий сценариев
 
@@ -396,7 +404,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="using-the-hdinsight-net-sdk"></a>Использование пакета SDK HDInsight .NET
 
-Пример использования пакета SDK для .NET для получения журнала скриптов из кластера см. на странице [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Пример использования пакета SDK для .NET для получения журнала скриптов из кластера см. здесь: [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]
 > В этом примере также показано, как установить приложение HDInsight с помощью пакета SDK для .NET.
@@ -429,7 +437,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="using-the-ambari-web-ui"></a>Использование веб-интерфейса Ambari
 
-1. В браузере перейдите на сайт https://CLUSTERNAME.azurehdinsight.net. Параметр CLUSTERNAME нужно заменить именем кластера HDInsight.
+1. В браузере перейдите по адресу https://CLUSTERNAME.azurehdinsight.net. Параметр CLUSTERNAME нужно заменить именем кластера HDInsight.
 
     При появлении запроса введите имя (admin) и пароль учетной записи администратора кластера. Возможно, вам потребуется повторно ввести учетные данные администратора в веб-форме.
 
@@ -493,7 +501,7 @@ __Причина.__ Эта ошибка возникает при обновле
 
 __Способ устранения.__ Чтобы устранить эту ошибку, подключитесь к каждому узлу кластера вручную, используя `ssh`, и выполните следующую команду, чтобы переустановить клиент службы хранилища требуемой версии:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

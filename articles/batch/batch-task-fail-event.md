@@ -1,22 +1,22 @@
 ---
-title: "Событие сбоя выполнения задачи пакетной службы Azure | Документы Майкрософт"
-description: "Справочник по событию сбоя выполнения задачи пакетной службы."
+title: Событие сбоя выполнения задачи пакетной службы Azure | Документы Майкрософт
+description: Справочник по событию сбоя выполнения задачи пакетной службы.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: c4636ebbfb6737be07d01a3861ec6b9da66ff966
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="task-fail-event"></a>Событие сбоя выполнения задачи
 

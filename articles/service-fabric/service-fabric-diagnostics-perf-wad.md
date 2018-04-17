@@ -1,31 +1,31 @@
 ---
-title: "Azure Service Fabric. Мониторинг производительности с помощью расширения системы диагностики Microsoft Azure | Документация Майкрософт"
-description: "Использование системы диагностики Microsoft Azure для сбора данных счетчиков производительности для кластеров Azure Service Fabric."
+title: Azure Service Fabric. Мониторинг производительности с помощью расширения для системы диагностики Microsoft Azure | Документация Майкрософт
+description: Использование системы диагностики Microsoft Azure для сбора данных счетчиков производительности для кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/05/2017
-ms.author: dekapur
-ms.openlocfilehash: f71c483eba201eae91c15b84a2ed42fcb68ae575
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.date: 03/26/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="performance-monitoring-with-windows-azure-diagnostics-extension"></a>Мониторинг производительности с помощью расширения системы диагностики Microsoft Azure
+# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Мониторинг производительности с помощью расширения для системы диагностики Microsoft Azure
 
 В этом документе рассматриваются шаги, необходимые для настройки сбора данных счетчиков производительности через расширение системы диагностики Microsoft Azure для кластеров Windows. Для кластеров Linux настройте [агент OMS](service-fabric-diagnostics-oms-agent.md), чтобы собрать данные счетчиков производительности для узлов. 
 
  > [!NOTE]
-> Чтобы выполнение этих шагов было эффективным, на кластере необходимо развернуть расширение системы диагностики Microsoft Azure. Если оно не настроено, перейдите к статье [Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) и следуйте инструкциям в разделе *Развертывание расширения системы диагностики*.
+> Чтобы выполнение этих шагов было эффективным, на кластере необходимо развернуть расширение системы диагностики Microsoft Azure. Если оно не настроено, перейдите к разделу [Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters).
 
 ## <a name="collect-performance-counters-via-the-wadcfg"></a>Сбор данных счетчиков производительности с помощью раздела WadCfg
 
@@ -44,37 +44,77 @@ ms.lasthandoff: 11/07/2017
 
     `scheduledTransferPeriod` определяет частоту передачи собираемых значений счетчиков в таблицу хранилища Azure и в любой настроенный приемник. 
 
-3. Добавьте счетчики производительности, данные которых необходимо собрать, в параметр `PerformanceCounterConfiguration`, объявленный на предыдущем шаге. Каждый счетчик, данные которого необходимо собирать, определен с помощью параметров `counterSpecifier`, `sampleRate`, `unit`, `annotation` и любых соответствующих приемников `sinks`. Ниже приведен пример счетчика производительности для *общей загруженности процессора* (промежуток времени использования ЦП для операций обработки):
+3. Добавьте счетчики производительности, данные которых необходимо собрать, в параметр `PerformanceCounterConfiguration`, объявленный на предыдущем шаге. Каждый счетчик, данные которого необходимо собирать, определен с помощью параметров `counterSpecifier`, `sampleRate`, `unit`, `annotation` и любых соответствующих приемников `sinks`. Ниже приведен пример конфигурации со счетчиком для *общей загруженности процессора* (периода, в течение которого ЦП был задействован для операций обработки) и *вызовов методов субъекта Service Fabric в секунду* — одним из настраиваемых счетчиков производительности Service Fabric. Полный список настраиваемых счетчиков производительности Service Fabric см. в разделах о [счетчиках производительности Reliable Actors](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) и [счетчиках производительности Reliable Services](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters).
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT1M",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+ ```json
+ "WadCfg": {
+         "DiagnosticMonitorConfiguration": {
+           "overallQuotaInMB": "50000",
+           "EtwProviders": {
+             "EtwEventSourceProviderConfiguration": [
+               {
+                 "provider": "Microsoft-ServiceFabric-Actors",
+                 "scheduledTransferKeywordFilter": "1",
+                 "scheduledTransferPeriod": "PT5M",
+                 "DefaultEvents": {
+                   "eventDestination": "ServiceFabricReliableActorEventTable"
+                 }
+               },
+               {
+                 "provider": "Microsoft-ServiceFabric-Services",
+                 "scheduledTransferPeriod": "PT5M",
+                 "DefaultEvents": {
+                   "eventDestination": "ServiceFabricReliableServiceEventTable"
+                 }
+               }
+             ],
+             "EtwManifestProviderConfiguration": [
+               {
+                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                 "scheduledTransferLogLevelFilter": "Information",
+                 "scheduledTransferKeywordFilter": "4611686018427387904",
+                 "scheduledTransferPeriod": "PT5M",
+                 "DefaultEvents": {
+                   "eventDestination": "ServiceFabricSystemEventTable"
+                 }
+               }
+             ]
+           },
+           "PerformanceCounters": {
+                 "scheduledTransferPeriod": "PT1M",
+                 "PerformanceCounterConfiguration": [
+                     {
+                         "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                         "sampleRate": "PT1M",
+                         "unit": "Percent",
+                         "annotation": [
+                         ],
+                         "sinks": ""
+                     },
+                     {
+                         "counterSpecifier": "\\Service Fabric Actor Method(*)\\Invocations/Sec",
+                         "sampleRate": "PT1M",
+                     }
+                 ]
+             }
+         }
+       },
+  ```
 
-    Частоту выборки счетчика можно изменить согласно вашим потребностям. Допустимый формат — `PT<time><unit>`, поэтому если необходимо собирать данные счетчика каждую секунду, то следует задать значение `"sampleRate": "PT15S"`.
+ Частоту выборки счетчика можно изменить согласно вашим потребностям. Допустимый формат — `PT<time><unit>`, поэтому если необходимо собирать данные счетчика каждую секунду, то следует задать значение `"sampleRate": "PT15S"`.
 
-    Аналогичным образом можно собирать данные нескольких счетчиков производительности, добавив их в список в `PerformanceCounterConfiguration`. Несмотря на то что для указания групп счетчиков производительности с похожими именами можно использовать `*`, для отправки счетчиков через приемник (в Application Insights) требуется объявить их по отдельности. 
+ >[!NOTE]
+ >Несмотря на то что для указания групп счетчиков производительности с похожими именами можно использовать `*`, для отправки счетчиков через приемник (в Application Insights) требуется объявить их по отдельности. 
 
-4. После добавления соответствующих счетчиков производительности, данные которых необходимо собрать, вам потребуется обновить ресурс кластера, чтобы эти изменения отразились в работающем кластере. Сохраните измененный файл `template.json` и откройте PowerShell. Обновление кластера можно выполнить с помощью `New-AzureRmResourceGroupDeployment`. Для вызова необходимо указать имя группы ресурсов, обновленный файл шаблона и файл параметров. Кроме того, вызов отправляет запрос в Resource Manager на внесение соответствующих изменений в обновленные ресурсы. После входа в учетную запись и правильную подписку используйте следующую команду для выполнения обновления:
+4. Когда вы добавите соответствующие счетчики производительности, данные которых необходимо собрать, потребуется обновить ресурс кластера, чтобы эти изменения отразились в работающем кластере. Сохраните измененный файл `template.json` и откройте PowerShell. Обновление кластера можно выполнить с помощью `New-AzureRmResourceGroupDeployment`. Для вызова необходимо указать имя группы ресурсов, обновленный файл шаблона и файл параметров. Кроме того, вызов отправляет запрос в Resource Manager на внесение соответствующих изменений в обновленные ресурсы. После входа в учетную запись и правильную подписку используйте следующую команду для выполнения обновления:
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. После завершения обновления (занимает 15–45 минут) система диагностики Microsoft Azure должна собирать данные счетчиков производительности и отправлять их в таблицу в учетной записи хранения, объявленную в `WadCfg`.
+5. По завершении обновления (оно занимает 15–45 минут) система диагностики Microsoft Azure должна собирать данные счетчиков производительности и отправлять их в таблицу с именем WADPerformanceCountersTable в учетной записи хранения, связанной с вашим кластером.
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Просматривайте данные счетчиков производительности в Application Insights путем добавления приемника Application Insights в раздел `WadCfg`. Сведения о настройке приемника Application Insights см. в разделе *Добавление приемника Application Insights в шаблон Resource Manager* статьи [Анализ и визуализация событий с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+* Просматривайте данные счетчиков производительности в Application Insights, [добавив приемник AI в шаблон Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 * Собирайте данные дополнительных счетчиков производительности для кластера. Список счетчиков, данные которых следует собирать, см. в статье [Метрики производительности](service-fabric-diagnostics-event-generation-perf.md).
 * [Используйте мониторинг и систему диагностики с виртуальной машиной Windows и шаблонами Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md), чтобы внести изменения в раздел `WadCfg`, включая настройку дополнительных учетных записей хранения для отправки данных диагностики.

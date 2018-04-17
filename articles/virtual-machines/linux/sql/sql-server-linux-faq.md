@@ -1,8 +1,8 @@
 ---
-title: "Часто задаваемые вопросы об SQL Server на виртуальных машинах Linux в Azure | Документация Майкрософт"
-description: "В этой статье содержатся ответы на часто задаваемые вопросы о выполнении SQL Server на виртуальных машинах Linux в Azure."
+title: Часто задаваемые вопросы об SQL Server на виртуальных машинах Linux в Azure | Документация Майкрософт
+description: В этой статье содержатся ответы на часто задаваемые вопросы о выполнении SQL Server на виртуальных машинах Linux в Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Часто задаваемые вопросы об SQL Server на виртуальных машинах Linux в Azure
 
@@ -71,13 +71,17 @@ ms.lasthandoff: 12/21/2017
 
 1. **Можно ли настроить виртуальную машину для использования собственной лицензии SQL Server, если она была создана из одного из образов коллекции с оплатой по мере использования?**
 
-   Нет. Возможность перейти с лицензирования с поминутной оплатой на свою собственную лицензию не предусмотрена. При такой необходимости вам потребуется создать новую виртуальную машину Linux, установить на ней SQL Server и перенести ваши данные. Дополнительные сведения об использовании собственной лицензии есть в ответе на предыдущий вопрос.
+   Нет. Возможность перейти с лицензирования с посекундной оплатой на собственную лицензию не предусмотрена. При такой необходимости вам потребуется создать новую виртуальную машину Linux, установить на ней SQL Server и перенести ваши данные. Дополнительные сведения об использовании собственной лицензии есть в ответе на предыдущий вопрос.
 
 ## <a name="administration"></a>Администрирование
 
 1. **Можно ли управлять виртуальной машиной SQL Server на базе Linux с помощью SQL Server Management Studio (SSMS)?**
 
    Да. Но сейчас средства SSMS доступны только в ОС Windows. Чтобы использовать SSMS с виртуальными машинами SQL Server на базе Linux, необходимо установить удаленное подключение с компьютера с Windows. На компьютере с Linux большинство задач администрирования можно выполнять с помощью нового средства [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf). Сведения о кроссплатформенном средстве управления базой данных см. в статье о [SQL Server Operations Studio (предварительная версия)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Можно ли полностью удалить SQL Server с виртуальной машины SQL?**
+
+   Да, но с вас будет по-прежнему взиматься плата за виртуальную машину SQL, как описано в статье [Руководство по выбору ценовой категории для виртуальных машин SQL Server в Azure](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Если вам больше не нужен SQL Server, можно развернуть новую виртуальную машину и перенести туда данные и приложения. Затем виртуальную машину SQL Server можно удалить.
 
 ## <a name="updating-and-patching"></a>Установка обновлений и исправлений
 

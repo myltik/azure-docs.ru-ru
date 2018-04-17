@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Пересылка данных отчетов Azure Automation DSC в OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Пересылка данных отчетов Azure Automation DSC в Log Analytics
 
-Служба автоматизации может отправлять сведения о состоянии узла DSC в рабочую область Log Analytics в Microsoft Operations Management Suite (OMS).  
+Служба автоматизации может отправлять данные о состоянии узла DSC в рабочую область Log Analytics.  
 Сведения о состоянии соответствия для узлов и отдельных ресурсов DSC в конфигурации узла можно просмотреть на портале Azure или с помощью PowerShell. С помощью Log Analytics можно:
 
 * получать сведения о соответствии требованиям для управляемых узлов и отдельных ресурсов;
@@ -34,7 +32,7 @@ ms.lasthandoff: 03/17/2018
 * Выпуск за ноябрь 2016 года или более поздний выпуск [Azure PowerShell](/powershell/azure/overview) (вер. 2.3.0).
 * Учетная запись службы автоматизации Azure. Дополнительные сведения см. в статье [Приступая к работе со службой автоматизации Azure](automation-offering-get-started.md)
 * Рабочая область Log Analytics с предложением службы **Автоматизация и управление**. Дополнительные сведения см. в статье [Начало работы с Log Analytics](../log-analytics/log-analytics-get-started.md).
-* Как минимум один узел Azure Automation DSC. Дополнительные сведения см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md). 
+* Как минимум один узел Azure Automation DSC. Дополнительные сведения см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md).
 
 ## <a name="set-up-integration-with-log-analytics"></a>Настройка интеграции с Log Analytics
 
@@ -191,5 +189,5 @@ Log Analytics предоставляет расширенный оператив
 
 * Чтобы узнать больше о том, как создавать различные поисковые запросы и просматривать журналы Automation DSC с помощью Log Analytics, см. статью [Поиск данных по журналам](../log-analytics/log-analytics-log-searches.md).
 * Дополнительные сведения об использовании Azure Automation DSC см. в статье [Приступая к работе с DSC службы автоматизации Azure](automation-dsc-getting-started.md).
-* Чтобы узнать больше о Log Analytics (OMS) и источниках сбора данных, ознакомьтесь с разделом [Подключение службы Azure к Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Чтобы узнать больше о Log Analytics и источниках собираемых данных, ознакомьтесь с разделом [Подключение службы Azure к Log Analytics](../log-analytics/log-analytics-azure-storage.md).
 

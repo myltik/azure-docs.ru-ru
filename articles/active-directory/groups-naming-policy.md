@@ -1,32 +1,32 @@
 ---
-title: "Параметры имен групп Office 365 в Azure Active Directory (предварительная версия) | Документация Майкрософт"
-description: "Настройка срока действия для групп Office 365 в Azure Active Directory (предварительная версия)."
+title: Параметры имен групп Office 365 в Azure Active Directory (предварительная версия) | Документация Майкрософт
+description: Настройка срока действия для групп Office 365 в Azure Active Directory (предварительная версия).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Применение политики именования для групп Office 365 в Azure Active Directory (предварительная версия)
 
 Чтобы применить соответствующие соглашения об именовании групп Office 365, создаваемых или изменяемых пользователями, настройте политику именования групп для клиентов в Azure Active Directory (Azure AD). Например, политику именования можно использовать, чтобы указать функцию группы, членство, географический регион или создателя группы. Можно также использовать политику именования, чтобы классифицировать группы в адресной книге. Политику можно использовать для запрещения конкретных слов в именах и псевдонимах групп.
 
 > [!IMPORTANT]
-> Использование предварительной версии политик именования групп Office 365 требует наличия лицензии Azure Active Directory Premium P1 у каждого уникального пользователя, который является участником одной или нескольких групп Office 365.
+> Использование предварительной версии политик именования групп Office 365 требует наличия лицензии Azure Active Directory Premium P1 или Azure AD Basic EDU у каждого уникального пользователя, который является участником одной или нескольких групп Office 365.
 
 Политика именования применяется при создании или изменении групп, созданных для рабочих нагрузок (например, Outlook, Microsoft Teams, SharePoint, Exchange или службы "Планировщик"). Она применяется к имени и псевдониму группы. Если настроить политику именования в Azure AD при наличии политики именования групп Exchange, то применяется политика именования Azure AD.
 

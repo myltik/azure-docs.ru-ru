@@ -1,24 +1,23 @@
 ---
-title: "Глобальное распределение данных с помощью Azure Cosmos DB | Документация Майкрософт"
-description: "Сведения о георепликации в масштабах планеты, отработке отказа и восстановлении данных с помощью глобальных баз данных из Azure Cosmos DB — глобально распределенной многомодельной службы базы данных."
+title: Глобальное распределение данных с помощью Azure Cosmos DB | Документация Майкрософт
+description: Сведения о георепликации в масштабах планеты, отработке отказа и восстановлении данных с помощью глобальных баз данных из Azure Cosmos DB — глобально распределенной многомодельной службы базы данных.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Как работает глобальное распределение данных в Azure с помощью Cosmos DB
 Среда Azure вездесуща: она используется более чем в 30 географических регионах по всему миру и постоянно растет. Благодаря повсеместному присутствию одной из отличительных возможностей, предлагаемых Azure разработчикам, является возможность легко выполнять сборку, развертывание и управление глобально распределенными приложениями. 
@@ -36,7 +35,12 @@ ms.lasthandoff: 12/14/2017
 В этой статье содержится обзор возможностей глобального распространения Azure Cosmos DB. Мы также опишем уникальный подход Azure Cosmos DB к предоставлению исчерпывающих соглашений об уровне обслуживания. 
 
 ## <a id="EnableGlobalDistribution"></a>Включение готового к использованию глобального распространения
-Azure Cosmos DB предоставляет следующие возможности, позволяющие легко создавать приложения общемирового масштаба. Эти возможности доступны через [интерфейсы REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) поставщика ресурсов Azure Cosmos DB, а также на портале Azure.
+Azure Cosmos DB предоставляет следующие возможности, позволяющие легко создавать приложения общемирового масштаба. Эти возможности доступны через [интерфейсы REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) поставщика ресурсов Azure Cosmos DB, а также на портале Azure.
+
+В следующем видео руководитель программы Azure Cosmos DB Эндрю Лю (Andrew Liu) продемонстрирует комплексные функции глобального распределения.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>Повсеместное географическое присутствие 
 Azure постоянно расширяет свое географическое присутствие, добавляя [новые регионы](https://azure.microsoft.com/regions/) в сеть. Служба Azure Cosmos DB доступна во всех новых регионах Azure по умолчанию. Это позволяет связать географический регион со своей учетной записью базы данных Azure Cosmos DB, как только Azure откроет новый регион для осуществления операций.

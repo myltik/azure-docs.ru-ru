@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Архитектура подключений к базе данных SQL Azure 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Изменение политики подключения для базы данных SQL Azure
 
-Чтобы изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, используйте [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+Чтобы изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, используйте команду [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 - Если задана политика подключения **Прокси-сервер**, то всех сетевые пакеты проходят через шлюз базы данных SQL Azure. Для этого режима необходимо разрешить исходящий трафик только через IP-адрес шлюза базы данных SQL Azure. В режиме **Прокси-сервер** задержка выше, чем в режиме **Перенаправление**.
 - Если используется политика подключения **Перенаправление**, то все сетевые пакеты передаются непосредственно в ПО промежуточного уровня прокси-сервера. Для этого режима необходимо разрешить исходящий трафик для нескольких IP-адресов.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- Сведения о том, как изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, см. в разделе [Create or Update Server Connection Policy](https://msdn.microsoft.com/library/azure/mt604439.aspx) (Создание или изменение политики подключения сервера).
+- Дополнительные сведения о том, как изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, см. в статье о команде [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Сведения о поведении подключения к базе данных SQL Azure клиентов, использующих ADO.NET 4.5 или более поздней версии, см. в разделе [Порты для ADO.NET 4.5, отличные от порта 1433](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Общая информация о разработке приложений приведена в разделе [Обзор разработки приложений баз данных SQL](sql-database-develop-overview.md).

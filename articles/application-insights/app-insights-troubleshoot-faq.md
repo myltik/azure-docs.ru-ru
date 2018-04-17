@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы об Azure Application Insights | Документы Майкрософт"
-description: "Вопросы и ответы об Application Insights."
+title: Вопросы и ответы об Azure Application Insights | Документы Майкрософт
+description: Вопросы и ответы об Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: вопросы и ответы
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="how-much-is-it-costing"></a>Сколько это стоит?
 
-* Откройте страницу **Компоненты и расценки** в ресурсе Application Insights. На ней приводится диаграмма недавнего использования. При желании можно задать ограничение на объем данных.
+* Откройте страницу **Usage and estimated costs** (Данные об использовании и предполагаемые расходы) для ресурса Application Insights. На ней приводится диаграмма недавнего использования. При желании можно задать ограничение на объем данных.
 * Откройте [колонку подписок и выставления счетов Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview), чтобы просмотреть счета за все ресурсы.
 
 ## <a name="q14"></a>Что Application Insights изменяет в моем проекте?
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/03/2018
 * [Настройка системы диагностики Azure для входа в Application Insights](app-insights-azure-diagnostics.md)
 * [контейнеры Docker](app-insights-docker.md);
 * [импорт таблиц в Analytics](app-insights-analytics-import.md);
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/);
+* [Служба Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md).
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Можно ли отфильтровать или изменить некоторые данные телеметрии?
@@ -262,7 +262,7 @@ ms.lasthandoff: 02/03/2018
 </TelemetryChannel>
 ```
 
-Шлюз должен направлять трафик на адрес https://dc.services.visualstudio.com:443/v2/track
+Шлюз должен направлять трафик на адрес https://dc.services.visualstudio.com:443/v2/track.
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Можно ли выполнять веб-тесты доступности на сервере в интрасети?
 

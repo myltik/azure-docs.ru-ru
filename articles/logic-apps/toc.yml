@@ -1,0 +1,335 @@
+- name: Документация Azure Logic Apps
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое Azure Logic Apps
+      href: logic-apps-overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: "Создание приложений логики\_— портал Azure"
+      href: quickstart-create-first-logic-app-workflow.md
+    - name: "Создание приложений логики\_— Visual Studio"
+      href: quickstart-create-logic-apps-with-visual-studio.md
+- name: Учебники
+  items:
+    - name: Регулярная проверка трафика
+      href: tutorial-build-schedule-recurring-logic-app-workflow.md
+    - name: Управление запросами для списка рассылки
+      href: tutorial-process-mailing-list-subscriptions-workflow.md
+    - name: Обработка вложений электронной почты
+      href: tutorial-process-email-attachments-workflow.md
+- name: Основные понятия
+  items:
+    - name: Соединители для Logic Apps
+      href: ../connectors/apis-list.md
+    - name: Бессерверные вычисления с помощью Azure
+      href: logic-apps-serverless-overview.md
+    - name: Интеграция B2B и обработка EDI
+      href: logic-apps-enterprise-integration-overview.md
+- name: Практические руководства
+  items:
+    - name: Разработка
+      items:
+        - name: Создание на основе готовых шаблонов
+          href: logic-apps-create-logic-apps-from-templates.md
+        - name: Миграция из служб BizTalk
+          href: logic-apps-move-from-mabs.md
+        - name: Управление выполнением рабочих процессов
+          items:
+            - name: Условные операторы
+              href: logic-apps-control-flow-conditional-statement.md
+            - name: Операторы switch
+              href: logic-apps-control-flow-switch-statement.md
+            - name: Ветви
+              href: logic-apps-control-flow-branches.md
+            - name: Циклы
+              href: logic-apps-control-flow-loops.md
+            - name: Области действия
+              href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Добавление пользовательского кода с помощью решения "Функции Azure"
+          href: logic-apps-azure-functions.md
+        - name: Вызов приложений логики с помощью решения "Функции Azure"
+          href: logic-apps-scenario-function-sb-trigger.md
+        - name: 'Вызов, активация или вкладывание приложений логики'
+          href: logic-apps-http-endpoint.md
+        - name: Пакетная обработка сообщений
+          href: logic-apps-batch-process-send-receive-messages.md
+        - name: Создание определений JSON
+          href: logic-apps-author-definitions.md
+        - name: Обработка типов содержимого
+          href: logic-apps-content-type.md
+        - name: Обработка ошибок и исключений
+          href: logic-apps-exception-handling.md
+        - name: Защита приложений логики
+          href: logic-apps-securing-a-logic-app.md
+        - name: Разработка настраиваемых соединителей
+          href: custom-connector-overview.md
+        - name: Разработка настраиваемых интерфейсов API
+          items:
+            - name: Создание настраиваемых API для приложений логики
+              href: logic-apps-create-api-app.md
+            - name: Отправка безопасных вызовов к настраиваемым API
+              href: logic-apps-custom-api-authentication.md
+            - name: Развертывание и вызов настраиваемых API
+              href: logic-apps-custom-api-host-deploy-call.md
+        - name: Устранение неполадок
+          href: logic-apps-diagnosing-failures.md
+    - name: Разработка для сценариев B2B
+      items:
+        - name: Создание учетной записи интеграции
+          href: logic-apps-enterprise-integration-create-integration-account.md
+        - name: Торговые партнеры
+          href: logic-apps-enterprise-integration-partners.md
+        - name: Соглашения
+          href: logic-apps-enterprise-integration-agreements.md
+        - name: Метаданные артефактов
+          href: logic-apps-enterprise-integration-metadata.md
+        - name: Получение сообщений B2B
+          href: logic-apps-enterprise-integration-b2b.md
+        - name: Обмен сообщениями AS2
+          href: logic-apps-enterprise-integration-as2.md
+          items:
+            - name: Кодирование AS2
+              href: logic-apps-enterprise-integration-as2-encode.md
+            - name: Декодирование AS2
+              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: Обмен сообщениями EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
+          items:
+            - name: Кодирование EDIFACT
+              href: logic-apps-enterprise-integration-edifact-encode.md
+            - name: Декодирование EDIFACT
+              href: logic-apps-enterprise-integration-edifact-decode.md
+            - name: Обработка файлов EDIFACT с использованием сегмента UNH2.5
+              href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+        - name: Обмен сообщениями X12
+          href: logic-apps-enterprise-integration-x12.md
+          items:
+            - name: Кодирование X12
+              href: logic-apps-enterprise-integration-x12-encode.md
+            - name: Декодирование X12
+              href: logic-apps-enterprise-integration-x12-decode.md
+        - name: Пакетная обработка и отправка сообщений EDI
+          href: logic-apps-scenario-edi-send-batch-messages.md
+        - name: Обработка неструктурированных файлов
+          href: logic-apps-enterprise-integration-flatfile.md
+        - name: Обработка XML
+          href: logic-apps-enterprise-integration-xml.md
+        - name: Проверка XML
+          href: logic-apps-enterprise-integration-xml-validation.md
+        - name: Добавление схем для проверки XML
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Преобразование XML
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Добавление карт для преобразования XML
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Преобразование JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
+        - name: Добавление сертификатов безопасности
+          href: logic-apps-enterprise-integration-certificates.md
+        - name: Устранение ошибок B2B
+          href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
+        - name: Планирование аварийного восстановления
+          href: logic-apps-enterprise-integration-b2b-business-continuity.md
+    - name: Доступ к локальным данным
+      items:
+        - name: Установка шлюза данных
+          href: logic-apps-gateway-install.md
+        - name: Подключение к локальным данным
+          href: logic-apps-gateway-connection.md
+    - name: 'Соединители: подробные сведения'
+      items:
+        - name: AS2
+          href: logic-apps-enterprise-integration-as2.md
+        - name: Хранилище больших двоичных объектов Azure
+          href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Концентраторы событий Azure
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
+        - name: Функции Azure
+          href: logic-apps-azure-functions.md
+        - name: Azure Logic Apps
+          href: logic-apps-http-endpoint.md
+        - name: Azure Service Bus
+          href: ../connectors/connectors-create-api-servicebus.md
+        - name: Базы данных SQL Azure
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Поиск Bing
+          href: ../connectors/connectors-create-api-bingsearch.md
+        - name: Box
+          href: ../connectors/connectors-create-api-box.md
+        - name: Настраиваемые API-интерфейсы и веб-приложения
+          href: logic-apps-create-api-app.md
+        - name: DB2
+          href: ../connectors/connectors-create-api-db2.md
+        - name: DropBox
+          href: ../connectors/connectors-create-api-dropbox.md
+        - name: "Dynamics\_365 CRM Online"
+          href: ../connectors/connectors-create-api-crmonline.md
+        - name: EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
+        - name: Excel
+          href: ../connectors/connectors-create-api-excel.md
+        - name: Facebook
+          href: ../connectors/connectors-create-api-facebook.md
+        - name: Файловая система
+          href: logic-apps-using-file-connector.md
+        - name: Неструктурированный файл
+          href: logic-apps-enterprise-integration-flatfile.md
+        - name: FTP
+          href: ../connectors/connectors-create-api-ftp.md
+        - name: GitHub
+          href: ../connectors/connectors-create-api-github.md
+        - name: Google Диск
+          href: ../connectors/connectors-create-api-googledrive.md
+        - name: HTTP
+          href: ../connectors/connectors-native-http.md
+        - name: HTTP + Swagger
+          href: ../connectors/connectors-native-http-swagger.md
+        - name: HTTP Webhook
+          href: ../connectors/connectors-native-webhook.md
+        - name: Informix
+          href: ../connectors/connectors-create-api-informix.md
+        - name: Учетная запись интеграции
+          href: logic-apps-enterprise-integration-metadata.md
+        - name: MailChimp
+          href: ../connectors/connectors-create-api-mailchimp.md
+        - name: Microsoft Translator
+          href: ../connectors/connectors-create-api-microsofttranslator.md
+        - name: Магический квадрант
+          href: ../connectors/connectors-create-api-mq.md
+        - name: Office 365 Outlook
+          href: ../connectors/connectors-create-api-office365-outlook.md
+        - name: "Пользователи Office\_365"
+          href: ../connectors/connectors-create-api-office365-users.md
+        - name: "Office\_365 Видео"
+          href: ../connectors/connectors-create-api-office365-video.md
+        - name: OneDrive
+          href: ../connectors/connectors-create-api-onedrive.md
+        - name: OneDrive для бизнеса
+          href: ../connectors/connectors-create-api-onedriveforbusiness.md
+        - name: База данных Oracle
+          href: ../connectors/connectors-create-api-oracledatabase.md
+        - name: Project Online
+          href: ../connectors/connectors-create-api-projectonline.md
+        - name: Запрос и ответ
+          href: ../connectors/connectors-native-reqres.md
+        - name: RSS
+          href: ../connectors/connectors-create-api-rss.md
+        - name: Salesforce
+          href: ../connectors/connectors-create-api-salesforce.md
+        - name: SAP
+          href: logic-apps-using-sap-connector.md
+        - name: Расписание
+          href: ../connectors/connectors-native-recurrence.md
+        - name: SendGrid
+          href: ../connectors/connectors-create-api-sendgrid.md
+        - name: SharePoint Online
+          href: ../connectors/connectors-create-api-sharepointonline.md
+        - name: SharePoint Server
+          href: ../connectors/connectors-create-api-sharepointserver.md
+        - name: Slack
+          href: ../connectors/connectors-create-api-slack.md
+        - name: SQL Azure и SQL Server
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Преобразование XML
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Trello
+          href: ../connectors/connectors-create-api-trello.md
+        - name: Twitter
+          href: ../connectors/connectors-create-api-twitter.md
+        - name: Twilio
+          href: ../connectors/connectors-create-api-twilio.md
+        - name: Wunderlist
+          href: ../connectors/connectors-create-api-wunderlist.md
+        - name: X12
+          href: logic-apps-enterprise-integration-x12.md
+        - name: Проверка XML
+          href: logic-apps-enterprise-integration-xml-validation.md
+        - name: Yammer
+          href: ../connectors/connectors-create-api-yammer.md
+    - name: управление
+      items:
+        - name: 'Управление приложениями логики: Visual Studio'
+          href: manage-logic-apps-with-visual-studio.md
+        - name: Управление учетными записями интеграции
+          href: logic-apps-enterprise-integration-accounts.md
+    - name: Развертывание
+      items:
+        - name: Определение и развертывание приложений логики
+          href: logic-apps-create-deploy-azure-resource-manager-templates.md
+        - name: "Создание шаблонов развертывания\_— Visual Studio"
+          href: logic-apps-create-deploy-template.md
+    - name: Мониторинг
+      items:
+        - name: Мониторинг состояния приложений логики
+          href: logic-apps-monitor-your-logic-apps.md
+        - name: Мониторинг состояния приложений логики в OMS с помощью Log Analytics
+          href: logic-apps-monitor-your-logic-apps-oms.md
+        - name: Мониторинг сообщений B2B
+          href: logic-apps-monitor-b2b-message.md
+          items:
+            - name: Отслеживание сообщений B2B в OMS
+              href: logic-apps-track-b2b-messages-omsportal.md
+            - name: Запрашивание сообщений B2B в OMS
+              href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+    - name: 'Примеры, сценарии и пошаговые руководства'
+      href: logic-apps-examples-and-scenarios.md
+      items:
+        - name: Мониторинг социальных сетей
+          href: logic-apps-scenario-social-serverless.md
+        - name: Создание бессерверного приложения — Visual Studio
+          href: logic-apps-serverless-get-started-vs.md
+        - name: Добавление обработки ошибок и исключений
+          href: logic-apps-scenario-error-and-exception-handling.md
+        - name: Обработка B2B
+          href: logic-apps-enterprise-integration-b2b.md
+- name: Справочные материалы
+  items:
+    - name: 'Соединители: подробные сведения'
+      href: 'https://docs.microsoft.com/connectors/'
+    - name: Ограничения и конфигурация
+      href: logic-apps-limits-and-config.md
+    - name: Измерение показателей использования
+      href: logic-apps-pricing.md
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.logicapp
+    - name: ИНТЕРФЕЙС REST API
+      href: /rest/api/logic/
+    - name: Схема языка для определения рабочего процесса
+      href: logic-apps-workflow-definition-language.md
+      items:
+        - name: Общедоступная версия журнала схем
+          href: logic-apps-schema-2016-04-01.md
+    - name: Действия и триггеры рабочего процесса
+      href: logic-apps-workflow-actions-triggers.md
+    - name: Схемы отслеживания
+      items:
+        - name: Схема отслеживания AS2
+          href: logic-apps-track-integration-account-as2-tracking-schemas.md
+        - name: Схема отслеживания X12
+          href: logic-apps-track-integration-account-x12-tracking-schema.md
+        - name: Настраиваемая схема отслеживания
+          href: logic-apps-track-integration-account-custom-tracking-schema.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure Logic Apps
+      href: 'https://aka.ms/logicappsroadmap/'
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-logic-apps'
+    - name: Twitter
+      href: 'https://twitter.com/logicappsio'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=logic-apps'
+    - name: Истории клиентов
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'

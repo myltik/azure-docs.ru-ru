@@ -1,24 +1,19 @@
 ---
-title: "Обзор Azure Automation DSC | Документация Майкрософт"
-description: "Обзор DSC службы автоматизации Azure, условий использования и известных проблем"
+title: Обзор DSC службы автоматизации Azure
+description: Обзор DSC службы автоматизации Azure, условий использования и известных проблем
+keywords: PowerShell DSC, настройка требуемого состояния, PowerShell DSC для Azure
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "PowerShell DSC, настройка требуемого состояния, PowerShell DSC для Azure"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Обзор DSC службы автоматизации Azure
 
@@ -45,8 +40,8 @@ Azure Automation DSC обеспечивает тот же слой управл�
 ### <a name="import-reporting-data-into-log-analytics"></a>Импорт данных отчетов в Log Analytics
 
 Узлы, которые управляются с помощью Azure Automation DSC, отправляют на встроенный опрашивающий сервер подробные отчеты с данными о состоянии.
-В Azure Automation DSC можно настроить отправку этих данных в рабочую область Log Analytics в Microsoft Operations Management Suite (OMS).
-Сведения об отправке данных о состоянии DSC в рабочую область Log Analytics см. в статье [Пересылка данных отчетов Azure Automation DSC в OMS Log Analytics](automation-dsc-diagnostics.md).
+В Azure Automation DSC можно настроить отправку этих данных в рабочую область Log Analytics.
+Сведения об отправке данных о состоянии DSC в рабочую область Log Analytics см. в статье [Пересылка данных отчетов Azure Automation DSC в Log Analytics](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Видео: общие сведения
 

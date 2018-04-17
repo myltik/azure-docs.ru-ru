@@ -1,8 +1,8 @@
 ---
-title: "Создание первого шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Пошаговые инструкции по созданию первого шаблона Azure Resource Manager. Здесь объясняется, как создать шаблон, указав в нем ссылку на учетную запись хранения."
+title: Создание первого шаблона Azure Resource Manager | Документация Майкрософт
+description: Пошаговые инструкции по созданию первого шаблона Azure Resource Manager. Здесь объясняется, как создать шаблон, указав в нем ссылку на учетную запись хранения.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Создание и развертывание первого шаблона Azure Resource Manager
 В этой статье рассматриваются действия по созданию первого шаблона Azure Resource Manager. Шаблоны Resource Manager — это JSON-файлы, которые определяют ресурсы, необходимые для развертывания решения. Основные понятия, связанные с развертыванием и управлением решений Azure, см. в [обзоре Azure Resource Manager](resource-group-overview.md). Если вы уже развернули ресурсы и хотите получить для них шаблон, см. статью [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
@@ -26,8 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Visual Studio Code. При необходимости установите его со страницы [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* Visual Studio Code. При необходимости это средство можно установить со страницы [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+* Локальная установка [Azure PowerShell](/powershell/azure/install-azurerm-ps) или [Azure CLI](/cli/azure/install-azure-cli). Для работы с этим руководством нужна локальная установка, так как шаблон сохраняется в виде локального файла. Чтобы использовать облачную среду, необходимо [загрузить шаблон в учетную запись хранения](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## <a name="create-template"></a>Создание шаблона
 
@@ -92,24 +93,6 @@ ms.lasthandoff: 10/11/2017
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-После завершения развертывания учетная запись хранения будет находиться в группе ресурсов.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Выполните следующие команды для Azure CLI:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-Сейчас служба PowerShell доступна в Cloud Shell в качестве предварительной версии. Выполните следующие команды для PowerShell:
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 После завершения развертывания учетная запись хранения будет находиться в группе ресурсов.
 
@@ -244,12 +227,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Для Cloud Shell отправьте измененный шаблон в общий файловый ресурс. Перезапишите существующий файл. Затем используйте следующую команду:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>Использование автозаполнения
 
 До недавнего времени работа с шаблоном заключалась только в копировании и вставке кода JSON из этой статьи. Но при разработке собственных шаблонов необходимо найти и указать свойства и значения, доступные для типа ресурса. VS Code считывает схему для типа ресурса и предлагает свойства и значения. Чтобы увидеть, как работает функция автозаполнения, перейдите к элементу properties шаблона и добавьте новую строку. Введите кавычки. Вы увидите, что VS Code сразу же предложит имена, доступные в элементе properties.
@@ -377,12 +354,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Для Cloud Shell отправьте измененный шаблон в общий файловый ресурс. Перезапишите существующий файл. Затем используйте следующую команду:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов

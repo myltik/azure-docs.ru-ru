@@ -1,8 +1,8 @@
 ---
-title: "Установка агента Azure AD Connect Health | Документация Майкрософт"
-description: "Это страница Azure AD Connect Health, на которой описана процедура установки агента для AD FS и синхронизации."
+title: Установка агента Azure AD Connect Health | Документация Майкрософт
+description: Это страница Azure AD Connect Health, на которой описана процедура установки агента для AD FS и синхронизации.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Установка агента Azure AD Connect Health
 В этом документе описываются этапы установки и настройки агентов Azure AD Connect Health. Загрузить агенты можно [отсюда](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent):
@@ -31,11 +31,11 @@ ms.lasthandoff: 01/25/2018
 | Azure AD Premium |Служба Azure AD Connect Health относится к Azure AD Premium и требует наличия выпуска Azure AD Premium. </br></br>Дополнительные сведения см. в статье [Приступая к работе с Azure Active Directory Premium](../active-directory-get-started-premium.md). </br>Чтобы получить бесплатную 30-дневную пробную версию, перейдите [по этой ссылке](https://azure.microsoft.com/trial/get-started-active-directory/). |
 | Для начала работы с Azure AD Connect Health требуются права глобального администратора Azure AD  |По умолчанию только глобальный администратор может установить и настроить агенты работоспособности, чтобы приступить к работе, получить доступ к порталу и начать выполнять любые операции в Azure AD Connect Health. Дополнительные сведения см. в статье [Администрирование каталога Azure AD](../active-directory-administer.md). <br><br> С помощью управления доступом на основе ролей можно разрешить доступ к Azure AD Connect Health другим пользователям в организации. Дополнительные сведения см. в разделе [Управление доступом с помощью контроля доступа на основе ролей](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control). </br></br>**Важно!** Учетная запись, которая используется во время установки агентов, должна быть рабочей или учебной. Учетную запись Майкрософт для этого использовать нельзя. Дополнительные сведения см. в статье [Подпишитесь на Azure как организация](../sign-up-organization.md). |
 | Агент Azure AD Connect Health следует установить на всех целевых серверах | Для Azure AD Connect Health на целевых серверах необходимо установить и настроить агенты работоспособности, чтобы получать данные и предоставлять возможности мониторинга и аналитики. </br></br>Например, для получения данных об инфраструктуре AD FS необходимо установить агент на серверы AD FS и прокси-серверы веб-приложений. Аналогично, для получения данных о локальной инфраструктуре AD DS агент необходимо установить на контроллеры домена. </br></br> |
-| Исходящие подключения к конечным точкам службы Azure | Во время установки и выполнения агенту требуется подключение к конечным точкам службы Azure AD Connect Health. При блокировке исходящего подключения с помощью брандмауэров убедитесь, что в список разрешенных добавлены следующие конечные точки: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net, порт 5671; </li><li>&#42;.adhybridhealth.azure.com/;</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com </li><li>https://www.Office.com *Эта конечная точка используется только для обнаружения во время регистрации.</li><br> Для среды **Azure — Германия** добавьте альтернативные конечные точки в список разрешенных:</br><li>*.blob.core.cloudapi.de; </li><li>*.queue.core.cloudapi.de; </li><li>*.servicebus.cloudapi.de; </li><li>*.table.core.cloudapi.de; </li><li>*.aadconnecthealth.microsoftazure.de; </li><li>https://management.microsoftazure.de; </li><li>https://policykeyservice.aadcdi.microsoftazure.de; </li><li>https://login.microsoftonline.de; </li><li>https://secure.aadcdn.microsoftonline-p.de. </li><li>https://www.Office.com *Эта конечная точка используется только для обнаружения во время регистрации.</li> | 
+| Исходящие подключения к конечным точкам службы Azure | Во время установки и выполнения агенту требуется подключение к конечным точкам службы Azure AD Connect Health. При блокировке исходящего подключения с помощью брандмауэров убедитесь, что в список разрешенных добавлены следующие конечные точки: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net, порт 5671; </li><li>&#42;.adhybridhealth.azure.com/;</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com </li><li>https://www.office.com *Эта конечная точка используется только для обнаружения во время регистрации.</li><br> Для среды **Azure — Германия** добавьте альтернативные конечные точки в список разрешенных:</br><li>*.blob.core.cloudapi.de; </li><li>*.queue.core.cloudapi.de; </li><li>*.servicebus.cloudapi.de; </li><li>*.table.core.cloudapi.de; </li><li>*.aadconnecthealth.microsoftazure.de; </li><li>https://management.microsoftazure.de </li><li>https://policykeyservice.aadcdi.microsoftazure.de </li><li>https://login.microsoftonline.de </li><li>https://secure.aadcdn.microsoftonline-p.de </li><li>https://www.office.com *Эта конечная точка используется только для обнаружения во время регистрации.</li> | 
 |Исходящие подключения на основе IP-адресов | Дополнительные сведения о фильтрации на основе IP-адресов в брандмауэрах см. в статье о [диапазонах IP-адресов Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | Проверка SSL для исходящего трафика отфильтрована или отключена | Операции отправки данных или регистрация агента могут завершиться ошибкой в случае проверки SSL или завершения исходящего трафика на уровне сети. |
 | Порты брандмауэра на сервере с агентом. |Агент требует открытия следующих портов брандмауэра для обмена данными с конечными точками службы Azure AD Health.</br></br><li>TCP-порт 443</li><li>TCP-порт 5671</li> |
-| Внесите следующие веб-сайты в список разрешенных, если включена политика усиленной безопасности IE |Если на сервере, на котором будет установлен агент, включена конфигурация усиленной безопасности, потребуется открыть доступ для следующих веб-сайтов:</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Сервер федерации вашей организации должен быть доверенным для Azure Active Directory. (Например, https://sts.contoso.com.)</li> |
+| Внесите следующие веб-сайты в список разрешенных, если включена политика усиленной безопасности IE |Если на сервере, на котором будет установлен агент, включена конфигурация усиленной безопасности, потребуется открыть доступ для следующих веб-сайтов:</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Сервер федерации вашей организации должен быть доверенным для Azure Active Directory. Например: https://sts.contoso.com</li> |
 | Установлена служба PowerShell 4.0 или более поздней версии | <li>Windows Server 2008 R2 поставляется вместе с PowerShell версии 2.0, что недостаточно для агента.  Обновите PowerShell, как описано ниже в разделе [Установка агента на серверах Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 поставляется вместе с PowerShell версии 3.0, что недостаточно для агента.  [Обновите](http://www.microsoft.com/en-us/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 и более поздней версии поставляется с последней версией PowerShell.</li>|
 |Отключение FIPS|FIPS не поддерживается агентами Azure Active Directory Connect Health.|
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 01/25/2018
 9. Установите флажки для **успешных и неудачных событий аудита** и нажмите кнопку **ОК**. Этот параметр должен быть включен по умолчанию.
 10. Откройте окно PowerShell и выполните следующую команду: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Обратите внимание, что по умолчанию включен "базовый" уровень аудита. См. дополнительные сведения об [усовершенствовании аудита AD FS в Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016).
+Обратите внимание, что по умолчанию включен "базовый" уровень аудита. См. дополнительные сведения об [усовершенствовании аудита AD FS в Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016).
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Поиск журналов аудита AD FS
@@ -144,6 +144,8 @@ ms.lasthandoff: 01/25/2018
 2. Перейдите к разделу "Журналы Windows" и выберите пункт **Безопасность**.
 3. Справа щелкните **Фильтровать текущие журналы**.
 4. В разделе «Источник события» выберите **Аудит AD FS**.
+
+    Краткое [примечание из раздела часто задаваемых вопросов](active-directory-aadconnect-health-faq.md#operations-questions) о журналах аудита.
 
 ![Журналы аудита AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 

@@ -1,9 +1,9 @@
 ---
-title: "Запросы SQL для Azure Cosmos DB | Документация Майкрософт"
-description: "Сведения о синтаксисе SQL, основных понятиях баз данных и запросах SQL для Azure Cosmos DB. SQL можно использовать в качестве языка запросов JSON в Azure Cosmos DB."
-keywords: "синтаксис SQL, запрос SQL, язык запросов JSON, понятия баз данных и запросы SQL, статистические функции"
+title: Запросы SQL для Azure Cosmos DB | Документация Майкрософт
+description: Сведения о синтаксисе SQL, основных понятиях баз данных и запросах SQL для Azure Cosmos DB. SQL можно использовать в качестве языка запросов JSON в Azure Cosmos DB.
+keywords: синтаксис SQL, запрос SQL, язык запросов JSON, понятия баз данных и запросы SQL, статистические функции
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Запросы SQL для Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Служба Microsoft Azure Cosmos DB поддерживает запросы документов с помощью SQL (язык структурированных запросов) как языка запросов JSON в учетных записях SQL API. Azure Cosmos DB действительно не имеет схемы. В силу своей приверженности к модели данных JSON непосредственно внутри ядра СУБД, что обеспечивает автоматическое индексирование документов JSON, не требуя явной схемы или создания вторичных индексов.
 
@@ -34,11 +32,17 @@ ms.lasthandoff: 02/24/2018
 
 Мы считаем, что эти возможности являются ключевыми для уменьшения рассогласованности между приложением и базой данных и имеют решающее значение для производительности разработчика.
 
-Прежде чем приступить к работе, рекомендуется просмотреть следующий видеоролик, в котором Аравинд Рамачадран (Aravind Ramachandran) демонстрирует возможности использования запросов Cosmos DB, и посетить нашу службу [Query Playground](http://www.documentdb.com/sql/demo), где можно опробовать Cosmos DB в работе и выполнить запросы SQL к нашему набору данных.
+Прежде чем приступить к работе, рекомендуем просмотреть представленный ниже видеоролик. В нем руководитель программы Azure Cosmos DB Эндрю Лю (Andrew Liu) демонстрирует возможности использования запросов Azure Cosmos DB и службы [Query Playground](http://www.documentdb.com/sql/demo). В этой службе вы можете поработать с Azure Cosmos DB и выполнить запросы SQL к нашему набору данных.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+В следующем видео демонстрируются более сложные методы выполнения запросов:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 После этого вернитесь к этой статье, где рассматриваем несколько простых документов JSON и команд SQL.
 
@@ -2256,11 +2260,11 @@ Cosmos DB обеспечивает модель программирования
 2. [DocumentDB SQL Syntax](http://go.microsoft.com/fwlink/p/?LinkID=510612) (Синтаксис SQL в DocumentDB)
 3. [Примеры .NET для Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net)
 4. [Настраиваемые уровни согласованности данных в Azure Cosmos DB][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON — [http://json.org/](http://json.org/)
-7. Спецификация JavaScript — [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Методика вычисления запросов для больших баз данных — [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 — [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681).
+6. JSON — [http://json.org/](http://json.org/).
+7. Спецификация Javascript — [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm). 
+8. LINQ — [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx). 
+9. Методы оценки запроса для больших баз данных — [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611).
 10. Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
 12. Кристофер Олстон (Christopher Olston), Бенджамин Рид (Benjamin Reed), Аткарш Сривастава (Utkarsh Srivastava), Рави Камар (Ravi Kumar), Эндрю Томкинс (Andrew Tomkins): Язык Pig. Не такой уж и незнакомый язык для обработки данных (Pig Latin: A Not-So-Foreign Language for Data Processing), SIGMOD 2008 г.

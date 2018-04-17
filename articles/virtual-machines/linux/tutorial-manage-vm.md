@@ -4,7 +4,7 @@ description: Руководство по созданию виртуальных
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f0166f44661483c1c8118ddf85263166a248118
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Создание виртуальных машин Linux и управление ими с помощью Azure CLI
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Описание образов виртуальных машин
 
-Azure Marketplace содержит множество образов, которые можно использовать для создания виртуальных машин. На предыдущих шагах виртуальная машина создавалась с помощью образа Ubuntu. На этом шаге Azure CLI используется для поиска на сайте Marketplace образа CentOS, который затем используется для развертывания второй виртуальной машины.  
+Azure Marketplace содержит множество образов, которые можно использовать для создания виртуальных машин. На предыдущих шагах виртуальная машина создавалась с помощью образа Ubuntu. На этом шаге Azure CLI используется для поиска на сайте Marketplace образа CentOS, который затем используется для развертывания второй виртуальной машины. 
 
 Чтобы просмотреть список наиболее часто используемых образов, используйте команду [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Чтобы развернуть виртуальную машину с помощью определенного образа, запишите значение в столбце *Urn*. При указании образа его номер версии можно заменить ключевым словом latest. В этом случае будет выбрана последняя версия дистрибутива. В данном примере добавлен аргумент `--image`, чтобы указать последнюю версию образа CentOS 6.5.  
+Чтобы развернуть виртуальную машину с помощью определенного образа, запишите значение в столбце *Urn*, которое состоит из сведений об издателе, предложении, номера SKU и (необязательно) номера версии для [идентификации](cli-ps-findimage.md#terminology) образа. При указании образа его номер версии можно заменить ключевым словом latest. В этом случае будет выбрана последняя версия дистрибутива. В данном примере добавлен аргумент `--image`, чтобы указать последнюю версию образа CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -259,7 +259,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="find-power-state"></a>Поиск состояние включения
 
-Чтобы получить состояние конкретной виртуальной машины, используйте команду [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Необходимо указать допустимое имя виртуальной машины и группы ресурсов. 
+Чтобы получить сведения о состоянии конкретной виртуальной машины, используйте команду [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Необходимо указать допустимое имя виртуальной машины и группы ресурсов. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

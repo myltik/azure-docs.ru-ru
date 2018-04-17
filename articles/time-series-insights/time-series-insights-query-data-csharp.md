@@ -1,22 +1,22 @@
 ---
-title: "Запрос данных из среды службы \"Аналитика временных рядов\" с помощью кода C# | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как запрашивать данные из среды службы \"Аналитика временных рядов Azure\", создав код для пользовательского приложения на C# (c-sharp) .NET."
+title: Запрос данных из среды службы "Аналитика временных рядов" с помощью кода C# | Документация Майкрософт
+description: Из этой статьи вы узнаете, как запрашивать данные из среды службы "Аналитика временных рядов Azure", создав код для пользовательского приложения на C# (c-sharp) .NET.
 services: time-series-insights
 ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Запрос данных из среды Azure Time Series Insights с помощью C#
 
@@ -26,6 +26,11 @@ ms.lasthandoff: 12/19/2017
 2. Запрашивается список сред, к которым у пользователя есть доступ. Выбирается одна из этих сред, и последующие данные запрашиваются для этой среды.
 3. В качестве примера HTTPS-запроса для выбранной среды запрашиваются данные о доступности.
 4. В качестве примера запроса веб-сокета для выбранной среды запрашиваются объединенные данные событий. Данные запрашиваются для всего диапазона времени доступности.
+
+Этот пример кода также доступен по адресу [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights).
+
+## <a name="project-references"></a>Ссылки на проект
+Добавьте пакеты NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` и `Newtonsoft.Json` для этого примера. 
 
 ## <a name="c-example"></a>Пример C#
 

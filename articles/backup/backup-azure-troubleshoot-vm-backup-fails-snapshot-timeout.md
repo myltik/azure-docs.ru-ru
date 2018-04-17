@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Устранение неполадок службы Azure Backup. Проблемы с агентом или расширением
 
@@ -74,25 +74,10 @@ ms.lasthandoff: 03/09/2018
 После регистрации виртуальной машины в службе архивации Azure и добавления ее в расписание служба архивации инициирует задание, взаимодействуя с расширением виртуальной машины, чтобы создать моментальный снимок. Любое из указанных ниже условий может помешать активации создания моментального снимка, что может привести к сбою службы Backup. Выполните следующие шаги про устранению неполадок в указанном порядке, а затем повторите операцию:  
 **Причина 1. [Виртуальная машина не подключена к Интернету](#the-vm-has-no-internet-access)**.  
 **Причина 2. [Агент установлен на виртуальной машине, но не отвечает (для виртуальных машин Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**.  
-**Причина 3. [Устарел агент, установленный на виртуальной машине (для виртуальных машин Linux).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Причина 3. [Устарел агент, установленный на виртуальной машине (для виртуальных машин Linux).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**.  
 **Причина 4. [Не удалось получить состояние моментального снимка или создать моментальный снимок](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**.  
 **Причина 5. [Не удалось обновить или загрузить расширение резервного копирования](#the-backup-extension-fails-to-update-or-load)**.  
 **Причина 6. [Служба Backup не имеет разрешения на удаление старых точек восстановления из-за блокировки группы ресурсов](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**.
-
-## <a name="disk-configuration-is-not-supported"></a>Конфигурация диска не поддерживается
-
-Сообщение об ошибке: "Указанная конфигурация диска не поддерживается".
-
-> [!NOTE]
-> У нас есть закрытая предварительная версия, в которой поддерживается резервное копирование для виртуальных машин с дисками емкостью больше 1 ТБ. Дополнительные сведения см. на странице [закрытой предварительной версии для поддержки резервного копирования виртуальных машин с дисками большого размера](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Сейчас служба Azure Backup не поддерживает размер диска [больше 1023 ГБ](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). При наличии дисков, размер которых больше 1 ТБ, сделайте следующее:  
-1. [Подключите новые диски](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal), размер которых меньше 1 ТБ.  
-2. Скопируйте данные с дисков размером больше 1 ТБ на недавно созданные диски размером меньше 1 ТБ.  
-3. Убедитесь, что все данные скопированы. Затем удалите диски размером больше 1 ТБ.  
-4. Запустите резервное копирование.
 
 ## <a name="causes-and-solutions"></a>Причины и решения
 

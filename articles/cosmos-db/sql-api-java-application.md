@@ -1,12 +1,11 @@
 ---
-title: "Руководство по разработке приложений Java с использованием Azure Cosmos DB | Документация Майкрософт"
-description: "В этом руководстве по разработке веб-приложения Java показано, как использовать службу Azure Cosmos DB и API SQL для хранения данных и доступа к ним из приложения Java, размещенного на веб-сайтах Azure."
+title: Руководство по разработке приложений Java с использованием Azure Cosmos DB | Документация Майкрософт
+description: В этом руководстве по разработке веб-приложения Java показано, как использовать службу Azure Cosmos DB и API SQL для хранения данных и доступа к ним из приложения Java, размещенного на веб-сайтах Azure.
 keywords: Application development, database tutorial, java application, java web application tutorial, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
-manager: jhubbard
-editor: mimig
+manager: kfile
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Создание веб-приложения Java с использованием Azure Cosmos DB и API SQL
 > [!div class="op_single_selector"]
@@ -29,8 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 В этом руководстве по разработке веб-приложения Java показано, как использовать службу [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) для хранения данных и обеспечения доступа к ним из приложения Java, размещенного в Azure при помощи функции "Веб-приложения службы приложений". Из этой статьи вы узнаете:
 
@@ -729,7 +726,7 @@ ms.lasthandoff: 12/18/2017
 3. Теперь, когда вы создали WAR-файл, можно просто передать его на веб-сайт Azure в каталог **webapps**. Инструкции по передаче файла см. в статье [Добавление приложения Java в веб-приложения службы приложений Azure](../app-service/web-sites-java-add-app.md).
    
     После загрузки WAR-файла в каталог веб-приложения среда выполнения обнаруживает, что вы добавили его и автоматически загрузит ее.
-4. Чтобы просмотреть готовый проект, перейдите по адресу http://ИМЯ\_САЙТА\_.azurewebsites.net/azure-java-sample/ и начните добавлять свои задачи.
+4. Чтобы просмотреть готовый проект, перейдите по адресу http://YOUR\_ИМЯ\_САЙТА.azurewebsites.net/azure-java-sample/ и начните добавлять свои задачи.
 
 ## <a id="GetProject"></a>Получение проекта из GitHub
 Все примеры в этом учебнике включены в проект [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) на портале GitHub. Чтобы импортировать проект todo в Eclipse, убедитесь, что у вас есть программное обеспечение и ресурсы, перечисленные в разделе [Необходимые условия](#Prerequisites) , а затем выполните следующие действия.
@@ -739,7 +736,7 @@ ms.lasthandoff: 12/18/2017
 3. В Eclipse откройте меню **File** (Файл) и щелкните **Import** (Импорт).
 4. В окне **Import** (Импорт) щелкните **Git**, а затем выберите **Projects from Git** (Проекты из Git) и нажмите кнопку **Next** (Далее).
 5. На экране **Select Repository Source** (Выбрать источник репозитория) щелкните **Clone URI** (Клон URI).
-6. На экране **Source Git Repository** (Исходный репозиторий Git) в поле **URI** введите https://github.com/Azure-Samples/java-todo-app.git, а затем нажмите кнопку **Next** (Далее).
+6. На экране **исходного репозитория Git** в поле **URI** введите https://github.com/Azure-Samples/java-todo-app.git, а затем нажмите кнопку **Далее**.
 7. На экране **Branch Selection** (Выбор ветви) выберите значение **master** и нажмите кнопку **Next** (Далее).
 8. На экране **Local Destination** (Локальная папка назначения) нажмите кнопку **Browse** (Обзор), выберите папку, в которую можно копировать репозитории, и нажмите кнопку **Next** (Далее).
 9. Проверьте, установлен ли на экране **Select a wizard to use for importing projects** (Выбор мастера для импорта проектов) флажок **Import existing projects** (Импортировать существующие проекты), и нажмите кнопку **Next** (Далее).
@@ -754,6 +751,6 @@ ms.lasthandoff: 12/18/2017
 18. На вкладке **Servers** (Серверы) в нижней части экрана щелкните правой кнопкой мыши **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server на localhost), а затем нажмите кнопку **Add and Remove** (Добавить или удалить).
 19. В окне **Add and Remove** (Добавить или удалить) переместите элемент **azure-documentdb-java-sample** в поле **Configured** (Настроено), а затем нажмите кнопку **Finish** (Готово).
 20. На вкладке **Server** (Сервер) щелкните правой кнопкой мыши **Tomcat v7.0 Server at localhost** (Сервер Tomcat версии 7.0 на localhost), а затем нажмите кнопку **Restart** (Перезапуск).
-21. В браузере перейдите по адресу http://localhost:8080/azure-documentdb-java-sample/ и начните добавлять задачи в список задач. Обратите внимание, что в случае изменения заданных по умолчанию значений портов необходимо изменить значение 8080 выбранным вами значением.
+21. В браузере перейдите к http://localhost:8080/azure-documentdb-java-sample/ и приступите к добавлению задач в список. Обратите внимание, что в случае изменения заданных по умолчанию значений портов необходимо изменить значение 8080 выбранным вами значением.
 22. Инструкции по развертыванию проекта на веб-сайтах Azure см. в пункте [Шаг 6. Развертывание приложений на веб-сайтах Azure](#Deploy).
 

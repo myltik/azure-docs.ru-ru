@@ -1,6 +1,6 @@
 ---
-title: "Руководство по Службе контейнеров Azure: масштабирование приложения"
-description: "Руководство по Службе контейнеров Azure: масштабирование приложения"
+title: 'Руководство по Службе контейнеров Azure: масштабирование приложения'
+description: 'Руководство по Службе контейнеров Azure: масштабирование приложения'
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea64f9c52dc89dc8eb75a39afbb087a5127505f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Масштабирование pod и инфраструктуры Kubernetes
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/01/2018
 > * настройка автомасштабирования pod, в которых выполняется интерфейсная часть приложения;
 > * масштабирование узлов агентов Kubernetes в Azure.
 
-В последующих руководствах выполняется обновление приложения Vote Azure, а также настройка Operations Management Suite для отслеживания кластера Kubernetes.
+В последующих руководствах описывается, как обновить приложение Azure для голосования, а также настроить Log Analytics для мониторинга кластера Kubernetes.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 

@@ -1,10 +1,10 @@
 ---
-title: "Запись образа виртуальной машины Linux | Документация Майкрософт"
-description: "Узнайте, как записать образ виртуальной машины Azure под управлением Linux, созданной с помощью классической модели развертывания."
+title: Запись образа виртуальной машины Linux | Документация Майкрософт
+description: Узнайте, как записать образ виртуальной машины Azure под управлением Linux, созданной с помощью классической модели развертывания.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 29a1d5bc839fcf533973271638bf283d6e48e93b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Запись классической виртуальной машины Linux в виде образа
 > [!IMPORTANT]

@@ -78,9 +78,9 @@ ms.lasthandoff: 10/11/2017
 
 | Операция | Пример | ОПИСАНИЕ
 |:--|:--|:--|
-| autoupdate *false\\|true* | mycimprovauth autoupdate false | Устанавливает, следует ли автоматически обновлять файл проверки подлинности при перезапуске или обновлении. |
+| autoupdate *false\|true* | mycimprovauth autoupdate false | Устанавливает, следует ли автоматически обновлять файл проверки подлинности при перезапуске или обновлении. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Задает экземпляр по умолчанию в файле проверки подлинности OMI MySQL.<br>Пароль в поле пароля следует вводить в формате обычного текста, так как в файле проверки подлинности OMI MySQL он будет зашифрован в кодировке Base 64. |
-| delete *default\\|port_num* | mycimprovauth 3308 | Удаляет указанный экземпляр по умолчанию или удаляет экземпляр по номеру порта. |
+| delete *default\|port_num* | mycimprovauth 3308 | Удаляет указанный экземпляр по умолчанию или удаляет экземпляр по номеру порта. |
 | help | mycimprov help | Выводит список используемых команд. |
 | print | mycimprov print | Выводит содержимое файла проверки подлинности OMI MySQL в удобном формате. |
 | update port_num *bind-address username password* | mycimprov update 3307 127.0.0.1 root pwd | Обновляет указанный экземпляр или добавляет экземпляр, если его не существует. |

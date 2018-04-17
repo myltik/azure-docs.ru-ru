@@ -1,11 +1,11 @@
 ---
-title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — Панель мониторинга"
-description: "Просмотр диаграмм данных о приложении и управление ими с помощью Служб мобильного взаимодействия Azure"
+title: Пользовательский интерфейс Служб мобильного взаимодействия Azure — Панель мониторинга
+description: Просмотр диаграмм данных о приложении и управление ими с помощью Служб мобильного взаимодействия Azure
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Просмотр диаграмм данных о приложении о управление ими
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Раздел «Панель мониторинга» пользовательского интерфейса дает клиентам возможность создавать настраиваемые диаграммы, которые предоставляют точную информацию без необходимости ее поиска в разделе аналитики, позволяя сэкономить время. На панели мониторинга отображаются тенденции приложения и число активных пользователей для разных версий приложения за определенное время (час, день, неделя, месяц, другой заданный период). Ниже показаны тенденции за последние 7 дней.
 
 ### <a name="see-also"></a>См. также

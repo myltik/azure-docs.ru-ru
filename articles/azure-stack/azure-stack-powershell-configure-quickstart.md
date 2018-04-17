@@ -1,24 +1,24 @@
 ---
-title: "Краткое руководство. Установка и настройка PowerShell для Azure Stack | Документация Майкрософт"
-description: "Сведения об установке и настройке PowerShell для Azure Stack."
+title: Краткое руководство. Установка и настройка PowerShell для Azure Stack | Документация Майкрософт
+description: Сведения об установке и настройке PowerShell для Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: cba6f8295e5d4b75192e566d4931cbd617e7dc8d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 55fd212a895ed861cb5a9be0e4dae283e3cb5cfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Начало работы с PowerShell в Azure Stack
 
@@ -32,9 +32,6 @@ ms.lasthandoff: 03/08/2018
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Настройка PowerShell для развертываний на основе Azure Active Directory
 
 Войдите в Пакет средств разработки Azure Stack или внешний клиент на основе Windows (при подключении через VPN). Откройте сеанс интегрированной среды сценариев PowerShell с повышенными правами и выполните приведенный ниже скрипт. Обязательно обновите переменные **TenantName**, **ArmEndpoint** и **GraphAudience** в соответствии с конфигурацией вашей среды:
-
-> [!IMPORTANT]
-> Выпуск модуля AzureRM 1.2.11 PowerShell поставляется со списком критически важных изменений. Чтобы выполнить обновление с версии 1.2.10, см. [руководство по миграции](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -83,10 +80,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
@@ -154,9 +147,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
@@ -181,6 +171,9 @@ Login-AzureRmAccount `
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Чтобы указать группу ресурсов, эта группа должна присутствовать в вашей подписке. Дополнительные сведения о подписках см. в статье [Обзор планов, предложений, квот и подписок](azure-stack-plan-offer-quota-overview.md)
+
 Когда группа ресурсов будет создана, в выходных данных командлета для свойства **состояния подготовки** будет указано значение, обозначающее **успешное** выполнение.
 
 ## <a name="next-steps"></a>Дополнительная информация
@@ -188,10 +181,3 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 * [Установка и настройка CLI](azure-stack-connect-cli.md)
 
 * [Шаблоны разработки](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

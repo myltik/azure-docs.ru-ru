@@ -1,8 +1,8 @@
 ---
-title: "Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure"
-description: "Сведения об использовании действия Databricks Notebook в фабрике данных Azure для выполнения записной книжки Databricks в кластере заданий Databricks."
+title: Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure
+description: Сведения об использовании действия Databricks Notebook в фабрике данных Azure для выполнения записной книжки Databricks в кластере заданий Databricks.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: craigg
 ms.service: data-factory
@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/12/2018
+ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/12/2018
 
 В этом руководстве вы выполните следующие шаги:
 
-  - создадите фабрику данных;
+  - Создадите фабрику данных.
 
   - создадите конвейер, который использует действие Databricks Notebook.
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/12/2018
 
   - **Создайте рабочую область Azure Databricks**. [Создайте рабочую область Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) или используйте существующую. Вы создадите записную книжку Python в рабочей области Azure Databricks. Затем запустите ее и передадите в нее параметры, используя фабрику данных Azure.
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1.  Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 03/12/2018
 
           ![Создание папки](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Создайте записную книжку](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) с именем **mynotebook** в папке **adftutorial****,** выбрав команду **Создать.**
+       3. [Создайте записную книжку](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) с именем **mynotebook** в папке **adftutorial****,** выбрав команду **Создать**.
 
           ![Создание записной книжки](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 03/12/2018
 
 В этом примере конвейер запускает действие Databricks Notebook и передает в него параметр. Вы научились выполнять следующие задачи:
 
-  - создадите фабрику данных;
+  - Создадите фабрику данных.
 
   - создавать конвейер, который использует действие Databricks Notebook.
 

@@ -1,18 +1,18 @@
 ---
-title: "Номера SKU реестра контейнеров Azure"
-description: "Сравнение разных уровней служб, доступных в Реестре контейнеров Azure."
+title: Номера SKU реестра контейнеров Azure
+description: Сравнение разных уровней служб, доступных в Реестре контейнеров Azure.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Номера SKU реестра контейнеров Azure
 
@@ -37,7 +37,7 @@ SKU уровня "Базовый", "Стандартный" и "Премиум" 
 
 ### <a name="managed-basic-standard-premium"></a>Управляемый реестр ("Базовый", "Стандартный", "Премиум")
 
-Управляемые реестры поддерживаются учетными записями хранения службы хранилища Azure под управлением Azure. То есть учетная запись хранения, которая хранит образы, не отображается в подписке Azure. При использовании одного из управляемых номеров SKU реестра есть несколько преимуществ, подробно описанных в статье [Обновление реестра контейнеров уровня "Классический"][container-registry-upgrade]. В этой статье рассматриваются управляемые номера SKU реестра и их возможности.
+Управляемые реестры используют хранилище образов, полностью управляемое Azure. То есть учетная запись хранения, которая хранит образы, не отображается в подписке Azure. Использование одного из управляемых номеров SKU реестра обеспечивает несколько преимуществ, подробно описанных в статье о [хранилище образов контейнеров в Реестре контейнеров Azure][container-registry-storage]. В этой статье рассматриваются управляемые номера SKU реестра и их возможности.
 
 ### <a name="unmanaged-classic"></a>Неуправляемый реестр ("Классический")
 
@@ -103,4 +103,5 @@ az acr update --name myregistry --sku Premium
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

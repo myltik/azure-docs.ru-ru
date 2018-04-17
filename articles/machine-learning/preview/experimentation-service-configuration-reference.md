@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Файлы конфигурации службы экспериментирования в машинном обучении Azure
 
@@ -149,6 +149,8 @@ $ az ml computetarget attach cluster -n <compute target name> -a <IP address or 
 **nativeSharedDirectory**. Этот параметр указывает базовый каталог (например, _~/.azureml/share/_), в котором файлы будут сохраняться между последовательными запусками для одного целевого объекта вычислений. Если этот параметр используется при работе с контейнером Docker, необходимо установить значение true для параметра _sharedVolumes_. В противном случае произойдет сбой выполнения.
 
 **userManagedEnvironment.** Это свойство указывает, управляет ли этим целевым объектом вычислений непосредственно пользователь или служба экспериментов.  
+
+**pythonLocation**. Это свойство указывает расположение среды выполнения Python для целевого объекта вычисления для выполнения программы пользователя. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<имя_конфигурации_запуска>.runconfig
 В файле _\<имя_конфигурации_запуска>.runconfig_ задается режим выполнения для службы экспериментирования Azure ML. Вы можете настроить поведение выполнения, например отслеживание журнала выполнения, выбор целевого объекта вычислений и множество других действий. Имена файлов конфигурации запуска будут перечислены в раскрывающемся списке контекста выполнения в приложении Azure ML Workbench для рабочего стола.

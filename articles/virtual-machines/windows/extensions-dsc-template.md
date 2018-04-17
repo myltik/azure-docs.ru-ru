@@ -1,11 +1,11 @@
 ---
-title: "Расширение Desired State Configuration (DSC) с использованием шаблонов Azure Resource Manager | Документация Майкрософт"
-description: "В этой статье описывается шаблон Resource Manager для расширения Desired State Configuration в Azure."
+title: Расширение Desired State Configuration (DSC) с использованием шаблонов Azure Resource Manager | Документация Майкрософт
+description: В этой статье описывается шаблон Resource Manager для расширения Desired State Configuration в Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 keywords: DSC
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,99 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Расширение Desired State Configuration (DSC) с использованием шаблонов Azure Resource Manager
 
-В этой статье описывается шаблон Azure Resource Manager для [обработчика расширения Desired State Configuration (DSC)](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+В этой статье описывается шаблон Azure Resource Manager для [обработчика расширения Desired State Configuration (DSC)](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Вы можете встретить немного отличающиеся примеры схемы. Изменение в схеме произошло в выпуске за октябрь 2016 года. Дополнительные сведения см. в разделе об [обновлении предыдущего формата](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Пример шаблона для виртуальной машины Windows
 
-В приведенном ниже фрагменте кода показан раздел **Resource** шаблона. Расширение DSC наследует свойства расширения по умолчанию. Дополнительные сведения см. в статье [о классе VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+В приведенном ниже фрагменте кода показан раздел **Resource** шаблона.
+Расширение DSC наследует свойства расширения по умолчанию.
+Дополнительные сведения см. в статье [о классе VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Пример шаблона для масштабируемого набора виртуальных машин Windows
 
-Узел масштабируемого набора виртуальных машин содержит раздел **properties** с атрибутами **VirtualMachineProfile и extensionProfile**. В разделе **extensions** добавьте атрибут DSC.
+Узел масштабируемого набора виртуальных машин содержит раздел **properties** с атрибутами **VirtualMachineProfile и extensionProfile**.
+В разделе **extensions** добавьте данные о расширении DSC.
 
-Расширение DSC наследует свойства расширения по умолчанию. Дополнительные сведения см. в статье [о классе VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Расширение DSC наследует свойства расширения по умолчанию.
+Дополнительные сведения см. в статье [о классе VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>Подробные сведения о разделе settings
@@ -175,7 +197,8 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="default-configuration-script"></a>Скрипт конфигурации по умолчанию
 
-Дополнительные сведения об указанных ниже значениях см. в разделе [Базовые параметры](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). С помощью скрипта конфигурации по умолчанию расширения DSC можно настроить только свойства LCM, указанные в следующей таблице.
+Дополнительные сведения об указанных ниже значениях см. в разделе [Базовые параметры](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+С помощью скрипта конфигурации по умолчанию расширения DSC можно настроить только свойства LCM, указанные в следующей таблице.
 
 | Имя свойства | type | ОПИСАНИЕ |
 | --- | --- | --- |
@@ -191,7 +214,10 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="settings-vs-protectedsettings"></a>Сравнение разделов settings и protectedSettings
 
-Все параметры сохраняются в текстовом файле параметров на виртуальной машине. Свойства, указанные в разделе **settings**, общедоступные. Общедоступные свойства не зашифрованы в текстовом файле параметров. Свойства, указанные в разделе **protectedSettings**, зашифрованы с помощью сертификата, а это значит, что они не отображаются как обычный текст в файле параметров на виртуальной машине.
+Все параметры сохраняются в текстовом файле параметров на виртуальной машине.
+Свойства, указанные в разделе **settings**, общедоступные.
+Общедоступные свойства не зашифрованы в текстовом файле параметров.
+Свойства, указанные в разделе **protectedSettings**, зашифрованы с помощью сертификата, а это значит, что они не отображаются как обычный текст в файле параметров на виртуальной машине.
 
 Если для конфигурации нужны учетные данные, их можно добавить в раздел **protectedSettings**.
 
@@ -208,7 +234,9 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="example-configuration-script"></a>Пример скрипта конфигурации
 
-В указанном ниже примере показано поведение по умолчанию расширения DSC, которое заключается в предоставлении параметров метаданных LCM и регистрации в службе автоматизации DSC. Аргументы конфигурации необходимы  и будут переданы в скрипт конфигурации по умолчанию, чтобы задать метаданные LCM.
+В указанном ниже примере показано поведение по умолчанию расширения DSC, которое заключается в предоставлении параметров метаданных LCM и регистрации в службе автоматизации DSC.
+Аргументы конфигурации необходимы
+и будут переданы в скрипт конфигурации по умолчанию, чтобы задать метаданные LCM.
 
 ```json
 "settings": {
@@ -233,7 +261,10 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>Пример с использованием скрипта конфигурации в службе хранилища Azure
 
-Указанный ниже пример основан на примере конфигурации в статье [Общие сведения об обработчике расширения Desired State Configuration в Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В этом примере для развертывания расширения используются шаблоны Resource Manager, а не командлеты. Сохраните конфигурацию IisInstall.ps1, добавьте ее в ZIP-файл и передайте файл на доступный URL-адрес. В этом примере используется хранилище BLOB-объектов Azure, но ZIP-файл можно скачать из любого произвольного расположения.
+Указанный ниже пример основан на примере конфигурации в статье [Общие сведения об обработчике расширения Desired State Configuration в Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+В этом примере для развертывания расширения используются шаблоны Resource Manager, а не командлеты.
+Сохраните конфигурацию IisInstall.ps1, добавьте ее в ZIP-файл и передайте файл на доступный URL-адрес.
+В этом примере используется хранилище BLOB-объектов Azure, но ZIP-файл можно скачать из любого произвольного расположения.
 
 В шаблоне Resource Manager следующий код указывает виртуальной машине скачать правильный файл и выполнить соответствующую функцию PowerShell.
 
@@ -252,7 +283,8 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="update-from-a-previous-format"></a>Обновление из предыдущего формата
 
-Все параметры в предыдущем формате расширения (содержащие общедоступные свойства **ModulesUrl**, **ConfigurationFunction**, **SasToken** или **Properties**) автоматически адаптируются к текущему формату расширения и выполняются в обычном режиме.
+Все параметры в предыдущем формате расширения (содержащие общедоступные свойства **ModulesUrl**, **ConfigurationFunction**, **SasToken** или **Properties**) автоматически адаптируются к текущему формату расширения
+и выполняются в обычном режиме.
 
 Раньше схема settings выглядела следующим образом:
 
@@ -302,7 +334,9 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="troubleshooting---error-code-1100"></a>Устранение неполадок — код ошибки 1100
 
-Код ошибки 1100 указывает на проблему с входными данными пользователя в расширении DSC. Текст этих ошибок может меняться. Ниже приведены некоторые общие ошибки и способы их устранения.
+Код ошибки 1100 указывает на проблему с входными данными пользователя в расширении DSC.
+Текст этих ошибок может меняться.
+Ниже приведены некоторые общие ошибки и способы их устранения.
 
 ### <a name="invalid-values"></a>Недопустимые значения
 
@@ -313,7 +347,8 @@ ms.lasthandoff: 02/24/2018
 
 **Проблема.** Указано неразрешенное значение.
 
-**Решение.** Замените недопустимое значение допустимым. Дополнительные сведения см. в таблице раздела [Сведения](#details).
+**Решение.** Замените недопустимое значение допустимым.
+Дополнительные сведения см. в таблице раздела [Сведения](#details).
 
 ### <a name="invalid-url"></a>Недопустимый URL-адрес
 
@@ -321,7 +356,8 @@ ms.lasthandoff: 02/24/2018
 
 **Проблема.** Указан недопустимый URL-адрес.
 
-**Решение.** Проверьте все указанные URL-адреса. Убедитесь, что все URL-адреса разрешаются в допустимые расположения, к которым расширение может получить доступ на удаленном компьютере.
+**Решение.** Проверьте все указанные URL-адреса.
+Убедитесь, что все URL-адреса разрешаются в допустимые расположения, к которым расширение может получить доступ на удаленном компьютере.
 
 ### <a name="invalid-configurationargument-type"></a>Недопустимый тип свойства ConfigurationArgument
 
@@ -329,7 +365,8 @@ ms.lasthandoff: 02/24/2018
 
 **Проблема.** Невозможно разрешить свойство *ConfigurationArguments* в объект **Hashtable**.
 
-**Решение.** Задайте для свойства *ConfigurationArguments* тип **Hashtable**. Следуйте формату из приведенного выше примера. Обращайте внимание на кавычки, запятые и скобки.
+**Решение.** Задайте для свойства *ConfigurationArguments* тип **Hashtable**.
+Следуйте формату из приведенного выше примера. Обращайте внимание на кавычки, запятые и скобки.
 
 ### <a name="duplicate-configurationarguments"></a>Повторяющееся свойство ConfigurationArguments
 

@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/23/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Распространенные проблемы и их решения для Azure IoT Edge
 
@@ -104,7 +104,8 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 Попробуйте снова выполнить команду `iotedgectl login`.
 
 ## <a name="iotedgectl-cant-find-docker"></a>iotedgectl не удается найти Docker
-iotedgectl не удается выполнить команду установки или запуска. При этом в журналы записывается следующее сообщение:
+
+Команды `iotedgectl setup` или `iotedgectl start` завершаются ошибкой и выводят в журналы следующее сообщение:
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -119,6 +120,33 @@ iotedgectl не удается найти среду Docker, которая яв
 
 ### <a name="resolution"></a>Способы устранения:
 Установите среду Docker, убедитесь, что она работает, и повторите попытку.
+
+## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>iotedgectl setup fails with an invalid hostname (Сбой установки iotedgectl с недопустимым именем узла).
+
+Команда `iotedgectl setup` завершается ошибкой и выводит следующее сообщение: 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### <a name="root-cause"></a>Первопричина
+Среда выполнения IoT Edge поддерживает только имена узлов, которые короче 64 символов. Обычно это не является проблемой для физических компьютеров, но может наблюдаться при установке среды выполнения на виртуальной машине. Автоматически создаваемые имена узлов для виртуальных машин Windows, размещенных в Azure, часто бывают длинными. 
+
+### <a name="resolution"></a>Способы устранения:
+Эту ошибку можно устранить, настроив DNS-имя виртуальной машины, а затем задав DNS-имя в качестве имени узла в команде установки.
+
+1. На портале Azure перейдите к странице обзора виртуальной машины. 
+2. Выберите **Настроить** под DNS-именем. Если для виртуальной машины уже настроено DNS-имя, настраивать новое не нужно. 
+
+   ![Настройка DNS-имени](./media/troubleshoot/configure-dns.png)
+
+3. Укажите значение в поле **Метка DNS-имени** и выберите **Сохранить**.
+4. Скопируйте новое DNS-имя, которое должно быть в формате **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+5. В виртуальной машине используйте следующую команду для настройки среды выполнения IoT Edge с DNS-именем:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## <a name="next-steps"></a>Дополнительная информация
 Считаете, что обнаружили ошибку в платформе IoT Edge? [Отправьте запрос](https://github.com/Azure/iot-edge/issues), чтобы мы как можно скорее устранили неисправность. 

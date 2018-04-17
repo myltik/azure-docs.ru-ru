@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Руководство. Выполнение запросов в Azure Cosmos DB с использованием API MongoDB
 
@@ -30,6 +30,10 @@ ms.lasthandoff: 03/17/2018
 
 > [!div class="checklist"]
 > * Запрос данных с помощью MongoDB.
+
+Чтобы начать работу, просмотрите это видео, в котором руководитель программы Azure Cosmos DB Энди Хоу (Andy Hoh) рассказывает о запросах к MongoDB:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Пример документа
 
@@ -300,7 +304,7 @@ ms.lasthandoff: 03/17/2018
 
 **Результаты**
 
-Результаты не будут выведены, так как у семей в нашем файле не более 2 детей. Этот запрос будет успешным и вернет полный документ, только если параметр будет равен 2.
+Результаты не будут выведены, так как у семей в документе не больше двоих детей. Этот запрос будет успешным и вернет полный документ, только если параметр будет равен 2.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

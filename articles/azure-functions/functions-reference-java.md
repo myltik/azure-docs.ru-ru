@@ -1,6 +1,6 @@
 ---
-title: "Справочник разработчика Java по Функциям Azure | Документация Майкрософт"
-description: "Информация о разработке функций на языке Java."
+title: Справочник разработчика Java по Функциям Azure | Документация Майкрософт
+description: Информация о разработке функций на языке Java.
 services: functions
 documentationcenter: na
 author: rloutlaw
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Руководство разработчика Java по Функциям Azure
 > [!div class="op_single_selector"]
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Переменные среды
+
+Часто желательно отделять секретные данные от исходного кода по соображениям безопасности. Это позволяет публиковать код в репозиториях исходного кода без случайного предоставления учетных данных другим разработчикам. Это достигается просто путем использования переменных среды, как при локальном выполнении Функций Azure, так и при развертывании ваших функций в Azure.
+
+Чтобы легко задать переменные среды при локальном выполнении Функций Azure, можно добавить эти переменные в файл local.settings.json. Если этот файл отсутствует в корневом каталоге проекта функции, вы можете создать его. Файл должен выглядеть следующим образом:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Каждое сопоставление ключа и значения в карте `values` станет доступно во время выполнения как переменная среды, доступ к которой осуществляется путем вызова `System.getenv("<keyname>")`, например `System.getenv("AzureWebJobsStorage")`. Добавление дополнительных пар ключа и значения приемлемо и рекомендуется.
+
+> [!NOTE]
+> При таком подходе не забудьте определить, добавлять ли файл local.settings.json в файл игнорирования репозитория, чтобы он не был зафиксирован.
+
+Так как ваш код теперь зависит от этих переменных среды, можно войти на портал Azure, чтобы задать те же пары "ключ-значение" в настройках приложения-функции. В таком случае код будет функционировать одинаково как при локальном тестировании, так и при развертывании в Azure.
+
 ## <a name="next-steps"></a>Дополнительная информация
 Для получения дополнительных сведений см. следующие ресурсы:
 
 * [Рекомендации по функциям Azure](functions-best-practices.md)
 * [Справочник разработчика по функциям Azure](functions-reference.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
+* [Remote Debug Java Azure Functions with Visual Studio Code (Удаленная отладка функций Azure на языке Java с помощью Visual Studio Code)](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

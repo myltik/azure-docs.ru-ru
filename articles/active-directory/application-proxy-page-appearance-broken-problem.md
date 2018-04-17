@@ -1,23 +1,23 @@
 ---
-title: "Неправильное отображение страницы приложения для приложения прокси приложения | Документы Майкрософт"
-description: "Указания на случай, когда страница отображается неправильно в приложении прокси приложения, интегрированном с Azure AD."
+title: Неправильное отображение страницы приложения для приложения прокси приложения | Документы Майкрософт
+description: Указания на случай, когда страница отображается неправильно в приложении прокси приложения, интегрированном с Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 03/23/2018
 ms.author: asteen
-ms.openlocfilehash: 017267620a1bcd6242bceb395966cc4190677c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d187b545a486be28fc80e6baf8e58079ff94ec5e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Неправильное отображение страницы приложения для приложения прокси приложения
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 12/11/2017
 
 Убедиться в наличии проблемы можно, открыв средство отслеживания сети (например, Fiddler либо инструменты F12 в Internet Explorer или Edge), загрузив страницу и выполнив поиск ошибок 404. Это позволяет выявить страницы, которые сейчас не удается найти и, возможно, все еще требуется опубликовать.
 
-В качестве примера этой ситуации предположим, что вы опубликовали приложение учета расходов с помощью внутреннего URL-адреса <http://myapps/expenses>, но приложение использует таблицу стилей <http://myapps/style.css>. В этом случае таблица стилей не публикуется в вашем приложении, поэтому при запуске приложения выдается ошибка 404 из-за попытки загрузить style.css. В этом примере проблему можно было бы решить, опубликовав приложение с помощью внутреннего URL-адреса <http://myapp/>.
+В качестве примера этой ситуации предположим, что вы опубликовали приложение учета расходов с помощью внутреннего URL-адреса <http://myapps/expenses>, но приложение использует таблицу стилей <http://myapps/style.css>. В этом случае таблица стилей не публикуется в вашем приложении, поэтому при запуске приложения выдается ошибка 404 из-за попытки загрузить style.css. В этом примере проблему можно решить, опубликовав приложение с помощью внутреннего URL-адреса <http://myapp/>.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Проблемы при публикации в качестве одного приложения
 
 Если невозможно опубликовать все ресурсы в одном приложении, нужно опубликовать несколько приложений и включить ссылки между ними.
 
-Для этого рекомендуется использовать решение на базе [личных доменов](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). Однако это решение требует, чтобы вы владели сертификатом для своего домена, а ваши приложения использовали полные доменные имена (FQDN). Другие варианты описаны в [документации по устранению неполадок с неработающими ссылками](https://microsoft-my.sharepoint.com/personal/harshja_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=IxuG3mFVbnPWI3Yn4Qi7wCNi8VIfHS5mwPt5quh8DMw%3d&docid=2_14558cd6ddea34c1c9887dc640feb5831&rev=1).
+Для этого рекомендуется использовать решение на базе [личных доменов](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). Однако это решение требует, чтобы вы владели сертификатом для своего домена, а ваши приложения использовали полные доменные имена (FQDN). Другие варианты описаны в [документации по устранению неполадок с неработающими ссылками](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
 [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md)

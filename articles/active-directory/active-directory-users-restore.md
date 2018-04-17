@@ -1,29 +1,32 @@
 ---
-title: "Восстановление или удаление без возможности восстановления недавно удаленного пользователя в Azure Active Directory | Документация Майкрософт"
-description: "Как восстановить удаленного пользователя, просмотреть подходящих для восстановления пользователей и окончательно удалить пользователя в Azure Active Directory"
+title: Восстановление или удаление без возможности восстановления недавно удаленного пользователя в Azure Active Directory | Документация Майкрософт
+description: Как восстановить удаленного пользователя, просмотреть подходящих для восстановления пользователей и окончательно удалить пользователя в Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/28/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: d8a1850f8635097364268abdf77394ba592f761b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9eea61cc1b735c6505df87526cd526a9a4a6eed8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Восстановление удаленного пользователя в Azure Active Directory
 
 В этой статье содержатся инструкции по восстановлению или окончательному удалению ранее удаленного пользователя. После удаления пользователя в Azure Active Directory он сохраняется в течение 30 дней с даты удаления. В течение этого времени пользователя и его свойства можно восстановить. 
+
+> [!wARNING]
+> После окончательного удаления восстановить пользователя будет невозможно.
 
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Как восстановить недавно удаленного пользователя

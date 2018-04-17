@@ -3,8 +3,7 @@ title: Поддержка возможностей MongoDB в Azure Cosmos DB | 
 description: Сведения о возможностях MongoDB 3.4, которые предоставляет API-интерфейс MongoDB для Azure Cosmos DB.
 services: cosmos-db
 author: alekseys
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
@@ -14,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Поддержка возможностей и синтаксиса MongoDB в API-интерфейсе MongoDB
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете обмениваться данными с API-интерфейсом базы данных MongoDB, используя любой из [драйверов](https://docs.mongodb.org/ecosystem/drivers) с открытым кодом для клиента MongoDB. API-интерфейс MongoDB поддерживает существующие драйверы клиента благодаря [сетевому протоколу](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-С помощью API-интерфейса базы данных MongoDB для Azure Cosmos DB вы можете не только продолжать пользоваться существующими функциями MongoDB, но и применять новые возможности Azure Cosmos DB, включая [глобальное распространение](distribute-data-globally.md), [автоматическое сегментирование](partition-data.md), гарантии по уровням доступности и задержкам, автоматическое индексирование каждого поля, шифрование хранимых данных, резервное копирование и многое другое.
+С помощью API-интерфейса MongoDB для Azure Cosmos DB вы можете пользоваться всеми функциями API MongoDB, к которым вы привыкли, и возможностями Azure Cosmos DB для организаций: [глобальное распространение](distribute-data-globally.md), [автоматическое сегментирование](partition-data.md), гарантии по уровням доступности и задержкам, автоматическое индексирование каждого поля, шифрование хранимых данных, резервное копирование и многое другое.
 
 ## <a name="mongodb-query-language-support"></a>Поддержка языка запросов MongoDB
 
@@ -92,6 +91,7 @@ Azure Cosmos DB поддерживает конвейер статистичес
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Статистические выражения
 

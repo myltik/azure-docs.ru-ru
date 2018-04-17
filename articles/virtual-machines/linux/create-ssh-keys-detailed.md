@@ -1,13 +1,13 @@
 ---
-title: "Руководство по созданию пары ключей SSH для виртуальных машин Linux в Azure | Документация Майкрософт"
-description: "Указания по созданию пары из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure, а также сведения о разных вариантах использования определенных сертификатов."
+title: Руководство по созданию пары ключей SSH для виртуальных машин Linux в Azure | Документация Майкрософт
+description: Указания по созданию пары из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure, а также сведения о разных вариантах использования определенных сертификатов.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Подробное руководство по созданию пары ключей SSH и дополнительных сертификатов для виртуальной машины Linux в Azure
 С помощью пары ключей SSH в Azure можно создавать виртуальные машины, по умолчанию использующие ключи SSH для проверки подлинности, что позволяет обойтись без паролей для входа. Так как существует вероятность подбора пароля, ваши виртуальные машины могут подвергаться непрерывным попыткам взлома. Виртуальные машины, созданные с помощью интерфейса командной строки Azure или шаблонов Resource Manager, могут содержать открытый ключ SSH, что устраняет необходимость в настройке после их развертывания, а именно в отключении входа с использованием пароля для SSH. В этой статье приведены подробные указания и дополнительные примеры создания сертификатов, используемых, например, на виртуальных машинах Linux. Если вы хотите быстро создать и использовать пару ключей SSH, см. сведения в [этой статье](mac-create-ssh-keys.md).

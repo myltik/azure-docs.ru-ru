@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 3005023e45bc6516732f077f152aed93564be38b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
+# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Краткое руководство. Развертывание кластера Службы контейнеров Azure (AKS)
 
 В этом кратком руководстве кластер AKS развертывается с помощью Azure CLI. Затем в кластере будет запущено многоконтейнерное приложение, состоящее из веб-интерфейса и экземпляра Redis. По завершении приложение будет доступно через Интернет.
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="enabling-aks-preview"></a>Включение предварительной версии AKS
 
-Убедитесь, что включены необходимые поставщики служб Azure, выполнив команду `az provider register`. 
+Убедитесь, что включены необходимые поставщики служб Azure, выполнив команду `az provider register`.
 
 ```azurecli-interactive
 az provider register -n Microsoft.Network
@@ -80,7 +80,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 
 Управлять кластером Kubernetes можно при помощи [kubectl][kubectl], клиента командной строки Kubernetes.
 
-Если вы используете Azure Cloud Shell, клиент kubectl уже установлен. Для локальной установки можно использовать команду [az aks install-cli][az-aks-install-cli].
+Если вы используете Azure Cloud Shell, клиент kubectl уже установлен. Чтобы установить его локально, используйте команду [az aks install-cli][az-aks-install-cli].
 
 
 ```azurecli
@@ -236,7 +236,7 @@ az group delete --name myResourceGroup --yes --no-wait
 Дополнительные сведения о AKS и инструкции по созданию полного кода для примера развертывания см. в руководстве по кластерам Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Руководство ASK][aks-tutorial]:
+> [Руководство по AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -250,7 +250,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

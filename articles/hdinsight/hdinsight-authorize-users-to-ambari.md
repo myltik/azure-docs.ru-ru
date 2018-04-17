@@ -1,13 +1,13 @@
 ---
-title: "Разрешение пользователям доступа к Ambari Views: Azure HDInsight | Документация Майкрософт"
-description: "Как управлять разрешениями пользователей и групп Ambari для кластеров HDInsight, присоединенных к домену."
+title: 'Разрешение пользователям доступа к Ambari Views: Azure HDInsight | Документация Майкрософт'
+description: Как управлять разрешениями пользователей и групп Ambari для кластеров HDInsight, присоединенных к домену.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: f4dfb51cf344d1ec51363ef3a9f74c1ca59119a6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Разрешение пользователям доступа к Ambari Views
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 02/01/2018
 
     ![Категория "Users" (Пользователи) представления "List" (Список)](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* Категория "Groups" (Группы) представления "List" (Список) содержит все группы, а также роли, назначенные каждой группе. В нашем примере список групп синхронизирован с группами Azure AD, указанными в свойстве **Access user group** (Группа доступа пользователей) параметров домена кластера. Ознакомьтесь с разделом [Создание кластера HDInsight](./domain-joined/apache-domain-joined-configure.md#create-an-hdinsight-cluster-in-the-vnet).
+* Категория "Groups" (Группы) представления "List" (Список) содержит все группы, а также роли, назначенные каждой группе. В нашем примере список групп синхронизирован с группами Azure AD, указанными в свойстве **Access user group** (Группа доступа пользователей) параметров домена кластера. См. статью [Создание присоединенного к домену кластера HDInsight](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Категория "Groups" (Группы) представления "List" (Список)](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

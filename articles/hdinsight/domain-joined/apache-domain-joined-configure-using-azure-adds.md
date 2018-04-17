@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory
 
 Присоединенные к домену кластеры обеспечивают функциональные возможности безопасности многопользовательского предприятия в HDInsight. Присоединенные к домену кластеры HDInsight подключаются к доменам Active Directory. Таким образом, пользователи домена могут использовать свои учетные данные домена для аутентификации в кластерах и выполнения заданий по обработке больших объемов данных. 
 
-Контроллер домена, к которому может подключиться присоединенный к домену кластер HDInsight, можно настроить двумя способами:
-
-- доменные службы Azure Active Directory (Azure AD DS);
-- контроллер домена Active Directory на виртуальных машинах Azure IaaS.
-
 Из этой статьи вы узнаете, как настроить кластер HDInsight, присоединенный к домену, с использованием доменных служб Azure Active Directory.
+
+> [!NOTE]
+> Active Directory больше не поддерживается на виртуальных машинах Azure IaaS.
 
 ## <a name="create-azure-adds"></a>Создание службы Azure AD DS
 

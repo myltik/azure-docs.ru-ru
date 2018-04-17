@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: События Reliable Actors
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Метрики производительности
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Мониторинг удаленного взаимодействия со службой
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Ведение журнала приложения
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Метрики производительности
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Общие сведения о модели работоспособности
           href: service-fabric-health-introduction.md
         - name: Создание отчетов о событиях работоспособности
@@ -317,10 +317,6 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Создание службы контейнеров
           items:
-            - name: Использование сертификата в контейнере
-              href: service-fabric-securing-containers.md
-            - name: Настройка gMSA для контейнеров Windows
-              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (предварительная версия)
               href: service-fabric-docker-compose.md
             - name: управление ресурсами для контейнеров и служб;
@@ -383,22 +379,30 @@
               href: service-fabric-reliable-actors-fabrictransportsettings.md
             - name: Настройка ReliableDictionaryActorStateProvider
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-        - name: Перенос старого приложения Java для поддержки Maven
-          href: service-fabric-migrate-old-javaapp-to-use-maven.md
-        - name: Настройка обратного прокси-сервера для безопасного подключения
-          href: service-fabric-reverseproxy-configure-secure-communication.md
         - name: Создание службы ASP.NET Core
           href: service-fabric-add-a-web-frontend.md
         - name: Настройка безопасности
           items:
             - name: Управление секретами приложений
               href: service-fabric-application-secret-management.md
-            - name: Запуск скрипта запуска службы с использованием локальной или системной учетной записи
+            - name: Настройка обратного прокси-сервера для безопасного подключения
+              href: service-fabric-reverseproxy-configure-secure-communication.md
+            - name: Выполнение скрипта при запуске службы от имени локального пользователя или системной учетной записи
               href: service-fabric-run-script-at-service-startup.md
             - name: Запуск службы с использованием локальной или системной учетной записи
               href: service-fabric-application-runas-security.md
             - name: Назначение политики безопасности доступа для конечных точек
               href: service-fabric-assign-policy-to-endpoint.md
+            - name: Запуск службы как группы или пользователя AD
+              href: service-fabric-run-service-as-ad-user-or-group.md
+            - name: Запуск службы в групповой управляемой учетной записи службы
+              href: service-fabric-run-service-as-gmsa.md
+            - name: Использование сертификата в контейнере
+              href: service-fabric-securing-containers.md
+            - name: Настройка gMSA для контейнеров Windows
+              href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Перенос старого приложения Java для поддержки Maven
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Работа в среде разработки Windows или Visual Studio
       items:
         - name: Управление приложениями в Visual Studio
@@ -429,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Рекомендации
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Рефакторинг перенесенного приложения
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Управление жизненным циклом приложения
       items:
         - name: Создание пакета приложения
@@ -501,8 +507,6 @@
               href: service-fabric-cluster-upgrade.md
             - name: Настройка управления доступом
               href: service-fabric-cluster-security-roles.md
-            - name: Настройка
-              href: service-fabric-cluster-fabric-settings.md
             - name: Открытие порта в подсистеме балансировки нагрузки
               href: create-load-balancer-rule.md
             - name: Управление сертификатами кластера
@@ -525,14 +529,8 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Масштаб
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Настройка безопасности
-              items:
-                - name: Настройка управления доступом
-                  href: service-fabric-cluster-security-roles.md
-                - name: Запуск службы как группы или пользователя AD
-                  href: service-fabric-run-service-as-ad-user-or-group.md
-                - name: Запуск службы как групповой управляемой учетной записи службы
-                  href: service-fabric-run-service-as-gmsa.md
+            - name: Настройка управления доступом
+              href: service-fabric-cluster-security-roles.md
             - name: Настройка
               href: service-fabric-cluster-manifest.md
             - name: Обновление
@@ -614,6 +612,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Настройка параметров кластера и политики обновления структур
+      href: service-fabric-cluster-fabric-settings.md
     - name: Схема XML для модели службы
       href: service-fabric-service-model-schema.md
     - name: Переменные среды

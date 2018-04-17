@@ -1,11 +1,10 @@
 ---
-title: "Как защитить доступ к данным в Azure Cosmos DB | Документация Майкрософт"
-description: "Основные понятия управления доступом в Azure Cosmos DB, включая главные ключи, ключи только для чтения, пользователей и разрешения."
+title: Как защитить доступ к данным в Azure Cosmos DB | Документация Майкрософт
+description: Основные понятия управления доступом в Azure Cosmos DB, включая главные ключи, ключи только для чтения, пользователей и разрешения.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mimig
-ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: 7a53dda7d6b49187d77ca44bcb55db5f9c305f64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Защита доступа к данным Azure Cosmos DB
 В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -104,7 +103,7 @@ Database database = await client.CreateDatabaseAsync(
 
     ![Рабочий процесс маркеров ресурсов Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-Создание маркеров ресурсов и управление ими осуществляется собственными клиентскими библиотеками Cosmos DB. Однако если используется REST, то необходимо создать заголовки запросов и проверки подлинности. Дополнительные сведения о создании заголовков проверки подлинности для REST см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом в API DocumentDB) или в [репозитории исходного кода для наших пакетов SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Создание маркеров ресурсов и управление ими осуществляется собственными клиентскими библиотеками Cosmos DB. Однако если используется REST, то необходимо создать заголовки запросов и проверки подлинности. Дополнительные сведения о создании заголовков проверки подлинности для REST см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Управление доступом в API DocumentDB) или в [репозитории исходного кода для наших пакетов SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 Пример службы среднего уровня, используемой для создания маркеров ресурсов или в качестве брокера, см. в [репозитории приложения ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -151,7 +150,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 Permission docPermission = new Permission
 {
     PermissionMode = PermissionMode.Read,
-    ResourceLink = documentCollection.SelfLink,
+    ResourceLink = UriFactory.CreateDocumentCollectionUri("db", "collection"),
     Id = "readperm"
 };
   
@@ -182,4 +181,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о безопасности базы данных Cosmos DB см. в статье [Безопасность базы данных в Azure Cosmos DB](database-security.md).
 * Сведения об управлении главными ключами и ключами только для чтения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#keys).
-* Сведения о создании маркеров проверки подлинности Azure Cosmos DB см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом в API DocumentDB).
+* Сведения о создании маркеров проверки подлинности Azure Cosmos DB см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Управление доступом в API DocumentDB).

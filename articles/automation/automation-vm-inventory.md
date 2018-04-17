@@ -1,18 +1,18 @@
 ---
-title: "Управление виртуальной машиной Azure с помощью сбора данных инвентаризации | Документация Майкрософт"
-description: "Управление виртуальной машиной с помощью сбора данных инвентаризации."
+title: Управление виртуальной машиной Azure с помощью сбора данных инвентаризации | Документация Майкрософт
+description: Управление виртуальной машиной с помощью сбора данных инвентаризации.
 services: automation
-keywords: "данные инвентаризации, автоматизация, отслеживание"
+keywords: данные инвентаризации, автоматизация, отслеживание
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Управление виртуальной машиной Azure с помощью сбора данных инвентаризации
 
@@ -66,4 +66,4 @@ ms.lasthandoff: 01/11/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об управлении изменениями файлов и параметров реестра на виртуальных машинах см. в статье [Отслеживание изменений программного обеспечения в среде с помощью решения для отслеживания изменений](../log-analytics/log-analytics-change-tracking.md).
-* Дополнительные сведения об управлении Windows и пакетами обновлений на виртуальных машинах см. в статье [Решение для управления обновлениями в OMS](../operations-management-suite/oms-solution-update-management.md).
+* Дополнительные сведения об управлении Windows и пакетами обновлений на виртуальных машинах см. в статье [Решение для управления обновлениями в Azure](../operations-management-suite/oms-solution-update-management.md).

@@ -1,8 +1,8 @@
 ---
-title: "Автоматизация Azure Application Insights с помощью PowerShell | Документация Майкрософт"
-description: "Автоматизация создания ресурсов, оповещений и тестов доступности в PowerShell с помощью шаблона Azure Resource Manager."
+title: Автоматизация Azure Application Insights с помощью PowerShell | Документация Майкрософт
+description: Автоматизация создания ресурсов, оповещений и тестов доступности в PowerShell с помощью шаблона Azure Resource Manager.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Создание ресурсов Application Insights с помощью PowerShell
 В этой статье показано, как автоматизировать создание и обновление ресурсов [Application Insights](app-insights-overview.md) с помощью управления ресурсами Azure. Эту функцию можно использовать, например, в процессе сборки. Наряду с базовым ресурсом Application Insights можно создавать [веб-тесты доступности](app-insights-monitor-web-app-availability.md) и другие ресурсы Azure, а также настраивать [оповещения](app-insights-alerts.md) и [схему цен](app-insights-pricing.md).
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/01/2017
 * Если вы хотите использовать только тарифный план по умолчанию "Базовый", то можете не указывать в шаблоне ресурс CurrentBillingFeatures.
 * Если вы хотите изменить ценовой план после создания ресурса компонента, можно использовать шаблон, пропускающий ресурс microsoft.insights/components. Кроме того, опустите узел `dependsOn` из ресурса выставления счетов. 
 
-Чтобы проверить обновленный ценовой план, просмотрите колонку Features+pricing (Компоненты и цены) в браузере. **Обновите окно браузера**, чтобы убедиться, что отображается последнее состояние.
+Чтобы проверить обновленный ценовой план, просмотрите страницу **Usage and estimated costs** (Данные об использовании и предполагаемые расходы) в браузере. **Обновите окно браузера**, чтобы убедиться, что отображается последнее состояние.
 
 
 

@@ -1,24 +1,18 @@
 ---
-title: "Отмена привязки учетной записи службы автоматизации Azure к Log Analytics | Документация Майкрософт"
-description: "В этой статье объясняется, как отменить связь между учетной записью службы автоматизации Azure и рабочей областью OMS."
+title: Отмена привязки учетной записи службы автоматизации Azure к Log Analytics | Документация Майкрософт
+description: В этой статье объясняется, как отменить связь между учетной записью службы автоматизации Azure и рабочей областью Log Analytics.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 415efd54759f4ff87c53f31308450590dc71466b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Отмена привязки учетной записи службы автоматизации Azure к рабочей области Log Analytics
 
@@ -52,4 +46,4 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Чтобы повторно настроить интеграцию учетной записи службы автоматизации с Log Analytics (OMS), см. инструкции в статье [Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics (OMS](automation-manage-send-joblogs-log-analytics.md). 
+Чтобы повторно настроить интеграцию учетной записи службы автоматизации с Log Analytics, изучите инструкции в статье [Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics](automation-manage-send-joblogs-log-analytics.md). 

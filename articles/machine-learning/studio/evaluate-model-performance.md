@@ -1,10 +1,11 @@
 ---
-title: "Оценка эффективности модели в машинном обучении | Документация Майкрософт"
-description: "Описание способов оценки эффективности модели в Машинном обучении Microsoft Azure."
+title: Оценка эффективности модели в машинном обучении | Документация Майкрософт
+description: Описание способов оценки эффективности модели в Машинном обучении Microsoft Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Оценка эффективности модели в Машинном обучении Microsoft Azure
 В этой статье показано, как оценить эффективность модели в студии машинного обучения Azure. Вы также найдете здесь краткое описание метрик, доступных для выполнения этой задачи. Доступны три стандартных сценария управляемого обучения: 
@@ -151,7 +151,7 @@ ms.lasthandoff: 10/11/2017
 
 Установите значение 5 для индекса столбца "Метка" в модуле [Обучение модели][train-model]. У этого набора данных нет строки заголовка, но мы знаем, что этикетки находятся в пятом столбце.
 
-Щелкните модуль [импорта данных][import-data] и присвойте свойству *Источник данных* значение *Web URL via HTTP* (URL-адрес веб-узла через HTTP), а свойству *URL* (URL-адрес) — http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Щелкните модуль [импорта данных][import-data] и задайте для свойства *Источник данных* значение *Web URL via HTTP* (URL-адрес с использованием протокола HTTP), а для свойства *URL-адреса* — http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Укажите дробное число экземпляров, которые будут использоваться для обучения модуля [разделения данных][split] (например, 0,7).
 

@@ -1,28 +1,28 @@
 ---
-title: "Устранение неполадок с подключенными VHD на виртуальных машинах Windows в Azure | Документация Майкрософт"
-description: "Как устранять такие неполадки, как непредвиденные перезагрузки виртуальных машин Windows или проблемы с удалением учетной записи хранения с подключенными VHD"
-keywords: "отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения"
+title: Устранение неполадок с подключенными VHD на виртуальных машинах Windows в Azure | Документация Майкрософт
+description: Как устранять такие неполадки, как непредвиденные перезагрузки виртуальных машин Windows или проблемы с удалением учетной записи хранения с подключенными VHD
+keywords: отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения
 services: virtual-machines-windows
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: b4f3382a070894647aa4294fc5b0b63c98eddaab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: d0103d8ea608014e53f70402220b302b6da445e9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-windows-virtual-machines"></a>Устранение неполадок с подключенными VHD на виртуальных машинах Windows в Azure
 
 В виртуальных машинах Azure для диска операционной системы и всех подключенных дисков данных используются виртуальные жесткие диски (VHD). VHD хранятся в одной или нескольких учетных записях хранения Azure как страничные BLOB-объекты. В этой статье описаны способы устранения распространенных неполадок с VHD: 
 
   * [непредвиденные перезагрузки виртуальных машин с подключенными VHD];
-  * [ошибки удаления хранилища в развертывании Resource Manager].
+  * [ошибки удаления хранилища в развертывании Resource Manager]
 
 ## <a name="you-are-experiencing-unexpected-reboots"></a>Непредвиденные перезагрузки виртуальных машин с подключенными VHD
 
@@ -114,5 +114,5 @@ ms.lasthandoff: 03/02/2018
 
 9. Щелкните **Сохранить**. Теперь диск отключен от виртуальной машины и больше не арендуется. Освобождение от аренды может занять несколько минут. Чтобы убедиться, что освобождение от аренды выполнено, перейдите в расположение большого двоичного объекта и на панели **свойств больших двоичных объектов** **состояние аренды** должно быть **Разблокировано** или **Доступно**.
 
-[непредвиденные перезагрузки виртуальных машин с подключенными VHD]: #you-are-experiencing-unexpected-reboots
+[непредвиденные перезагрузки виртуальных машин с подключенными VHD]: #you-are-experiencing-unexpected-reboots;
 [ошибки удаления хранилища в развертывании Resource Manager]: #storage-delete-errors-in-rm

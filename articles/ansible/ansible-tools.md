@@ -1,6 +1,6 @@
 ---
-title: "Средства для использования Ansible с Azure"
-description: "Установка и применение отдельных средств для использования Ansible с Azure"
+title: Средства для использования Ansible с Azure
+description: Установка и применение отдельных средств для использования Ansible с Azure
 ms.service: ansible
 keywords: ansible, azure, devops, tools, vs code, visual studio code, extension
 author: tomarcher

@@ -1,8 +1,8 @@
 ---
-title: "Использование REST API оповещений Log Analytics в OMS"
-description: "REST API оповещений Log Analytics позволяет создавать оповещения и управлять ими в Log Analytics — компоненте Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций."
+title: Использование REST API оповещений Log Analytics в OMS
+description: REST API оповещений Log Analytics позволяет создавать оповещения и управлять ими в Log Analytics — компоненте Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed0ac6e2041ef503470f7317a5736deecd1d2b8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Создание правил генерации оповещений и управление ими в Log Analytics с помощью REST API
 REST API оповещений в Log Analytics позволяет создавать оповещения и управлять ими в Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций.
 
-Для поиска в службе Log Analytics используется REST API категории RESTful — к нему можно получить доступ с помощью REST API Azure Resource Manager. В этом документе вы найдете примеры, когда доступ к API из командной строки PowerShell осуществляется через [ARMClient](https://github.com/projectkudu/ARMClient) — инструмент командной строки с открытым исходным кодом, который упрощает вызов API Azure Resource Manager. Использование ARMClient и PowerShell — это один из множества вариантов получения доступа к API поиска по службе Log Analytics. С помощью этих средств можно использовать API диспетчера ресурсов Azure категории RESTful для осуществления вызовов рабочих областей OMS и выполнения команд поиска в них. API будет выдавать результаты поиска в формате JSON, позволяя программно использовать результаты поиска различными способами.
+Для поиска в службе Log Analytics используется REST API категории RESTful — к нему можно получить доступ с помощью REST API Azure Resource Manager. В этом документе вы найдете примеры, когда доступ к API из командной строки PowerShell осуществляется через [ARMClient](https://github.com/projectkudu/ARMClient) — программу командной строки с открытым кодом, которая упрощает вызов API Azure Resource Manager. Использование ARMClient и PowerShell — это один из множества вариантов получения доступа к API поиска по службе Log Analytics. С помощью этих инструментов можно использовать API Azure Resource Manager с поддержкой REST для осуществления вызовов рабочих областей OMS и выполнения команд поиска в них. API будет выдавать результаты поиска в формате JSON, позволяя программно использовать результаты поиска различными способами.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 В настоящее время оповещения могут создаваться только с помощью сохраненного поиска в службе Log Analytics.  Дополнительные сведения см. в статье [REST API поиска в журналах](log-analytics-log-search-api.md).
@@ -99,6 +99,10 @@ REST API оповещений в Log Analytics позволяет создава
 | Version (версия) |Используемая версия API.  Сейчас это свойство всегда должно иметь значение 1. |
 
 ### <a name="retrieving-actions"></a>Получение действий
+
+> [!NOTE]
+> С 23 апреля 2018 года все оповещения в рабочей области будут автоматически отображаться в Azure. Пользователь может добровольно инициировать отображение оповещений в Azure до 23 апреля 2018 года. Дополнительные сведения см. в разделе [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Отображение (копирование) оповещений с портала OMS в Azure). Теперь действия пользователей, которые отображают оповещения в Azure, контролируются в группах действий Azure. Если рабочая область и ее оповещения перенесены в Azure, можно извлечь или добавить действия с помощью [API группы действий](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+
 Используйте метод Get для получения всех действий для расписания.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
@@ -118,6 +122,10 @@ REST API оповещений в Log Analytics позволяет создава
 Формат запроса для создания действия зависит от типа действия, поэтому эти примеры приведены в разделах ниже.
 
 ### <a name="deleting-actions"></a>Удаление действий
+
+> [!NOTE]
+> С 23 апреля 2018 года все оповещения в рабочей области будут автоматически отображаться в Azure. Пользователь может добровольно инициировать отображение оповещений в Azure до 23 апреля 2018 года. Дополнительные сведения см. в разделе [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Отображение (копирование) оповещений с портала OMS в Azure). Теперь действия пользователей, которые отображают оповещения в Azure, контролируются в группах действий Azure. Если рабочая область и ее оповещения перенесены в Azure, можно извлечь или добавить действия с помощью [API группы действий](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+
 Для удаления действия используйте метод Delete с идентификатором действия.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
@@ -125,11 +133,18 @@ REST API оповещений в Log Analytics позволяет создава
 ### <a name="alert-actions"></a>Действия оповещений
 Расписание должно включать одно-единственное действие оповещения.  Действия оповещений включают один или несколько разделов в таблице ниже.  Они более подробно описаны далее.
 
-| Раздел | ОПИСАНИЕ |
-|:--- |:--- |
-| Threshold (Пороговое значение) |Условие для запуска действия. |
-| EmailNotification |Отправка сообщения нескольким получателям. |
-| Исправление |Запуск модуля Runbook в службе автоматизации Azure для попытки исправления выявленной проблемы. |
+| Раздел | ОПИСАНИЕ | Использование |
+|:--- |:--- |:--- |
+| Threshold (Пороговое значение) |Условие для запуска действия.| Требуется для каждого оповещения до или после его отображения в Azure. |
+| Уровень серьезности |Метка, используемая для классификации оповещения при его активации.| Требуется для каждого оповещения до или после его отображения в Azure. |
+| Группы действий |Идентификаторы группы ActionGroup Azure, в которой указаны необходимые действия, например сообщения электронной почты, текстовые сообщения, голосовые вызовы, веб-перехватчики, модули runbook службы автоматизации, соединители ITSM и т. д.| Требуется после переноса оповещений в Azure.|
+| Настройка действий|Изменение стандартного потока вывода для выбора действий из ActionGroup.| Необязательно для каждого оповещения, может использоваться после переноса оповещений в Azure. |
+| EmailNotification |Отправка сообщения нескольким получателям. | Не требуется, если оповещения перенесены в Azure.|
+| Исправление |Запуск модуля Runbook в службе автоматизации Azure для попытки исправления выявленной проблемы. |Не требуется, если оповещения перенесены в Azure.|
+| Действия веб-перехватчика | Отправка данных оповещений в формате JSON в требуемую службу. |Не требуется, если оповещения перенесены в Azure.|
+
+> [!NOTE]
+> С 23 апреля 2018 года все оповещения в рабочей области будут автоматически отображаться в Azure. Пользователь может добровольно инициировать отображение оповещений в Azure до 23 апреля 2018 года. Дополнительные сведения см. в разделе [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Отображение (копирование) оповещений с портала OMS в Azure).
 
 #### <a name="thresholds"></a>Пороговые значения
 Действие оповещения должно включать одно-единственное пороговое значение.  Когда результат сохраненного поиска соответствует пороговому значению в действии, связанном с этим поиском, запускаются другие процессы в этом действии.  Действие также может содержать только пороговое значение, чтобы его можно было использовать с действиями других типов, которые не содержат пороговых значений.
@@ -166,8 +181,149 @@ REST API оповещений в Log Analytics позволяет создава
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
+#### <a name="severity"></a>Уровень серьезности
+Log Analytics позволяет классифицировать оповещения по категориям, чтобы упростить управление и рассмотрение. По уровню серьезности оповещение может быть информационным, предупреждающим и критическим. Эти уровни соответствуют нормализованной шкале серьезности оповещений Azure следующим образом.
+
+|Уровень серьезности Log Analytics  |Уровень серьезности оповещений Azure  |
+|---------|---------|
+|критические ошибки. |Серьезность 0|
+|Предупреждение |Серьезность 1|
+|Информация | Серьезность 2|
+
+Ниже приведен пример ответа для действия, содержащего только пороговое значение и серьезность. 
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Чтобы создать действие для расписания с указанием серьезности, используйте метод Put с уникальным идентификатором действия.  
+
+    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+Чтобы изменить действие серьезности для расписания, используйте метод Put с идентификатором существующего действия.  Текст запроса должен содержать Etag действия.
+
+    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="action-groups"></a>Группы действий
+Все оповещения в Azure используют группу действий в качестве механизма обработки действий по умолчанию. С помощью группы действий можно указать действия один раз, а затем связать группу действий для несколькими оповещениями в Azure. Это избавляет от необходимости повторно объявить одни и те же действия снова и снова. Группы действий поддерживает несколько действий, включая сообщения электронной почты, текстовые сообщения, голосовые вызовы, подключения ITSM, runbook службы автоматизации, универсальный код ресурса (URI) веб-перехватчика и многое другое. 
+
+Теперь для пользователей, перенесших оповещения в Azure, расписание должно передавать сведения о группе действий вместе с пороговым значением, чтобы обеспечить создание оповещения. Сведения о сообщениях электронной почты, URL-адреса веб-перехватчиков, данные runbook службы автоматизации и другие действия должны быть определены в группе действий перед созданием оповещения. Можно создать [группу действий в Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) на портале или использовать [API группы действий](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+
+Чтобы добавить связь группы действий с оповещением, укажите уникальный идентификатор Azure Resource Manager группы действий в определении оповещения. Ниже приведен наглядный пример.
+
+     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+      "properties": {
+        "Type": "Alert",
+        "Name": "test-alert",
+        "Description": "I need to put a descriptio here",
+        "Threshold": {
+          "Operator": "gt",
+          "Value": 12
+        },
+        "AzNsNotification": {
+          "GroupIds": [
+            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+          ]
+        },
+        "Severity": "critical",
+        "Version": 1
+      },
+
+Используйте метод Put с уникальным идентификатором действия, чтобы привязать уже существующую группу действий к расписанию.  Ниже приведен пример использования.
+
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+Чтобы изменить группу действий, связанную с расписанием, используйте метод Put с идентификатором существующего действия.  Текст запроса должен содержать Etag действия.
+
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+#### <a name="customize-actions"></a>Настройка действий
+По умолчанию действия используют стандартные шаблон и формат для уведомлений. Однако пользователь может настроить некоторые действия, даже если ими управляют группы действий. В настоящее время можно настроить тему сообщения электронной почты и полезные данные веб-перехватчика.
+
+##### <a name="customize-e-mail-subject-for-action-group"></a>Настройка темы сообщения электронной почты для группы действий
+По умолчанию используется следующая тема сообщения электронной почты для оповещений: "Alert Notification <AlertName> for <WorkspaceName>" (Уведомление <AlertName> для <WorkspaceName>). Однако ее можно настроить, указав определенные слова или теги, чтобы вы могли легко применять правила фильтрации в папке "Входящие". Сведения о пользовательском заголовке электронного сообщения необходимо отправлять вместе с данными ActionGroup, как показано в следующем примере.
+
+     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+      "properties": {
+        "Type": "Alert",
+        "Name": "test-alert",
+        "Description": "I need to put a descriptio here",
+        "Threshold": {
+          "Operator": "gt",
+          "Value": 12
+        },
+        "AzNsNotification": {
+          "GroupIds": [
+            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+          ]
+          "CustomEmailSubject": "Azure Alert fired"
+        },
+        "Severity": "critical",
+        "Version": 1
+      },
+
+Используйте метод Put с уникальным идентификатором действия, чтобы привязать уже существующую группу действий с измененными параметрами к расписанию.  Ниже приведен пример использования.
+
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+Чтобы изменить группу действий, связанную с расписанием, используйте метод Put с идентификатором существующего действия.  Текст запроса должен содержать Etag действия.
+
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+##### <a name="customize-webhook-payload-for-action-group"></a>Настройка полезных данных веб-перехватчика для группы действий
+По умолчанию веб-перехватчик, отправляемый группой действий в Log Analytics, имеет фиксированную структуру. Но с помощью специальных поддерживаемых переменных можно настроить полезные данные JSON, чтобы соблюсти требования конечной точки веб-перехватчика. Дополнительные сведения см. в статье [Действия веб-перехватчика для правил оповещений журнала](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
+
+Сведения о пользовательском веб-перехватчике необходимо отправлять вместе с данными ActionGroup. Они будут применены для всех универсальных кодов ресурса (URI) веб-перехватчиков, указанных в группе действий, как показано в следующем примере.
+
+     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+      "properties": {
+        "Type": "Alert",
+        "Name": "test-alert",
+        "Description": "I need to put a descriptio here",
+        "Threshold": {
+          "Operator": "gt",
+          "Value": 12
+        },
+        "AzNsNotification": {
+          "GroupIds": [
+            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+          ]
+          "CustomWebhookPayload": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
+          "CustomEmailSubject": "Azure Alert fired"
+        },
+        "Severity": "critical",
+        "Version": 1
+      },
+
+Используйте метод Put с уникальным идентификатором действия, чтобы привязать уже существующую группу действий с измененными параметрами к расписанию.  Ниже приведен пример использования.
+
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+Чтобы изменить группу действий, связанную с расписанием, используйте метод Put с идентификатором существующего действия.  Текст запроса должен содержать Etag действия.
+
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
 #### <a name="email-notification"></a>Уведомление по электронной почте
 Уведомления отправляются для одного или нескольких получателей по электронной почте.  Уведомления могут включать свойства, приведенные в таблице ниже.
+
+> [!NOTE]
+> С 23 апреля 2018 года все оповещения в рабочей области будут автоматически отображаться в Azure. Пользователь может добровольно инициировать отображение оповещений в Azure до 23 апреля 2018 года. Дополнительные сведения см. в разделе [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Отображение (копирование) оповещений с портала OMS в Azure). Теперь действия (например, оповещение по электронной почте) пользователей, которые отображают оповещения в Azure, контролируются в группах действий Azure. Если рабочая область и ее оповещения перенесены в Azure, можно извлечь или добавить действия с помощью [API группы действий](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+   
 
 | Свойство | ОПИСАНИЕ |
 |:--- |:--- |
@@ -208,6 +364,9 @@ REST API оповещений в Log Analytics позволяет создава
 
 #### <a name="remediation-actions"></a>Действия исправления
 Служба исправлений запускает модуль Runbook в службе автоматизации Azure, который пытается устранить проблему, указанную в оповещении.  Вам потребуется создать объект webhook для модуля Runbook, используемого в действии исправления, а затем указать его универсальный код ресурса (URI) в свойстве WebhookUri.  При создании этого действия с помощью консоли OMS новый объект webhook для модуля Runbook создается автоматически.
+
+> [!NOTE]
+> С 23 апреля 2018 года все оповещения в рабочей области будут автоматически отображаться в Azure. Пользователь может добровольно инициировать отображение оповещений в Azure до 23 апреля 2018 года. Дополнительные сведения см. в разделе [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Отображение (копирование) оповещений с портала OMS в Azure). Теперь действия (например, исправление с помощью runbook) пользователей, которые отображают оповещения в Azure, контролируются в группах действий Azure. Если рабочая область и ее оповещения перенесены в Azure, можно извлечь или добавить действия с помощью [API группы действий](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 Исправления могут включать свойства, приведенные в таблице ниже.
 
@@ -262,17 +421,14 @@ REST API оповещений в Log Analytics позволяет создава
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
-### <a name="webhook-actions"></a>Действия webhook
+#### <a name="webhook-actions"></a>Действия webhook
 Действия webhook запускают процесс путем вызова URL-адреса и, при необходимости, предоставления полезных данных для отправки.  Они похожи на действия исправления, но предназначены для объектов webhook, которые могут вызывать процессы, отличные от модулей Runbook службы автоматизации Azure.  Они также включают дополнительную возможность предоставления полезных данных, доставляемых в удаленный процесс.
 
-Действиям webhook не назначается пороговое значение, однако их необходимо добавлять в расписание, которое включает действие оповещения с пороговым значением.  Можно добавить несколько действий webhook, которые будут выполняться все одновременно при достижении порогового значения.
+> [!NOTE]
+> С 23 апреля 2018 года все оповещения в рабочей области будут автоматически отображаться в Azure. Пользователь может добровольно инициировать отображение оповещений в Azure до 23 апреля 2018 года. Дополнительные сведения см. в разделе [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Отображение (копирование) оповещений с портала OMS в Azure). Теперь действия (например, веб-перехватчики) пользователей, которые отображают оповещения в Azure, контролируются в группах действий Azure. Если рабочая область и ее оповещения перенесены в Azure, можно извлечь или добавить действия с помощью [API группы действий](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
-Действия webhook могут включать свойства, приведенные в таблице ниже.
 
-| Свойство | ОПИСАНИЕ |
-|:--- |:--- |
-| WebhookUri |Тема сообщения электронной почты. |
-| CustomPayload |Пользовательские полезные данные, отправляемые в объект webhook.  Формат зависит от данных, ожидаемых объектом webhook. |
+Действиям webhook не назначается пороговое значение, однако их необходимо добавлять в расписание, которое включает действие оповещения с пороговым значением.  
 
 Ниже приведен пример ответа для действия webhook и соответствующее действие оповещения с пороговым значением.
 
@@ -306,7 +462,7 @@ REST API оповещений в Log Analytics позволяет создава
         ]
     }
 
-#### <a name="create-or-edit-a-webhook-action"></a>Создание или изменение действий webhook
+##### <a name="create-or-edit-a-webhook-action"></a>Создание или изменение действий webhook
 Чтобы создать действие webhook для расписания, используйте метод Put с уникальным идентификатором действия.  В следующем примере создается действие webhook и запускается действие оповещения с пороговым значением, если результаты сохраненного поиска превышают пороговое значение.
 
     $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
@@ -320,6 +476,8 @@ REST API оповещений в Log Analytics позволяет создава
     $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
+
 ## <a name="next-steps"></a>Дополнительная информация
 * Используйте [REST API для выполнения поиска в журналах](log-analytics-log-search-api.md) в службе Log Analytics.
+* Узнайте больше об [оповещениях журналов в службе оповещений Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 

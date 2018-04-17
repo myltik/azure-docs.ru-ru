@@ -1,8 +1,8 @@
 ---
-title: "Часто задаваемые вопросы по Azure Active Directory Connect Health | Документация Майкрософт"
-description: "Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
+title: Часто задаваемые вопросы по Azure Active Directory Connect Health | Документация Майкрософт
+description: Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
 Эта статья содержит ответы на часто задаваемые вопросы о расширении Azure Active Directory (Azure AD) Connect Health. Здесь представлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
@@ -175,6 +175,13 @@ CheckForMS17-010
 
 ```
 
+**Вопрос. Почему командлет PowerShell <i>Get-MsolDirSyncProvisioningError</i> показывает меньше ошибок синхронизации в результате?**
+
+Командлет <i>Get-MsolDirSyncProvisioningError</i> вернет только ошибки подготовки DirSync. Кроме этого, портал Connect Health также показывает другие типы ошибок синхронизации, такие как ошибки экспорта. Это согласуется с разностным результатом Azure AD Connect. Дополнительные сведения см. в статье [Ошибки синхронизации Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**В. Почему не создаются журналы аудита ADFS?**
+
+Включите журналы аудита с помощью командлета PowerShell <i>Get-AdfsProperties -AuditLevel</i>. Подробнее о [журналах аудита AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Обратите внимание: если расширенные параметры аудита отправляются на сервер AD FS, все изменения, внесенные в файл auditpol.exe, перезаписываются (даже если созданное приложение не настроено). В этом случае настройте локальную политику безопасности для ведения журнала сбоев и успешных выполнений созданного приложения. 
 
 
 ## <a name="related-links"></a>Связанные ссылки

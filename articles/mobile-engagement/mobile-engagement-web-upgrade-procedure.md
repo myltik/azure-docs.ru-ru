@@ -1,11 +1,11 @@
 ---
-title: "Процедуры обновления веб-пакета SDK для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Последние обновления и процедуры для веб-пакета SDK для Служб мобильного взаимодействия Azure"
+title: Процедуры обновления веб-пакета SDK для Служб мобильного взаимодействия Azure | Документация Майкрософт
+description: Последние обновления и процедуры для веб-пакета SDK для Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Процедуры обновления веб-пакета SDK для Служб мобильного взаимодействия Azure
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Если вы уже интегрировали в веб-приложение предыдущую версию веб-пакета SDK для Служб мобильного взаимодействия Azure, то при обновлении пакета SDK необходимо учитывать следующее.
 
 Если вы пропустили несколько версий веб-пакета SDK для Служб мобильного взаимодействия Azure, то в процессе обновления может потребоваться выполнить несколько процедур. Например, при миграции с версии 1.4.0 на 1.6.0 сначала выполните обновление с версии 1.4.0 до 1.5.0. Затем выполните процедуры обновления с версии 1.5.0 до 1.6.0.

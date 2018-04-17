@@ -1,12 +1,12 @@
 ---
-title: "Выбор типа установки Azure AD Connect | Документация Майкрософт"
-description: "В этом разделе описывается, как выбрать тип установки для Azure AD Connect."
+title: Выбор типа установки Azure AD Connect | Документация Майкрософт
+description: В этом разделе описывается, как выбрать тип установки для Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Выбор типа установки для Azure AD Connect
 При новой установке Azure AD Connect есть два типа установки: экспресс и пользовательская. Этот раздел поможет вам выбрать оптимальный вариант установки.
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/18/2018
 
 Вы получаете следующее:
 
-- [Синхронизация паролей](active-directory-aadconnectsync-implement-password-synchronization.md) между локальными ресурсами и Azure AD для единого входа.
+- [Синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) между локальными ресурсами и Azure AD для единого входа.
 - Конфигурация, при которой синхронизируются [пользователи, группы, контакты и компьютеры с ОС Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Синхронизация всех соответствующих объектов во всех доменах и подразделениях.
 - Включается [автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md), гарантирующее, что вы всегда используете последнюю доступную версию.

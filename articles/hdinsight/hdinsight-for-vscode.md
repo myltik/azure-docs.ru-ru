@@ -1,14 +1,14 @@
 ---
-title: "Средства Azure HDInsight — использование Visual Studio Code для Hive, LLAP или pySpark | Документы Майкрософт"
-description: "Сведения о создании и отправке запросов и скриптов с помощью средств Azure HDInsight для Visual Studio Code."
+title: Средства Azure HDInsight — использование Visual Studio Code для Hive, LLAP или pySpark | Документы Майкрософт
+description: Сведения о создании и отправке запросов и скриптов с помощью средств Azure HDInsight для Visual Studio Code.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Использование средств Azure HDInsight для Visual Studio Code
 
@@ -69,9 +69,9 @@ ms.lasthandoff: 02/21/2018
 
 4. Откройте файл **XXXX_hdi_settings.json** с помощью **проводника** или щелкните правой кнопкой мыши редактор скриптов и выберите пункт **Задать конфигурацию**. Вы можете настроить запись для входа, кластер по умолчанию и параметры отправки заданий, как показано в примере в файле. Также можно оставить остальные параметры пустыми.
 
-## <a name="connect-to-azure"></a>Подключение к Azure
+## <a name="connect-to-hdinsight-cluster"></a>Подключение к кластеру HDInsight
 
-Прежде чем отправлять сценарии в кластеры HDInsight из VS Code, необходимо подключиться к учетной записи Azure.
+Прежде чем отправлять скрипты для кластеров HDInsight из VS Code, необходимо подключиться к учетной записи Azure либо связать кластер (с помощью имени пользователя и пароля Ambari или учетной записи присоединения к домену).
 
 **Подключение к Azure**
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Подготовка виртуальной машины Linux (CentOS) для обработки и анализа данных в Azure
 
@@ -153,14 +153,16 @@ R — один из самых популярных языков для анал
 
 Чтобы установить дополнительные библиотеки Python, необходимо выполнить команду ```conda``` или ````pip````, используя sudo, и указать полный путь к диспетчеру пакетов Python (Conda или PIP) для установки в правильную среду Python. Например: 
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### <a name="jupyter-notebook"></a>Записная книжка Jupyter
 Дистрибутив Anaconda также содержит записную книжку Jupyter, среду для совместного использования кода и анализа. Доступ к записной книжке Jupyter можно получить через JupyterHub. Для входа используйте учетные данные локального пользователя Linux.
 
-На сервере записной книжки Jupyter предварительно настроена поддержка ядер Python 2, Python 3 и R. На рабочем столе есть значок "Записная книжка Jupyter", с помощью которого можно запустить браузер для доступа к серверу записной книжки. Если вы подключаетесь к виртуальной машине с помощью клиента SSH или X2Go, то к серверу записной книжки Jupyter можно обратиться по адресу [https://localhost:8000/](https://localhost:8000/) .
+На сервере записной книжки Jupyter предварительно настроена поддержка ядер Python 2, Python 3 и R. На рабочем столе есть значок "Записная книжка Jupyter", с помощью которого можно запустить браузер для доступа к серверу записной книжки. Если вы подключаетесь к виртуальной машине с помощью клиента SSH или X2Go, то к серверу Jupyter Notebook можно обратиться по адресу [https://localhost:8000/](https://localhost:8000/).
 
 > [!NOTE]
 > При появлении любых предупреждений о сертификатах нажмите кнопку "Продолжить".

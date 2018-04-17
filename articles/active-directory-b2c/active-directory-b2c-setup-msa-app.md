@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: настройка учетной записи Майкрософт | Документация Майкрософт"
-description: "Регистрация и вход пользователей с помощью учетных записей Майкрософт в приложениях, защищенных с помощью Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: настройка учетной записи Майкрософт | Документация Майкрософт'
+description: Регистрация и вход пользователей с помощью учетных записей Майкрософт в приложениях, защищенных с помощью Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: e746a5e7a2d9a13eb23ac0268104a9394c9b198d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e167c8737bc600f52759f33456fec3bc6e0a3678
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Microsoft
 ## <a name="create-a-microsoft-account-application"></a>Создание приложения для учетной записи Майкрософт
-Чтобы использовать учетную запись Майкрософт в качестве поставщика удостоверений в Azure Active Directory (Azure AD) B2C, необходимо сначала создать приложение для учетной записи Майкрософт и задать в нем правильные параметры. Для этого требуется учетная запись Майкрософт. Если у вас ее нет, вы можете создать такую учетную запись на сайте [https://www.live.com/](https://www.live.com/).
+Чтобы использовать учетную запись Майкрософт в качестве поставщика удостоверений в Azure Active Directory (Azure AD) B2C, необходимо сначала создать приложение для учетной записи Майкрософт и задать в нем правильные параметры. Для этого требуется учетная запись Майкрософт. Если у вас нет этой учетной записи, ее можно получить на сайте [https://www.live.com/](https://www.live.com/).
 
 1. Перейдите в [Центр регистрации приложений Майкрософт](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) и войдите с помощью своей учетной записи Майкрософт.
 2. Нажмите кнопку **Добавить приложение**.

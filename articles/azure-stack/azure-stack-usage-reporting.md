@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Передача в Azure данных об использовании из Azure Stack 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/12/2018
 Многоузловые системы Azure Stack, применяющие модель выставления счетов на основе потребления ресурсов, должны отправлять данные об использовании в Azure для выставления счетов.  Настройка экземпляра Azure Stack для отправки данных об использовании в Azure осуществляется операторами Azure Stack.
 
 > [!NOTE]
-> Отправка данных о потреблении является обязательным пунктом для многоузловых систем Azure Stack, для которых применяется модель оплаты по мере использования. При этом она необязательна для пользователей, использующих модель на основе емкости (см. страницу о том, [как приобрести Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Для пользователей Пакета средств разработки Azure Stack операторы могут передавать данные о потреблении и тестировать эту возможность. Тем не менее с них не взимается плата за использование. 
+> Отправка данных о потреблении является обязательным пунктом для многоузловых систем Azure Stack, для которых применяется модель оплаты по мере использования. При этом она необязательна для пользователей, использующих модель на основе емкости (см. страницу о том, [как приобрести Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/)). Для пользователей Пакета средств разработки Azure Stack операторы могут передавать данные о потреблении и тестировать эту возможность. Тем не менее с них не взимается плата за использование. 
 
 
 ![поток выставления счетов](media/azure-stack-usage-reporting/billing-flow.png)

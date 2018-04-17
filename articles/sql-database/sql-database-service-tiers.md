@@ -3,17 +3,17 @@ title: Служба Базы данных SQL | Документация Май
 description: Дополнительные сведения об уровнях обслуживания для одной базы данных или пула баз данных в зависимости от уровней производительности и размеров хранилища.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Что такое уровни служб Базы данных SQL
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 03/17/2018
 |ЦП|Низкий|Низкий, средний, высокий|Средний, высокий|
 |Пропускная способность ввода-вывода (приблизительно) |2,5 операций ввода-вывода на DTU  | 2,5 операций ввода-вывода на DTU | 48 операций ввода-вывода на DTU|
 |Задержка ввода-вывода (приблизительно)|5 мс (чтение), 10 мс (запись)|5 мс (чтение), 10 мс (запись)|2 мс (чтение и запись)|
-|Индексирование columnstore и выполняющаяся в памяти OLTP|Недоступно|Недоступно|Поддерживаются|
+|Индексирование columnstore |Недоступно|S3 и выше|Поддерживаются|
+|Выполняющаяся в памяти OLTP|Недоступно|Недоступно|Поддерживаются|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Ограничения уровней производительности и размеров хранилища

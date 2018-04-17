@@ -1,33 +1,32 @@
 ---
-title: "Создание оповещений журнала действий | Документация Майкрософт"
-description: "Уведомление посредством SMS, веб-перехватчика и электронной почты при возникновении определенных событий в журнале действий."
+title: Создание классических оповещений журнала действий | Документация Майкрософт
+description: Уведомление посредством SMS, веб-перехватчика и электронной почты при возникновении определенных событий в журнале действий.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Создание оповещений журнала действий
+# <a name="create-activity-log-alerts-classic"></a>Создание оповещений журнала действий (классических)
 
 ## <a name="overview"></a>Обзор
 Оповещения журнала действий создаются в тех случаях, когда происходит новое событие, записываемое в журнал действий, которое соответствует определенным условиям для оповещения. Они являются ресурсами Azure, поэтому их можно создать с помощью шаблона Azure Resource Manager. Их также можно создать, обновить или удалить на портале Azure. В этой статье описаны принципы работы оповещений журнала действий. В ней также показано, как использовать портал Azure, чтобы настроить оповещения о событиях журнала действий.
 
 > [!NOTE]
 
->  [Оповещения (предварительная версия)](monitoring-overview-unified-alerts.md) сейчас предоставляют дополнительные возможности для создания и администрирования журналов действий.  [Узнайте больше](monitoring-activity-log-alerts-new-experience.md).
+>  Новый интерфейс [оповещений](monitoring-overview-unified-alerts.md) заменил эту процедуру. В этой статье есть ссылка на предыдущий интерфейс. [Узнайте больше](monitoring-activity-log-alerts-new-experience.md).
 
 Обычно оповещения журнала действий создаются для получения уведомлений в таких случаях:
 
@@ -59,11 +58,11 @@ ms.lasthandoff: 02/09/2018
 
 Дополнительные сведения об уведомлениях о работоспособности службы см. в статье [Создание оповещений журнала действий для уведомлений службы](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Создание оповещения для событий журнала действий с новой группой действий с помощью портала Azure
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Создание классических оповещения для событий журнала действий с новой группой действий с помощью портала Azure
 1. На [портале](https://portal.azure.com) выберите **Монитор**.
 
     ![Служба "Монитор"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. В разделе **Журнал действий** выберите **Оповещения**.
+2. В разделе **Журнал действий** выберите **Оповещения (классические)**.
 
     ![Вкладка "Оповещения"](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Выберите **Add activity log alert** (Добавить оповещение журнала действий) и заполните поля.

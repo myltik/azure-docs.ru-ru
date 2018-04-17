@@ -1,22 +1,22 @@
 ---
-title: "Подготовка имитированного устройства доверенного платформенного модуля в Центре Интернета вещей Azure с помощью C | Документация Майкрософт"
-description: "Краткое руководство Azure. Создание и подготовка имитированного устройства доверенного платформенного модуля (ТРМ) с помощью пакета SDK для устройства C для службы подготовки устройств Центра Интернета вещей Azure"
+title: Подготовка имитированного устройства доверенного платформенного модуля в Центре Интернета вещей Azure с помощью C | Документация Майкрософт
+description: Краткое руководство Azure. Создание и подготовка имитированного устройства доверенного платформенного модуля (ТРМ) с помощью пакета SDK для устройства C для службы подготовки устройств Центра Интернета вещей Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d4abd68aa559540da3b735d7a583fc86107531f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 9187ce298071550a2af29cad28389b8d93ba802f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Создание и подготовка имитированного устройства доверенного платформенного модуля (ТРМ) с помощью пакета SDK для устройства C для службы подготовки устройств Центра Интернета вещей
 
@@ -25,6 +25,8 @@ ms.lasthandoff: 03/05/2018
 В этом руководстве показано, как создать виртуальное устройство на компьютере разработки под управлением ОС Windows, запустить симулятор доверенного платформенного модуля Windows в качестве [аппаратного модуля безопасности](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) устройства, а также как с помощью примера кода подключить виртуальное устройство к службе подготовки устройств и Центру Интернета вещей. 
 
 Прежде чем продолжить, выполните инструкции по [настройке службы подготовки устройств Центра Интернета вещей на портале Azure](./quick-setup-auto-provision.md).
+
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 

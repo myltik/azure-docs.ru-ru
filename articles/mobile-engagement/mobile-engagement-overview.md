@@ -1,11 +1,11 @@
 ---
-title: "Обзор Служб мобильного взаимодействия | Документация Майкрософт"
-description: "Обзор Служб мобильного взаимодействия Azure"
+title: Обзор Служб мобильного взаимодействия | Документация Майкрософт
+description: Обзор Служб мобильного взаимодействия Azure
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8eab55d9-c8cc-4928-8d01-78e429eece42
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 047c3242e3801cfbf8113d80eef2af8ea3631ea3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-overview"></a>Общие сведения о Службах мобильного взаимодействия Azure
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Службы мобильного взаимодействия Azure — предоставляемая по принципу SaaS платформа вовлечения пользователей, которая обеспечивает анализ использования приложения на основе данных, позволяет сегментировать пользователей в реальном времени и выдает контекстные push-уведомления и сообщения в приложениях.
 
 ### <a name="overview-video"></a>Обзорное видео

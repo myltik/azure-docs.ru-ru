@@ -1,11 +1,11 @@
 ---
-title: "Запись образа виртуальной машины Linux в Azure с помощью интерфейса командной строки 2.0 | Документация Майкрософт"
-description: "Запись образа виртуальной машины Azure для использования при массовом развертывании с помощью Azure CLI 2.0."
+title: Запись образа виртуальной машины Linux в Azure с помощью интерфейса командной строки 2.0 | Документация Майкрософт
+description: Запись образа виртуальной машины Azure для использования при массовом развертывании с помощью Azure CLI 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9fa87f8dc0c94ec93e049e35be727c031b4b06ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Создание образа виртуальной машины или виртуального жесткого диска
 
@@ -89,6 +89,8 @@ ms.lasthandoff: 03/09/2018
    
    > [!NOTE]
    > Образ создается в той же группе ресурсов, в которой находится исходная виртуальная машина. Виртуальную машину из этого образа можно создать в любой группе ресурсов в рамках вашей подписки. При управлении вам может потребоваться определенная группа ресурсов для ресурсов виртуальной машины и образов.
+   >
+   > Перед сохранением образа в хранилище, избыточном в пределах зоны, его необходимо создать в регионе, который поддерживает [зоны доступности](../../availability-zones/az-overview.md) и в котором включен параметр `--zone-resilient true`.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Шаг 3. Создание виртуальной машины из записанного образа
 Создайте виртуальную машину из образа, который создали ранее с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В следующем примере создается виртуальная машина *myVMDeployed* из образа *myImage*:

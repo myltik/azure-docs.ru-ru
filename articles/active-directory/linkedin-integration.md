@@ -9,15 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Подключения к учетным записям LinkedIn для приложений и служб Майкрософт
 В статье рассматриваются вопросы управления подключениями к учетным записям LinkedIn для вашего клиента в центре администрирования Azure Active Directory (Azure AD). 
@@ -56,9 +56,9 @@ ms.lasthandoff: 03/17/2018
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Включение и отключение подключений к учетной записи LinkedIn для приложений Office 2016 в вашей организации с помощью групповой политики
 
 1. Скачайте [файлы административных шаблонов Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030).
-2. Извлеките **ADMX**-файлы и скопируйте их в **центральный репозиторий**.
+2. Извлеките файлы **ADMX** и скопируйте их в центральное хранилище.
 3. Откройте средство управления групповыми политиками.
-4. Создайте объект групповой политики со следующими параметрами: **Конфигурация пользователя** > **Административные шаблоны** > **Microsoft Office 2016** > **Разное** > **Allow LinkedIn Integration** (Разрешить интеграцию с LinkedIn).
+4. Создайте объект групповой политики со следующими параметрами: **Конфигурация пользователя** > **Административные шаблоны** > **Microsoft Office 2016** > **Разное** > **Show LinkedIn features in Office applications** (Показывать функции LinkedIn в приложениях Office).
 5. Выберите **Включено** или **Отключено**.
   * Если эта политика **включена**, параметр **Show LinkedIn features in Office applications** (Показывать функции LinkedIn в приложениях Office) отображается в диалоговом окне параметров Office 2016. Это также означает, что пользователи в вашей организации могут использовать функции LinkedIn в приложениях Office.
   * Если эта политика **отключена**, параметр **Show LinkedIn features in Office applications** (Показывать функции LinkedIn в приложениях Office) в диалоговом окне параметров Office 2016 отключен и конечные пользователи не могут изменить его значение. Пользователи в вашей организации не могут использовать функции LinkedIn в приложениях Office 2016. 

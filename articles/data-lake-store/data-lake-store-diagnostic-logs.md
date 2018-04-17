@@ -1,8 +1,8 @@
 ---
-title: "Просмотр журналов диагностики Azure Data Lake Store | Документация Майкрософт"
-description: "Узнайте, как настроить журналы диагностики для Azure Data Lake Store и просматривать их. "
+title: Просмотр журналов диагностики Azure Data Lake Store | Документация Майкрософт
+description: 'Узнайте, как настроить журналы диагностики для Azure Data Lake Store и просматривать их. '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Доступ к журналам диагностики Azure Data Lake Store
 Узнайте, как включить ведение журнала диагностики для учетной записи Data Lake Store и просматривать журналы, собранные для этой учетной записи.
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Включение ведения журнала диагностики для учетной записи Data Lake Store
 1. Войдите на новый [портал Azure](https://portal.azure.com).
-2. Откройте свою учетную запись Data Lake Store. В колонке учетной записи Data Lake Store выберите **Параметры**, а затем щелкните **Журналы диагностики**.
+2. Откройте свою учетную запись Data Lake Store. В колонке учетной записи Data Lake Store щелкните **Журналы диагностики**.
 3. В колонке **Журналы диагностики** щелкните **Включить диагностику**.
 
     ![Включение ведения журналов диагностики](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Включение журналов диагностики")
@@ -150,6 +150,7 @@ ms.lasthandoff: 02/23/2018
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +168,7 @@ ms.lasthandoff: 02/23/2018
 | category |Строка |Категория журнала. Например, **Audit**. |
 | operationName |Строка |Имя операции, добавленной в журнал. Например, getfilestatus. |
 | resultType |Строка |Состояние операции. Например, 200. |
+| resultSignature |Строка |Дополнительные сведения об операции. |
 | correlationId |Строка |Идентификатор журнала, который можно использовать для формирования набора связанных записей журнала. |
 | identity |Объект. |Идентификатор, для которого был создан журнал. |
 | properties |JSON |Дополнительные сведения см. ниже. |

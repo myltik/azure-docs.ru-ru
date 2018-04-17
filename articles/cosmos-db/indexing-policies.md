@@ -1,31 +1,34 @@
 ---
-title: "Политики индексирования Azure Cosmos DB | Документация Майкрософт"
-description: "Сведения об осуществлении индексации в Azure Cosmos DB. Узнайте, как настроить и изменить политику индексирования для автоматического индексирования и повышения производительности."
-keywords: "принцип работы индексирования, автоматическое индексирование, индексирование базы данных"
+title: Политики индексирования Azure Cosmos DB | Документация Майкрософт
+description: Сведения об осуществлении индексации в Azure Cosmos DB. Узнайте, как настроить и изменить политику индексирования для автоматического индексирования и повышения производительности.
+keywords: принцип работы индексирования, автоматическое индексирование, индексирование базы данных
 services: cosmos-db
-documentationcenter: 
-author: arramac
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: rafats
+manager: kfile
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Как работает индексирование данных в Azure Cosmos DB?
 
 По умолчанию все данные Azure Cosmos DB индексируются. Хотя многие клиенты с удовольствием позволяют Azure Cosmos DB автоматически регулировать все параметры индексирования, Azure Cosmos DB также поддерживает задание пользовательской *политики индексирования* для коллекций во время создания. Политики индексирования Azure Cosmos DB обладают большей гибкостью и возможностями, чем дополнительные индексы, предлагаемые на других платформах баз данных. В Azure Cosmos DB можно разработать и настроить форму индекса без ущерба для гибкости схемы. 
 
 Чтобы узнать, как в Azure Cosmos DB работает индексация, необходимо понять, почему, управляя политикой индексирования, можно найти точный компромисс между дополнительными затратами на хранение индекса, пропускной способностью записи и запросов и согласованностью запросов.  
+
+В следующем видео руководитель программы Azure Cosmos DB Эндрю Лю (Andrew Liu) продемонстрирует возможности автоматического индексирования в Azure Cosmos DB и покажет, как настроить политику индексирования в контейнере Azure Cosmos DB. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 В этой статье мы подробнее рассмотрим политики индексирования Azure Cosmos DB, настройку политики индексирования и связанные с ней компромиссы. 
 

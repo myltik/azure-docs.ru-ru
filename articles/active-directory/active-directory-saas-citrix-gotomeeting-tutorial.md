@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с GoToMeeting | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и GoToMeeting."
+title: Руководство по интеграции Azure Active Directory с GoToMeeting | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Руководство по интеграции Azure Active Directory с GoToMeeting
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/12/2018
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с GoToMeeting, вам потребуется:
 
@@ -108,77 +108,32 @@ ms.lasthandoff: 01/12/2018
 
     ![Сведения о домене и URL-адресах единого входа для приложения GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    В текстовом поле **Идентификатор** введите URL-адрес `https://login.citrixonline.com/saml/sp`.
+    В текстовом поле **Идентификатор** введите URL-адрес `https://authentication.logmeininc.com/saml/sp`.
 
-4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+4. Щелкните **Show Advanced URL configuration** (Показать расширенную конфигурацию URL-адресов) и настройте URL-адреса ниже.
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **URL-адрес входа** (оставьте это поле пустым).
+    
+    **URL-адреса ответа**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - Для приложения GoToMeeting используйте `https://global.gotomeeting.com`
+    
+    - Для GoToTraining используйте `https://global.gototraining.com`
+    
+    - Для GoToWebinar используйте `https://global.gotowebinar.com` 
+    
+    - Для GoToAssist используйте `https://app.gotoassist.com`
+    
 5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Для создания URL-адреса **метаданных** выполните следующие действия.
+6. В другом окне браузера войдите в [центр организации GoToMeeting](https://organization.logmeininc.com/). Вы увидите запрос на подтверждение обновления IdP.
 
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Установите флажок My Identity Provider has been updated with the new domain (Мой поставщик удостоверений обновлен с помощью нового домена). По завершении нажмите кнопку **Готово**.
 
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **GoToMeeting** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
-
-7. В разделе **Настройка GoToMeeting** щелкните **Настроить GoToMeeting**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
-
-    ![Настройка GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. В другом окне браузера войдите в [центр организации GoToMeeting](https://organization.logmeininc.com/).
-
-9. На вкладке **Identity provider** (Поставщик удостоверений) вы можете настроить параметры Azure, предоставив сгенерированный **URL-адрес метаданных**, загруженный **файл метаданных** или выбрав режим **Manual** (Вручную).
-
-10. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    ![Настройка GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. В поле **How would you like to configure your SAML IDP?** (Как вы хотите настроить поставщик удостоверений SAML?) из раскрывающегося списка выберите **Automatic** (Автоматически).
-
-    Б. Вставьте **URL-адрес метаданных**, который вы сгенерировали на предыдущих шагах, в текстовое поле **Metadata URL** (URL-адрес метаданных).
-
-    c. Выберите команду **Сохранить**.
-
-11. Для создания **файла метаданных** выполните следующие действия.
-
-    ![Настройка GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. В поле **How would you like to configure your SAML IDP?** (Как вы хотите настроить поставщик удостоверений SAML?) из раскрывающегося списка выберите **Upload SAML metadata file** (Передать файл метаданных SAML).
-
-    Б. Чтобы отправить загруженный файл метаданных, нажмите кнопку **Upload metadata file** (Отправить файл метаданных).
-
-    c. Выберите команду **Сохранить**.
-
-12. Если вы хотите использовать режим **Manual** (Вручную), выполните следующие действия.
-
-    ![Настройка GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  В текстовое поле **Sign-in page URL** (URL-адрес страницы входа) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
-
-    Б.  В текстовое поле **Sign-out page URL** (URL-адрес страницы выхода) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
-
-    c.  В текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
-
-    d. Извлеките X509Certificate из загруженного файла метаданных и передайте этот сертификат, нажав кнопку **Upload certificate** (Отправить сертификат).
-
-    д. Выберите команду **Сохранить**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Схема языка определения рабочих процессов в Azure Logic Apps
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/08/2018
 
 |Имя элемента|Обязательно|ОПИСАНИЕ|  
 |------------------|--------------|-----------------|  
-|Тип|Yes|**Тип:** string. <p> **Объявление:** `"parameters": {"parameter1": {"type": "string"}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** securestring. <p> **Объявление:** `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** int. <p> **Объявление:** `"parameters": {"parameter1": {"type": "int"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value" : 5}}` <p> **Тип:** bool. <p> **Объявление:** `"parameters": {"parameter1": {"type": "bool"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": true }}` <p> **Тип:** array. <p> **Объявление:** `"parameters": {"parameter1": {"type": "array"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Тип:** object. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Тип:** secureobject. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Примечание.** Типы `securestring` и `secureobject` не возвращаются в операциях `GET`. Этот тип нужно использовать для всех паролей, ключей и секретов.|  
+|Тип|Yes|**Тип:** string. <p> **Объявление:** `"parameters": {"parameter1": {"type": "string"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** securestring. <p> **Объявление:** `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** int. <p> **Объявление:** `"parameters": {"parameter1": {"type": "int"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value" : 5}}` <p> **Тип:** bool. <p> **Объявление:** `"parameters": {"parameter1": {"type": "bool"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": true }}` <p> **Тип:** array. <p> **Объявление:** `"parameters": {"parameter1": {"type": "array"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Тип:** object. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Тип:** secureobject. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Примечание.** Типы `securestring` и `secureobject` не возвращаются в операциях `GET`. Этот тип нужно использовать для всех паролей, ключей и секретов.|  
 |defaultValue|Нет |Значение по умолчанию для параметра, если во время создания ресурса не было указано значение.|  
 |allowedValues|Нет |Массив допустимых значений параметра.|  
 |metadata|Нет |Дополнительные сведения о параметре, например понятное описание или данные, касающиеся разработки, используемые Visual Studio или другими средствами.|  
@@ -126,14 +126,14 @@ ms.lasthandoff: 03/08/2018
 > [!NOTE]
 > Некоторые выражения получают значения из действий среды выполнения, которые могут не существовать в начале выполнения. Для получения некоторых из этих значений можно использовать **функции**.  
   
-Выражения могут встречаться в любом месте строкового значения JSON и всегда возвращают другое значение JSON. Если определено, что значение JSON является выражением, текст выражения извлекается без знака \"\@". Если требуется строковый литерал, начинающийся с \@\, эту строку необходимо экранировать с помощью \"\@\@\". В примерах ниже показано, как вычисляются выражения.  
+Выражения могут встречаться в любом месте строкового значения JSON и всегда возвращают другое значение JSON. Если определено, что значение JSON является выражением, текст выражения извлекается без знака "\@\". Если требуется строковый литерал, начинающийся с \@\, эту строку необходимо экранировать с помощью \"\@\@". В примерах ниже показано, как вычисляются выражения.  
   
 |Значение JSON|Результат|  
 |----------------|------------|  
 |"parameters"|Возвращаются символы в виде 'parameters'.|  
 |"parameters[1]"|Возвращаются символы в виде 'parameters[1]'.|  
-|\"\@\@\"|Возвращается строка из 1 символа, содержащая символ \@.|  
-|\"\@\"|Возвращается строка из 2 символов, содержащая символ \@.|  
+|"\@@\"|Возвращается строка из 1 символа, содержащая символ \@\.|  
+|\"\@\"|Возвращается строка из 2 символов, содержащая символ \@\.|  
   
 При *интерполяции строк* выражения также могут содержаться внутри строк, где они заключаются в структуру `@{ ... }`. Например:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ ms.lasthandoff: 03/08/2018
 |Значение JSON|Результат|  
 |----------------|------------|  
 |"@parameters('myString')"|Возвращает `sampleString` как строку.|  
-|\"\@{parameters('myString')}"|Возвращает `sampleString` как строку.|  
+|"@{parameters('myString')}"|Возвращает `sampleString` как строку.|  
 |"@parameters('myNumber')"|Возвращает `42` как *номер*.|  
-|\"\@{parameters('myNumber')}"|Возвращает `42` как *строку*.|  
-|"Answer is: \@{parameters('myNumber')}"|Возвращает строку `Answer is: 42`.|  
+|"@{parameters('myNumber')}"|Возвращает `42` как *строку*.|  
+|"Answer is: @{parameters('myNumber')}"|Возвращает строку `Answer is: 42`.|  
 |"@concat('Answer is: ', string(parameters('myNumber')))"|Возвращает строку `Answer is: 42`.|  
-|"Answer is: \@\@{parameters('myNumber')}"|Возвращает строку `Answer is: @{parameters('myNumber')}`.|  
+|"Answer is: @@{parameters('myNumber')}"|Возвращает строку `Answer is: @{parameters('myNumber')}`.|  
   
 ## <a name="operators"></a>Операторы  
 

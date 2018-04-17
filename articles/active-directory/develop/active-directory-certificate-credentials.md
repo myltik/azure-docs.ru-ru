@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Учетные данные сертификата для аутентификации приложения
 
-Azure Active Directory позволяет приложению использовать для аутентификации свои учетные данные, например, в потоке предоставления учетных данных клиента OAuth 2.0 ([версия 1](active-directory-protocols-oauth-service-to-service.md), [версия 2](active-directory-v2-protocols-oauth-client-creds.md)) и потоке On-Behalf-Of ([версия 1](active-directory-protocols-oauth-on-behalf-of.md), [версия 2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory позволяет приложению использовать собственные учетные данные для аутентификации. Например, в потоке предоставления учетных данных клиента OAuth 2.0 ([версия 1](active-directory-protocols-oauth-service-to-service.md), [версия 2](active-directory-v2-protocols-oauth-client-creds.md)) и потоке On-Behalf-Of ([версия 1](active-directory-protocols-oauth-on-behalf-of.md), [версия 2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Одной из форм учетных данных, которая может использоваться, является утверждение JSON Web Token (JWT), подписанное с помощью сертификата приложения.
 
 ## <a name="format-of-the-assertion"></a>Формат утверждения
-Чтобы сформировать утверждение, воспользуйтесь одной из многих библиотек [JSON Web Token](https://jwt.io/) на удобном для вас языке. Маркер содержит следующие сведения:
+Чтобы сформировать утверждение, воспользуйтесь одной из многих библиотек [JSON Web Token](https://jwt.ms/) на удобном для вас языке. Маркер содержит следующие сведения:
 
 #### <a name="header"></a>Заголовок
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Регистрация сертификат в Azure AD
 
-Чтобы связать учетные данные сертификата с клиентским приложением в Azure AD, необходимо изменить манифест приложения.
+Учетные данные сертификата можно связать с клиентским приложением в Azure AD через портал Azure с помощью любого из следующих методов:
+
+**Отправка файла сертификата**
+
+На странице регистрации приложения Azure для клиентского приложения последовательно выберите **Параметры**, **Ключи** и **Отправить открытый ключ**. Выберите файл сертификата, который требуется отправить, и щелкните **Сохранить**. После сохранения выполняется отправка сертификата и отображаются значения отпечатка сертификата, даты начала и истечения срока действия. 
+
+**Обновление манифеста приложения**
+
 Получив сертификат, необходимо вычислить следующие значения:
 
 - `$base64Thumbprint` — хэш сертификата в кодировке base64;

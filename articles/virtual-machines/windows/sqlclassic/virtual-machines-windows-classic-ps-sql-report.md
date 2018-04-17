@@ -1,6 +1,6 @@
 ---
-title: "Использование PowerShell для создания виртуальных машин с помощью сервера отчетов, работающего в основном режиме | Документация Майкрософт"
-description: "В этом разделе описывается процесс развертывания и настройки сервера отчетов собственного режима служб Reporting Services SQL Server на виртуальной машине Azure. "
+title: Использование PowerShell для создания виртуальных машин с помощью сервера отчетов, работающего в основном режиме | Документация Майкрософт
+description: 'В этом разделе описывается процесс развертывания и настройки сервера отчетов собственного режима служб Reporting Services SQL Server на виртуальной машине Azure. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме
 > [!IMPORTANT] 
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/11/2017
    
     Дополнительные сведения о запросе сертификатов сервера см. в следующих разделах: 
    
-   * Использование [Certreq](https://technet.microsoft.com/library/cc725793.aspx).[Certreq](https://technet.microsoft.com/library/cc725793.aspx)
+   * Использование [Certreq](https://technet.microsoft.com/library/cc725793.aspx),[](https://technet.microsoft.com/library/cc725793.aspx).
    * Средства безопасности для администрирования Windows Server 2012.
      
      [Средства безопасности для администрирования Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)

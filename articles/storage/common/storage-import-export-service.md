@@ -6,13 +6,13 @@ manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Использование службы "Импорт и экспорт Microsoft Azure" для передачи данных в службу хранилища Azure
 В этой статье предоставляются пошаговые инструкции по использованию службы "Импорт и экспорт Azure" для безопасного переноса больших объемов данных в хранилище BLOB Azure и файлов Azure при отправке дисков в центр обработки данных Azure. Кроме того, эту службу можно использовать, чтобы переносить данные из службы хранилища Azure на жесткие диски и передавать на локальные сайты. Данные с одного внутреннего диска SATA можно импортировать в хранилище BLOB-объектов Azure или хранилище файлов Azure. 
@@ -151,7 +151,7 @@ ms.lasthandoff: 03/17/2018
 ### <a name="operating-system"></a>Операционная система
 Для подготовки жесткого диска с помощью средства WAImportExport перед отправкой его в Azure можно использовать следующие 64-разрядные операционные системы:
 
-Windows 7 Корпоративная, Windows 7 Максимальная, Windows 8 Профессиональная, Windows 8 Корпоративная, Windows 8.1 Профессиональная, Windows 8.1 Корпоративная, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Все эти операционные системы поддерживают шифрование диска BitLocker.
+Windows 7 Корпоративная, Windows 7 Максимальная, Windows 8 Профессиональная, Windows 8 Корпоративная, Windows 8.1 Профессиональная, Windows 8.1 Корпоративная, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Все эти операционные системы поддерживают шифрование диска BitLocker.
 
 ### <a name="locations"></a>Расположения
 Служба "Импорт и экспорт Azure" поддерживает копирование данных в любые учетные записи хранения общедоступной службы Azure и из них. Жесткие диски можно отправлять в одно из указанных ниже расположений. Если ваша учетная запись хранения находится в общедоступном расположении Azure, которое здесь не указано, при создании задания на портале Azure или с помощью REST API службы "Импорт и экспорт" вам будет предложено альтернативное расположение.

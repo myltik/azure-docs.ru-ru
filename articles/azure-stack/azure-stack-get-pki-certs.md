@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Создание сертификатов PKI для развертывания Azure Stack
 Теперь, когда вы знаете [требования к сертификату PKI](azure-stack-pki-certs.md) для развертываний Azure Stack, вам необходимо получить эти сертификаты из выбранного вами центра сертификации. 
@@ -75,4 +75,4 @@ ms.lasthandoff: 03/23/2018
 5. **Экспорт и копирование PFX-файла в папки развертывания.** Экспортируйте сертификат (в том числе закрытый ключ) как PFX-файл и скопируйте этот файл в папки развертывания, описанные в [требованиях к PKI для развертывания Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Подготовка сертификатов PKI Azure Stack](prepare-pki-certs.md)
+[Подготовка сертификатов PKI Azure Stack](azure-stack-prepare-pki-certs.md)

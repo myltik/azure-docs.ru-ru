@@ -1,11 +1,11 @@
 ---
-title: "Руководство по устранению неполадок Служб мобильного взаимодействия Azure — аналитика"
-description: "Поиск и устранение неисправностей функций аналитики, мониторинга, сегментации и панели мониторинга в Службах мобильного взаимодействия Azure"
+title: Руководство по устранению неполадок Служб мобильного взаимодействия Azure — аналитика
+description: Поиск и устранение неисправностей функций аналитики, мониторинга, сегментации и панели мониторинга в Службах мобильного взаимодействия Azure
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19d018b83ee8b3d5848d29afff190d3dcaf3fde
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>Поиск и устранение неисправностей функций аналитики, мониторинга, сегментации и панели мониторинга
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Ниже представлены возможные проблемы, которые могут быть связаны со способом, используемым Службами мобильного взаимодействия Azure для сбора сведений о ваших приложениях, устройствах и пользователях.
 
 ## <a name="missingdelayed-information"></a>Отсутствие или задержка информации

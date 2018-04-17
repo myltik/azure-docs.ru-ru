@@ -1,6 +1,22 @@
+---
+title: включение файла
+description: включение файла
+services: ''
+author: KumudD
+ms.service: ''
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: ''
+ms.custom: include file
+ms.openlocfilehash: f9005a5f0d327fd59a1b665cb8e714716908ea81
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/05/2018
+---
 | Ресурс | Ограничение по умолчанию |
 | --- | --- |
-| Профилей на подписку |100 <sup>1</sup> |
+| Профилей на подписку |200 <sup>1</sup> |
 | Конечных точек на профиль |200 |
 
 <sup>1</sup>Если требуется увеличить эти предельные значения, обратитесь в службу поддержки.

@@ -1,8 +1,8 @@
 ---
-title: "Управление доступом к ресурсам Azure с помощью управления привилегированными пользователями (PIM)"
-description: "Узнайте об использовании управления доступом на основе ролей в PIM для доступа к ресурсам Azure."
+title: Управление доступом к ресурсам Azure с помощью управления привилегированными пользователями (PIM)
+description: Узнайте об использовании управления доступом на основе ролей в PIM для доступа к ресурсам Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: skwan
 manager: mtillman
 editor: bryanla
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
-ms.author: skwan
-ms.openlocfilehash: 1f31d8b76351ac8871f8a5b03d513f7b6704c709
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 1e74579ef2f0e18f23a40dfc573177938b9b726f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/11/2018
 ---
-# <a name="manage-access-to-azure-resources-with-privileged-identity-management-preview"></a>Управление доступом к ресурсам Azure с помощью управления привилегированными пользователями (предварительная версия)
+# <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Управление доступом к ресурсам Azure с помощью управления привилегированными пользователями (PIM)
 
 Для защиты привилегированных учетных записей от вредоносных кибератак можно использовать технологию Azure Active Directory Privileged Identity Management (PIM), чтобы уменьшить продолжительность действия привилегий и повысить вашу осведомленность об их использовании с помощью отчетов и оповещений. В PIM это достигается путем предоставления пользователям привилегий только в определенное время (JIT) либо путем назначения привилегий на короткий период, по истечении которого привилегии автоматически отзываются. 
 

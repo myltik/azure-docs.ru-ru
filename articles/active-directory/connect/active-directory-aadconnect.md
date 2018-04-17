@@ -1,33 +1,35 @@
 ---
-title: "Подключение Active Directory к Azure Active Directory | Документация Майкрософт"
-description: "Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для Office 365, Azure и SaaS, интегрированных с Azure AD."
-keywords: "Введение в Azure AD Connect, обзор функций Azure AD Connect, что такое Azure AD Connect, установка Аctive Directory."
+title: Подключение Active Directory к Azure Active Directory | Документация Майкрософт
+description: Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для Office 365, Azure и SaaS, интегрированных с Azure AD.
+keywords: Введение в Azure AD Connect, обзор функций Azure AD Connect, что такое Azure AD Connect, установка Аctive Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 83654a406019c4ac3837a3e961a6de640c98f31c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Интеграция локальных каталогов с Azure Active Directory
 Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для приложений Office 365, Azure и программного обеспечения как услуги (SaaS), интегрированных с Azure AD. В этом разделе описаны шаги планирования, развертывания и использования. Здесь представлена коллекция ссылок на статьи, относящиеся к этой области.
 
 > [!IMPORTANT]
-> [Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы используете Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, так как эти продукты являются нерекомендуемыми и не поддерживаются с 13 апреля 2017 года.](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы используете Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, так как эти продукты являются нерекомендуемыми и не поддерживаются с 13 апреля 2017 года.](active-directory-aadconnect-dirsync-deprecated.md)  См. также:
 > 
-> 
+> - Синхронизация пользователей в Azure AD — это **бесплатная функция**, для использования которой подписка не требуется.
+>- Синхронизированным пользователям *лицензии* **автоматически не предоставляются**. Администраторы по-прежнему имеют полный контроль над процессом назначения лицензий. 
+> - Корпорация Майкрософт рекомендует ИТ-администраторам синхронизировать всех своих пользователей. Это не только откроет пользователям доступ к любому интегрированному ресурсу Azure AD, но также предоставит ИТ-администраторам более подробные сведения о том, к каким приложениям их пользователи осуществляют доступ. 
 
 ![Что такое Azure AD Connect?](media/active-directory-aadconnect/arch.png)
 
@@ -86,7 +88,7 @@ Azure AD Connect поставляется с несколькими функци
 
 [Фильтрация](active-directory-aadconnectsync-configure-filtering.md) используется, если требуется ограничить количество объектов, синхронизируемых с Azure AD. По умолчанию все пользователи, контакты, группы и компьютеры с ОС Windows 10 синхронизируются. Фильтрацию можно изменить в зависимости от доменов, подразделений и атрибутов.
 
-[синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md) хэш пароля синхронизируется в Active Directory и Azure AD. Пользователи могут использовать один и тот же пароль локально и в облаке, но управление им осуществляется только из одного расположения. Так как при синхронизации паролей в качестве главного источника используется локальная служба Active Directory, вы также можете применить собственную политику паролей.
+[Синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) подразумевает синхронизацию хэша паролей из Active Directory в Azure AD. Пользователи могут использовать один и тот же пароль локально и в облаке, но управление им осуществляется только из одного расположения. Так как при синхронизации паролей в качестве главного источника используется локальная служба Active Directory, вы также можете применить собственную политику паролей.
 
 [Компонент обратной записи паролей](../active-directory-passwords-getting-started.md) позволит вашим пользователям изменять и сбрасывать пароли в облаке, а также применять вашу локальную политику паролей.
 
@@ -100,7 +102,7 @@ Azure AD Connect поставляется с несколькими функци
 |Раздел |Ссылка|  
 | --- | --- |
 |Настройка фильтрации | [Синхронизация Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md)|
-|синхронизации паролей | [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Синхронизация хэша паролей | [Служба синхронизации Azure AD Connect: реализация синхронизации хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |Компонент обратной записи паролей | [Приступая к работе с компонентами управления паролями](../active-directory-passwords-getting-started.md)|
 |Обратная запись устройств | [Включение обратной записи устройств в службе Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |предотвращения случайного удаления | [Синхронизация Azure AD Connect: предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|

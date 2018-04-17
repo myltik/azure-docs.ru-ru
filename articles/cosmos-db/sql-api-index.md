@@ -2,8 +2,8 @@
 title: Azure Cosmos DB. Статьи об API SQL | Документация Майкрософт
 description: Список всех статей, посвященных созданию баз данных документов с помощью API SQL в Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
-ms.author: mimig
-ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 5e6f277a3c020334ba26a0b1a2681cbbdd672f45
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB. Документация по API SQL
 
@@ -102,8 +102,8 @@ Azure Cosmos DB предоставляет различные пакеты SDK �
 
 ## <a name="reference"></a>Справочные материалы
 
-- [REST](/rest/api/documentdb/)
-- [Поставщик ресурсов REST](/rest/api/documentdbresourceprovider/)
+- [REST](/rest/api/cosmos-db/)
+- [Поставщик ресурсов REST](/rest/api/cosmos-db-resource-provider/)
 - [Справочник по SQL-запросам](sql-api-sql-query-reference.md)
 - [Справочник по решению "Функции Azure"](../azure-functions/functions-bindings-cosmosdb.md)
 

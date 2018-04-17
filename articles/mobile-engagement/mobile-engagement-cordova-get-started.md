@@ -1,11 +1,11 @@
 ---
-title: "Начало работы со Службами мобильного взаимодействия Azure для Cordova (Phonegap)"
-description: "Узнайте, как использовать Служб мобильного взаимодействия Azure для аналитики и отправки push-уведомлений в приложения Cordova (Phonegap)."
+title: Начало работы со Службами мобильного взаимодействия Azure для Cordova (Phonegap)
+description: Узнайте, как использовать Служб мобильного взаимодействия Azure для аналитики и отправки push-уведомлений в приложения Cordova (Phonegap).
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abe0ad6117cc2feb72ebe788d07b50e8f145174c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Начало работы со Службами мобильного взаимодействия Azure для Cordova (Phonegap)
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 В этой статье показано, как использовать Службы мобильного взаимодействия Azure для анализа использования приложений и отправки push-уведомлений сегментированным пользователям мобильного приложения, разработанного на платформе Cordova.

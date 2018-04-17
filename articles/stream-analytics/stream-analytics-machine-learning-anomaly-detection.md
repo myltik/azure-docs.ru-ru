@@ -1,10 +1,10 @@
 ---
-title: "Руководство по обнаружению аномалий в Azure (предварительная версия) | Документация Майкрософт"
-description: "Сведения об использовании Stream Analytics и машинного обучения для обнаружения аномалий."
+title: Руководство по обнаружению аномалий в Azure (предварительная версия) | Документация Майкрософт
+description: Сведения об использовании Stream Analytics и машинного обучения для обнаружения аномалий.
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: dubansal
-manager: jhubbard
+manager: katicad
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/12/2018
 ms.author: dubansal
-ms.openlocfilehash: d8762ea608afed707d41a3c0a1a8725457a0e4dc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9d301f8586038f635ee97a3acdc9c4dc8a2bbcc6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Обнаружение аномалий в Azure Stream Analytics
 

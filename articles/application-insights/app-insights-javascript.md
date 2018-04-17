@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights и веб-приложения JavaScript | Документация Майкрософт"
-description: "Получайте данные о количестве просмотров страницы и количестве сеансов, данные веб-клиента и отслеживайте закономерности использования. Выявляйте исключения и проблемы с производительностью на веб-страницах JavaScript."
+title: Azure Application Insights и веб-приложения JavaScript | Документация Майкрософт
+description: Получайте данные о количестве просмотров страницы и количестве сеансов, данные веб-клиента и отслеживайте закономерности использования. Выявляйте исключения и проблемы с производительностью на веб-страницах JavaScript.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7cc061b921109f173837352199ff64f055ae2483
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a2cb3d504abcd3f9c50df2427884d478ad2240c4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights для веб-страниц
 Узнайте о производительности и использовании своей веб-страницы или приложения. Если добавить [Application Insights](app-insights-overview.md) в скрипт страницы, вы узнаете время загрузки страницы и вызовов AJAX, сведения об исключениях браузера, ошибках AJAX и их количестве, а также количество пользователей и сеансов. Все эти данные можно разбить по страницам, версии клиентской ОС и браузера, географическому расположению и другим показателям. Можно также настроить оповещения для определенного количества сбоев или медленной загрузки страниц. Кроме того, вставив вызовы трассировки в код JavaScript, вы можете отслеживать использование различных функций приложения веб-страницы.
@@ -26,7 +26,7 @@ Application Insights можно использовать с любыми веб-
 
 ![На сайте portal.azure.com откройте ресурс приложения и щелкните "Браузер".](./media/app-insights-javascript/03.png)
 
-Вам понадобится подписка [Microsoft Azure](https://azure.com). Если у вашей группы есть подписка организации, попросите владельца подписки добавить в нее вашу учетную запись Майкрософт. Разработка и использование в небольших масштабах не потребуют никаких денежных затрат.
+Вам понадобится подписка [Microsoft Azure](https://azure.com). Если у вашей группы есть подписка организации, попросите владельца подписки добавить в нее вашу учетную запись Майкрософт.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Настройка Application Insights для веб-страницы
 Добавьте фрагмент кода загрузчика на веб-страницы, как показано ниже.
@@ -50,6 +50,28 @@ Application Insights можно использовать с любыми веб-
 В разделе «Быстрый запуск» получите сценарий для веб-страниц:
 
 ![В колонке обзора приложения последовательно выберите элементы «Быстрый запуск», «Получить код для мониторинга моих веб-страниц». Скопируйте сценарий.](./media/app-insights-javascript/02-monitor-web-page.png)
+
+> [!NOTE]
+> Процесс *начала работы* зависит от типа приложения, выбранного при создании ресурса Application Insights. Если для вашего приложения нет скрипта, как показано на предыдущем снимке экрана, просто воспользуйтесь приведенным ниже.
+
+```HTML
+<!-- 
+To collect end-user usage analytics about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"<your instrumentation key>"
+  });
+  
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+```
 
 Вставьте сценарий непосредственно перед тегом `</head>` каждой страницы, которую вы хотите отслеживать. Если на вашем веб-сайте есть главная страница, можно разместить сценарий на ней. Например: 
 

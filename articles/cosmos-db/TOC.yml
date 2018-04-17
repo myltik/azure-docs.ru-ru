@@ -164,7 +164,7 @@ items:
       - name: Безопасность
         href: database-security.md
       - name: TCO
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Варианты использования
         href: use-cases.md
         items:
@@ -184,13 +184,15 @@ items:
               - name: Производительность SQL-запросов
                 href: sql-api-sql-query-metrics.md
               - name: SQL Playground
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
               - name: Секционирование
                 href: sql-api-partition-data.md
               - name: 'Хранимые процедуры, триггеры и определяемые пользователем функции'
                 href: programming.md
               - name: Тестирование производительности
                 href: performance-testing.md
+              - name: Советы по повышению производительности для Async Java
+                href: performance-tips-async-java.md
               - name: Советы по повышению производительности для .NET
                 href: performance-tips.md
               - name: Советы по повышению производительности для Java
@@ -378,17 +380,17 @@ items:
           - name: Вход в приложения с помощью Logic Apps
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Привязка к Функциям Azure
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Интеграция с Поиском Azure
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Перенос данных с помощью фабрики данных Azure
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Анализ данных в реальном времени с помощью Azure Stream Analytics
-            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Получение измененной записи HL7 FHIR с помощью Logic Apps
             href: change-feed-hl7-fhir-logic-apps.md
           - name: 'Обработка данных, поступающих от датчиков, в реальном времени'
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
           - name: Визуализация данных с помощью Power BI
             href: powerbi-visualize.md
           - name: Визуализация данных с помощью драйвера ODBC
@@ -416,9 +418,9 @@ items:
           - name: Python
             href: sql-api-sdk-python.md
           - name: REST
-            href: /rest/api/documentdb/
+            href: /rest/api/cosmos-db/
           - name: Поставщик ресурсов REST
-            href: /rest/api/documentdbresourceprovider/
+            href: /rest/api/cosmos-db-resource-provider/
           - name: SQL
             href: sql-api-sql-query-reference.md
       - name: API-интерфейсы таблицы
@@ -451,5 +453,5 @@ items:
         href: faq.md
       - name: Объяснение согласованности данных на примере игры в бейсбол
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: Устранение неполадок с Azure Cosmos DB
+      - name: "Устранение неполадок с Azure Cosmos\_DB"
         href: troubleshoot-azure-cosmosdb.md

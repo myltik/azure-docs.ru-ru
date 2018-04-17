@@ -1,6 +1,6 @@
 ---
 title: Преобразование данных с помощью Databricks Notebook (Azure) | Документация Майкрософт
-description: Узнайте, как обрабатывать и преобразовывать данные с помощью Databricks Notebook.
+description: Узнайте, как обрабатывать и преобразовывать данные с помощью записной книжки Databricks.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: a011c31c5ccf70c379358f2b2c7748011b2fdd44
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4a57e45d5ddf55906fcf575df39135a227418ec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="transform-data-by-running-a-databricks-notebook"></a>Преобразование данных с помощью Databricks Notebook
+# <a name="transform-data-by-running-a-databricks-notebook"></a>Преобразование данных с помощью записной книжки Databricks
 
-Действие Azure Databricks Notebook в [конвейере фабрики данных](concepts-pipelines-activities.md) позволяет запустить Databricks Notebook в рабочей области Azure Databricks. Данная статья основана на материалах статьи о [действиях преобразования данных](transform-data.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования. Azure Databricks — это управляемая платформа для запуска Apache Spark.
+Действие Azure Databricks Notebook в [конвейере фабрики данных](concepts-pipelines-activities.md) позволяет запустить записную книжку Databricks в рабочей области Azure Databricks. Данная статья основана на материалах статьи о [действиях преобразования данных](transform-data.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования. Azure Databricks — это управляемая платформа для запуска Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Определение действия Databricks Notebook
 
@@ -57,6 +57,6 @@ ms.lasthandoff: 03/17/2018
 |name|Имя действия в конвейере.|Yes|
 |description|Описание действия.|Нет |
 |Тип|Тип действия Databricks Notebook — DatabricksNotebook.|Yes|
-|linkedServiceName|Имя связанной службы Databricks, в которой запускается Databricks Notebook. Дополнительные сведения об этой связанной службе см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md).|Yes|
+|linkedServiceName|Имя связанной службы Databricks, в которой запускается записная книжка Databricks. Дополнительные сведения об этой связанной службе см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md).|Yes|
 |notebookPath|Абсолютный путь записной книжки, которая будет запущена в рабочей области Databricks. Этот путь должен начинаться с косой черты.|Yes|
 |baseParameters|Массив пар "ключ-значение". Для каждого выполнения действия можно использовать базовые параметры. Если записная книжка принимает параметр, который не был указан, используется значение по умолчанию из записной книжки. Дополнительные сведения о параметрах Databricks Notebook см. [здесь](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Нет |

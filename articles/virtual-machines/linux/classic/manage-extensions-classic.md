@@ -1,11 +1,11 @@
 ---
-title: "Управление расширениями виртуальной машины на платформе Linux | Документация Майкрософт"
-description: "Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания."
+title: Управление расширениями виртуальной машины на платформе Linux | Документация Майкрософт
+description: Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: squillace
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 1dd06f8a-96d7-4c8c-8a74-ad2c553a5f2a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 047b807fdd5c45c310454b1c1dd5d942bb430b44
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 201a23d7ce9ec6edd74b7695bab3187212e1b042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-virtual-machine-extensions"></a>Управление расширениями виртуальной машины
 Эта статья описывает методы поиска, добавления, изменения и удаления расширений ВМ на виртуальных машинах Azure Windows или Linux.

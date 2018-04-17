@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Шифрование службы хранилища с помощью управляемых клиентом ключей в Azure Key Vault
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Этап 5. Копирование данных в учетную запись хранения
 
-Чтобы передать данные в учетную запись хранения для шифрования, ознакомьтесь с шагом 3 статьи [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Передайте данные в новую учетную запись хранения для их шифрования. Дополнительные сведения см. в разделе [Часто задаваемые вопросы о шифровании службы хранилища](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Шаг 6. Запрос состояния зашифрованных данных
 
-Чтобы подать запрос на состояние зашифрованных данных, ознакомьтесь с шагом 4 статьи [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Запросите состояние зашифрованных данных.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Часто задаваемые вопросы о SSE для управляемых клиентом ключей
 

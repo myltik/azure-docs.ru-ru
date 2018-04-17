@@ -1,24 +1,24 @@
 ---
-title: "Приостановка, возобновление и масштабирование ресурсов в хранилище данных SQL Azure с помощью REST | Документация Майкрософт"
-description: "Управление вычислительными ресурсами в хранилище данных SQL с помощью REST API."
+title: Приостановка, возобновление и масштабирование ресурсов в хранилище данных SQL Azure с помощью REST | Документация Майкрософт
+description: Управление вычислительными ресурсами в хранилище данных SQL с помощью REST API.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: kfile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 02/13/2018
+ms.date: 03/22/2018
 ms.author: barbkess
-ms.openlocfilehash: cb5b6221a5fc1d02ed1d93d56fd3db4858923307
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 518bbe23f1dcb9ffdffcfb67f875165617762c78
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>REST API для хранилища данных Azure SQL
 REST API для управления вычислительными ресурсами в хранилище данных Azure SQL.
@@ -61,5 +61,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения о других задачах управления см. в описании [функций управления](./sql-data-warehouse-overview-manage.md).
+Дополнительные сведения см. в статье [Управление вычислительными ресурсами в хранилище данных SQL Azure](sql-data-warehouse-manage-compute-overview.md).
 

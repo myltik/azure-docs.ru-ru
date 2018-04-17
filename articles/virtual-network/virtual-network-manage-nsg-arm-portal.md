@@ -1,11 +1,11 @@
 ---
-title: "Управление группами безопасности сети с помощью портала Azure | Документация Майкрософт"
-description: "Сведения об управлении существующими группами безопасности сети с помощью портала Azure."
+title: Управление группами безопасности сети с помощью портала Azure | Документация Майкрософт
+description: Сведения об управлении существующими группами безопасности сети с помощью портала Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5d55679d-57da-457c-97dc-1e1973909ee5
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Управление группами безопасности сети с помощью портала
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/21/2017
 
 Чтобы просмотреть список всех существующих групп безопасности сети в подписке, выполните следующие действия:
 
-1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
+1. В браузере перейдите по адресу http://portal.azure.com и при необходимости выполните вход с помощью учетной записи Azure.
 
 2. Щелкните **Обзор >** > **Сетевые группы безопасности**.
 

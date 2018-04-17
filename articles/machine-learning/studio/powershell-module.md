@@ -1,11 +1,12 @@
 ---
-title: "Модуль PowerShell для машинного обучения Документация Майкрософт | Документация Майкрософт"
-description: "Модуль PowerShell для машинного обучения Azure доступен в режиме общедоступной предварительной версии. Используйте PowerShell для создания рабочих областей, экспериментов, веб-служб, а также управления этими компонентами."
-keywords: "эксперимент,линейная регрессия,алгоритмы машинного обучения,руководство по машинному обучению,приемы прогнозного моделирования,эксперимент по обработке и анализу данных"
+title: Модуль PowerShell для машинного обучения Документация Майкрософт | Документация Майкрософт
+description: Модуль PowerShell для машинного обучения Azure доступен в режиме общедоступной предварительной версии. Используйте PowerShell для создания рабочих областей, экспериментов, веб-служб, а также управления этими компонентами.
+keywords: эксперимент,линейная регрессия,алгоритмы машинного обучения,руководство по машинному обучению,приемы прогнозного моделирования,эксперимент по обработке и анализу данных
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -14,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
-ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9553e372f4d1cb5c60935fae5a7af61806ea6d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>Модуль PowerShell для машинного обучения Microsoft Azure
 Модуль PowerShell для машинного обучения Azure — это мощный инструмент, который позволяет использовать Windows PowerShell для управления рабочими областями, экспериментами, наборами данных, классическими веб-службами и пр.
 
-На странице [https://aka.ms/amlps](https://aka.ms/amlps)вы можете просмотреть документацию и скачать модуль, в том числе полный исходный код. 
+На странице [https://aka.ms/amlps](https://aka.ms/amlps) вы можете просмотреть документацию и скачать модуль, в том числе полный исходный код. 
 
 > [!NOTE]
 > В настоящее время модуль PowerShell для машинного обучения Azure находится в предварительной версии. Мы работаем над улучшением модуля. Он будет дополнен в течение этого периода предварительной версии. Обратите внимание на блог, посвященный [Cortana Intelligence и машинному обучению](https://blogs.technet.microsoft.com/machinelearning/). В этом блоге публикуются новости и дополнительные сведения.

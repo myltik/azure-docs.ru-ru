@@ -1,12 +1,12 @@
 ---
-title: "Знакомство с API таблицы Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как использовать Azure Cosmos DB для хранения больших объемов данных типа \"ключ — значение\" и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS."
+title: Знакомство с API таблицы Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как использовать Azure Cosmos DB для хранения больших объемов данных типа "ключ — значение" и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6a69bc74f0175a8c30607ada006ebfce9a88c5b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Общие сведения об API таблиц Azure Cosmos DB
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/23/2018
 
 С помощью API таблицы вы можете перенести приложения, написанные для хранилища таблиц Azure, в Azure Cosmos DB, не изменяя код, и воспользоваться возможностями уровня "Премиум". API таблицы включает клиентские пакеты SDK для .NET., Java, Python и Node.js.
 
-Мы рекомендуем просмотреть следующий видеоролик, в котором Аравинд Рамачандран (Aravind Ramachandran) объясняет, как начать работу с API таблицы для Azure Cosmos DB.
+Рекомендуем просмотреть следующий видеоролик, в котором Аравинд Кришна (Aravind Krishna) объясняет, как начать работу с API таблицы для Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 

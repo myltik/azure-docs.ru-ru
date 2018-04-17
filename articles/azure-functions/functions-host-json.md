@@ -1,12 +1,12 @@
 ---
-title: "Справочник по файлу host.json для Функций Azure"
-description: "Справочная документация по файлу host.json для Функций Azure."
+title: Справочник по файлу host.json для Функций Azure
+description: Справочная документация по файлу host.json для Функций Azure.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Справочник по файлу host.json для Функций Azure
 
-Файл метаданных *host.json* содержит параметры глобальной конфигурации, влияющие на все функции приложения-функции. В этой статье перечислены параметры, которые доступны. Схема JSON находится по адресу http://json.schemastore.org/host.
+Файл метаданных *host.json* содержит параметры глобальной конфигурации, влияющие на все функции приложения-функции. В этой статье перечислены параметры, которые доступны. Схему JSON можно найти по адресу http://json.schemastore.org/host.
 
 В [параметрах приложения](functions-app-settings.md) и в файле [local.settings.json](functions-run-local.md#local-settings-file) содержатся другие параметры глобальной конфигурации.
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 02/21/2018
 
 |Свойство  |значение по умолчанию | ОПИСАНИЕ |
 |---------|---------|---------| 
-|isEnabled|false|Включает или отключает выборку.| 
+|isEnabled|Да|Включает или отключает выборку.| 
 |maxTelemetryItemsPerSecond|5|Пороговое значение, при котором начинается выборка.| 
 
 ## <a name="eventhub"></a>eventHub
@@ -201,6 +201,9 @@ ms.lasthandoff: 02/21/2018
 ## <a name="id"></a>id
 
 Уникальный идентификатор для узла заданий. Это может быть глобальный уникальный идентификатор (GUID), вводимый в нижнем регистре с удаленными дефисами. Необходим при локальном выполнении. При запуске в Функциях Azure идентификатор создается автоматически, если параметр `id` не указан.
+
+Если вы предоставляете общий доступ к учетной записи хранения для нескольких приложений-функций, убедитесь, что у всех них разные `id`. Можно опустить свойство `id` или вручную задать для `id` всех приложений-функций разные значения. Для триггера таймера используется блокировка хранилища. Это гарантирует наличие только одного экземпляра таймера, когда приложение-функция масштабируется до нескольких экземпляров. Если у двух приложений-функций один `id` и для каждого используется триггер таймера, запустится только один таймер.
+
 
 ```json
 {

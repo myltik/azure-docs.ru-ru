@@ -1,10 +1,10 @@
 ---
-title: "Знакомство с API Cassandra для Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как можно использовать Azure Cosmos DB, чтобы перемещать имеющиеся приложения или создавать их с помощью API Cassandra, используя знакомые вам средства CQL и драйверы Cassandra."
+title: Знакомство с API Cassandra для Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как можно использовать Azure Cosmos DB, чтобы перемещать имеющиеся приложения или создавать их с помощью API Cassandra, используя знакомые вам средства CQL и драйверы Cassandra.
 services: cosmos-db
 author: govindk
-manager: jhubbard
-documentationcenter: 
+manager: ''
+documentationcenter: ''
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Знакомство с API Apache Cassandra для Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Общие сведения об Azure Cosmos DB: API Apache Cassandra
 
 Azure Cosmos DB предоставляет API Cassandra (предварительная версия) для приложений, созданных для Apache Cassandra, требующих таких возможностей уровня "Премиум", как:
 

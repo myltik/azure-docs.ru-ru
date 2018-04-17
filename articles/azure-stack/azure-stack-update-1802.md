@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1802-update"></a>Обновление 1802 Azure Stack
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 03/09/2018
 
 #### <a name="portal"></a>Microsoft Azure
 - Возможность [открыть новый запрос на поддержку из раскрывающегося списка](azure-stack-manage-portals.md#quick-access-to-help-and-support) на портале администрирования недоступна. Вместо этого перейдите по следующей ссылке:     
-    - Для интегрированных систем Azure Stack используйте ссылку https://aka.ms/newsupportrequest.
+    - Для интегрированных систем Azure Stack используйте https://aka.ms/newsupportrequest.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,15 @@ ms.lasthandoff: 03/09/2018
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (Ошибка. Отсутствует шаблон FaultType ResourceProviderTimeout).
 
     Это оповещение можно проигнорировать. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- Если на портале администрирования и пользовательском портале выбрать колонку "Обзор" для учетных записей хранения, созданных в более ранней версии API (например, 2015-06-15), колонка не загрузится. К таким записям относятся такие системные учетные записи хранения, как **updateadminaccount**, которая используется во время исправления и обновления. 
+
+  Чтобы избежать этой проблемы, выполните в PowerShell скрипт **Start-ResourceSynchronization.ps1**. Это позволит восстановить доступ к сведениям об учетной записи хранения. [Скрипт можно найти в GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts). Его нужно выполнить с учетными данными администратора для привилегированной конечной точки. 
+
+- Не удается загрузить колонку **Работоспособность службы**. При открытии колонки "Работоспособность службы" на портале администрирования или пользовательском портале в Azure Stack отображается ошибка и не загружается информация. Это ожидаемое поведение. Хотя вы можете выбрать и открыть колонку "Работоспособность службы", эта функция еще недоступна. Она будет реализована в будущей версии Azure Stack.
+
 
 #### <a name="health-and-monitoring"></a>Работоспособность и мониторинг
 Известные проблемы после обновления до версии 1802 отсутствуют.
@@ -155,13 +164,13 @@ ms.lasthandoff: 03/09/2018
 
 
 #### <a name="networking"></a>Сеть
-- После создания виртуальной машины и ее связывания с общедоступным IP-адресом вы не можете отменить эту связь. Будет выглядеть так, будто вам удалось отменить сопоставление, но ранее присвоенный общедоступный IP-адрес останется связанным с исходной виртуальной машиной.
+- После создания виртуальной машины и ее связывания с общедоступным IP-адресом вы не можете отменить эту связь. Будет выглядеть так, будто вам удалось его отменить, но ранее присвоенный общедоступный IP-адрес останется связанным с исходной виртуальной машиной.
 
   Сейчас для создания виртуальной машины необходимо использовать только новые общедоступные IP-адреса.
 
   Это происходит, даже если присвоить этот IP-адрес новой виртуальной машине (это часто называют *переключением виртуального IP-адреса*). Все последующие попытки подключиться через этот IP-адрес к новой виртуальной машине приведут к подключению к исходной виртуальной машине, к которой он был привязан.
 
-- Служба внутренней балансировки нагрузки (ILB) неправильно обрабатывает MAC-адреса внутренних виртуальных машин, что нарушает работу ILB при использовании экземпляров Linux во внутренней сети.  ILB хорошо работает с экземплярами Windows во внутренней сети.
+- Служба внутренней балансировки нагрузки (ILB) неправильно обрабатывает MAC-адреса внутренних виртуальных машин, что нарушает работу ILB при использовании экземпляров Linux во внутренней сети.  Во внутренней сети ILB хорошо работает с экземплярами Windows.
 
 -   Функция IP-пересылки видна на портале, однако ее включение ни на что не влияет. Пока такая возможность не поддерживается.
 

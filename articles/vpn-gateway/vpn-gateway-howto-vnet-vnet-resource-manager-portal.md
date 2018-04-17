@@ -1,11 +1,11 @@
 ---
-title: "Подключение виртуальной сети Azure к другой виртуальной сети с помощью портала | Документация Майкрософт"
-description: "Создайте подключение VPN-шлюза между виртуальными сетями с использованием Resource Manager и портала Azure."
+title: Подключение виртуальной сети Azure к другой виртуальной сети с помощью портала | Документация Майкрософт
+description: Создайте подключение VPN-шлюза между виртуальными сетями с использованием Resource Manager и портала Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Настройка подключения VPN-шлюза между виртуальными сетями на портале Azure
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 02/21/2018
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Создание подсети шлюза
-Прежде чем подключать шлюз к виртуальной сети, нужно создать подсеть шлюза для виртуальной сети, к которой необходимо подключиться. По возможности рекомендуется создать подсеть шлюза с использованием блока CIDR с маской /28 или /27, чтобы обеспечить достаточно IP-адресов для удовлетворения дополнительных будущих требований к конфигурации.
+Чтобы создать шлюз виртуальной сети, сначала нужно создать подсеть шлюза. Подсеть шлюза содержит IP-адреса, которые используются шлюзом виртуальной сети. По возможности рекомендуется создать подсеть шлюза с использованием блока CIDR с маской /28 или /27, чтобы обеспечить достаточно IP-адресов для удовлетворения дополнительных будущих требований к конфигурации.
 
 Если вы создаете эту конфигурацию в качестве упражнения, при создании подсети шлюза можно использовать эти [примеры параметров](#values).
 

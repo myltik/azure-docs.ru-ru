@@ -1,26 +1,26 @@
 ---
-title: "Элементы управления условным доступом в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как работают элементы управления условным доступом в Azure Active Directory."
+title: Элементы управления условным доступом в Azure Active Directory | Документация Майкрософт
+description: Узнайте, как работают элементы управления условным доступом в Azure Active Directory.
 services: active-directory
-keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
-documentationcenter: 
+keywords: условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Элементы управления условным доступом в Azure Active Directory 
 
@@ -75,11 +75,15 @@ ms.lasthandoff: 02/11/2018
 
 ### <a name="compliant-device"></a>Устройства, соответствующие требованиям
 
-Политики условного доступа можно настроить на основе устройств. Цель политики условного доступа на основе устройств — предоставить доступ к настроенным ресурсам только с доверенных устройств. Требование устройства, соответствующего требованиям — это один из способов определения доверенного устройства. Дополнительные сведения см. в статье [Настройка политик условного доступа на основе устройств для Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Политики условного доступа можно настроить на основе устройств. Цель политики условного доступа на основе устройств — предоставить доступ к настроенным ресурсам только с доверенных устройств. Требование устройства, соответствующего требованиям — это один из способов определения доверенного устройства. Если этот параметр выбран, то политика условного доступа разрешает попытки доступа с устройств, которые присоединены к Azure Active Directory и помечены решением MDM как совместимые.
+
+Дополнительные сведения см. в статье [Настройка политик условного доступа на основе устройств для Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Устройство, присоединенное к домену
 
-Требование присоединения устройства к домену — это еще один способ настройки политики условного доступа на основе устройств. Это требование относится к настольным компьютерам, ноутбукам и корпоративным планшетам, присоединенным к локальному каталогу Active Directory. Дополнительные сведения см. в статье [Настройка политик условного доступа на основе устройств для Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Требование присоединения устройства к домену — это еще один способ настройки политики условного доступа на основе устройств. Это требование относится к настольным компьютерам, ноутбукам и корпоративным планшетам, присоединенным к локальному каталогу Active Directory. Если этот параметр выбран, то политика условного доступа разрешает попытки доступа с устройств, которые присоединены к локальному каталогу Active Directory и Azure Active Directory.  
+
+Дополнительные сведения см. в статье [Настройка политик условного доступа на основе устройств для Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 
 

@@ -4,7 +4,7 @@ description: Узнайте, как запускать веб-приложени
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: routlaw
+manager: mbaldwin
 editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/08/2017
+ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Создание первого веб-приложения Java в Azure
 
 [Веб-приложения Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом кратком руководстве показано, как развернуть веб-приложение Java в службе приложений с помощью [интегрированной среды разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/).
+
+> [!NOTE]
+>
+> В этом кратком руководстве объясняется, как использовать среду разработки Eclipse для публикации веб-приложения Java в службе приложений. Но вы можете использовать IntelliJ IDEA версии Ultimate или Community. Дополнительные сведения см. в статье [Создание веб-приложения Hello World для Azure с помощью Eclipse](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
+>
 
 После завершения работы с этим руководством ваше приложение при просмотре в веб-браузере будет выглядеть следующим образом:
 
@@ -37,6 +42,11 @@ ms.lasthandoff: 03/29/2018
 
 * Бесплатную <a href="http://www.eclipse.org/downloads/" target="_blank">интегрированную среду разработки Eclipse для разработчиков Java EE</a>. В этом кратком руководстве используется Eclipse Neon.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Набор средств Azure для Eclipse</a>.
+
+> [!NOTE]
+>
+> Чтобы выполнить инструкции этого руководства, войдите в учетную запись Azure с помощью набора средств Azure для Eclipse. См. [инструкции по входу для набора средств Azure для Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
+>
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Создание динамических веб-проектов в Eclipse
 
@@ -74,15 +84,20 @@ ms.lasthandoff: 03/29/2018
 
 Сохраните изменения.
 
+> [!NOTE]
+>
+> Если появится сообщение об ошибке в строке 1, которое ссылается на отсутствующий класс сервлетов Java, его можно пропустить.
+> 
+> ![Неопасная ошибка сервлетов Java](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
+>
+
 ## <a name="publish-the-web-app-to-azure"></a>Публикация веб-приложения в Azure
 
 В обозревателе проектов щелкните правой кнопкой мыши проект и выберите **Azure** > **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
 
 ![Контекстное меню Publish as Azure Web App (Опубликовать как веб-приложение Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-В диалоговом окне **Azure Sign In** (Вход в Azure) оставьте параметр **Interactive** (Интерактивный), а затем выберите **Sign in** (Войти).
-
-Следуйте инструкциям по входу.
+При появлении соответствующего запроса с диалоговым окном **входа в Azure** выполните действия, описанные в статье [Инструкции по входу для набора средств Azure для Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions), чтобы ввести учетные данные.
 
 ### <a name="deploy-web-app-dialog-box"></a>Диалоговое окно развертывания веб-приложения
 
@@ -100,8 +115,8 @@ ms.lasthandoff: 03/29/2018
 
 В диалоговом окне **Create App Service** (Создание службы приложений):
 
-* Оставьте созданное имя для веб-приложения. Это имя должно быть уникальным в Azure. Имя является частью URL-адреса веб-приложения. Например, если имя веб-приложения — **MyJavaWebApp**, то URL-адрес будет *myjavawebapp.azurewebsites.net*.
-* Оставьте веб-контейнер по умолчанию.
+* Введите уникальное имя для веб-приложения или оставьте автоматически созданное имя. Это имя должно быть уникальным в Azure. Имя является частью URL-адреса веб-приложения. Например, если имя веб-приложения — **MyJavaWebApp**, то URL-адрес будет *myjavawebapp.azurewebsites.net*.
+* Для целей этого руководства оставьте веб-контейнер по умолчанию.
 * Выберите подписку Azure.
 * На вкладке **App service plan** (План службы приложений):
 
@@ -187,7 +202,7 @@ Select the **JDK** tab. Keep the default, and then select **Create**.
 
 Выберите группу ресурсов. На странице отображаются ресурсы, созданные в этом кратком руководстве.
 
-![Группа ресурсов myresourcegroup.](media/app-service-web-get-started-java/rg2.png)
+![Группа ресурсов](media/app-service-web-get-started-java/rg2.png)
 
 Выберите веб-приложение (**webapp-170602193915** на предыдущем рисунке).
 

@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 9eff06934eefa44db94de3d01be470ca69a2d88c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Краткое руководство. Запуск задания Spark в Azure Databricks с помощью портала Azure
 
 Это краткое руководство содержит сведения о создании рабочей области Azure Databricks и кластера Apache Spark в этой рабочей области. Наконец, вы узнаете, как выполнить задание Spark на кластере Databricks. Дополнительные сведения об Azure Databricks см. в статье [Что такое Azure Databricks?](what-is-azure-databricks.md).
+
+При помощи этого краткого руководства в рамках задания Spark вы проанализируете данные подписки на радиоканал, чтобы получить сведения о соотношении бесплатного и оплачиваемого использования в зависимости от демографических данных. 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
@@ -30,33 +32,31 @@ ms.lasthandoff: 03/17/2018
 
 Войдите на [портал Azure](https://portal.azure.com).
 
-## <a name="create-a-databricks-workspace"></a>Создание рабочей области Databricks
+## <a name="create-an-azure-databricks-workspace"></a>Создание рабочей области Azure Databricks
 
 В этом разделе вы создадите рабочую область Azure Databricks с помощью портала Azure. 
 
-1. На портале Azure щелкните **Создать ресурс**, выберите **Данные и аналитика**, а затем — **Azure Databricks (Preview)** (Azure Databricks (предварительная версия)). 
+1. На портале Azure выберите **Создать ресурс** > **Данные и аналитика** > **Azure Databricks**. 
 
     ![Databricks на портале Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-2. В разделе **Azure Databricks (предварительная версия)** выберите **Создать**.
-
-3. В разделе **Azure Databricks Service** (Служба Azure Databricks) укажите значения для создания рабочей области Databricks.
+3. В разделе **службы Azure Databricks** укажите значения для создания рабочей области Databricks.
 
     ![Создание рабочей области Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    Также укажите следующие значения: 
+    Укажите следующие значения. 
      
     |Свойство  |ОПИСАНИЕ  |
     |---------|---------|
-    |**Имя рабочей области.**     | Укажите имя для рабочей области Databricks.        |
-    |**Подписка**     | Выберите подписку в раскрывающемся списке.        |
-    |**Группа ресурсов**     | Укажите, следует ли создать группу ресурсов (или использовать существующую). Группа ресурсов — это контейнер, содержащий связанные ресурсы для решения Azure. Дополнительные сведения см. в [обзоре группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Имя рабочей области**     | Укажите имя рабочей области Databricks.        |
+    |**Подписка**     | Выберите подписку Azure в раскрывающемся списке.        |
+    |**Группа ресурсов**     | Укажите, следует ли создать новую группу ресурсов или использовать имеющуюся. Группа ресурсов — это контейнер, содержащий связанные ресурсы для решения Azure. Дополнительные сведения см. в [обзоре группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Местоположение.**     | Выберите регион **Восточная часть США 2**. Другие доступные регионы см. в статье о [доступности служб Azure по регионам](https://azure.microsoft.com/regions/services/).        |
     |**Ценовая категория**     |  Вы можете выбрать уровень **Стандартный** или **Премиум**. Дополнительные сведения об этих ценовых категориях см. на [странице цен на Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Выберите **Закрепить на панели мониторинга** и щелкните **Создать**.
 
-4. Создание учетной записи займет несколько минут. Во время создания учетных записей на портале с правой стороны отображается плитка **Идет отправка развертывания для Databricks**. Возможно, вам потребуется прокрутить панель мониторинга, чтобы увидеть эту плитку. В верхней части экрана также будет отображаться индикатор хода выполнения. Следить за выполнением можно с помощью любого из этих элементов.
+4. Создание рабочей области займет несколько минут. Во время создания рабочей области на портале с правой стороны отображается плитка **Submitting deployment for Azure Databricks** (Идет отправка развертывания для Databricks). Возможно, вам потребуется прокрутить панель мониторинга, чтобы увидеть эту плитку. В верхней части экрана также будет отображаться индикатор хода выполнения. Следить за выполнением можно с помощью любого из этих элементов.
 
     ![Плитка развертывания Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
 
@@ -72,11 +72,13 @@ ms.lasthandoff: 03/17/2018
 
     ![Создание кластера Databricks Spark в Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
+    Для всех остальных параметров, кроме следующих, примите значения по умолчанию:
+
     * Введите имя кластера.
     * В рамках этой статьи создайте кластер со средой выполнения **4.0**. 
     * Убедитесь, что установлен флажок **Terminate after ___ minutes of activity** (Завершить работу после ___ минут отсутствия активности). Укажите длительность (в минутах) для завершения работы кластера, если тот не используется.
-    * Примите все остальные значения по умолчанию. 
-    * Выберите **Create cluster** (Создать кластер). После запуска кластера можно вложить записные книжки в кластер и запустить задания Spark.
+    
+    Выберите **Create cluster** (Создать кластер). После запуска кластера можно вложить записные книжки в кластер и запустить задания Spark. 
 
 Дополнительные сведения о создании кластеров см. в статье [о создании кластера Spark в Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -84,9 +86,9 @@ ms.lasthandoff: 03/17/2018
 
 Прежде чем приступить к работе с этим разделом, выполните следующие предварительные требования.
 
-* [Создайте учетную запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Создайте учетную запись хранения BLOB-объектов Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Скачайте образец файла JSON с [сайта GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Загрузите образец файла JSON в созданную учетную запись хранения Azure. Для передачи файлов можно использовать [обозреватель службы хранилища Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* Загрузите пример файла JSON в созданную учетную запись хранения BLOB-объектов Azure. Для передачи файлов можно использовать [обозреватель службы хранилища Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Выполните указанные ниже задачи, чтобы создать записную книжку в Databricks, настроить ее для считывания данных из учетной записи хранения больших двоичных объектов Azure, а затем запустить задание Spark SQL в данных.
 
@@ -129,7 +131,7 @@ ms.lasthandoff: 03/17/2018
 
     ```sql
     %sql 
-    DROP TABLE IF EXISTS radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
@@ -141,7 +143,7 @@ ms.lasthandoff: 03/17/2018
 
     Волшебная команда языка `%sql` позволяет выполнить код SQL из записной книжки, даже если записная книжка другого типа. Дополнительные сведения см. в статье об [объединении языков программирования в записной книжке](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-5. Рассмотрим моментальный снимок примера данных JSON, чтобы лучше ознакомиться с запросом, который мы запускаем. Вставьте следующий фрагмент кода в ячейку кода и нажмите клавиши **SHIFT + ВВОД**.
+5. Рассмотрим моментальный снимок примера данных JSON, чтобы лучше ознакомиться с запросом, который вы выполняете. Вставьте следующий фрагмент кода в ячейку кода и нажмите клавиши **SHIFT + ВВОД**.
 
     ```sql
     %sql 
@@ -175,15 +177,15 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Когда вы выполните задачи в статье, можно будет завершить работу кластера. Для этого в рабочей области Azure Databricks на панели слева выберите **Кластеры**. Для кластера, который необходимо отключить, переместите указатель мыши на многоточие в столбце **Действия** и выберите значок **Terminate** (Завершить).
+Когда вы выполните задачи в статье, можно будет завершить работу кластера. Для этого в рабочей области Azure Databricks на панели слева выберите **Кластеры**. Для кластера, работу которого необходимо завершить, переместите указатель мыши на многоточие в столбце **Actions** (Действия) и выберите значок **Завершить**.
 
-![Остановка кластера Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Завершение работы кластера Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Если вы не завершите работу кластера вручную, она остановится автоматически, так как во время создания кластера вы установили флажок **Terminate after __ minutes of inactivity** (Завершить работу после __ мин бездействия). В этом случае кластер автоматически остановит работу, если в течение указанного периода не будут выполняться действия.
+Если не завершить работу кластера вручную, это можно сделать автоматически, выбрав флажок **Terminate after __ minutes of inactivity** (Завершить работу после __ минут бездействия) во время создания кластера. В этом случае работа кластера автоматически завершается, если он был неактивным в течение определенного времени.
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этой статье вы создали кластер Spark в Azure Databricks и запустили задание Spark, используя данные в хранилище Azure. Вы также можете просмотреть [источники данных Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html), чтобы узнать, как импортировать данные из источников данных в Azure Databricks. Перейдите к следующей статье, чтобы узнать, как выполнять потоковую передачу данных в Azure Databricks при помощи службы "Концентраторы событий".
+В этой статье вы создали кластер Spark в Azure Databricks и запустили задание Spark, используя данные в хранилище Azure. Вы также можете просмотреть [источники данных Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html), чтобы узнать, как импортировать данные из источников данных в Azure Databricks. Перейдите к следующей статье, чтобы узнать, как выполнять операции ETL (извлечения, преобразование и загрузка данных) с помощью Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Потоковая передача данных в Azure Databricks при помощи службы "Концентраторы событий"](databricks-stream-from-eventhubs.md)
+>[Извлечение, преобразование и загрузка данных с помощью Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

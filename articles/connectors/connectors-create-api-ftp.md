@@ -1,11 +1,11 @@
 ---
-title: "Использование соединителя FTP в приложениях логики | Документация Майкрософт"
-description: "Создание приложений логики с помощью службы приложений Azure. Подключение к FTP-серверу для управления файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов на FTP-сервере."
+title: Использование соединителя FTP в приложениях логики | Документация Майкрософт
+description: Создание приложений логики с помощью службы приложений Azure. Подключение к FTP-серверу для управления файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов на FTP-сервере.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
 ms.service: logic-apps
@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Начало работы с соединителем FTP
 Соединитель FTP можно использовать для создания и мониторинга файлов на FTP-сервере, а также для управления ими. 

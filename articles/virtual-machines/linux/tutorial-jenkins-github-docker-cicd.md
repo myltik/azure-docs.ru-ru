@@ -1,26 +1,26 @@
 ---
-title: "Создание конвейера разработки в Azure с помощью Jenkins | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную машину Jenkins в Azure, которая получает данные из GitHub при каждой фиксации кода и создает новый контейнер Docker для выполнения приложения."
+title: Создание конвейера разработки в Azure с помощью Jenkins | Документация Майкрософт
+description: Узнайте, как создать виртуальную машину Jenkins в Azure, которая получает данные из GitHub при каждой фиксации кода и создает новый контейнер Docker для выполнения приложения.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Как создать инфраструктуру непрерывной интеграции и непрерывного развертывания на виртуальной машине Linux в Azure с помощью Jenkins, GitHub и Docker
 Чтобы автоматизировать этапы создания и тестирования приложения, вы можете использовать конвейер непрерывной интеграции и развертывания (CI/CD). В этом учебнике мы создадим конвейер CI/CD на виртуальной машине Azure, включая следующие задачи:
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Теперь откройте браузер и перейдите к `http://<publicIps>:8080`. Выполните начальную настройку Jenkins следующим образом:
 
-- Введите имя пользователя **admin** и пароль*initialAdminPassword*, полученные из виртуальной машины на предыдущем шаге.
-- На странице **Manage Jenkins** (Управление Jenkins) выберите **Manage Plugins** (Управление подключаемыми модулями).
-- Выберите **Available** (Доступно) и выполните поиск по слову *GitHub* в текстовом поле вверху. Установите флажок *GitHub plugin* (Подключаемый модуль GitHub) и выберите **Download now and install after restart** (Скачать сейчас и установить после перезапуска).
-- Установите флажок **Restart Jenkins when installation is complete and no jobs are running** (Перезапустить Jenkins, когда установка завершится и задания не выполняются), а затем подождите, пока завершится установка подключаемого модуля.
+- Щелкните **Select plugins to install** (Выбрать подключаемые модули для установки).
+- Выполните поиск по слову *GitHub* в текстовом поле вверху. Установите флажок для *GitHub*, а затем выберите **Установить**.
+- Создайте первого администратора. Введите имя пользователя, например **admin**, а затем укажите безопасный пароль. Наконец введите полное имя и адрес электронной почты.
+- Выберите **Сохранить и завершить**.
+- Когда настройка Jenkins будет завершена, щелкните **Start using Jenkins** (Начать работу с Jenkins).
+  - Если веб-браузере отображает пустую страницу при запуске Jenkins, перезапустите службу Jenkins. В сеансе SSH введите `sudo service jenkins restart`, а затем обновите веб-браузера.
+- Войдите в Jenkins, введя созданные имя пользователя и пароль.
 
 
 ## <a name="create-github-webhook"></a>Создание объекта webhook GitHub
@@ -139,12 +141,12 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 
 ## <a name="create-jenkins-job"></a>Создание задания Jenkins
-Чтобы система Jenkins реагировала на событие в GitHub, такое как фиксация кода, создайте задание Jenkins. 
+Чтобы система Jenkins реагировала на событие в GitHub, такое как фиксация кода, создайте задание Jenkins. Используйте URL-адреса для собственной вилки GitHub.
 
 На веб-сайте Jenkins щелкните **Create new jobs** (Создание заданий) на домашней странице.
 
 - Введите *HelloWorld* в качестве имени задания. Выберите **Freestyle project** (Универсальный проект) и нажмите кнопку **ОК**.
-- В разделе **General** (Общие) выберите проект **GitHub** и введите URL-адрес разветвления репозитория, например *https://github.com/iainfoulds/nodejs-docs-hello-world*.
+- В разделе **General** (Общие) выберите **проект GitHub** и введите URL-адрес разветвления репозитория, например *https://github.com/iainfoulds/nodejs-docs-hello-world*.
 - В разделе **Source code management** (Управление исходным кодом) выберите **Git** и введите URL-адрес *GIT-файла* разветвления репозитория, например *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
 - В разделе **Build Triggers** (Создание триггеров) выберите **GitHub hook trigger for GITScm polling** (Обработчик триггера Github для опроса GITScm).
 - В разделе **Build** (Сборка) щелкните **Add build step** (Добавить шаг сборки). Выберите **Execute shell** (Выполнение оболочки), затем введите `echo "Testing"` в командном окне.

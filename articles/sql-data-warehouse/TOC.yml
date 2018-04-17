@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Практические руководства
   items:
-    - name: Функции службы
+    - name: Обновление
+      href: upgrade-to-latest-generation.md
+    - name: восстановление;
       items:
-        - name: Восстановление хранилища данных (портал)
+        - name: Microsoft Azure
           href: sql-data-warehouse-restore-database-portal.md
-        - name: Восстановление хранилища данных (PowerShell)
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: Восстановление хранилища данных (REST API)
+        - name: REST API
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Безопасность
       items:
@@ -176,7 +178,7 @@
         - name: Redgate
           href: sql-data-warehouse-load-with-redgate.md
         - name: SSIS
-          href: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+          href: /sql/integration-services/load-data-to-sql-data-warehouse
     - name: Интеграция
       items:
         - name: Настройка эластичных запросов в базе данных SQL

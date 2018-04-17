@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a34a94a9421c65a2b1d4ce5c390732e0adbb69d6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью .NET
 
@@ -25,21 +25,23 @@ ms.lasthandoff: 03/17/2018
 
 Для работы с этим кратким руководством сначала создайте учетную запись хранения Azure на [портале Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Инструкции по созданию учетной записи хранения см. в статье [Создайте учетную запись хранения](../common/storage-quickstart-create-account.md).
 
-Затем загрузите и установите .NET Core 2.0 для своей ОС. Кроме того, вы можете установить редактор для использования с ОС.
+Затем загрузите и установите .NET Core 2.0 для своей ОС. На компьютере Windows можно установить Visual Studio и, если вы предпочитаете платформу .NET Framework, использовать ее. Кроме того, вы можете установить редактор для использования с ОС.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-- Установите [.NET Core для Windows](https://www.microsoft.com/net/download/windows/build). 
-- При необходимости установите [Visual Studio для Windows](https://www.visualstudio.com/). 
+- Установите [.NET Core для Windows](https://www.microsoft.com/net/download/windows) или [.NET Framework](https://www.microsoft.com/net/download/windows) (входит в состав Visual Studio для Windows).
+- Установите [Visual Studio для Windows](https://www.visualstudio.com/). Если вы используете .NET Core, устанавливать Visual Studio не обязательно.  
+
+Сведения о выборе между .NET Core и .NET Framework см. в статье [Выбор между .NET Core и .NET Framework для серверных приложений](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-- Установите [.NET Core для Linux](https://www.microsoft.com/net/download/linux/build).
+- Установите [.NET Core для Linux](https://www.microsoft.com/net/download/linux).
 - При необходимости установите [Visual Studio Code](https://www.visualstudio.com/) и [расширение C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068).
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-- Установите [.NET Core для macOS](https://www.microsoft.com/net/download/macos/build).
+- Установите [.NET Core для macOS](https://www.microsoft.com/net/download/macos).
 - При необходимости установите [Visual Studio для Mac](https://www.visualstudio.com/vs/visual-studio-mac/).
 
 ---
@@ -54,11 +56,15 @@ ms.lasthandoff: 03/17/2018
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Эта команда клонирует репозиторий в локальную папку git. Чтобы открыть решение Visual Studio, найдите папку storage-blobs-dotnet-quickstart, откройте ее и дважды щелкните файл storage-blobs-dotnet-quickstart.sln. 
+Эта команда клонирует репозиторий в локальную папку git. Чтобы открыть решение Visual Studio, найдите папку *storage-blobs-dotnet-quickstart*, откройте ее и дважды щелкните файл *storage-blobs-dotnet-quickstart.sln*. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Настройка строки подключения хранилища
 
-Чтобы запустить приложение, укажите строку подключения для учетной записи хранения. Вы можете хранить эту строку подключения в переменной среде на локальном компьютере, где выполняется приложение. Создайте переменную среду с помощью одной из следующих команд (в зависимости от операционной системы). Замените `<yourconnectionstring>` фактической строкой подключения.
+Чтобы запустить приложение, укажите строку подключения для учетной записи хранения. Пример приложения считывает строку подключения из переменной среды и использует ее для аутентификации запросов к службе хранилища Azure.
+
+После копирования строки подключения запишите ее в переменной среды на локальном компьютере, где выполняется приложение. Чтобы задать переменную среды, откройте окно консоли и следуйте инструкциям для используемой операционной системы. Замените `<yourconnectionstring>` фактической строкой подключения:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -66,21 +72,25 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+После добавления переменной среды может потребоваться перезапустить все запущенные приложения, которым может понадобиться считать переменную среды, в том числе окно консоли. Например, если вы используете Visual Studio в качестве редактора, перезапустите Visual Studio перед запуском примера. 
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+После добавления переменной среды запустите `source ~/.bashrc` из окна консоли, чтобы применить изменения.
+
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 Измените .bash_profile и добавьте переменную среды.
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-После добавления переменной среды выйдите из системы и войдите повторно, чтобы применить изменения. Кроме того, можно ввести в терминале source .bash_profile.
+После добавления переменной среды запустите `source .bash_profile` из окна консоли, чтобы применить изменения.
 
 ---
 
@@ -88,23 +98,50 @@ export STORAGE_CONNECTION_STRING=
 
 В этом примере тестовый файл создается в локальной папке **My Documents**, а затем отправляется в хранилище BLOB-объектов. После этого выводится список больших двоичных объектов в контейнере, а затем файл загружается с новым именем, чтобы можно было сравнить старый и новый файлы. 
 
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+Если вы используете Visual Studio в качестве редактора, нажмите клавишу **F5** для запуска. 
+
+Или перейдите к каталогу приложения и запустите приложение с помощью команды `dotnet run`.
+
+```
+dotnet run
+```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 Перейдите к каталогу приложения и запустите приложение с помощью команды `dotnet run`.
 
 ```
 dotnet run
 ```
 
-Результат будет аналогичен приведенному ниже:
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Перейдите к каталогу приложения и запустите приложение с помощью команды `dotnet run`.
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.windows.net/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+Выходные данные в этом примере приложения будут выглядеть примерно так:
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 Если нажать клавишу **ВВОД**, приложение удалит контейнер хранилища и файлы. Перед удалением проверьте наличие двух файлов в папке **MyDocuments**. Вы можете открыть их и убедиться, что они идентичны. Скопируйте URL-адрес большого двоичного объекта из окна консоли и вставьте его в адресную строку браузера, чтобы просмотреть содержимое большого двоичного объекта.
@@ -123,8 +160,8 @@ Press the 'Enter' key while in the console to delete the sample files, example c
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

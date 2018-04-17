@@ -1,11 +1,11 @@
 ---
-title: "Работа с пакетом SDK для внутреннего сервера Node.js для функции \"Мобильные приложения\" | Документация Майкрософт"
-description: "Узнайте, как работать с пакетом SDK для серверной части на Node.js для функции \"Мобильные приложения\" службы приложений Azure."
+title: Работа с пакетом SDK для внутреннего сервера Node.js для функции "Мобильные приложения" | Документация Майкрософт
+description: Узнайте, как работать с пакетом SDK для серверной части на Node.js для функции "Мобильные приложения" службы приложений Azure.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Использование пакета SDK Node.js для функции "Мобильные приложения"
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/21/2018
         app.use(mobile);
 
    Сохраните файл.
-10. Запустите приложение локально (API обслуживается по адресу http://localhost:3000) или опубликуйте его в Azure.
+10. Запустите приложение локально (API обслуживается по адресу http://localhost:3000)) или опубликуйте его в Azure.
 
 ### <a name="create-node-backend-portal"></a>Создание серверной части Node.js с помощью портала Azure
 Серверную часть функции "Мобильные приложения" можно создать прямо на [портале Azure]. Для этого выполните описанные ниже действия либо инструкции из руководства [Создание приложения iOS](app-service-mobile-ios-get-started.md), где описано одновременное создание клиента и сервера. В этом руководстве представлена упрощенная версия этих инструкций, что лучше всего подходит для проектов, предназначенных для подтверждения концепции.
@@ -135,7 +135,7 @@ ms.lasthandoff: 02/21/2018
 В следующей процедуре используется репозиторий Git для скачивания кода проекта быстрого запуска.
 
 1. Установите Git, если его у вас еще нет. Действия, необходимые для установки Git, отличаются в разных операционных системах. Сведения о дистрибутивах для разных операционных систем и руководство по установке см. в статье [Getting Started - Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Начало работы. Установка Git).
-2. Выполните инструкции из раздела [Шаг 3. Включение репозитория приложения службы приложений](../app-service/app-service-deploy-local-git.md#Step3), чтобы включить репозиторий Git для сайта серверной части. Запишите имя пользователя и пароль для развертывания.
+2. Чтобы включить репозиторий Git для сайта серверной части, ознакомьтесь с разделом [Подготовка репозитория](../app-service/app-service-deploy-local-git.md#prepare-your-repository). Запишите имя пользователя и пароль для развертывания.
 3. В области для серверной части функции "Мобильные приложения" найдите параметр **URL-адрес клона Git** и запишите его.
 4. Выполните команду `git clone`, указав URL-адрес клона Git. Введите пароль в ответ на запрос, как показано в следующем примере.
 

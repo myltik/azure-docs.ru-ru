@@ -1,12 +1,12 @@
 ---
-title: "Масштабирование локального выполнения и тестирования сценариев U-SQL с помощью пакета SDK U-SQL для Azure Data Lake | Документация Майкрософт"
-description: "Узнайте, как использовать пакет SDK Azure Data Lake для U-SQL для масштабирования локального выполнения и тестирования заданий U-SQL с помощью командной строки и программных интерфейсов на локальной рабочей станции."
+title: Масштабирование локального выполнения и тестирования сценариев U-SQL с помощью пакета SDK U-SQL для Azure Data Lake | Документация Майкрософт
+description: Узнайте, как использовать пакет SDK Azure Data Lake для U-SQL для масштабирования локального выполнения и тестирования заданий U-SQL с помощью командной строки и программных интерфейсов на локальной рабочей станции.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Масштабирование локального выполнения и тестирования сценариев U-SQL с помощью пакета SDK U-SQL для Azure Data Lake
 

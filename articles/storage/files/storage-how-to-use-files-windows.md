@@ -1,12 +1,12 @@
 ---
-title: "Подключение общей папки Azure и получение доступа к этой папке в Windows | Документация Майкрософт"
-description: "Подключение общей папки Azure и получение доступа к этой папке в Windows."
+title: Подключение общей папки Azure и получение доступа к этой папке в Windows | Документация Майкрософт
+description: Подключение общей папки Azure и получение доступа к этой папке в Windows.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Подключение общей папки Azure и получение доступа к этой папке в Windows
-[Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Файловые ресурсы Azure можно подключить в Windows и Windows Server. В этой статье описывается три разных способа подключения общей папки Azure в Windows: с помощью пользовательского интерфейса проводника, PowerShell, а также командной строки. 
+[Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от корпорации Майкрософт. Файловые ресурсы Azure можно подключить в Windows и Windows Server. В этой статье описывается три разных способа подключения общей папки Azure в Windows: с помощью пользовательского интерфейса проводника, PowerShell, а также командной строки. 
 
 Чтобы подключить общую папку Azure за пределами региона Azure, в котором она размещается, например локально или в другом регионе Azure, операционная система должна поддерживать протокол SMB 3.0. 
 
@@ -51,6 +51,31 @@ ms.lasthandoff: 10/21/2017
 
 * **Откройте порт 445**: служба файлов Azure использует протокол SMB. Взаимодействие SMB выполняется через TCP-порт 445. Проверьте, чтобы брандмауэр не блокировал TCP-порты 445 с клиентского компьютера.
 
+## <a name="persisting-connections-across-reboots"></a>Сохранение подключения между перезагрузками
+### <a name="cmdkey"></a>CmdKey
+Самый простой способ устанавливать постоянные подключения — это сохранять учетные данные хранилища в Windows с помощью служебной программы командной строки CmdKey. Ниже приведен пример командной строки для сохранения учетных данных хранилища в виртуальной машине:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Именем домена здесь будет AZURE.
+
+Программа CmdKey также позволяет перечислять сохраненные учетные данные:
+
+```
+C:\>cmdkey /list
+```
+Выходные данные будут следующими:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Если учетные данные сохранены, больше не нужно указывать их при подключении к общей папке. Вместо этого можно подключиться без указания учетных данных.
+
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Подключение общей папки Azure с помощью проводника
 > [!Note]  
 > Имейте в виду, что следующие инструкции приведены для Windows 10 и могут немного отличаться для более поздних версий. 
@@ -61,7 +86,7 @@ ms.lasthandoff: 10/21/2017
     
     ![Снимок экрана раскрывающегося меню "Подключение сетевого диска"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Скопируйте UNC-путь из области подключения на портале Azure**: подробные сведения об этом см. [здесь](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Скопируйте UNC-путь из области подключения на портале Azure.** 
 
     ![UNC-путь из области подключения службы файлов Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

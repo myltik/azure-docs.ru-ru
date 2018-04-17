@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights для ASP.NET Core
 
@@ -95,7 +95,7 @@ Application Insights имеет очень низкие издержки. Что
 
 1. Запустите приложение, щелкнув IIS Express. ![Снимок экрана: значок IIS Express в Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Скопируйте URL-адрес из адресной строки браузера. Он имеет следующий формат: http://localhost:{случайный номер порта}.
+2. Скопируйте URL-адрес из адресной строки браузера. Он имеет формат http://localhost:{random номер порта}.
 
    ![Снимок экрана: URL-адрес в адресной строке браузера](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Application Insights имеет очень низкие издержки. Что
    ```
      ![Снимок экрана: изменение кода в _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. В файле**Layout.cshtml** добавьте указанную ниже строку перед тегом ``</head>`` и перед любыми другими скриптами.
+3. В файле **Layout.cshtml** добавьте указанную ниже строку перед тегом ``</head>`` и перед любыми другими сценариями.
 
     ```C#
     @Html.Raw(snippet.FullScript)

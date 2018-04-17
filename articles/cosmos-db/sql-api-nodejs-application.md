@@ -1,7 +1,7 @@
 ---
-title: "Создание веб-приложения Node.js для Azure Cosmos DB | Документы Майкрософт"
-description: "В этом руководстве по Node.js описывается использование Microsoft Azure Cosmos DB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного на веб-сайтах Azure."
-keywords: "Разработка приложений, учебник по базе данных, изучение node.js, учебник по node.js"
+title: Создание веб-приложения Node.js для Azure Cosmos DB | Документы Майкрософт
+description: В этом руководстве по Node.js описывается использование Microsoft Azure Cosmos DB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного на веб-сайтах Azure.
+keywords: Разработка приложений, учебник по базе данных, изучение node.js, учебник по node.js
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 В этом руководстве по Node.js показано, как использовать API Azure Cosmos DB и API SQL для хранения данных и обеспечения доступа к ним из приложения Node.js Express, размещенного на веб-сайтах Azure. Вы создадите простое веб-приложение для управления задачами (приложение ToDo), позволяющее создавать, извлекать и выполнять задачи. Задачи будут храниться в виде документов JSON в Azure Cosmos DB. В этом руководстве описано, как создать и развернуть приложение, а также объясняется каждый фрагмент кода.
 
@@ -76,7 +74,7 @@ ms.lasthandoff: 02/14/2018
 5. Запустите новое приложение.
    
         npm start
-6. Новое приложение можно просмотреть, перейдя в браузере по адресу [http://localhost: 3000](http://localhost:3000).
+6. Новое приложение можно просмотреть, перейдя в браузере по адресу [http://localhost:3000](http://localhost:3000).
    
     ![Изучение Node.js — снимок экрана приложения "Привет, мир" в окне браузера](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -154,7 +152,7 @@ ms.lasthandoff: 02/14/2018
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Далее будет добавлен код для определения и экспорта объекта Task. Этот код отвечает за инициализацию нашего объекта Task и настройку используемых базы данных и коллекции документов.  
 

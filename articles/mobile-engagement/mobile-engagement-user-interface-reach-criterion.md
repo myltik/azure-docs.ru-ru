@@ -1,11 +1,11 @@
 ---
-title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — условия охвата"
-description: "Узнайте, как в Службах мобильного взаимодействия Azure можно организовать кампанию по рассылке push-уведомлений выбранному подмножеству пользователей."
+title: Пользовательский интерфейс Служб мобильного взаимодействия Azure — условия охвата
+description: Узнайте, как в Службах мобильного взаимодействия Azure можно организовать кампанию по рассылке push-уведомлений выбранному подмножеству пользователей.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Организация кампаний по рассылке push-уведомлений выбранному подмножеству пользователей с помощью условий таргетинга
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Выбор целевой аудитории с помощью определенных условий, доступных после нажатия кнопки «Создать условия», — одна из важнейших возможностей, предусмотренных в Службах мобильного взаимодействия Azure. Благодаря этой возможности вы можете отправлять push-уведомления только тем клиентам, для которых эти уведомления представляют ценность — больше никаких рассылок всем без разбора. Определив свою аудиторию с помощью стандартных условий и симитировав рассылку, вы сможете определить, сколько пользователей получит ваше уведомление.
 
 **См. также:**

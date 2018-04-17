@@ -1,22 +1,22 @@
 ---
-title: "Документация по Центру Интернета вещей Azure. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов Интернета вещей, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы."
+title: Документация по Центру Интернета вещей Azure. Руководства и справочник по API | Документация Майкрософт
+description: Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов Интернета вещей, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы.
 services: iot-hub
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 64108098048f8f72a7165175358b99314e8dd820
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 982a44874d53e79004acae723ec72fe0f5ba66b6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей 
 
@@ -154,9 +154,8 @@ ms.lasthandoff: 02/01/2018
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">Пакет SDK для устройства C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (служба)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (устройства)</a></p>
-                        <p><a href="/javascript/api/azure-iot-device/">Node.js (устройства)</a></p>
-                        <p><a href="/javascript/api/azure-iothub">Node.js (служба)</a></p>
-                        <p><a href="http://azure.github.io/iot-edge/">Edge Интернета вещей Azure</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (устройства)</a></p>
+                        <p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (служба)</a></p>
                     </div>
                 </div>
             </div>

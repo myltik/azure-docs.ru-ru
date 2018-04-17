@@ -119,7 +119,6 @@
 #### [Сервер Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Безопасность
-### [Аутентификация и авторизация](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Аутентификация с помощью поставщиков удостоверений
 #### [Проверка подлинности Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Проверка подлинности Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по службе контейнеров Azure: обновление приложения"
-description: "Руководство по Службе контейнеров Azure: обновление приложения"
+title: 'Руководство по службе контейнеров Azure: обновление приложения'
+description: 'Руководство по Службе контейнеров Azure: обновление приложения'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Обновление приложения в Kubernetes
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2018
 > * Отправка образа контейнера в реестр контейнеров Azure.
 > * Развертывание обновленного образа контейнера.
 
-В последующих руководствах среда Operations Management Suite настроена для отслеживания кластера Kubernetes.
+В последующих руководствах предполагается, что среда Log Analytics настроена для отслеживания кластера Kubernetes.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Локальное тестирование приложения
 
-Перейдите по адресу http://localhost:8080, чтобы просмотреть обновленное приложение.
+Перейдите к http://localhost:8080, чтобы увидеть обновленное приложение.
 
 ![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ kubectl get service azure-vote-front
 > * Отправка образа контейнера в реестр контейнеров Azure.
 > * Развертывание обновленного приложения.
 
-Перейдите к следующему руководству, чтобы узнать о мониторинге Kubernetes с помощью Operations Management Suite.
+Перейдите к следующему руководству, чтобы узнать о мониторинге Kubernetes с помощью Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Мониторинг кластера Kubernetes с помощью Operations Management Suite](./container-service-tutorial-kubernetes-monitor.md)
+> [Мониторинг кластера Kubernetes с помощью Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

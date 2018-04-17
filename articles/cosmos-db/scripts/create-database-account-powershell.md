@@ -1,13 +1,12 @@
 ---
-title: "Создание учетной записи API SQL для Azure Cosmos DB с помощью скрипта Azure PowerShell | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell для создания учетной записи API SQL для Azure Cosmos DB"
+title: Создание учетной записи API SQL для Azure Cosmos DB с помощью скрипта Azure PowerShell | Документация Майкрософт
+description: Пример скрипта Azure PowerShell для создания учетной записи API SQL для Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: c44f4a5998ac8159d3bc5d1e41f1fe94b0897c6b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: создание учетной записи API SQL с помощью PowerShell
 

@@ -1,11 +1,11 @@
 ---
-title: "Последовательность сообщений и метки времени служебной шины Azure | Документация Майкрософт"
-description: "Сохранение последовательности и порядка сообщений служебной шины с помощью меток времени"
+title: Последовательность сообщений и метки времени служебной шины Azure | Документация Майкрософт
+description: Сохранение последовательности и порядка сообщений служебной шины с помощью меток времени
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na

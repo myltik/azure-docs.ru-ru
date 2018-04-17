@@ -1,12 +1,12 @@
 ---
-title: "Журналы диагностики Azure | Документация Майкрософт"
-description: "Клиент может включить анализ журналов для Azure CDN."
+title: Журналы диагностики Azure | Документация Майкрософт
+description: Клиент может включить анализ журналов для Azure CDN.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Журналы диагностики Azure
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/08/2017
 
 Используйте командлеты Azure PowerShell из примера ниже, чтобы включить журналы диагностики.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Включение журналов диагностики в учетной записи хранения
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Включение журналов диагностики в учетной записи хранения
 
 Сначала войдите в систему и выберите подписку:
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 12/08/2017
 
 Вот как использовать это средство:
 
-1.  Перейдите на GitHub по ссылке [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Перейдите на GitHub по ссылке [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ).
 2.  Скачайте код.
 3.  Следуйте инструкциям по компиляции и настройке.
 4.  Запустите средство.

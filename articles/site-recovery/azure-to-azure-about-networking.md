@@ -1,18 +1,18 @@
 ---
-title: "Использование сети при аварийном восстановлении \"Azure — Azure\" с помощью Azure Site Recovery | Документация Майкрософт"
-description: "Содержит общие сведения о сети для репликации виртуальных машин Azure с помощью Azure Site Recovery."
+title: Использование сети при аварийном восстановлении "Azure — Azure" с помощью Azure Site Recovery | Документация Майкрософт
+description: Содержит общие сведения о сети для репликации виртуальных машин Azure с помощью Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Сети для репликации "Azure — Azure"
 
@@ -154,9 +154,10 @@ login.microsoftonline.com | Требуется для авторизации и 
 ### <a name="expressroute-configuration"></a>Конфигурация ExpressRoute
 Следуйте следующим рекомендациям по конфигурации ExpressRoute.
 
-- Необходимо создать канал ExpressRoute в исходном и целевом регионах. Затем необходимо создать подключение между:
-  - Исходной виртуальной сетью и каналом ExpressRoute.
-  - Целевой виртуальной сетью и каналом ExpressRoute.
+- Создайте канал ExpressRoute в исходном и целевом регионах. Затем необходимо создать подключение между:
+    - исходной виртуальной сетью и локальной сетью через канал ExpressRoute в исходном регионе;
+    - целевой виртуальной сетью и локальной сетью через канал ExpressRoute в целевом регионе.
+
 
 - В качестве части стандартного ExpressRoute можно создать каналы в том же геополитическом регионе. Для создания каналов ExpressRoute в разных геополитических регионах требуется Azure ExpressRoute уровня Premium, который предусматривает дополнительные издержки. (Если вы уже используете ExpressRoute уровня "Премиум", дополнительная плата не взимается). Дополнительные сведения см. в разделе [Регионы Azure с расположениями ExpressRoute в пределах геополитических регионов](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) и на [странице цен на ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 

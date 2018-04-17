@@ -1,11 +1,11 @@
 ---
-title: "Создание отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия"
-description: "Сведения о создании отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия Azure."
+title: Создание отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия
+description: Сведения о создании отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия Azure.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6cab5ed1-b767-46ac-9f0b-48a4e249d88c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7978010bd92af18e3ab7c8ccab8dc682d7ef18df
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Создание отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 

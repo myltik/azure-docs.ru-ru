@@ -1,6 +1,6 @@
 ---
-title: "Получение уведомлений при выполнении условия в значении метрики | Документация Майкрософт"
-description: "Краткое руководство по созданию метрик для приложения логики."
+title: Получение уведомлений при выполнении условия в значении метрики | Документация Майкрософт
+description: Краткое руководство по созданию метрик для приложения логики.
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Получение уведомлений при выполнении условия в значении метрики
 
@@ -34,20 +34,20 @@ Azure Monitor предоставляет доступ к метрикам мно
 
 2. Найдите и выберите **приложение логики**. Нажмите кнопку **Создать** .
 
-3. Введите сведения о приложении логики, как показано на рисунке ниже.  Используйте расположение по умолчанию. Установите флажок **Закрепить на панели мониторинга**.  Затем нажмите кнопку **Создать**. 
+3. Введите имя приложения (myLogicApp) и имя группы ресурсов (myResourceGroup). Используйте свою подписку.  Используйте расположение по умолчанию. Установите флажок **Закрепить на панели мониторинга**.  Затем нажмите кнопку **Создать**. 
 
-    ![Ввод основных сведений о приложении логики на портале](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Ввод основных сведений о приложении логики на портале](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. Приложение логики должно быть закреплено на панели мониторинга. Перейдите к приложению логики, щелкнув его.
 
 5. На панели приложения логики выберите **Logic App Designer** (Конструктор приложений логики).
 
-     ![Созданный триггер повторения в конструкторе приложения логики на панели портала](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Созданный триггер повторения в конструкторе приложения логики на панели портала](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Установите значения, как показано на следующей диаграмме.
 
-    ![Настройка триггера приложения логики на панели портала](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Настройка триггера приложения логики на панели портала](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. В конструкторе выберите триггер **повторения**.
 
@@ -75,7 +75,7 @@ Azure Monitor предоставляет доступ к метрикам мно
 
 5. Должна появиться диаграмма со сведениями об общем количестве запусков приложения логики за последний час. Если они не отображаются, убедитесь, что вы подождали хотя бы 5 минут на предыдущем шаге. Затем обновите страницу в браузере. 
 
-    ![Построение диаграммы метрики для ресурса приложения логики](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Построение диаграммы метрики для ресурса приложения логики](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Создание оповещений метрики для приложения логики
 
@@ -87,7 +87,7 @@ Azure Monitor предоставляет доступ к метрикам мно
 
 4. Наконец, введите адрес электронной почты в разделе **Additional administrator email(s)** (Дополнительные адреса электронной почты). Эти оповещения гарантируют, что вы будете получать электронные сообщения, если в приложении логики будет выполнено более 10 неудачных операций за 5 минут.
 
-    ![Настройка оповещений приложения логики на панели портала](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Настройка оповещений приложения логики на панели портала](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Получение уведомлений об оповещениях метрик для приложения логики
 1. В течение нескольких минут вы должны получить электронное сообщение с оповещением от Microsoft Azure, о том что ваше оповещение активировано.

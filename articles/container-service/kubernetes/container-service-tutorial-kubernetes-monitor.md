@@ -1,50 +1,58 @@
 ---
-title: "Руководство по службе контейнеров Azure. Мониторинг Kubernetes"
-description: "Руководство по службе контейнеров Azure — мониторинг Kubernetes с помощью Microsoft Operations Management Suite (OMS)"
+title: Руководство по службе контейнеров Azure. Мониторинг Kubernetes
+description: Руководство по службе контейнеров Azure. Мониторинг Kubernetes с помощью Log Analytics
 services: container-service
-author: dlepow
+author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/26/2018
-ms.author: danlep
+ms.date: 04/05/2018
+ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 965ce4b7e154684fc1d171c90f17498afc828a66
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Мониторинг кластера Kubernetes с помощью Operations Management Suite
+# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Мониторинг кластера Kubernetes с помощью Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Мониторинг кластера Kubernetes и контейнеров крайне важен, особенно в том случае, если вы управляете масштабируемым рабочим кластером с несколькими приложениями. 
+Мониторинг кластера Kubernetes и контейнеров крайне важен, особенно в том случае, если вы управляете масштабируемым рабочим кластером с несколькими приложениями.
 
-Вы можете воспользоваться преимуществами нескольких решений для мониторинга Kubernetes от корпорации Майкрософт или других поставщиков. В этом руководстве выполняется мониторинг кластера Kubernetes с помощью решения "Контейнеры" в [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md). Это облачное решение Майкрософт для управления ИТ-средой. (Решение "Контейнеры" OMS находится в предварительной версии.)
+Вы можете воспользоваться преимуществами нескольких решений для мониторинга Kubernetes от корпорации Майкрософт или других поставщиков. В этом руководстве выполняется мониторинг кластера Kubernetes с помощью решения "Контейнеры" в [Log Analytics](../../operations-management-suite/operations-management-suite-overview.md). Это облачное решение Майкрософт для управления ИТ-средой. (Решение "Контейнеры" OMS доступно в режиме предварительной версии.)
 
 В этом руководстве, (часть 7 из 7) рассматриваются следующие задачи:
 
 > [!div class="checklist"]
-> * Получение параметров рабочей области OMS.
+> * Получение параметров рабочей области Log Analytics
 > * Настройка агентов OMS на узлах Kubernetes.
 > * Доступ к данным мониторинга на портале OMS или на портале Azure.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В предыдущих руководствах приложение было упаковано в образы контейнеров, образы были отправлены в реестр контейнеров Azure и был создан кластер Kubernetes. 
+В предыдущих руководствах приложение было упаковано в образы контейнеров, образы были отправлены в реестр контейнеров Azure и был создан кластер Kubernetes.
 
-Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
+Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md).
 
 ## <a name="get-workspace-settings"></a>Получение параметров рабочей области
 
 На [портале OMS](https://mms.microsoft.com) последовательно выберите **Параметры** > **Подключенные источники** > **Серверы Linux**. Здесь можно найти *идентификатор рабочей области*, а также основной и дополнительный *ключ рабочей области*. Запишите эти значения, так как они понадобятся для настройки агентов OMS в кластере.
 
+## <a name="create-kubernetes-secret"></a>Создание секрета Kubernetes
+
+Сохраните параметры рабочей области Log Analytics в секрете Kubernetes `omsagent-secret` с помощью команды [kubectl create secret][kubectl-create-secret]. Укажите для `WORKSPACE_ID` идентификатор рабочей области Log Analytics, а для `WORKSPACE_KEY` — ключ рабочей области.
+
+```console
+kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
+```
+
 ## <a name="set-up-oms-agents"></a>Настройка агентов OMS
 
-Ниже приведен файл YAML для настройки агентов OMS на узлах кластера Linux. Он создает [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes, который запускает идентичный модуль на каждом узле кластера. Ресурс DaemonSet идеально подходит для развертывания агента мониторинга. 
+Следующий файл манифеста Kubernetes можно использовать для настройки агентов мониторинга контейнеров в кластере Kubernetes. Он создает [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes, который запускает идентичный модуль на каждом узле кластера.
 
-Сохраните следующий текст в файл с именем `oms-daemonset.yaml` и замените значения заполнителей *myWorkspaceID* и *myWorkspaceKey* на идентификатор и ключ рабочей области OMS. (В рабочей среде можно закодировать эти значения в виде секретов.)
+Сохраните следующий текст в файле с именем `oms-daemonset.yaml`.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -56,32 +64,30 @@ spec:
   metadata:
    labels:
     app: omsagent
-    agentVersion: v1.3.4-127
-    dockerProviderVersion: 10.0.0-25
+    agentVersion: 1.4.3-174
+    dockerProviderVersion: 1.0.0-30
   spec:
    containers:
-     - name: omsagent 
+     - name: omsagent
        image: "microsoft/oms"
        imagePullPolicy: Always
-       env:
-       - name: WSID
-         value: myWorkspaceID
-       - name: KEY 
-         value: myWorkspaceKey
-       - name: DOMAIN
-         value: opinsights.azure.com
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP 
+         protocol: TCP
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/log 
+        - mountPath: /var/log
           name: host-log
+        - mountPath: /etc/omsagent-secret
+          name: omsagent-secret
+          readOnly: true
+        - mountPath: /var/lib/docker/containers
+          name: containerlog-path
        livenessProbe:
         exec:
          command:
@@ -90,13 +96,27 @@ spec:
          - ps -ef | grep omsagent | grep -v "grep"
         initialDelaySeconds: 60
         periodSeconds: 60
+   nodeSelector:
+    beta.kubernetes.io/os: linux
+   # Tolerate a NoSchedule taint on master that ACS Engine sets.
+   tolerations:
+    - key: "node-role.kubernetes.io/master"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
    volumes:
-    - name: docker-sock 
+    - name: docker-sock
       hostPath:
        path: /var/run/docker.sock
     - name: host-log
       hostPath:
        path: /var/log
+    - name: omsagent-secret
+      secret:
+       secretName: omsagent-secret
+    - name: containerlog-path
+      hostPath:
+       path: /var/lib/docker/containers
 ```
 
 Создайте DaemonSet с помощью следующей команды:
@@ -118,15 +138,15 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         0            3           <none>          5m
 ```
 
-Через несколько минут после запуска агентов OMS начнет принимать и обрабатывать данные.
+Через несколько минут после запуска агентов Log Analytics начнет принимать и обрабатывать данные.
 
 ## <a name="access-monitoring-data"></a>Доступ к данным мониторинга
 
-Просматривать и анализировать данные мониторинга контейнера OMS можно с помощью [решения "Контейнер"](../../log-analytics/log-analytics-containers.md) на портале Azure или на портале OMS. 
+Просматривать и анализировать данные мониторинга контейнера можно с помощью [решения "Контейнер"](../../log-analytics/log-analytics-containers.md) на портале Azure или на портале OMS.
 
 Для установки решения "Контейнер" с помощью [портала OMS](https://mms.microsoft.com) перейдите в **Коллекция решений**. Затем добавьте **решение "Контейнер"**. Кроме того, можно добавить решение "Контейнеры" из [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-На портале OMS найдите плитку сводки **Контейнеры** на панели мониторинга OMS. Щелкните плитку, чтобы просмотреть дополнительные сведения, в том числе события контейнера, ошибки, состояние, список образов, использование ЦП и памяти. Более детализированные сведения можно получить, щелкнув строку на одной из плиток или выполнив [поиск по журналам](../../log-analytics/log-analytics-log-searches.md).
+На портале OMS найдите плитку сводки **Контейнеры** на панели мониторинга. Щелкните плитку, чтобы просмотреть дополнительные сведения, в том числе события контейнера, ошибки, состояние, список образов, использование ЦП и памяти. Более детализированные сведения можно получить, щелкнув строку на одной из плиток или выполнив [поиск по журналам](../../log-analytics/log-analytics-log-searches.md).
 
 ![Панель мониторинга "Контейнеры" на портале OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -136,10 +156,10 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве вы выполнили мониторинг кластера Kubernetes с помощью OMS, в частности такие задачи:
+В этом руководстве вы выполнили мониторинг кластера Kubernetes с помощью Log Analytics, выполнив в частности такие задачи:
 
 > [!div class="checklist"]
-> * Получение параметров рабочей области OMS.
+> * Получение параметров рабочей области Log Analytics
 > * Настройка агентов OMS на узлах Kubernetes.
 > * Доступ к данным мониторинга на портале OMS или на портале Azure.
 

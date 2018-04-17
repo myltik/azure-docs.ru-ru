@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Устранение неполадок с недопустимой конфигурацией субъекта-службы для управляемого домена
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Предупреждение AADDS105: приложение синхронизации пароля устарело
 
-**Текст предупреждения:** субъект-служба с идентификатором приложения d87dcbc6-a371-462e-88e3-28ad15ec4e64 был удален, но Microsoft смогла создать его повторно. Этот субъект-служба управляет другим субъектом-службой и приложением, которые используются для синхронизации паролей. Управляемые субъект-служба и приложение не авторизованы во вновь созданном субъекте-службе и устареют по окончании срока действия сертификата синхронизации. В этом случае вновь созданный субъект-служба не сможет обновлять старые управляемые приложения, что нарушит синхронизацию объектов из AAD.
+**Текст предупреждения:** субъект-служба с идентификатором приложения d87dcbc6-a371-462e-88e3-28ad15ec4e64 удален и создан снова. Повторное создание позволяет избавиться от несогласованных разрешений для ресурсов доменных служб Azure AD, необходимых для обслуживания управляемого домена. Это может повлиять на синхронизацию паролей для управляемого домена.
 
 
 **Решение**. Для выполнения этих шагов потребуется Azure AD PowerShell. Сведения об установке Azure AD PowerShell см. в [этой статье](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ ms.lasthandoff: 03/16/2018
 2. Удалите старое приложение и объект с помощью следующих команд PowerShell:
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

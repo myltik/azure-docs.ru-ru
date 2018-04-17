@@ -1,11 +1,11 @@
 ---
-title: "Загрузка данных в хранилище данных SQL Azure (фабрика данных) | Документация Майкрософт"
-description: "В этом руководстве вы загрузите данные в хранилище данных SQL Azure, используя фабрику данных Azure и базу данных SQL Server в качестве источника данных."
+title: Загрузка данных в хранилище данных SQL Azure (фабрика данных) | Документация Майкрософт
+description: В этом руководстве вы загрузите данные в хранилище данных SQL Azure, используя фабрику данных Azure и базу данных SQL Server в качестве источника данных.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Загрузка данных в хранилище данных SQL с помощью фабрики данных
 

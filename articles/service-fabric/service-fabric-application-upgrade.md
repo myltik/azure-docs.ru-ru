@@ -1,34 +1,24 @@
 ---
-title: "Обновление приложения Service Fabric | Документация Майкрософт"
-description: "Эта статья содержит вводные сведения об обновлении приложения Service Fabric, включая выбор режимов обновления и выполнение проверок работоспособности."
+title: Обновление приложения Service Fabric | Документация Майкрософт
+description: Эта статья содержит вводные сведения об обновлении приложения Service Fabric, включая выбор режимов обновления и выполнение проверок работоспособности.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-<<<<<<< HEAD
-ms.date: 2/13/2018
-ms.author: subramar
-ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
-=======
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
->>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Обновление приложения Service Fabric
 Приложение Azure Service Fabric представляет собой коллекцию служб. Во время обновления структура служб сравнивает новый [манифест приложения](service-fabric-application-and-service-manifests.md) с предыдущей версией и определяет, каким службам в приложении требуется обновление. Service Fabric сравнивает номера версий в манифестах служб с номерами версий для предыдущей версии. Если служба не была изменена, эта служба не обновляется.
@@ -67,6 +57,13 @@ ms.lasthandoff: 02/24/2018
 
 > [!TIP]
 > Чтобы выполнялись вышеупомянутые правила 2 и 3 (обновление и удаление службы по умолчанию), параметр конфигурации кластера [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) должен иметь значение *true*. Эта функция поддерживается, начиная с Service Fabric версии 5.5.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Обновление нескольких приложений с помощью конечных точек HTTPS
+Не используйте **один и тот же порт** для разных экземпляров одного и того же приложения при использовании HTTP**S**. Это связано с тем, что Service Fabric не сможет обновить сертификат одного из экземпляров приложения. Например, если для приложений 1 и 2 необходимо обновить сертификат 1 до сертификата 2. При обновлении Service Fabric может очистить данные регистрации сертификата 1 с помощью процесса http.sys, даже если он используется другим приложением. Чтобы избежать этого, Service Fabric определяет, что другой экземпляр приложения уже зарегистрирован на порте с сертификатом (из-за http.sys) и завершает операцию.
+
+Поэтому Service Fabric не поддерживает обновление двух разных служб, использующих **один порт** в разных экземплярах приложения. Другими словами нельзя использовать один сертификат для разных служб в одном порте. Если необходимо иметь сертификат с общим доступом в одном порте, убедитесь, что службы размещены на разных компьютерах с ограничениями на размещение. Или по возможности используйте динамические порты Service Fabric для каждой службы в экземпляре приложения. 
+
+Если при обновлении произойдет ошибка HTTP, появится предупреждение о том, что API сервера HTTP Windows не поддерживает несколько сертификатов для приложений, которые совместно используют порт.
 
 ## <a name="application-upgrade-flowchart"></a>Блок-схема обновления приложения
 Блок-схема, приведенная далее в этом абзаце, поможет понять процесс обновления приложения Service Fabric. В частности, она описывает, как параметры времени ожидания, в том числе *HealthCheckStableDuration*, *HealthCheckRetryTimeout* и *UpgradeHealthCheckInterval*, помогают управлять тем, при каких условиях обновление домена обновления считается успешным или неудачным.

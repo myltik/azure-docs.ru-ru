@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Устранение неполадок с Пакетом средств разработки Azure Stack (ASDK)
 В этом документе содержатся общие сведения об устранении неполадок для ASDK. Если возникли проблемы, которые не описаны в этой статье, посетите [форум MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) для получения дополнительной помощи и сведений.  
@@ -31,7 +31,12 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="deployment"></a>Развертывание
 ### <a name="deployment-failure"></a>Сбой развертывания
-Если во время установки возникнет сбой, можно использовать параметр -rerun для скрипта развертывания, чтобы перезапустить развертывание с этапа, завершившегося ошибкой.  
+Если во время установки возникнет сбой, можно использовать параметр -rerun для скрипта развертывания, чтобы перезапустить развертывание с этапа, завершившегося ошибкой, как показано в следующем примере:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>В конце развертывания сеанс PowerShell все еще открыт и выходные данные не отображаются
 Это поведение, скорее всего, является результатом поведения по умолчанию командного окна PowerShell (если оно выбрано). Развертывание комплекта разработки завершилось успешно, но скрипт был приостановлен при выборе окна. Чтобы узнать, завершилась ли установка, выполните поиск по слову "select" в строке заголовка командного окна. Нажмите клавишу ESC, чтобы отменить выбор, после чего должно отобразиться сообщение о завершении.

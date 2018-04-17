@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Секционирование в Azure Cosmos DB с помощью API SQL
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/28/2018
 Давайте рассмотрим, как выбор ключа секции влияет на производительность приложения.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Работа с пакетами SDK для базы данных Azure Cosmos DB
-В Azure Cosmos DB добавлена поддержка автоматического секционирования с использованием [REST API версии 2015-12-16](/rest/api/documentdb/). Для создания секционированных контейнеров необходимо скачать пакет SDK версии 1.6.0 или более поздней для одной из поддерживаемых платформ SDK (.NET, Node.js, Java, Python и MongoDB). 
+В Azure Cosmos DB добавлена поддержка автоматического секционирования с использованием [REST API версии 2015-12-16](/rest/api/cosmos-db/). Для создания секционированных контейнеров необходимо скачать пакет SDK версии 1.6.0 или более поздней для одной из поддерживаемых платформ SDK (.NET, Node.js, Java, Python и MongoDB). 
 
 ### <a name="creating-containers"></a>Создание контейнеров
 В приведенном ниже примере показан фрагмент кода .NET для создания контейнеров, предназначенных для хранения данных телеметрии устройств, которой выделяется пропускная способность в 20 000 единиц запроса в секунду. Пакет SDK устанавливает значение OfferThroughput (которое в свою очередь задает заголовок запроса `x-ms-offer-throughput` в REST API). Здесь мы задаем `/deviceId` в качестве ключа секции. Выбранный ключ секции сохраняется вместе с остальными метаданными контейнера, такими как имя и политики индексирования.
@@ -225,6 +225,6 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 В этой статье описаны способы работы с секционированием контейнеров Azure Cosmos DB с помощью API SQL. Обзор концепций и рекомендации для секционирования с использованием любого API базы данных Azure Cosmos DB см. [в этой статье](../cosmos-db/partition-data.md). 
 
 * Выполняйте проверку масштабирования и производительности с помощью базы данных Azure Cosmos DB. Пример см. в статье [Проверка производительности и масштабирования с помощью Azure DocumentDB](performance-testing.md).
-* Приступите к созданию кода с помощью [пакетов SDK](sql-api-sdk-dotnet.md) или [REST API](/rest/api/documentdb/).
+* Приступите к созданию кода с помощью [пакетов SDK](sql-api-sdk-dotnet.md) или [REST API](/rest/api/cosmos-db/).
 * Дополнительные сведения о подготовленной пропускной способности в базе данных Azure Cosmos DB см. в [этой статье](request-units.md).
 

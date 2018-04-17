@@ -1,20 +1,20 @@
 ---
-title: "Развертывание Функции Azure с помощью Azure IoT Edge | Документация Майкрософт"
-description: "Развертывание Функции Azure в виде модуля на граничном устройстве"
+title: Развертывание Функции Azure с помощью Azure IoT Edge | Документация Майкрософт
+description: Развертывание Функции Azure в виде модуля на граничном устройстве
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Развертывание Функции Azure в виде модуля IoT Edge — предварительный просмотр
 Вы можете использовать Функции Azure для развертывания кода, который реализует нужную бизнес-логику, непосредственно на устройствах IoT Edge. В этом руководстве описывается создание и развертывание Функции Azure, которая фильтрует данные датчиков на виртуальном устройстве IoT Edge, созданном по инструкциям в руководствах по развертыванию Azure IoT Edge на виртуальном устройстве в [Windows][lnk-tutorial1-win] или [Linux][lnk-tutorial1-lin]. Из этого руководства вы узнаете, как выполнять такие задачи:     
@@ -58,10 +58,10 @@ ms.lasthandoff: 12/09/2017
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. Создайте проект для нового модуля. Приведенная ниже команда создает папку проекта **FilterFunction** в текущей рабочей папке.
+2. Создайте проект для нового модуля. Приведенная ниже команда создает папку проекта **FilterFunction** в указанном репозитории контейнеров. Если вы используете реестр контейнеров, второй параметр должен быть в формате `<your container registry name>.azurecr.io`. В текущей рабочей папке введите следующую команду:
 
     ```cmd/sh
-    dotnet new aziotedgefunction -n FilterFunction
+    dotnet new aziotedgefunction -n FilterFunction -r <your container registry address>/filterfunction
     ```
 
 3. Выберите **Файл** > **Открыть папку**, перейдите в папку **FilterFunction** и откройте проект в VS Code.
@@ -95,8 +95,7 @@ ms.lasthandoff: 12/09/2017
                 // Copy the properties of the original message into the new Message object
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
                 // Add a new property to the message to indicate it is an alert
                 filteredMessage.Properties.Add("MessageType", "Alert");
                 // Send the message        
@@ -127,24 +126,22 @@ ms.lasthandoff: 12/09/2017
 
 11. Сохраните файл.
 
-## <a name="publish-a-docker-image"></a>Публикация образа Docker
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Создание образа Docker и его публикация в реестре
 
-1. Выполните сборку образа Docker.
-    1. В обозревателе VS Code разверните папку **Docker**. Затем разверните папку для платформы своего контейнера: **linux-x64** или **windows-nano**. 
-    2. Щелкните правой кнопкой мыши файл **Dockerfile** и выберите **Build IoT Edge module Docker image** (Создать образ Docker модуля IoT Edge). 
-    3. Перейдите в папку проекта **FilterFunction** и щелкните **Select Folder as EXE_DIR** (Выбрать папку в качестве каталога выполнения). 
-    4. В верхней части окна VS Code введите имя образа в текстовом поле всплывающего окна. Например, `<your container registry address>/filterfunction:latest`. Адрес реестра контейнеров совпадает с адресом сервера входа, который был скопирован из реестра. Он должен быть указан в формате `<your container registry name>.azurecr.io`.
- 
-4. Войдите в Docker. Во встроенном терминале введите следующую команду: 
-
+1. Войдите в Docker, введя следующую команду в окне интегрированного терминала VS Code. 
+     
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
    Чтобы найти имя пользователя, пароль и сервер входа для использования в этой команде, перейдите на [портал Azure] (https://portal.azure.com). В разделе **Все ресурсы** щелкните плитку вашего реестра контейнеров Azure, чтобы открыть его свойства, а затем щелкните **Ключи доступа**. Скопируйте значения полей **Имя пользователя**, **Пароль** и **Сервер входа**. 
 
-3. Отправьте образ в репозиторий Docker. Выберите **Вид** > **Палитра команд...** и выполните поиск **Edge: Push IoT Edge module Docker image** (Edge: отправка образа Docker модуля IoT Edge).
-4. В текстовом поле всплывающего окна введите имя образа, который использовался в шаге 1.d.
+2. Откройте **module.json**. Кроме того, вы можете обновить `"version"`, например, для **"1.0"**. А также отображающееся имя репозитория, которое вы ввели в параметре `-r` для `dotnet new aziotedgefunction`.
+
+3. Сохраните файл **module.json**.
+
+4. В обозревателе VS Code щелкните правой кнопкой мыши файл **module.json** и выберите действие **Build and Push IoT Edge module Docker image** (Создать и отправить образ Docker для модуля IoT Edge). Во всплывающем раскрывающемся списке в верхней части окна VS Code выберите платформу контейнера: **amd64** для контейнера Linux или **windows-amd64** для контейнера Windows. VS Code поместит в контейнер код функции и передаст его в указанный вами реестр контейнеров.
+
+5. Полный адрес образа контейнеров с тегом можно получить через интегрированный терминал VS Code. Дополнительные сведения об определении сборки и отправки см. в файле `module.json`.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Добавление учетных данных реестра на устройство Edge
 Добавьте учетные данные для своего реестра в среду выполнения Edge на компьютере, где запущено устройство Edge. Таким образом среда выполнения сможет получить доступ к контейнеру. 
@@ -174,7 +171,7 @@ ms.lasthandoff: 12/09/2017
 1. Добавьте модуль **filterFunction**.
     1. Снова выберите **Add IoT Edge Modulе** (Добавить модуль IoT Edge).
     2. В поле **Имя** введите `filterFunction`.
-    3. В поле **Образ** введите адрес образа, например `<docker registry address>/filterfunction:latest`.
+    3. В поле **URI изображения** введите адрес образа, например `<your container registry address>/filterfunction:0.0.1-amd64`. Полный адрес образа можно найти в предыдущем разделе.
     74. Выберите команду **Сохранить**.
 2. Нажмите кнопку **Далее**.
 3. На шаге **Specify Routes** (Указание маршрутов) скопируйте приведенный ниже код JSON в текстовое поле. Первый маршрут передает сообщения с датчика температуры модулю фильтра через конечную точку input1. Второй маршрут передает сообщения из модуля фильтра в Центр Интернета вещей. В этом маршруте `$upstream` является специальным пунктом назначения, который говорит концентратору Edge отправлять сообщения в Центр Интернета вещей. 
@@ -198,11 +195,11 @@ ms.lasthandoff: 12/09/2017
 1. Настройте расширение Azure IoT Toolkit со строкой подключения для вашего Центра Интернета вещей: 
     1. На портале Azure перейдите в Центр Интернета вещей и выберите **Политики общего доступа**. 
     2. Выберите **iothubowner** и скопируйте значение из поля **Строка подключения — первичный ключ**.
-    1. В проводнике VS Code щелкните **IOT HUB DEVICES** (Устройства Центра Интернета вещей), а затем выберите **...**. 
-    1. Выберите **Set IoT Hub Connection String** (Установка строки подключения Центра Интернета вещей) и введите во сплывающем окне строку подключения Центра Интернета вещей. 
+    3. В проводнике VS Code щелкните **IOT HUB DEVICES** (Устройства Центра Интернета вещей), а затем выберите **...**. 
+    4. Выберите **Set IoT Hub Connection String** (Установка строки подключения Центра Интернета вещей) и введите во сплывающем окне строку подключения Центра Интернета вещей. 
 
-1. Чтобы отслеживать данные, поступающие в Центр Интернета вещей, выберите **Вид** > **Палитра команд** и щелкните **IoT: Start monitoring D2C message** (Интернет вещей: начать мониторинг сообщений D2C). 
-2. Чтобы перестать отслеживать данные, используйте команду **IoT: Stop monitoring D2C message** (Центр Интернета вещей: остановить мониторинг сообщений D2C) в палитре команд. 
+2. Чтобы отслеживать данные, поступающие в Центр Интернета вещей, выберите **Вид** > **Палитра команд** и щелкните **IoT: Start monitoring D2C message** (Интернет вещей: начать мониторинг сообщений D2C). 
+3. Чтобы перестать отслеживать данные, используйте команду **IoT: Stop monitoring D2C message** (Центр Интернета вещей: остановить мониторинг сообщений D2C) в палитре команд. 
 
 ## <a name="next-steps"></a>Дополнительная информация
 

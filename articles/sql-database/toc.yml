@@ -72,8 +72,12 @@
       href: sql-database-managed-instance.md
     - name: Уровни службы
       href: sql-database-service-tiers.md
-    - name: Ограничения ресурсов
-      href: sql-database-resource-limits.md
+    - name: Горизонтальное масштабирование для чтения
+      href: sql-database-read-scale-out.md
+    - name: Ограничения ресурсов на основе DTU
+      href: sql-database-dtu-resource-limits.md
+    - name: Ограничения ресурсов на основе виртуальных ядер
+      href: sql-database-vcore-resource-limits.md
     - name: Отдельные базы данных
       href: sql-database-single-database-resources.md
     - name: Пулы эластичных БД
@@ -126,7 +130,7 @@
           href: sql-database-business-continuity.md
         - name: Резервные копии базы данных
           href: sql-database-automated-backups.md
-        - name: Хранение резервных копий
+        - name: Долгосрочное хранение резервных копий
           href: sql-database-long-term-retention.md
         - name: Группы отработки отказа
           href: sql-database-geo-replication-overview.md
@@ -306,10 +310,12 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Непрерывность бизнес-процессов
       items:
-        - name: Настройка хранилища (резервные копии)
-          href: sql-database-long-term-backup-retention-configure.md
         - name: Георепликация (портал)
           href: sql-database-geo-replication-portal.md
+        - name: 'Настройка долгосрочного хранения резервных копий: хранилище SQL'
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: 'Настройка долгосрочного хранения резервных копий: хранилище Azure'
+          href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Загрузка и перемещение данных
       items:
         - name: Загрузка данных с помощью BCP

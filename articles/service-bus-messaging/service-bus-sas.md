@@ -1,12 +1,12 @@
 ---
-title: "Управление доступом к служебной шине Azure с помощью подписанных URL-адресов | Документация Майкрософт"
-description: "Обзор управления доступом к служебной шине с помощью подписанных URL-адресов, а также сведения об авторизации SAS в служебной шине Azure."
+title: Управление доступом к служебной шине Azure с помощью подписанных URL-адресов | Документация Майкрософт
+description: Обзор управления доступом к служебной шине с помощью подписанных URL-адресов, а также сведения об авторизации SAS в служебной шине Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Управление доступом к служебной шине с помощью подписанных URL-адресов
 
@@ -273,6 +273,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 | Назначение сообщению статуса недоставленного |Прослушивание |Любой допустимый адрес очереди |
 | Получение состояния, связанного с сеансом очереди сообщений |Прослушивание |Любой допустимый адрес очереди |
 | Назначение состояния, связанного с сеансом очереди сообщений |Прослушивание |Любой допустимый адрес очереди |
+| Планирование последующей доставки сообщений (например, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_)) |Прослушивание | Любой допустимый адрес очереди
 | **Раздел** | | |
 | Создание раздела |управление |Любой адрес пространства имен |
 | Удаление раздела |управление |Любой допустимый адрес раздела |

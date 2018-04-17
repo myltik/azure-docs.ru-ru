@@ -1,6 +1,6 @@
 ---
-title: "Хранилище таблиц Azure: создание веб-приложения Node.js | Документация Майкрософт"
-description: "В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure."
+title: 'Хранилище таблиц Azure: создание веб-приложения Node.js | Документация Майкрософт'
+description: В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Хранилище таблиц Azure: веб-приложение Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Обзор
 В этом руководстве возможности приложения, создание которого описано в статье [Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure], расширяются с помощью клиентских библиотек Microsoft Azure для Node.js, позволяя работать со службами управления данными. Возможности приложения расширяются за счет создания веб-приложения списка задач, которое можно развернуть в Azure. Список задач позволяет пользователю извлекать задачи, добавлять новые задачи и помечать задачи как завершенные.
 
-Элементы задач хранятся в хранилище Azure. Хранилище Azure обеспечивает хранение неструктурированных данных с функциями отказоустойчивости и высокой доступности. Служба хранилища Azure включает в себя несколько структур данных, где можно хранить данные и получать к ним доступ. Службы хранилища можно использовать из интерфейсов API, включенных в пакет Azure SDK для Node.js, или через интерфейсы REST API. Дополнительные сведения см. в статье [Хранилище Azure].
+Элементы задач хранятся в службе хранилища Azure или Azure Cosmos DB. Служба хранилища Azure и Azure Cosmos DB обеспечивают хранение неструктурированных данных с функциями отказоустойчивости и высокой доступности. Служба хранилища Azure и Azure Cosmos DB включают в себя несколько структур данных, где можно хранить данные и получать к ним доступ. Службы хранилища и Azure Cosmos DB можно использовать из интерфейсов API, включенных в пакет Azure SDK для Node.js, или через интерфейсы REST API. Дополнительные сведения см. в статье [Хранилище Azure].
 
 Прежде чем приступать к работе с этим руководством, необходимо ознакомиться со статьями [Построение и развертывание приложения Node.js в облачной службе Azure], [Node.js с Express] и [Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure].
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/18/2018
 ![Готовая веб-страница в Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Настройка учетных данных хранилища в файле Web.Config
-Для доступа к службе хранилища Azure необходимо передать учетные данные хранилища. Для этого используются параметры приложения web.config.
+Для доступа к службе хранилища Azure или Azure Cosmos DB необходимо передать учетные данные хранилища. Для этого используются параметры приложения web.config.
 Параметры web.config передаются в качестве переменных среды в Node, которые затем считываются пакетом SDK для Azure.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/18/2018
 3. В окне Azure Powershell введите следующий командлет, чтобы получить сведения об учетной записи хранения:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    Этот командлет извлекает список учетных записей хранения и ключей учетной записи, связанных с вашей размещенной службой.
@@ -144,7 +144,7 @@ ms.lasthandoff: 01/18/2018
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ ms.lasthandoff: 01/18/2018
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ ms.lasthandoff: 01/18/2018
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ ms.lasthandoff: 01/18/2018
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ ms.lasthandoff: 01/18/2018
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ ms.lasthandoff: 01/18/2018
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -339,9 +342,20 @@ ms.lasthandoff: 01/18/2018
 
 1. Загрузите и извлеките файлы [Twitter Bootstrap](http://getbootstrap.com/). Скопируйте файл **bootstrap.min.css** из папки **bootstrap\\dist\\css** в каталог **public\\stylesheets** своего приложения tasklist.
 2. В папке **views** откройте файл **layout.jade** в текстовом редакторе и замените его содержимое следующим:
-
-    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Сохраните файл **layout.jade**.
 
 ### <a name="running-the-application-in-the-emulator"></a>Запуск приложения в эмуляторе
@@ -414,7 +428,7 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
    Удаление службы может занять несколько минут. После удаления службы появится сообщение, указывающее, что служба была удалена.
 
 [Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[Хранилище Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Хранилище Azure]: https://docs.microsoft.com/azure/storage/
 [Построение и развертывание приложения Node.js в облачной службе Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

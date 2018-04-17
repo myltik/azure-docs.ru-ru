@@ -1,13 +1,13 @@
 ---
-title: "Производительность Phoenix в Azure HDInsight | Документация Майкрософт"
-description: "Рекомендации по оптимизации производительности Phoenix."
+title: Производительность Phoenix в Azure HDInsight | Документация Майкрософт
+description: Рекомендации по оптимизации производительности Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

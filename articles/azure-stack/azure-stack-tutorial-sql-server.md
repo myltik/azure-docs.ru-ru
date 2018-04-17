@@ -1,29 +1,28 @@
 ---
-title: "Обеспечение доступности баз данных SQL для пользователей Azure Stack | Документация Майкрософт"
-description: "Учебное пособие по установке поставщика ресурсов SQL Server и созданию предложений, позволяющих пользователям Azure Stack создавать базы данных SQL."
+title: Обеспечение доступности баз данных SQL для пользователей Azure Stack | Документация Майкрософт
+description: Учебное пособие по установке поставщика ресурсов SQL Server и созданию предложений, позволяющих пользователям Azure Stack создавать базы данных SQL.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Обеспечение доступности баз данных SQL для пользователей Azure Stack
-
 В качестве администратора облака Azure Stack вы можете создавать предложения, позволяющие пользователям (клиентам) создавать базы данных SQL, которые они смогут использовать с собственными облачными приложениями, веб-сайтами и рабочими нагрузками. Предоставляя пользователям такие настраиваемые облачные базы данных по запросу, вы помогаете им экономить время и ресурсы. Для этого вам потребуется выполнить следующие действия:
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ ms.lasthandoff: 02/22/2018
 Теперь, когда поставщик ресурсов SQL Server развернут и приложение создано, можно войти как пользователь, подписаться на предложение и создать базу данных.
 
 ### <a name="subscribe-to-the-offer"></a>Оформление подписки на предложение
-1. Войдите на портал Azure Stack (https://portal.local.azurestack.external) в качестве клиента.
+1. Войдите на портал Azure Stack (https://portal.local.azurestack.external) как клиент.
 2. Нажмите кнопку **Получить подписку**, а затем введите **TestSQLServerSubscription** в поле **Отображаемое имя**.
 3. Нажмите **Выберите предложение** > **TestSQLServerOffer** > **Создать**.
 4. Нажмите **Больше служб** > **Подписки** > **TestSQLServerSubscription** > **Поставщики ресурсов**.

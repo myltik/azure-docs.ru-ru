@@ -43,11 +43,14 @@
 ## Использование MXChip IoT DevKit
 ### [Преобразование голосового сообщения Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Получение сообщений из Twitter с помощью Функций Azure](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Отправка сообщений на сервер MQTT с помощью API Eclipse Paho](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
+### [Мониторинг магнитного датчика и отправка уведомлений по электронной почте с помощью службы "Функции Azure"](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Управление MXChip IoT DevKit RGB LED с помощью двойников устройств Azure](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # Практические руководства
 ## План
 ### [Сравнение Центра Интернета вещей и службы "Концентраторы событий"](iot-hub-compare-event-hubs.md)
-### [Масштабирование своего решения](iot-hub-scaling.md)
+### [Выбор подходящей ценовой категории](iot-hub-scaling.md)
 ### [Высокий уровень доступности и аварийное восстановление](iot-hub-ha-dr.md)
 ### [Поддержка дополнительных протоколов](iot-hub-protocol-gateway.md)
 ### [Сравнение маршрутизации сообщений и событий](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +150,7 @@
 ### [Мониторинг и диагностика](iot-hub-monitor-resource-health.md)
 #### [Перенос в параметры диагностики](iot-hub-migrate-to-diagnostics-settings.md)
 #### [Мониторинг операций](iot-hub-operations-monitoring.md)
+### [Обновление Центра Интернета вещей](iot-hub-upgrade.md)
 ### [Метрики использования](iot-hub-metrics.md)
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
 ### [Настройка фильтрации IP](iot-hub-ip-filtering.md)
@@ -170,7 +174,7 @@
 ## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (устройства)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (устройства)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (служба)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (служба)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [Пакет SDK для устройства C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Edge Интернета вещей Azure](http://azure.github.io/iot-edge/)
 ## [REST (поставщик ресурсов)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

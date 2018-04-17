@@ -1,32 +1,32 @@
 ---
-title: "Создание зональной виртуальной машины Linux с помощью Azure CLI | Документация Майкрософт"
-description: "Создание виртуальной машины Linux в зоне доступности с помощью Azure CLI"
+title: Создание зональной виртуальной машины Linux с помощью Azure CLI | Документация Майкрософт
+description: Создание виртуальной машины Linux в зоне доступности с помощью Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 04/05/2018
 ms.author: danlep
-ms.custom: 
-ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Создание виртуальной машины Linux в зоне доступности с помощью Azure CLI
 
 В этой статье рассматривается использование Azure CLI для создания виртуальной машины Linux в зоне доступности Azure. [Зона доступности](../../availability-zones/az-overview.md) представляет собой физически отдельную зону в регионе Azure. Зоны доступности позволяют защитить приложения и данные от маловероятных сбоев и потери всего центра обработки данных.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+Чтобы использовать зону доступности, создайте виртуальную машину в [поддерживаемом регионе Azure](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/reference-index#az_login).
 
@@ -43,19 +43,19 @@ az vm list-skus --location eastus2 --output table
 Вывод команды будет примерно таким, как в следующем сокращенном примере с отображением размеров виртуальных машин, используемых в пределах разных зон доступности:
 
 ```azurecli
-ResourceType      Locations  Name               Tier       Size     Zones
-----------------  ---------  -----------------  ---------  -------  -------
-virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
-virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+ResourceType      Locations  Name               [...]    Tier       Size     Zones
+----------------  ---------  -----------------           ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2             Standard   DS2_v2   1,2,3
 [...]
-virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
-virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+virtualMachines   eastus2    Standard_F1s                Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s                Standard   F2s      1,2,3
 [...]
-virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
-virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+virtualMachines   eastus2    Standard_D2s_v3             Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3             Standard   D4_v3    1,2,3
 [...]
-virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
-virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+virtualMachines   eastus2    Standard_E2_v3              Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2,3
 ```
 
 
@@ -63,9 +63,9 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create).  
 
-Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов с именем *myResourceGroupVM* в регионе *eastus2*. eastus2 (восточная часть США 2) — это один из регионов Azure, который поддерживает зоны доступности в предварительной версии.
+Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов с именем *myResourceGroupVM* в регионе *eastus2*. "Восточная часть США 2" – это пример региона в Azure, поддерживающего зоны доступности.
 
-```azurecli-interactive 
+```azurecli 
 az group create --name myResourceGroupVM --location eastus2
 ```
 
@@ -75,18 +75,18 @@ az group create --name myResourceGroupVM --location eastus2
 
 Создайте виртуальную машину, выполнив команду [az vm create](/cli/azure/vm#az_vm_create). 
 
-При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM* под управлением Ubuntu Server. Она создается в зоне доступности *1*. По умолчанию она имеет размер *Standard_DS1_v2*. Он поддерживается в предварительной версии зон доступности.
+При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM* под управлением Ubuntu Server. Она создается в зоне доступности *1*. По умолчанию она имеет размер *Standard_DS1_v2*.
 
 ```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 Создание виртуальной машины может занять несколько минут. После создания виртуальной машины Azure CLI выводит информацию о ней. Запишите значение `zones`. Оно указывает на зону доступности, в которой запущена виртуальная машина. 
 
-```azurecli-interactive 
+```azurecli 
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -97,34 +97,81 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 }
 ```
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>Зона для IP-адреса и управляемого диска
+## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Подтверждение зоны для управляемого диска и IP-адреса
 
-При развертывании виртуальной машины в зоне доступности в этой же зоне развертываются IP-адрес и управляемый диск. В примерах ниже содержатся сведения об этих ресурсах.
+При развертывании виртуальной машины в зоне доступности диск виртуальной машины создается в той же зоне доступности. По умолчанию общедоступный IP-адрес также создается в этой зоне. В примерах ниже содержатся сведения об этих ресурсах.
 
-Сначала используйте команду [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses), чтобы вернуть имя ресурса общедоступного IP-адреса на виртуальную машину *myVM*. В этом примере имя хранится в переменной, которая будет использоваться дальше.
+Чтобы убедиться, что диск виртуальной машины находится в зоне доступности, необходимо воспользоваться командой [az vm show](/cli/azure/vm#az_vm_show), показывающей идентификатор диска. В этом примере идентификатор диска хранится в переменной, которая будет использоваться дальше. 
 
 ```azurecli-interactive
+osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
+```
+Теперь можно получить сведения об управляемом диске:
+
+```azurecli-interactive
+az disk show --resource-group myResourceGroupVM --name $osdiskname
+```
+
+В выходных данных видно, что управляемый диск находится в той же зоне доступности, что и виртуальная машина:
+
+```azurecli
+{
+  "creationData": {
+    "createOption": "FromImage",
+    "imageReference": {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
+      "lun": null
+    },
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 30,
+  "encryptionSettings": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
+  "location": "eastus2",
+  "managedBy": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "name": "myVM_osdisk_761c570dab",
+  "osType": "Linux",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroupVM",
+  "sku": {
+    "name": "Premium_LRS",
+    "tier": "Premium"
+  },
+  "tags": {},
+  "timeCreated": "2018-03-05T22:16:06.892752+00:00",
+  "type": "Microsoft.Compute/disks",
+  "zones": [
+    "1"
+  ]
+}
+```
+
+Используйте команду [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses), чтобы вернуть имя ресурса общедоступного IP-адреса на виртуальную машину *myVM*. В этом примере имя хранится в переменной, которая будет использоваться дальше.
+
+```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
 ```
 
 Теперь можно получить сведения об IP-адресе:
 
-```azurecli-interactive
+```azurecli
 az network public-ip show --resource-group myResourceGroupVM --name $ipaddressname
 ```
 
 В выходных данных видно, что IP-адрес находится в той же зоне доступности, что и виртуальная машина:
 
-```azurecli-interactive
+```azurecli
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "52.174.34.95",
   "ipConfiguration": {
     "etag": null,
-    "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM",
     "name": null,
     "privateIpAddress": null,
     "privateIpAllocationMethod": null,
@@ -148,58 +195,9 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 }
 ```
 
-Аналогичным образом проверьте размещение управляемого диска виртуальной машины в нужной зоне доступности. Для этого выполните команду [az vm show](/cli/azure/vm#az_vm_show). В этом примере идентификатор диска хранится в переменной, которая будет использоваться дальше. 
-
-```azurecli-interactive
-osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
-```
-Теперь можно получить сведения об управляемом диске:
-
-```azurecli-interactive
-az disk show --resource-group myResourceGroupVM --name $osdiskname
-```
-
-В выходных данных видно, что управляемый диск находится в той же зоне доступности, что и виртуальная машина:
-
-```azurecli-interactive
-{
-  "creationData": {
-    "createOption": "FromImage",
-    "imageReference": {
-      "id": "/Subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
-      "lun": null
-    },
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 30,
-  "encryptionSettings": null,
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
-  "location": "eastus2",
-  "managedBy": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "name": "osdisk_761c570dab",
-  "osType": "Linux",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroupVM",
-  "sku": {
-    "name": "Premium_LRS",
-    "tier": "Premium"
-  },
-  "tags": {},
-  "timeCreated": "2017-09-05T22:16:06.892752+00:00",
-  "type": "Microsoft.Compute/disks",
-  "zones": [
-    "1"
-  ]
-}
-```
- 
-
-
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этой статье вы узнали, как создать виртуальную машину в зоне доступности. Узнайте о [регионах и доступности](regions-and-availability.md) виртуальных машин Azure.
+Из этой статье вы узнали, как создать виртуальную машину в зоне доступности. Узнайте о [регионах и доступности](regions-and-availability.md) виртуальных машин Azure.
 
 
 

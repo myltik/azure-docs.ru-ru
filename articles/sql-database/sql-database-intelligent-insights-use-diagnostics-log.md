@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ce83198e1d2afb713044879724df88ad2696548
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Использование журнала диагностики производительности Intelligent Insights для базы данных SQL Azure
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/16/2018
 
 | Выявляемые шаблоны снижения производительности | Выводимые сведения |
 | :------------------- | ------------------- |
-| Достижение лимитов ресурсов | <li>Затронутые ресурсы</li><li>Хэши запросов</li><li>Процент потребления ресурсов</li> |
+| достижение лимитов ресурсов; | <li>Затронутые ресурсы</li><li>Хэши запросов</li><li>Процент потребления ресурсов</li> |
 | Увеличение рабочей нагрузки | <li>Количество запросов, объем выполнения которых увеличился</li><li>Хэши запросов, больше всего повлиявших на увеличение рабочей нагрузки</li> |
 | Нехватка памяти | <li>Клерк памяти</li> |
 | Блокировка | <li>Хэши затронутых запросов</li><li>Хэши блокирующих запросов</li> |

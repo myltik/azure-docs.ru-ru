@@ -1,13 +1,13 @@
 ---
-title: "Основные сведения о токенах пользователей в службе совместной работы Azure AD B2B | Документация Майкрософт"
-description: "Справочные материалы по токенам пользователей для службы совместной работы Azure Active Directory B2B."
+title: Основные сведения о токенах пользователей в службе совместной работы Azure AD B2B | Документация Майкрософт
+description: Справочные материалы по токенам пользователей для службы совместной работы Azure Active Directory B2B.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 6afa7d01282d6c35b042ad69fcdcb5714c92de10
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4f152aa4da9fcbe07179414aa8dc69f8633bb6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Основные сведения о токенах пользователей в службе совместной работы Azure AD B2B
 
-Если вам необходимо знать, как выглядит токен для пользователя службы совместной работы B2B, ниже приведены сведения о токене носителя и содержимое токена для гостевого пользователя Azure Active Directory (Azure AD) и гостевого пользователя учетной записи Майкрософт в клиенте ресурса (для tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Чтобы просмотреть содержимое токена JSON Web Token (JWT), воспользуйтесь сайтом [https://jwt.io](https://jwt.io/) или [http://calebb.net](http://calebb.net/).
+Если вам необходимо знать, как выглядит токен для пользователя службы совместной работы B2B, ниже приведены сведения о токене носителя и содержимое токена для гостевого пользователя Azure Active Directory (Azure AD) и гостевого пользователя учетной записи Майкрософт в клиенте ресурса (для tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Чтобы просмотреть содержимое JSON Web Token (JWT), используйте [https://jwt.io/](https://jwt.io/) или [https://jwt.ms/](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Токен гостевого пользователя Azure AD
 ```

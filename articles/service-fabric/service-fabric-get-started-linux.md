@@ -1,11 +1,11 @@
 ---
-title: "Настройка среды разработки в Linux | Документация Майкрософт"
-description: "Установите среду выполнения и пакет SDK, а затем создайте локальный кластер разработки в Linux. После этого вы сможете создавать приложения."
+title: Настройка среды разработки в Linux | Документация Майкрософт
+description: Установите среду выполнения и пакет SDK, а затем создайте локальный кластер разработки в Linux. После этого вы сможете создавать приложения.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
@@ -28,13 +28,25 @@ ms.lasthandoff: 02/24/2018
 >
 >  
 
-Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для разработки Java и .NET Core.
+Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для разработки Java и .NET Core. 
+
+В этой статье предполагается, что установка выполняется изначально в ОС Linux или используется образ контейнера Service Fabric OneBox `microsoft/service-fabric-onebox`. 
+
+Установка среды выполнения Service Fabric и пакета SDK в подсистеме Windows для Linux не поддерживается. Зато поддерживается интерфейс командной строки Azure Service Fabric (CLI), который позволяет управлять сущностями Service Fabric, размещенными в другой сети в облачной или локальной среде. См. дополнительные сведения об [установке и настройке CLI Service Fabric](./service-fabric-cli.md).
+
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Для разработки поддерживаются следующие операционные системы:
+* Для разработки поддерживаются следующие операционные системы:
 
-* Ubuntu 16.04 (`Xenial Xerus`).
+    * Ubuntu 16.04 (`Xenial Xerus`).
+
+* Убедитесь, что установлен пакет `apt-transport-https`:
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## <a name="installation-methods"></a>Методы установки
 
@@ -108,6 +120,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+Среда выполнения Service Fabric, которая поставляется упомянутой выше установкой, содержит пакеты, перечисленные в таблице ниже. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Неявно с использованием npm | последняя |
+
 ## <a name="set-up-a-local-cluster"></a>Настройка локального кластера
   Если установка выполнена, можно запустить локальный кластер.
 
@@ -176,15 +194,20 @@ Ubuntu
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>Установка подключаемого модуля Eclipse Neon (необязательно)
+## <a name="install-the-eclipse-plug-in-optional"></a>Установка подключаемого модуля Eclipse (необязательно)
 
 Подключаемый модуль Eclipse для Service Fabric можно установить из интегрированной среды разработки Eclipse для разработчиков Java. Eclipse можно использовать для создания приложений с гостевыми исполняемыми файлами и контейнерами Service Fabric в дополнение к Java-приложениям Service Fabric.
 
-1. Откройте Eclipse и убедитесь, что у вас установлена последняя версия Eclipse Neon и Buildship (версия 1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help** > **Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями на странице [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship. Подключаемые модули Eclipse для Gradle).
+> [!IMPORTANT]
+> Для подключаемого модуля Service Fabric требуется Eclipse Neon или более поздняя версия. Чтобы проверить версию Eclipse, выполните инструкции под этим примечанием. Если у вас установлена более ранняя версия Eclipse, скачайте более новые версии с [сайта Eclipse](https://www.eclipse.org). Не рекомендуется устанавливать Eclipse поверх существующей установки (перезаписывать). Вы можете удалить ее перед запуском установщика или установить новую версию в другом каталоге. 
+> 
+> В Ubuntu мы рекомендуем установить Eclipse непосредственно с сайта, а не с помощью установщика пакета (`apt` или `apt-get`). Так вы получите последнюю версию Eclipse. 
+
+1. Откройте Eclipse и убедитесь, что у вас установлена версия Eclipse Neon или выше и последняя версия Buildship (1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help** > **Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями на странице [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship. Подключаемые модули Eclipse для Gradle).
 
 2. Чтобы установить подключаемый модуль Service Fabric, выберите **Help** > **Install New Software** (Справка > Установка нового программного обеспечения).
 
-3. В поле **Work with** (Работать с) введите **http://dl.microsoft.com/eclipse**.
+3. В поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse**.
 
 4. Щелкните **Добавить**.
 

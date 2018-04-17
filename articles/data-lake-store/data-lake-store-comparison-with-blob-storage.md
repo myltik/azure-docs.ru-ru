@@ -1,8 +1,8 @@
 ---
-title: "Сравнение Azure Data Lake Store с Azure Storage Blob | Документация Майкрософт"
-description: "Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure"
+title: Сравнение Azure Data Lake Store с Azure Storage Blob | Документация Майкрософт
+description: Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a8831278ef0e83571bf05d48e5d671f8dee92850
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
 В таблице ниже приведены различия между Azure Data Lake Store и хранилищем BLOB-объектов Azure, а также некоторые ключевые аспекты обработки больших данных. Хранилище BLOB-объектов Azure является универсальным масштабируемым хранилищем объектов, предназначенным для разнообразных сценариев хранения. Azure Data Lake Store — это гипермасштабируемый репозиторий, оптимизированный для рабочих нагрузок, относящихся к аналитике больших данных.
@@ -46,7 +46,4 @@ ms.lasthandoff: 02/21/2018
 | Доступ по регионам |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |Доступны во всех регионах Azure |
 | Цена |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/data-lake-store/). |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/storage/). |
 
-### <a name="next-steps"></a>Дополнительная информация
-* [Обзор Azure Data Lake Store](data-lake-store-overview.md)
-* [Начало работы с хранилищем озера данных](data-lake-store-get-started-portal.md)
 

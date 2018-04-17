@@ -1,25 +1,25 @@
 ---
-title: "Отчеты о действиях аудита на портале Azure Active Directory | Документация Майкрософт"
-description: "Общие сведения об отчетах о действиях аудита на портале Azure Active Directory."
+title: Отчеты о действиях аудита на портале Azure Active Directory | Документация Майкрософт
+description: Общие сведения об отчетах о действиях аудита на портале Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/31/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33dc234d4d0ca3ec58e069a928a30bcd8ec41e6d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 97ea32a1e0f8815accff6201251771ab8c088859
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Отчеты о действиях аудита на портале Azure Active Directory 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 01/16/2018
 
 Фильтр **Действие** зависит от выбранной категории и типа ресурса действия. Вы можете выбрать определенное действие или просмотреть все. 
 
-Чтобы получить список всех действий аудита, используйте API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, где $tenantdomain — это доменное имя, или см. статью о [событиях в отчете аудита](active-directory-reporting-audit-events.md).
+Чтобы получить список всех действий аудита, используйте API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, где $tenantdomain — это доменное имя, или см. статью [о событиях в отчете аудита](active-directory-reporting-audit-events.md).
 
 
 ## <a name="audit-logs-shortcuts"></a>Ярлыки журналов аудита
@@ -180,6 +180,462 @@ ms.lasthandoff: 01/16/2018
 Вы также можете отфильтровать это представление по **группам** или **пользователям**.
 
 ![Журналы аудита](./media/active-directory-reporting-activity-audit-logs/25.png "Журналы аудита")
+
+
+
+## <a name="azure-ad-audit-activity-list"></a>Список действий аудита Azure AD
+
+В этом разделе приводится список всех действий, которые могут быть зарегистрированы. 
+
+
+|Имя службы|Категория аудита|Тип ресурса действия|Действие|
+|---|---|---|---|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|Администрирование|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|Directory operation (Операция с каталогом)|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|экспорт.|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|Импорт|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|Другие|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|Process escrow (Дополнительная обработка)|
+|"Account Provisioning" (Подготовка учетных записей).|Управление приложениями|Приложение|Synchronization rule action (Действие правила синхронизации)|
+|Прокси приложения|Управление приложениями|Приложение|Добавить приложение|
+|Прокси приложения|Ресурс|Ресурс|Add application SSL certificate (Добавление SSL-сертификата приложения)|
+|Прокси приложения|Ресурс|Ресурс|Delete SSL binding (Удаление привязки SSL)|
+|Прокси приложения|Управление приложениями|Приложение|Удаление приложения|
+|Прокси приложения|Управление каталогом|Каталог|Disable Desktop Sso (Отключение единого входа в классическом приложении)|
+|Прокси приложения|Управление каталогом|Каталог|Disable Desktop Sso for a specific domain (Отключение единого входа в классическом приложении для определенного домена)|
+|Прокси приложения|Управление каталогом|Каталог|Disable application proxy (Отключение прокси приложения)|
+|Прокси приложения|Управление каталогом|Каталог|Disable passthrough authentication (Отключение сквозной проверки подлинности)|
+|Прокси приложения|Управление каталогом|Каталог|Enable Desktop Sso (Включение единого входа в классическом приложении)|
+|Прокси приложения|Управление каталогом|Каталог|Enable Desktop Sso for a specific domain (Включение единого входа в классическом приложении для определенного домена)|
+|Прокси приложения|Управление каталогом|Каталог|Enable application proxy (Включение прокси приложения)|
+|Прокси приложения|Управление каталогом|Каталог|Enable passthrough authentication (Включение сквозной проверки подлинности)|
+|Прокси приложения|Ресурс|Ресурс|Register connector (Регистрация соединителя)|
+|Прокси приложения|Управление приложениями|Приложение|Обновление приложения|
+|Прокси приложения|Управление приложениями|Приложение|Update application Single Sign-On Mode (Обновление режима единого входа в приложение)|
+|"Automated Password Rollover" (Автоматическая смена пароля)|Управление приложениями|Приложение|"Automated Password Rollover" (Автоматическая смена пароля)|
+|B2C|Управление приложениями|Приложение|Add V2 application permissions (Добавление разрешений для приложения версии 2)|
+|B2C|Авторизация|Авторизация|Add V2 application permissions (Добавление разрешений для приложения версии 2)|
+|B2C|Ключ|Ключ|Add a key based on ASCII secret to a CPIM key container (Добавление ключа на основе секрета ASCII в контейнер ключей CPIM)|
+|B2C|Авторизация|Авторизация|Add a key based on ASCII secret to a CPIM key container (Добавление ключа на основе секрета ASCII в контейнер ключей CPIM)|
+|B2C|Ключ|Ключ|Add a key to a CPIM key container (Добавление ключа в контейнер ключей CPIM)|
+|B2C|Авторизация|Авторизация|Add a key to a CPIM key container (Добавление ключа в контейнер ключей CPIM)|
+|B2C|Ресурс|Ресурс|AdminPolicyDatas-RemoveResources|
+|B2C|Авторизация|Авторизация|AdminPolicyDatas-SetResources|
+|B2C|Ресурс|Ресурс|AdminPolicyDatas-SetResources|
+|B2C|Ресурс|Ресурс|AdminUserJourneys-GetResources|
+|B2C|Авторизация|Авторизация|AdminUserJourneys-GetResources|
+|B2C|Авторизация|Авторизация|AdminUserJourneys-RemoveResources|
+|B2C|Ресурс|Ресурс|AdminUserJourneys-RemoveResources|
+|B2C|Ресурс|Ресурс|AdminUserJourneys-SetResources|
+|B2C|Авторизация|Авторизация|AdminUserJourneys-SetResources|
+|B2C|Авторизация|Авторизация|Create IdentityProvider (Создание записи IdentityProvider)|
+|B2C|Ресурс|Ресурс|Create IdentityProvider (Создание записи IdentityProvider)|
+|B2C|Авторизация|Авторизация|Create V1 application (Создание приложения версии 1)|
+|B2C|Управление приложениями|Приложение|Create V1 application (Создание приложения версии 1)|
+|B2C|Управление приложениями|Приложение|Create V2 application (Создание приложения версии 2)|
+|B2C|Авторизация|Авторизация|Create V2 application (Создание приложения версии 2)|
+|B2C|Управление каталогом|Каталог|Create a custom domains in the tenant (Создание личных доменов в клиенте)|
+|B2C|Авторизация|Авторизация|Create a custom domains in the tenant (Создание личных доменов в клиенте)|
+|B2C|Авторизация|Авторизация|Create a new AdminUserJourney (Создание записи AdminUserJourney)|
+|B2C|Ресурс|Ресурс|Create a new AdminUserJourney (Создание записи AdminUserJourney)|
+|B2C|Ресурс|Ресурс|Create localized resource json (Создание JSON-файла локализованных ресурсов)|
+|B2C|Авторизация|Авторизация|Create localized resource json (Создание JSON-файла локализованных ресурсов)|
+|B2C|Авторизация|Авторизация|Create new Custom IDP (Создание настраиваемого поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Create new Custom IDP (Создание настраиваемого поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Create new IDP (Создание поставщика удостоверений)|
+|B2C|Авторизация|Авторизация|Create new IDP (Создание поставщика удостоверений)|
+|B2C|Авторизация|Авторизация|Create or update a B2C directory resource (Создание или обновление ресурса каталога B2C)|
+|B2C|Ресурс|Ресурс|Create or update a B2C directory resource (Создание или обновление ресурса каталога B2C)|
+|B2C|Ресурс|Ресурс|Создание политики|
+|B2C|Авторизация|Авторизация|Создание политики|
+|B2C|Авторизация|Авторизация|Create trustFramework policy (Создание политики trustFramework)|
+|B2C|Ресурс|Ресурс|Create trustFramework policy (Создание политики trustFramework)|
+|B2C|Авторизация|Авторизация|Create trustFramework policy with configurable prefix (Создание политики trustFramework с настраиваемым префиксом)|
+|B2C|Ресурс|Ресурс|Create trustFramework policy with configurable prefix (Создание политики trustFramework с настраиваемым префиксом)|
+|B2C|Ресурс|Ресурс|Create user attribute (Создание пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|Create user attribute (Создание пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|CreateTrustFrameworkPolicy|
+|B2C|Ресурс|Ресурс|CreateTrustFrameworkPolicy|
+|B2C|Авторизация|Авторизация|Creates or Update an new AdminUserJourney (Создание или обновление записи AdminUserJourney)|
+|B2C|Ресурс|Ресурс|Delete IDP (Удаление поставщика удостоверений)|
+|B2C|Авторизация|Авторизация|Delete IDP (Удаление поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Delete IdentityProvider (Удаление записи IdentityProvider)|
+|B2C|Авторизация|Авторизация|Delete IdentityProvider (Удаление записи IdentityProvider)|
+|B2C|Управление приложениями|Приложение|Delete V1 application (Удаление приложения версии 1)|
+|B2C|Авторизация|Авторизация|Delete V1 application (Удаление приложения версии 1)|
+|B2C|Управление приложениями|Приложение|Delete V2 application (Удаление приложения версии 2)|
+|B2C|Авторизация|Авторизация|Delete V2 application (Удаление приложения версии 2)|
+|B2C|Авторизация|Авторизация|Delete V2 application permission grant (Удаление разрешений, предоставленных приложению версии 2)|
+|B2C|Управление приложениями|Приложение|Delete V2 application permission grant (Удаление разрешений, предоставленных приложению версии 2)|
+|B2C|Ресурс|Ресурс|Delete a B2C directory resource (Удаление ресурса каталога B2C)|
+|B2C|Авторизация|Авторизация|Delete a B2C directory resource (Удаление ресурса каталога B2C)|
+|B2C|Ключ|Ключ|Delete a CPIM key container (Добавление контейнера ключей CPIM)|
+|B2C|Авторизация|Авторизация|Delete a CPIM key container (Добавление контейнера ключей CPIM)|
+|B2C|Ключ|Ключ|Delete key container (Удаление контейнера ключей)|
+|B2C|Ресурс|Ресурс|Delete trustFramework policy (Удаление политики trustFramework)|
+|B2C|Авторизация|Авторизация|Delete trustFramework policy (Удаление политики trustFramework)|
+|B2C|Ресурс|Ресурс|Delete user attribute (Удаление пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|Delete user attribute (Удаление пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|Enable B2C feature (Включение компонента B2C)|
+|B2C|Управление каталогом|Каталог|Enable B2C feature (Включение компонента B2C)|
+|B2C|Ресурс|Ресурс|Get B2C directory resources in a resource group (Получение данных ресурсов каталога B2C в группе ресурсов)|
+|B2C|Ресурс|Ресурс|Get B2C directory resources in a subscription (Получение данных ресурсов каталога B2C в подписке)|
+|B2C|Авторизация|Авторизация|Get B2C directory resources in a subscription (Получение данных ресурсов каталога B2C в подписке)|
+|B2C|Авторизация|Авторизация|Get Custom IDP (Получение данных настраиваемого поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Get Custom IDP (Получение данных настраиваемого поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Get IDP (Получение данных поставщика удостоверений)|
+|B2C|Авторизация|Авторизация|Get IDP (Получение данных поставщика удостоверений)|
+|B2C|Авторизация|Авторизация|Get V1 and V2 applications (Получение данных приложений 1 и 2)|
+|B2C|Управление приложениями|Приложение|Get V1 and V2 applications (Получение данных приложений 1 и 2)|
+|B2C|Авторизация|Авторизация|Get V1 application (Получение данных приложения версии 1)|
+|B2C|Управление приложениями|Приложение|Get V1 application (Получение данных приложения версии 1)|
+|B2C|Авторизация|Авторизация|Get V1 applications (Получение данных приложений версии 1)|
+|B2C|Управление приложениями|Приложение|Get V1 applications (Получение данных приложений версии 1)|
+|B2C|Управление приложениями|Приложение|Get V2 application (Получение данных приложения версии 2)|
+|B2C|Авторизация|Авторизация|Get V2 application (Получение данных приложения версии 2)|
+|B2C|Управление приложениями|Приложение|Get V2 applications (Получение данных приложений версии 2)|
+|B2C|Авторизация|Авторизация|Get V2 applications (Получение данных приложений версии 2)|
+|B2C|Ресурс|Ресурс|Get a B2C drectory resource (Получение данных ресурса каталога B2C)|
+|B2C|Авторизация|Авторизация|Get a B2C drectory resource (Получение данных ресурса каталога B2C)|
+|B2C|Авторизация|Авторизация|Get a list of custom domains in the tenant (Получение списка личных доменов в клиенте)|
+|B2C|Управление каталогом|Каталог|Get a list of custom domains in the tenant (Получение списка личных доменов в клиенте)|
+|B2C|Авторизация|Авторизация|Get a user journey (Получение пути взаимодействия пользователя)|
+|B2C|Ресурс|Ресурс|Get a user journey (Получение пути взаимодействия пользователя)|
+|B2C|Ресурс|Ресурс|Get allowed application claims for user journey (Получение допустимых утверждений приложения для пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Get allowed application claims for user journey (Получение допустимых утверждений приложения для пути взаимодействия пользователя)|
+|B2C|Ресурс|Ресурс|Get allowed self-asserted claims for user journey (Получение допустимых самоподтвержденных утверждений для пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Get allowed self-asserted claims for user journey (Получение допустимых самоподтвержденных утверждений для пути взаимодействия пользователя)|
+|B2C|Ресурс|Ресурс|Get allowed self-asserted claims of policy (Получение допустимых самоподтвержденных утверждений политики)|
+|B2C|Авторизация|Авторизация|Get allowed self-asserted claims of policy (Получение допустимых самоподтвержденных утверждений политики)|
+|B2C|Ресурс|Ресурс|Get available output claims list (Получение списка доступных исходящих утверждений)|
+|B2C|Авторизация|Авторизация|Get available output claims list (Получение списка доступных исходящих утверждений)|
+|B2C|Ресурс|Ресурс|Get content definitions for user journey (Получение определений содержимого для пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Get content definitions for user journey (Получение определений содержимого для пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Get idps for a specific admin flow (Получение данных поставщиков удостоверений для определенной последовательности операций администрирования)|
+|B2C|Ресурс|Ресурс|Get idps for a specific admin flow (Получение данных поставщиков удостоверений для определенной последовательности операций администрирования)|
+|B2C|Ключ|Ключ|Get key container active key metadata in JWK (Получение метаданных в формате JWK для активных ключей в контейнере ключей)|
+|B2C|Авторизация|Авторизация|Get key container active key metadata in JWK (Получение метаданных в формате JWK для активных ключей в контейнере ключей)|
+|B2C|Ключ|Ключ|Get key container metadata (Получение метаданных контейнера ключей)|
+|B2C|Ресурс|Ресурс|Get list of all admin flows (Получение списка всех последовательностей операций администрирования)|
+|B2C|Авторизация|Авторизация|Get list of all admin flows (Получение списка всех последовательностей операций администрирования)|
+|B2C|Авторизация|Авторизация|Get list of tags for all admin flows for all users (Получение списка тегов всех последовательностей операций администрирования для всех пользователей)|
+|B2C|Ресурс|Ресурс|Get list of tags for all admin flows for all users (Получение списка тегов всех последовательностей операций администрирования для всех пользователей)|
+|B2C|Ресурс|Ресурс|Get list of tenants for a user (Получение списка клиентов для пользователя)|
+|B2C|Авторизация|Авторизация|Get list of tenants for a user (Получение списка клиентов для пользователя)|
+|B2C|Ресурс|Ресурс|Get local accounts' self-asserted claims (Получение самоподтвержденных утверждений для локальных учетных записей)|
+|B2C|Авторизация|Авторизация|Get local accounts' self-asserted claims (Получение самоподтвержденных утверждений для локальных учетных записей)|
+|B2C|Ресурс|Ресурс|Get localized resource json (Получение JSON-файла локализованных ресурсов)|
+|B2C|Авторизация|Авторизация|Get localized resource json (Получение JSON-файла локализованных ресурсов)|
+|B2C|Авторизация|Авторизация|Get operations of Microsoft.AzureActiveDirectory resource provider (Получение списка операций поставщика ресурсов Microsoft.AzureActiveDirectory)|
+|B2C|Ресурс|Ресурс|Get operations of Microsoft.AzureActiveDirectory resource provider (Получение списка операций поставщика ресурсов Microsoft.AzureActiveDirectory)|
+|B2C|Ресурс|Ресурс|Get policies (Получение политик)|
+|B2C|Авторизация|Авторизация|Get policies (Получение политик)|
+|B2C|Ресурс|Ресурс|Get policy (Получение политики)|
+|B2C|Авторизация|Авторизация|Get policy (Получение политики)|
+|B2C|Управление каталогом|Каталог|Get resource properties of a tenant (Получение свойств ресурсов клиента)|
+|B2C|Авторизация|Авторизация|Get resource properties of a tenant (Получение свойств ресурсов клиента)|
+|B2C|Ресурс|Ресурс|Get supported IDP list (Получение списка поддерживаемых поставщиков удостоверений)|
+|B2C|Авторизация|Авторизация|Get supported IDP list (Получение списка поддерживаемых поставщиков удостоверений)|
+|B2C|Ресурс|Ресурс|Get supported IDP list of the user journey (Получение списка поддерживаемых поставщиков удостоверений для пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Get supported IDP list of the user journey (Получение списка поддерживаемых поставщиков удостоверений для пути взаимодействия пользователя)|
+|B2C|Управление каталогом|Каталог|Get tenant Info (Получение сведений о клиенте)|
+|B2C|Авторизация|Авторизация|Get tenant Info (Получение сведений о клиенте)|
+|B2C|Управление каталогом|Каталог|Get tenant allowed features (Получение допустимых функций клиента)|
+|B2C|Авторизация|Авторизация|Get tenant allowed features (Получение допустимых функций клиента)|
+|B2C|Авторизация|Авторизация|Get tenant defined Custom IDP list (Получение списка настраиваемых поставщиков удостоверений, определенных для клиента)|
+|B2C|Ресурс|Ресурс|Get tenant defined Custom IDP list (Получение списка настраиваемых поставщиков удостоверений, определенных для клиента)|
+|B2C|Ресурс|Ресурс|Get tenant defined IDP list (Получение списка поставщиков удостоверений, определенных для клиента)|
+|B2C|Авторизация|Авторизация|Get tenant defined IDP list (Получение списка поставщиков удостоверений, определенных для клиента)|
+|B2C|Ресурс|Ресурс|Get tenant defined local IDP list (Получение списка локальных поставщиков удостоверений, определенных для клиента)|
+|B2C|Авторизация|Авторизация|Get tenant defined local IDP list (Получение списка локальных поставщиков удостоверений, определенных для клиента)|
+|B2C|Ресурс|Ресурс|Get tenant details for a user for resource creation (Получение сведений о клиенте для пользователя для создания ресурса)|
+|B2C|Авторизация|Авторизация|Get tenant details for a user for resource creation (Получение сведений о клиенте для пользователя для создания ресурса)|
+|B2C|Авторизация|Авторизация|Get tenant list (Получение списка клиентов)|
+|B2C|Авторизация|Авторизация|Get tenantDomains (Получение доменов клиента)|
+|B2C|Управление каталогом|Каталог|Get tenantDomains (Получение доменов клиента)|
+|B2C|Ресурс|Ресурс|Get the default supported culture for CPIM (Получение сведений о поддерживаемых по умолчанию языке и региональных параметрах для CPIM)|
+|B2C|Авторизация|Авторизация|Get the default supported culture for CPIM (Получение сведений о поддерживаемых по умолчанию языке и региональных параметрах для CPIM)|
+|B2C|Ресурс|Ресурс|Get the details of an admin flow (Получение сведений о последовательности операций администрирования)|
+|B2C|Авторизация|Авторизация|Get the details of an admin flow (Получение сведений о последовательности операций администрирования)|
+|B2C|Авторизация|Авторизация|Get the list of UserJourneys for this tenant (Получение списка путей взаимодействия пользователя для этого клиента)|
+|B2C|Ресурс|Ресурс|Get the list of UserJourneys for this tenant (Получение списка путей взаимодействия пользователя для этого клиента)|
+|B2C|Авторизация|Авторизация|Get the set of available supported cultures for CPIM (Получение набора доступных поддерживаемых языков и региональных параметров для CPIM)|
+|B2C|Ресурс|Ресурс|Get the set of available supported cultures for CPIM (Получение набора доступных поддерживаемых языков и региональных параметров для CPIM)|
+|B2C|Авторизация|Авторизация|Get trustFramework policy (Получение политики trustFramework)|
+|B2C|Ресурс|Ресурс|Get trustFramework policy (Получение политики trustFramework)|
+|B2C|Авторизация|Авторизация|Get trustFramework policy as xml (Получение политики trustFramework в формате XML)|
+|B2C|Ресурс|Ресурс|Get trustFramework policy as xml (Получение политики trustFramework в формате XML)|
+|B2C|Ресурс|Ресурс|Get user attribute (Получение пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|Get user attribute (Получение пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|Get user attributes (Получение пользовательских атрибутов)|
+|B2C|Ресурс|Ресурс|Get user attributes (Получение пользовательских атрибутов)|
+|B2C|Авторизация|Авторизация|Get user journey list (Получение списка путей взаимодействия пользователя)|
+|B2C|Ресурс|Ресурс|Get user journey list (Получение списка путей взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|GetIEFPolicies|
+|B2C|Ресурс|Ресурс|GetIEFPolicies|
+|B2C|Авторизация|Авторизация|GetIdentityProviders|
+|B2C|Ресурс|Ресурс|GetIdentityProviders|
+|B2C|Ресурс|Ресурс|GetTrustFrameworkPolicy|
+|B2C|Авторизация|Авторизация|GetTrustFrameworkPolicy|
+|B2C|Ключ|Ключ|Gets a CPIM key container in jwk format (Получение данных контейнера ключей CPIM в формате JWK)|
+|B2C|Авторизация|Авторизация|Gets a CPIM key container in jwk format (Получение данных контейнера ключей CPIM в формате JWK)|
+|B2C|Ключ|Ключ|Gets list of key containers in the tenant (Получение списка контейнеров ключей в клиенте)|
+|B2C|Авторизация|Авторизация|Gets list of key containers in the tenant (Получение списка контейнеров ключей в клиенте)|
+|B2C|Авторизация|Авторизация|Gets the type of tenant (Получение сведений о типе клиента)|
+|B2C|Управление каталогом|Каталог|Gets the type of tenant (Получение сведений о типе клиента)|
+|B2C|Authentication|Authentication|Issue an access token to the application (Предоставление маркера доступа для приложения)|
+|B2C|Authentication|Authentication|Issue an authorization code to the application (Предоставление кода авторизации для приложения)|
+|B2C|Другие|Другие|Issue an authorization code to the application (Предоставление кода авторизации для приложения)|
+|B2C|Authentication|Authentication|Issue an access token to the application (Предоставление id_token для приложения)|
+|B2C|Другие|Другие|Issue an access token to the application (Предоставление id_token для приложения)|
+|B2C|Авторизация|Авторизация|MigrateTenantMetadata|
+|B2C|Ресурс|Ресурс|MigrateTenantMetadata|
+|B2C|Ресурс|Ресурс|Перемещение ресурсов|
+|B2C|Авторизация|Авторизация|Patch IdentityProvider (Исправление для поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Patch IdentityProvider (Исправление для поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|PutTrustFrameworkPolicy|
+|B2C|Авторизация|Авторизация|PutTrustFrameworkPolicy|
+|B2C|Авторизация|Авторизация|PutTrustFrameworkpolicy|
+|B2C|Ресурс|Ресурс|PutTrustFrameworkpolicy|
+|B2C|Ресурс|Ресурс|Remove a user journey (Удаление пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Remove a user journey (Удаление пути взаимодействия пользователя)|
+|B2C|Авторизация|Авторизация|Restore a CPIM key container backup (Восстановление контейнера ключей CPIM из резервной копии)|
+|B2C|Ключ|Ключ|Restore a CPIM key container backup (Восстановление контейнера ключей CPIM из резервной копии)|
+|B2C|Управление приложениями|Приложение|Retrieve V2 application permissions (Получение разрешений для приложения версии 2)|
+|B2C|Авторизация|Авторизация|Retrieve V2 application permissions (Получение разрешений для приложения версии 2)|
+|B2C|Управление приложениями|Приложение|Retrieve V2 application service principals in the current tenant (Получение субъектов-служб для приложения версии 2 в текущем клиенте)|
+|B2C|Авторизация|Авторизация|Retrieve V2 application service principals in the current tenant (Получение субъектов-служб для приложения версии 2 в текущем клиенте)|
+|B2C|Ключ|Ключ|Save key container (Сохранение контейнера ключей)|
+|B2C|Авторизация|Авторизация|Update Custom IDP (Изменение настраиваемого поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Update Custom IDP (Изменение настраиваемого поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Update IDP (Изменение поставщика удостоверений)|
+|B2C|Авторизация|Авторизация|Update IDP (Изменение поставщика удостоверений)|
+|B2C|Ресурс|Ресурс|Изменение локального поставщика удостоверений|
+|B2C|Авторизация|Авторизация|Изменение локального поставщика удостоверений|
+|B2C|Управление приложениями|Приложение|Update V1 application (Обновление приложения версии 1)|
+|B2C|Авторизация|Авторизация|Update V1 application (Обновление приложения версии 1)|
+|B2C|Управление приложениями|Приложение|Update V1 application (Обновление приложения версии 2)|
+|B2C|Авторизация|Авторизация|Update V1 application (Обновление приложения версии 2)|
+|B2C|Управление приложениями|Приложение|Update V2 application permission grant (Обновление разрешения, предоставленного приложению версии 2)|
+|B2C|Авторизация|Авторизация|Update V2 application permission grant (Обновление разрешения, предоставленного приложению версии 2)|
+|B2C|Ресурс|Ресурс|Update a B2C directory resource (Обновление ресурса каталога B2C)|
+|B2C|Ресурс|Ресурс|изменение политики;|
+|B2C|Авторизация|Авторизация|изменение политики;|
+|B2C|Ресурс|Ресурс|Update subscription status (Обновления состояния подписки)|
+|B2C|Ресурс|Ресурс|Update user attribute (Обновление пользовательского атрибута)|
+|B2C|Авторизация|Авторизация|Update user attribute (Обновление пользовательского атрибута)|
+|B2C|Ключ|Ключ|Upload a CPIM encrypted key (Отправка зашифрованного ключа CPIM)|
+|B2C|Авторизация|Авторизация|Upload a CPIM encrypted key (Отправка зашифрованного ключа CPIM)|
+|B2C|Авторизация|Авторизация|User Authorization: API is disabled for tenant featureset (Авторизация пользователя: API отключен для набора функций клиента)|
+|B2C|Авторизация|Авторизация|User Authorization: User granted access as 'Tenant Admin' (Авторизация пользователя: пользователю предоставлен доступ как администратору клиента)|
+|B2C|Авторизация|Авторизация|User Authorization: User was granted 'Authenticated Users' access rights (Авторизация пользователя: пользователю предоставлены права доступа, как прошедшему проверку подлинности)|
+|B2C|Authentication|Authentication|Validate local account credentials (Проверка учетных данных локальной учетной записи)|
+|B2C|Ресурс|Ресурс|Validate move resources (Проверка перемещаемых ресурсов)|
+|B2C|Authentication|Authentication|Validate user authentication (Проверка подлинности для пользователя)|
+|B2C|Управление каталогом|Каталог|Verify if B2C feature is enabled (Проверка того, включен ли компонент B2C)|
+|B2C|Авторизация|Авторизация|Verify if B2C feature is enabled (Проверка того, включен ли компонент B2C)|
+|B2C|Авторизация|Авторизация|Verify if feature is enalbed (Проверка того, включен ли компонент)|
+|B2C|Управление каталогом|Каталог|Verify if feature is enalbed (Проверка того, включен ли компонент)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Add Oauth2Permissiongrant (Добавление записи Oauth2Permissiongrant)|
+|"Core Directory" (Основной каталог);|Administrative Unit Management (Управление административной единицей)|AdministrativeUnit|Add administrative unit (Добавление административной единицы)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Add app role assignment grant to user (Добавление назначения роли приложения для пользователя)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Add app role assignment to group (Добавление назначения роли приложения для группы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Add app role assignment to service principal (Добавление назначения роли приложения для субъекта-службы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Добавить приложение|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Add device (Добавление устройства)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Add device configuration (Добавление конфигурации устройства)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Add eligible member to role (Добавление соответствующего участника в роль)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Добавление группы|
+|"Core Directory" (Основной каталог);|Administrative Unit Management (Управление административной единицей)|AdministrativeUnit|Add member to administrative unit (Добавление участника в административную единицу)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Добавление участника группы|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Add member to role (Добавление участника в роль)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Add owner to application (Добавление владельца приложения)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Add owner to group (Добавление владельца группы)|
+|"Core Directory" (Основной каталог);|Управление политикой|Политика|Add owner to policy (Добавление владельца политики)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Add owner to service principal (Добавление владельца субъекта-службы)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Добавление партнера для компании|
+|"Core Directory" (Основной каталог);|Управление политикой|Политика|добавление политики;|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Add policy to service principal (Добавление политики субъекта-службы)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Add registered owner to device (Добавление зарегистрированного владельца устройства)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Add registered users to device (Добавление зарегистрированных пользователей устройства)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Add role assignment to role definition (Добавление назначения роли в определение роли)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Add role from template (Добавление роли на основе шаблона)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Add scoped member to role (Добавление участника с заданной областью в роль)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Добавление субъекта-службы|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Добавление учетных данных субъекта-службы|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Add unverified domain (Добавление непроверенного домена)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Добавление пользователя|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Add users strong authentication phone app detail (Добавление сведений о мобильном приложении для строгой проверки подлинности пользователей)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Add verified domain (Добавление проверенного домена)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Изменение лицензии пользователя|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Смена пароля пользователя|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Consent to application (Разрешение на приложение)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Convert federated user to managed (Преобразование федеративного пользователя в управляемого)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Create application password for user (Создание пароля приложения для пользователя)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Create company (Создание организации)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Создание параметров организации.|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Create group settings (Создание параметров группы)|
+|"Core Directory" (Основной каталог);|Administrative Unit Management (Управление административной единицей)|AdministrativeUnit|Delete administrative unit (Удаление административной единицы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Удаление приложения|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Delete application password for user (Удаление пароля приложения для пользователя)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Удаление параметров организации.|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Удаление устройства|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Удаление конфигурации устройства|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Удаление группы|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Delete group settings (Удаление параметров группы)|
+|"Core Directory" (Основной каталог);|Управление политикой|Политика|удаление политики;|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Delete user (Удаление пользователя)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Demote partner (Изменение типа партнера)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Device no longer compliant (Устройство не является совместимым)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Device no longer managed (Устройство не является управляемым)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Directory deleted (Каталог удален)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Directory deleted permanently (Каталог удален без возможности восстановления)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Directory scheduled for deletion (Запланировано удаление этого каталога)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Disable account (Отключение учетной записи)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Enable Strong Authentication (Включение строгой проверки подлинности)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Finish applying group based license to users (Прекращение назначения для пользователей лицензии, назначенной группе)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Hard Delete application (Необратимое удаление приложения)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Hard Delete group (Необратимое удаление группы)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Hard Delete user (Необратимое удаление пользователя)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Promote company to partner (Продвижение компании до партнера)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Purge rights management properties (Очистка свойств управления правами)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Remove Oauth2Permissiongrant (Удаление записи Oauth2Permissiongrant)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Remove app role assignment from group (Удаление назначения роли приложения из группы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Remove app role assignment from service principal (Удаление назначения роли приложения из субъекта-службы)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Remove app role assignment from user (Удаление назначения роли приложения из учетной записи пользователя)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Remove eligible member from role (Удаление соответствующего участника из роли)|
+|"Core Directory" (Основной каталог);|Administrative Unit Management (Управление административной единицей)|AdministrativeUnit|Remove member from administrative unit (Удаление участника из административной единицы)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Удаление участника группы|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Remove member from role (Удаление участника из роли)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Remove owner from application (Удаление владельца приложения)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Remove owner from group (Удаление владельца группы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Remove owner from service principal (Удаление владельца субъекта-службы)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Remove partner from company (Удаление партнера из компании)|
+|"Core Directory" (Основной каталог);|Управление политикой|Политика|Remove policy credentials (Удаление учетных данных политики)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Remove policy from service principal (Удаление политики субъекта-службы)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Remove registered owner from device (Удаление зарегистрированного владельца устройства)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Remove registered users from device (Удаление зарегистрированных пользователей устройства)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Remove role assignment to role definition (Удаление назначения роли из определения роли)|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Remove scoped member from role (Удаление участника с заданной областью из роли)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Удаление субъекта-службы|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Удаление учетных данных субъекта-службы|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Remove unverified domain (Удаление непроверенного домена)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Remove users strong authentication phone app detail (Удаление данных о мобильном приложении для строгой проверки подлинности пользователей)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Remove verified domain (Удаление проверенного домена)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Сброс пароля пользователя|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Restore Group (Восстановление группы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Restore application (Восстановление приложения)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Restore user (Восстановление учетной записи пользователя)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Revoke consent (Отмена согласия)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Установка информации о компании|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set DirSync feature (Установка компонента Dirsync)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set Dirsyncenabled flag (Установка флага Dirsyncenabled)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set Partnership (Настройка партнерства)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set accidental deletion threshold (Указание порога случайного удаления)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set company allowed data location (Указание расположения данных организации)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set company multinational feature enabled (Включение функции многонациональности для организации)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set directory feature on tenant (Установка поддержки каталога в клиенте)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Установка проверки подлинности домена|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Установка параметров федерации для домена|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Установка принудительной смены пароля пользователя|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Set group license (Настройка лицензии для группы)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Задание пользователя для управления группой.|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set password policy (Настройка политики паролей)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Set rights management properties (Установка свойств управления правами)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Set user manager (Настройка диспетчера пользователей)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Set users oath token metadata enabled (Включение отображения метаданных для OATH-токена пользователей)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Start applying group based license to users (Назначение пользователям лицензии, назначенной группе)|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Trigger group license recalculation (Активация пересчета лицензий групп)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Update StsRefreshTokenValidFrom Timestamp (Обновление метки времени StsRefreshTokenValidFrom)|
+|"Core Directory" (Основной каталог);|Administrative Unit Management (Управление административной единицей)|AdministrativeUnit|Update administrative unit (Обновление административной единицы)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Обновление приложения|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Update company (Обновление организации)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Update company settings (Обновление параметров организации)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Update device (Обновление устройства)|
+|"Core Directory" (Основной каталог);|Ресурс|Ресурс|Update device configuration (Обновление конфигурации устройства)|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Обновление домена|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Обновление внешних секретов.|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Обновление внешних секретов.|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Обновление группы|
+|"Core Directory" (Основной каталог);|Управление группами|Группа|Update group settings (Обновление параметров группы)|
+|"Core Directory" (Основной каталог);|Управление политикой|Политика|изменение политики;|
+|"Core Directory" (Основной каталог);|Управление ролями|Роль|Update role (Обновление роли)|
+|"Core Directory" (Основной каталог);|Управление приложениями|Приложение|Update service principal (Обновление субъекта-службы)|
+|"Core Directory" (Основной каталог);|Управление пользователями|Пользователь|Обновление пользователя|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Проверка домена|
+|"Core Directory" (Основной каталог);|Управление каталогом|Каталог|Проверка домена с помощью электронной почты|
+|Защита идентификации|Управление пользователями|Пользователь|Admin generates a temporary password (Создание временного пароля администратором)|
+|Защита идентификации|Управление пользователями|Пользователь|Admins requires the user to reset their password (Требование администратора сбросить пароль пользователя)|
+|Защита идентификации|Другие|Другие|Download a single risk event type (Скачивание списка событий риска одного типа)|
+|Защита идентификации|Другие|Другие|Download admins and status of weekly digest opt-in (Скачивание сведений о состоянии подписки на еженедельный дайджест и подписавшихся на него администраторах)|
+|Защита идентификации|Другие|Другие|Download a single risk event type (Скачивание списка событий риска всех типов)|
+|Защита идентификации|Другие|Другие|Download free user risk events (Скачивание списка событий риска для пользователя бесплатной версии)|
+|Защита идентификации|Другие|Другие|Download users flagged for risk (Скачивание списка пользователей, находящихся в группе риска)|
+|Защита идентификации|Управление каталогом|Каталог|Переход|
+|Защита идентификации|Управление политикой|Политика|Set MFA registration policy (Настройка политики регистрации в MFA)|
+|Защита идентификации|Управление политикой|Политика|Set sign-in risk policy (Настройка политики риска для входа в систему)|
+|Защита идентификации|Управление политикой|Политика|Set user risk policy (Настройка политики риска пользователя)|
+|Защита идентификации|Управление каталогом|Каталог|Update alert settings (Изменение параметров оповещений)|
+|Защита идентификации|Управление каталогом|Каталог|Update weekly digest settings (Обновление параметров еженедельного дайджеста)|
+|Invited Users (Приглашаемые пользователи)|Управление пользователями|Пользователь|Assign external user to application (Назначение внешнего пользователя для приложения)|
+|Invited Users (Приглашаемые пользователи)|Другие|Другие|Batch invites processed (Обработка пакета приглашений)|
+|Invited Users (Приглашаемые пользователи)|Другие|Другие|Batch invites uploaded (Отправка пакета приглашений)|
+|Invited Users (Приглашаемые пользователи)|Управление пользователями|Пользователь|Email not sent, user unsubscribed (Сообщение электронной почты не отправлено. Пользователь отменил подписку.)|
+|Invited Users (Приглашаемые пользователи)|Управление пользователями|Пользователь|Invite external user (Приглашение внешнего пользователя)|
+|Invited Users (Приглашаемые пользователи)|Управление пользователями|Пользователь|Redeem external user invite (Активация приглашения внешнего пользователя)|
+|Invited Users (Приглашаемые пользователи)|Управление пользователями|Пользователь|Viral tenant creation (Создание вирусного клиента)|
+|Invited Users (Приглашаемые пользователи)|Управление пользователями|Пользователь|Viral user creation (Создание вирусного пользователя)|
+|Microsoft Identity Manager (MIM)|Управление группами|Группа|Добавить участника|
+|Microsoft Identity Manager (MIM)|Управление группами|Группа|Создание группы|
+|Microsoft Identity Manager (MIM)|Управление группами|Группа|Удалить группу|
+|Microsoft Identity Manager (MIM)|Управление группами|Группа|Remove Member (Удаление участника)|
+|Microsoft Identity Manager (MIM)|Управление группами|Группа|Обновление группы|
+|Microsoft Identity Manager (MIM)|Управление пользователями|Пользователь|User Password Registration (Регистрация пароля пользователя)|
+|Microsoft Identity Manager (MIM)|Управление пользователями|Пользователь|User Password Reset (Сброс пароля пользователя)|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|AccessReview_Review|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|AccessReview_Update|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|ActivationAborted|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|ActivationApproved|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|ActivationCanceled|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|ActivationRequested|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Добавлено|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Назначение|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Повышение прав|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Удалено|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Изменения параметров ролей|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|ScanAlertsNow|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Регистрация|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|Заблокировать доступ к ресурсам|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|UpdateAlertSettings|
+|Управление привилегированными пользователями (PIM)|Управление ролями|Роль|UpdateCurrentState|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Approve a pending request to join a group (Подтверждение ожидающего запроса на присоединение к группе)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Cancel a pending request to join a group (Отмена ожидающего запроса на присоединение к группе)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Create lifecycle management policy (Создание политики управления жизненным циклом)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Delete a pending request to join a group (Удаление ожидающего запроса на присоединение к группе)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Reject a pending request to join a group (Отклонение ожидающего запроса на присоединение к группе)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Renew group (Продление действия группы)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Request to join a group (Запрос на присоединение к группе)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Set dynamic group properties (Указание свойств динамической группы)|
+|"Self-service Group Management" (Самостоятельное управление группами);|Управление группами|Группа|Update lifecycle management policy (Обновление политики управления жизненным циклом)|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Blocked from self-service password reset (Блокировка от самостоятельного сброса пароля)|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Change password (self-service) (Изменение пароля (самостоятельное))|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление каталогом|Каталог|Disable password writeback for directory (Отключение обратной записи паролей для каталога)|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление каталогом|Каталог|Enable password writeback for directory (Включение обратной записи паролей для каталога)|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Reset password (by admin) (Сброс пароля (администратор))|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Reset password (self-service) (Сброс пароля (самостоятельный))|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Self-serve password reset flow activity progress (Ход выполнения самостоятельного сброса пароля)|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Self-service password reset flow activity progress (Ход выполнения самостоятельного сброса пароля)|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|Unlock user account (self-service) (Разблокирование учетной записи пользователя (самостоятельное))|
+|"Self-service Password Management" (Самостоятельное управление паролями);|Управление пользователями|Пользователь|User registered for self-service password reset (Регистрация пользователей для самостоятельного сброса пароля)|
+|Условия использования|Управление политикой|Политика|Accept Terms Of Use (Принятие условий использования)|
+|Условия использования|Управление политикой|Политика|Create Terms Of Use (Создание условий использования)|
+|Условия использования|Управление политикой|Политика|Decline Terms Of Use (Отклонение условий использования)|
+|Условия использования|Управление политикой|Политика|Delete Terms Of Use (Удаление условий использования)|
+|Условия использования|Управление политикой|Политика|Edit Terms Of Use (Изменение условий использования)|
+|Условия использования|Управление политикой|Политика|Publish Terms Of Use (Публикация условий использования)|
+|Условия использования|Управление политикой|Политика|Unpublish Terms Of Use (Отмена публикации условий использования)|
+
+
 
 
 ## <a name="next-steps"></a>Дополнительная информация

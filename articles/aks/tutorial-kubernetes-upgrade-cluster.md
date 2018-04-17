@@ -1,21 +1,21 @@
 ---
-title: "Руководство по Kubernetes в Azure. Обновление кластера"
-description: "Руководство по Kubernetes в Azure. Обновление кластера"
+title: Руководство по Kubernetes в Azure. Обновление кластера
+description: Руководство по Kubernetes в Azure. Обновление кластера
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a293ebbd2ec07d9de53d168f79b8546576499bcb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Обновление Kubernetes в Службе контейнеров Azure (AKS)
+# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Руководство. Обновление Kubernetes в Службе контейнеров Azure (AKS)
 
 Кластер Службы контейнеров Azure (AKS) можно обновить с помощью Azure CLI. При обновлении узлы Kubernetes [блокируются и останавливаются][kubernetes-drain], чтобы минимизировать время простоя запущенных приложений.
 

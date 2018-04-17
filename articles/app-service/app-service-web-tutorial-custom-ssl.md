@@ -1,11 +1,11 @@
 ---
-title: "Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure | Документация Майкрософт"
-description: "Узнайте, как привязать настраиваемый SSL-сертификат к веб-приложению, серверной части мобильного приложения или приложению API в службе приложений Azure."
+title: Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure | Документация Майкрософт
+description: Узнайте, как привязать настраиваемый SSL-сертификат к веб-приложению, серверной части мобильного приложения или приложению API в службе приложений Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5d5bf588-b0bb-4c6d-8840-1b609cfb5750
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Руководство. Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
 Веб-приложения Azure — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как привязать SSL-сертификат, приобретенный в доверенном центре сертификации, к [веб-приложениям Azure](app-service-web-overview.md). Завершив работу с этим руководством, вы сможете обращаться к своему веб-приложению через конечную точку HTTPS личного домена DNS.
 

@@ -1,27 +1,28 @@
 ---
-title: "Управление эталонными данными для среды \"Аналитика временных рядов Azure\" с помощью C# | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как управлять эталонными данными для среды службы \"Аналитика временных рядов Azure\", создав пользовательское приложение на C# (c-sharp) .NET."
+title: Управление эталонными данными для среды "Аналитика временных рядов Azure" с помощью C# | Документация Майкрософт
+description: Из этой статьи вы узнаете, как управлять эталонными данными для среды службы "Аналитика временных рядов Azure", создав пользовательское приложение на C# (c-sharp) .NET.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 03/23/2018
+ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Управление эталонными данными для среды Azure Time Series Insights с помощью C#
 
-В этом разделе описан пример кода C#, который вы можете компилировать, чтобы управлять эталонными данными для среды службы "Аналитика временных рядов Azure".
+В этой статье описан пример проекта C#, который вы можете компилировать, чтобы управлять эталонными данными для среды службы "Аналитика временных рядов Azure".
 
+## <a name="prerequistes"></a>Предварительные условия
 Перед компиляцией и запуском примера кода выполните следующие шаги.
 1. [Создайте набор эталонных данных](time-series-insights-add-reference-data-set.md).
 
@@ -30,6 +31,11 @@ ms.lasthandoff: 12/14/2017
    Сведения о том, как настроить неинтерактивные приложения, см. в статье [Проверка подлинности и авторизация для API Azure Time Series Insights](time-series-insights-authentication-and-authorization.md).
 
 3. Измените пример кода, заменив константы, указанные в **#DUMMY#** в начале кода. 
+
+Этот пример кода также доступен по адресу [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights).
+
+## <a name="project-references"></a>Ссылки на проект
+Добавьте пакеты NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` и `Newtonsoft.Json` для этого примера. 
 
 ## <a name="c-sample-code"></a>Пример кода C# 
 ```csharp

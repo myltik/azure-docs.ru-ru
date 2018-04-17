@@ -25,9 +25,15 @@
 ### Подсистема балансировки нагрузки
 #### [Что такое подсистема балансировки нагрузки?](../load-balancer/load-balancer-standard-overview.md)
 #### [Подсистема балансировки нагрузки уровня "Стандартный" и зоны доступности](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью портала Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Создание избыточной в пределах зоны подсистемы балансировки нагрузки уровня "Стандартный" с помощью PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью интерфейса командной строки](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Балансировка нагрузки виртуальных машин в пределах зон доступности](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Балансировка нагрузки виртуальных машин в пределах зон доступности с помощью Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Общедоступный IP-адрес](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [Использование зон доступности с Базой данных SQL](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Хранилище
-#### [Хранилище, избыточное в пределах зоны](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Хранилище, избыточное в пределах зоны](../storage/common/storage-redundancy-zrs.md)
 
 # Аварийное восстановление
 ## [Использование Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

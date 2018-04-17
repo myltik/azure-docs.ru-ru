@@ -1,11 +1,11 @@
 ---
-title: "API-интерфейсы RESTful с поддержкой CORS в службе приложений Azure | Документация Майкрософт"
-description: "Узнайте, как служба приложений Azure помогает размещать API-интерфейсы RESTful с поддержкой CORS."
+title: API-интерфейсы RESTful с поддержкой CORS в службе приложений Azure | Документация Майкрософт
+description: Узнайте, как служба приложений Azure помогает размещать API-интерфейсы RESTful с поддержкой CORS.
 services: app-service\api
 documentationcenter: dotnet
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Размещение API-интерфейсов RESTful с поддержкой CORS в службе приложений Azure
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Руководство. Размещение REST API с поддержкой CORS в службе приложений Azure
 
 [Служба приложений Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. Кроме того, служба приложений включает встроенную поддержку [общего доступа к ресурсам независимо от источника (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) для API-интерфейсов RESTful. В этом руководстве рассматривается развертывание приложения API ASP.NET Core в службу приложений с поддержкой CORS. Вы настроите приложение с помощью программ командной строки и развернете его с помощью Git. 
 
@@ -204,7 +204,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 > * развертывать API-интерфейс RESTful в Azure с помощью Git;
 > * включать в службе приложений поддержку CORS.
 
-Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
+Перейдите к следующему руководству, чтобы узнать, как выполнять аутентификацию и авторизацию пользователей.
 
 > [!div class="nextstepaction"]
-> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)
+> [Руководство. Сквозная аутентификация и авторизация пользователей](app-service-web-tutorial-auth-aad.md)

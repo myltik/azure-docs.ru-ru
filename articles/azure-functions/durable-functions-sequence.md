@@ -1,24 +1,24 @@
 ---
-title: "Цепочки функций в устойчивых функциях (Azure)"
-description: "Ознакомьтесь с примером устойчивой функции, которая выполняет последовательность функций."
+title: Цепочки функций в устойчивых функциях (Azure)
+description: Ознакомьтесь с примером устойчивой функции, которая выполняет последовательность функций.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Цепочки функций в устойчивых функциях — пример последовательности Hello
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Выполните инструкции в статье об [установке устойчивых функций](durable-functions-install.md), чтобы настроить пример.
+* [Установите устойчивые функции](durable-functions-install.md).
 
 ## <a name="the-functions"></a>Функции
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 * Функция оркестратора `E1_HelloSequence`, которая вызывает `E1_SayHello` несколько раз подряд. При этом сохраняются выходные данные каждого вызова `E1_SayHello` и записываются результаты.
 * Функция действия `E1_SayHello`, которая добавляет Hello в начало строки.
 
-В следующих разделах рассматривается конфигурация и код, которые используются при разработке с помощью портала Azure. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
+В следующих разделах рассматривается конфигурация и код, которые используются для написания скриптов на языке C#. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
  
 ## <a name="functionjson-file"></a>Файл function.json
 

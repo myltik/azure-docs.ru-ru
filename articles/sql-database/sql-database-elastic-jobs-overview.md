@@ -8,13 +8,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1f0e022eb98619b22f7e62e0602d36ba821def22
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3fdc24a811544de87d97da498d7946507653cec5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Управление масштабируемыми облачными базами данных
 Для управления масштабируемыми сегментированными базами данных можно воспользоваться функцией **заданий обработки для эластичных баз данных** (предварительная версия). Она позволяет надежно выполнить скрипт Transact-SQL (T-SQL) для группы баз данных, включая:

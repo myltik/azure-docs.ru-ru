@@ -1,6 +1,6 @@
 ---
-title: "Варианты учетной записи хранения Azure | Документация Майкрософт"
-description: "Основные сведения о вариантах использования службы хранилища Azure."
+title: Варианты учетной записи хранения Azure | Документация Майкрософт
+description: Основные сведения о вариантах использования службы хранилища Azure.
 services: storage
 author: jirwin
 manager: jwillis
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Варианты учетной записи хранения Azure
 
@@ -218,7 +218,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 Дополнительные сведения см. в статьях о [метриках аналитики хранилища](https://msdn.microsoft.com/library/azure/hh343258.aspx) и [схеме таблиц для метрик аналитики хранилища](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
-> Учетные записи хранилища BLOB-объектов предоставляют конечную точку службы таблиц только для хранения данных метрик для этой учетной записи и доступа к этим данным. Учетные записи ZRS (хранилище, избыточное в пределах зоны) поддерживают сбор данных метрики, в отличие от классических учетных записей хранения ZRS. Дополнительные сведения о ZRS см. в [этом разделе](storage-redundancy.md#zone-redundant-storage). 
+> Учетные записи хранилища BLOB-объектов предоставляют конечную точку службы таблиц только для хранения данных метрик для этой учетной записи и доступа к этим данным. 
 
 Чтобы отслеживать использование ресурсов хранения в хранилище BLOB-объектов, необходимо включить метрики емкости.
 Если эти метрики включены, данные о емкости ежедневно будут записываться для службы учетной записи хранения больших двоичных объектов. Эти данные регистрируются как запись в таблице *$MetricsCapacityBlob* в той же учетной записи хранения.

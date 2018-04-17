@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-overview"></a>Обзор надежных служб
 Платформа Azure Service Fabric упрощает написание надежных служб с отслеживанием и без отслеживания состояния и управление такими службами. В этой статье рассматриваются следующие вопросы.
@@ -45,7 +45,7 @@ Service Fabric управляет временем существования с
 * Модель взаимодействия со службами Транспорт может быть любым, включая HTTP с [веб-API](service-fabric-reliable-services-communication-webapi.md), протоколы WebSocket, пользовательские протоколы TCP и т. п. Надежные службы позволяют использовать ряд отличных готовых вариантов или задействовать собственный.
 * Для служб с отслеживанием состояния модель программирования Reliable Services позволяет согласованно и надежно хранить состояние прямо в службе с помощью коллекций [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Reliable Collections — это простой набор классов коллекций с высокой доступностью и надежностью, которые будут знакомы всем, кто использовал коллекции C#. Обычно для надежного управления состоянием службам требовались внешние системы. Коллекции Reliable Collections обеспечивают хранение состояния вместе с вычислениями при таком же уровне доступности и надежности, как и в высокодоступных внешних хранилищах. Такая модель также сокращает задержку, потому что необходимые для работы данные состояния и вычисления хранятся рядом.
 
-Посмотрите этот видеоролик от Microsoft Virtual Academy, который содержит обзор служб Reliable Services: <center>
+Посмотрите это видео от Microsoft Virtual Academy, которое содержит обзор служб Reliable Services: <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
@@ -111,5 +111,5 @@ Service Fabric управляет временем существования с
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
-* [Продвинутое использование надежных служб](service-fabric-reliable-services-advanced-usage.md)
+* [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
 * [Модель программирования надежных субъектов](service-fabric-reliable-actors-introduction.md)

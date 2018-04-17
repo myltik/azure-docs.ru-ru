@@ -1,79 +1,61 @@
 ---
-title: "Подключение Configuration Manager к Log Analytics | Документация Майкрософт"
-description: "В этой статье описаны действия, с помощью которых можно подключить Configuration Manager к Log Analytics и начать анализ данных."
+title: Подключение Configuration Manager к Log Analytics | Документация Майкрософт
+description: В этой статье описаны действия, с помощью которых можно подключить Configuration Manager к Log Analytics и начать анализ данных.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 5acf2ad27a55684a8cb42ed646c54d1ec91a5625
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff0687fe99f0853e29e5f0d814a8555c367027c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Подключение Configuration Manager к Log Analytics
-System Center Configuration Manager можно подключить к Log Analytics в OMS, чтобы синхронизировать данные коллекции устройств. Так данные из иерархии Configuration Manager можно сделать доступными в OMS.
+Среду System Center Configuration Manager можно подключить к Azure Log Analytics для синхронизации данных коллекций устройств и указания этих коллекций в Log Analytics и службе автоматизации Azure.  
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
 Поддержка в Log Analytics текущей версии System Center Configuration Manager, версии 1606 или более поздних версий.  
 
 ## <a name="configuration-overview"></a>Общие сведения о настройке
-Ниже приведены действия для подключения Configuration Manager к Log Analytics.  
+Ниже приведены действия для настройки интеграции Configuration Manager с Log Analytics.  
 
 1. На портале Azure зарегистрируйте Configuration Manager как веб-приложение и (или) приложение веб-API. Затем убедитесь, что у вас есть идентификатор клиента и секретный ключ клиента, полученные при регистрации в Azure Active Directory. Подробные сведения о выполнении этого шага см. в статье [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-2. На портале Azure [укажите Configuration Manager (зарегистрированное веб-приложение) с разрешением на доступ к OMS](#provide-configuration-manager-with-permissions-to-oms).
+2. На портале Azure [предоставьте Configuration Manager (зарегистрированному веб-приложению) разрешение на доступ к Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
 3. В Configuration Manager [добавьте подключение с помощью мастера добавления подключений к OMS](#add-an-oms-connection-to-configuration-manager).
 4. В случае утери пароля или секретного ключа клиента либо истечения срока их действия вы можете [обновить свойства подключения](#update-oms-connection-properties) в Configuration Manager.
-5. Руководствуясь сведениями на портале OMS, [скачайте и установите Microsoft Monitoring Agent](#download-and-install-the-agent) на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager. Агент отправляет данные Configuration Manager в OMS.
+5. [Скачайте и установите Microsoft Monitoring Agent](#download-and-install-the-agent) на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager. Агент отправляет данные Configuration Manager в рабочую область Log Analytics.
 6. В Log Analytics [импортируйте коллекции из Configuration Manager](#import-collections) как группы компьютеров.
 7. В Log Analytics просмотрите данные из Configuration Manager как [группы компьютеров](log-analytics-computer-groups.md).
 
 Дополнительные сведения о подключении Configuration Manager к OMS см. в статье [Sync data from Configuration Manager to the Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx) (Синхронизация данных из Configuration Manager в Microsoft Operations Management Suite).
 
-## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Предоставление Configuration Manager разрешений в OMS
-С помощью приведенной ниже процедуры можно предоставить порталу Azure разрешения на доступ к OMS. В частности, вы должны предоставить пользователям в группе ресурсов *роль "Участник"*. Это позволит порталу Azure подключить Configuration Manager к OMS.
+## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Предоставление Configuration Manager разрешений для Log Analytics
+В следующей процедуре вы предоставляете роль *Участник* в рабочей области Log Analytics для приложения AD и субъекта-службы, созданных ранее для Configuration Manager.  Если у вас еще нет рабочей области, [создайте ее в Log Analytics](log-analytics-quick-create-workspace.md), прежде чем продолжить.  Это позволит Configuration Manager проходить аутентификацию и подключаться к рабочей области Log Analytics.  
 
 > [!NOTE]
-> Необходимо указать разрешения на доступ к OMS для Configuration Manager. В противном случае при использовании мастера конфигурации в Configuration Manager вы получите сообщение об ошибке.
+> Необходимо указать для Configuration Manager разрешения на доступ к Log Analytics. В противном случае при использовании мастера конфигурации в Configuration Manager вы получите сообщение об ошибке.
 >
->
 
-1. Откройте [портал Azure](https://portal.azure.com/) и выберите **Обзор** > **Log Analytics (OMS)**, чтобы открыть колонку Log Analytics (OMS).  
-2. В колонке **Log Analytics (OMS)** щелкните **Добавить**, чтобы открыть диалоговое окно **Рабочая область OMS**.  
-   ![OMS](./media/log-analytics-sccm/sccm-azure01.png)
-3. В окне **Рабочая область OMS** укажите следующие сведения и нажмите кнопку **ОК**:
+1. На портале Azure щелкните **Все службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.<br><br> ![портал Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. В списке рабочих областей Log Analytics выберите рабочую область, которую требуется изменить.
+3. В левой области выберите **Управление доступом (IAM)**.
+4. На странице "Управление доступом" щелкните **Добавить**. Откроется область **Добавление разрешений**.
+5. В области **Добавление разрешений** из раскрывающегося списка **Роли** выберите роль **Участник**.  
+6. Из раскрывающегося списка **Назначение доступа к** выберите приложение Configuration Manager, ранее созданное в AD, и нажмите кнопку **ОК**.  
 
-   * **рабочая область OMS**;
-   * **Подписка**
-   * **Группа ресурсов**
-   * **Местоположение.**
-   * **Ценовая категория**  
-     ![OMS](./media/log-analytics-sccm/sccm-azure02.png)  
-
-     > [!NOTE]
-     > В примере выше создается новая группа ресурсов. В нашем примере она нужна только для того, чтобы предоставить Configuration Manager разрешения для рабочей области OMS.
-     >
-     >
-4. Выберите **Обзор** > **Группы ресурсов**, чтобы открыть колонку **Группы ресурсов**.
-5. В колонке **Группы ресурсов** щелкните группу ресурсов, созданную выше, чтобы открыть параметры &lt;нужной группы ресурсов&gt;.  
-   ![Параметрами группы ресурсов](./media/log-analytics-sccm/sccm-azure03.png)
-6. В параметрах &lt;группы ресурсов&gt; щелкните "Управление доступом (IAM)", чтобы открыть колонку "&lt;Имя_группы_ресурсов&gt; — Пользователи".  
-   ![Колонка "Пользователи" для группы ресурсов](./media/log-analytics-sccm/sccm-azure04.png)  
-7. В колонке "&lt;Имя_группы_ресурсов&gt; — Пользователи" щелкните **Добавить**, чтобы открыть колонку **Добавление доступа**.
-8. В колонке **Добавление доступа** щелкните **Выберите роль** и выберите роль **Участник**.  
-   ![Выбор роли](./media/log-analytics-sccm/sccm-azure05.png)  
-9. Щелкните **Добавить пользователей**, выберите пользователя Configuration Manager, щелкните **Выбрать** и нажмите кнопку **ОК**.  
-   ![Добавление пользователей](./media/log-analytics-sccm/sccm-azure06.png)  
+## <a name="download-and-install-the-agent"></a>Загрузка и установка агента
+Ознакомьтесь со статьей [Создание рабочей области Log Analytics на портале Azure](log-analytics-agent-windows.md), чтобы понять, какие методы доступны для установки Microsoft Monitoring Agent на компьютере, на котором размещена роль системы сайта для точки подключения службы Configuration Manager.  
 
 ## <a name="add-an-oms-connection-to-configuration-manager"></a>Добавление подключения к OMS в Configuration Manager
 Чтобы добавить подключение к OMS, необходимо настроить [точку подключения службы](https://technet.microsoft.com/library/mt627781.aspx) в среде Configuration Manager для работы в оперативном режиме.
@@ -85,46 +67,41 @@ System Center Configuration Manager можно подключить к Log Analy
    2. На портале Azure вы создали секретный ключ приложения для зарегистрированного приложения в Azure Active Directory.  
    3. На портале Azure вы указали зарегистрированное веб-приложение с разрешением на доступ к OMS.  
       ![Страница "Общие" мастера подключений к OMS](./media/log-analytics-sccm/sccm-console-general01.png)
-3. На экране **Azure Active Directory** настройте параметры подключения к OMS, указав **клиент**, **идентификатор клиента** и **секретный ключ клиента**, а затем нажмите кнопку **Далее**.  
+3. На экране **Azure Active Directory** настройте параметры подключения к Log Analytics, указав **клиент**, **идентификатор клиента** и **секретный ключ клиента**, а затем нажмите кнопку **Далее**.  
    ![Страница "Azure Active Directory" мастера подключений к OMS](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. Если вы успешно выполнили все остальные процедуры, сведения, указанные на экране **OMS Connection Configuration** (Конфигурация подключения к OMS), автоматически появятся на этой странице. Параметры подключения должны отобразиться в вашей **подписке Azure**, **группе ресурсов Azure** и **рабочей области Operations Management Suite**.  
    ![Страница "Подключение" мастера подключений к OMS](./media/log-analytics-sccm/sccm-wizard-configure04.png)
-5. Мастер подключится к службе OMS, используя указанные вами сведения. Выберите коллекции устройств, которые требуется синхронизировать с OMS, а затем нажмите кнопку **Добавить**.  
+5. Мастер подключится к службе Log Analytics, используя указанные вами сведения. Выберите коллекции устройств, которые требуется синхронизировать со службой, а затем нажмите кнопку **Добавить**.  
    ![Выбор коллекций](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Проверьте параметры подключения на экране **Сводка**, а затем щелкните **Далее**. На экране **Ход выполнения** отображается состояние подключения (должно отобразиться состояние **Выполнено**).
 
 > [!NOTE]
-> OMS необходимо подключить к сайту верхнего уровня в иерархии. Если подключить OMS к автономному первичному сайту, а затем добавить в среду сайт центра администрирования, необходимо удалить и заново создать подключение к OMS в новой иерархии.
+> К Log Analytics необходимо подключить сайт верхнего уровня в иерархии. Если подключить к Log Analytics изолированный первичный сайт, а затем добавить в среду сайт центра администрирования, потребуется удалить и заново создать подключение в новой иерархии.
 >
 >
 
-Установив связь между Configuration Manager и OMS, можно добавить или удалить коллекции и просмотреть свойства подключения к OMS.
+Установив связь между Configuration Manager и Log Analytics, можно добавлять или удалять коллекции и просматривать свойства подключения.
 
-## <a name="update-oms-connection-properties"></a>Обновление свойств подключения к OMS
-В случае утери пароля или секретного ключа клиента либо истечения срока их действия необходимо вручную обновить свойства подключения к OMS.
+## <a name="update-log-analytics-connection-properties"></a>Обновление свойств подключения к Log Analytics
+В случае утери пароля или секретного ключа клиента либо истечения срока их действия необходимо вручную обновить свойства подключения к Log Analytics.
 
 1. В Configuration Manager перейдите к разделу **Облачные службы**, а затем выберите **Соединитель OMS**, чтобы открыть страницу **OMS Connection Properties** (Свойства подключения к OMS).
 2. На этой странице щелкните **Azure Active Directory**, чтобы просмотреть сведения о **клиенте**, **идентификаторе клиента** и **сроке действия секретного ключа клиента**. **Проверьте** **секретный ключ клиента**, если срок его действия истек.
 
-## <a name="download-and-install-the-agent"></a>Загрузка и установка агента
-1. На портале OMS [скачайте файл установки агента из OMS](log-analytics-windows-agent.md).
-2. Чтобы установить и настроить агент на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager, используйте один из следующих методов:
-   * [установка агента с помощью программы установки](log-analytics-windows-agent.md);
-   * [установка агента с помощью командной строки](log-analytics-windows-agent.md);
-   * [установка агента с помощью DSC в службе автоматизации Azure](log-analytics-windows-agent.md).
-
 ## <a name="import-collections"></a>Импорт коллекций
-Добавив подключение к OMS в Configuration Manager и установив агент на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager, можно переходить к следующему шагу — импорту коллекций из Configuration Manager в OMS как групп компьютеров.
+Добавив подключение к OMS в Configuration Manager и установив агент на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager, можно переходить к следующему шагу — импорту коллекций из Configuration Manager в Log Analytics как групп компьютеров.
 
-После включения импорта данные о членстве в коллекциях извлекаются каждые 3 часа. Так обеспечивается актуальность сведений о членстве в коллекциях. Импорт можно отключить в любое время.
+После завершения начальной настройки для импорта коллекций устройств из иерархии сведения о членстве в коллекции извлекается каждые 3 часа для обеспечения актуальности сведений о членстве. Это можно отключить в любое время.
 
-1. На портале OMS щелкните **Параметры**.
-2. Перейдите на вкладку **Группы компьютеров**, а затем выберите вкладку **SCCM**.
-3. Выберите **Импортировать членства в коллекциях Configuration Manager** и нажмите кнопку **Сохранить**.  
+1. На портале Azure щелкните **Все службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
+2. Из списка рабочих областей Log Analytics выберите ту, в которой зарегистрировано приложение Configuration Manager.  
+3. Выберите **Дополнительные параметры**.<br><br> ![Дополнительные параметры Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+4. Выберите **Группы компьютеров**, а затем щелкните **SCCM**.  
+5. Выберите **Импортировать членства в коллекциях Configuration Manager** и нажмите кнопку **Сохранить**.  
    ![Вкладка "SCCM" на вкладке "Группы компьютеров"](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Просмотр данных из Configuration Manager
-Когда вы добавите подключение к OMS в Configuration Manager и установите агент на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager, данные будут отправляться из агента в OMS. В OMS коллекции из Configuration Manager будут отображаться как [группы компьютеров](log-analytics-computer-groups.md). Группы можно просматривать на странице **Configuration Manager**, выбрав вкладку **Группы компьютеров** в разделе **Параметры**.
+Когда вы добавите подключение к OMS в Configuration Manager и установите агент на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager, данные будут отправляться из агента в Log Analytics. В Log Analytics коллекции из Configuration Manager отображаются как [группы компьютеров](log-analytics-computer-groups.md). Группы можно просматривать на странице **Configuration Manager**, выбрав **Параметры > Группы компьютеров**.
 
 После импорта коллекций можно увидеть число обнаруженных компьютеров с членством в коллекциях. Также можно увидеть число импортированных коллекций.
 

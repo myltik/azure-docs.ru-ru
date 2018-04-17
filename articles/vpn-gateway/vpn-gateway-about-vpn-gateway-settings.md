@@ -4,7 +4,7 @@ description: Узнайте о параметрах VPN-шлюза для шлю
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Сведения о параметрах конфигурации VPN-шлюза
 
@@ -28,7 +28,9 @@ VPN-шлюз — это разновидность шлюза виртуаль�
 Подключение VPN-шлюза зависит от конфигурации нескольких ресурсов, каждый из которых содержит настраиваемые параметры. В разделах этой статьи рассматриваются ресурсы и параметры, относящиеся к VPN-шлюзу для виртуальной сети, созданной на основе модели развертывания с помощью Resource Manager. Описания и схемы топологий для каждого варианта подключения можно найти в статье [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md).
 
 >[!NOTE]
-> Значения в этой статье применяются к шлюзам виртуальной сети, использующим -GatewayType Vpn. Именно поэтому они называются VPN-шлюзами. Значения, которые применяются к -GatewayType ExpressRoute, см. в статье [Сведения о шлюзах виртуальных сетей ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Значения, применяемые для шлюзов ExpressRoute и VPN-шлюзов, различны.
+> Значения в этой статье применяются к шлюзам виртуальной сети, использующим -GatewayType Vpn. Поэтому эти конкретные шлюзы виртуальной сети называются VPN-шлюзами. Значения, применяемые для шлюзов ExpressRoute и VPN-шлюзов, различны.
+>
+>Значения, которые применяются к -GatewayType ExpressRoute, см. в статье [Сведения о шлюзах виртуальных сетей ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>Настройка номера SKU шлюза
+### <a name="configure-a-gateway-sku"></a>Настройка номера SKU для шлюза
 
 #### <a name="azure-portal"></a>Портал Azure
 
@@ -63,24 +65,35 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 #### <a name="powershell"></a>PowerShell
 
-В следующем примере PowerShell используется `-GatewaySku` со значением VpnGw1.
+В следующем примере PowerShell используется `-GatewaySku` со значением VpnGw1. Чтобы создать шлюз с помощью PowerShell, сначала создайте IP-конфигурацию, а затем для ссылки на нее используйте переменную. В этом примере переменная конфигурации — $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>Изменение номера SKU (размера) шлюза
+#### <a name="azure-cli"></a>Инфраструктура CLI Azure
 
-Для повышения уровня SKU шлюза до более производительного можно воспользоваться командлетом PowerShell `Resize-AzureRmVirtualNetworkGateway`. С помощью этого командлета также можно перейти на более низкий уровень SKU.
-
-В следующем примере PowerShell показано изменение размера шлюза до SKU со значением VpnGw2.
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>Сравнение изменения размера с изменением номера SKU
+
+Изменить размер шлюза с определенным номером SKU довольно просто. Простой при изменении размера шлюза очень незначителен. Но для изменения размера есть определенные правила:
+
+1. Размер SKU можно изменять, выбирая между следующими вариантами: VpnGw1, VpnGw2 и VpnGw3.
+2. Для номеров SKU предыдущих версий можно изменять размер, выбирая между следующими вариантами: Basic, Standard и HighPerformance.
+3. Но вы **не можете** изменить размер номеров SKU с Basic, Standard и HighPerformance на VpnGw1, VpnGw2 или VpnGw3, доступные в новой версии. Вместо этого нужно [изменить](#change) номера SKU на новые.
+
+#### <a name="resizegwsku"></a>Изменение размера шлюза
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>Изменение прежнего (устаревшего) номера SKU на новый
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Типы подключения
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Иногда возникает необходимость изменить параметры локального сетевого шлюза. Например, при добавлении или изменении диапазона адресов, либо при изменении IP-адреса VPN-устройства. См. статью [Изменение параметров шлюза локальной сети с помощью PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>Интерфейсы REST API и командлеты PowerShell
+## <a name="resources"></a>Интерфейсы REST API, командлеты PowerShell и CLI
 
 Дополнительные технические материалы и специальные требования к синтаксису, действующие при использовании интерфейсов REST API, командлетов PowerShell или Azure CLI для настройки конфигураций VPN-шлюзов, доступны на приведенных ниже страницах.
 

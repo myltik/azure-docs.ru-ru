@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Простой единый вход Azure Active Directory — быстрый запуск
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/16/2018
 
 Выполните указанные ниже предварительные требования.
 
-* **Настройка сервера Azure AD Connect**. Если в качестве метода входа вы используете [сквозную аутентификацию](active-directory-aadconnect-pass-through-authentication.md), никакие дополнительные проверки предварительных требований не нужны. Если в качестве метода входа вы используете [синхронизацию хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) и между Azure AD Connect и Azure AD существует брандмауэр, убедитесь в следующем:
+* **Настройка сервера Azure AD Connect**. Если в качестве метода входа вы используете [сквозную аутентификацию](active-directory-aadconnect-pass-through-authentication.md), никакие дополнительные проверки предварительных требований не нужны. Если в качестве метода входа вы используете [синхронизацию хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) и между Azure AD Connect и Azure AD существует брандмауэр, убедитесь в следующем:
    - Используется Azure AD Connect версии 1.1.644.0 или более поздней версии. 
    - Если брандмауэр или прокси-сервер поддерживает внесение DNS в список разрешений, добавьте в него подключения к URL-адресам **\*msappproxy.net** через порт 443. Если нет, разрешите доступ к [диапазонам IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653). Список диапазонов IP-адресов обновляется еженедельно. Это предварительное условие применяется только в том случае, если вы включаете функцию. Его выполнение не обязательно для фактического входа пользователя.
 
@@ -148,7 +148,7 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
 
 #### <a name="known-browser-limitations"></a>Известные ограничения браузеров
 
-Простой единый вход не работает в конфиденциальном режиме просмотра в браузерах Firefox и Edge, а также в Internet Explorer, если браузер работает в режиме повышенной защиты.
+Простой единый вход не работает в конфиденциальном режиме просмотра в браузерах Firefox и Microsoft Edge, а также в Internet Explorer, если браузер работает в режиме повышенной защиты.
 
 ## <a name="step-4-test-the-feature"></a>Шаг 4. Тестирование компонента
 

@@ -1,11 +1,11 @@
 ---
-title: "Настройка телеметрии служб мультимедиа Azure с использованием REST | Документация Майкрософт"
-description: "В этой статье показано, как использовать данные телеметрии служб мультимедиа Azure с помощью REST API."
+title: Настройка телеметрии служб мультимедиа Azure с использованием REST | Документация Майкрософт
+description: В этой статье показано, как использовать данные телеметрии служб мультимедиа Azure с помощью REST API.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Настройка телеметрии служб мультимедиа Azure с использованием REST
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 - Получение конечных точек уведомления.
 - Создание конечной точки уведомления для мониторинга. 
 
-    Чтобы создать конечную точку уведомления, укажите в EndPointType значение AzureTable (2), а в endPontAddress — таблицу хранилища (например, https://telemetryvalidationstore.table.core.windows.net).
+    Чтобы создать конечную точку уведомления, задайте для EndPointType значение AzureTable (2), а для endPontAddress — таблицу хранилища (например, https://telemetryvalidationstore.table.core.windows.net/)).
   
 - Получение конфигураций мониторинга
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Получение учетной записи хранения, связанной с учетной записью служб мультимедиа
 
-###<a name="request"></a>Запрос
+### <a name="request"></a>Запрос
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="get-the-notification-endpoints"></a>Получение конечных точек уведомления
 
-###<a name="request"></a>Запрос
+### <a name="request"></a>Запрос
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Ответ
+### <a name="response"></a>Ответ
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Создание конечной точки уведомления для мониторинга
 
-###<a name="request"></a>Запрос
+### <a name="request"></a>Запрос
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ ms.lasthandoff: 10/11/2017
     }
 
 >[!NOTE]
->Не забудьте изменить значение https://telemetryvalidationstore.table.core.windows.net в соответствии со своей учетной записью хранения.
+>Обязательно измените значение https://telemetryvalidationstore.table.core.windows.net, указав вашу учетную запись хранения.
 
-###<a name="response"></a>Ответ
+### <a name="response"></a>Ответ
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Ответ
+### <a name="response"></a>Ответ
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="stop-telemetry"></a>Завершение сбора данных телеметрии
 
-###<a name="request"></a>Запрос
+### <a name="request"></a>Запрос
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

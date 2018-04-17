@@ -1,8 +1,8 @@
 ---
-title: "Использование браузера и представления заданий в Azure Data Lake Analytics | Документация Майкрософт"
-description: "Узнайте, как использовать браузер и представление для заданий Azure Data Lake Analytics. "
+title: Использование браузера и представления заданий в Azure Data Lake Analytics | Документация Майкрософт
+description: 'Узнайте, как использовать браузер и представление для заданий Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Использование браузера и представления для заданий Azure Data Lake Analytics
 Служба Azure Data Lake Analytics архивирует отправленные задания в [хранилище запросов](#query-store). В этой статье вы узнаете, как использовать браузер и представление заданий в средствах Azure Data Lake для Visual Studio, чтобы находить исторические сведения о заданиях. 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
       ![Состояния этапов задания Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Подготовка. Загрузите скрипт в облако, компилировав и оптимизировав сценарий с помощью службы компиляции.
-    * В очереди. Задания находятся в очереди, пока ожидают появления достаточного количества ресурсов, или количество заданий превышает максимальное количество заданий, выполняемых одновременно, на учетную запись. Параметр приоритета определяет последовательность постановки заданий в очередь: чем меньше число, тем выше приоритет.
+    * В очереди. Задания находятся в очереди, пока ожидают появления достаточного количества ресурсов, или количество заданий превышает максимальное число заданий, выполняемых одновременно, на учетную запись. Параметр приоритета определяет последовательность постановки заданий в очередь: чем меньше число, тем выше приоритет.
     * Выполняется. Задание выполняется в учетной записи Data Lake Analytics.
     * Завершение. Задание завершается (например, завершение работы с файлом).
       

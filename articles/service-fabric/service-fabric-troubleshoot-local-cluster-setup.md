@@ -1,24 +1,24 @@
 ---
-title: "Устранение неполадок в настройке локального кластера Service Fabric | Документация Майкрософт"
-description: "В этой статье описываются рекомендации по устранению неполадок с кластером локальной разработки."
+title: Устранение неполадок в настройке локального кластера Azure Service Fabric | Документация Майкрософт
+description: В этой статье описываются рекомендации по устранению неполадок с кластером локальной разработки.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 6879a24df434d5bf69c9ba14aa00cdc9cd67df57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Устранение неполадок в работе кластера локальной разработки
 Если у вас возникли проблемы при взаимодействии с кластером локальной разработки Azure Service Fabric, ознакомьтесь со следующими возможностями для решения.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="cluster-setup-failures"></a>Ошибки настройки кластера
 ### <a name="cannot-clean-up-service-fabric-logs"></a>Не удается очистить журналы Service Fabric
 #### <a name="problem"></a>Проблема
-При выполнении сценария DevClusterSetup появляется следующее сообщение об ошибке:
+При выполнении скрипта DevClusterSetup появляется следующее сообщение об ошибке:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -36,20 +36,9 @@ ms.lasthandoff: 10/11/2017
 
 
 #### <a name="solution"></a>Решение
-Закройте текущее и откройте новое окно PowerShell от имени администратора. Теперь можно успешно запустить сценарий.
+Закройте текущее и откройте новое окно PowerShell от имени администратора. Теперь можно успешно запустить скрипт.
 
 ## <a name="cluster-connection-failures"></a>Ошибки подключения к кластеру
-### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Командлеты Service Fabric PowerShell не распознаются в Azure PowerShell
-#### <a name="problem"></a>Проблема
-Попытка запустить командлеты Service Fabric PowerShell, например `Connect-ServiceFabricCluster` в окне Azure PowerShell, не удается, с сообщением о том, что командлет не распознан. Причина в том, что Azure PowerShell использует 32-разрядную версию Windows PowerShell (даже на 64-разрядной версии ОС), а командлеты Service Fabric работают только в 64-разрядной среде.
-
-#### <a name="solution"></a>Решение
-Всегда запускайте командлеты Service Fabric непосредственно из Windows PowerShell.
-
-> [!NOTE]
-> Последняя версия Azure PowerShell не создает специальный ярлык, поэтому так больше не должно происходить.
-> 
-> 
 
 ### <a name="type-initialization-exception"></a>Исключение типа инициализации
 #### <a name="problem"></a>Проблема
@@ -70,14 +59,14 @@ ms.lasthandoff: 10/11/2017
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
 #### <a name="solution"></a>Решение
-Закройте текущее и откройте новое окно PowerShell от имени администратора. Теперь можно успешно подключиться.
+Закройте текущее и откройте новое окно PowerShell от имени администратора.
 
 ### <a name="fabric-connection-denied-exception"></a>Исключение Fabric Connection Denied
 #### <a name="problem"></a>Проблема
 При отладке в Visual Studio отображается ошибка FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Решение
-Эта ошибка обычно возникает, если вы пытаетесь запустить процесс узла службы вручную, а не указываете среде выполнения Service Fabric запустить его автоматически.
+Эта ошибка обычно возникает при попытке вручную запустить хост-процесс службы.
 
 Убедитесь, что в решении нет проектов служб, настроенных в качестве запускаемых проектов. В качестве запускаемых проектов можно настраивать только проекты приложений Service Fabric.
 

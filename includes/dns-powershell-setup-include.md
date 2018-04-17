@@ -1,3 +1,19 @@
+---
+title: Включаемый файл для PowerShell для Azure DNS
+description: Включаемый файл для PowerShell для Azure DNS
+services: dns
+author: subsarma
+ms.service: dns
+ms.topic: include file for PowerShell for Azure DNS
+ms.date: 03/21/2018
+ms.author: subsarma
+ms.custom: include file for PowerShell for Azure DNS
+ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 03/28/2018
+---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Настройка Azure PowerShell для Azure DNS
 
 ### <a name="before-you-begin"></a>Перед началом работы
@@ -6,6 +22,30 @@
 
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
 * Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager. Подробнее: [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+
+Кроме того, для использования Частных зон (предварительная версия) необходимо убедиться, что у вас есть следующие модули и версии PowerShell. 
+* AzureRM.Dns [версии 4.1.0 ](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) или более поздней
+* AzureRM.Network [версии 5.4.0 ](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) или более поздней
+
+```powershell 
+Find-Module -Name AzureRM.Dns 
+``` 
+ 
+```powershell 
+Find-Module -Name AzureRM.Network 
+``` 
+ 
+Выходные данные описанных выше команд должны показать версию 4.1.0 и выше для AzureRM.Dns и версию 5.4.0 и выше для AzureRM.Network.  
+
+Если в системе установлены более ранние версии, вы можно установить последнюю версию Azure PowerShell или скачать и установить описанные выше модули из коллекции PowerShell, перейдя по ссылке рядом с версией модуля. Затем их можно установить с помощью следующих команд. Оба модуля являются обязательными. Они характеризуются полной обратной совместимостью. 
+
+```powershell
+Install-Module -Name AzureRM.Dns -Force
+```
+
+```powershell
+Install-Module -Name AzureRM.Network -Force
+```
 
 ### <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
 

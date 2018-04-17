@@ -1,11 +1,11 @@
 ---
-title: "Как использовать API Engagement в iOS"
-description: "Пакет SDK для последней версии iOS - Как использовать API Engagement в iOS"
+title: Как использовать API Engagement в iOS
+description: Пакет SDK для последней версии iOS - Как использовать API Engagement в iOS
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Как использовать API Engagement в iOS
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 Этот документ представляет собой дополнение к документу «Как интегрировать Mobile Engagement в iOS». В нем предоставлена подробная информация о том, как использовать API Engagement для сообщения статистики приложения.
 
 Учтите, что если вам требуется, чтобы служба Engagement сообщала только о сеансах, действиях, сбоях и технической информации приложения, проще всего сделать так, чтобы все пользовательские объекты `UIViewController` наследовались из соответствующего класса `EngagementViewController`.

@@ -1,11 +1,11 @@
 ---
-title: "Публикация содержимого на портале Azure | Документация Майкрософт"
-description: "В этом руководстве пошагово описано, как публиковать содержимое на портале Azure."
+title: Публикация содержимого на портале Azure | Документация Майкрософт
+description: В этом руководстве пошагово описано, как публиковать содержимое на портале Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Публикация содержимого на портале Azure
 > [!div class="op_single_selector"]
@@ -36,20 +36,20 @@ ms.lasthandoff: 12/21/2017
 
 Чтобы предоставить пользователю URL-адрес, который можно использовать для потоковой передачи или загрузки содержимого, сначала опубликуйте ресурс, создав указатель. Указатели предоставляют доступ к файлам ресурсов. Службы мультимедиа Azure поддерживают два типа указателей: 
 
-* **Указатели потоковой передачи OnDemandOrigin.** Такие указатели используются для потоковой передачи с переменной скоростью. Примеры потоковой передачи с переменной скоростью: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming и динамическая потоковая передача с переменной скоростью по HTTP (DASH, также называется MPEG-DASH). Чтобы создать указатель потоковой передачи, в ресурсе должен быть ISM-файл. 
+* **Указатели потоковой передачи OnDemandOrigin.** Такие указатели используются для потоковой передачи с переменной скоростью. Примеры потоковой передачи с переменной скоростью: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming и динамическая потоковая передача с переменной скоростью по HTTP (DASH, также называется MPEG-DASH). Чтобы создать указатель потоковой передачи, в ресурсе должен быть ISM-файл. Например, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Последовательные указатели (подписанного URL-адреса).** Такие указатели используются для доставки видео при последовательном скачивании.
 
 Чтобы создать URL-адрес потоковой передачи HLS, добавьте *(format=m3u8-aapl)* к URL-адресу:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 Чтобы создать URL-адрес потоковой передачи для воспроизведения ресурсов Smooth Streaming, используйте следующий формат:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 Чтобы создать URL-адрес для потоковой передачи в формате MPEG-DASH, добавьте к исходному адресу строку *(format=mpd-time-csf)*:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 Подписанный URL-адрес имеет следующий формат:
 

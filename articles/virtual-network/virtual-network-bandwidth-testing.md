@@ -1,12 +1,12 @@
 ---
-title: "Тестирование пропускной способности сети для виртуальной машины Azure | Документация Майкрософт"
-description: "Узнайте, как проверить пропускную способность сети для виртуальной машины Azure."
+title: Тестирование пропускной способности сети для виртуальной машины Azure | Документация Майкрософт
+description: Узнайте, как проверить пропускную способность сети для виртуальной машины Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

@@ -1,26 +1,20 @@
 ---
-title: "Общие сведения о проверке подлинности в службе автоматизации Azure | Документация Майкрософт"
-description: "В этой статье содержатся общие сведения об автоматическом обеспечении безопасности с использованием разных методов проверки подлинности, доступных для учетных записей службы автоматизации в службе автоматизации Azure."
+title: Общие сведения о проверке подлинности в службе автоматизации Azure
+description: В этой статье содержатся общие сведения об автоматическом обеспечении безопасности с использованием разных методов проверки подлинности, доступных для учетных записей службы автоматизации в службе автоматизации Azure.
+keywords: безопасность в службе автоматизации, обеспечение безопасности в службе автоматизации, проверка подлинности в службе автоматизации
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "безопасность в службе автоматизации, обеспечение безопасности в службе автоматизации, проверка подлинности в службе автоматизации"
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2017
-ms.author: magoedte
+manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4280c0de3f5c38aa8a72bad391544b03116e26c9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Общие сведения о проверке подлинности в службе автоматизации Azure  
 С помощью службы автоматизации Azure можно автоматизировать задачи, выполняемые с ресурсами Azure (локально), а также с ресурсами других поставщиков облачных служб, например Amazon Web Services (AWS).  Для выполнения необходимых действий модуль Runbook должен иметь разрешения на безопасный доступ к ресурсам с минимальными правами, требуемыми в рамках подписки.

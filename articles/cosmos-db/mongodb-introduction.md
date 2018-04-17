@@ -1,12 +1,11 @@
 ---
-title: "Знакомство с API для MongoDB в Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов документов JSON и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS."
-keywords: "что такое MongoDB"
+title: 'Знакомство с Azure Cosmos DB: API MongoDB | Документация Майкрософт'
+description: Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов документов JSON и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS.
+keywords: что такое MongoDB
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4baf691268fdb11f769a39144c2b5461ee9c2362
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Знакомство с API для MongoDB в Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Знакомство с Azure Cosmos DB: API MongoDB
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) — это глобально распределенная, многомодельная служба базы данных Майкрософт, необходимая для работы с критически важными приложениями. Эта служба базы данных обеспечивает [готовое к использованию глобальное распределение](distribute-data-globally.md), [гибкое масштабирование пропускной способности и хранилища](partition-data.md) по всему миру, задержки менее 10 миллисекунд на уровне 99-го процентиля, а также гарантированную высокую доступность — все это согласно [ведущим в отрасли соглашениям об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [автоматически индексирует данные](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) без необходимости управлять схемой и индексом. Так как эта база данных является многомодельной, она поддерживает модели данных документа, "ключ — значение", графа и столбчатые модели данных. 
 
 ![Azure Cosmos DB: API MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Базы данных Azure Cosmos DB можно использовать как хранилище данных для приложений, написанных для [MongoDB](https://docs.mongodb.com/manual/introduction/). Эта означает, что с помощью существующих [драйверов](https://docs.mongodb.org/ecosystem/drivers/) приложение, написанное для MongoDB, теперь может обмениваться данными с Azure Cosmos DB и использовать базы данных Azure Cosmos DB вместо баз данных MongoDB. Чаще всего, чтобы переключиться с использования MongoDB на Azure Cosmos DB, нужно просто изменить строку подключения. Это позволяет легко создавать и запускать приложения базы данных MongoDB в облаке Azure, используя глобальное распределение Azure Cosmos DB и [ведущие в отрасли комплексные соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db), продолжая при этом работать с привычными инструментами для MongoDB.
+Базы данных Azure Cosmos DB можно использовать как хранилище данных для приложений, написанных для [MongoDB](https://docs.mongodb.com/manual/introduction/). Эта означает, что с помощью существующих [драйверов](https://docs.mongodb.org/ecosystem/drivers/) приложение, написанное для MongoDB, теперь может обмениваться данными с Azure Cosmos DB и использовать базы данных Azure Cosmos DB вместо баз данных MongoDB. Чаще всего, чтобы переключиться с использования MongoDB на Azure Cosmos DB, нужно просто изменить строку подключения. Это позволяет легко создавать и запускать глобально распределенные приложения базы данных MongoDB в облаке Azure с Azure Cosmos DB и [ведущие в отрасли комплексные соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db), продолжая при этом работать с привычными инструментами для MongoDB.
 
 **Совместимость с MongoDB**: можно применять имеющиеся знания о MongoDB, код приложений и инструменты, так как Azure Cosmos DB реализует протокол коммутации MongoDB 3.4 (версии 5) и поддерживает [конвейер статистической обработки MongoDB](mongodb-feature-support.md#aggregation-pipeline). Кроме того, вы можете разрабатывать приложения с использованием MongoDB и развертывать их в рабочей среде с помощью полностью управляемой глобально распределенной службы Azure Cosmos DB.
 

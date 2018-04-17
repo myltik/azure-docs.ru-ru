@@ -1,13 +1,13 @@
 ---
-title: "Настройка резервного копирования и репликации HBase и Phoenix в Azure HDInsight | Документация Майкрософт"
-description: "Сведения о настройке резервного копирования и репликации HBase и Phoenix."
+title: Настройка резервного копирования и репликации HBase и Phoenix в Azure HDInsight | Документация Майкрософт
+description: Сведения о настройке резервного копирования и репликации HBase и Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

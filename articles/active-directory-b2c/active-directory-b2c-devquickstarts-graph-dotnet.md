@@ -1,24 +1,21 @@
 ---
-title: "Использование API Graph в Azure AD B2C | Документация Майкрософт"
-description: "Сведения о том, как вызвать API Graph для клиента B2C, используя удостоверение приложения для автоматизации процесса."
+title: Использование API Graph в Azure AD B2C | Документация Майкрософт
+description: Сведения о том, как вызвать API Graph для клиента B2C, используя удостоверение приложения для автоматизации процесса.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C. Использование API Graph Azure AD
 
@@ -48,7 +45,7 @@ ms.lasthandoff: 02/27/2018
 3. На панели навигации слева выберите **Все службы**, щелкните **Регистрация приложений**, а затем нажмите кнопку **Добавить**.
 4. Следуйте инструкциям на экране, а затем создайте новое приложение. 
     1. Выберите в качестве типа приложения **Веб-приложение или API**.    
-    2. Укажите **любой URI перенаправления** (например, https://B2CGraphAPI), так как он неважен в этом примере.  
+    2. Укажите **любой URL-адрес для входа** (например, https://B2CGraphAPI)), так как он не неважен в этом примере.  
 5. Теперь приложение появится в списке приложений. Щелкните его, чтобы получить **идентификатор приложения** (также известный как идентификатор клиента). Скопируйте его, так как он потребуется вам в одном из следующих разделов.
 6. В меню "Параметры" щелкните **Ключи** и добавьте новый ключ (секрет клиента). Также скопируйте его для использования в одном из следующих разделов.
 

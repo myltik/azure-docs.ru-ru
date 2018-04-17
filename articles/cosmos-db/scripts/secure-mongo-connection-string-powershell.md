@@ -1,13 +1,12 @@
 ---
-title: "Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью скрипта Azure PowerShell | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell. Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB"
+title: Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью скрипта Azure PowerShell | Документация Майкрософт
+description: Пример скрипта Azure PowerShell. Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: e44e35cc7d11db48cd82e470ce8226b3c8cc220a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: 0f53c060468c1473e0ed1329907fc84a37a2b902
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью PowerShell
 

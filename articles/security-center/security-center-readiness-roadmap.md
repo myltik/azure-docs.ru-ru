@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 88b95c28cd64afb97fb34d2bced09161c3aa9312
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>План подготовки к работе с центром безопасности Azure
 Этот документ содержит план подготовки, который поможет вам приступить к работе с центром безопасности Azure.
@@ -94,8 +94,9 @@ ms.lasthandoff: 03/23/2018
 
 В следующих ресурсах объясняется, как использовать эти возможности в центре безопасности.
 
-Видео   
+Видеоролики  
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU) (Центр безопасности Azure — JIT-доступ к виртуальной машине)
+* [Центр безопасности Azure — адаптивные элементы управления приложениями](https://youtu.be/wWWekI1Y9ck)
 
 Статьи    
 * [Управление доступом к виртуальным машинам с помощью JIT](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -105,6 +106,7 @@ ms.lasthandoff: 03/23/2018
 
 * [Security Center hands-on lab](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72) (Практические занятия по работе з центром безопасности)
 * [Web Application Firewall (WAF) recommendation playbook in Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff) (Сборник рекомендаций для брандмауэра веб-приложений в центре безопасности)
+* [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046) (Сборник схем для центра безопасности Azure: оповещения безопасности)
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Документация по центру безопасности](https://docs.microsoft.com/azure/security-center/)
@@ -115,6 +117,7 @@ ms.lasthandoff: 03/23/2018
 * [Рекомендации по обеспечению сетевой безопасности](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Рекомендации для PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Соответствие требованиям](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [OMS customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/) (Клиенты OMS теперь могут использовать центр безопасности Azure для защиты своих рабочих нагрузок в гибридном облаке)
 
 ## <a name="community-resources"></a>Ресурсы сообщества
 

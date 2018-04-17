@@ -1,20 +1,20 @@
 ---
-title: "Основные сведения о неуправляемых (страничные BLOB-объекты) и управляемых дисковых хранилищах для виртуальных машин Microsoft Azure под управлением Linux | Документация Майкрософт"
-description: "Основные сведения о неуправляемых (страничные BLOB-объекты) и управляемых дисковых хранилищах для виртуальных машин Linux в Azure."
+title: Основные сведения о неуправляемых (страничные BLOB-объекты) и управляемых дисковых хранилищах для виртуальных машин Microsoft Azure под управлением Linux | Документация Майкрософт
+description: Основные сведения о неуправляемых (страничные BLOB-объекты) и управляемых дисковых хранилищах для виртуальных машин Linux в Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3742b05bceea7aed556d06ab4460abaa08aca7d1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Основные сведения о дисковых хранилищах для виртуальных машин Linux в Azure
 Как и любой другой компьютер, виртуальные машины в Azure используют диски как место хранения операционной системы, приложений и данных. Все виртуальные машины Azure имеют по крайней мере два диска — диск операционной системы Linux и временный диск. Диск операционной системы создается из образа, а диск операционной системы и образ в действительности являются виртуальными жесткими дисками (VHD), расположенными в учетной записи хранения Azure. Кроме того, виртуальные машины могут иметь один или несколько дисков данных, которые также хранятся на виртуальных жестких дисках. 

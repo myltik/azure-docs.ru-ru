@@ -1,24 +1,21 @@
 ---
-title: "Azure AD B2C: вход в веб-приложения с помощью OpenID Connect | Документация Майкрософт"
-description: "Создание веб-приложений с помощью реализации протокола проверки подлинности OpenID Connect в Azure Active Directory"
+title: 'Azure AD B2C: вход в веб-приложения с помощью OpenID Connect | Документация Майкрософт'
+description: Создание веб-приложений с помощью реализации протокола проверки подлинности OpenID Connect в Azure Active Directory
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: вход в веб-приложения с помощью OpenID Connect
 OpenID Connect — это протокол проверки подлинности на основе OAuth 2.0, который может использоваться для безопасного входа пользователей в веб-приложения. Используя реализацию OpenID Connect в Azure Active Directory B2C (Azure AD B2C), можно передать Azure Active Directory (Azure AD) регистрацию, вход в систему и другие действия по управлению пользователями в веб-приложениях. В этом руководстве показано, как это сделать (независимо от языка программирования). и описывает, как отправлять и получать сообщения HTTP, не используя ни одну из наших библиотек с открытым исходным кодом.
@@ -29,7 +26,7 @@ OpenID Connect — это протокол проверки подлинност
 
 В Azure AD B2C стандартный протокол OpenID Connect выходит за рамки простой проверки подлинности и авторизации. В нем появляется [параметр политики](active-directory-b2c-reference-policies.md), который позволяет использовать OpenID Connect для добавления в приложение таких действий по управлению пользователями, как регистрация, вход и управление профилями. Здесь мы покажем, как с помощью OpenID Connect и политик реализовать каждую из этих функций в собственных веб-приложениях. Мы также покажем, как получить маркеры доступа к веб-API.
 
-В HTTP-запросах в следующем разделе будут использованы наш пример каталога B2C (fabrikamb2c.onmicrosoft.com), а также наш пример приложения (https://aadb2cplayground.azurewebsites.net) и политики. Вы можете пробовать выполнять запросы с этими значениями или заменить их на собственные.
+В HTTP-запросах в следующем разделе используется наш пример каталога B2C (fabrikamb2c.onmicrosoft.com), а также наш пример приложения (https://aadb2cplayground.azurewebsites.net) и политики. Вы можете пробовать выполнять запросы с этими значениями или заменить их на собственные.
 Узнайте, как [получить собственный клиент, приложение и политики B2C](#use-your-own-b2c-directory).
 
 ## <a name="send-authentication-requests"></a>Отправка запросов проверки подлинности

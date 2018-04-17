@@ -1,9 +1,9 @@
 ---
-title: "Разработка и развертывание веб-заданий с помощью Visual Studio в Azure"
-description: "Сведения о разработке и развертывании веб-заданий Azure в службе приложений Azure с помощью Visual Studio."
+title: Разработка и развертывание веб-заданий с помощью Visual Studio в Azure
+description: Сведения о разработке и развертывании веб-заданий Azure в службе приложений Azure с помощью Visual Studio.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Разработка и развертывание веб-заданий в службе приложений Azure с помощью Visual Studio
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/22/2017
 При развертывании в Visual Studio проекта консольного приложения с поддержкой веб-заданий выполняются две задачи.
 
 * Копирование файлов среды выполнения в соответствующую папку в веб-приложении (*App_Data/jobs/continuous* для постоянных веб-заданий, *App_Data/jobs/triggered* для запланированных веб-заданий и веб-заданий по запросу).
-* Указание [заданий планировщика Azure](#scheduler) для веб-заданий, которые запланированы на выполнение в определенное время. (Это не требуется для постоянных веб-заданий.)
+* Указание заданий [планировщика Azure](https://docs.microsoft.com/azure/scheduler/) для веб-заданий, которые запланированы на выполнение в определенное время. (Это не требуется для постоянных веб-заданий.)
 
 Проект с поддержкой веб-заданий содержит следующие добавленные элементы.
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/22/2017
           "runMode": "Continuous"
         }
 
-Вы можете изменить этот файл напрямую, и Visual Studio предоставит IntelliSense. Схема файла сохранена на сайте [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) , и ее можно просмотреть здесь.  
+Вы можете изменить этот файл напрямую, и Visual Studio предоставит IntelliSense. Схема файла сохранена на сайте [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json), и ее можно просмотреть здесь.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 При связывании проекта с поддержкой веб-заданий с веб-проектом Visual Studio сохраняет имя проекта веб-заданий в файле *webjobs-list.json* в папке веб-проекта *Properties*. Список может содержать несколько проектов веб-заданий, как показано в следующем примере:
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/22/2017
           ]
         }
 
-Вы можете изменить этот файл напрямую, и Visual Studio предоставит IntelliSense. Схема файла сохранена на сайте [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) , и ее можно просмотреть здесь.
+Вы можете изменить этот файл напрямую, и Visual Studio предоставит IntelliSense. Схема файла сохранена на сайте [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json), и ее можно просмотреть здесь.
 
 ## <a id="deploy"></a>Развертывание проекта веб-заданий
 Проект веб-заданий, связанный с веб-проектом, развертывается автоматически с веб-проектом. Информацию о развертывании веб-проектов см. в левой области навигации **Практические руководства** > **Развертывание приложения**.

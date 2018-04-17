@@ -1,6 +1,6 @@
 ---
-title: "Прогнозное обслуживание в реальных сценариях | Документация Майкрософт"
-description: "Прогнозное обслуживание в реальных сценариях с использованием PySpark"
+title: Прогнозное обслуживание в реальных сценариях | Документация Майкрософт
+description: Прогнозное обслуживание в реальных сценариях с использованием PySpark
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Прогнозное обслуживание в реальных сценариях
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/24/2018
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Репозиторий коллекции Cortana Intelligence на GitHub
 
-Коллекция Cortana Intelligence для руководства по прогнозному обслуживанию — это общедоступный репозиторий GitHub ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)), где можно сообщить о проблемах и предложить свои идеи.
+Коллекция Cortana Intelligence для руководства по прогнозному обслуживанию — это общедоступный репозиторий GitHub ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)), где можно сообщить о проблемах и предложить свои идеи.
 
 
 ## <a name="use-case-overview"></a>Обзор варианта использования

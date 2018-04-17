@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Участие пользователя в устойчивых функциях. Пример проверки номера телефона
 
@@ -28,8 +28,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Выполните инструкции в статье об [установке устойчивых функций](durable-functions-install.md), чтобы настроить пример.
-* В этой статье предполагается, что вы уже ознакомлены с пошаговым руководством по примеру [последовательности Hello](durable-functions-sequence.md).
+* [Установите устойчивые функции](durable-functions-install.md).
+* Ознакомьтесь с пошаговым руководством по примеру [последовательности Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Обзор сценария
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/17/2018
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-В следующих разделах рассматривается конфигурация и код, которые используются при разработке с помощью портала Azure. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
+В следующих разделах рассматривается конфигурация и код, которые используются для написания скриптов на языке C#. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Оркестрация проверки с помощью SMS (пример кода Visual Studio Code и портала Azure) 
 

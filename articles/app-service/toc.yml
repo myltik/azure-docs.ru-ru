@@ -51,6 +51,8 @@
       href: app-service-web-tutorial-custom-ssl.md
     - name: 4. Добавление CDN
       href: app-service-web-tutorial-content-delivery-network.md
+    - name: 5. Аутентификация пользователей
+      href: app-service-web-tutorial-auth-aad.md
 - name: Примеры
   items:
     - name: Инфраструктура CLI Azure
@@ -139,6 +141,8 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Проверка подлинности с помощью Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: Настройка аутентификации
+          href: app-service-authentication-how-to.md
         - name: Использование удостоверения управляемой службы
           href: app-service-managed-service-identity.md
         - name: Использование SSL-сертификата в коде приложения

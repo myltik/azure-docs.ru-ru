@@ -1,11 +1,11 @@
 ---
-title: "Службы мобильного взаимодействия Azure. Руководство по началу работы и рекомендации"
-description: "Руководство и рекомендации по началу работы со Службами мобильного взаимодействия Azure."
+title: Службы мобильного взаимодействия Azure. Руководство по началу работы и рекомендации
+description: Руководство и рекомендации по началу работы со Службами мобильного взаимодействия Azure.
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Службы мобильного взаимодействия Azure. Руководство по началу работы и рекомендации
+> [!IMPORTANT]
+> Срок действия Служб мобильного взаимодействия истекает 31.03.2018. Вскоре после этого страница будет удалена.
+> 
+
 ## <a name="overview"></a>Обзор
 **На экранах мобильных устройств все меньше свободного места.** Согласно исследованию, проведенному в 2013 г., на одном мобильном устройстве установлено в среднем 27 приложений. На работу с мобильными приложениями пользователи обычно тратят 30 часов в месяц. Большая часть этого времени идет на социальные сети и игры (около 20 часов). В 2014 г. в магазине Android Market было около 1,5 млн приложений. Магазин Apple Store содержал примерно 1,2 млн приложений. Использование мобильных приложений продолжает расти, а разработчики конкурируют друг с другом на этом развивающемся рынке. 
 

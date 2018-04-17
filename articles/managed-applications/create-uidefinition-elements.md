@@ -1,6 +1,6 @@
 ---
-title: "Функции для создания определения пользовательского интерфейса в управляемых приложениях Azure | Документация Майкрософт"
-description: "Сведения о функциях, используемых при создании определений пользовательского интерфейса для управляемых приложений Azure."
+title: Создание определений элементов пользовательского интерфейса для портала Azure | Документация Майкрософт
+description: Сведения об элементах, используемых при создании определений пользовательского интерфейса для портала Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23e407bf93bc51116ca45339bffcb801d69290f0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="createuidefinition-elements"></a>Элементы CreateUiDefinition
-В этой статье описывается схема и свойства всех поддерживаемых элементов CreateUiDefinition. Эти элементы используются при [создании управляемого приложения Azure](publish-service-catalog-app.md). Для большинства элементов схема выглядит следующим образом:
+В этой статье описывается схема и свойства всех поддерживаемых элементов CreateUiDefinition. Для большинства элементов схема выглядит следующим образом:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -65,5 +65,4 @@ ms.lasthandoff: 10/27/2017
 - [Элемент пользовательского интерфейса Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
-* Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
+Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).

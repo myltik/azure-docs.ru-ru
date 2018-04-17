@@ -1,31 +1,31 @@
 ---
-title: "Ведение журнала диагностики для Azure Analysis Services | Документация Майкрософт"
-description: "Узнайте том, как настроить журнал ведения диагностики для Azure Analysis Services."
+title: Ведение журнала диагностики для Azure Analysis Services | Документация Майкрософт
+description: Узнайте том, как настроить журнал ведения диагностики для Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Настройка журнала ведения диагностики
 
-Важной частью любого решения Analysis Services является мониторинг работы серверов. С помощью [журналов диагностики ресурсов Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) вы можете отслеживать и отправлять журналы в [службу хранилища Azure](https://azure.microsoft.com/services/storage/), выполнять их потоковую передачу в [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/) и экспортировать их в службу [Log Analytics](https://azure.microsoft.com/services/log-analytics/), которая является частью [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Важной частью любого решения Analysis Services является мониторинг работы серверов. С помощью [журналов диагностики ресурсов Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) вы можете отслеживать и отправлять журналы в [службу хранилища Azure](https://azure.microsoft.com/services/storage/), выполнять их потоковую передачу в [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/) и экспортировать их в службу [Log Analytics](https://azure.microsoft.com/services/log-analytics/) как службу [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Процесс ведения журнала диагностики в хранилище, концентраторе событий или Operations Management Suite через Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Процесс ведения журнала диагностики в хранилище, концентраторе событий и Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Какие данные регистрируются?
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/21/2018
 
 Щелкните поле "**EventClass\_s**" или одно из имен событий, и Log Analytics продолжит создание запроса. Не забудьте сохранить запросы для последующего повторного использования.
 
-Обязательно ознакомьтесь с Operations Management Suite, который предоставляет веб-сайт с расширенными возможностями создания запросов, панелей мониторинга и оповещений на основе данных Log Analytics.
+Обязательно ознакомьтесь со службой Log Analytics, которая предоставляет веб-сайт с расширенными возможностями создания запросов, панелей мониторинга и оповещений на основе собранных данных.
 
 ### <a name="queries"></a>Запросы
 

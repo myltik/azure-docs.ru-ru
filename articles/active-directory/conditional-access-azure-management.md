@@ -1,8 +1,8 @@
 ---
-title: "Управление доступом к функциям управления Azure с помощью условного доступа в Azure Active Directory"
-description: "Сведения об использовании условного доступа в Azure AD для управления доступом к функциям управления Azure."
+title: Управление доступом к функциям управления Azure с помощью условного доступа в Azure Active Directory
+description: Сведения об использовании условного доступа в Azure AD для управления доступом к функциям управления Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
 ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Управление доступом к функциям управления Azure с помощью условного доступа
 

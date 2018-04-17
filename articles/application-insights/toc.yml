@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Воронки
               href: usage-funnels.md
+            - name: когорты;
+              href: app-insights-usage-cohorts.md
             - name: Влияние
               href: app-insights-usage-impact.md
             - name: Сохранение
@@ -238,6 +240,9 @@
       items:
         - name: Управление ценами и объемом данных
           href: app-insights-pricing.md
+          items:
+            - name: Сведения о плане "Корпоративный"
+              href: app-insights-pricing-enterprise-details.md
         - name: Мониторинг производительности приложений с помощью Application Insights для SCOM
           href: app-insights-scom.md
     - name: экспорт.

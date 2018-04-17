@@ -1,5 +1,5 @@
 ---
-title: Маршрутизация сетевого трафика | Документация Майкрософт
+title: Маршрутизация сетевого трафика — Azure PowerShell | Документация Майкрософт
 description: Сведения о маршрутизации сетевого трафика с помощью таблицы маршрутов при использовании PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Маршрутизация сетевого трафика с помощью таблицы маршрутов при использовании PowerShell
 
@@ -239,10 +239,10 @@ mstsc /v:<publicIpAddress>
 
 Введите имя пользователя и пароль, которые вы указали при создании виртуальной машины (возможно, для этого придется выбрать **Дополнительные варианты** и **Использовать другую учетную запись**). Затем нажмите кнопку **ОК**. При входе в систему может появиться предупреждение о сертификате. Чтобы продолжить процесс подключения, выберите **Да**. 
 
-Для проверки маршрутизации позже будет использоваться команда tracert.exе. Tracert использует протокол ICMP, который запрещен в брандмауэре Windows. Разрешите протокол ICMP на брандмауэре Windows, введя в PowerShell следующую команду:
+Для проверки маршрутизации позже будет использоваться команда tracert.exе. Tracert использует протокол ICMP, который запрещен в брандмауэре Windows. Разрешите протокол ICMP в брандмауэре Windows с помощью следующей команды в PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Хотя в этой статье и используется команда tracert для тестирования маршрутизации, не рекомендуется разрешать входящий трафик по протоколу ICMP через брандмауэр Windows в рабочей среде.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 Разрешите протокол ICMP на брандмауэре Windows, введя в PowerShell следующую команду:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Протестируйте маршрутизацию сетевого трафика к виртуальной машине *myVmPrivate* от виртуальной машины *myVmPublic*, выполнив следующую команду из PowerShell.
@@ -295,8 +295,8 @@ Trace complete.
       
 Можно заметить, что первому прыжку соответствует 10.0.2.4. Это частный IP-адрес сетевого виртуального модуля. Второй прыжок — 10.0.1.4. Это частный IP-адрес виртуальной машины *myVmPrivate*. Из-за маршрута, добавленного в таблицу маршрутов *myRouteTablePublic* и связанного с подсетью *Public*, трафик в Azure был маршрутизирован через NVA, а не напрямую в подсеть *Private*.
 
-Закройте сеанс удаленного рабочего стола с виртуальной машиной *myVmPublic*, оставаясь подключенными к виртуальной машине *myVmPrivate*.
-Протестируйте маршрутизацию сетевого трафика к виртуальной машине *myVmPublic* от виртуальной машины *myVmPrivate*, выполнив следующую команду в интерфейсе командной строки.
+Закройте сеанс удаленного рабочего стола с виртуальной машиной *myVmPublic*, сохраняя подключение к виртуальной машине *myVmPrivate*.
+Протестируйте маршрутизацию сетевого трафика к виртуальной машине *myVmPublic* от виртуальной машины *myVmPrivate*, выполнив следующую команду в интерфейсе командной строки:
 
 ```
 tracert myVmPublic
@@ -332,4 +332,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 Хотя в виртуальной сети можно развернуть множество ресурсов Azure, ресурсы для некоторых служб PaaS Azure развернуть невозможно. Тем не менее вы все же можете ограничить доступ к ресурсам некоторых служб PaaS в Azure трафиком только из подсети виртуальной сети. Перейдите к следующему руководству, чтобы узнать, как ограничить сетевой доступ к ресурсам Azure PaaS.
 
 > [!div class="nextstepaction"]
-> [Настройка конечных точек служб виртуальной сети](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Настройка конечных точек служб виртуальной сети](tutorial-restrict-network-access-to-resources-powershell.md)

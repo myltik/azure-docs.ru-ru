@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: Базы данных SQL Azure
       items:
-        - name: Настройка долгосрочного хранения резервных копий
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Просмотр резервных копий в хранилище служб восстановления
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Восстановление после долгосрочного хранения резервных копий
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Удаление резервных копий данных SQL Azure после долгосрочного хранения
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: 'Настройка и восстановление резервных копий базы данных SQL: хранилище SQL'
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: 'Настройка и восстановление резервных копий базы данных SQL: хранилище служб восстановления'
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Резервное копирование файлов и папок Windows Server

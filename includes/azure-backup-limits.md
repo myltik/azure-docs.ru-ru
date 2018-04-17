@@ -1,18 +1,18 @@
 ---
-title: "включение файла"
-description: "включение файла"
+title: включение файла
+description: включение файла
 services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
 ms.date: 2/7/2018
-ms.author: trinadhk
+ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: 7ca5b34961b4d0e3d4fcecb8175e3e0901d7049d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b345283f87c446ff3b583b0c5dd8a4be222303ae
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 Для службы архивации Azure применяются указанные ниже ограничения.
 
@@ -23,8 +23,8 @@ ms.lasthandoff: 02/09/2018
 | Количество хранилищ архивации, которые можно создать для каждой подписки Azure |25 хранилищ служб восстановления на регион |
 | Количество операций архивации, которые можно запланировать на один день |3 операции в день для Windows Server или рабочей станции Windows  <br/> 2 операции в день для SCDPM <br/> одна операция в день для виртуальных машин IaaS |
 | Диски с данными, подключенные к виртуальной машине Azure для архивации |16 |
-| Размер отдельного диска данных, подключенного к виртуальной машине Azure для резервного копирования| 1024 ГБ <sup>2</sup>|
+| Размер отдельного диска данных, подключенного к виртуальной машине Azure для резервного копирования| 4095 ГБ <sup>2</sup>|
 
 * <sup>1</sup>Ограничение в 54 400 ГБ не применяется при архивации виртуальных машин IaaS.
-* <sup>2</sup> Существует [закрытая предварительная версия решения](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0), поддерживающего диски объемом до 4 ТБ. 
+ 
 

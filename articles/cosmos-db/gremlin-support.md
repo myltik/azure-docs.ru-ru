@@ -1,12 +1,10 @@
 ---
 title: Поддержка языка Gremlin в базе данных Azure Cosmos DB | Документация Майкрософт
-description: Дополнительные сведения о языке Gremlin из TinkerPop Apache, функции и этапы которого доступны в базе данных Azure Cosmos DB
+description: Узнайте о языке Gremlin из Apache TinkerPop. Узнайте, какие функции и действия доступны в Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: luisbosquez
-manager: jhubbard
-editor: ''
-tags: ''
+author: LuisBosquez
+manager: kfile
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Поддержка графа Gremlin в базе данных Azure Cosmos DB
 Azure Cosmos DB поддерживает [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) — язык обхода графов [Apache TinkerpPop](http://tinkerpop.apache.org), предназначенный для создания сущностей графа и выполнения операций запросов графов Graph API. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
@@ -35,8 +33,8 @@ Azure Cosmos DB поддерживает [Gremlin](http://tinkerpop.apache.org/d
 
 Этот граф содержит следующие типы вершин (которые в Gremlin называются метками):
 
-- Люди. На графе представлено трое — Робин (Robin), Томас (Thomas) и Бен (Ben).
-- Интересы. Их интересы. В этом случае — футбол.
+- Люди. На графе представлено трое: Робин (Robin), Томас (Thomas) и Бен (Ben).
+- Интересы. Их интересы. В этом случае — футбол.
 - Устройства. Устройства, которые эти люди используют.
 - Операционные системы. Операционные системы, под управлением которых работают устройства.
 
@@ -165,45 +163,45 @@ TinkerPop — это стандартная платформа, которая 
 ## <a name="gremlin-steps"></a>Шаги Gremlin
 Теперь рассмотрим шаги Gremlin, поддерживаемые базой данных Azure Cosmos DB. Дополнительные сведения о Gremlin см. в [руководстве по TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
 
-| Шаг | ОПИСАНИЕ | Руководство по TinkerPop 3.2 | Заметки |
-| --- | --- | --- | --- |
-| `addE` | Добавляет ребро между двумя вершинами. | [Шаг addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Добавляет вершину в граф. | [Шаг addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Обеспечивает возвращение значения для всех обходов. | [Шаг and](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
-| `as` | Модулятор шага для назначения переменной выходным данным шага. | [Шаг as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Модулятор шага, используемый с `group` и `order`. | [Шаг by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
-| `coalesce` | Возвращает первый обход, который возвращает результат. | [Шаг coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Возвращает постоянное значение. Используется с `coalesce`.| [Шаг constant](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
-| `count` | Возвращает число из обхода. | [Шаг count](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
-| `dedup` | Возвращает значения с удаленными повторяющимися значениями. | [Шаг dedup](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
-| `drop` | Удаляет значения (вершины или ребра). | [Шаг drop](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
-| `fold` | Действует как барьер, который вычисляет статистическое значение результатов.| [Шаг fold](http://tinkerpop.apache.org/docs/current/reference/#fold-step) | |
-| `group` | Группирует значения на основе указанных меток.| [Шаг group](http://tinkerpop.apache.org/docs/current/reference/#group-step) | |
-| `has` | Используется для фильтрации свойств, вершин и ребер. Поддерживает варианты `hasLabel`, `hasId`, `hasNot` и `has`. | [Шаг has](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
-| `inject` | Вставляет значения в поток.| [Шаг inject](http://tinkerpop.apache.org/docs/current/reference/#inject-step) | |
-| `is` | Используется для выполнения фильтра с помощью логического выражения. | [Шаг is](http://tinkerpop.apache.org/docs/current/reference/#is-step) | |
-| `limit` | Используется для ограничения числа элементов в обходе.| [Шаг limit](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
-| `local` | Локально обертывает раздел обхода аналогично вложенному запросу. | [Шаг local](http://tinkerpop.apache.org/docs/current/reference/#local-step) | |
-| `not` | Используется для создания отрицания фильтра. | [Шаг not](http://tinkerpop.apache.org/docs/current/reference/#not-step) | |
-| `optional` | Возвращает результат указанного обхода, если он выдается. В противном случае возвращается вызывающий элемент. | [Шаг optional](http://tinkerpop.apache.org/docs/current/reference/#optional-step) | |
-| `or` | Гарантирует, что по крайней мере один из обходов возвращает значение. | [Шаг or](http://tinkerpop.apache.org/docs/current/reference/#or-step) | |
-| `order` | Возвращает результаты в заданном порядке сортировки. | [Шаг order](http://tinkerpop.apache.org/docs/current/reference/#order-step) | |
-| `path` | Возвращает полный путь обхода. | [Шаг path](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
-| `project` | Выполняет проекцию свойств в виде сопоставления. | [Шаг project](http://tinkerpop.apache.org/docs/current/reference/#project-step) | |
-| `properties` | Возвращает свойства для указанных меток. | [Шаг properties](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
-| `range` | Выполняет фильтрацию до заданного диапазона значений.| [Шаг range](http://tinkerpop.apache.org/docs/current/reference/#range-step) | |
-| `repeat` | Повторяет шаг указанное количество раз. Используется для циклов. | [Шаг repeat](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) | |
-| `sample` | Используется для вывода примеров результатов из обхода. | [Шаг sample](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
+| Шаг | ОПИСАНИЕ | Руководство по TinkerPop 3.2 |
+| --- | --- | --- |
+| `addE` | Добавляет ребро между двумя вершинами. | [Шаг addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Добавляет вершину в граф. | [Шаг addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Обеспечивает возвращение значения для всех обходов. | [Шаг and](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Модулятор шага для назначения переменной выходным данным шага. | [Шаг as](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Модулятор шага, используемый с `group` и `order`. | [Шаг by](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Возвращает первый обход, который возвращает результат. | [Шаг coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Возвращает постоянное значение. Используется с `coalesce`.| [Шаг constant](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Возвращает число из обхода. | [Шаг count](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Возвращает значения с удаленными повторяющимися значениями. | [Шаг dedup](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Удаляет значения (вершины или ребра). | [Шаг drop](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Действует как барьер, который вычисляет статистическое значение результатов.| [Шаг fold](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Группирует значения на основе указанных меток.| [Шаг group](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Используется для фильтрации свойств, вершин и ребер. Поддерживает варианты `hasLabel`, `hasId`, `hasNot` и `has`. | [Шаг has](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Вставляет значения в поток.| [Шаг inject](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Используется для выполнения фильтра с помощью логического выражения. | [Шаг is](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Используется для ограничения числа элементов в обходе.| [Шаг limit](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Локально обертывает раздел обхода аналогично вложенному запросу. | [Шаг local](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Используется для создания отрицания фильтра. | [Шаг not](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Возвращает результат указанного обхода, если он выдается. В противном случае возвращается вызывающий элемент. | [Шаг optional](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Гарантирует, что по крайней мере один из обходов возвращает значение. | [Шаг or](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Возвращает результаты в заданном порядке сортировки. | [Шаг order](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Возвращает полный путь обхода. | [Шаг path](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Выполняет проекцию свойств в виде сопоставления. | [Шаг project](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Возвращает свойства для указанных меток. | [Шаг properties](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Выполняет фильтрацию до заданного диапазона значений.| [Шаг range](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Повторяет шаг указанное количество раз. Используется для циклов. | [Шаг repeat](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Используется для вывода примеров результатов из обхода. | [Шаг sample](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
 | `select` | Используется для проектирования результатов из обхода. |  [Шаг select](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Используется для статистических функций из обхода без блокировки. | [Шаг store](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
-| `tree` | Выполняет статистическое вычисление путей из вершины в дерево. | [Шаг tree](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
-| `unfold` | Развертывает итератор.| [Шаг unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) | |
-| `union` | Объединяет результаты из нескольких обходов.| [Шаг union](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
-| `V` | Содержит шаги, необходимые для обходов между вершинами и ребрами (`V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`) и `otherV` — для других вершин. | [Шаги vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
-| `where` | Используется для фильтрации результатов из обхода. Поддерживает операторы `eq`, `neq`, `lt`, `lte`, `gt`, `gte` и `between`.  | [Шаг where](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
+| `store` | Используется для статистических функций из обхода без блокировки. | [Шаг store](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Выполняет статистическое вычисление путей из вершины в дерево. | [Шаг tree](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Развертывает итератор.| [Шаг unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Объединяет результаты из нескольких обходов.| [Шаг union](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Содержит шаги, необходимые для обходов между вершинами и ребрами (`V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`) и `otherV` — для других вершин. | [Шаги vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Используется для фильтрации результатов из обхода. Поддерживает операторы `eq`, `neq`, `lt`, `lte`, `gt`, `gte` и `between`.  | [Шаг where](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Оптимизированный для операций записи обработчик базы данных Azure Cosmos DB по умолчанию поддерживает автоматическое индексирование всех свойств вершин и ребер. Следовательно, запросы с фильтрами, запросы диапазона, сортировка или статистические функции для любого свойства обрабатываются из индекса и эффективно обслуживаются. Дополнительные сведения о выполнении индексирования в базе данных Azure Cosmos DB см. в руководстве об [индексировании без использования схем](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Оптимизированный для операций записи обработчик Azure Cosmos DB по умолчанию поддерживает автоматическое индексирование всех свойств вершин и ребер. Следовательно, запросы с фильтрами, запросы диапазона, сортировка или статистические функции для любого свойства обрабатываются из индекса и эффективно обслуживаются. Дополнительные сведения о выполнении индексирования в базе данных Azure Cosmos DB см. в руководстве об [индексировании без использования схем](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Создайте приложение графа [с использованием пакетов SDK](create-graph-dotnet.md). 
-* Ознакомьтесь с [поддержкой графов в базе данных Azure Cosmos DB](graph-introduction.md).
+* Дополнительные сведения о [поддержке графа](graph-introduction.md) в Azure Cosmos DB

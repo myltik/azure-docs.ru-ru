@@ -1,25 +1,25 @@
 ---
-title: "Локальный шлюз данных | Документация Майкрософт"
-description: "Локальный шлюз данных необходим тогда, когда сервер служб Analysis Services в Azure будет подключен к локальным источникам данных."
+title: Локальный шлюз данных | Документация Майкрософт
+description: Локальный шлюз данных необходим тогда, когда сервер служб Analysis Services в Azure будет подключен к локальным источникам данных.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Подключение к локальным источникам данных с помощью локального шлюза данных Azure
 Локальный шлюз данных действует как мост, обеспечивая передачу данных между локальными источниками данных и серверами служб Azure Analysis Services в облаке. Последняя версия шлюза работает с несколькими серверами служб Azure Analysis Services в том же регионе, а также с Azure Logic Apps, Power BI, Power Apps и Microsoft Flow. Несколько служб в одном регионе можно связать с одним шлюзом. 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/03/2018
 Мы рекомендуем добавить IP-адреса для области данных в список разрешений вашего брандмауэра. Вы можете скачать [список IP-адресов центра обработки данных Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Список обновляется раз в неделю.
 
 > [!NOTE]
-> IP-адреса, перечисленные в списке центра обработки данных Azure, находятся в нотации CIDR. Например, 10.0.0.0/24 не означает 10.0.0.0–10.0.0.24. Дополнительные сведения о нотации CIDR см. [здесь](http://whatismyipaddress.com/cidr).
+> IP-адреса, перечисленные в списке центра обработки данных Azure, находятся в нотации CIDR. Дополнительные сведения о CIDR см. [здесь](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 

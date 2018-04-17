@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Заметки о выпуске
       items:
+        - name: Обновление 1803
+          href: azure-stack-update-1803.md
         - name: Обновление 1802
           href: azure-stack-update-1802.md
         - name: Обновление 1712
           href: azure-stack-update-1712.md
         - name: Обновление 1711
           href: azure-stack-update-1711.md
-        - name: Обновление 1710
-          href: azure-stack-update-1710.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -58,9 +58,9 @@
             - name: Получение сертификатов PKI Azure Stack
               href: azure-stack-get-pki-certs.md
             - name: Подготовка сертификатов PKI Azure Stack
-              href: prepare-pki-certs.md
+              href: azure-stack-prepare-pki-certs.md
             - name: Проверка сертификатов PKI Azure Stack
-              href: validate-pki-certs.md
+              href: azure-stack-validate-pki-certs.md
         - name: Интеграция удостоверений
           href: azure-stack-integrate-identity.md
         - name: Внешний мониторинг
@@ -124,7 +124,7 @@
             - name: Управление емкостью хранилища
               href: azure-stack-manage-storage-shares.md
             - name: Управление емкостью физического хранилища для Azure Stack
-              href: azure-stack-manage-storage-physical-capacity.md
+              href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Замена оборудования
           items:
             - name: Действия с узлами

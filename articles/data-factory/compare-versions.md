@@ -1,11 +1,10 @@
 ---
-title: "Сравнение фабрики данных Azure версий 1 и 2 | Документация Майкрософт"
-description: "В этой статье сравниваются возможности фабрики данных Azure версий 1 и 2."
+title: Сравнение фабрики данных Azure версий 1 и 2 | Документация Майкрософт
+description: В этой статье сравниваются возможности фабрики данных Azure версий 1 и 2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Сравнение фабрики данных Azure версий 1 и 2
 В этой статье сравниваются версии 1 и 2 фабрики данных Azure. Дополнительные сведения о фабрике данных Azure версии 1 см. в статье [Введение в фабрику данных Azure](v1/data-factory-introduction.md). Дополнительные сведения о фабрике данных Azure версии 2 см. в [этой статье](introduction.md).
@@ -112,7 +111,7 @@ ms.lasthandoff: 02/01/2018
 
 В настраиваемых действиях версии 2 не нужно реализовывать интерфейс .NET. Все команды, скрипты и пользовательский код можно компилировать и выполнять в виде исполняемого файла. 
 
-Дополнительные сведения см. в разделе [Различия между настраиваемым действием в фабрике данных Azure версии 2 и (настраиваемым) действием DotNet в фабрике данных Azure версии 1](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Дополнительные сведения см. в разделе [Различия между настраиваемым действием в фабрике данных Azure версии 2 и (настраиваемым) действием DotNet в фабрике данных Azure версии 1](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>Пакеты SDK
  В версии 2 фабрики данных доступны разные пакеты SDK, которые можно использовать для создания, администрирования и мониторинга конвейеров.
@@ -138,6 +137,13 @@ ms.lasthandoff: 02/01/2018
 | Пакет SDK для Python | [Да](quickstart-create-data-factory-python.md) | Нет  |
 | Шаблон Resource Manager | [Да](quickstart-create-data-factory-resource-manager-template.md) | [Да](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Роли и разрешения
+
+При создании дочерних ресурсов для фабрики данных версии 2 и управлении ими, учитывайте следующее:
+
+-   Роль участника фабрики данных версии 1 нельзя использовать, чтобы создавать и администрировать ресурсы фабрики данных версии 2.
+-   Чтобы создавать и администрировать дочерние ресурсы для фабрики данных версии 2, развернутой с помощью PowerShell или пакетов SDK, достаточно стандартной роли участника Azure Resource Manager, созданной для ресурсов фабрики данных. Но этой роли недостаточно, чтобы создавать и администрировать дочерние ресурсы для фабрики данных версии 2, развернутой с помощью портала Azure или шаблона Azure Resource Manager.
+-   Чтобы создавать и администрировать дочерние ресурсы для фабрики данных версии 2, развернутой с помощью портала Azure или шаблона Azure Resource Manager, требуется роль оператора задания автоматизации на уровне группы ресурсов или подписки. Ваша организация также может создать настраиваемую роль, в списке действий которой содержится Microsoft.Resources/deployments/*, как описано в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="monitoring-experience"></a>Средства мониторинга
 В версии 2 вы можете отслеживать фабрики данных с помощью [Azure Monitor](monitor-using-azure-monitor.md). Новые командлеты PowerShell позволяют отслеживать [среды выполнения интеграции](monitor-integration-runtime.md). Обе версии поддерживают визуальный мониторинг с помощью приложения мониторинга, которое можно запустить на портале Azure.

@@ -1,25 +1,25 @@
 ---
-title: "Уникальные ключи в Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как использовать уникальные ключи в базе данных Azure Cosmos DB."
+title: Уникальные ключи в Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как использовать уникальные ключи в базе данных Azure Cosmos DB.
 services: cosmos-db
-keywords: "ограничение уникального ключа, нарушение ограничения уникального ключа"
+keywords: ограничение уникального ключа, нарушение ограничения уникального ключа
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Уникальные ключи в Azure Cosmos DB
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/14/2017
 
 В каждый уникальный ключ можно включить до 16 значений путей (например, /firstName, /lastName, /address/zipCode и т. д.) 
 
-Каждая политика уникальных ключей может иметь не более 10 ограничений уникальных ключей или сочетаний. Таким образом пример выше, который использует имя, фамилию и адрес электронной почты, является только одним ограничением и использует три из 16 возможных путей. 
+Каждая политика уникальных ключей может иметь не более 10 ограничений уникальных ключей или сочетаний. А комбинированные пути для всех свойств уникальных индексов не должны содержать более 60 символов. Таким образом пример выше, который использует имя, фамилию и адрес электронной почты, является только одним ограничением и использует три из 16 возможных путей. 
 
 Затраты единиц запросов для создания, обновления и удаления элемента значительно выше при наличии в контейнере политики уникальных ключей. 
 

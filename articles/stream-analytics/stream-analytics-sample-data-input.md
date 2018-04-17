@@ -1,27 +1,21 @@
 ---
-title: "Тестирование запросов Azure Stream Analytics | Документация Майкрософт"
-description: "Оперативно обнаруживайте проблемы при устранении неполадок с заданиями Stream Analytics."
-keywords: "устранение неполадок с входными данными, выборка входных данных"
-documentationcenter: 
+title: Проверка запроса с помощью примера данных в Azure Stream Analytics
+description: Из этой статьи вы узнаете, как проверить запрос с помощью нескольких примеров входных данных в Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 305b767ee86de6c8b04fed17514a9092afc2d735
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/12/2018
 ---
-# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Тестирование запросов Azure Stream Analytics и выборки входного потока
+# <a name="test-a-query-and-sample-input-in-azure-stream-analytics"></a>Проверка запроса и выборка входных данных в Azure Stream Analytics 
 
 Используя Azure Stream Analytics, можно создать выборку входных событий из файла и проверить запросы на портале без необходимости запуска или остановки задания.
 
@@ -57,9 +51,9 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="get-help"></a>Получение справки
 
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)

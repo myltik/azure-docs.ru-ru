@@ -1,8 +1,8 @@
 ---
-title: "Поддержка нескольких компонентов, микрослужб и контейнеров в Azure Application Insights | Документы Майкрософт"
-description: "Мониторинг приложений, которые состоят из нескольких компонентов или ролей, для получения данных производительности и использования."
+title: Поддержка нескольких компонентов, микрослужб и контейнеров в Azure Application Insights | Документы Майкрософт
+description: Мониторинг приложений, которые состоят из нескольких компонентов или ролей, для получения данных производительности и использования.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Мониторинг приложений с несколькими компонентами с помощью Application Insights (предварительная версия)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/01/2017
 
 * **установить последнюю предварительную версию** пакета Application Insights в каждом компоненте приложения; 
 * **использовать единый ресурс Application Insights** для всех компонентов в вашем приложении;
-* **включить схему сопоставления приложений с несколькими ролями** в колонке "Предварительный просмотр".
+* **включить схему составных приложений** в колонке "Предварительный просмотр".
 
 Настройте каждый компонент своего приложения, используя соответствующий метод для его типа ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md)).
 
@@ -73,9 +73,9 @@ ms.lasthandoff: 11/01/2017
 ![Скопируйте ключ инструментирования в CONFIG-файл.](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Включение схемы сопоставления приложений с несколькими ролями
+### <a name="3-enable-composite-application-map"></a>3. Включение схемы составных приложений
 
-На портале Azure откройте ресурс для своего приложения. Включите *схему сопоставления приложений с несколькими ролями* в колонке "Предварительный просмотр".
+На портале Azure откройте ресурс для своего приложения. Под подзаголовком "Настройка" щелкните "Previews" (Предварительный просмотр), чтобы открыть колонку "Previews" (Предварительный просмотр). Включите параметр *Схема сопоставления составных приложений* в колонке "Previews" (Предварительный просмотр).
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Включение метрик Docker (необязательно) 
 

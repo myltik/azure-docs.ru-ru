@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Отправка сообщений, пересылаемых из облака на устройство, из Центра Интернета вещей
 
 Для отправки односторонних уведомлений из серверной части вашего решения в приложение на устройстве используются сообщения "из облака на устройство", отправляемые из Центра Интернета вещей на ваше устройство. Обсуждение других вариантов передачи данных из облака на устройство, поддерживаемых Центром Интернета вещей, см. в [руководстве по обмену данными между облаком и устройством][lnk-c2d-guidance].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Сообщения из облака на устройство можно отправлять через конечную точку, обращенную к службе (**/messages/devicebound**). Устройства затем получают эти сообщения через конечную точку конкретного устройства (**/devices/{ИД_устройства}/messages/devicebound**).
 

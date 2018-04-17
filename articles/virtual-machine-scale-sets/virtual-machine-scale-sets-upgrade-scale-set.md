@@ -1,6 +1,6 @@
 ---
 title: Изменение масштабируемого набора виртуальных машин Azure | Документация Майкрософт
-description: Изменение масштабируемого набора виртуальных машин Azure
+description: Узнайте, как изменить и обновить масштабируемый набор виртуальных машин Azure с помощью интерфейсов REST API, Azure PowerShell и Azure CLI 2.0.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,45 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: fcca912a8120a51d2f0a454ef0a6341cd5882015
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Изменение масштабируемого набора виртуальных машин
-В этой статье описано, как изменить имеющийся масштабируемый набор виртуальных машин, в том числе как изменить конфигурацию масштабируемого набора, работающих в наборе приложений, а также как управлять доступностью и многое другое.
+На протяжении жизненного цикла приложений может потребоваться изменить или обновить масштабируемый набор виртуальных машин. Это может быть обновление конфигурации масштабируемого набора или изменение конфигурации приложения. В этой статье описывается, как можно изменить существующий масштабируемый набор с помощью интерфейсов REST API, Azure PowerShell или Azure CLI 2.0.
 
 ## <a name="fundamental-concepts"></a>Базовые понятия
 
-### <a name="scale-set-model"></a>Модель масштабируемого набора
+### <a name="the-scale-set-model"></a>Модель масштабируемого набора
+Масштабируемый набор содержит модель, которая фиксирует *требуемое* состояние набора в целом. Для запроса модели масштабируемого набора можно использовать: 
 
-Масштабируемый набор содержит модель, которая фиксирует *требуемое* состояние набора в целом. Для запроса модели масштабируемого набора можно использовать следующие средства.
+- REST API с [compute/virtualmachinescalesets/get](/rest/api/compute/virtualmachinescalesets/get), как показано ниже.
 
-* REST API: 
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
-   
-  Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get).
+- Командлет [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) в Azure PowerShell:
 
-* PowerShell:
+    ```powershell
+    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    ```
 
-  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`
-   
-  Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
+- Можно использовать команду [az vmss show](/cli/azure/vmss#az_vmss_show) в Azure CLI 2.0.
 
-* Azure CLI: 
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet
+    ```
 
-  `az vmss show -g {resourceGroupName} -n {vmSaleSetName}` 
-   
-  Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+- Можно также использовать [resources.azure.com](https://resources.azure.com) или [пакеты SDK Azure](https://azure.microsoft.com/downloads/) для конкретного языка.
 
-Запросить модель масштабируемого набора можно также с помощью [обозревателя ресурсов Azure (предварительная версия)](https://resources.azure.com) или [пакетов SDK Azure](https://azure.microsoft.com/downloads/).
+Точное представление выходных данных зависит от параметров, введенных в команде. Ниже показан сокращенный пример выходных данных Azure CLI 2.0.
 
-Точное представление выходных данных зависит от параметров, введенных в команде. Ниже приведен пример выходных данных Azure CLI.
-
-```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+```azurecli
+az vmss show --resource-group myResourceGroup --name myScaleSet
 {
   "location": "westus",
   "overprovision": true,
@@ -65,44 +64,39 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     "name": "Standard_D2_v2",
     "tier": "Standard"
   },
-  .
-  .
-  .
 }
 ```
 
-Как видите, эти свойства применяются к масштабируемому набору в целом.
+Эти свойства применяются к масштабируемому набору в целом.
 
 
+### <a name="the-scale-set-instance-view"></a>Представление экземпляра масштабируемого набора
+Масштабируемый набор также имеет представление экземпляра, которое фиксирует текущее состояние *среды выполнения* масштабируемого набора в целом. Для запроса представления экземпляра масштабируемого набора можно использовать следующие средства.
 
-### <a name="scale-set-instance-view"></a>Представление экземпляра масштабируемого набора
+- REST API с [compute/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview), как показано ниже.
 
-Масштабируемый набор также имеет представление экземпляра, которое в целом фиксирует текущее состояние *среды выполнения*. Для запроса представления экземпляра масштабируемого набора можно использовать следующие средства.
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
+    ```
 
-* REST API: 
+- Командлет [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) в Azure PowerShell:
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version={apiVersion}` 
-   
-  Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview).
+    ```powershell
+    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    ```
 
-* PowerShell: 
+- Можно использовать команду [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) в Azure CLI 2.0.
 
-  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` 
-  
-  Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
+    ```
 
-* Azure CLI: 
+- Можно также использовать [resources.azure.com](https://resources.azure.com) или [пакеты SDK Azure](https://azure.microsoft.com/downloads/) для конкретного языка.
 
-  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName}` 
-   
-  Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+Точное представление выходных данных зависит от параметров, введенных в команде. Ниже показан сокращенный пример выходных данных Azure CLI 2.0.
 
-Запросить представление экземпляра масштабируемого набора можно также с помощью [обозревателя ресурсов Azure (предварительная версия)](https://resources.azure.com) или [пакетов SDK Azure](https://azure.microsoft.com/downloads/).
-
-Точное представление выходных данных зависит от параметров, введенных в команде. Ниже приведен пример выходных данных Azure CLI.
-
-```
-$ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetName}
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 {
   "statuses": [
     {
@@ -124,44 +118,39 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetNam
       }
     ]
   }
-  .
-  .
-  .
 }
 ```
 
-Как видите, эти свойства предоставляют сводку текущего состояния среды выполнения виртуальных машин в масштабируемом наборе, в том числе состояние расширений, применяемых к набору (опущено для краткости).
+Эти свойства предоставляют сводку текущего состояния среды выполнения виртуальных машин в масштабируемом наборе, включая состояние расширений, применяемых к набору.
 
 
-
-### <a name="scale-set-vm-model-view"></a>Представление модели виртуальной машины в масштабируемом наборе
-
+### <a name="the-scale-set-vm-model-view"></a>Представление модели виртуальной машины масштабируемого набора
 Как и масштабируемый набор, каждая виртуальная машина в наборе имеет свое представление модели. Для запроса представления модели виртуальной машины в масштабируемом наборе можно использовать следующие средства.
 
-* REST API: 
+- REST API с [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get), как показано ниже.
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}?api-version={apiVersion}` 
-  
-  Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get).
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Командлет [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm) в Azure PowerShell:
 
-  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
-  
-  Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
+    ```powershell
+    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-* Azure CLI: 
+- Можно использовать команду [az vmss show](/cli/azure/vmss#az_vmss_show) в Azure CLI 2.0.
 
-  `az vmss show -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
-  
-  Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-Запросить модель виртуальной машины в масштабируемом наборе можно также с помощью [обозревателя ресурсов Azure (предварительная версия)](https://resources.azure.com) или [пакетов SDK Azure](https://azure.microsoft.com/downloads/).
+- Можно также использовать [resources.azure.com](https://resources.azure.com) или [пакеты SDK Azure](https://azure.microsoft.com/downloads/).
 
-Точное представление выходных данных зависит от параметров, введенных в команде. Ниже приведен пример выходных данных Azure CLI.
+Точное представление выходных данных зависит от параметров, введенных в команде. Ниже показан сокращенный пример выходных данных Azure CLI 2.0.
 
-```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+```azurecli
+$ az vmss show --resource-group myResourceGroup --name myScaleSet
 {
   "location": "westus",
   "name": "{name}",
@@ -169,44 +158,39 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     "name": "Standard_D2_v2",
     "tier": "Standard"
   },
-  .
-  .
-  .
 }
 ```
 
-Как видите, эти свойства описывают конфигурацию самой виртуальной машины, а не конфигурацию масштабируемого набора в целом. Например, модель масштабируемого набора имеет свойство `overprovision`, которого нет у модели виртуальной машины в наборе. Это отличие вызвано тем, что избыточная подготовка — это свойство масштабируемого набора в целом, а не отдельных виртуальных машин в нем. (Дополнительные сведения об избыточной подготовке см. в соответствующем разделе статьи [Рекомендации по проектированию масштабируемых наборов](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning).)
+Эти свойства описывают конфигурацию самой виртуальной машины, а не конфигурацию масштабируемого набора в целом. Например, модель масштабируемого набора имеет свойство `overprovision`, которого нет у модели виртуальной машины в наборе. Это отличие вызвано тем, что избыточная подготовка является свойством масштабируемого набора в целом, а не отдельных виртуальных машин в наборе (дополнительные сведения об избыточной подготовке см. в разделе [Рекомендации по проектированию масштабируемых наборов](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
-
-### <a name="scale-set-vm-instance-view"></a>Представление экземпляра виртуальной машины в масштабируемом наборе
-
+### <a name="the-scale-set-vm-instance-view"></a>Представление экземпляра виртуальной машины в масштабируемом наборе
 Как и масштабируемый набор, каждая виртуальная машина в наборе имеет свое представление экземпляра. Для запроса представления экземпляра масштабируемого набора можно использовать следующие средства.
 
-* REST API: 
+- REST API с [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview), как показано ниже.
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/instanceView?api-version={apiVersion}` 
- 
-  Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview).
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Командлет [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm) в Azure PowerShell:
 
-  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` 
-  
-  Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
+    ```powershell
+    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    ```
 
-* Azure CLI: 
+- Можно использовать команду [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) в Azure CLI 2.0.
 
-  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
-  
-  Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-Запросить представление экземпляра виртуальной машины в масштабируемом наборе можно также с помощью [обозревателя ресурсов Azure (предварительная версия)](https://resources.azure.com) или [пакетов SDK Azure](https://azure.microsoft.com/downloads/).
+- Можно также использовать [resources.azure.com](https://resources.azure.com) или [пакеты SDK Azure](https://azure.microsoft.com/downloads/).
 
-Точное представление выходных данных зависит от параметров, введенных в команде. Ниже приведен пример выходных данных Azure CLI.
+Точное представление выходных данных зависит от параметров, введенных в команде. Ниже показан сокращенный пример выходных данных Azure CLI 2.0.
 
-```
-$ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 {
   "additionalProperties": {
     "osName": "ubuntu",
@@ -251,202 +235,203 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instanc
     ],
     "vmAgentVersion": "{version}"
   },
-  .
-  .
-  .
 }
 ```
 
-Как видите, эти свойства описывают текущее состояние среды выполнения самой виртуальной машины, в том числе любые расширения, применяемые к масштабируемому набору (опущено для краткости).
+Эти свойства описывают текущее состояние среды выполнения самой виртуальной машины, включая любые расширения, применяемые к масштабируемому набору.
 
 
-
-
-## <a name="techniques-for-updating-global-scale-set-properties"></a>Методы обновления глобальных свойств масштабируемого набора
-
+## <a name="how-to-update-global-scale-set-properties"></a>Как обновлять глобальные свойства масштабируемого набора
 Для обновления глобального свойства масштабируемого набора необходимо обновить свойство в модели набора. Это можно сделать следующим образом.
 
-* REST API: 
+- Можно использовать REST API с [compute/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate), как показано ниже.
 
-  `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
-  
-  Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+    ```rest
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-  Вы также можете развернуть шаблон Azure Resource Manager, обновив глобальные свойства масштабируемого набора с помощью свойств REST API.
+- Вы можете развернуть шаблон Resource Manager, обновив глобальные свойства масштабируемого набора с помощью свойств REST API.
 
-* PowerShell: 
+- Можно использовать командлет [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) в Azure PowerShell:
 
-  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` 
-  
-  Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+    ```powershell
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    ```
 
-* Azure CLI:
+- Или можно использовать команду [az vmss update](/cli/azure/vmss#az_vmss_update) в Azure CLI 2.0.
+    - Чтобы изменить свойство, выполните следующую команду.
 
-  * Изменение свойства: `az vmss update --set {propertyPath}={value}`. 
-  
-  * Добавление объекта в свойство списка масштабируемого набора: `az vmss update --add {propertyPath} {JSONObjectToAdd}`. 
-  
-  * Удаление объекта из свойства списка масштабируемого набора: `az vmss update --remove {propertyPath} {indexToRemove}`. 
-  
-  Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update). 
-  
-  Кроме того, если вы ранее развернули масштабируемый набор с помощью команды `az vmss create`, вы можете снова запустить команду `az vmss create`, чтобы его обновить. Проверьте, совпадают ли все свойства в команде `az vmss create` с предыдущими, за исключением тех, которые вы хотите изменить.
+        ```azurecli
+        az vmss update --set {propertyPath}={value}
+        ```
+
+    - Чтобы добавить объект в свойство списка масштабируемого набора, выполните следующую команду. 
+
+        ```azurecli
+        az vmss update --add {propertyPath} {JSONObjectToAdd}
+        ```
+
+    - Чтобы удалить объект из свойства списка масштабируемого набора, выполните следующую команду. 
+
+        ```azurecli
+        az vmss update --remove {propertyPath} {indexToRemove}
+        ```
+
+    - Если вы ранее развернули масштабируемый набор с помощью команды `az vmss create`, то вы можете снова выполнить команду `az vmss create`, чтобы его обновить. Проверьте, совпадают ли все свойства в команде `az vmss create` с предыдущими, за исключением тех, которые вы хотите изменить.
+
+- Можно также использовать [resources.azure.com](https://resources.azure.com) или [пакеты SDK Azure](https://azure.microsoft.com/downloads/).
+
+После обновления модели масштабируемого набора новая конфигурация применяется ко всем новым виртуальным машинам, созданным в наборе. Тем не менее модели для существующих виртуальных машин в наборе все равно должны быть обновлены в соответствии с последней общей моделью масштабируемого набора. В модели каждой виртуальной машины есть логическое свойство `latestModelApplied`. Оно указывает, актуальна ли виртуальная машина по отношению к последней общей модели масштабируемого набора (`true` означает, что виртуальная машина обновлена).
 
 
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Как обновить виртуальные машины в соответствии с последней моделью масштабируемого набора
+Масштабируемые наборы имеют политику обновления, которая определяет, как виртуальные машины обновляются в соответствии с последней моделью масштабируемого набора. Доступны три режима политики обновления:
 
-Обновить модель масштабируемого набора можно также с помощью [обозревателя ресурсов Azure (предварительная версия)](https://resources.azure.com) или [пакетов SDK Azure](https://azure.microsoft.com/downloads/).
+- **Автоматический**. В этом режиме масштабируемый набор не дает никаких гарантий относительно порядка отключения виртуальных машин. Масштабируемый набор может одновременно завершить работу всех виртуальных машин. 
+- **Последовательный**. В этом режиме масштабируемый набор развертывает обновления в виде пакетов с необязательной паузой между обработкой пакетов.
+- **Вручную**. В этом режиме при обновлении модели масштабируемого набора с имеющимися виртуальными машинами ничего не происходит.
+ 
+Чтобы обновить существующие виртуальные машины, для каждой из них нужно выполнить обновление в ручном режиме. Это можно сделать следующим образом.
 
-После обновления модели масштабируемого набора новая конфигурация применяется ко всем новым виртуальным машинам, созданным в нем. Тем не менее модели имеющихся виртуальных машин в наборе все равно нужно обновить в соответствии с последней общей моделью масштабируемого набора. Модель каждой виртуальной машины имеет логическое свойство `latestModelApplied`, указывающее, актуальна ли виртуальная машина по отношению к последней общей модели масштабируемого набора. (Значение `true` означает, что виртуальная машина обновлена.)
+- Можно использовать REST API с [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances), как показано ниже.
 
+    ```rest
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+    ```
 
-
-
-## <a name="techniques-for-bringing-vms-up-to-date-with-the-latest-scale-set-model"></a>Методы обновления виртуальных машин в соответствии с последней моделью масштабируемого набора
-
-Масштабируемые наборы имеют *политику обновления*, которая определяет, как виртуальные машины обновляются в соответствии с последней моделью масштабируемого набора. Доступны три режима политики обновления:
-
-- **Автоматический.** В этом режиме масштабируемый набор не дает никаких гарантий относительно порядка отключения виртуальных машин. Масштабируемый набор может одновременно завершить работу всех виртуальных машин. 
-- **Последовательный.** В этом режиме масштабируемый набор развертывает обновления в виде пакетов с необязательной паузой между обработкой пакетов.
-- **Вручную.** В этом режиме при обновлении модели масштабируемого набора с имеющимися виртуальными машинами ничего не происходит. Каждую имеющуюся виртуальную машину нужно обновить вручную. Это можно сделать следующим образом.
-
-  - REST API: 
-  
-    `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` 
+- Можно использовать командлет [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance) в Azure PowerShell:
     
-    Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances).
+    ```powershell
+    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-  - PowerShell: 
-  
-    `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
-    
-    Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+- Или можно использовать команду [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances) в Azure CLI 2.0.
 
-  - Azure CLI: 
-  
-    `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` 
-    
-    Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances).
+    ```azurecli
+    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+    ```
 
-  Обновить виртуальную машину в масштабируемом наборе вручную можно также с помощью [пакетов SDK Azure](https://azure.microsoft.com/downloads/).
+- Можно также использовать [пакеты SDK Azure](https://azure.microsoft.com/downloads/) для конкретного языка.
 
 >[!NOTE]
-> В кластерах Azure Service Fabric можно использовать только автоматический режим, но обновление обрабатывается по-разному. Дополнительные сведения об обновлениях Service Fabric см. в [этой документации](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
+> В кластерах Service Fabric можно использовать только *автоматический* режим, но обновление обрабатывается по-разному. Дополнительные сведения см. в разделе [Обновление приложения Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
-Существует один тип изменения глобальных свойств масштабируемого набора, который не соответствует политике обновления. Это изменение в профиле ОС масштабируемого набора (например, имя и пароль администратора). Эти свойства можно изменить только в API-интерфейсе версии 2017-12-01 или более поздней. Эти изменения применяются только к виртуальным машинам, созданным после изменения модели масштабируемого набора. Чтобы обеспечить актуальность имеющихся виртуальных машин, необходимо пересоздать образ каждой из них. Ниже описано, как это сделать.
+Существует один тип изменения глобальных свойств масштабируемого набора, который не соответствует политике обновления. Внести изменения в профиль ОС масштабируемого набора (например, изменить имя и пароль администратора) можно только в API версии *2017-12-01* или более поздней версии. Эти изменения применяются только к виртуальным машинам, созданным после изменения модели масштабируемого набора. Чтобы обеспечить актуальность существующих виртуальных машин, необходимо пересоздать образ каждой существующей виртуальной машины. Это можно сделать следующим образом.
 
-* REST API: 
+- Можно использовать REST API с [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage), как показано ниже.
 
-  `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` 
-  
-  Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage).
+    ```rest
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Можно использовать командлет [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm) в Azure PowerShell:
 
-  `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` 
-  
-  Дополнительные сведения см. в [документации по PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm).
+    ```powershell
+    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    ```
 
-* Azure CLI: 
+- Или можно использовать команду [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage) в Azure CLI 2.0.
 
-  `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` 
-  
-  Дополнительные сведения см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage).
+    ```azurecli
+    az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-Чтобы пересоздать образ виртуальной машины в масштабируемом наборе вручную, можно также использовать [пакеты SDK Azure](https://azure.microsoft.com/downloads/).
-
-
+- Можно также использовать [пакеты SDK Azure](https://azure.microsoft.com/downloads/) для конкретного языка.
 
 
 ## <a name="properties-with-restrictions-on-modification"></a>Свойства с ограничениями на изменение
 
 ### <a name="create-time-properties"></a>Свойства времени создания
+Некоторые свойства можно задать только при создании масштабируемого набора. Эти свойства включают в себя:
 
-Некоторые свойства можно задать только при первоначальном создании масштабируемого набора. Эти свойства включают в себя:
-
-- Зоны
+- зоны доступности;
 - издатель ссылки на образ;
 - предложение ссылки на образ.
 
-### <a name="properties-that-can-be-changed-based-on-the-current-value-only"></a>Свойства, которые можно изменить только на основе текущего значения
-
+### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Свойства, которые можно изменить только на основе текущего значения
 Некоторые свойства можно изменить только в зависимости от текущего значения. Эти свойства включают в себя:
 
-- `singlePlacementGroup`. Если свойство `singlePlacementGroup` имеет значение true, его можно изменить на false. Однако, если свойство `singlePlacementGroup` имеет значение false, его *невозможно* изменить на true.
-- `subnet`. Подсеть масштабируемого набора можно изменить, если исходная и новая подсети находятся в одной и той же виртуальной сети.
+- **singlePlacementGroup**. Если это свойство имеет значение true, его можно изменить на false. Однако, если значением является false, его **не возможно** изменить на true.
+- **subnet**. Подсеть масштабируемого набора можно изменить, если исходная и новая подсети находятся в одной и той же виртуальной сети.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Свойства, для изменения которых требуется освободить виртуальные машины
+Для некоторых свойств можно задать определенные значения, только если виртуальные машины в масштабируемом наборе освобождены. Эти свойства включают в себя:
 
-Некоторым свойствам можно задать определенные значения, только если виртуальные машины в масштабируемом наборе освобождены. Эти свойства включают в себя:
-
-- `sku name`. Если новый номер SKU виртуальной машины не поддерживается на оборудовании масштабируемого набора, необходимо освободить виртуальные машины в наборе перед изменением значения `sku name`. Дополнительные сведения об изменении размера виртуальных машин см. в [этой записи блога Azure](https://azure.microsoft.com/blog/resize-virtual-machines/).
+- **SKU name**. Если новый SKU виртуальной машины не поддерживается на оборудовании масштабируемого набора, необходимо освободить виртуальные машины в наборе перед изменением имени SKU. Дополнительные сведения см. в статье [Изменение размера виртуальной машины Windows](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Обновления отдельных виртуальных машин
+Некоторые изменения можно применить к отдельным виртуальным машинам, а не к глобальным свойствам масштабируемого набора. В настоящее время единственным обновлением отдельных виртуальных машин, которое поддерживается, является подключение или отключение дисков данных виртуальных машин в масштабируемом наборе. Эта функция предоставляется в предварительной версии. Дополнительные сведения см. в [документации по предварительной версии](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
-Некоторые изменения можно применить к отдельным виртуальным машинам, а не к глобальным свойствам масштабируемого набора. В настоящее время единственным обновлением отдельных виртуальных машин, которое поддерживается, является присоединение (отсоединение) дисков с данными к виртуальным машинам в масштабируемом наборе. Эта функция предоставляется в предварительной версии. Дополнительные сведения см. в [документации по предварительной версии](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 ## <a name="scenarios"></a>Сценарии
 
 ### <a name="application-updates"></a>Обновления приложений
-
-Если приложение развертывается в масштабируемом наборе с помощью расширений, при обновлении конфигурации расширения приложение обновляется в соответствии с политикой обновления. Например, если у вас есть новая версия скрипта для запуска в расширении пользовательских скриптов, вы можете обновить свойство `fileUris`, чтобы указывать на новый скрипт. 
-
-В некоторых случаях вы можете принудительно выполнить обновление, даже если конфигурация расширения не изменилась (например, вы обновили скрипт без изменения его URI). В таких случаях можно изменить `forceUpdateTag`, чтобы выполнить принудительное обновление. Платформа Azure не интерпретирует это свойство, поэтому изменение его значения не оказывает влияния на то, как выполняется расширение. Изменение приведет к повторному запуску расширения. 
-
-Дополнительные сведения о `forceUpdateTag` см. в [документации по REST API для расширений](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
+Если приложение развертывается в масштабируемом наборе с помощью расширений, то при обновлении конфигурации расширения приложение будет обновлено в соответствии с политикой обновления. Например, если у вас есть новая версия сценария для запуска в расширении пользовательских сценариев, вы можете обновить свойство *fileUris*, чтобы указать новый сценарий. В некоторых случаях вы можете принудительно выполнить обновление, даже если конфигурация расширения не изменилась (например, вы обновили сценарий без изменения его универсального кода ресурса (URI)). В таких случаях можно изменить *forceUpdateTag* для принудительного обновления. Это свойство не интерпретируется платформой Azure. Если изменить его значение, это не повлияет работу расширения. Изменение просто приведет к повторному запуску расширения. Дополнительные сведения о *forceUpdateTag* см. в [документации по REST API для расширений](/rest/api/compute/virtualmachineextensions/createorupdate).
 
 Приложения также часто развертывают с помощью пользовательского образа. Этот сценарий описан в следующем разделе.
 
-### <a name="os-updates"></a>Обновления ОС
-
-При использовании образов платформы их можно обновить, изменив свойство `imageReference`. Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+### <a name="os-updates"></a>обновления ОС;
+При использовании образов платформы Azure их можно обновить, изменив *imageReference* (дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> В качестве эталонной версии образов платформы обычно указывается последняя. Это означает, что во время создания масштабируемых наборов, их масштабирования и повторного создания образов виртуальные машины создаются на основе последней доступной версии. Тем не менее это *не* означает, что образ ОС будет автоматически обновляться по мере выпуска новых версий. Этот отдельный компонент в настоящее время доступен в предварительной версии. Дополнительные сведения см. в статье [Автоматические обновления ОС масштабируемого набора виртуальных машин Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+> Для образов платформы обычно указывается последняя версия в качестве эталонной версии образа. Во время создания, масштабирования и повторного создания образов виртуальные машины создаются на основе последней доступной версии. Тем не менее это **не** означает, что образ ОС будет автоматически обновляться по мере выпуска новых версий. Отдельный компонент, обеспечивающий автоматическое обновление ОС, в настоящий момент находится на этапе предварительной версии. Дополнительные сведения см. в [документации по автоматическому обновлению ОС](virtual-machine-scale-sets-automatic-upgrade.md).
 
-При использовании пользовательских образов их можно обновить, изменив идентификатор `imageReference`. Дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+При использовании пользовательских образов их можно обновить, изменив идентификатор *imageReference* (дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Примеры
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Обновление образа ОС масштабируемого набора
+Предположим, что у вас есть масштабируемый набор, который работает под управлением старой версии Ubuntu LTS 16.04. Его нужно обновить до более новой версии Ubuntu LTS 16.04 (например, *16.04.201801090*). Свойство эталонной версии образа не входит в список, поэтому можно непосредственно изменить эти свойства с помощью одной из следующих команд.
 
-Предположим, что вы имеете масштабируемый набор, который работает под управлением старой версии Ubuntu LTS 16.04. Его нужно обновить до более нового выпуска версии 16.04 (например, 16.04.201801090). Свойство эталонной версии образа не входит в список, поэтому можно непосредственно изменить эти свойства с помощью следующих команд:
+- Можно использовать командлет [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) в Azure PowerShell:
 
-* PowerShell: 
+    ```powershell
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    ```
 
-  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -ImageReferenceVersion 16.04.201801090`
+- Или можно использовать команду [az vmss update](/cli/azure/vmss#az_vmss_update_instances) в Azure CLI 2.0.
 
-* Azure CLI: 
-
-  `az vmss update -g {resourceGroupName} -n {vmScaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
+    ```azurecli
+    az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
 
 
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Обновление подсистемы балансировки нагрузки масштабируемого набора
+Предположим, у вас есть масштабируемый набор с Azure Load Balancer и вы хотите заменить Azure Load Balancer на шлюз приложений Azure. Свойства подсистемы балансировки нагрузки и шлюза приложений для масштабируемого набора являются частью списка, поэтому вы можете использовать команды для удаления и добавления элементов списка вместо прямого изменения свойств.
 
-Предположим, вы имеете масштабируемый набор с Azure Load Balancer и хотите заменить эту подсистему балансировки на шлюз приложений Azure. Свойства подсистемы балансировки нагрузки и шлюза приложений масштабируемого набора входят в список. Поэтому с помощью команд вы можете удалять и добавлять элементы списка вместо прямого изменения свойств.
+- Azure Powershell:
 
-PowerShell:
-```
-# Get the current model of the scale set and store it in a local PowerShell object named $vmss
-> $vmss=Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName}
+    ```powershell
+    # Get the current model of the scale set and store it in a local PowerShell object named $vmss
+    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    
+    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    
+    # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
+    
+    # Update the model of the scale set with the new configuration in the local PowerShell object
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    ```
 
-# Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-> $ipconf = New-AzureRmVmssIPConfig myNic -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+- Azure CLI 2.0:
 
-# Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure load balancer) with the new IP configuration
-> $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
-
-# Update the model of the scale set with the new configuration in the local PowerShell object
-> Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName} -virtualMachineScaleSet $vmss
-
-```
-
-Azure CLI:
-```
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # Remove the load balancer back-end pool from the scale set model
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # Remove the load balancer back-end pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # Add the application gateway back-end pool to the scale set model
-```
+    ```azurecli
+    # Remove the load balancer backend pool from the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
+    
+    # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
+    
+    # Add the application gateway backend pool to the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
+    ```
 
 >[!NOTE]
-> Эти команды предполагают наличие только одной конфигурации IP и балансировщика нагрузки в масштабируемом наборе. Если их несколько, возможно, потребуется использовать индекс списка, отличный от 0.
+> Эти команды предполагают наличие только одной конфигурации IP и балансировщика нагрузки в масштабируемом наборе. Если их несколько, может потребоваться использовать индекс списка, отличный от *0*.
+
+
+## <a name="next-steps"></a>Дополнительная информация
+Общие задачи управления масштабируемыми наборами можно также выполнять с помощью [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) или [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

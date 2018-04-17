@@ -1,20 +1,20 @@
 ---
-title: "Интеграция центра обработки данных Azure Stack: идентификация"
-description: "Узнайте, как интегрировать AD FS Azure Stack с AD FS центра обработки данных."
+title: 'Интеграция центра обработки данных Azure Stack: идентификация'
+description: Узнайте, как интегрировать AD FS Azure Stack с AD FS центра обработки данных.
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
-ms.openlocfilehash: 9e71707f13a14cb4cd0bc9cc7cd7d13dd7bb38e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Интеграция центра обработки данных Azure Stack: идентификация
 Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Сделать выбор следует перед развертыванием Azure Stack. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
@@ -261,7 +261,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
    > [!IMPORTANT]
    > Чтобы настроить правила авторизации выдачи при использовании AD FS на основе Windows Server 2012 или Windows Server 2012 R2, необходимо использовать оснастку MMC AD FS.
 
-4. При использовании браузера Internet Explorer или Edge для доступа к Azure Stack необходимо игнорировать привязки токенов. В противном случае попытка входа завершится сбоем. На экземпляре AD FS или элементе фермы выполните следующую команду.
+4. При использовании браузера Internet Explorer или Microsoft Edge для доступа к Azure Stack необходимо игнорировать привязки токенов. В противном случае попытка входа завершится сбоем. На экземпляре AD FS или элементе фермы выполните следующую команду.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true
@@ -334,4 +334,4 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-[Регистрация Azure Stack](azure-stack-registration.md)
+[Интеграция внешнего решения для мониторинга с Azure Stack](azure-stack-integrate-monitor.md)

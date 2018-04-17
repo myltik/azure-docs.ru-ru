@@ -1,11 +1,11 @@
 ---
-title: "Использование Azure Media Packager для выполнения задач статической упаковки | Документация Майкрософт"
-description: "В этом разделе показаны различные задачи, которые выполняются с помощью Azure Media Packager."
+title: Использование Azure Media Packager для выполнения задач статической упаковки | Документация Майкрософт
+description: В этом разделе показаны различные задачи, которые выполняются с помощью Azure Media Packager.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Использование Azure Media Packager для выполнения задач статической упаковки
 > [!NOTE]

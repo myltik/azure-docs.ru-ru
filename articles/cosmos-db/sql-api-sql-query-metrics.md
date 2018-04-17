@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Настройка производительности запросов в Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | `x-ms-documentdb-query-metrics` | Статистика запросов для выполнения. Это строка с разделителями, содержащая статистику времени, затраченного на различных этапах выполнения запроса. Возвращается, если `x-ms-documentdb-populatequerymetrics` имеет значение `True`. | 
 | `x-ms-request-charge` | Число [единиц запросов](request-units.md), использованных запросом. | 
 
-Сведения о заголовках запросов и параметрах интерфейса REST API см. в статье [Querying Azure Cosmos DB resources using the REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api) (Запрос ресурсов Azure Cosmos DB с помощью REST API).
+Сведения о заголовках запросов и параметрах интерфейса REST API см. в статье [Querying Azure Cosmos DB resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Запрос ресурсов Azure Cosmos DB с помощью REST API).
 
 ## <a name="best-practices-for-query-performance"></a>Рекомендации по повышению производительности запросов
 Ниже приведены наиболее распространенные факторы, влияющие на производительность запросов в Azure Cosmos DB. Мы подробно рассмотрим каждую из этих тем в этой статье.

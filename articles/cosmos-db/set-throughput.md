@@ -1,24 +1,23 @@
 ---
-title: "Подготовка пропускной способности для Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как задать подготовленную пропускную способность для контейнеров, коллекций, графов и таблиц Azure Cosmos DB."
+title: Подготовка пропускной способности для Azure Cosmos DB | Документация Майкрософт
+description: Узнайте, как задать подготовленную пропускную способность для контейнеров, коллекций, графов и таблиц Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: mimig
-ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/23/2018
+ms.author: sngun
+ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Настройка пропускной способности для коллекций Azure Cosmos DB
 
@@ -59,6 +58,8 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Настройка пропускной способности с помощью API SQL для .NET
 
+Следующий фрагменте кода получает текущую пропускную способность и изменяет ее на 500 единиц запросов в секунду. Полный пример кода см. в проекте [CollectionManagement](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L188-L216) на сайте GitHub.
+
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
@@ -66,8 +67,8 @@ Offer offer = client.CreateOfferQuery()
     .AsEnumerable()
     .SingleOrDefault();
 
-// Set the throughput to the new value, for example 12,000 request units per second
-offer = new OfferV2(offer, 12000);
+// Set the throughput to the new value, for example 500 request units per second
+offer = new OfferV2(offer, 500);
 
 // Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
@@ -77,7 +78,7 @@ await client.ReplaceOfferAsync(offer);
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Настройка пропускной способности с помощью API SQL для Java
 
-Этот фрагмент кода взят из файла OfferCrudSamples.java в репозитории [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java). 
+Следующий фрагменте кода получает текущую пропускную способность и изменяет ее на 500 единиц запросов в секунду. Полный пример кода см. в файле [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) на сайте GitHub. 
 
 ```Java
 // find offer associated with this collection
@@ -90,7 +91,7 @@ assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
 assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
 
 // update the offer
-int newThroughput = 10300;
+int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
