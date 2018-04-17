@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Запуск пакетов служб SSIS в Azure
       items:
+        - name: Настройка среды выполнения интеграции Azure Integration Services
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Настройка выпуска Enterprise Edition для среды выполнения интеграции Azure Integration Services
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Управление средой выполнения интеграции Azure SSIS
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Планирование среды выполнения интеграции Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Разработка лицензированных компонентов для среды выполнения интеграции Azure Integration Services
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Создание триггеров
       items:
         - name: Создание триггера расписания

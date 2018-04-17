@@ -1,62 +1,63 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по виртуальным машинам Azure для обработки и анализа данных"
+title: Документация по виртуальным машинам Azure для обработки и анализа данных
 metadata:
-  title: "Документация по виртуальным машинам Azure для обработки и анализа данных"
-  description: "Узнайте, как использовать виртуальные машины для обработки и анализа данных."
+  title: Документация по виртуальной машине для обработки и анализа данных в Azure
+  description: Сведения об использовании виртуальной машины для анализа и обработки данных, — экспериментальной среды в облаке Azure для обработки и анализа данных. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики.
   services: machine-learning
-  author: bradsev
+  author: gopitk
   manager: cgronlun
   ms.service: machine-learning
+  ms.component: data-science-vm
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: bradsev
-  ms.openlocfilehash: 291d38522adfa780629892ea6d7f7a17a82a0e39
-  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.author: gokuma
+  ms.openlocfilehash: b4a4d167a74b89ff623fb8267c4fdc28b46923e9
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 04/16/2018
 abstract:
-  description: "Виртуальные машины для обработки и анализа данных и глубинного обучения — это настроенные образы виртуальных машин в Azure, оснащенные средствами обработки и анализа данных, с помощью которых можно создавать интеллектуальные приложения для расширенной аналитики."
+  description: Виртуальные машины для обработки и анализа данных и глубинного обучения — это настроенные образы виртуальных машин в Azure, оснащенные средствами обработки и анализа данных, с помощью которых можно создавать интеллектуальные приложения для расширенной аналитики.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как настроить виртуальную машину для обработки и анализа данных под управлением Windows или Linux:"
+    text: 'Узнайте, как настроить виртуальную машину для обработки и анализа данных под управлением Windows или Linux:'
   - type: list
     style: unordered
     items:
     - html: <a href="provision-vm.md">Windows</a>
     - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
     - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как подготовить и использовать виртуальные машины для обработки и анализа данных:"
+    text: 'Узнайте, как подготовить и использовать виртуальные машины для обработки и анализа данных:'
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"provision-vm\">Подготовка виртуальной машины для обработки и анализа данных под управлением Windows</a>"
-    - html: "<a href=\"vm-do-ten-thing\">Использование виртуальной машины для обработки и анализа данных под управлением Windows</a>"
-    - html: "<a href:\"linux-dsvm-intro\">Подготовка виртуальной машины для обработки и анализа данных под управлением Linux CentOS</a>"
-    - html: "<a href=\"dsvm-ubuntu-intro\">Подготовка виртуальной машины для обработки и анализа данных под управлением Linux Ubuntu</a>"
-    - html: "<a href=\"linux-dsvm-walkthrough\">Использование виртуальной машины для обработки и анализа данных под управлением Linux</a>"
-- title: "Другие технологии машинного обучения Azure"
+    - html: <a href="provision-vm">Подготовка виртуальной машины для обработки и анализа данных под управлением Windows</a>
+    - html: <a href="vm-do-ten-thing">Использование виртуальной машины для обработки и анализа данных под управлением Windows</a>
+    - html: <a href:"linux-dsvm-intro">Подготовка виртуальной машины для обработки и анализа данных под управлением Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro">Подготовка виртуальной машины для обработки и анализа данных под управлением Linux Ubuntu</a>
+    - html: <a href="linux-dsvm-walkthrough">Использование виртуальной машины для обработки и анализа данных под управлением Linux</a>
+- title: Другие технологии машинного обучения Azure
   items:
   - type: paragraph
-    text: "Другие технологии, доступные в службе \"Машинное обучение Microsoft Azure\":"
+    text: 'Другие технологии, доступные в службе "Машинное обучение Microsoft Azure":'
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Службы машинного обучения Azure (предварительная версия)"
+    - title: Службы машинного обучения Azure (предварительная версия)
       href: /azure/machine-learning/preview/
       image:
         src: media/index/i_machine-learning.svg
         href: /azure/machine-learning/preview/
-    - title: "Студия машинного обучения Azure"
+    - title: Студия машинного обучения Azure
       href: /azure/machine-learning/studio/
       image:
         src: media/index/machine-learning-studio.svg

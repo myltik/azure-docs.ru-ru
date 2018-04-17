@@ -201,6 +201,8 @@
       items:
         - name: Безопасность кластера
           href: service-fabric-cluster-security.md
+        - name: Масштабирование
+          href: service-fabric-cluster-scaling.md
         - name: Различия между функциями для Linux и Windows
           href: service-fabric-linux-windows-differences.md
         - name: Кластеры в Azure
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Драйверы томов и драйверы ведения журналов
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Просмотр журналов контейнеров
+              href: service-fabric-containers-view-logs.md
             - name: Службы в контейнерах
               href: service-fabric-services-inside-containers.md
             - name: Cетевые режимы контейнеров
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Безопасное подключение к кластеру
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Установка исправлений для узлов кластера
+        - name: Установка исправлений для узлов кластера (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Установка исправлений для узлов кластера (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Мониторинг и диагностика
       items:
         - name: Анализ с помощью OMS

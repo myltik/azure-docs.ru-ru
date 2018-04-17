@@ -1,6 +1,14 @@
 - name: Удостоверение управляемой службы
   href: overview.md
   items:
+    - name: Быстрое начало работы
+      items:
+        - name: Использование виртуальной машины MSI для доступа к Azure Resource Manager
+          items:
+            - name: Виртуальная машина Windows
+              href: tutorial-windows-vm-access-arm.md
+            - name: Виртуальная машина Linux
+              href: tutorial-linux-vm-access-arm.md
     - name: Настройка MSI для виртуальной машины Azure
       items:
         - name: Использование портала Azure
@@ -41,8 +49,6 @@
       items:
         - name: Доступ к Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
-        - name: Доступ к Azure Resource Manager
-          href: tutorial-windows-vm-access-arm.md
         - name: Доступ к Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: Доступ к службе хранилища Azure с помощью ключа доступа
@@ -55,14 +61,14 @@
       items:
         - name: Доступ к Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
-        - name: Доступ к Azure Resource Manager
-          href: tutorial-linux-vm-access-arm.md
         - name: Доступ к службе хранилища Azure с помощью ключа доступа
           href: tutorial-linux-vm-access-storage.md
         - name: Доступ к службе хранилища Azure с помощью SAS
           href: tutorial-linux-vm-access-storage-sas.md
         - name: Доступ к Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
+        - name: Доступ к Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
     - name: Часто задаваемые вопросы и известные проблемы
       href: known-issues.md
     - name: Справочные материалы

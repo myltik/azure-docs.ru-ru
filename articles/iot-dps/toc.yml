@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Практические руководства
   items:
-    - name: Управление регистрацией устройств
-      items:
-        - name: Управление регистрацией устройств с помощью портала Azure
-          href: how-to-manage-enrollments.md
-        - name: Управление регистрацией устройств с помощью пакетов SDK для служб
-          href: how-to-manage-enrollments-sdks.md
-    - name: Отмена доступа к устройству
-      href: how-to-revoke-device-access-portal.md
-    - name: Отмена подготовки устройств
-      href: how-to-unprovision-devices.md
-    - name: Подтверждение владения сертификатами ЦС X.509
-      href: how-to-verify-certificates.md
-    - name: Использование HSM с пакетом SDK
-      href: use-hsm-with-sdk.md
-    - name: Управление доступом к службе подготовки
-      href: how-to-control-access.md
-    - name: Управление службой подготовки устройств с помощью Azure CLI
-      href: how-to-manage-dps-with-cli.md
-    - name: Разработка с помощью инструментов пакета SDK
-      href: how-to-use-sdk-tools.md
-    - name: Подключение к MXChip IoT DevKit
+    - name: Подключение MXChip IoT DevKit к Центру Интернета вещей
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Управление конфигурацией подготовки устройств
+      items:
+        - name: Настройка проверенных сертификатов ЦС
+          href: how-to-verify-certificates.md
+        - name: Управление отзывами
+          href: how-to-unprovision-devices.md
+        - name: Управление отзывами регистраций
+          href: how-to-revoke-device-access-portal.md
+        - name: Управление регистрациями с помощью портала
+          href: how-to-manage-enrollments.md
+        - name: Управление регистрациями с помощью пакетов SDK для служб
+          href: how-to-manage-enrollments-sdks.md
+    - name: Управление службой подготовки устройств
+      items:
+        - name: Настройка службы подготовки устройств с помощью Azure CLI
+          href: how-to-manage-dps-with-cli.md
+        - name: Управление доступом к API службы подготовки
+          href: how-to-control-access.md
+    - name: Использование механизмов аттестации и пакетов SDK
+      href: use-hsm-with-sdk.md
+    - name: Использование пакетов SDK для разработки
+      href: how-to-use-sdk-tools.md
 - name: Справочные материалы
   items:
     - name: REST

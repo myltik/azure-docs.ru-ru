@@ -83,6 +83,8 @@
           href: openfaas.md
         - name: Запуск заданий Spark в AKS
           href: spark-job.md
+        - name: Использование GPU в AKS
+          href: gpu-cluster.md
     - name: Базовые сведения о Kubernetes
       items:
         - name: Использование панели мониторинга Kubernetes
