@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2018
 
 Для добавления возможностей изменения размера в существующее приложение для передачи изображений можно использовать Azure CLI и портал Azure.
 
-![Опубликованное веб-приложение в браузере Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Опубликованное веб-приложение в браузере Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
@@ -157,7 +157,7 @@ az functionapp deployment source config --name <function_app> \
 
 Обратите внимание, что после того, как переданное изображение исчезнет, его копия появится в карусели **Generated thumbnails** (Созданные эскизы). С помощью функции размер этого образа был изменен, после чего он был добавлен в контейнер *эскизов* и скачан веб-клиентом.
 
-![Опубликованное веб-приложение в браузере Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Опубликованное веб-приложение в браузере Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -77,7 +77,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Telmex Uninet+, Verizon, Zayo|
 | **Денвер** |CoreSite, Megaport |
 | **Дублин** |Colt, eir, Interxion, Megaport, Telecity Group |
-| **Гонконг** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Специальный административный регион Гонконг** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лас-Вегас** |Level 3 Communications, Megaport |
 | **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions — Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse — KDDI, Telenor, Verizon, Vodafone, Zayo |
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo |
@@ -154,7 +154,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Чикаго** | Equinix | Lightower, Windstream |
 | **Даллас** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Франкфурт** | Telecity | BICS, Nianet, QSC AG |
-| **Гонконг** | Equinix | Macroview Telecom |
+| **Специальный административный регион Гонконг** | Equinix | Macroview Telecom |
 | **Лондон** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |
 | **Лос-Анджелес** | Equinix |Transtelco |
 | **Мадрид** | Level3 | Zertia |
