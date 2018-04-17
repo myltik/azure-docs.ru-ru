@@ -16,7 +16,7 @@
 ## управление
 ### [Включение режима высокой контрастности или изменение темы](azure-portal-change-theme-high-contrast.md)
 ### [Управление ресурсами с помощью портала](../azure-resource-manager/resource-group-portal.md)
-### [Управление доступом на основе ролей](../active-directory/role-based-access-control-configure.md)
+### [Управление доступом на основе ролей](../role-based-access-control/role-assignments-portal.md)
 ### [Предоставление общего доступа с управлением доступом на основе ролей](azure-portal-dashboard-share-access.md)
 ### [Организация ресурсов с помощью тегов](../azure-resource-manager/resource-group-using-tags.md)
 ### [Как масштабировать свои ресурсы](../monitoring-and-diagnostics/insights-how-to-scale.md)

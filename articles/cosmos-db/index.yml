@@ -7,18 +7,18 @@ metadata:
   description: Сведения об использовании базы данных Azure Cosmos для создания глобально распределенных многомодельных баз данных. В руководствах описывается, как создавать запросы и документы, пары "ключ-значение" и диаграммы графов.
   services: cosmos-db
   author: mimig1
-  manager: jhubbard
+  manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 684b0f00e85755b55aa0bfd9e8e6f68af3d38886
-  ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+  ms.openlocfilehash: 017130095fc8de6a83cbff075f47cbff9fd48089
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 04/05/2018
+  ms.lasthandoff: 04/16/2018
 abstract:
   description: Azure Cosmos DB — это многомодельная глобально распределенная служба баз данных. Используйте эти руководства и примеры для разработки баз данных, содержащих документы или пары "ключ — значение", баз данных Wide Column Store и баз данных графов, используя популярные API-интерфейсы и модели программирования. Затем научитесь реплицировать данные в любом количестве регионов Azure и масштабировать пропускную способность независимо от хранилища, используя при этом все преимущества полных соглашений об уровне обслуживания.
   aside:

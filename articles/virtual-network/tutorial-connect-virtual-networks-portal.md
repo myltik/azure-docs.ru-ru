@@ -1,6 +1,6 @@
 ---
-title: Подключение виртуальных сетей с помощью пиринговой связи на портале Azure | Документация Майкрософт
-description: В этой статье вы узнаете, как подключить виртуальные сети между собой с помощью пиринга, используя портал Azure.
+title: Руководство. Подключение виртуальных сетей с помощью пиринговой связи с помощью портала Azure | Документация Майкрософт
+description: Из этой статьи вы узнаете, как подключить виртуальные сети с помощью пиринга и портала Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,21 +11,21 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Подключение виртуальных сетей с помощью пиринговой связи на портале Azure
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Руководство. Подключение виртуальных сетей с помощью пиринга и портала Azure
 
-Виртуальные сети можно подключить друг к другу с помощью пиринговой связи. После установки пиринговой связи ресурсы в обеих виртуальных сетях могут взаимодействовать друг с другом с такой же задержкой и пропускной способностью, как если бы эти ресурсы находились в одной виртуальной сети. В этой статье раскрываются следующие темы:
+Виртуальные сети можно подключить друг к другу с помощью пиринговой связи. После установки пиринговой связи ресурсы в обеих виртуальных сетях могут взаимодействовать друг с другом с такой же задержкой и пропускной способностью, как если бы эти ресурсы находились в одной виртуальной сети. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * создание двух виртуальных сетей;
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/03/2018
 > * развертывание виртуальной машины в каждой из виртуальных сетей;
 > * Взаимодействие между виртуальными машинами
 
-При необходимости инструкции из этой статьи можно выполнить с помощью [Azure CLI](tutorial-connect-virtual-networks-cli.md) или [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
+При необходимости инструкции из этого руководства можно выполнить с помощью [Azure CLI](tutorial-connect-virtual-networks-cli.md) или [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 04/03/2018
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
     
-    Хотя проверка связи используется в этой статье для взаимодействия между виртуальными машинами, мы не рекомендуем разрешать протокол ICMP в брандмауэре Windows в рабочей среде.
+    Хотя проверка связи в этом руководстве используется для обмена данными между виртуальными машинами, мы не рекомендуем разрешать протокол ICMP в брандмауэре Windows в рабочей среде.
 
 7. Для подключения к виртуальной машине *myVm2* введите следующую команду в командной строке на виртуальной машине *myVm1*:
 
@@ -182,6 +182,6 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Из этой статьи вы узнали, как с помощью пиринга соединить две виртуальные сети в одном регионе Azure. Пиринг можно использовать и для подключения виртуальных сетей из разных [поддерживаемых регионов](virtual-network-manage-peering.md#cross-region) или [разных подписок Azure](create-peering-different-subscriptions.md#portal), а также для создания [звездообразной топологии сети](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering). Чтобы узнать больше о пиринге виртуальных сетей, ознакомьтесь с разделами [Пиринг между виртуальными сетями](virtual-network-peering-overview.md) и [Создание, изменение и удаление пиринга в виртуальной сети](virtual-network-manage-peering.md).
+Из этого руководства вы узнали, как с помощью пиринга подключить две виртуальные сети в одном регионе Azure. Пиринг можно использовать и для подключения виртуальных сетей из разных [поддерживаемых регионов](virtual-network-manage-peering.md#cross-region) или [разных подписок Azure](create-peering-different-subscriptions.md#portal), а также для создания [звездообразной топологии сети](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering). Чтобы узнать больше о пиринге виртуальных сетей, ознакомьтесь с разделами [Пиринг между виртуальными сетями](virtual-network-peering-overview.md) и [Создание, изменение и удаление пиринга в виртуальной сети](virtual-network-manage-peering.md).
 
 Чтобы узнать, как подключить свой компьютер к виртуальной сети через VPN и взаимодействовать с ресурсами в виртуальной сети или в пиринговых виртуальных сетях, изучите раздел [Настройка подключения "точка — сеть" к виртуальной сети с использованием собственной аутентификации Azure на основе сертификата и портала Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

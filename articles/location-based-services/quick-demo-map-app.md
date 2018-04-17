@@ -1,26 +1,26 @@
 ---
-title: "Интерактивный поиск на карте с помощью Azure Location Based Services | Документация Майкрософт"
-description: "Краткое руководство Azure. Запуск демонстрационной версии службы поиска на карте с помощью Azure Location Based Services (предварительная версия)"
+title: Интерактивный поиск на карте с помощью Azure Location Based Services | Документация Майкрософт
+description: Краткое руководство Azure. Запуск демонстрационной версии службы поиска на карте с помощью Azure Location Based Services (предварительная версия)
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Запуск демонстрационной версии службы поиска на карте с помощью Azure Location Based Services (предварительная версия)
 
-В этой статье показаны возможности Azure Location Based Services (LBS) по выполнению интерактивного поиска с использованием службы карт Azure. В ней также описываются основные действия по созданию учетной записи LBS и получению ключа учетной записи для использования в демонстрационной версии веб-приложения. 
+В этой статье описаны возможности Azure Location Based Services (LBS) по выполнению интерактивного поиска. В ней также описываются основные действия по созданию учетной записи LBS и получению ключа учетной записи для использования в демонстрационной версии веб-приложения. 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 03/08/2018
 
 5. После успешного создания учетной записи откройте ее и перейдите на ее страницу **Параметры**. Щелкните **Ключи**, чтобы получить первичный и вторичный ключи для своей учетной записи Azure Location Based Services. Скопируйте значение **Первичный ключ** в локальный буфер обмена, чтобы использовать его в следующем разделе. 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>Скачивание демонстрационной версии приложения для службы карт Azure
+## <a name="download-the-demo-application"></a>Скачивание демонстрационной версии приложения
 
 1. Скачайте файл [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) или скопируйте его содержимое.
 2. Сохраните его локально как файл **AzureMapDemo.html** и откройте в текстовом редакторе.
 3. Найдите строку `<insert-key>` и замените ее значением **первичного ключа**, полученным в предыдущем разделе. 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>Запуск демонстрационной версии приложения для службы карт Azure
+## <a name="launch-the-demo-application-for"></a>Запуск демонстрационной версии приложения
 
 1. Откройте файл **AzureMapDemo.html** в браузере на свой выбор.
 2. Просмотрите карту Лос-Анджелеса. Город определяется по значению пары `[longitude, latitude]`, присваиваемому переменной JavaScript с именем **center** в файле *AzureMapDemo.html*. Эти координаты можно изменить на любой город на ваш выбор. Например, координаты Нью-Йорка: *[–74.0060, 40.7128]*.

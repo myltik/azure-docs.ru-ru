@@ -55,7 +55,7 @@
 
 # Сопутствующие материалы
 ## [Azure Active Directory](/azure/active-directory/)
-## [Управление доступом на основе ролей](../role-based-access-control-what-is.md)
+## [Управление доступом на основе ролей](../../role-based-access-control/overview.md)
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

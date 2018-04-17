@@ -1,6 +1,6 @@
 ---
-title: "Создание веб-приложения Python с подключением к базе данных PostgreSQL в Azure | Документация Майкрософт"
-description: "Узнайте, как создать приложение Python с подключением к базе данных PostgreSQL в Azure."
+title: Создание веб-приложения Python с подключением к базе данных PostgreSQL в Azure | Документация Майкрософт
+description: Узнайте, как создать приложение Python с подключением к базе данных PostgreSQL в Azure.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Создание веб-приложения Python с подключением к базе данных PostgreSQL в Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Руководство. Создание веб-приложения Python с подключением к базе данных PostgreSQL в Azure
 
 > [!NOTE]
 > В этой статье мы развернем приложение в службе приложений на платформе Windows. Чтобы развернуть приложение в службе приложений на платформе _Linux_, см. статью [Build a Docker Python and PostgreSQL web app in Azure](./containers/tutorial-docker-python-postgresql-app.md) (Создание веб-приложения Docker Python с подключением к базе данных PostgreSQL в Azure).
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-В браузере перейдите по адресу http://localhost:5000. Щелкните **Зарегистрировать** и создайте тестовую регистрацию. Теперь приложение записывает данные в базу данных Azure.
+Откройте браузер и перейдите по адресу http://localhost:5000. Щелкните **Зарегистрировать** и создайте тестовую регистрацию. Теперь приложение записывает данные в базу данных Azure.
 
 ![Приложение Python Flask, выполняемое в локальной среде](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 

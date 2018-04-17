@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Воронки
               href: usage-funnels.md
+            - name: когорты;
+              href: app-insights-usage-cohorts.md
             - name: Влияние
               href: app-insights-usage-impact.md
             - name: Сохранение

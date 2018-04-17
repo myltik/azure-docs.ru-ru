@@ -1,11 +1,11 @@
 ---
-title: "Руководство по планированию использования центра безопасности Azure и работе в нем | Документация Майкрософт"
-description: "Этот документ поможет вам спланировать работу перед переходом на использование центра безопасности Azure. Кроме того, здесь содержатся рекомендации по ежедневно выполняемым операциям."
+title: Руководство по планированию использования центра безопасности Azure и работе в нем | Документация Майкрософт
+description: Этот документ поможет вам спланировать работу перед переходом на использование центра безопасности Azure. Кроме того, здесь содержатся рекомендации по ежедневно выполняемым операциям.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e07e6792c74e1bdb5c5839e8c6bd9efbedf10170
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Руководство по планированию использования центра безопасности Azure и работе в нем
 Это руководство предназначено для ИТ-специалистов, ИТ-архитекторов, аналитиков в сфере информационной безопасности и администраторов облака, организации которых планируют использовать центр безопасности Azure.
@@ -138,7 +138,7 @@ ms.lasthandoff: 01/02/2018
 Перед настройкой политик безопасности следует ознакомиться со всеми [рекомендациями по обеспечению безопасности](https://docs.microsoft.com/azure/security-center/security-center-recommendations)и определить, применимы ли они к различным подпискам и группам ресурсов, которые вы используете. Кроме того, важно понимать, какие действия нужно будет предпринять для реализации рекомендаций по обеспечению безопасности и кто в вашей организации будет отслеживать новые рекомендации и предпринимать необходимые шаги.
 
 ## <a name="data-collection-and-storage"></a>сбор и хранение данных;
-Microsoft Monitoring Agent используется в центре безопасности Azure для сбора данных с виртуальных машин. Этот агент также используется службами Operations Management Suite и Log Analytics. [Данные](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection), собранные этим агентом, будут храниться в рабочих областях службы Log Analytics.
+Microsoft Monitoring Agent используется в центре безопасности Azure для сбора данных с виртуальных машин. Этот агент также используется службой Log Analytics. [Данные](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection), собранные этим агентом, будут храниться в рабочих областях службы Log Analytics.
 
 ### <a name="agent"></a>Агент
 
