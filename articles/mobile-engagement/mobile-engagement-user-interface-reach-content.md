@@ -79,7 +79,7 @@ ms.lasthandoff: 03/30/2018
   * Пример:geo:0,0?q=starbucks,paris
 * **Действия только для iOS**
   * Скачивание приложения из магазина App Store
-  * http://itunes.apple.com/[страна]/app/[имя_приложения]/id[ИД_приложения]?mt=8 
+  * \http://itunes.apple.com/[страна]/app/[имя_приложения]/id[ИД_приложения]?mt=8 
   * Пример:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Действия для Windows
   * Открытие веб-страницы
