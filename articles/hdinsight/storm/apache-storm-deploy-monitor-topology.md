@@ -1,8 +1,8 @@
 ---
-title: "Развертывание топологий Apache Storm в HDInsight и управление ими | Документация Майкрософт"
-description: "Узнайте, как развертывать и отслеживать топологии Apache Storm, а также управлять ими с помощью панели мониторинга Storm в HDInsight. Использование инструментов Hadoop для Visual Studio."
+title: Развертывание топологий Apache Storm в HDInsight и управление ими | Документация Майкрософт
+description: Узнайте, как развертывать и отслеживать топологии Apache Storm, а также управлять ими с помощью панели мониторинга Storm в HDInsight. Использование инструментов Hadoop для Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -94,7 +94,7 @@ ms.lasthandoff: 11/03/2017
 
   * **Rebalance**(Повторная балансировка) — корректировка параллелизма топологии. После изменения числа узлов в кластере необходимо выполнить повторную балансировку топологий. Это позволяет топологии скорректировать параллелизм для компенсации увеличения или уменьшения количества узлов в кластере.
 
-      Дополнительные сведения см. в разделе [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Основные сведения о параллелизме в топологии Storm): http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html.
+      Дополнительные сведения см. в разделе [Основные сведения о параллелизме в топологии Storm (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **Kill**(Удалить) — останавливает выполнение топологии Storm по истечении заданного времени ожидания.
 
