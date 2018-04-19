@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Решение для управления обновлениями в Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/30/2018
 * гибридные рабочие роли Runbook службы автоматизации;
 * службы центра обновления Майкрософт или Windows Server Update Services для компьютеров с Windows.
 
-На схеме ниже показано концептуальное представление потока данных и его поведения, а также, как решение анализирует и применяет обновления безопасности ко всем подключенным компьютерам Windows Server и Linux в рабочей области.    
+На схеме ниже показано концептуальное представление потока данных и его поведения, а также, как решение анализирует и применяет обновления безопасности ко всем подключенным компьютерам Windows Server и Linux в рабочей области.
 
 ![Поток процесса управления обновлениями](media/automation-update-management/update-mgmt-updateworkflow.png)
 
@@ -70,21 +70,24 @@ ms.lasthandoff: 03/30/2018
 
 #### <a name="windows"></a>Windows
 
-На агентах Windows необходимо настроить связь с сервером служб Windows Server Update Services (WSUS) или доступ к Центру обновления Майкрософт. Также агентом Windows нельзя управлять параллельно с помощью System Center Configuration Manager. [Агент Windows](../log-analytics/log-analytics-agent-windows.md) является обязательным компонентом. При подключении виртуальной машины Azure этот агент устанавливается автоматически.
+На агентах Windows необходимо настроить связь с сервером служб Windows Server Update Services (WSUS) или доступ к Центру обновления Майкрософт. Решение "Управление обновлениями" можно использовать с System Center Configuration Manager. Дополнительные сведения см. в статье о [сценариях интеграции System Center Configuration Manager с решением "Управление обновлениями"](oms-solution-updatemgmt-sccmintegration.md#configuration). [Агент Windows](../log-analytics/log-analytics-agent-windows.md) является обязательным компонентом. При подключении виртуальной машины Azure этот агент устанавливается автоматически.
 
 #### <a name="linux"></a>Linux
 
 Для Linux у виртуальной машины должен быть доступ к репозиторию обновлений, который может быть закрытым или общедоступным. Это решение не поддерживает агент OMS для Linux, настроенный для отправки отчетов в несколько рабочих областей Log Analytics.
 
-Дополнительные сведения по установке агента OMS для Linux и скачиванию последней версии см. [здесь](https://github.com/microsoft/oms-agent-for-linux). Дополнительные сведения по установке агента OMS для Windows см. в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](../log-analytics/log-analytics-windows-agent.md).  
+Дополнительные сведения по установке агента OMS для Linux и скачиванию последней версии см. [здесь](https://github.com/microsoft/oms-agent-for-linux). Дополнительные сведения по установке агента OMS для Windows см. в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Разрешения
-Для создания развертываний обновлений и управления ими требуются определенные разрешения. Дополнительные сведения об этих разрешениях см. в разделе, посвященном [управлению обновлениями с доступом на основе ролей](automation-role-based-access-control.md#update-management). 
+
+Для создания развертываний обновлений и управления ими требуются определенные разрешения. Дополнительные сведения об этих разрешениях см. в разделе, посвященном [управлению обновлениями с доступом на основе ролей](automation-role-based-access-control.md#update-management).
 
 ## <a name="solution-components"></a>Компоненты решения
+
 Это решение состоит из приведенных ниже ресурсов, добавленных в учетную запись службы автоматизации, и подключенных напрямую агентов или подключенной группы управления Operations Manager.
 
 ### <a name="hybrid-worker-groups"></a>Группы гибридных рабочих ролей
+
 После включения этого решения любой подключенный к рабочей области Log Analytics компьютер с Windows будет автоматически настроен в качестве гибридной рабочей роли Runbook для поддержки модулей Runbook, которые входят в это решение. Для каждого компьютера с Windows, управляемого этим решением, эти роли будут указаны на странице групп гибридных рабочих ролей как группа гибридных рабочих ролей системы для учетной записи службы автоматизации с использованием соглашения об именовании *Имя узла FQDN_GUID*. Вы не можете выбрать эти группы с помощью модулей Runbook в своей учетной записи, так как произойдет сбой. Эти группы предназначены только для поддержки решения для управления.
 
 Но вы можете добавить компьютеры с Windows в группу гибридных рабочих ролей Runbook в учетной записи службы автоматизации, чтобы обеспечить поддержку модулей Runbook службы автоматизации при условии, что вы используете одну и ту же учетную запись для решения и для участия в группе гибридных рабочих ролей Runbook. Эта функция добавлена в версии 7.2.12024.0 гибридной рабочей роли Runbook.
@@ -119,14 +122,13 @@ Heartbeat
 
 Чтобы установить подключение агента к Log Analytics на компьютере с Windows, сделайте следующее:
 
-1.  Откройте Microsoft Monitoring Agent на панели управления. На вкладке **Azure Log Analytics** агент отобразит сообщение **The Microsoft Monitoring Agent has successfully connected to Log Analytics** (Microsoft Monitoring Agent успешно подключен к Log Analytics).   
-2.  Откройте журнал событий Windows, перейдите к **журналам приложения и служб или Operations Manager** и выполните поиск идентификатора события 3000 или 5002 в исходном соединителе службы. Эти события указывают, что компьютер был зарегистрирован для рабочей области Log Analytics и получает конфигурации.  
+1. Откройте Microsoft Monitoring Agent на панели управления. На вкладке **Azure Log Analytics** агент отобразит сообщение **The Microsoft Monitoring Agent has successfully connected to Log Analytics** (Microsoft Monitoring Agent успешно подключен к Log Analytics).   
+2. Откройте журнал событий Windows, перейдите к **журналам приложения и служб или Operations Manager** и выполните поиск идентификатора события 3000 или 5002 в исходном соединителе службы. Эти события указывают, что компьютер был зарегистрирован для рабочей области Log Analytics и получает конфигурации.
 
 Если агент не взаимодействует с Log Analytics и настроен на взаимодействие с Интернетом через брандмауэр или прокси-сервер, вам необходимо проверить, правильно ли настроен брандмауэр или прокси-сервер. Для этого ознакомьтесь с разделом о [настройке сети для агента Windows](../log-analytics/log-analytics-agent-windows.md) или [агента Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Если при подключении этого решения системы Linux настроены для взаимодействия с прокси-сервером или шлюзом OMS, обновите разрешения *proxy.conf*, чтобы предоставить группе omiuser разрешение на чтение файла. Для этого выполните следующие команды:  
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> Если при подключении этого решения системы Linux настроены для взаимодействия с прокси-сервером или шлюзом OMS, обновите разрешения *proxy.conf*, чтобы предоставить группе omiuser разрешение на чтение файла. Для этого выполните следующие команды: `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 Добавленные агенты Linux отобразят статус **обновления** после оценки. Этот процесс может занять до 6 часов.
@@ -136,6 +138,7 @@ Heartbeat
 ## <a name="data-collection"></a>Сбор данных
 
 ### <a name="supported-agents"></a>Поддерживаемые агенты
+
 В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
 
 | Подключенный источник | Поддерживаются | ОПИСАНИЕ |
@@ -145,11 +148,13 @@ Heartbeat
 | Группа управления Operations Manager |Yes |Решение собирает сведения о системных обновлениях с агентов, состоящих в подключенной группе обновления.<br>Прямое подключение агента Operations Manager к Log Analytics не требуется. Данные пересылаются из группы управления в рабочую область Log Analytics. |
 
 ### <a name="collection-frequency"></a>Частота сбора
+
 Дважды в день выполняется проверка каждого управляемого компьютера Windows. Каждые 15 минут вызывается API Windows, чтобы выполнить запрос последнего времени обновления для определения изменения статуса. В случае его изменения запускается проверка на соответствие. Каждые три часа выполняется проверка всех управляемых компьютеров Linux.
 
-Отображение обновленных данных на управляемых компьютерах на панели мониторинга может занять от 30 минут до 6 часов.   
+Отображение обновленных данных на управляемых компьютерах на панели мониторинга может занять от 30 минут до 6 часов.
 
 ## <a name="viewing-update-assessments"></a>Просмотр оценки обновлений
+
 Щелкните пункт **Управление обновлениями** в своей учетной записи службы автоматизации, чтобы просмотреть состояние компьютеров.
 
 В этом представлении содержатся сведения о ваших компьютерах, отсутствующих обновлениях, развертываниях обновлений и запланированных развертываниях обновлений.
@@ -165,7 +170,7 @@ Heartbeat
 
 Чтобы обновления применялись только в период обслуживания в Ubuntu, повторно настройте пакет unattended-upgrades и отключите автоматическое обновление. Дополнительные сведения о настройке см. в разделе [Автоматические обновления](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) руководства по Ubuntu Server.
 
-Виртуальным машинам, которые созданы на основе доступных в Azure Marketplace предоставляемых по запросу образов Red Hat Enterprise Linux (RHEL), обеспечивается доступ к развернутой в Azure инфраструктуре [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md). Любой другой дистрибутив Linux должен быть обновлен с помощью интернет-репозитория дистрибутивов посредством поддерживаемых методов.  
+Виртуальным машинам, которые созданы на основе доступных в Azure Marketplace предоставляемых по запросу образов Red Hat Enterprise Linux (RHEL), обеспечивается доступ к развернутой в Azure инфраструктуре [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md). Любой другой дистрибутив Linux должен быть обновлен с помощью интернет-репозитория дистрибутивов посредством поддерживаемых методов.
 
 ## <a name="viewing-missing-updates"></a>Просмотр отсутствующих обновлений
 
@@ -204,8 +209,8 @@ Heartbeat
 |Блокировка изменений<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Все компьютеры с недостающими обновлениями<br>Для применения ограничений к операционной системе введите один из типов ниже:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Блокировка изменений<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Отсутствующие обновления для определенного компьютера (замените значение именем своего компьютера)|
 | Событие<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |События ошибок для компьютеров, на которых отсутствовали обязательные критические обновления или обновления для системы безопасности |
-| Блокировка изменений<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Отдельные недостающие обновления на всех компьютерах | 
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Компьютеры с обновлениями, завершившимися сбоем при выполнении<br>Для применения ограничений к операционной системе введите один из типов ниже:<br>OSType = "Windows"<br>OSType == "Linux" | 
+| Блокировка изменений<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Отдельные недостающие обновления на всех компьютерах |
+| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Компьютеры с обновлениями, завершившимися сбоем при выполнении<br>Для применения ограничений к операционной системе введите один из типов ниже:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Блокировка изменений<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |Список всех компьютеров Linux, для которых доступно обновление пакетов, позволяющее устранить критическую уязвимость или уязвимость системы безопасности. | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Компьютеры, обновленные при этом запуске обновления (замените значение именем развертывания обновлений) | 
 
@@ -239,15 +244,15 @@ Heartbeat
 
 В этом разделе представлены сведения об устранении неполадок с помощью решения для управления обновлениями.
 
-Если при попытке подключить решение или виртуальную машину возникли проблемы, проверьте журнал событий **журналов приложения и служб Operations Manager** для событий с идентификатором 4502, а также сообщение события, содержащее **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. В таблице ниже выделены отдельные сообщения об ошибках и возможные решения этих ошибок.  
+Если при попытке подключить решение или виртуальную машину возникли проблемы, проверьте журнал событий **журналов приложения и служб Operations Manager** для событий с идентификатором 4502, а также сообщение события, содержащее **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. В таблице ниже выделены отдельные сообщения об ошибках и возможные решения этих ошибок.
 
-| Сообщение | Причина | Решение |   
-|----------|----------|----------|  
-| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} ("Message": "Компьютер уже зарегистрирован для другой учетной записи") | Компьютер уже подключен к другой рабочей области для управления обновлениями | Выполните очистку старых артефактов путем [удаления группы гибридных модулей](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
-| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>System.Net.Http.HttpRequestException: произошла ошибка при отправке запроса. ---><br>System.Net.WebException: базовое соединение<br>закрыто. Непредвиденная ошибка<br>при приеме. ---> System.ComponentModel.Win32Exception:<br>взаимодействие клиента и сервера невозможно,<br>т. к. у них разный алгоритм работы. | Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|  
-| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>Newtonsoft.Json.JsonReaderException: ошибка при анализе положительного значения бесконечности. | Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)| 
-| Сертификат, представленный службой <wsid>.oms.opinsights.azure.com,<br>не был выдан центром сертификации<br>для служб Майкрософт. Контакт<br>работает ли прокси, перехватывающий взаимодействие по протоколам TLS и SSL,<br>обратитесь к администратору сети. |Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|  
-| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>не удалось создать самозаверяющий сертификат. ---><br>System.UnauthorizedAccessException: в доступе отказано. | Сбой создания самозаверяющего сертификата | У системной учетной записи должен быть<br>доступ на чтение к папке:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
+| Сообщение | Причина | Решение |
+|----------|----------|----------|
+| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} ("Message": "Компьютер уже зарегистрирован для другой учетной записи") | Компьютер уже подключен к другой рабочей области для управления обновлениями | Выполните очистку старых артефактов путем [удаления группы гибридных модулей](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>System.Net.Http.HttpRequestException: произошла ошибка при отправке запроса. ---><br>System.Net.WebException: базовое соединение<br>закрыто. Непредвиденная ошибка<br>при приеме. ---> System.ComponentModel.Win32Exception:<br>взаимодействие клиента и сервера невозможно,<br>т. к. у них разный алгоритм работы. | Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|
+| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>Newtonsoft.Json.JsonReaderException: ошибка при анализе положительного значения бесконечности. | Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|
+| Сертификат, представленный службой <wsid>.oms.opinsights.azure.com,<br>не был выдан центром сертификации<br>для служб Майкрософт. Контакт<br>работает ли прокси, перехватывающий взаимодействие по протоколам TLS и SSL,<br>обратитесь к администратору сети. |Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|
+| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>не удалось создать самозаверяющий сертификат. ---><br>System.UnauthorizedAccessException: в доступе отказано. | Сбой создания самозаверяющего сертификата | У системной учетной записи должен быть<br>доступ на чтение к папке:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
 
 ## <a name="next-steps"></a>Дополнительная информация
 

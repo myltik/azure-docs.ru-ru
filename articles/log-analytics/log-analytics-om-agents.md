@@ -1,11 +1,11 @@
 ---
-title: "Подключение Operations Manager к Log Analytics | Документация Майкрософт"
-description: "Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью OMS."
+title: Подключение Operations Manager к Log Analytics | Документация Майкрософт
+description: Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Подключение Operations Manager к Log Analytics
 Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью OMS.  Таким образом вы сможете использовать функции OMS, располагая следующими возможностями благодаря интеграции с Operations Manager:
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/11/2017
 1. Откройте консоль Operations Manager и выберите рабочую область **Администрирование** .
 2. Разверните узел Operations Management Suite и щелкните **Подключения**.
 3. В представлении "Подключение к OMS" щелкните **Настройка прокси-сервера**.
-4. На странице **Мастер выставления набора Operations Management Suite: прокси-сервер** выберите **Использовать прокси-сервер для доступа к Operations Management Suite**, а затем введите URL-адрес с номером порта (например, http://corpproxy:80) и нажмите кнопку **Готово**.
+4. На странице **Мастер настройки параметров набора Operations Management Suite: прокси-сервер** выберите **Использовать прокси-сервер для доступа к набору Operations Management Suite**, а затем введите URL-адрес с номером порта (например, http://corpproxy:80) и нажмите кнопку **Готово**.
 
 Если для доступа к прокси-серверу нужно проходить аутентификацию, выполните указанные ниже действия, чтобы настроить учетные данные и параметры, которые необходимо распространить между управляемыми компьютерами, которые отправляют отчеты в OMS, в группе управления.
 

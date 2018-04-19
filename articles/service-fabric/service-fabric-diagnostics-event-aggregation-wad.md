@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65e5e45300e66cd8c3acc44a91335de45a919eb5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Централизованное хранение журналов упрощает анализ и устранение неполадок в кластере, а также в приложениях и службах, работающих в этом кластере.
 
-Один из способов отправки и сбора журналов заключается в использовании расширения системы диагностики Microsoft Azure (WAD), которое отправляет журналы в службу хранилища Azure, а также может отправлять журналы в Azure Application Insights или концентраторы событий Azure. Вы также можете использовать внешний процесс, чтобы считывать события из хранилища и помещать их на платформу обработки, например в [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов.
+Один из способов отправки и сбора журналов заключается в использовании расширения системы диагностики Microsoft Azure (WAD), которое отправляет журналы в службу хранилища Azure, а также может отправлять журналы в Azure Application Insights или концентраторы событий Azure. Вы также можете использовать внешний процесс, чтобы считывать события из хранилища и помещать их на платформу обработки, например в [Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 Эти инструменты используются для некоторых операций в данном документе:
@@ -285,11 +285,11 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Если вы правильно настроили диагностику Azure, данные из журнала трассировки событий Windows и журнала EventSource станут появляться в таблице хранилища. При использовании OMS, Kibana или любой другой платформы для аналитики и визуализации, которая не настроена в шаблоне Resource Manager явным образом, убедитесь, что выбранная платформа настроена для чтения данных из таблиц хранилища. Сделать это для OMS несложно. Дополнительные сведения см. в статье [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) (Анализ событий и журналов с помощью OMS). В этом смысле Application Insights — это особый случай, так как это решение можно настроить при настройке расширения диагностики. Дополнительные сведения об Application Insights см. в [этой статье](service-fabric-diagnostics-event-analysis-appinsights.md).
+Если вы правильно настроили диагностику Azure, данные из журнала трассировки событий Windows и журнала EventSource станут появляться в таблице хранилища. При использовании Log Analytics, Kibana или любой другой платформы для аналитики и визуализации, которая не настроена в шаблоне Resource Manager явным образом, убедитесь, что выбранная платформа настроена для чтения данных из таблиц хранилища. Сделать это для Log Analytics несложно. Дополнительные сведения см. в статье об [анализе событий и журналов](service-fabric-diagnostics-event-analysis-oms.md). В этом смысле Application Insights — это особый случай, так как это решение можно настроить при настройке расширения диагностики. Дополнительные сведения об Application Insights см. в [этой статье](service-fabric-diagnostics-event-analysis-appinsights.md).
 
 >[!NOTE]
 >Сегодня не существует способа фильтрации или очистки событий, которые отправляются в таблицу. Если не реализовать метод удаления событий из таблицы, она продолжит расти. Сейчас есть пример службы очистки данных, выполняющийся в [примере модуля наблюдения](https://github.com/Azure-Samples/service-fabric-watchdog-service). Мы также советуем написать собственный пример, если у вас нет веских причин для хранения журналов дольше 30 или 90 дней.
 
 * [Узнайте, как собирать данные счетчиков производительности или журналы, используя расширения системы диагностики.](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Анализ событий и визуализация с помощью Application Insights)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) (Анализ событий и журналов с помощью OMS)
+* [Анализ и визуализация событий с помощью Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)

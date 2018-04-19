@@ -1,8 +1,8 @@
 ---
-title: "Управление кластерами Hadoop в HDInsight с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создавать кластеры HDInsight и управлять ими с помощью портала Azure."
+title: Управление кластерами Hadoop в HDInsight с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как создавать кластеры HDInsight и управлять ими с помощью портала Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
 
@@ -103,7 +103,7 @@ HDInsight работает со множеством компонентов Hado
     * **Внешние метахранилища**: просмотр метахранилищ Hive и Oozie. Метахранилища можно настроить только во время создания кластера. Ознакомьтесь с разделом [Использование метахранилища Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Действия скрипта**: выполнение bash-скриптов в кластере. См. статью [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
     * **Приложения.** Добавляйте и удаляйте приложения HDInsight.  Ознакомьтесь со статьей [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md).
-    * **Мониторинг**: отслеживание кластера в Azure Operations Management Suite и Azure Log Analytics.
+    * **Мониторинг.** Мониторинг кластера в Azure Log Analytics.
     * **Свойства**: просмотр свойств кластера.
     * **Учетные записи хранения.** Просматривайте учетные записи хранения и ключи. Учетные записи хранения настраиваются во время создания кластера.
     * **Доступ к Data Lake Store**: настройка доступа к хранилищам Data Lake Store.  Дополнительные сведения см. в статье [Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).

@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок подключений с помощью службы \"Наблюдатель за сетями Azure\" в PowerShell | Документация Майкрософт"
-description: "Узнайте, как использовать функцию устранения неполадок подключений службы \"Наблюдатель за сетями Azure\" с помощью PowerShell."
+title: Устранение неполадок подключений с помощью службы "Наблюдатель за сетями Azure" в PowerShell | Документация Майкрософт
+description: Узнайте, как использовать функцию устранения неполадок подключений службы "Наблюдатель за сетями Azure" с помощью PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5b22da43fe36a4e048483bb558a7705a3a670a9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Устранение неполадок подключений с помощью службы "Наблюдатель за сетями Azure" с помощью PowerShell
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/29/2018
 * Виртуальные машины, на которых требуется устранить неполадки подключения.
 
 > [!IMPORTANT]
-> Для устранения неполадок подключений требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
+> Чтобы устранить неполадки подключения на виртуальной машине, установите на ней расширение `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Эта расширение не нужно устанавливать на целевой конечной точке.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Проверка возможности подключения к виртуальной машине
 

@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг работоспособности в службе Service Fabric | Документация Майкрософт"
-description: "Общие сведения о модели мониторинга работоспособности Azure Service Fabric, которая позволяет отслеживать состояние кластера и его приложений, а также служб."
+title: Мониторинг работоспособности в службе Service Fabric | Документация Майкрософт
+description: Общие сведения о модели мониторинга работоспособности Azure Service Fabric, которая позволяет отслеживать состояние кластера и его приложений, а также служб.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Общие сведения о наблюдении за работоспособностью системы в Service Fabric
 В платформе Azure Service Fabric используется модель работоспособности c широкими и гибкими возможностями оценки работоспособности и создания отчетов, которая позволяет отслеживать состояние кластера и выполняющихся в нем служб практически в реальном времени. Вы можете легко получать сведения о работоспособности и устранять потенциальные проблемы, прежде чем они приведут к серьезным перебоям в работе. Службы в рамках обычной модели отправляют отчеты на локальном уровне, а затем полученная информация агрегируется на уровне кластера.

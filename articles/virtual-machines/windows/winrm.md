@@ -1,11 +1,11 @@
 ---
-title: "Настройка доступа WinRM для виртуальной машины Azure | Документация Майкрософт"
-description: "Настройте доступ WinRM для использования с виртуальной машиной Azure, созданной в модели развертывания Resource Manager."
+title: Настройка доступа WinRM для виртуальной машины Azure | Документация Майкрософт
+description: Настройте доступ WinRM для использования с виртуальной машиной Azure, созданной в модели развертывания Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Настройка доступа WinRM для виртуальных машин в Azure Resource Manager
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM в управлении службами Azure или Azure Resource Manager

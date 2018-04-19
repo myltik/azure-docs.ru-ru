@@ -1,8 +1,8 @@
 ---
-title: "Использование действия скрипта для установки Solr в кластере HDInsight на основе Linux — Azure | Документы Майкрософт"
-description: "Узнайте, как устанавливать Solr в кластерах HDInsight Hadoop на основе Linux с помощью действий сценария."
+title: Использование действия скрипта для установки Solr в кластере HDInsight на основе Linux — Azure | Документы Майкрософт
+description: Узнайте, как устанавливать Solr в кластерах HDInsight Hadoop на основе Linux с помощью действий сценария.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Установка и использование Solr на кластерах HDInsight Hadoop
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/21/2018
 1. В разделе __Сводка кластера__ выберите __Дополнительные параметры__, а затем — __Действия скрипта__. Используйте следующие сведения, чтобы заполнить форму.
 
    * **ИМЯ**: введите понятное имя для действия сценария.
-   * **Универсальный код ресурса скрипта**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/r-installer-v01.sh.
+   * **URI СКРИПТА**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **ГОЛОВНОЙ**: установите флажок.
    * **Рабочая роль**: установите флажок.
    * **ZooKeeper**: установите этот флажок для установки на узле Zookeeper.
@@ -194,7 +194,7 @@ ms.lasthandoff: 02/21/2018
 
         Сохраните полученное значение, так как оно понадобится позже.
 
-2. В окне браузера введите адрес **http://HOSTNAME:8983/solr/#/**, где **HOSTNAME** — это имя, определенное на предыдущих этапах.
+2. В окне браузера введите адрес **http://HOSTNAME:8983/solr/#/**, где **HOSTNAME** — это имя, определенное на предыдущих этапах.
 
     Запрос направляется через туннель SSH к пользовательскому веб-интерфейсу Solr в кластере. Отображается страница, как показано на рисунке ниже.
 
@@ -319,7 +319,7 @@ sudo start solr
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Дополнительные сведения о резервном копировании и восстановлении Solr см. на странице [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Дополнительные сведения о резервном копировании и восстановлении Solr см. по ссылке [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

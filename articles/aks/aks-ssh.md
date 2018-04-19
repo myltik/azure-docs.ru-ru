@@ -1,95 +1,77 @@
 ---
-title: "Вход через SSH в узлы кластера Службы контейнеров Azure (AKS)"
-description: "Создание SSH-соединения с узлами кластера Службы контейнеров Azure (AKS)"
+title: Вход через SSH в узлы кластера Службы контейнеров Azure (AKS)
+description: Создание SSH-соединения с узлами кластера Службы контейнеров Azure (AKS)
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 00affc3d1c02c477826261aeac6e092934037e81
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Вход через SSH в узлы кластера Службы контейнеров Azure (AKS)
 
 В некоторых случаях может потребоваться доступ к узлу Службы контейнеров Azure (AKS) для обслуживания, сбора данных журналов или других операций по устранению неполадок. Узлы Службы контейнеров Azure (AKS) не доступны через Интернет. Чтобы создать SSH-соединение с узлом AKS, выполните действия, описанные в этом документе.
 
-## <a name="configure-ssh-access"></a>Настройка доступа SSH
+## <a name="get-aks-node-address"></a>Получение адреса узла AKS
 
- Для входа через SSH в конкретный узел создается pod с доступом `hostNetwork`. Также создается служба для доступа к pod. Эта конфигурация является привилегированной и после использования ее следует удалить.
+Получите IP-адрес узла кластера AKS с помощью команды `az vm list-ip-addresses`. Замените имя группы ресурсов на имени своей группы ресурсов AKS.
 
-Создайте файл с именем `aks-ssh.yaml` и скопируйте в него следующий манифест. В качестве имени узла (nodeName) укажите имя целевого узла AKS.
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-Запустите манифест, чтобы создать pod и службу.
+## <a name="create-ssh-connection"></a>Создание SSH-соединения
 
-```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+Запустите образ контейнера `debian` и свяжите с ним сеанс терминала. Контейнер можно использовать для создания сеанса SSH с любым узлом в кластере AKS.
+
+```console
+kubectl run -it --rm aks-ssh --image=debian
 ```
 
-Получите внешний IP-адрес предоставленной службы. Завершение настройки IP-адреса может занять до минуты. 
+Установите клиент SSH в контейнере.
 
-```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+```console
+apt-get update && apt-get install openssh-client -y
 ```
 
-Создайте SSH-соединение. 
+Откройте второй терминалов и отобразите список всех модулей, чтобы получить имя только что созданной группы pod.
 
-Имя пользователя по умолчанию для кластера AKS — `azureuser`. Если эта учетная запись изменена во время создания кластера, укажите правильное имя пользователя-администратора. 
+```console
+$ kubectl get pods
 
-Если ключ находится не в `~/ssh/id_rsa`, укажите правильное расположение с помощью аргумента `ssh -i`.
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
+```
 
-```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+Скопируйте ключ SSH в группу pod и замените имя pod правильным значением.
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+Настройте для файла `id_rsa` разрешение только для чтения.
+
+```console
+chmod 0600 id_rsa
+```
+
+Теперь создайте SSH-подключение к узлу AKS. Имя пользователя по умолчанию для кластера AKS — `azureuser`. Если эта учетная запись изменена во время создания кластера, укажите правильное имя пользователя-администратора.
+
+```console
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -114,8 +96,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## <a name="remove-ssh-access"></a>Отключение доступа по протоколу SSH
 
-По завершении удалите pod и службу для доступа по протоколу SSH.
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+Закончив, выйдите из сеанса SSH и интерактивного сеанса контейнера. Это действие удаляет группу pod, используемую для SSH-доступа из кластера AKS.

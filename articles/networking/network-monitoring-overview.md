@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>Решения для мониторинга сетей 
 
@@ -60,9 +60,11 @@ NPM для ExpressRoute предоставляет комплексные воз
 
 * автоматическое обнаружение каналов ExpressRoute, связанных с подпиской;
 * обнаружение топологии сети от локальных до облачных приложений;
-* планирование емкости, анализ использования;
+* планирование ресурсов и анализ их использования, анализ использования пропускной способности каждой виртуальной сетью;
 * мониторинг и оповещение о первичных и вторичных путях;
 * обнаружение снижения качества подключения к виртуальным сетям.
+
+![Географическая карта, на которой показано, как проходит трафик между регионами](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Дополнительные сведения см. в следующих статьях:
 
@@ -116,7 +118,6 @@ NPM для ExpressRoute предоставляет комплексные воз
 Связанные ссылки
 * [Запись блога](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [документация](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>Дополнительная информация
+## <a name="miscellaneous"></a>Разное
 
-* [Настройка монитора производительности сети](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Настройка решения "Монитор производительности сети" для ExpressRoute](../expressroute/how-to-npm.md)
+* [Новые цены](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

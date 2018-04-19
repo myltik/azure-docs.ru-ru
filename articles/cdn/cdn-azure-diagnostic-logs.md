@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Журналы диагностики Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 
  - Учетная запись хранения Azure
  - Концентраторы событий Azure
- - [репозиторий OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+ - [Рабочая область Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Эта функция доступна для всех конечных точек CDN, относящихся к профилям CDN Verizon (уровень "Стандартный" или "Премиум") и Akamai (уровень "Стандартный"). 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 
 - экспорт данных в хранилище BLOB-объектов, экспорт в CSV-файл и создание диаграмм в Excel;
 - экспорт данных в концентраторы событий и их сопоставление с данными из других служб Azure;
-- экспорт данных в Log Analytics и их просмотр в собственной рабочей области OMS.
+- экспорт данных в Log Analytics и их просмотр в рабочей области Log Analytics.
 
 На изображении ниже показано типичное представление данных основной аналитики CDN.
 
@@ -68,9 +68,9 @@ ms.lasthandoff: 03/23/2018
 
 *Рисунок 2. Ведение журнала с помощью службы хранилища Azure*
 
-### <a name="logging-with-oms-log-analytics"></a>Ведение журнала с помощью OMS Log Analytics
+### <a name="logging-with-log-analytics"></a>Ведение журнала с помощью Log Analytics
 
-Чтобы использовать OMS Log Analytics для хранения журналов, сделайте следующее:
+Чтобы использовать Log Analytics для хранения журналов, сделайте следующее:
 
 1. В колонке **Журналы диагностики** установите флажок **Отправить в Log Analytics**. 
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/23/2018
 
     ![Портал — журналы диагностики](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Введите имя рабочей области OMS. Имя рабочей области OMS должно быть уникальным и может содержать только буквы, цифры и дефисы; не допускаются пробелы и знаки подчеркивания. 
+4. Введите имя новой рабочей области Log Analytics. Имя рабочей области Log Analytics должно быть уникальным и может содержать только буквы, цифры и дефисы. Не допускаются пробелы и знаки подчеркивания. 
 5. Далее выберите существующую подписку, группу ресурсов (новую или существующую), расположение и ценовую категорию. При желании вы можете закрепить эту конфигурацию на панели мониторинга. Нажмите кнопку **ОК**, чтобы завершить настройку.
 
     ![Портал — журналы диагностики](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ ms.lasthandoff: 03/23/2018
 
 6. Выберите команду **Сохранить**.
 
-7. Чтобы просмотреть новую рабочую область OMS, перейдите к панели мониторинга на портале Azure и щелкните имя рабочей области Log Analytics. Щелкните плитку портала OMS, чтобы открыть рабочую область в репозитории OMS. 
+7. Чтобы просмотреть новую рабочую область Log Analytics, перейдите к панели мониторинга на портале Azure и щелкните имя рабочей области Log Analytics. Щелкните плитку портала OMS, чтобы открыть рабочую область в Log Analytics. 
 
     ![Портал — журналы диагностики](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    Репозиторий OMS готов для регистрации данных в журнале. Чтобы воспользоваться этими данными, необходимо использовать [решение OMS](#consuming-oms-log-analytics-data), описываемое далее в этой статье.
+    Теперь рабочая область Log Analytics готова для записи данных в журнал. Чтобы воспользоваться этими данными, вам потребуется [решение Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), описываемое далее в этой статье.
 
 Дополнительные сведения о задержках данных журналов вы найдете [здесь](#log-data-delays).
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/23/2018
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Чтобы включить журналы диагностики в рабочей области OMS, используйте следующую команду:
+Чтобы включить журналы диагностики в рабочей области Log Analytics, используйте следующую команду:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ ms.lasthandoff: 03/23/2018
 4.  Запустите средство.
 5.  Полученный CSV-файл позволяет просмотреть данные аналитики в простой одноуровневой структуре.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Использование журналов диагностики из репозитория OMS Log Analytics
-Log Analytics — это служба в Operations Management Suite (OMS), которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Она собирает данные, формируемые ресурсами в облачных и локальных средах, а также другими средствами мониторинга, и на их основе предоставляет аналитические сведения для нескольких источников. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Использование журналов диагностики в рабочей области Log Analytics
+Log Analytics — это служба в Azure, которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Она собирает данные, формируемые ресурсами в облачных и локальных средах, а также другими средствами мониторинга, и на их основе предоставляет аналитические сведения для нескольких источников. 
 
-Для использования Log Analytics нужно [включить ведение журнала](#enable-logging-with-azure-storage) в репозитории Azure OMS Log Analytics, который рассматривается выше в этой статье.
+Чтобы использовать Log Analytics, нужно [включить ведение журнала](#enable-logging-with-azure-storage) в репозиторий Azure Log Analytics, как описано выше в этой статье.
 
-### <a name="using-the-oms-repository"></a>Использование репозитория OMS
+### <a name="using-the-log-analytics-workspace"></a>Использование рабочей области Log Analytics
 
  На следующей схеме показана архитектура входов и выходов репозитория:
 
-![Репозиторий OMS Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Рабочая область Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Рисунок 3. Репозиторий OMS Log Analytics*.
 
@@ -196,7 +196,7 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 Эти решения для управления можно установить из Azure Мarketplace, щелкнув ссылку для **скачивания** в нижней части каждого решения.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>Добавление решения по управлению OMS CDN
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Добавление решения по управлению CDN в Log Analytics
 
 Чтобы добавить решение по управлению, сделайте следующее:
 
@@ -219,7 +219,7 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
     ![Смотреть все](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  После того, как вы щелкнете **Создать**, вам будет предложено создать рабочую область OMS или использовать имеющуюся. 
+6.  Когда вы щелкнете **Создать**, вам будет предложено создать рабочую область Log Analytics или использовать имеющуюся. 
 
     ![Смотреть все](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
     Щелкните созданную рабочую область Log Analytics, чтобы перейти к ней. 
 
-11. Щелкните плитку **OMS Portal** (Портал OMS), чтобы новое решение отобразилось на портале OMS.
+11. Щелкните плитку **Портал OMS**, чтобы увидеть новое решение.
 
     ![Смотреть все](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. Портал OMS должен выглядеть, как на снимке экрана ниже:
+12. Портал должен выглядеть примерно так, как на снимке экрана ниже:
 
     ![Смотреть все](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 ### <a name="offers-and-pricing-tiers"></a>Предложения и ценовые категории
 
-Предложения и ценовые категории для решений по управлению OMS см. [здесь](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Предложения и ценовые категории для решений по управлению представлены [здесь](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Настройка представлений
 
-Представление о данных можно настроить с помощью **конструктора представлений**. Чтобы начать разработку, перейдите к рабочей области OMS и щелкните плитку **Конструктор представлений**.
+Представление о данных можно настроить с помощью **конструктора представлений**. Чтобы начать разработку, перейдите к рабочей области Log Analytics и щелкните плитку **Конструктор представлений**.
 
 ![«Просмотреть конструктор»](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 * [Сбор и использование диагностических данных из ресурсов Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Анализ вариантов использования CDN Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Что такое Log Analytics?](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 * [Log Analytics REST API Reference](https://docs.microsoft.com/rest/api/loganalytics) (Справочник по REST API Log Analytics)
 
 

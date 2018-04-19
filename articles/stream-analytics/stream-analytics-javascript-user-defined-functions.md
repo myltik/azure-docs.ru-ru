@@ -1,23 +1,19 @@
 ---
-title: Определяемые пользователем функции JavaScript в Azure Stream Analytics | Документация Майкрософт
-description: Выполнение расширенных запросов с помощью определяемых пользователем функций JavaScript
-keywords: javascript, определяемые пользователем функции, udf
+title: Определяемые пользователем функции JavaScript в Azure Stream Analytics
+description: В этой статье описывается, как выполнять расширенные запросы с помощью определяемых пользователем функций JavaScript в Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Определяемые пользователем функции JavaScript в Azure Stream Analytics
 Azure Stream Analytics поддерживает определяемые пользователем функции, написанные на языке JavaScript. Благодаря обширному набору методов, которые предоставляют объекты JavaScript **String**, **RegExp**, **Math**, **Array** и **Date**, в заданиях Stream Analytics стало проще создавать сложные преобразования данных.
@@ -138,7 +134,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

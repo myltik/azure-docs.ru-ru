@@ -1,8 +1,8 @@
 ---
-title: "Как использовать службу управления API Azure в виртуальных сетях со шлюзом приложений | Документация Майкрософт"
-description: "Узнайте, как установить и настроить службу управления API Azure во внутренней виртуальной сети с интерфейсным шлюзом приложений (WAF)"
+title: Как использовать службу управления API Azure в виртуальных сетях со шлюзом приложений | Документация Майкрософт
+description: Узнайте, как установить и настроить службу управления API Azure во внутренней виртуальной сети с интерфейсным шлюзом приложений (WAF)
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Интеграция службы управления API во внутреннюю сеть со шлюзом приложений 
 
@@ -298,7 +298,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Если путь не соответствует правилам, которые необходимо включить с помощью управления API, то при настройке сопоставления для пути правил также настраивается внутренний пул адресов по умолчанию с именем **dummyBackendPool**. Например, файл http://api.contoso.net/calc/* перейдет в **dummyBackendPool**, так как этот пул определен как пул по умолчанию для несоответствующего трафика.
+Если путь не соответствует правилам, которые необходимо включить с помощью управления API, то при настройке сопоставления для пути правил также настраивается внутренний пул адресов по умолчанию с именем **dummyBackendPool**. Например, трафик из http://api.contoso.net/calc/* передается в пул **dummyBackendPool**, так как он определен как пул по умолчанию для несоответствующего трафика.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

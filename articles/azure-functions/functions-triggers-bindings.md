@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Основные понятия триггеров и привязок в Функциях Azure
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/08/2018
 
 Расширения предоставляются как пакеты NuGet, имя которых обычно начинается с [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Способ установки и регистрации расширений привязки зависит от способа разработки функций: 
 
-+ [локально в C# с использованием Visual Studio или VS Code](#precompiled-functions-c);
++ [локально в C# с использованием Visual Studio или VS Code](#local-c-development-using-visual-studio-or-vs-code);
 + [локально с использованием основных инструментов решения "Функции Azure"](#local-development-azure-functions-core-tools);
 + [на портале Azure](#azure-portal-development). 
 
@@ -635,7 +635,7 @@ public class BlobName
 
 ## <a name="functionjson-file-schema"></a>Схема файла function.json
 
-Схему файла *Function.json* вы можете найти по адресу [http://json.schemastore.org/function](http://json.schemastore.org/function).
+Схему файла *function.json* можно найти здесь: [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Обработка ошибок привязки
 

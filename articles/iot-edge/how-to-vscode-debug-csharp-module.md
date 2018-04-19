@@ -9,22 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Использование Visual Studio Code для отладки модуля C# с помощью Azure IoT Edge
 В этой статье приведены подробные инструкции по использованию [Visual Studio Code](https://code.visualstudio.com/) в качестве основного средства для отладки модулей Azure IoT Edge.
 
 ## <a name="prerequisites"></a>предварительным требованиям
-В этом руководстве предполагается, что в качестве компьютера для разработки вы используете компьютер или виртуальную машину под управлением Windows или Linux. Устройством IoT Edge может быть другое физическое устройство или имитация устройства, запущенная на компьютере разработки.
+В этой статье предполагается, что для разработки вы используете компьютер или виртуальную машину под управлением Windows или Linux. Устройством IoT Edge может быть другое физическое устройство или имитация устройства, запущенная на компьютере разработки.
 
-Перед началом работы необходимо выполнить инструкции из такого руководства:
-- [Разработка решения IoT Edge с несколькими модулями в Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
-
-Когда вы выполните предыдущее руководство, вы подготовите следующие элементы:
+Перед выполнением инструкции в этой статье, выполните действия, описанные в статье о [разработке решения IoT Edge с несколькими модулями в Visual Studio Code](tutorial-multiple-modules-in-vscode.md). После этого должны быть готовы следующие элементы:
 - Локальный реестр Docker, запущенный на компьютере разработки. Рекомендуем использовать локальный реестр Docker для создания прототипов и тестирования. Можно обновить реестр контейнеров в файле `module.json` каждой папки модулей.
 - Рабочая область проекта решения IoT Edge вложенной папкой модуля C#.
 - Файл `Program.cs` с последним кодом модуля.
@@ -55,8 +52,5 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве вы создали модуль IoT Edge и развернули его для отладки. Вы начали делать его отладку в VS Code. Чтобы узнать о других сценариях при разработке Azure IoT Edge в VS Code, см. статью: 
-
-> [!div class="nextstepaction"]
-> [Разработка решения IoT Edge с несколькими модулями в Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+[Использование Visual Studio Code для отладки решения "Функции Azure" с помощью Azure IoT Edge](how-to-vscode-debug-azure-function.md)
 

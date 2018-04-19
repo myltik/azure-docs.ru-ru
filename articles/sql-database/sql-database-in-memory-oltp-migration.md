@@ -8,16 +8,16 @@ ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cd76f475f330c49dec737d2c4a25aa75a18b41a7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Повышение производительности приложений в базе данных SQL с помощью выполняющейся в памяти OLTP
-[Выполняющуюся в памяти OLTP](sql-database-in-memory.md) можно использовать для повышения производительности обработки транзакций, приема данных и сценариев, связанных с временными данными, в базах данных SQL Azure уровня [Премиум](sql-database-service-tiers.md), не повышая ценовую категорию. 
+[Выполняющуюся в памяти OLTP](sql-database-in-memory.md) можно использовать для повышения производительности обработки транзакций, приема данных и сценариев, связанных с временными данными, в базах данных уровней ["Премиум" и "Критически важный для бизнеса"](sql-database-service-tiers.md), не повышая ценовую категорию. 
 
 > [!NOTE] 
 > Узнайте, как [Quorum удваивает ключевую рабочую нагрузку на базу данных при одновременном сокращении DTU на 70 % благодаря использованию базы данных SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
@@ -25,8 +25,8 @@ ms.lasthandoff: 03/16/2018
 
 Выполните следующие действия, чтобы внедрить выполняющуюся в памяти OLTP в существующую базу данных.
 
-## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Этап 1. Проверка того, что используется база данных уровня "Премиум"
-Выполняющаяся в памяти OLTP поддерживается только в базах данных уровня "Премиум". In-Memory поддерживается, если полученное значение равно 1 (не 0):
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Шаг 1. Проверка того, используется ли база данных нужного уровня ("Премиум"или "Критически важный для бизнеса")
+Выполняющаяся в памяти OLTP поддерживается только в базах данных уровней "Премиум"и "Критически важный для бизнеса". In-Memory поддерживается, если полученное значение равно 1 (не 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

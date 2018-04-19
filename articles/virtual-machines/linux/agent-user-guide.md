@@ -1,11 +1,11 @@
 ---
-title: "Обзор агента виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller."
+title: Обзор агента виртуальной машины Linux в Azure | Документация Майкрософт
+description: Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Что такое агент Linux для Azure и как его использовать
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/02/2017
 * **Расширение виртуальной машины**
   
   * Вставка компонента, созданного корпорацией Майкрософт и ее партнерами, в виртуальную машину Linux (IaaS) для включения программного обеспечения и автоматизации настройки
-  * Эталонная реализация расширения виртуальной машины на сайте [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Эталонная реализация расширения виртуальной машины на сайте [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions).
 
 ## <a name="communication"></a>Обмен данными
 Поток информации от платформы к агенту передается по двум каналам:

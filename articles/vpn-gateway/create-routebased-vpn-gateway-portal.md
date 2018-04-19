@@ -4,7 +4,7 @@ description: Быстрое создание VPN-шлюза на основе м
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2d6133e974e24c8c4f769995d8245b30a29a3983
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Создание VPN-шлюза на основе маршрутов с помощью портала Azure
 
 Эта статья поможет быстро создать VPN-шлюз Azure на основе маршрутов, используя портал Azure.  VPN-шлюз используется при создании VPN-подключения к локальной сети. Также вы можете использовать VPN-шлюз для подключения виртуальных сетей. 
 
-Инструкции в этой статье позволяют создать виртуальную сеть, подсеть, подсеть шлюза и VPN-шлюз на основе маршрутов (шлюз виртуальной сети). После завершения создания шлюза можно создавать подключения. Для этих действий требуется наличие подписки Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+Инструкции в этой статье позволяют создать виртуальную сеть, подсеть, подсеть шлюза и VPN-шлюз на основе маршрутов (шлюз виртуальной сети). Создав шлюз, можно создавать подключения. Для этих действий требуется подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a name="vnet"></a>Создание виртуальной сети
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/29/2018
   - **Подсеть**: Frontend
   - **Диапазон адресов**: 10.1.0.0/24
 
-  ![Страница "Создать виртуальную сеть"](./media/create-routebased-vpn-gateway-portal/vnet1.png "Страница "Создать виртуальную сеть"")
+  ![Страница "Создать виртуальную сеть"](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Страница "Создать виртуальную сеть"")
 5. После ввода значений выберите действие **Закрепить на панели мониторинга**, чтобы виртуальную сеть было проще найти на панели мониторинга, а затем нажмите кнопку **Создать**. После нажатия кнопки **Создать** вы увидите на панели мониторинга плитку, на которой отображается ход создания виртуальной сети. Когда виртуальная сеть будет создана, плитка изменится.
 
 ## <a name="gwsubnet"></a>Добавление подсети шлюза
@@ -53,17 +53,17 @@ ms.lasthandoff: 03/29/2018
 2. На странице виртуальной сети щелкните **Подсети**, чтобы развернуть страницу **VNet1 — подсети**.
 3. Щелкните **+ Подсеть шлюза** в верхней части страницы. Откроется страница **Добавление подсети**.
 
-  ![Добавить подсеть шлюза](./media/create-routebased-vpn-gateway-portal/gateway_subnet.png "Add the gateway subnet")
+  ![Добавить подсеть шлюза](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Add the gateway subnet")
 4. В обязательное поле **Имя** автоматически добавляется значение GatewaySubnet. Замените автоматически предложенные значения в поле **Диапазон адресов** следующими данными.
 
   **Диапазон адресов (блок CIDR)**: 10.1.255.0/27
 
-  ![Добавление подсети шлюза](./media/create-routebased-vpn-gateway-portal/add_gw_subnet.png "Adding the gateway subnet")
+  ![Добавление подсети шлюза](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Adding the gateway subnet")
 5. Чтобы создать подсеть шлюза, в нижней части страницы щелкните **ОК**.
 
 ## <a name="gwvalues"></a>Настройка параметров шлюза
 
-1. Слева на странице портала щелкните **+ Создать ресурс** и выполните поиск по строке "Шлюз виртуальной сети". В **результатах** найдите и щелкните **Шлюз виртуальной сети**.
+1. Слева на странице портала щелкните **+ Создать ресурс**, введите в строку поиска фразу "Шлюз виртуальной сети" и нажмите клавишу **ВВОД**. В **результатах** найдите и щелкните **Шлюз виртуальной сети**.
 2. В нижней части страницы "Шлюз виртуальной сети" щелкните **Создать**, чтобы открыть страницу **Создание шлюза виртуальной сети**.
 3. На странице **Создание шлюза виртуальной сети** укажите значения для шлюза.
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/29/2018
   - **Расположение**: восточная часть США.
   - **Виртуальная сеть**: щелкните **Виртуальная сеть / Выберите виртуальную сеть**, чтобы открыть страницу **Выбор виртуальной сети**. Выберите **VNet1**.
 
-  ![Настройка параметров шлюза](./media/create-routebased-vpn-gateway-portal/configure_gw.png "Configure gateway settings")
+  ![Настройка параметров шлюза](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "Configure gateway settings")
 
 ## <a name="pip"></a> Создание общедоступного IP-адреса
 
@@ -82,21 +82,21 @@ VPN-шлюз должен иметь динамически выделяемый
 
 1. Выберите **Первая IP-конфигурация / Создать IP-конфигурацию шлюза**, чтобы запросить общедоступный IP-адрес.
 
-  ![Первая IP-конфигурация](./media/create-routebased-vpn-gateway-portal/ip.png "First IP configuration")
+  ![Первая IP-конфигурация](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "First IP configuration")
 2. На странице **выбора общедоступного IP-адреса** щелкните **+ Создать новый**, чтобы открыть страницу **Создать общедоступный IP-адрес**.
 3. Настройте следующие значения параметров:
 
-  - **Имя**: **VNet1GWPIP**
+  - **Имя**: **VNet1GWIP**
   - **Номер SKU**: **Базовый**
 
-  ![Создание общедоступного IP-адреса](./media/create-routebased-vpn-gateway-portal/gw_ip.png "Создание общедоступного IP-адреса")
+  ![Создание общедоступного IP-адреса](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "Создание общедоступного IP-адреса")
 4. В нижней части этой страницы нажмите кнопку **ОК**, чтобы сохранить изменения.
 
 ## <a name="creategw"></a>Создание VPN-шлюза
 
 1. Проверьте настройки на странице **Создание шлюза виртуальной сети**. При необходимости измените эти значения.
 
-  ![Создание VPN-шлюза](./media/create-routebased-vpn-gateway-portal/create_gw.png "Create VPN gateway")
+  ![Создание VPN-шлюза](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "Create VPN gateway")
 2. Щелкните **Создать** в нижней части страницы.
 
 При нажатии кнопки **Создать** проверяются все параметры и на панели мониторинга появляется плитка **Развертывание шлюза виртуальной сети**. Создание VPN-шлюза может занять до 45 минут. Вам понадобится обновить страницу портала, чтобы увидеть готовое состояние.
@@ -105,17 +105,17 @@ VPN-шлюз должен иметь динамически выделяемый
 
 1. После создания шлюза перейдите к сети VNet1 с помощью портала. На странице "Обзор" VPN-шлюз отобразится как подключенное устройство.
 
-  ![Подключенные устройства](./media/create-routebased-vpn-gateway-portal/connected_devices.png "Connected devices")
+  ![Подключенные устройства](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Connected devices")
 
 2. В списке устройств щелкните **VNet1GW**, чтобы получить дополнительные сведения.
 
-  ![Просмотр VPN-шлюза](./media/create-routebased-vpn-gateway-portal/view_gw2.png "View VPN gateway")
+  ![Просмотр VPN-шлюза](./media/create-routebased-vpn-gateway-portal/view-gateway.png "View VPN gateway")
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Когда завершится создание шлюза, вы можете создать подключение между этой виртуальной сетью и другой виртуальной сетью. Также можно создать подключение между виртуальной сетью и локальным расположением.
+Создав шлюз, можно создать подключение между вашей и другой виртуальной сетью. Или же можно создать подключение между виртуальной сетью и локальным расположением.
 
 > [!div class="nextstepaction"]
-> [Создание подключения "сеть — сеть"](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> [Создание подключения "точка — сеть"](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Создание подключения "сеть — сеть"](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
+> [Создание подключения "точка — сеть"](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
 > [Создание подключения к другой виртуальной сети](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

@@ -1,18 +1,18 @@
 ---
-title: "Рекомендации по синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт"
-description: "Рекомендации по настройке и выполнению синхронизации данных SQL Azure (предварительная версия)."
+title: Рекомендации по синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт
+description: Рекомендации по настройке и выполнению синхронизации данных SQL Azure (предварительная версия).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Рекомендации по синхронизации данных SQL (предварительная версия) 
 
@@ -212,7 +212,7 @@ ms.lasthandoff: 11/28/2017
 
 -   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью функции синхронизации данных SQL Azure (предварительная версия)](sql-database-sync-data.md)
 -   [Настройка синхронизации данных SQL Azure (предварительная версия)](sql-database-get-started-sql-data-sync.md)
--   [Мониторинг синхронизации данных SQL Azure (предварительная версия) с помощью OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Мониторинг синхронизации данных SQL Azure (предварительная версия) с помощью Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](sql-database-troubleshoot-data-sync.md)  
 -   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL (предварительная версия):  
     -   [Использование PowerShell для синхронизации данных между несколькими базами данных SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)  

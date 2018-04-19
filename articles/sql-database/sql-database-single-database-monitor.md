@@ -3,24 +3,18 @@ title: Мониторинг производительности базы дан
 description: Узнайте о возможностях мониторинга своей базы данных с помощью средств Azure и динамических административных представлений.
 keywords: мониторинг базы данных, производительность облачной базы данных
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 09/20/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c9fa74304e8672bc18f403aae138a3c1dbea3d4e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Мониторинг производительности базы данных в базе данных SQL Azure
 Мониторинг производительности базы данных SQL в Azure начинается с мониторинга использования ресурсов в соответствии с выбранным уровнем производительности базы данных. С помощью мониторинга можно определить, является ли емкость базы данных избыточной или же проблема возникает из-за того, что ресурсы используются на пределе возможностей. Затем при необходимости можно изменить уровень производительности и [уровень службы](sql-database-service-tiers.md) такой базы данных. Вы можете выполнять мониторинг базы данных с помощью графических средств на [портале Azure](https://portal.azure.com) или с использованием [динамических административных представлений](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -72,8 +66,8 @@ ms.lasthandoff: 03/08/2018
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
         MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_data_io_percent) AS 'Average data IO in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
         AVG(avg_log_write_percent) AS 'Average log write use in percent',
         MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
         AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
@@ -123,8 +117,8 @@ ms.lasthandoff: 03/08/2018
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
             avg(avg_log_write_percent) AS 'Average log write use in percent',
             max(avg_log_write_percent) AS 'Maximum log write use in percent',
             avg(max_session_percent) AS 'Average % of sessions',
@@ -159,7 +153,7 @@ ms.lasthandoff: 03/08/2018
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    

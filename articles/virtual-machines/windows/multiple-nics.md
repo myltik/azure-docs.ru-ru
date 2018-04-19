@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальных машин Windows, использующих несколько сетевых адаптеров, и управление ими в Azure | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную машину Windows с несколькими сетевыми адаптерами с помощью Azure PowerShell или шаблонов Resource Manager, а также, как управлять ими."
+title: Создание виртуальных машин Windows, использующих несколько сетевых адаптеров, и управление ими в Azure | Документация Майкрософт
+description: Узнайте, как создать виртуальную машину Windows с несколькими сетевыми адаптерами с помощью Azure PowerShell или шаблонов Resource Manager, а также, как управлять ими.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Создание виртуальной машины Windows, использующей несколько сетевых адаптеров, и управление ею
 Виртуальные машины (VM) в Azure могут иметь несколько виртуальных сетевых адаптеров (NIC). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений или когда для решения мониторинга либо архивации используется выделенная сеть. В этой статье подробно описывается, как создать виртуальную машину с несколькими сетевыми адаптерами. Вы также узнаете, как добавить или удалить сетевые адаптеры на существующей виртуальной машине. Различные [размеры виртуальных машин](sizes.md) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
@@ -116,11 +116,13 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Наконец, создайте виртуальную машину с помощью [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Создайте виртуальную машину с помощью [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Добавьте в операционную систему маршруты для дополнительных сетевых адаптеров, выполнив инструкции из раздела [Настройка гостевой ОС для нескольких сетевых карт](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Добавление сетевой карты в существующую виртуальную машину
 Чтобы добавить виртуальный сетевой адаптер в имеющуюся виртуальную машину, освободите ее, добавьте виртуальный сетевой адаптер, а затем запустите виртуальную машину. Различные [размеры виртуальных машин](sizes.md) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины. При необходимости вы можете [изменить размер виртуальной машины](resize-vm.md).
@@ -175,6 +177,8 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Добавьте в операционную систему маршруты для дополнительных сетевых адаптеров, выполнив инструкции из раздела [Настройка гостевой ОС для нескольких сетевых карт](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Удаление сетевой карты из существующей виртуальной машины
 Чтобы удалить виртуальный сетевой адаптер с имеющейся виртуальной машины, освободите ее, удалите виртуальный сетевой адаптер, а затем запустите виртуальную машину.
@@ -232,6 +236,8 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 ```
 
 Вы можете ознакомиться с полным примером [создания нескольких сетевых адаптеров с помощью шаблонов Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Добавьте в операционную систему маршруты для дополнительных сетевых адаптеров, выполнив инструкции из раздела [Настройка гостевой ОС для нескольких сетевых карт](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Настройка гостевой ОС для нескольких сетевых карт
 

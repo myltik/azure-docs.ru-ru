@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Действия веб-перехватчика для правил оповещений журнала
 При [создании оповещения в Azure](monitor-alerts-unified-usage.md) можно [настроить конфигурацию с помощью групп действий](monitoring-action-groups.md) для выполнения одного или нескольких действий.  В этой статье описываются различные доступные действия веб-перехватчика и сведения о том, как настроить пользовательский веб-перехватчик на основе JSON.
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/23/2018
 | Время начала интервала поиска |#searchintervalstarttimeutc |Время начала для запроса в формате UTC. 
 | SearchQuery |#searchquery |Запрос поиска журналов, используемый правилом генерации оповещений. |
 | SearchResults |"IncludeSearchResults": true|Записи, возвращаемые запросом в виде JSON-таблицы, ограничены первой 1000 записей, если в определение настраиваемого веб-перехватчика JSON добавлен параметр "IncludeSearchResults":true в качестве свойства верхнего уровня. |
-| WorkspaceID |#workspaceid |Идентификатор рабочей области Log Analytics (OMS). |
+| WorkspaceID |#workspaceid |Идентификатор рабочей области Log Analytics. |
 | Идентификатор приложения |#applicationid |Идентификатор вашего приложения Application Insight. |
 | Идентификатор подписки |#subscriptionid |Идентификатор подписки Azure, используемой с Application Insights. 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/23/2018
 В этом разделе показан пример полезных данных для веб-перехватчика оповещений журнала, включая случаи стандартных и настраиваемых полезных данных.
 
 > [!NOTE]
-> Для обеспечения обратной совместимости стандартные полезные данные веб-перехватчика для оповещений с помощью Azure Log Analytics работают аналогично [управлению оповещениями OMS](../log-analytics/log-analytics-alerts-creating.md). Но для оповещений журнала с использованием [Application Insights](../application-insights/app-insights-analytics.md) стандартные полезные данные веб-перехватчика основаны на схеме группы действий.
+> Для обеспечения обратной совместимости стандартные полезные данные веб-перехватчика для оповещений с помощью Azure Log Analytics выполняют ту же роль, что и [управление оповещениями Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Но для оповещений журнала с использованием [Application Insights](../application-insights/app-insights-analytics.md) стандартные полезные данные веб-перехватчика основаны на схеме группы действий.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Стандартный веб-перехватчик для оповещений журнала 
 В обоих этих примерах заданы фиктивные полезные данные, которые содержат только два столбца и две строки.

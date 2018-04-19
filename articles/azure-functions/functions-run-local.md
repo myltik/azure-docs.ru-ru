@@ -1,11 +1,11 @@
 ---
-title: "Разработка и выполнение Функций Azure локально | Документация Майкрософт"
-description: "Узнайте, как программировать и тестировать функции Azure на локальном компьютере перед их запуском в Функциях Azure."
+title: Разработка и выполнение Функций Azure локально | Документация Майкрософт
+description: Узнайте, как программировать и тестировать функции Azure на локальном компьютере перед их запуском в Функциях Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
@@ -110,7 +110,7 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 
 В версии 2.х среды выполнения решения "Функции Azure" нужно явно зарегистрировать [расширения привязки](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md), используемые в приложении-функции. 
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
 Дополнительные сведения см. в статье [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md#register-binding-extensions).
 

@@ -1,12 +1,12 @@
 ---
-title: "Метрики службы хранилища Azure в Azure Monitor | Документация Майкрософт"
-description: "Узнайте о новых метриках, которые предлагает Azure Monitor."
+title: Метрики службы хранилища Azure в Azure Monitor | Документация Майкрософт
+description: Узнайте о новых метриках, которые предлагает Azure Monitor.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Метрики службы хранилища Azure в Azure Monitor (предварительная версия)
 
@@ -28,7 +28,7 @@ Azure Monitor предоставляет унифицированный поль
 
 ## <a name="access-metrics"></a>Доступ к метрикам
 
-Azure Monitor предоставляет несколько способов доступа к метрикам. Для такого доступа вы можете использовать [портал Azure](https://portal.azure.com), API-интерфейсы Azure Monitor (REST и .NET), а также решения для анализа, например Operation Management Suite и концентратор событий. Дополнительные сведения см. в статье [Обзор метрик в Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor предоставляет несколько способов доступа к метрикам. Для такого доступа вы можете использовать [портал Azure](https://portal.azure.com), API-интерфейсы Azure Monitor (REST и .NET), а также решения для анализа, например Log Analytics и концентратор событий. Дополнительные сведения см. в статье [Обзор метрик в Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Метрики включены по умолчанию, и вы можете получить доступ к данным за последние 30 дней. Если необходимо хранить данные метрик в течение длительного периода времени, вы можете архивировать их в учетную запись хранения Azure. Для настройки используйте [параметры диагностики](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) в Azure Monitor.
 
@@ -141,7 +141,7 @@ Azure Monitor предоставляет [интерфейсы REST API](/rest/a
 
 ## <a name="billing-for-metrics"></a>Выставление счетов за метрики
 
-Использование метрик в Azure Monitor пока бесплатно. Тем не менее, если вы используете дополнительные решения для приема данных метрик, за использование этих решений может взиматься плата. Например, при архивации данных метрик в учетную запись хранения Azure плата будет взиматься службой хранилища Azure, а при потоковой передаче данных метрик в OMS для расширенного анализа плата будет взиматься Operation Management Suite (OMS).
+Использование метрик в Azure Monitor пока бесплатно. Тем не менее, если вы используете дополнительные решения для приема данных метрик, за использование этих решений может взиматься плата. Например, при архивации данных метрик в учетную запись хранения Azure плата будет взиматься службой хранилища Azure, а при потоковой передаче данных метрик в Log Analytics для расширенного анализа плата будет взиматься за использование Log Analytics.
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Обзор идентификатора ресурса для служб в службе хранилища Azure
 

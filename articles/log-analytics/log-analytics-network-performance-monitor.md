@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Решение "Монитор производительности сети" в Azure
 
@@ -250,7 +250,9 @@ ms.lasthandoff: 03/30/2018
 
 Все данные, графически представленные на панели мониторинга монитора производительности сети и страницах детализации, также доступны непосредственно через [поиск в Log Analytics](log-analytics-log-search-new.md). Вы можете выполнять интерактивный анализ данных в репозитории и сопоставлять данные из разных источников. Кроме того, вы можете создавать пользовательские оповещения и представления, а также экспортировать данные в Excel, PowerBI или ссылку с общим доступом. В области  **Общие запросы**  на панели мониторинга содержатся некоторые полезные запросы, которые можно использовать в качестве отправной точки для создания собственных запросов и отчетов. 
 
- 
+##<a name="pricing"></a>Цены
+
+Сведения о ценах можно найти [в Интернете](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Отзывы 
 

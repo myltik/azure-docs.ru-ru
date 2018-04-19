@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Настройка синхронизации данных SQL (предварительная версия)
 В этом руководстве вы узнаете, как для настроить синхронизацию данных SQL Azure, создав гибридную группу синхронизации, содержащую экземпляры базы данных SQL Azure и SQL Server. Новая группа синхронизации полностью настраивается и синхронизируется по заданному расписанию.
@@ -275,7 +275,7 @@ ms.lasthandoff: 04/03/2018
 
 -   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL](sql-database-sync-data.md)
 -   [Best practices for SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md) (Рекомендации по синхронизации данных SQL (предварительная версия))
--   [Мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics](sql-database-sync-monitor-oms.md).
+-   [Мониторинг синхронизации данных SQL Azure с помощью Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](sql-database-troubleshoot-data-sync.md)
 
 -   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL:

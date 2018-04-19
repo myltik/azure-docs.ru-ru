@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Потоковая передача журналов диагностики Azure в Log Analytics
-Можно настроить потоковую передачу **[журналов диагностики Azure](monitoring-overview-of-diagnostic-logs.md)** почти в реальном времени в Azure Log Analytics с помощью портала, командлетов PowerShell или Azure CLI.
+
+Можно настроить потоковую передачу **[журналов диагностики Azure](monitoring-overview-of-diagnostic-logs.md)** почти в реальном времени в Azure Log Analytics с помощью портала, командлетов PowerShell или Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Что можно делать с журналами диагностики в Log Analytics
 
@@ -33,9 +34,17 @@ Azure Log Analytics — это гибкий инструмент поиска п
 * **Расширенная аналитика**. Применение машинного обучения и алгоритмов сопоставления шаблонов для выявления возможных проблем, обнаруженных в журналах.
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Включение потоковой передачи журналов диагностики в Log Analytics
+
 Потоковую передачу журналов диагностики можно включить программно, через портал или с помощью [REST API Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). В любом случае создается параметр диагностики, в котором указывается рабочая область Log Analytics, а также категории журналов и метрики, которые требуется отправить в эту рабочую область. Категория **журналов диагностики** — это тип журналов, которые может предоставить ресурс.
 
 Рабочая область Log Analytics не обязательно должна находиться в той же подписке, в которой находится ресурс, выдающий журналы, если у пользователя, настраивающего параметр, имеется соответствующий доступ RBAC к обеим подпискам.
+
+> [!NOTE]
+> Отправка многомерных метрик с помощью параметров диагностики сейчас не поддерживается. Метрики с измерениями экспортируются как преобразованные в плоскую структуру одномерные метрики, агрегированные по значениям измерений.
+>
+> *Пример.* Метрику "Входящие сообщения" в концентраторе событий можно изучить и вывести в виде диаграммы на уровне очереди. Но при экспорте с помощью параметров диагностики метрика будет представлена в виде всех входящих сообщений для всех очередей концентратора событий.
+>
+>
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Потоковая передача журналов диагностики с помощью портала
 1. На портале перейдите к Azure Monitor и щелкните **Параметры диагностики**.
@@ -53,7 +62,7 @@ Azure Log Analytics — это гибкий инструмент поиска п
    ![Добавление параметра диагностики — имеющиеся параметры](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Введите имя параметра и установите флажок для **Отправить в Log Analytics**, затем выберите рабочую область Log Analytics.
-   
+
    ![Добавление параметра диагностики — имеющиеся параметры](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Выберите команду **Сохранить**.
@@ -69,19 +78,31 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Обратите внимание на то, что свойство workspaceID содержит полный идентификатор рабочей области, а не идентификатор и ключ рабочей области, отображаемые в Log Analytics.
 
-### <a name="via-azure-cli"></a>С помощью интерфейса командной строки Azure
-Для включения потоковой передачи через [интерфейс командной строки Azure](insights-cli-samples.md) применяется команда `insights diagnostic set` с такими параметрами:
+### <a name="via-azure-cli-20"></a>С помощью Azure CLI 2.0
+
+Чтобы включить потоковую передачу с помощью [Azure CLI 2.0](insights-cli-samples.md), используйте команду [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --workspaceId <workspace resource ID> --categories <list of categories> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Обратите внимание на то, что свойство workspaceID содержит полный идентификатор рабочей области, а не идентификатор и ключ рабочей области, отображаемые в Log Analytics.
+Вы можете расширить набор категорий в журнале диагностики, добавив словари в массив JSON, переданный в качестве параметра `--logs`.
+
+Аргумент `--resource-group` является обязательным, только если `--workspace` — не идентификатор объекта.
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Как запросить данные из Log Analytics?
 
 В колонке "Поиск по журналу" на портале или в разделе "Расширенная аналитика" в Log Analytics можно запросить журналы диагностики, воспользовавшись решением по управлению журналами в таблице AzureDiagnostics. Существует также [несколько решений для ресурсов Azure](../log-analytics/log-analytics-add-solutions.md), которые можно установить, чтобы мгновенно получать представление о данных журналов, отправляемых в Log Analytics.
 
-
 ## <a name="next-steps"></a>Дополнительная информация
+
 * [Дополнительные сведения о журналах диагностики Azure](monitoring-overview-of-diagnostic-logs.md)

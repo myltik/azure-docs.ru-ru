@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: устранение неполадок подключения | Документация Майкрософт"
-description: "Сведения об устранении неполадок подключения в Azure AD Connect."
+title: 'Azure AD Connect: устранение неполадок подключения | Документация Майкрософт'
+description: Сведения об устранении неполадок подключения в Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Устранение неполадок подключения в Azure AD Connect
 В этой статье рассказывается, как работает подключение между Azure AD Connect и Azure AD и как устранять неполадки подключения. Как правило, проблемы возникают в среде с прокси-сервером.
@@ -78,7 +78,7 @@ Azure AD Connect использует для аутентификации сов
 * Проверьте, не используется ли временный пароль, который необходимо сменить. Проверьте, правильно ли указан пароль. Попробуйте войти в систему по адресу https://login.microsoftonline.com (на другом компьютере, отличном от сервера Azure AD Connect), и убедитесь, что учетная запись доступна.
 
 ### <a name="verify-proxy-connectivity"></a>Проверка подключения прокси-сервера
-Для проверки возможности подключения сервера Azure AD Connect к прокси-серверу и Интернету можно использовать некоторые командлеты PowerShell, показывающие, пропускает ли прокси-сервер веб-запросы. В командной строке PowerShell выполните командлет `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (С технической точки зрения первый вызов адресуется https://login.microsoftonline.com, и этот URI также будет работать, хотя другие URI отвечают быстрее.)
+Для проверки возможности подключения сервера Azure AD Connect к прокси-серверу и Интернету можно использовать некоторые командлеты PowerShell, показывающие, пропускает ли прокси-сервер веб-запросы. В командной строке PowerShell выполните командлет `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (С технической точки зрения первый вызов направляется по адресу https://login.microsoftonline.com, и этот URI также будет работать, хотя другие URI отвечают быстрее.)
 
 Для связи с прокси-сервером PowerShell использует конфигурацию в файле machine.config. Параметры в winhttp/netsh не должны влиять на эти командлеты.
 
@@ -101,7 +101,7 @@ Azure AD Connect использует для аутентификации сов
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Шаблон взаимодействия между Azure AD Connect и Azure AD
 Если вы выполнили все описанные выше действия, а подключение по-прежнему невозможно, то обратитесь к журналам сети. В этом разделе описан нормальный, работающий шаблон подключения, а также перечислены распространенные ложные сигналы, которые при чтении журналов сети можно игнорировать.
 
-* Выполняются вызовы https://dc.services.visualstudio.com. Для успешной установки открытие этого URL-адреса в прокси-сервере не требуется, и эти вызовы можно игнорировать.
+* Есть вызовы по адресу https://dc.services.visualstudio.com. Для успешной установки открытие этого URL-адреса в прокси-сервере не требуется, и эти вызовы можно игнорировать.
 * Вы заметите, что в разрешении DNS указано, что фактически узлы находятся в пространстве DNS-имен nsatc.net и других, а не в microsoftonline.com. Фактические имена серверов в запросах к веб-службам не указываются, и добавлять эти URL-адреса в прокси-сервер не нужно.
 * Конечные точки adminwebservice и provisioningapi представляют собой конечные точки обнаружения и используются для поиска фактически используемой конечной точки. Выбор этих конечных точек зависит от вашего региона.
 

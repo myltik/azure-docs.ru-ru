@@ -1,26 +1,21 @@
 ---
-title: Использование ссылочных данных и таблиц подстановки во входном потоке Stream Analytics | Документация Майкрософт
-description: Использование ссылочных данных в запросе Stream Analytics
-keywords: таблица подстановки, ссылочные данные
+title: Использование эталонных данных для уточняющих запросов в Azure Stream Analytics
+description: В этой статье описано использование эталонных данных для уточняющих запросов или корреляции в конструкторе запросов для заданий Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 9d1763697e93ea0bd5eaeaeb92f5f882f39a6c64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Использование ссылочных данных и таблиц подстановки во входном потоке Stream Analytics
+# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Использование эталонных данных для уточняющих запросов в Stream Analytics
 Ссылочные данные (которые также называются таблицами подстановки) — это ограниченный набор данных, являющийся по своей сути статическим или медленно изменяющимся. Такие данные используются для выполнения уточняющего запроса или соотнесения с вашим потоком данных. Для использования ссылочных данных в задании Azure Stream Analytics обычно используется [соединение ссылочных данных](https://msdn.microsoft.com/library/azure/dn949258.aspx) в запросе. Служба Stream Analytics использует хранилище BLOB-объектов Azure как уровень хранилища для ссылочных данных. С помощью фабрики данных Azure ссылочные данные можно преобразовать и (или) скопировать в хранилище BLOB-объектов Azure из [любого числа облачных и локальных хранилищ данных](../data-factory/copy-activity-overview.md) для использования в качестве ссылочных данных. Ссылочные данные моделируются как последовательность больших двоичных объектов (с учетом конфигурации входных данных) в порядке возрастания даты и времени, указанных в имени большого двоичного объекта. Они добавляются **только** в конец последовательности, для чего используется **более поздние** дата и время, чем в последнем большом двоичном объекте в последовательности.
 
 В Stream Analytics есть **ограничение в 100 МБ на большой двоичный объект**. При этом задания могут обрабатывать несколько ссылочных больших двоичных объектов с помощью свойства **path pattern**.
@@ -97,7 +92,7 @@ ms.lasthandoff: 03/30/2018
 3. Чтобы не отобразилось слишком большое количество больших двоичных объектов, попробуйте удалить очень старые большие двоичные объекты, которые больше не будут обрабатываться. Обратите внимание на то, что ASA может быть понадобиться повторно обработать несколько больших двоичных объектов в таких сценариях, как перезагрузка.
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дополнительная информация
 Вы получили основные сведения о Stream Analytics, управляемой службе аналитики потоковой передачи данных из Интернета вещей. Дополнительные сведения об этой службе см. на следующих ресурсах:

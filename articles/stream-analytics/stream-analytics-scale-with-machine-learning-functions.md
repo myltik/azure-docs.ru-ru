@@ -1,24 +1,19 @@
 ---
-title: Масштабирование задания с помощью функций Azure Stream Analytics и Машинного обучения Azure | Документация Майкрософт
-description: Узнайте, как правильно масштабировать задания Stream Analytics (секционирование, количество SU и т. д.) при использовании функций машинного обучения Azure.
-keywords: ''
-documentationcenter: ''
+title: Масштабирование функций службы "Машинное обучение" в Azure Stream Analytics
+description: Из этой статьи вы узнаете, как масштабировать задания Stream Analytics, для которых используются функции службы "Машинное обучение", настроив секционирование и единицы потоковой передачи.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Масштабирование заданий Stream Analytics с помощью функций машинного обучения Azure
 В большинстве случаев настроить задание Stream Analytics и запустить демонстрационные данные можно без особых усилий. А что делать, если необходимо выполнить то же задание с большим объемом данных? Мы должны разобраться, как настроить задание Stream Analytics таким образом, чтобы его можно было масштабировать. В этом документе основное внимание уделено специфическим аспектам масштабирования заданий Stream Analytics с помощью функций машинного обучения. Общие сведения о масштабировании заданий Stream Analytics см. в статье [Масштабирование заданий](stream-analytics-scale-jobs.md).
@@ -111,7 +106,7 @@ ms.lasthandoff: 03/30/2018
 2. Допустимая задержка для выполняющегося задания Stream Analytics (и, соответственно, размер пакета для запросов веб-службы машинного обучения).
 3. Количество подготовленных единиц SU Stream Analytics и количество запросов веб-службы машинного обучения (дополнительные расходы, связанные с использованием функций).
 
-В качестве примера был использован полностью секционированный запрос Stream Analytics. Если требуется более сложный запрос, посетите [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). Это превосходный ресурс, на котором можно получить дополнительные сведения от разработчиков Stream Analytics.
+В качестве примера был использован полностью секционированный запрос Stream Analytics. Если требуется более сложный запрос, посетите [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). Это превосходный ресурс, на котором можно получить дополнительные сведения от разработчиков Stream Analytics.
 
 ## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о службе Stream Analytics см. в следующих статьях:

@@ -1,12 +1,12 @@
 ---
-title: "Перенос содержимого коллекции рабочих областей Power BI в Power BI Embedded | Документация Майкрософт"
-description: "Сведения о переносе из коллекций рабочих областей Power BI в Power BI Embedded и использовании возможностей внедрения в приложения."
+title: Перенос содержимого коллекции рабочих областей Power BI в Power BI Embedded | Документация Майкрософт
+description: Сведения о переносе из коллекций рабочих областей Power BI в Power BI Embedded и использовании возможностей внедрения в приложения.
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
 ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Перенос содержимого коллекции рабочих областей Power BI в Power BI Embedded
 
@@ -117,13 +117,13 @@ ms.lasthandoff: 10/11/2017
 
 **Поток**
 
-1. Вызовите GET https://api.powerbi.com/v1.0/collections/{ИД_коллекции}/workspaces/{ИД_области}/datasets/{ИД_набора_данных}/Default.GetBoundGatewayDataSources и сохраните полученную строку подключения.
+1. Вызовите GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources и сохраните полученную строку подключения.
 2. Вызовите API загрузки PBIX-файлов в рабочей области коллекции рабочих областей Power BI.
 3. Сохраните PBIX-файл.
 4. Вызовите API импорта PBIX-файлов для рабочей области Power BI Embedded.
-5. Обновите строку подключения, вызвав POST https://api.powerbi.com/v1.0/myorg/datasets/{ИД_набора_данных}/Default.SetAllConnections
-6. Получите идентификатор шлюза и источника данных, вызвав GET https://api.powerbi.com/v1.0/myorg/datasets/{ИД_набора_данных}/Default.GetBoundGatewayDataSources
-7. Обновите учетные данные пользователя, вызвав PATCH https://api.powerbi.com/v1.0/myorg/gateways/{ИД_шлюза}/datasources/{ИД_источника_данных}
+5. Обновите строку подключения, вызвав POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections.
+6. Получите идентификатор шлюза и источника данных, вызвав GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources.
+7. Обновите учетные данные пользователя, вызвав PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}.
 
 #### <a name="old-dataset-and-reports"></a>Старые наборы данных и отчеты
 

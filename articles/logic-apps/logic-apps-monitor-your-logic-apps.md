@@ -1,11 +1,11 @@
 ---
-title: "Проверка состояния, настройка ведения журнала и получение оповещений в Azure Logic Apps | Документы Майкрософт"
-description: "Мониторинг состояния и производительности приложений логики, запись ведения журнала диагностики и настройка оповещений"
+title: Проверка состояния, настройка ведения журнала и получение оповещений в Azure Logic Apps | Документы Майкрософт
+description: Мониторинг состояния и производительности приложений логики, запись ведения журнала диагностики и настройка оповещений
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Мониторинг состояния, настройка ведения журнала диагностики и включение предупреждений для Azure Logic Apps
 
@@ -76,9 +76,9 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Включение ведения журнала диагностики для приложения логики
 
-Для отладки с использованием сведений о среде выполнения и событиях можно настроить ведение журнала диагностики с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics — это служба в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. 
+Для отладки с использованием сведений о среде выполнения и событиях можно настроить ведение журнала диагностики с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics — это служба в Azure, которая отслеживает облачные и локальные среды, помогая поддерживать уровень их доступности и производительности. 
 
-Прежде чем начать, необходимо иметь рабочую область OMS. Узнайте о том, [как создать ее](../log-analytics/log-analytics-get-started.md).
+Чтобы начать работу, вам потребуется рабочая область Log Analytics. Узнайте, [как создать рабочую область Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. На [портале Azure](https://portal.azure.com) найдите и выберите требуемое приложение логики. 
 
@@ -90,16 +90,16 @@ ms.lasthandoff: 02/28/2018
 
    ![Включение журналов диагностики](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Теперь выберите рабочую область OMS и категорию событий, которые необходимо использовать для ведения журнала, как показано ниже:
+4. Теперь выберите рабочую область Log Analytics и категорию событий, которые необходимо использовать для ведения журнала, как показано ниже:
 
    1. Установите флажок **Отправить в Log Analytics**. 
    2. В разделе **Log Analytics** выберите **Настройка**. 
-   3. В разделе **Рабочие области OMS** выберите рабочую область OMS для ведения журнала.
+   3. В разделе **Рабочие области OMS** выберите рабочую область Log Analytics для ведения журнала.
    4. В разделе **Журнал** выберите категорию **WorkflowRuntime**.
    5. Выберите интервал метрики.
    6. Когда все будет готово, нажмите **Сохранить**.
 
-   ![Выберите рабочую область OMS и данные для ведения журнала](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Выберите рабочую область Log Analytics и данные для ведения журнала](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 Теперь можно выполнять поиск событий и других данных, таких как события триггера, события выполнения и события действия.
 
@@ -113,23 +113,23 @@ ms.lasthandoff: 02/28/2018
 
    ![Выберите "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. В разделе **Log Analytics** найдите и выберите рабочую область OMS. 
+2. В разделе **Log Analytics** найдите и выберите рабочую область Log Analytics. 
 
-   ![Выбор рабочей области OMS](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Выбор рабочей области Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. В разделе **Управление** выберите **Портал OMS**.
 
    ![Выберите "Портал OMS"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. На домашней странице OMS выберите **Поиск по журналам**.
+4. На домашней странице выберите **Поиск по журналам**.
 
-   ![На домашней странице OMS выберите "Поиск по журналам"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![На домашней странице выберите "Поиск по журналам".](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -или-
 
-   ![В меню OMS выберите "Поиск по журналам"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![В меню выберите "Поиск по журналам".](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. В поле поиска укажите поле, которое требуется найти, и нажмите клавишу **ВВОД**. При вводе OMS предлагает возможные совпадения и операции, которые можно использовать. 
+5. В поле поиска укажите поле, которое требуется найти, и нажмите клавишу **ВВОД**. При вводе предлагаются возможные совпадения и операции, которые можно использовать. 
 
    Например, чтобы найти первые 10 возникших событий, введите и выберите следующий поисковый запрос: **search Category == "WorkflowRuntime" | limit 10**.
 

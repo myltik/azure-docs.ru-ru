@@ -1,24 +1,19 @@
 ---
-title: 'Stream Analytics: смена учетных данных для источников входных данных и мест назначения выходных данных | Документация Майкрософт'
-description: Информация о том, как обновить учетные данные для источников входных данных и мест назначения выходных данных Stream Analytics
-keywords: учетные данные для входа в систему
+title: Смена учетных данных для входа в заданиях Azure Stream Analytics
+description: В этой статье объясняется, как обновить учетные данные для приемников входных и выходных данных в заданиях Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: sngun
-ms.openlocfilehash: d01e5d9f0bbfe6ca3ef8511aeb813cead3809f04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Смена учетных данных для источников входных данных и мест назначения выходных данных задания Stream Analytics
 

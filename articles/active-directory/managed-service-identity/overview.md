@@ -1,24 +1,24 @@
 ---
-title: "Управляемое удостоверение службы (MSI) для Azure Active Directory"
-description: "Обзор применения управляемого удостоверения службы (MSI) для ресурсов Azure."
+title: Управляемое удостоверение службы (MSI) для Azure Active Directory
+description: Обзор применения управляемого удостоверения службы (MSI) для ресурсов Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 2d711d4fa48a1d10d4c37b9591a66e5b746f1ca7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Управляемое удостоверение службы (MSI) для ресурсов Azure
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/08/2018
 2. Azure Resource Manager создает субъект-службу в Azure AD, представляющий удостоверение виртуальной машины. В клиенте Azure AD, который является доверенным для этой подписки, создается субъект-служба.
 3. Azure Resource Manager настраивает данные субъекта-службы в расширении виртуальной машины для MSI на виртуальной машине.  Этот этап включает в себя настройку идентификатора клиента и сертификата, используемых расширением для получения маркеров доступа из Azure AD.
 4. Теперь, когда известно удостоверение субъекта-службы виртуальной машины, ей может быть предоставлен доступ к ресурсам Azure.  Например, если ваш код должен вызывать Azure Resource Manager, то следует назначить субъекту-службе виртуальной машины соответствующую роль с помощью управления доступом на основе ролей (RBAC) в Azure AD.  Если код должен отправить вызов к Key Vault, то ему следует предоставить доступ к определенному секрету или ключу в Key Vault.
-5. Ваш код, запущенный на виртуальной машине, запрашивает маркер из локальной конечной точки, размещенной расширением виртуальной машины для MSI: http://localhost:50342/oauth2/token.  Параметр ресурса указывает службу, в которую отправляется маркер. Например, если требуется аутентифицировать код в Azure Resource Manager, используйте параметр resource=https://management.azure.com.
+5. Ваш код, запущенный на виртуальной машине, запрашивает маркер из локальной конечной точки, размещенной расширением MSI для виртуальной машины: http://localhost:50342/oauth2/token.  Параметр ресурса указывает службу, в которую отправляется маркер. Например, если нужно выполнить аутентификацию кода в Azure Resource Manager, используйте параметр resource=https://management.azure.com/.
 6. Расширение виртуальной машины для MSI использует настроенный для него идентификатор клиента и сертификат для запроса маркера доступа из Azure AD.  Azure AD возвращает маркер доступа JSON Web Token (JWT).
 7. Код отправляет этот маркер доступа при вызове службы, которая поддерживает аутентификацию Azure AD.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/08/2018
 |                    | [Получение доступа к службе хранилища Azure с SAS при помощи управляемого удостоверения службы виртуальной машины Linux](tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux и Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
 | Служба приложений Azure  | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
-| функции Azure;     | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
+| Функции Azure    | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Использование удостоверения управляемой службы со служебной шиной Azure](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Концентраторы событий Azure   | [Использование удостоверения управляемой службы с концентраторами событий Azure](../../event-hubs/event-hubs-managed-service-identity.md) |
 
@@ -78,8 +78,10 @@ ms.lasthandoff: 03/08/2018
 | ------- | ------ | ---- | --------- | ----------- |
 | Виртуальные машины Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[интерфейс командной строки Azure](qs-configure-cli-windows-vm.md)<br>[Шаблоны диспетчера ресурсов Azure](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[GO](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Служба приложений Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Функции Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Функции Azure<sup>1</sup> | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Фабрика данных Azure версии 2 | Предварительный просмотр | Ноябрь 2017 г. | [портал Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Пакет SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+
+<sup>1</sup> Поддержка решения "Функции Azure" позволяет применять в пользовательском коде идентификатор, но для триггеров и привязок по-прежнему могут требоваться строки подключения.
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Службы Azure, поддерживающие аутентификацию Azure AD
 

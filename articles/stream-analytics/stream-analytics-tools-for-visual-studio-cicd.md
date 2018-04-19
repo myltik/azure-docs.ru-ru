@@ -1,35 +1,30 @@
 ---
-title: Использование инструментов Stream Analytics Visual Studio для настройки процессов непрерывной интеграции и непрерывного развертывания | Документация Майкрософт
-description: Руководство по использованию средств Stream Analytics Visual Studio для настройки процессов непрерывной интеграции и непрерывного развертывания.
-keywords: visual studio, NuGet, DevOps, CI/CD
-documentationcenter: ''
+title: Непрерывная интеграция и разработка с помощью инструментов Stream Analytics
+description: Из этой статьи вы узнаете, как использовать инструменты Visual Studio для Azure Stream Analytics для настройки процессов непрерывной интеграции и развертывания.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 9/27/2017
+ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Использование средств Stream Analytics Visual Studio для настройки процессов непрерывной интеграции и непрерывного развертывания
-В этом руководстве показано, как использовать средства Azure Stream Analytics для Visual Studio для настройки процессов непрерывной интеграции и непрерывного развертывания.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Непрерывная интеграция и разработка с помощью инструментов Stream Analytics
+Из этой статьи вы узнаете, как использовать инструменты Azure Stream Analytics для Visual Studio для настройки процессов непрерывной интеграции и развертывания.
 
-Последняя версия (2.3.0000.0 или более поздней версии) [средств Stream Analytics для Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) добавляет поддержку MSBuild.
+Чтобы получить поддержку MSBuild, используйте [инструменты Stream Analytics для Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) версии 2.3.0000.0 или выше.
 
-Также имеется недавно выпущенный пакет NuGet [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Он предоставляет MSBuild, локальное выполнение и средства развертывания, которые поддерживают процесс непрерывной интеграции и развертывания проектов Stream Analytics Visual Studio. 
+Доступен пакет NuGet [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Он предоставляет MSBuild, локальное выполнение и средства развертывания, которые поддерживают процесс непрерывной интеграции и развертывания проектов Stream Analytics Visual Studio. 
 > [!NOTE] 
 Пакет NuGet может использоваться только с версией 2.3.0000.0 или более поздней версией средств Stream Analytics для Visual Studio. При наличии проектов, созданных в предыдущих версиях средств Visual Studio, откройте его с помощью версии 2.3.0000.0 или более поздней версии и сохраните. После этого будут включены новые возможности. 
 
-Узнайте, как использовать [средства Stream Analytics для Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Дополнительные сведения см. в статье [Использование инструментов Azure Stream Analytics для Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Как и в стандартном интерфейсе Visual Studio MSBuild, для выполнения сборки проекта имеются две возможности. Можно щелкнуть правой кнопкой мыши проект и выбрать **Собрать**. Можно также использовать **MSBuild** в пакете NuGet из командной строки.

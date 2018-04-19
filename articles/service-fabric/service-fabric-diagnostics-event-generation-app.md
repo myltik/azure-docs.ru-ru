@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Ведение журналов на уровне приложений и служб
 
@@ -36,10 +36,11 @@ ms.lasthandoff: 03/29/2018
 
 Очень важно тщательно спланировать методы инструментирования кода. Правильный план инструментирования позволит избежать потенциальной дестабилизации базы кода, которая повлечет за собой повторное инструментрирование кода. Чтобы снизить риск, вы можете применить библиотеку инструментирования, например [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), которая входит в Microsoft ASP.NET Core. ASP.NET Core предоставляет интерфейс [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger), который можно подключить к любому поставщику, с минимальными изменениями существующего кода. Код ASP.NET Core можно использовать на платформах Windows, Linux и в полной версии .NET Framework, то есть код инструментирования будет полностью стандартизирован.
 
-## <a name="choosing-a-logging-provider"></a>Выбор поставщика ведения журнала
+## <a name="application-insights-sdk"></a>Пакет SDK для Application Insights
 
-Если для вашего приложения требуется высокая производительность, рекомендуется остановить выбор на **EventSource**. **EventSource** *обычно* использует меньше ресурсов и работает лучше, чем подсистема ведения журнала ASP.NET Core или любое из доступных решений сторонних поставщиков.  Для многих служб это не проблема, но для высокопроизводительных служб **EventSource** будет наилучшим выбором. Однако чтобы использовать в **EventSource** преимущества структурированного ведения журнала, потребуются большие усилия команды разработчиков. По возможности, создайте легко реализуемые модели нескольких параметров ведения журнала, а затем выберите ту модель, которая лучше всего соответствует требованиям.
+Azure Application Insights поставляется с широкими возможностями интеграции с Azure Service Fabric. Пользователи могут добавлять пакеты NuGet ИИ Service Fabric и получать данные и журналы, созданные и собранные готовыми к просмотру на портале Azure. Кроме того пользователям рекомендуется добавлять свои собственные данные телеметрии для диагностики и отладки своих приложений, а также получения сведения о самых используемых службах и частей приложений. Класс [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) в пакете SDK предоставляет много способов отслеживать данные телеметрии в приложении. Дополнительные сведения об инструментировании и добавлении Application Insights в приложение см. руководстве по [наблюдению и диагностике приложений .NET](service-fabric-tutorial-monitoring-aspnet.md)
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-После выбора поставщика ведения журнала для инструментирования приложений и служб вам потребуется агрегировать журналы и события перед отправкой в любую платформу аналитики. Прочтите статьи об [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) и [WAD](service-fabric-diagnostics-event-aggregation-wad.md), чтобы лучше понять некоторые рекомендуемые варианты.
+После выбора поставщика ведения журнала для инструментирования приложений и служб вам потребуется агрегировать журналы и события перед отправкой в любую платформу аналитики. См. дополнительные сведения об [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) и [WAD](service-fabric-diagnostics-event-aggregation-wad.md), чтобы ознакомиться с некоторыми рекомендуемыми параметрами.

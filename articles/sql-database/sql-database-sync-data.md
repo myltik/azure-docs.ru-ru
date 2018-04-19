@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL (предварительная версия)
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 03/29/2018
 
 -   [Начало работы с синхронизацией данных SQL Azure (предварительная версия)](sql-database-get-started-sql-data-sync.md)
 -   [Best practices for SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md) (Рекомендации по синхронизации данных SQL (предварительная версия))
--   [Мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics](sql-database-sync-monitor-oms.md).
+-   [Мониторинг синхронизации данных SQL Azure с помощью Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](sql-database-troubleshoot-data-sync.md)
 
 -   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL:

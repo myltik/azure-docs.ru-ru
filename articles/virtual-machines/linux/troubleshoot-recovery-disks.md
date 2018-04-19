@@ -1,11 +1,11 @@
 ---
-title: "Использование виртуальной машины Linux для устранения неполадок с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "Узнайте, как устранять неполадки виртуальных машин Linux, подключив диск ОС к виртуальной машине восстановления с помощью Azure CLI 2.0."
+title: Использование виртуальной машины Linux для устранения неполадок с помощью Azure CLI 2.0 | Документация Майкрософт
+description: Узнайте, как устранять неполадки виртуальных машин Linux, подключив диск ОС к виртуальной машине восстановления с помощью Azure CLI 2.0.
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Устранение неполадок виртуальной машины Linux путем подключения диска ОС к виртуальной машине восстановления с помощью Azure CLI 2.0
 Если возникает проблема с загрузкой или диском на виртуальной машине Linux, возможно, вам нужно устранить неполадки, связанные с самим виртуальным жестким диском. Например, такая ситуация возникает из-за неправильной записи в `/etc/fstab`, которая мешает успешно загрузить виртуальную машину. В этой статье подробно описано, как с помощью Azure CLI 2.0 подключить виртуальный жесткий диск к другой виртуальной машине Linux для устранения ошибок, а затем воссоздать исходную виртуальную машину. Эти действия можно также выполнить с помощью [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -59,7 +59,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-Универсальный код ресурса (URI) имеет вид **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
+URI имеет вид **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
 
 ## <a name="delete-existing-vm"></a>Удаление существующей виртуальной машины
 Виртуальные жесткие диски и виртуальные машины — это разные ресурсы в Azure. Виртуальный жесткий диск является местом хранения операционной системы, приложений и конфигурации. Виртуальная машина — это просто метаданные, которые определяют размер или расположение объекта, а также ссылки на ресурсы, такие как виртуальные жесткие диски или виртуальные сетевые адаптеры. При присоединении виртуального жесткого диска к виртуальной машине для него регистрируется аренда. Диски данных можно присоединять и отсоединять во время работы виртуальной машины, но диск операционной системы отсоединить невозможно, пока ресурс виртуальной машины не будет удален. Аренда сохраняет привязку диска операционной системы к виртуальной машине, даже когда эта виртуальная машина остановлена или отменено ее распределение.
@@ -151,7 +151,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Обратите внимание на имя существующего виртуального жесткого диска. Например, имя диска с универсальным кодом ресурса (URI) **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** — **myVHD**. 
+    Обратите внимание на имя существующего виртуального жесткого диска. Например, имя диска с URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** — **myVHD**. 
 
     Отключите диск данных от виртуальной машины командой [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). В следующем примере диск `myVHD` отключается от виртуальной машины `myVMRecovery` в группе ресурсов `myResourceGroup`.
 

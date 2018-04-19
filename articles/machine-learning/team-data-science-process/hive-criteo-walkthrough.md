@@ -1,8 +1,8 @@
 ---
-title: "Процесс обработки и анализа данных группы на практике: использование кластера Azure HDInsight Hadoop с набором данных объемом 1 ТБ | Документация Майкрософт"
-description: "Применение процесса обработки и анализа данных группы в комплексном сценарии, включающем в себя использование кластера HDInsight Hadoop для создания и развертывания модели на основе общедоступного набора данных большого объема (1 ТБ)."
+title: 'Процесс обработки и анализа данных группы на практике: использование кластера Azure HDInsight Hadoop с набором данных объемом 1 ТБ | Документация Майкрософт'
+description: Применение процесса обработки и анализа данных группы в комплексном сценарии, включающем в себя использование кластера HDInsight Hadoop для создания и развертывания модели на основе общедоступного набора данных большого объема (1 ТБ).
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
 ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Процесс обработки и анализа данных группы на практике: использование кластера Azure HDInsight Hadoop с набором данных объемом 1 ТБ
 
@@ -437,7 +437,7 @@ ms.lasthandoff: 12/01/2017
 
 1. В поле **Источник данных**
 2. В поле **Hive database query** (Запрос базы данных Hive) достаточно просто ввести SELECT * FROM <имя\_вашей\_базы_данных.имя\_вашей\_таблицы>.
-3. **URI сервера Hcatalog** — если используется кластер abc, введите адрес https://abc.azurehdinsight.net.
+3. **URI сервера Hcatalog** — если используется кластер abc, введите адрес https://abc.azurehdinsight.net.
 4. **Имя учетной записи пользователя Hadoop** — имя пользователя, выбранное во время введения кластера в эксплуатацию. (НЕ имя пользователя для удаленного доступа).
 5. **Пароль учетной записи пользователя Hadoop**. Пароль для имени пользователя, выбранный во время введения кластера в эксплуатацию (НЕ пароль для удаленного доступа).
 6. **Расположение выходных данных**: выберите Azure.

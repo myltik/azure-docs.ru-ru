@@ -1,18 +1,17 @@
 ---
-title: "Как найти адрес с помощью службы поиска Azure Location Based Services (предварительная версия) | Документация Microsoft"
-description: "Узнайте, как найти адрес с помощью службы поиска Azure Location Based Services (предварительная версия)"
+title: Как найти адрес с помощью службы поиска Azure Location Based Services (предварительная версия) | Документация Microsoft
+description: Узнайте, как найти адрес с помощью службы поиска Azure Location Based Services (предварительная версия)
 services: location-based-services
-keywords: "Не добавляйте и не изменяйте ключевые слова, не посоветовавшись с консультантом SEO."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Как найти адрес с помощью службы поиска Azure Location Based Services (предварительная версия)
 Служба поиска — это набор API-интерфейсов на основе REST для разработчиков, позволяющий выполнять поиск адресов, мест, достопримечательностей, деловых справочников и других географических данных. Служба поиска присваивает значения широты и долготы определенному адресу, пересекающей улице, географической особенности или достопримечательности. Значения широты и долготы, возвращенные программным интерфейсом службы поиска, можно использовать в качестве параметров в других Azure Location Based Services, например в API потока транспорта и маршрута.

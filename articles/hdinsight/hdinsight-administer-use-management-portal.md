@@ -1,8 +1,8 @@
 ---
-title: "Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure | Документация Майкрософт"
-description: "Сведения об управлении службой HDInsight. Создайте кластер HDInsight, откройте интерактивную консоль JavaScript и командную консоль Hadoop."
+title: Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure | Документация Майкрософт
+description: Сведения об управлении службой HDInsight. Создайте кластер HDInsight, откройте интерактивную консоль JavaScript и командную консоль Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure
 

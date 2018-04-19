@@ -1,12 +1,12 @@
 ---
-title: "Обзор бессерверных компонентов Azure | Документы Майкрософт"
-description: "Создание эффективных решений в облаке без необходимости развертывания и обслуживания инфраструктуры."
-keywords: 
+title: Обзор бессерверных компонентов Azure | Документы Майкрософт
+description: Создание эффективных решений в облаке без необходимости развертывания и обслуживания инфраструктуры.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Обзор бессерверных компонентов Azure с функциями и Logic Apps
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Как создавать и развертывать бессерверные приложения в Azure?
 
-Azure предоставляет широкий набор средств для разработки, развертывания бессерверных приложений и управления ими.  Приложения можно создавать непосредственно на портале Azure или с помощью [инструментов из Visual Studio](logic-apps-serverless-get-started-vs.md).  После разработки приложение можно [развернуть мгновенно](logic-apps-create-deploy-template.md).  Azure также обеспечивает мониторинг бессерверных приложений.  Мониторинг может осуществляться из портала Azure, через API или SDK или с помощью интегрированных инструментов для OMS и Application Insights.
+Azure предоставляет широкий набор средств для разработки, развертывания бессерверных приложений и управления ими.  Приложения можно создавать непосредственно на портале Azure или с помощью [инструментов из Visual Studio](logic-apps-serverless-get-started-vs.md).  После разработки приложение можно [развернуть мгновенно](logic-apps-create-deploy-template.md).  Azure также обеспечивает мониторинг бессерверных приложений.  Мониторинг может осуществляться с портала Azure, через API или пакет SDK или с помощью интегрированных инструментов для Log Analytics и Application Insights.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

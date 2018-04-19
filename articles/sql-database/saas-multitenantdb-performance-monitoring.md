@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS и управление ею
 
@@ -49,7 +49,7 @@ SaaS-приложение Wingtip Tickets c мультитенантной БД 
 
 На [портале Azure](https://portal.azure.com) доступны встроенные возможности мониторинга большинства ресурсов и создания оповещений. Для базы данных SQL средства мониторинга и создания оповещений доступны в базах данных. Эти встроенные средства относятся к конкретному ресурсу. Их удобно использовать при работе с незначительным количеством ресурсов, но не с большим.
 
-При работе с большим количеством ресурсов можно использовать [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/). Это отдельная служба Azure, которая предоставляет аналитические сведения на основе журналов диагностики и данных телеметрии, собранных в рабочей области Log Analytics. Служба Log Analytics может собирать данные телеметрии из многих служб и использоваться для выполнения запросов и настройки оповещений.
+В сценариях с большим количеством операций, когда используется большое количество ресурсов, можно использовать [Log Analytics](https://azure.microsoft.com/services/log-analytics/). Это отдельная служба Azure, которая предоставляет аналитические сведения на основе журналов диагностики и данных телеметрии, собранных в рабочей области Log Analytics. Служба Log Analytics может собирать данные телеметрии из многих служб и использоваться для выполнения запросов и настройки оповещений.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Получение скриптов и исходного кода для SaaS-приложения Wingtip Tickets c мультитенантной БД
 

@@ -1,8 +1,8 @@
 ---
-title: "Просмотр журналов действий Azure для наблюдения за ресурсами | Документация Майкрософт"
-description: "Просмотр действий пользователя и ошибок с помощью журнала действий. Отображаются портал Azure, PowerShell, интерфейс командной строки Azure и REST."
+title: Просмотр журналов действий Azure для наблюдения за ресурсами | Документация Майкрософт
+description: Просмотр действий пользователя и ошибок с помощью журнала действий. Отображаются портал Azure, PowerShell, интерфейс командной строки Azure и REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Просмотр журналов действий для аудита действий с ресурсами
+
 С помощью журналов действий можно определить:
 
 * какие операции выполнялись с ресурсами в вашей подписке;
@@ -38,6 +39,7 @@ ms.lasthandoff: 02/09/2018
 Сведения из журналов действий можно получить с помощью портала, PowerShell, интерфейса командной строки Azure, API REST Insights или с помощью [библиотеки .NET для Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Microsoft Azure
+
 1. Чтобы просмотреть журналы действий на портале, выберите **Монитор**.
    
     ![просмотр журналов действий](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ ms.lasthandoff: 02/09/2018
     ![Просмотр операции](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Чтобы получить записи журнала, выполните команду **Get-AzureRmLog** . Укажите дополнительные параметры, чтобы отфильтровать список записей. Если не указать время начала и окончания, возвращаются записи за последний час. Например, для получения операций для группы ресурсов за последний час выполните следующую команду:
 
   ```powershell
@@ -136,17 +139,20 @@ ms.lasthandoff: 02/09/2018
 
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
-* Чтобы получить записи журнала, выполните команду **azure group log show** .
+
+Чтобы получить записи журнала, выполните команду [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
+
 Операции REST для работы с журналом действий включены в интерфейс [REST API Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Получение событий журнала действий описано в статье [Список событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Дополнительная информация
+
 * Чтобы получить больше информации о действиях в вашей подписке, можно использовать журналы аудита Azure совместно с Power BI. Дополнительные сведения см. в записи блога [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Журналы аудита Azure в Power BI: просмотр, анализ и другие возможности).
 * Дополнительные сведения о настройке политик безопасности см. в статье о [контроле доступа на основе ролей Azure](../active-directory/role-based-access-control-configure.md).
 * Чтобы узнать о командах для просмотра операций развертывания, ознакомьтесь с разделом [View deployment operations with Azure Resource Manager](resource-manager-deployment-operations.md) (Просмотр операций развертывания с помощью Azure Resource Manager).

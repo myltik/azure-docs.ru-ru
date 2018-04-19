@@ -1,10 +1,10 @@
 ---
-title: "Создание классической виртуальной машины Azure с MySQL | Документация Майкрософт"
-description: "Создайте виртуальную машину Azure под управлением Windows Server 2012 R2 и базу данных MySQL, используя классическую модель развертывания."
+title: Создание классической виртуальной машины Azure с MySQL | Документация Майкрософт
+description: Создайте виртуальную машину Azure под управлением Windows Server 2012 R2 и базу данных MySQL, используя классическую модель развертывания.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 98fa06d2-9b92-4d05-ac16-3f8e9fd4feaa
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be2a4232fdb59deb87d6d9340fd22909707294b8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Установка MySQL на виртуальной машине Windows Server 2016 R2, созданной с помощью классической модели развертывания
 [MySQL](https://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. В этом руководстве демонстрируются установка и запуск **версии от сообщества MySQL 5.7.18** в качестве сервера MySQL на виртуальной машине **Windows Server 2016 R2**. Рабочая процедура для других версий MySQL или Windows Server может немного отличаться.
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/09/2017
 
 1. После подключения к виртуальной машине с помощью удаленного рабочего стола щелкните элемент **Internet Explorer** на начальном экране.
 2. Нажмите кнопку **Сервис** в правом верхнем углу (значок шестеренки) и выберите **Свойства браузера**. Откройте вкладку **Безопасность**, щелкните значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте http://*.mysql.com в список надежных сайтов. Нажмите кнопку **Закрыть**, а затем кнопку **ОК**.
-3. Введите https://dev.mysql.com/downloads/mysql/ в адресной строке Internet Explorer.
+3. В адресной строке браузера Internet Explorer введите https://dev.mysql.com/downloads/mysql/.
 4. Используйте сайт MySQL, чтобы найти и скачать последнюю версию установщика MySQL для Windows. При выборе установщика MySQL скачайте версию, которая содержит полный набор файлов (например, mysql-installer-community-5.7.18.0.msi размером в 352,8 МБ), и сохраните файл установщика.
 5. После завершения загрузки установщика нажмите **Выполнить** , чтобы запустить установку.
 6. На странице **Лицензионное соглашение** примите условия лицензионного соглашения и нажмите кнопку **Далее**.

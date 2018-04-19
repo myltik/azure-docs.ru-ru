@@ -1,38 +1,38 @@
 ---
 title: Ограничение сетевого доступа к ресурсам PaaS с помощью Azure CLI | Документация Майкрософт
-description: Узнайте, как ограничить сетевой доступ к ресурсам Azure, таким как служба хранилища Azure и база данных SQL Azure, посредством конечных точек службы виртуальной сети с помощью Azure CLI.
+description: Из этой статьи вы узнаете, как ограничить сетевой доступ к ресурсам Azure, таким как служба хранилища Azure и служба "База данных SQL Azure", с помощью конечных точек службы виртуальной сети и Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Ограничение сетевого доступа к ресурсам PaaS посредством конечных точек службы виртуальной сети с помощью Azure CLI
 
 Конечные точки службы виртуальной сети позволяют ограничить сетевой доступ к некоторым ресурсам службы Azure определенной подсетью виртуальной сети. Можно также запретить доступ к ресурсам через Интернет. Конечные точки службы предоставляют прямое подключение из виртуальной сети к поддерживаемым службам Azure. Это позволяет использовать закрытый диапазон адресов виртуальной сети для доступа к службам Azure. Трафик, поступающий к ресурсам Azure через конечные точки службы, всегда остается в магистральной сети Microsoft Azure. В этой статье раскрываются следующие темы:
 
-> [!div class="checklist"]
-> * Создание виртуальной сети с одной подсетью.
-> * Добавление подсети и включение конечной точки службы.
-> * Создание ресурса Azure и разрешение сетевого доступа к нему только из подсети.
-> * Развертывание виртуальной машины в каждой подсети.
-> * Подтверждение прав доступа к ресурсу из подсети.
-> * Подтверждение запрета доступа к ресурсу из подсети и Интернета.
+* Создание виртуальной сети с одной подсетью.
+* Добавление подсети и включение конечной точки службы.
+* Создание ресурса Azure и разрешение сетевого доступа к нему только из подсети.
+* Развертывание виртуальной машины в каждой подсети.
+* Подтверждение прав доступа к ресурсу из подсети.
+* Подтверждение запрета доступа к ресурсу из подсети и Интернета.
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>Ограничение входящего и исходящего сетевого доступа для подсети
+## <a name="restrict-network-access-for-a-subnet"></a>Ограничение сетевого доступа для подсети
 
 Создайте группу безопасности сети с помощью команды [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). В следующем примере создается группа безопасности сети *myNsgPrivate*.
 
@@ -311,7 +311,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Попытайтесь подключить файловый ресурс Azure к созданному каталогу. В этом руководстве предполагается, что вы развернули последнюю версию Ubuntu. При использовании более ранних версий Ubuntu обратитесь к разделу [Использование файлов Azure в Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json), чтобы получить дополнительные инструкции по подключению файловых ресурсов. Прежде чем выполнить следующую команду, замените `<storage-account-name>` именем учетной записи и `<storage-account-key>` ключом, которые вы получили при [создании учетной записи хранения](#create-a-storage-account).
+Попытайтесь подключить файловый ресурс Azure к созданному каталогу. В этой статье предполагается, что вы развернули последнюю версию Ubuntu. При использовании более ранних версий Ubuntu обратитесь к разделу [Использование файлов Azure в Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json), чтобы получить дополнительные инструкции по подключению файловых ресурсов. Прежде чем выполнить следующую команду, замените `<storage-account-name>` именем учетной записи и `<storage-account-key>` ключом, которые вы получили при [создании учетной записи хранения](#create-a-storage-account).
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве вы включили конечную точку службы для подсети виртуальной сети. Вы узнали, что конечные точки службы можно включать для ресурсов, развернутых несколькими службами Azure. Вы создали учетную запись хранения Azure и ограничили сетевой доступ к учетной записи хранения ресурсами одной подсети в виртуальной сети. Прежде чем создавать конечные точки службы в рабочих виртуальных сетях, рекомендуется внимательно ознакомиться с [конечными точками службы](virtual-network-service-endpoints-overview.md).
+В рамках этой статьи вы включили конечную точку службы для подсети виртуальной сети. Вы узнали, что конечные точки службы можно включать для ресурсов, развернутых несколькими службами Azure. Вы создали учетную запись хранения Azure и ограничили сетевой доступ к учетной записи хранения ресурсами одной подсети в виртуальной сети. См. дополнительные сведения о [конечных точках службы](virtual-network-service-endpoints-overview.md) и [управляемых подсетях](virtual-network-manage-subnet.md).
 
-Если в вашей учетной записи имеется несколько виртуальных сетей, можно соединить две виртуальные сети, чтобы ресурсы в каждой из них могли взаимодействовать друг с другом. Перейдите к следующему руководству, чтобы научиться соединять виртуальные сети.
-
-> [!div class="nextstepaction"]
-> [Подключение виртуальных сетей](./tutorial-connect-virtual-networks-cli.md)
+Если в вашей учетной записи имеется несколько виртуальных сетей, можно соединить две виртуальные сети, чтобы ресурсы в каждой из них могли взаимодействовать друг с другом. Дополнительные сведения см. в статье о [подключении к виртуальным сетям](tutorial-connect-virtual-networks-cli.md).

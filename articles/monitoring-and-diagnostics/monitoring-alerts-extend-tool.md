@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Как расширить (копировать) оповещения с портала OMS в Azure
-Начиная с **23 апреля 2018 г.**, все клиенты, использующие оповещения, которые настраиваются в [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), будут перемещены в Azure. Оповещения, перемещенные в Azure, функционируют так же, как и в OMS. Возможности мониторинга не изменяются. Копирование созданных в OMS оповещений в Azure предоставляет множество преимуществ. Дополнительные сведения о преимуществах и процессе копирования оповещений из OMS в Azure см. в [этой статье](monitoring-alerts-extend.md).
+Начиная с **14 мая 2018 г.** все клиенты, использующие оповещения, которые настраиваются в [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), будут перемещены в Azure. Оповещения, перемещенные в Azure, функционируют так же, как и в OMS. Возможности мониторинга не изменяются. Копирование созданных в OMS оповещений в Azure предоставляет множество преимуществ. Дополнительные сведения о преимуществах и процессе копирования оповещений из OMS в Azure см. в [этой статье](monitoring-alerts-extend.md).
 
 Пользователи, желающие переместить свои оповещения из OMS в Azure немедленно, могут сделать это с помощью одного из указанных вариантов.
 
@@ -157,8 +157,87 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 Он указывает, что оповещения были расширены в Azure, как указано в версии 2. Эта версия нужна, чтобы проверить были ли оповещения расширены в Azure и используется ли [API поиска в службе Log Analytics](../log-analytics/log-analytics-api-alerts.md). После расширения оповещений в Azure на все адреса электронной почты, указанные при вызове GET, будет отправлен отчет с подробными сведениями о внесенных изменениях.
 
+И наконец, если все оповещения в указанной рабочей области уже запланированы для перемещения в Azure, на вызов POST будет возвращаться ответ 403 (запрещено). Чтобы просмотреть сообщения об ошибке или понять, что процесс перемещения "завис", пользователь может выполнить вызов GET. В ответе он получит сообщения об ошибках, если они есть, и краткую сводную информацию.
 
-И наконец, если все оповещения в указанной рабочей области уже запланированы для расширения в Azure, ответ на вызов POST будет 403 (запрещено).
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## <a name="troubleshooting"></a>Устранение неполадок 
+В процессе перемещения оповещений из OMS в Azure иногда могут возникать проблемы, не позволяющие системе создать необходимые [группы действий](monitoring-action-groups.md). В таких случаях сообщение об ошибке будет отображаться на портале OMS в виде баннера в разделе оповещений и в вызовах GET к интерфейсу API.
+
+Ниже перечислены действия по исправлению для каждой возможной ошибки.
+1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'** (Ошибка: подписка не зарегистрирована для использования пространства имен microsoft.insights): ![Страница параметров оповещений на портале OMS с сообщением об ошибке регистрации](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. Подписка, связанная с рабочей областью OMS, не зарегистрирована для использования Azure Monitor (microsoft.insights), из-за чего OMS не может переместить оповещения в Azure Monitor и решение "Оповещения Azure".
+    
+    Б. Чтобы устранить эту проблему, зарегистрируйте microsoft.insights (для использования Azure Monitor и решения "Оповещения Azure") в вашей подписке с помощью PowerShell, портала Azure или Azure CLI. Дополнительные сведения см. в статье [об устранении ошибок регистрации поставщика ресурсов](../azure-resource-manager/resource-manager-register-provider-errors.md).
+    
+    c. Когда вы устраните все проблемы, выполнив предложенные в этой статье шаги, от вас не требуется никаких дополнительных действий: OMS переместит оповещения в Azure во время запланированного на следующий день сеанса.
+2. **Error: Scope Lock is present at subscription/resource group level for write operations** (Ошибка: присутствует блокировка области для операций записи на уровне подписки или группы ресурсов): ![Страница параметров оповещений на портале OMS с сообщением об ошибке блокировки области](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. Если включена блокировка области, ограничивающая любые изменения в подписке или группе ресурсов, в которых содержится рабочая область Log Analytics (OMS), система не сможет переместить (скопировать) оповещения в Azure и создать необходимые группы действий.
+    
+    Б. Чтобы устранить эту проблему, удалите блокировку *ReadOnly* для подписки или группы ресурсов, содержащих рабочую область. Это можно сделать с помощью портала Azure, PowerShell, Azure CLI или API. Дополнительные сведения см. в статье [об использовании блокировки ресурсов](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Когда вы устраните все проблемы, выполнив предложенные в этой статье шаги, от вас не требуется никаких дополнительных действий: OMS переместит оповещения в Azure во время запланированного на следующий день сеанса.
 
 
 ## <a name="next-steps"></a>Дополнительная информация

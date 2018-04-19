@@ -1,8 +1,8 @@
 ---
-title: "Сбор настраиваемых журналов в Azure Log Analytics | Документация Майкрософт"
-description: "Служба Log Analytics может собирать события из текстовых файлов на компьютерах Windows и Linux.  В этой статье описано, как определить новый настраиваемый журнал и сведения записей, которые он создает в рабочей области Log Analytics."
+title: Сбор настраиваемых журналов в Azure Log Analytics | Документация Майкрософт
+description: Служба Log Analytics может собирать события из текстовых файлов на компьютерах Windows и Linux.  В этой статье описано, как определить новый настраиваемый журнал и сведения записей, которые он создает в рабочей области Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Настраиваемые журналы в службе Log Analytics
 С помощью настраиваемых журналов, выступающих в качестве источников данных, в службе Log Analytics можно собирать события из текстовых файлов на компьютерах Windows и Linux. Во многих приложениях вместо стандартной службы ведения журнала, например журнала событий Windows или системного журнала, данные журналов записываются в текстовые файлы.  Каждую собранную запись в журнале можно преобразовать в отдельные поля с помощью функции [Настраиваемые поля](log-analytics-custom-fields.md) службы Log Analytics.
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/13/2018
 
     ГГГГ-ММ-ДД ЧЧ:ММ:СС; <br>М/Д/ГГГГ ЧЧ:ММ:СС AM/PM (12-часовой формат); <br>М ДД, ГГГГ ЧЧ:ММ:СС.
 
-- В части файла журнала, где будут добавляться новые записи, не должны выполняться циклические обновления.
+- В части файла журнала, где будут добавляться новые записи, не должны выполняться циклическое ведение журнала или чередования журналов.
 - В файле журнала должна использоваться кодировка ASCII или UTF-8.  Другие форматы, например UTF-16, не поддерживаются.
 
 >[!NOTE]

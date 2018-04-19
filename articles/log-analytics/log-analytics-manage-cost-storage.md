@@ -1,6 +1,6 @@
 ---
 title: Управление затратами на данные в Azure Log Analytics | Документация Майкрософт
-description: Узнайте, как изменить ценовой план, а также управлять объемом данных и политикой хранения для рабочей области Log Analytics на портале Azure.
+description: Узнайте, как изменить ценовой план, а также управлять объемом данных и политикой хранения для рабочей области Log Analytics в Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Управление затратами на хранение и управление объемом данных с помощью рабочей области Log Analytics
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Управление затратами на хранение путем регулирования объема и срока хранения данных в Log Analytics
 Служба Log Analytics предназначена для масштабирования и поддержки сбора, индексирования и хранения больших объемов данных в день из любого источника в вашей организации или в развертывании в Azure.  Хотя это может быть определяющим фактором для вашей организации, в конечном счете основной является экономическая эффективность. Поэтому важно понять, что стоимость рабочей области Log Analytisc зависит не только от объема собранных данных, но также от выбранного плана и от того, как долго будут храниться данные из ваших подключенных источников.  
 
 В этой статье мы рассмотрим, как можно в упреждающем режиме отслеживать увеличение объема хранимых данных и определять ограничения для контроля этих связанных затрат. 

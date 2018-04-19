@@ -1,8 +1,8 @@
 ---
-title: "Использование действия скрипта для установки Solr в кластере Hadoop — Azure | Документы Майкрософт"
-description: "Узнайте, как настроить кластер HDInsight с Solr помощью действия сценария."
+title: Использование действия скрипта для установки Solr в кластере Hadoop — Azure | Документы Майкрософт
+description: Узнайте, как настроить кластер HDInsight с Solr помощью действия сценария.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Установка и использование Solr в кластерах HDInsight под управлением Windows
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement). Сведения об использовании Solr с кластером под управлением Linux см. в статье [Установка и использование Solr на кластерах HDInsight Hadoop](hdinsight-hadoop-solr-install-linux.md).
 
 
-Solr можно установить в кластере любого типа (Hadoop, Storm, HBase, Spark) в HDInsight в Azure, воспользовавшись *Действием сценария*. Пример сценария для установки Solr в кластере HDInsight доступен в большом двоичном объекте службы хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Solr можно установить в кластере любого типа (Hadoop, Storm, HBase, Spark) в HDInsight в Azure, воспользовавшись *Действием сценария*. Пример сценария для установки Solr в кластере HDInsight доступен в большом двоичном объекте хранилища Azure только для чтения по адресу [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 Пример скрипта работает только с кластером HDInsight версии 3.1. Дополнительную информацию о версиях кластера HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight](hdinsight-component-versioning.md).
 
@@ -167,10 +167,10 @@ Solr можно установить в кластере любого типа (
        Эта команда копирует моментальный снимок в папку /example/data/ в контейнере учетной записи хранения по умолчанию, связанной с этим кластером.
 
 ## <a name="install-solr-using-aure-powershell"></a>Установка Solr с помощью Azure PowerShell
-См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  В этом примере показано, как установить Spark с помощью Azure PowerShell. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  В этом примере показано, как установить Spark с помощью Azure PowerShell. Нужно настроить скрипт для использования [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Установка Solr с помощью пакета SDK для .NET
-См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Нужно настроить скрипт для использования [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="see-also"></a>См. также
 * [Установка и использование Solr в кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-solr-install-linux.md)

@@ -1,18 +1,18 @@
 ---
-title: "Публикация события в пользовательском разделе для службы \"Сетка событий Azure\""
-description: "В этой статье объясняется, как опубликовать событие в пользовательском разделе для службы \"Сетка событий Azure\""
+title: Публикация события в пользовательском разделе для службы "Сетка событий Azure"
+description: В этой статье объясняется, как опубликовать событие в пользовательском разделе для службы "Сетка событий Azure"
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Публикация в пользовательском разделе для службы "Сетка событий Azure"
 
@@ -91,8 +91,34 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 }]
 ```
 
+## <a name="response"></a>Ответ
+
+После отправки данных в конечную точку раздела вы получите ответ. Ответ — это стандартный код ответа HTTP. Ниже приведены некоторые распространенные ответы:
+
+|Результат  |Ответ  |
+|---------|---------|
+|Успешно  | 200 ОК  |
+|Неправильная конечная точка | 404 — не найдено |
+|Недопустимый ключ доступа | 401 — недостаточно прав |
+|Неправильный формат данных события | 400 — недопустимый запрос |
+
+Текст сообщений об ошибках имеет следующий формат:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Дополнительная информация
 
-* Общие сведения о маршрутизации пользовательских событий см. в статье [Создание и перенаправление пользовательских событий с помощью Azure CLI и службы "Сетка событий"](custom-event-quickstart.md) или [Создание и перенаправление пользовательских событий с помощью службы Azure PowerShell и "Сетка событий"](custom-event-quickstart-powershell.md).
+* Ознакомьтесь со сведениями о [мониторинге доставки сообщений в службе "Сетка событий"](monitor-event-delivery.md).
 * Дополнительные сведения о ключе аутентификации см. в статье [Сетка событий: безопасность и проверка подлинности](security-authentication.md).
 * Дополнительные сведения о создании подписки на Сетку событий Azure см. в статье [Схема подписки для службы "Сетка событий"](subscription-creation-schema.md).

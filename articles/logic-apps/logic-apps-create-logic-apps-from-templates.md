@@ -1,11 +1,11 @@
 ---
-title: "Создание рабочих процессов на основе шаблонов с помощью Azure Logic Apps | Документация Майкрософт"
-description: "Ускорение создания рабочих процессов с помощью шаблонов приложений логики."
+title: Создание рабочих процессов на основе шаблонов с помощью Azure Logic Apps | Документация Майкрософт
+description: Ускорение создания рабочих процессов с помощью шаблонов приложений логики.
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Создание рабочих процессов приложения логики на основе предварительно созданных шаблонов
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/21/2018
    | **Подписка** | *Имя вашей подписки Azure* | Выберите подписку Azure, которую нужно использовать. | 
    | **Группа ресурсов** | *Имя вашей группы ресурсов Azure* | Создайте или выберите [группу ресурсов Azure](../azure-resource-manager/resource-group-overview.md) для этого приложения логики, а также организуйте все ресурсы, связанные с этим приложением. | 
    | **Местоположение.** | *Ваш регион центра обработки данных Azure* | Выберите регион центра обработки данных для развертывания приложения логики, например западная часть США. | 
-   | **Служба Log Analytics** | **Выкл.** (по умолчанию) или **Вкл.** | Включите [журнал ведения диагностики](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) для приложения логики с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Для этого требуется наличие рабочей области [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md). | 
+   | **Служба Log Analytics** | **Выкл.** (по умолчанию) или **Вкл.** | Включите [журнал ведения диагностики](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) для приложения логики с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Требуется наличие рабочей области Log Analytics. | 
    |||| 
 
 4. Когда вы будете готовы, установите флажок **Закрепить на панели мониторинга**. Таким образом приложение логики автоматически отобразится на панели мониторинга Azure и откроется после развертывания. Выберите **Создать**.

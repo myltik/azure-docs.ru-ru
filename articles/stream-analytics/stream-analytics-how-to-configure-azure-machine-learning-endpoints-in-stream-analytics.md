@@ -1,24 +1,19 @@
 ---
-title: Использование конечных точек Машинного обучения Azure в Stream Analytics | Документация Майкрософт
-description: Определяемые пользователем функции машинного обучения в Stream Analytics.
-keywords: ''
-documentationcenter: ''
+title: Использование конечных точек службы "Машинное обучение" в Azure Stream Analytics
+description: В этой статье объясняется, как использовать определяемые пользователем функции машинного обучения в Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 5638071e667c5777138f7c25add8b5f60bee21fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: bdc6041258e4a5ecf602d19c0d912918f86af313
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Интеграция машинного обучения в Stream Analytics
 Stream Analytics поддерживает пользовательские функции, которые обращаются к конечным точкам службы машинного обучения Azure. Поддержка этой возможности в REST API описана в статье [Библиотека REST API Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). В этой статье приведены дополнительные сведения, необходимые для успешной реализации этой возможности в Stream Analytics. Также было размещено руководство, которое доступно [здесь](stream-analytics-machine-learning-integration-tutorial.md).
@@ -194,7 +189,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

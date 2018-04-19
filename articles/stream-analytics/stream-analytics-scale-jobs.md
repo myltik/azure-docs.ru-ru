@@ -1,31 +1,25 @@
 ---
-title: Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности | Документация Майкрософт
-description: Узнайте, как масштабировать задания Stream Analytics с помощью настройки входных разделов, настройки определения запроса и определения единиц потоковой передачи.
-keywords: потоковая передача данных, обработка потоковой передачи данных, настройка аналитики
+title: Вертикальное и горизонтальное масштабирование в заданиях Azure Stream Analytics
+description: В этой статье объясняется, как масштабировать задание Stream Analytics с помощью секционирования входных данных, настройки запроса и определения единиц потоковой передачи.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Масштабирование задания Azure Stream Analytics для повышения пропускной способности базы данных
 В этой статье описано, как настроить запрос Stream Analytics для увеличения пропускной способности заданий Streaming Analytics. Руководство ниже можно использовать для масштабирования заданий, чтобы обрабатывать большую нагрузку и использовать больше ресурсов системы (таких как пропускная способность, ресурсы ЦП, память).
 Предварительно может потребоваться ознакомиться со следующими статьями:
 -   [Обзор и настройка единиц потоковой передачи](stream-analytics-streaming-unit-consumption.md)
 -   [Использование параллелизации запросов в Azure Stream Analytics](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Вариант 1. Полностью параллелизуемый запрос в секциях ввода
 Если запрос по своей природе полностью параллелизуемый в секциях ввода, можно выполнить такие действия:
@@ -40,7 +34,6 @@ ms.lasthandoff: 03/30/2018
 >[!Note]
 > Выберите правильное число единиц потоковой передачи, так как Stream Analytics создает узел обработки для каждой из добавленных 6 единиц потоковой передачи. Для равномерного распределения секций по узлам лучше всего сделать число секций делителем количества секций входных данных.
 > Например, вы измерили, что задание с 6 единицами потоковой передачи может достигнуть скорости обработки 4 МБ/с, а количество секций выходных данных — 4. Можно запустить задание с 12 единицами потоковой передачи, чтобы достичь скорости обработки 8 МБ/с, или 24 единицами потоковой передачи, чтобы достичь скорости обработки 16 МБ/с. Затем можно решить, когда увеличивать количество единиц потоковой передачи для задания и до какого значения, в зависимости от скорости ввода.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Вариант 2. Если запрос без усложненного параллелизма
@@ -150,7 +143,7 @@ ms.lasthandoff: 03/30/2018
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

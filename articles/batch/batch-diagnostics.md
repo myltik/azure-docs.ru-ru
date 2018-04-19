@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>События журнала для диагностики и мониторинга решений пакетной службы
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 04/03/2018
   Потоковая передача диагностических событий пакетной службы в концентраторы событий, которые представляют собой масштабируемую службу приема данных. Концентраторы событий способны принимать миллионы событий в секунду, позволяя преобразовать и сохранять их с помощью любого поставщика аналитики в реальном времени.
 * [Анализ журналов диагностики Azure с помощью Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
-  Отправьте журналы диагностики в Log Analytics, где вы сможете проанализировать их с помощью портала OMS (Operations Management Suite) или экспортировать для анализа в Power BI или Excel.
+  Отправьте журналы диагностики в Log Analytics, где вы сможете проанализировать их с помощью портала Azure или экспортировать для анализа в Power BI или Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

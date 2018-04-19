@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Динамическое ускорение сайтов с помощью Azure CDN
 

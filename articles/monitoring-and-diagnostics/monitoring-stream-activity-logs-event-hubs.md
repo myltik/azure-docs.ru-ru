@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Потоковая передача журнала действий Azure в концентраторы событий
 Можно осуществлять потоковую передачу [журнала действий Azure](monitoring-overview-activity-logs.md) почти в реальном времени в любое приложение:
@@ -56,38 +56,48 @@ ms.lasthandoff: 03/09/2018
 
    > [!WARNING]  
    > Если выбрать не **Все регионы**, а другие параметры, то вы пропустите ключевые события, которые ожидаете получить. Журнал действий является глобальным (а не региональным), поэтому с большей частью событий не связан какой-либо регион. 
-   > 
+   >
 
 4. Нажмите кнопку **Сохранить**, чтобы сохранить эти параметры. Параметры будут немедленно применены к подписке
 5. Если у вас несколько подписок, повторите это действие и отправьте все данные в тот же концентратор событий.
 
 ### <a name="via-powershell-cmdlets"></a>Использование командлетов PowerShell
-Если профиль журнала уже существует, следует сначала удалить этот профиль.
+Если профиль журнала уже существует, сначала удалите его, а затем создайте новый.
 
-1. Используйте `Get-AzureRmLogProfile`, чтобы проверить, существует ли профиль журнала.
-2. Если он есть, используйте `Remove-AzureRmLogProfile` , чтобы удалить его.
-3. Используйте `Set-AzureRmLogProfile`, чтобы создать профиль:
+1. Используйте `Get-AzureRmLogProfile`, чтобы проверить, существует ли профиль журнала.  Если профиль журнала существует, найдите свойство *name*.
+2. Удалите журнал профиля с помощью `Remove-AzureRmLogProfile`, используя значение свойства *name*.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Создайте профиль журнала с помощью `Add-AzureRmLogProfile`:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-Идентификатор правила служебной шины — это строка в формате `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### <a name="via-azure-cli"></a>С помощью интерфейса командной строки Azure
-Если профиль журнала уже существует, следует сначала удалить этот профиль.
+Если профиль журнала уже существует, сначала удалите его, а затем создайте новый.
 
-1. Используйте `azure insights logprofile list`, чтобы проверить, существует ли профиль журнала.
-2. Если он есть, используйте `azure insights logprofile delete` , чтобы удалить его.
-3. Используйте `azure insights logprofile add`, чтобы создать профиль:
+1. Используйте `az monitor log-profiles list`, чтобы проверить, существует ли профиль журнала.
+2. Удалите журнал профиля с помощью `az monitor log-profiles delete --name "<log profile name>`, используя значение свойства *name*.
+3. Создайте профиль журнала с помощью `az monitor log-profiles create`:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-Идентификатор правила служебной шины — это строка в формате `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>Использование данных журнала из концентраторов событий
 Схема для журнала действий представлена в разделе [Мониторинг действий подписки с помощью журнала действий Azure](monitoring-overview-activity-logs.md). Каждое событие сохраняется в массиве больших двоичных объектов JSON, которые называются *записями*.
