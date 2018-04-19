@@ -5,7 +5,7 @@ keywords: отклонение SSH-подключения, ошибка SSH, Azu
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение
 При попытке подключения к виртуальной машине Azure под управлением Linux ошибка, сбой или отклонение подключения Secure Shell (SSH) может возникнуть по нескольким причинам. В этой статье вы узнаете, как их выявить и устранить. Для устранения неполадок и решения проблем с подключением можно воспользоваться порталом Azure, Azure CLI или расширением для доступа к виртуальной машине для Linux.
@@ -68,6 +68,14 @@ ms.lasthandoff: 03/09/2018
 Чтобы сбросить учетные данные имеющегося пользователя, в раскрывающемся меню **Режим** выберите `Reset SSH public key` или `Reset password`, как на приведенном выше снимке экрана. Укажите имя пользователя и ключ SSH или новый пароль, а затем нажмите кнопку **Сброс**.
 
 Кроме того, в этом меню можно создать пользователя с привилегиями sudo на виртуальной машине. Введите новое имя пользователя и соответствующий пароль или ключ SSH, а затем нажмите кнопку **Сброс**.
+
+### <a name="check-security-rules"></a>Проверка правил безопасности
+
+Используйте [проверку потока для IP-адреса](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md), чтобы определить, блокирует ли правило в группе безопасности сети входящий или исходящий трафик виртуальной машины. Кроме того, вы можете просмотреть действующие правила группы безопасности и убедиться, что для порта SSH (22 по умолчанию) существует и является приоритетным правило NSG, разрешающее входящий трафик. Дополнительные сведения см. в разделе [Использование действующих правил безопасности для устранения проблем с потоком трафика в виртуальной машине](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Проверка маршрутизации
+
+Убедитесь, что маршрут не препятствуют маршрутизации трафика на виртуальную машину или с нее, воспользовавшись возможностью [Следующий прыжок](../../network-watcher/network-watcher-check-next-hop-portal.md) в службе "Наблюдатель за сетями". Кроме того, вы можете просмотреть фактические маршруты для сетевого интерфейса. Дополнительные сведения см. в статье об [использовании фактических маршрутов для устранения проблем с потоком трафика на виртуальной машине](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>Использование Azure CLI 2.0
 Установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали) и войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/reference-index#az_login).
@@ -199,7 +207,7 @@ az vm restart --resource-group myResourceGroup --name myVM
 
 
 ## <a name="redeploy-a-vm"></a>Повторное развертывание виртуальной машины
-Виртуальную машину можно повторно развернуть на другом узле в Azure, что поможет устранить любые базовые сетевые проблемы. Сведения о [повторном развертывании виртуальной машины на новом узле Azure см](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Виртуальную машину можно повторно развернуть на другом узле в Azure, что поможет устранить любые базовые сетевые проблемы. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.
@@ -231,7 +239,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * Выполните сброс удаленного доступа на [портале Azure](https://portal.azure.com). На портале Azure выберите свою виртуальную машину и нажмите кнопку **Reset Remote...** (Удаленный сброс...).
 * Перезапустите виртуальную машину. На [портале Azure](https://portal.azure.com) выберите свою виртуальную машину и нажмите кнопку **Перезапуск**.
     
-* Повторно разверните виртуальную машину на новом узле Azure. Сведения о [повторном развертывании виртуальной машины на новом узле Azure см](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Повторно разверните виртуальную машину на новом узле Azure. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.
 * Следуйте указаниям в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), чтобы сделать следующее:

@@ -1,11 +1,11 @@
 ---
-title: "Настройка пользовательского доменного имени в облачных службах | Документация Майкрософт"
-description: "Узнайте, как опубликовать в Интернете приложение или данные Azure на пользовательском домене, настроив параметры DNS.  В этих примерах используется портал Azure."
+title: Настройка пользовательского доменного имени в облачных службах | Документация Майкрософт
+description: Узнайте, как опубликовать в Интернете приложение или данные Azure на пользовательском домене, настроив параметры DNS.  В этих примерах используется портал Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Настройка пользовательского доменного имени для облачной службы Azure
-При создании облачной службы Azure ей назначается поддомен **cloudapp.net**. Например, если облачная служба имеет имя contoso, пользователи будут иметь доступ к приложению по URL-адресу вида http://contoso.cloudapp.net. Azure также назначает виртуальный IP-адрес.
+При создании облачной службы Azure ей назначается поддомен **cloudapp.net**. Например, если имя облачной службы — contoso, пользователи будут иметь доступ к приложению по такому URL-адресу: http://contoso.cloudapp.net. Azure также назначает виртуальный IP-адрес.
 
 Однако приложение можно сделать доступным и на своем собственном домене, например **contoso.com**. В этой статье объясняется, как зарезервировать или настроить личное доменное имя для веб-ролей облачной службы.
 

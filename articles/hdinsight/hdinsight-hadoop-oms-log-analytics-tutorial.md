@@ -1,8 +1,8 @@
 ---
-title: "Использование Log Analytics для мониторинга кластеров Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как использовать Azure Log Analytics для мониторинга заданий, выполняемых в кластере HDInsight."
+title: Использование Log Analytics для мониторинга кластеров Azure HDInsight | Документация Майкрософт
+description: Узнайте, как использовать Azure Log Analytics для мониторинга заданий, выполняемых в кластере HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Использование Azure Log Analytics для мониторинга кластеров HDInsight
 
 Узнайте, как использовать Azure Log Analytics для мониторинга операций кластера Hadoop в HDInsight.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) — это служба в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Она собирает данные, формируемые ресурсами в облачных и локальных средах, а также другими средствами мониторинга, и на их основе предоставляет аналитические сведения для нескольких источников. 
+[Log Analytics](../log-analytics/log-analytics-overview.md) — это служба, которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Она собирает данные, формируемые ресурсами в облачных и локальных средах, а также другими средствами мониторинга, и на их основе предоставляет аналитические сведения для нескольких источников. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
 * **Подписка Azure**. Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. Ознакомьтесь со страницей [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/free).
 
-* **Кластер Azure HDInsight**. Сейчас Azure Operations Management Suite можно использовать со следующими типами кластеров HDInsight:
+* **Кластер Azure HDInsight**. Сейчас вы можете использовать Log Analytics со следующими типами кластеров HDInsight:
 
     * Hadoop
     * hbase

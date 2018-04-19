@@ -1,11 +1,10 @@
 ---
-title: "Развертывание веб-приложения с помощью шаблона (Azure Cosmos DB) | Документация Майкрософт"
-description: "В этом руководстве показано, как выполнять развертывание учетной записи Azure Cosmos DB, веб-приложений службы приложений Azure и примера веб-приложения с использованием шаблона Azure Resource Manager."
+title: Развертывание веб-приложения с помощью шаблона (Azure Cosmos DB) | Документация Майкрософт
+description: В этом руководстве показано, как выполнять развертывание учетной записи Azure Cosmos DB, веб-приложений службы приложений Azure и примера веб-приложения с использованием шаблона Azure Resource Manager.
 services: cosmos-db, app-service\web
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89513d6c1b9aa9f4709359d6d7681bff9c291618
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 468edd78e0ef8e13b2783485004a9db21906f1fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Развертывание Azure Cosmos DB и веб-приложений службы приложений Azure с помощью шаблона Azure Resource Manager
 В этом руководстве показано, как использовать шаблон Azure Resource Manager для развертывания и интеграции [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), а также примера веб-приложения.
@@ -77,7 +76,7 @@ ms.lasthandoff: 02/24/2018
    ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/create-website/TemplateDeployment6.png)
 7. По завершении развертывания откроется область группы ресурсов.
    ![Снимок экрана области группы ресурсов](./media/create-website/TemplateDeployment7.png)  
-8. Чтобы использовать приложение, перейдите по URL-адресу веб-приложения (в приведенном выше примере URL-адрес будет иметь вид http://mydemodocdbwebapp.azurewebsites.net).  Вы увидите следующее веб-приложение.
+8. Чтобы использовать приложение, перейдите по URL-адресу веб-приложения (в приведенном выше примере URL-адрес будет иметь вид http://mydemodocdbwebapp.azurewebsites.net)).  Вы увидите следующее веб-приложение.
    
    ![Пример приложения Todo](./media/create-website/image2.png)
 9. Теперь создайте несколько задач в веб-приложении и вернитесь в область группы ресурсов на портале Azure. Выберите ресурс учетной записи Azure Cosmos DB в списке ресурсов и нажмите кнопку **Обозреватель данных**.

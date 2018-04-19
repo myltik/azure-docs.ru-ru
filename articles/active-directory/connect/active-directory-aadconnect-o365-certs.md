@@ -1,8 +1,8 @@
 ---
-title: "Обновление сертификатов для пользователей Office 365 и Azure AD | Документация Майкрософт"
-description: "В этой статье рассматриваются способы устранения проблем с сообщениями электронной почты, уведомляющими пользователей Office 365 о необходимости обновления сертификата."
+title: Обновление сертификатов для пользователей Office 365 и Azure AD | Документация Майкрософт
+description: В этой статье рассматриваются способы устранения проблем с сообщениями электронной почты, уведомляющими пользователей Office 365 о необходимости обновления сертификата.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Обновление сертификатов федерации для Office 365 и Azure AD
 ## <a name="overview"></a>Обзор
@@ -112,7 +112,6 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 где `(your_FS_name) `заменяется именем узла службы федерации, которое используется в вашей организации (например, fs.contoso.com).  Если проверка двух этих параметров оказалась успешной, вам больше не нужно ничего делать.  
 
 Пример: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
 ## Возобновление действия сертификата для подписи маркера вручную <a name="manualrenew"></a>
 Сертификаты для подписи маркеров можно обновить вручную. Например, в следующих сценариях лучше выполнять ручное обновление.
 
@@ -152,8 +151,8 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 1. Откройте модуль Microsoft Azure Active Directory для Windows PowerShell.
 2. Запустите $cred=Get-Credential. Если этот командлет запрашивает учетные данные, введите данные учетной записи администратора облачных служб.
 3. Запустите Connect-MsolService –Credential $cred. Этот командлет подключит вас к облачной службе. Перед выполнением любых дополнительных командлетов, установленных с помощью средства, необходимо создать контекст, который подключит вас к облачной службе.
-4. Если эти команды выполняются на компьютере, который не является основным сервером федерации AD FS, выполните команду Set-MSOLAdfscontext -Computer <AD FS primary server>, где <AD FS primary server> — внутреннее полное доменное имея основного сервера AD FS. Этот командлет создает контекст, подключающий вас к AD FS.
-5. Выполните команду Update-MSOLFederatedDomain -DomainName <domain>. Этот командлет обновляет параметры AD FS в облачной службе и настраивает отношения доверия между ними.
+4. Если эти команды выполняются на компьютере, который не является основным сервером федерации AD FS, выполните команду Set-MSOLAdfscontext -Computer &lt;основной сервер AD FS&gt;, где &lt;основной сервер AD FS&gt; — это внутреннее полное доменное имя основного сервера AD FS. Этот командлет создает контекст, подключающий вас к AD FS.
+5. Выполните Update-MSOLFederatedDomain –DomainName &lt;домен&gt;. Этот командлет обновляет параметры AD FS в облачной службе и настраивает отношения доверия между ними.
 
 > [!NOTE]
 > Если требуется поддержка нескольких доменов верхнего уровня, например contoso.com и fabrikam.com, то необходимо использовать параметр **SupportMultipleDomain** с любыми командлетами. Дополнительные сведения см. в статье [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md).

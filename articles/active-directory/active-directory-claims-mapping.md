@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Сопоставление утверждений в Azure Active Directory (общедоступная предварительная версия)
 
@@ -234,7 +234,7 @@ ms.lasthandoff: 03/14/2018
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Свойства политики сопоставления утверждений
-С помощью свойств политики сопоставления утверждений можно указать, какие утверждения добавляются и где находится источник данных. Если политика не задана, система выдает токены, содержащие набор основных утверждений, набор базовых утверждений и любые необязательные утверждения, выбранные приложением для получения.
+С помощью свойств политики сопоставления утверждений можно указать, какие утверждения добавляются и где находится источник данных. Если политика не задана, система выдает токены, содержащие набор основных утверждений, набор базовых утверждений и любые [необязательные утверждения](develop/active-directory-optional-claims.md), выбранные приложением для получения.
 
 ### <a name="include-basic-claim-set"></a>Включение набора базовых утверждений
 

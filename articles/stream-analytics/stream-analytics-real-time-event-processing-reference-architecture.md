@@ -1,24 +1,19 @@
 ---
-title: Обработка событий средствами Stream Analytics в режиме реального времени | Документация Майкрософт
-description: Узнайте о том, как обрабатывать и анализировать события в режиме реального времени с помощью различных служб Azure.
-keywords: обработка в режиме реального времени, обработка событий, эталонная архитектура
-services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: ''
+title: Обработка событий с помощью Azure Stream Analytics в режиме реального времени
+description: В этой статье описывается эталонная архитектура для аналитики и обработки событий с помощью Azure Stream Analytics в режиме реального времени.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
-ms.service: stream-analytics
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2017
 ms.author: jeanb
-ms.openlocfilehash: cf11a80a93a923f038b7d6a0f02a35938794c242
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/24/2017
+ms.openlocfilehash: 8a5d426d67916e010c7fff048eebdc77b93c5c38
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Эталонная архитектура: обработка событий в режиме реального времени средствами Microsoft Azure Stream Analytics
 Эталонная архитектура для обработки событий в режиме реального времени с помощью инструментов Azure Stream Analytics определяет общие принципы развертывания решения для потоковой обработки данных в реальном времени в рамках модели «платформа как услуга» (platform as a service, PaaS) на базе службы Microsoft Azure.
@@ -49,8 +44,8 @@ ms.lasthandoff: 03/30/2018
 
 **Ссылка для загрузки:** [Обработка событий в режиме реального времени средствами Microsoft Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
-## <a name="get-help"></a>Справка
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Получение справки
+За дополнительной помощью обращайтесь на [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

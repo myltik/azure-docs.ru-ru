@@ -1,10 +1,10 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Teamwork.com | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Teamwork.com."
+title: Руководство по интеграции Azure Active Directory с Teamwork.com | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении Teamwork.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b4be1256b77ac35efab9c6b2d593b4763cdf86
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Руководство по интеграции Azure Active Directory с [Teamwork.com](https://www.teamwork.com/projects)
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Руководство по интеграции Azure Active Directory с Teamwork.com
 
 В этом руководстве описано, как интегрировать Teamwork.com с Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 Чтобы настроить интеграцию Azure AD с Teamwork.com, вам потребуется следующее:
 
 - подписка Azure AD;
-- подписка [Teamwork.com](https://www.teamwork.com/projects) с планом обслуживания Pro или выше.
+- подписка Teamwork.com с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -108,10 +108,17 @@ ms.lasthandoff: 12/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Teamwork.com](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
 
-    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.teamwork.com`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.teamwork.com`
+
+    Б. В текстовом поле **Идентификатор** введите URL-адрес:
+
+    |||
+    |-|-|
+    | `https://teamwork.com/saml`|
+    | `https://eu.teamwork.com/saml`|
 
     > [!NOTE] 
-    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь к [группе поддержки Teamwork.com](mailto:support@teamwork.com). 
+    > Значение URL-адреса входа приведено для примера. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь к [группе поддержки Teamwork.com](mailto:support@teamwork.com). 
 
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -122,10 +129,6 @@ ms.lasthandoff: 12/11/2017
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
 6. Чтобы настроить единый вход на стороне **Teamwork.com**, отправьте [группе поддержки Teamwork.com](mailto:support@teamwork.com) скачанный **XML-файл метаданных**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
@@ -204,8 +207,6 @@ ms.lasthandoff: 12/11/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

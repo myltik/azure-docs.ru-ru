@@ -1,8 +1,8 @@
 ---
-title: "Восстановление приложения в Azure"
-description: "Узнайте, как восстановить приложение из резервной копии."
+title: Восстановление приложения в Azure
+description: Узнайте, как восстановить приложение из резервной копии.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Восстановление приложения в Azure
 В этой статье описывается, как в [службе приложений Azure](../app-service/app-service-web-overview.md) восстановить приложение, для которого ранее была создана резервная копия (ознакомьтесь с [архивацией приложения в Azure](web-sites-backup.md)). Вы можете восстановить предыдущее состояние приложения и связанных с ним баз данных по запросу или создать новое приложение на основе одной из резервных копий исходного приложения. Служба приложений Azure поддерживает следующие базы данных для архивации и восстановления:
 - [База данных SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-- [база данных Azure для MySQL (предварительная версия)](https://azure.microsoft.com/en-us/services/mysql);
-- [база данных Azure для PostgreSQL (предварительная версия)](https://azure.microsoft.com/en-us/services/postgres);
+- [База данных Azure для MySQL](https://azure.microsoft.com/en-us/services/mysql)
+- [База данных Azure для PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
 - [MySQL в приложении](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app).
 
 Восстановление из резервных копий доступно для приложений, выполняемых на уровнях **Стандартный** и **Премиум**. Дополнительные сведения об увеличении масштаба приложения см. в статье [Увеличение масштаба приложения в Azure](web-sites-scale.md). Уровень **Премиум** позволяет создавать большее количество ежедневных резервных копий по сравнению с уровнем **Стандартный**.

@@ -1,30 +1,30 @@
 ---
-title: "Log Analytics для Apache Kafka в Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как использовать Operations Management Suite для анализа журналов из кластера Apache Kafka в Azure HDInsight."
+title: Log Analytics для Apache Kafka в Azure HDInsight | Документация Майкрософт
+description: Сведения о том, как использовать Log Analytics для анализа журналов из кластера Apache Kafka в Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Анализ журналов для Apache Kafka в HDInsight
 
-Узнайте, как использовать Microsoft Operations Management Suite для анализа журналов, создающихся для Apache Kafka, в HDInsight.
+Сведения о том, как использовать Log Analytics для анализа журналов, созданных в Apache Kafka в Azure HDInsight.
 
-## <a name="enable-oms-for-kafka"></a>Включение OMS для Kafka
+## <a name="enable-log-analytics-for-kafka"></a>Включение Log Analytics для Kafka
 
 Инструкции по включению Log Analytics для HDInsight идентичны для всех кластеров HDInsight. Чтобы узнать, как создать и настроить необходимые службы, воспользуйтесь ссылками ниже.
 
@@ -35,15 +35,15 @@ ms.lasthandoff: 02/01/2018
 3. Настройка кластера Kafka для использования Log Analytics. Дополнительные сведения см. в статье об [использовании Log Analytics для мониторинга HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
     > [!NOTE]
-    > Кроме того, можно настроить кластер для использования Log Analytics при помощи командлета `Enable-AzureRmHDInsightOperationsManagementSuite`. Для использования этого командлета требуется указанная ниже информация.
+    > Кроме того, можно настроить кластер для использования Log Analytics с помощью командлета `Enable-AzureRmHDInsightOperationsManagementSuite`. Для использования этого командлета требуется указанная ниже информация.
     >
     > * Имя кластера HDInsight.
-    > * Идентификатор рабочей области для Log Analytics. Идентификатор рабочей области можно найти в рабочей области OMS для рабочей области Log Analytics.
-    > * Первичный ключ для подключения к OMS. Чтобы определить первичный ключ, выберите свой экземпляр Log Analytics, а затем __портал OMS__. На портале OMS выберите __Параметры__, __Подключенные источники__, а затем — __Серверы Linux__.
+    > * Идентификатор рабочей области для Log Analytics. Идентификатор рабочей области можно найти в рабочей области Log Analytics.
+    > * Первичный ключ для подключения к Log Analytics. Чтобы определить первичный ключ, выберите свой экземпляр Log Analytics, а затем перейдите на __портал OMS__. На портале OMS выберите __Параметры__, __Подключенные источники__, а затем — __Серверы Linux__.
 
 
 > [!IMPORTANT]
-> Подготовка данных для Log Analytics может занять около 20 минут.
+> Подготовка данных для Log Analytics может занять около 20 минут.
 
 ## <a name="query-logs"></a>Журналы запросов
 

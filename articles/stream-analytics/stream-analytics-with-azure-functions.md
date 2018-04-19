@@ -1,28 +1,23 @@
 ---
-title: "Запуск службы \"Функции Azure\" с помощью заданий Azure Stream Analytics | Документация Майкрософт"
-description: "Узнайте, как настроить службу \"Функции Azure\" в качестве приемника выходных данных для заданий Stream Analytics."
-keywords: "выходные данные, потоковая передача данных, функция Azure"
-documentationcenter: 
+title: Запуск решения "Функции Azure" из заданий Azure Stream Analytics
+description: Из этой статьи вы узнаете, как настроить решение "Функции Azure" в качестве приемника выходных данных заданий Stream Analytics для рабочих нагрузок на основе событий.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Запуск службы "Функции Azure" с помощью заданий Azure Stream Analytics 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Запуск решения "Функции Azure" из заданий Azure Stream Analytics 
 
-Службу "Функции Azure" можно запустить с помощью Azure Stream Analytics, настроив службу "Функции" в качестве приемника выходных данных для задания Stream Analytics. Служба "Функции" — это ориентированная на события среда вычислений по требованию, которая позволяет реализовывать код, активируемый по событиям, возникающим в Azure или в сторонних службах. Эта возможность службы "Функции" реагировать на триггеры упрощает вывод данных в задания Stream Analytics.
+Службу "Функции Azure" можно запустить из Azure Stream Analytics, настроив службу "Функции" в качестве приемника выходных данных для задания Stream Analytics. Служба "Функции" — это ориентированная на события среда вычислений по требованию, которая позволяет реализовывать код, активируемый по событиям, возникающим в Azure или в сторонних службах. Эта возможность службы "Функции" реагировать на триггеры упрощает вывод данных в задания Stream Analytics.
 
 Stream Analytics вызывает службу "Функции" с помощью триггеров HTTP. Выходной адаптер службы "Функции" позволяет пользователям подключать службу "Функции" к Stream Analytics таким образом, что события могут запускаться на основе запросов Stream Analytics. 
 

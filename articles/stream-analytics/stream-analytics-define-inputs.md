@@ -1,24 +1,19 @@
 ---
-title: 'Подключение данных: потоки входных данных из потока событий | Документация Майкрософт'
-description: Узнайте больше о настройке подключения данных к Stream Analytics, которые называются входными. К входным данным относятся поток данных из событий, а также справочные данные.
-keywords: поток данных, подключение данных, поток событий
+title: Потоки входных данных из потока событий в Azure Stream Analytics
+description: Узнайте больше о настройке подключения данных в Azure Stream Analytics. К входным данным относятся поток данных из событий, а также справочные данные.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Подключение данных: узнайте о потоках входных данных из событий в Stream Analytics
 Подключение данных к заданию Stream Analytics — это поток событий из источника данных, который называется *входными данными* задания. Stream Analytics полностью интегрируется с источниками потоков данных Azure, включая [Концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [Центр Интернета вещей Azure](https://azure.microsoft.com/services/iot-hub/) и [хранилище BLOB-объектов Azure](https://azure.microsoft.com/services/storage/blobs/). Эти источники входных данных могут быть из той же подписки Azure, что и задание аналитики, или из другой подписки.
@@ -176,7 +171,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дополнительная информация
 Вы ознакомились с параметрами подключения данных для заданий Stream Analytics в Azure. Дополнительные сведения о службе Stream Analytics см. в следующих статьях:

@@ -1,11 +1,11 @@
 ---
-title: "Расширение виртуальной машины агента Наблюдателя за сетями Azure для Windows | Документация Майкрософт"
-description: "Развертывание агента Наблюдателя за сетями на виртуальной машине Windows с помощью расширения виртуальной машины."
+title: Расширение виртуальной машины агента Наблюдателя за сетями Azure для Windows | Документация Майкрософт
+description: Развертывание агента Наблюдателя за сетями на виртуальной машине Windows с помощью расширения виртуальной машины.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 84ac50ea555df538cc6347be58537e31b0f14611
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Расширение виртуальной машины агента Наблюдателя за сетями для Windows
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/20/2017
 [Наблюдатель за сетями Azure](../../network-watcher/network-watcher-monitoring-overview.md) — это служба мониторинга производительности, диагностики и анализа сети, которая позволяет наблюдать за сетями Azure. Расширение виртуальной машины для агента службы "Наблюдатель за сетями" необходимо для записи трафика по требованию и других дополнительных функций виртуальных машин Azure.
 
 
-В этом документе подробно описаны поддерживаемые платформы и параметры развертывания для расширения виртуальной машины агента Наблюдателя за сетями для Windows.
+В этом документе подробно описаны поддерживаемые платформы и параметры развертывания для расширения виртуальной машины агента Наблюдателя за сетями для Windows. Установка агента не прерывается и не требует перезагрузки виртуальной машины.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

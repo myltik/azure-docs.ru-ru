@@ -1,24 +1,19 @@
 ---
-title: Панель мониторинга Power BI в Azure Stream Analytics | Документация Майкрософт
-description: Используйте панель мониторинга Power BI для потоковой передачи, чтобы собирать данные бизнес-аналитики и анализировать большие объемы данных из задания Stream Analytics.
-keywords: панель мониторинга аналитики, панель мониторинга в режиме реального времени
+title: Интеграция панели мониторинга Power BI с Azure Stream Analytics
+description: В этой статье описывается, как использовать панель мониторинга Power BI в режиме реального времени для визуализации выходных данных задания Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics и Power BI. Панель мониторинга для анализа потоковой передачи данных
 Azure Stream Analytics позволяет воспользоваться одним из лучших инструментов для бизнес-аналитики, [Microsoft Power BI](https://powerbi.com/). В этой статье вы узнаете, как создавать средства бизнес-аналитики, отображая в Power BI выходные данные заданий Azure Stream Analytics. Вы также узнаете, как создавать информационные панели и использовать их в режиме реального времени.
@@ -249,7 +244,7 @@ Azure Stream Analytics позволяет воспользоваться одн�
 Когда вы обновите авторизацию в Power BI, в области авторизации появится оповещение зеленого цвета о том, что проблема устранена.
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

@@ -1,23 +1,19 @@
 ---
-title: Пользовательские статистические выражения JavaScript в Azure Stream Analytics | Документация Майкрософт
-description: Выполнение расширенных запросов с помощью пользовательских статистических выражений JavaScript.
-keywords: JavaScript, пользовательские статистические выражения, UDA
+title: Определяемые пользователем вычисления JavaScript в Azure Stream Analytics
+description: В этой статье описывается, как выполнять расширенные запросы с помощью определяемых пользователем вычислений JavaScript в Azure Stream Analytics.
 services: stream-analytics
 author: minhe-msft
-manager: santoshb
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: santoshb
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/28/2017
+ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Пользовательские статистические выражения JavaScript в Azure Stream Analytics (предварительная версия)
 
@@ -230,7 +226,7 @@ GROUP BY TumblingWindow(minute, 5)
 
 ## <a name="get-help"></a>Получение справки
 
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

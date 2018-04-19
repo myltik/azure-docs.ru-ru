@@ -2,18 +2,18 @@
 title: Устранение неполадок синхронизации данных SQL Azure (предварительная версия) | Документация Майкрософт
 description: Узнайте, как устранять распространенные неполадки синхронизации данных SQL Azure (предварительная версия).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Устранение неполадок с синхронизацией данных SQL (предварительная версия)
 
@@ -442,7 +442,7 @@ ms.lasthandoff: 03/16/2018
 -   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью функции синхронизации данных SQL Azure (предварительная версия)](sql-database-sync-data.md)  
 -   [Настройка синхронизации данных SQL Azure (предварительная версия)](sql-database-get-started-sql-data-sync.md)  
 -   [Рекомендации по синхронизации данных SQL (предварительная версия)](sql-database-best-practices-data-sync.md)  
--   [Мониторинг синхронизации данных SQL Azure (предварительная версия) с помощью OMS Log Analytics](sql-database-sync-monitor-oms.md)  
+-   [Мониторинг синхронизации данных SQL Azure (предварительная версия) с помощью Log Analytics](sql-database-sync-monitor-oms.md)  
 -   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL (предварительная версия):  
     -   [Использование PowerShell для синхронизации данных между несколькими базами данных SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Использование PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  

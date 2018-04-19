@@ -1,19 +1,19 @@
 ---
-title: "Обновление кластера Службы контейнеров Azure (AKS)"
-description: "Обновление кластера Службы контейнеров Azure (AKS)"
+title: Обновление кластера Службы контейнеров Azure (AKS)
+description: Обновление кластера Службы контейнеров Azure (AKS)
 services: container-service
 author: gabrtv
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 04/05/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9b94f858aa896eaa93430a12cd74e12d9bf02008
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 338a153ac4e00c329bf6854306a466657de1d70f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Обновление кластера Службы контейнеров Azure (AKS)
 
@@ -31,14 +31,17 @@ az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --outpu
 
 ```console
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  ----------------------------------
-default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
+-------  ---------------  ---------------  -----------------  -------------------
+default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-У нас есть три версии для обновления: 1.7.9, 1.8.1 и 1.8.2. Мы можем выполнить команду `az aks upgrade` для обновления до последней доступной версии.  В процессе обновления узлы тщательно [блокируются и останавливаются][kubernetes-drain], чтобы свести к минимуму время простоя работающих приложений.  Перед запуском обновления кластера убедитесь в наличии дополнительной вычислительной мощности, достаточной для обработки рабочей нагрузки при добавлении и удалении узлов кластера.
+У нас есть три версии для обновления: 1.9.1, 1.9.2 и 1.9.6. Мы можем выполнить команду `az aks upgrade` для обновления до последней доступной версии.  В процессе обновления узлы тщательно [блокируются и останавливаются][kubernetes-drain], чтобы свести к минимуму время простоя работающих приложений.  Перед запуском обновления кластера убедитесь в наличии дополнительной вычислительной мощности, достаточной для обработки рабочей нагрузки при добавлении и удалении узлов кластера.
+
+> [!NOTE]
+> При обновлении кластера AKS нельзя пропускать дополнительные номера версий Kubernetes. Например, обновлять систему с 1.7.x до 1.8.x или с 1.8.x до 1.9.x можно, а с 1.7 до 1.9 — нельзя.
 
 ```azurecli-interactive
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
 ```
 
 Выходные данные:
@@ -73,7 +76,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
     "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
-    "kubernetesVersion": "1.8.2",
+    "kubernetesVersion": "1.9.6",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -108,7 +111,7 @@ az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+myAKSCluster  eastus     myResourceGroup  1.9.6                 Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

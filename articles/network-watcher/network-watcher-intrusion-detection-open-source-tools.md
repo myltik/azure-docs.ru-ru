@@ -1,11 +1,11 @@
 ---
-title: "Наблюдатель за сетями Azure: обнаружение сетевого вторжения с помощью средств с открытым исходным кодом | Документация Майкрософт"
-description: "В этой статье описывается, как использовать службу наблюдения за сетями Azure и средства с открытым исходным кодом для обнаружения сетевого вторжения"
+title: 'Наблюдатель за сетями Azure: обнаружение сетевого вторжения с помощью средств с открытым исходным кодом | Документация Майкрософт'
+description: В этой статье описывается, как использовать службу наблюдения за сетями Azure и средства с открытым исходным кодом для обнаружения сетевого вторжения
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Обнаружение сетевого вторжения с помощью Наблюдателя за сетями Azure и средств с открытым исходным кодом
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="install-suricata"></a>Установка Suricata
 
-Другие методы установки описаны на странице http://suricata.readthedocs.io/en/latest/install.html
+Другие методы установки описаны на странице http://suricata.readthedocs.io/en/latest/install.html.
 
 1. В окне командной строки на виртуальной машине выполните следующие команды:
 

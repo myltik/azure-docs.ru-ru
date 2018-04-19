@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Механизм безопасности. Шифрование | Устранение угроз 
 | Продукт или служба | Статья |
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **Применимые технологии** | Универсальный |
 | **Атрибуты**              | Недоступно  |
 | **Справочные материалы**              | Недоступно  |
-| **Действия** | <p>Продукт должны использовать утвержденные генераторы случайных чисел. Поэтому в таком коде нельзя использовать такие псевдослучайные функции, как функция среды выполнения C rand, класс .NET Framework System.Random или системные функции, например GetTickCount. Запрещено также использовать алгоритм генератора случайных чисел на основе двух эллиптических кривых (DUAL_EC_DRBG).</p><ul><li>**CNG** — BCryptGenRandom (рекомендуется использовать флаг BCRYPT_USE_SYSTEM_PREFERRED_RNG, только если вызывающий объект не будет выполняться на уровне IRQL выше 0 [то есть PASSIVE_LEVEL]).</li><li>**CAPI** — cryptGenRandom.</li><li>**Win32 и 64** — RtlGenRandom (в новых реализациях следует использовать BCryptGenRandom или CryptGenRandom) * rand_s * SystemPrng (для режима ядра).</li><li>**.NET** — RNGCryptoServiceProvider или RNGCng.</li><li>**Приложения Магазина Windows** — Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom или .GenerateRandomNumber.</li><li>**Apple OS X (10.7+) и iOS(2.0+)** — int SecRandomCopyBytes (SecRandomRef rnd, size_t count, uint8_t *байт).</li><li>**Apple OS X (< 10.7)** — используйте /dev/random для получения случайных чисел.</li><li>**Java (в том числе код Google Java для Android)** — класс java.security.SecureRandom. Обратите внимание, что для Android 4.3 (Jelly Bean) разработчики должны следовать решению для Android и обновлять свои приложения таким образом, чтобы явно инициализировать PRNG с использованием энтропии для /dev/urandom или /dev/random.</li></ul>|
+| **Действия** | <p>Продукт должны использовать утвержденные генераторы случайных чисел. Поэтому в таком коде нельзя использовать такие псевдослучайные функции, как функция среды выполнения C rand, класс .NET Framework System.Random или системные функции, например GetTickCount. Запрещено также использовать алгоритм генератора случайных чисел на основе двух эллиптических кривых (DUAL_EC_DRBG).</p><ul><li>**CNG** — BCryptGenRandom (рекомендуется использовать флаг BCRYPT_USE_SYSTEM_PREFERRED_RNG, только если вызывающий объект не будет выполняться на уровне IRQL выше 0 [то есть PASSIVE_LEVEL]).</li><li>**CAPI** — cryptGenRandom.</li><li>**Win32 и 64** — RtlGenRandom (в новых реализациях следует использовать BCryptGenRandom или CryptGenRandom) * rand_s * SystemPrng (для режима ядра).</li><li>**.NET** — RNGCryptoServiceProvider или RNGCng.</li><li>**Приложения Магазина Windows** — Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom или .GenerateRandomNumber.</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t \*bytes );</li><li>**Apple OS X (< 10.7)-** — для получения случайных чисел используйте /dev/random;</li><li>**Java (в том числе код Google Java для Android)** — класс java.security.SecureRandom. Обратите внимание, что для Android 4.3 (Jelly Bean) разработчики должны следовать решению для Android и обновлять свои приложения таким образом, чтобы явно инициализировать PRNG с использованием энтропии для /dev/urandom или /dev/random.</li></ul>|
 
 ## <a id="stream-ciphers"></a>Не используйте симметричные потоковые шифры
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/11/2017
 | **Применимые технологии** | Универсальный |
 | **Атрибуты**              | ОС устройства, Windows 10 IoT Core, подключение устройств, пакет SDK для устройств Azure IoT |
 | **Справочные материалы**              | [Доверенный платформенный модуль в Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [настройка доверенного платформенного модуля в Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [доверенный платформенный модуль пакета SDK для устройств Azure IoT](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Действия** | Храните симметричные ключи или закрытые ключи сертификатов в хранилище с аппаратной защитой, например в доверенном платформенном модуле (TPM) или на смарт-карте. Windows 10 IoT Core поддерживает использование доверенного платформенного модуля. Список совместимых доверенных платформенных модулей доступен по адресу https://developer.microsoft.com/windows/iot/win10/tpm. Рекомендуется использовать дискретный доверенный платформенный модуль или доверенный платформенный модуль, интегрированный во встроенное ПО. Доверенный платформенный модуль в виде ПО следует использовать только для целей разработки и тестирования. Как только TPM будет доступен и в нем будут подготовлены ключи, необходимо написать код, который создает маркер, без жесткого кодирования важной информации. | 
+| **Действия** | Храните симметричные ключи или закрытые ключи сертификатов в хранилище с аппаратной защитой, например в доверенном платформенном модуле (TPM) или на смарт-карте. Windows 10 IoT Core поддерживает использование доверенного платформенного модуля. Список совместимых доверенных платформенных модулей доступен по адресу https://developer.microsoft.com/windows/iot/win10/tpm. Рекомендуется использовать дискретный доверенный платформенный модуль или доверенный платформенный модуль, интегрированный во встроенное ПО. Доверенный платформенный модуль в виде ПО следует использовать только для целей разработки и тестирования. Как только TPM будет доступен и в нем будут подготовлены ключи, необходимо написать код, который создает маркер, без жесткого кодирования важной информации. | 
 
 ### <a name="example"></a>Пример
 ```

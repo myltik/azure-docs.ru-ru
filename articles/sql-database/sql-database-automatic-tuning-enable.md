@@ -7,13 +7,13 @@ manager: drasumic
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-automatic-tuning"></a>Включение автоматической настройки
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 03/16/2018
 ## <a name="enable-automatic-tuning-on-server"></a>Включение автоматической настройки на сервере
 На уровне сервера можно выбрать или отключить наследование автоматической настройки конфигурации из значений Azure по умолчанию. Значения Azure по умолчанию: FORCE_LAST_GOOD_PLAN включено, CREATE_INDEX включено, а DROP_INDEX отключено.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Настройка уведомлений по электронной почте об автоматической настройке
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Настройка уведомлений по электронной почте об автоматической настройке
 
 Ознакомьтесь с разделом [Автоматическая настройка получения уведомлений по электронной почте](sql-database-automatic-tuning-email-notifications.md).
 

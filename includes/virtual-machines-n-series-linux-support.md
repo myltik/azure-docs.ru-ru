@@ -5,14 +5,14 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 03/19/2018
+ms.date: 04/03/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5dc0636fa4bfede460b1c8cd8bdab5628a110578
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e925dba3805ec8994aeba730e325c407468a5c87
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 ## <a name="supported-distributions-and-drivers"></a>Поддерживаемые дистрибутивы и драйверы
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/28/2018
 
 | Дистрибутив | Драйвер |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 5.2, ветвь драйверов R384|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 6.0, ветвь драйверов R390|
 
 
 

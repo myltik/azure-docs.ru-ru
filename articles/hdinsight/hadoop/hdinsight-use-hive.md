@@ -1,9 +1,9 @@
 ---
-title: "Основные сведения об Apache Hive и HiveQL в Azure HDInsight | Документация Майкрософт"
-description: "Apache Hive — это система хранилища данных для Hadoop. Вы можете запрашивать данные, хранящиеся в Hive, с помощью HiveQL, который напоминает Transact-SQL. В рамках этого руководства вы узнаете, как использовать Hive и HiveQL в Azure HDInsight."
-keywords: "hiveql, что такое hive, hadoop hiveql, как использовать hive, знакомство с hive, обзор hive"
+title: Основные сведения об Apache Hive и HiveQL в Azure HDInsight | Документация Майкрософт
+description: Apache Hive — это система хранилища данных для Hadoop. Вы можете запрашивать данные, хранящиеся в Hive, с помощью HiveQL, который напоминает Transact-SQL. В рамках этого руководства вы узнаете, как использовать Hive и HiveQL в Azure HDInsight.
+keywords: hiveql, что такое hive, hadoop hiveql, как использовать hive, знакомство с hive, обзор hive
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
 ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Обзор Apache Hive и HiveQL в Azure HDInsight
 
@@ -78,7 +78,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive также поддерживает пользовательские **сериализаторы/десериализаторы (SerDe)** для сложных или беспорядочно структурированных данных. Дополнительные сведения см. в документе [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) (Как использовать настраиваемую сериализацию-десериализациюJSON с HDInsight).
 
-Дополнительные сведения о форматах файлов, поддерживаемых Hive, см. на странице [LanguageManual (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+Дополнительные сведения о форматах файлов, поддерживаемых Hive, см. в [руководстве по языку (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Сравнение внутренних и внешних таблиц Hive
 

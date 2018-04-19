@@ -1,11 +1,11 @@
 ---
-title: "Общие сведения об устранении неполадок подключения в службе \"Наблюдатель за сетями Azure\" | Документация Майкрософт"
-description: "Эта страница содержит обзор возможностей службы \"Наблюдатель за сетями\" по устранению неполадок подключения."
+title: Общие сведения об устранении неполадок подключения в службе "Наблюдатель за сетями Azure" | Документация Майкрософт
+description: Эта страница содержит обзор возможностей службы "Наблюдатель за сетями" по устранению неполадок подключения.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Общие сведения об устранении неполадок подключения в службе "Наблюдатель за сетями Azure"
 
 Функция устранения неполадок подключения службы "Наблюдатель за сетями" предоставляет возможность проверять прямое подключение TCP от виртуальной машины к виртуальной машине, полное доменное имя, универсальный код ресурса или адрес IPv4. Сетевые сценарии сложные. Они реализуются с помощью групп безопасности сети, брандмауэров, определяемых пользователем маршрутов и ресурсов, предоставляемых Azure. Сложные конфигурации делают устранение неполадок, связанных с подключением, непростой задачей. Наблюдатель за сетями помогает сократить время поиска и обнаружения проблем с подключением. Полученные результаты могут дать представление о том, с чем связана проблема подключения: с платформой или конфигурацией пользователя. Подключение можно проверить с помощью [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md) и [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Для устранения неполадок подключений требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
+> Чтобы устранить неполадки подключения на виртуальной машине, установите на ней расширение `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Эта расширение не нужно устанавливать на целевой конечной точке.
 
 ## <a name="response"></a>Ответ
 

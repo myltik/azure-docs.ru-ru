@@ -1,8 +1,8 @@
 ---
-title: "Запрос Azure Log Analytics для мониторинга кластеров Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как выполнять запросы в Azure Log Analytics для мониторинга заданий, выполняемых в кластере HDInsight."
+title: Запрос Azure Log Analytics для мониторинга кластеров Azure HDInsight | Документация Майкрософт
+description: Узнайте, как выполнять запросы в Azure Log Analytics для мониторинга заданий, выполняемых в кластере HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Запрос в Azure Log Analytics для мониторинга кластеров HDInsight
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/24/2018
 
 * Для использования Log Analytics необходимо настроить кластер HDInsight. Инструкции см. в статье [Use Azure Log Analytics to monitor HDInsight clusters (Preview)](hdinsight-hadoop-oms-log-analytics-tutorial.md) (Использование Azure Log Analytics для мониторинга кластеров HDInsight (предварительная версия)).
 
-* Необходимо добавить решение по управлению кластером HDInsight в рабочую область [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) согласно инструкциям из статьи [Добавление решений по управлению кластерами HDInsight в Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* Необходимо добавить решение по управлению, связанное с кластером HDInsight, в рабочую область [Log Analytics](../operations-management-suite/operations-management-suite-overview.md) согласно инструкциям в статье [Добавление решений по управлению кластерами HDInsight в Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Анализ метрик кластера HDInsight
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 02/24/2018
 
     ![Открытие панели мониторинга OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Открытие панели мониторинга OMS")
 
-2. На панели мониторинга OMS на начальном экране щелкните **Log Search** (Поиск по журналам).
+2. На начальном экране портала OMS щелкните **Поиск по журналам**.
 
     ![Открытие поиска по журналам](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Открытие поиска по журналам")
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 02/24/2018
 
     ![Открытие панели мониторинга OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Открытие панели мониторинга OMS")
 
-2. На панели мониторинга OMS на начальном экране щелкните **Log Search** (Поиск по журналам).
+2. На начальном экране портала OMS щелкните **Поиск по журналам**.
 
     ![Открытие поиска по журналам](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Открытие поиска по журналам")
 
@@ -152,5 +152,5 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="see-also"></a>См. также
 
-* [Работа с Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Работа с Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Работа с правилами генерации оповещений в Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

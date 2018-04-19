@@ -1,12 +1,12 @@
 ---
-title: "Миграция виртуальных машин Windows в хранилище Azure уровня \"Премиум\" с помощью Azure Site Recovery | Документация Майкрософт"
-description: "Перенесите имеющиеся виртуальные машины в хранилище Azure класса Premium с помощью Site Recovery. Хранилище Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для интенсивных рабочих нагрузок ввода-вывода на виртуальных машинах Azure."
+title: Миграция виртуальных машин Windows в хранилище Azure уровня "Премиум" с помощью Azure Site Recovery | Документация Майкрософт
+description: Перенесите имеющиеся виртуальные машины в хранилище Azure класса Premium с помощью Site Recovery. Хранилище Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для интенсивных рабочих нагрузок ввода-вывода на виртуальных машинах Azure.
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Перемещение в хранилище класса Premium с помощью Azure Site Recovery
 
@@ -80,7 +80,7 @@ Site Recovery можно использовать для переноса вир
 ### <a name="step-1-create-a-recovery-services-vault"></a>Шаг 1. Создание хранилища служб восстановления
 
 1. Откройте [портал Azure](https://portal.azure.com).
-2. Последовательно выберите **Создать ресурс** > **Monitoring + Management** (Мониторинг и управление) > **Backup** and **Site Recovery (OMS)**. Вы также можете выбрать **Обзор** > **Хранилище служб восстановления** > **Добавить**. 
+2. Последовательно выберите **Создать ресурс** > **Management** (Управление) > **Backup and Site Recovery (OMS)**. Вы также можете выбрать **Обзор** > **Хранилище служб восстановления** > **Добавить**. 
 3. Укажите регион для репликации виртуальных машин. Для переноса данных в пределах того же региона выберите регион, где находятся исходные виртуальные и машины и исходные учетные записи. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Шаг 2. Выбор целевых объектов для защиты 

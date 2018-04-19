@@ -1,18 +1,18 @@
 ---
-title: "Таблица версий и модулей Ansible для Azure"
-description: "Таблица версий и модулей Ansible для Azure"
+title: Таблица версий и модулей Ansible для Azure
+description: Таблица версий и модулей Ansible для Azure
 ms.service: ansible
 keywords: ansible, roles, matrix, version, azure, devops
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 03/25/2018
 ms.topic: article
-ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011cb173ffdecc7a22c2e470209719ccaf6bda58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Таблица версий и модулей Ansible
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 02/01/2018
 Ansible поставляется с большим количеством модулей, которые могут выполняться прямо на удаленных узлах или с помощью наборов инструкций playbook.
 В этой статье перечислены модули Ansible для Azure, которые могут использоваться для подготовки таких облачных ресурсов Azure, как виртуальные машины, сети и службы контейнеров. Эти модули можно получить из официального выпуска Ansible или из указанных далее ролей playbook, опубликованных корпорацией Майкрософт.
 
-| Модуль Ansible для Azure                   |  Ansible 2.4 |  Роль playbook [azure_module](#introduction-to-azuremodule) |  Роль playbook [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Модуль Ansible для Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Роль playbook [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | **Среда выполнения приложений**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
@@ -54,7 +54,7 @@ Ansible поставляется с большим количеством мод
 | azure_rm_appgwroute_facts                   | -            | -                           | Yes                                 |
 | azure_rm_appgwroutetable                    | -            | -                           | Yes                                 |
 | azure_rm_securitygroup                      | Yes          | Yes                         | Yes                                 | 
-| azure_rm_appgwroutetable_facts              | Yes          | Yes                         | Yes                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | Yes                                 | 
 | **Хранилище**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_storageaccount_facts               | Yes          | Yes                         | Yes                                 | 
@@ -76,7 +76,7 @@ Ansible поставляется с большим количеством мод
 | azure_rm_functionapp_facts                  | Yes          | Yes                         | Yes                                 | 
 | **Базы данных**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Yes                         | Yes                                 | 
-| azure_rm_sqlserver_facts                    | -            | -                           | Yes                                 | 
+| azure_rm_sqlserver_facts                    | -            | Yes                         | Yes                                 | 
 | azure_rm_sqldatabase                        | -            | Yes                         | Yes                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Yes                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Yes                                 | 
@@ -100,17 +100,13 @@ Ansible поставляется с большим количеством мод
 | azure_rm_postgresqlconfiguration            | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
 | **хранилище ключей;**                    |           |                          |                                  | 
-| azure_rm_keyvault                           | -            | -                           | Yes                                 |
+| azure_rm_keyvault                           | -            | Yes                         | Yes                                 |
 | azure_rm_keyvault_facts                     | -            | -                           | Yes                                 |
-| azure_rm_keyvaultkey                        | -            | -                           | Yes                                 |
-| azure_rm_keyvaultsecret                     | -            | -                           | Yes                                 |
+| azure_rm_keyvaultkey                        | -            | Yes                         | Yes                                 |
+| azure_rm_keyvaultsecret                     | -            | Yes                         | Yes                                 |
 
-## <a name="introduction-to-azuremodule"></a>Общие сведения о роли azure_module
-[Роль playbook azure_module](https://galaxy.ansible.com/Azure/azure_modules/) содержит последние изменения и исправления ошибок для модулей Azure из [ветви разработки репозитория Ansible](https://github.com/ansible/ansible/tree/devel). Если вы не можете ждать следующего выпуска Ansible, оптимальным решением будет установка роли azure_module.
 
-Роль playbook azure_module выпускается каждые три недели.
-
-## <a name="introduction-to-azurepreviewmodule"></a>Общие сведения о роли azure_preview_module
+## <a name="introduction-to-playbook-role-for-azure"></a>Общие сведения о роли playbook для Azure
 [Роль azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) — наиболее полная роль playbook, которая включает в себя все последние модули Azure. Обновления и исправления выполняются более оперативно, чем для официального выпуска Ansible. Если вы используете Ansible для подготовки ресурсов Azure, рекомендуем установить роль azure_preview_module.
 
 Роль playbook azure_preview_module выпускается каждые три недели.

@@ -1,11 +1,11 @@
 ---
-title: "Схемы отслеживания AS2 для мониторинга сообщений B2B в Azure Logic Apps | Документация Майкрософт"
-description: "Используйте схемы отслеживания AS2 для мониторинга сообщений из транзакций типа \"бизнес — бизнес\" (B2B) в учетной записи интеграции Azure."
+title: Схемы отслеживания AS2 для мониторинга сообщений B2B в Azure Logic Apps | Документация Майкрософт
+description: Используйте схемы отслеживания AS2 для мониторинга сообщений из транзакций типа "бизнес — бизнес" (B2B) в учетной записи интеграции Azure.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31bd296dc5ed5ac6998a6c05ee80fd38b12d662c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Запуск или включение отслеживания сообщений AS2 и уведомлений MDN для мониторинга успешно доставленных сообщений, ошибок и свойств сообщений
 Схемы отслеживания AS2 можно использовать в учетной записи интеграции Azure для мониторинга транзакций типа "бизнес — бизнес" (B2B):
@@ -136,4 +136,4 @@ ms.lasthandoff: 10/11/2017
 * Дополнительные сведения о [мониторинге сообщений B2B](logic-apps-monitor-b2b-message.md).   
 * Дополнительные сведения о [настраиваемых схемах отслеживания B2B](logic-apps-track-integration-account-custom-tracking-schema.md).   
 * Дополнительные сведения о [схемах отслеживания X12](logic-apps-track-integration-account-x12-tracking-schema.md).   
-* Дополнительные сведения об [отслеживании сообщений B2B на портале Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Дополнительные сведения об [отслеживании сообщений B2B в Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

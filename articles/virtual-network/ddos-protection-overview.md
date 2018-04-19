@@ -1,13 +1,13 @@
 ---
-title: "Общие сведения о защите от атак DDoS Azure уровня \"Стандартный\" | Документы Майкрософт"
-description: "Сведения о службе защиты от атак DDoS Azure."
+title: Общие сведения о защите от атак DDoS Azure уровня "Стандартный" | Документы Майкрософт
+description: Сведения о службе защиты от атак DDoS Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Общие сведения о защите от атак DDoS Azure уровня "Стандартный"
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/11/2017
 - **Защита для уровней с 3-го по 7-й.** При использовании шлюза приложения предоставляется защита от атак DDoS для всего стека.
 - **Широкий диапазон устраняемых атак.** Защита от более чем 60 различных типов известных DDoS-атак, для борьбы с крупнейшими из которых используются все возможности глобальной сети Azure. 
 - **Метрики атак:** в Azure Monitor доступны обобщенные метрики для каждой атаки.
-- **Оповещения об атаках.** Вы можете настроить оповещения о начале атаки, об окончании атаки и во время атаки с использованием встроенных метрик атаки. Оповещения интегрируются в операционное программное обеспечение, такое как Microsoft Operations Management Suite, Splunk, служба хранилища Azure, программы для работы с электронной почтой и портал Azure.
+- **Оповещения об атаках.** Вы можете настроить оповещения о начале атаки, об окончании атаки и во время атаки с использованием встроенных метрик атаки. Оповещения интегрируются в операционное программное обеспечение, такое как Microsoft Azure Log Analytics, Splunk, служба хранилища Azure, программы для работы с электронной почтой и портал Azure.
 - **Все затраты включены:** затраты на передачу данных и масштабирование приложения для устранения известных DDoS-атак включены в расценки за использование службы.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Устранение атак с помощью защиты от атак DDoS уровня "Стандартный"

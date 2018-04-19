@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Подключение Microsoft Advanced Threat Analytics к центру безопасности Azure
 Этот документ поможет вам настроить интеграцию между Microsoft Advanced Threat Analytics и центром безопасности Azure.
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/08/2018
 
     ![Direct Agent](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Установите этот агент в центре ATA. Во время установки обязательно выберите **Подключить агент к службе анализа журналов Azure (OMS)** и по запросу предоставьте сохраненные *идентификатор рабочей области* и *первичный ключ*.
+12. Установите этот агент в центре ATA. Во время установки обязательно выберите **Connect the agent to Azure Log Analytics** (Подключить агент к Azure Log Analytics) и по запросу предоставьте сохраненные *идентификатор рабочей области* и *первичный ключ*.
 
 
 Эта установка завершает процесс интеграции. Теперь вы сможете увидеть новые предупреждения, отправляемые из ATA в центр безопасности, в результатах **поиска**. Новое решение появится в списке **Решения безопасности** в разделе **Подключенные решения**. 

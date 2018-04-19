@@ -1,12 +1,12 @@
 ---
-title: "Общие сведения о безопасности Azure Service Fabric | Документация Майкрософт"
-description: "Эта статья содержит общие сведения о безопасности Azure Service Fabric."
+title: Общие сведения о безопасности Azure Service Fabric | Документация Майкрософт
+description: Эта статья содержит общие сведения о безопасности Azure Service Fabric.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9b6c2463c2a782f463e64d6e350a565fa7898b63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-fabric-security-overview"></a>Общие сведения о безопасности Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими. Service Fabric позволяет разрешить значительные трудности, возникающие при разработке облачных приложений и управлении ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой.
@@ -104,7 +104,7 @@ Azure AD позволяет организациям (известным как 
 
 -   **Агрегирование событий.** Создаваемые события должны быть собраны и агрегированы, прежде чем они могут быть отображены. Как правило, мы рекомендуем использовать [систему диагностики Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (похожа на коллекцию журналов на основе агентов) или [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (внутрипроцессная коллекция журналов).
 
--   **Анализ.** События должны быть представленными и доступными в определенном формате, обеспечивающем возможность анализа и отображения. Существует несколько платформ для анализа и визуализации данных мониторинга и диагностики. Мы рекомендуем использовать [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) и [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights), так как эти инструменты хорошо интегрируются с Service Fabric.
+-   **Анализ.** События должны быть представленными и доступными в определенном формате, обеспечивающем возможность анализа и отображения. Существует несколько платформ для анализа и визуализации данных мониторинга и диагностики. Мы рекомендуем использовать [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) и [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights), так как эти инструменты хорошо интегрируются с Service Fabric.
 
 [Мониторинг Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) дает возможность отслеживать многие ресурсы Azure, из которых состоит кластер Service Fabric.
 

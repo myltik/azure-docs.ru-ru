@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Примеры для быстрого запуска Azure Monitor с помощью PowerShell
 В этой статье показаны примеры команд PowerShell, с помощью которых можно быстро получить доступ к функциям Azure Monitor.
@@ -155,7 +155,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 | operator |GreaterThan |
 | Пороговое значение (число/с для этой метрики) |1 |
 | WindowSize (в формате чч:мм:сс) |00:05:00 |
-| агрегатор (статистические данные о метрике — в этом случае при использовании среднего значения) |Среднее |
+| агрегатор (статистические данные о метрике — в этом случае при использовании среднего значения) |Средняя |
 | пользовательские сообщения электронной почты (строковый массив) |'foo@example.com','bar@example.com' |
 | отправка сообщений электронной почты владельцам, участникам и читателям |-SendToServiceOwners |
 
@@ -338,7 +338,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Многие службы Azure предоставляют дополнительные журналы и данные телеметрии, с которыми можно выполнить одну или несколько следующих операций: 
  - настройка сохранения данных в учетной записи хранения Azure;
  - отправка в концентраторы событий;
- - отправка в рабочее пространство OMS Log Analytics. 
+ - отправка в рабочую область Log Analytics. 
 
 Эта операция может выполняться только на уровне ресурса. Учетная запись хранения или концентратор событий должны находиться в том же регионе, что и целевой ресурс, для которого настроены параметры диагностики.
 
@@ -377,7 +377,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insigh
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Включение параметра диагностики для Log Analytics (OMS)
+Включение параметра диагностики для Log Analytics
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true

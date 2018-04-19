@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Сравнение функций Базы данных SQL Azure и SQL Server 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/03/2018
 | [Запись измененных данных](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Нет  | Yes |
 | [отслеживание изменений;](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Yes |Yes |
 | [Инструкции параметров сортировки](https://docs.microsoft.com/sql/t-sql/statements/collations) | Yes | Yes |
-| [Индексы columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Да, [в категориях "Премиум" и "Стандартный" (S3 и выше)](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview). |Yes |
+| [Индексы columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Да, [в категориях "Премиум" и "Стандартный" (S3 и выше), а также в категориях "Общего назначения" и "Критически важный для бизнеса"](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview). |Yes |
 | [Среда CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Нет  | Да. См. раздел [CLR](sql-database-managed-instance-transact-sql-information.md#clr) (Среда CLR). |
 | [автономные базы данных;](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | Yes |
 | [Автономные пользователи](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes | Yes |
@@ -82,7 +82,7 @@ ms.lasthandoff: 04/03/2018
 | [Геовосстановление](sql-database-recovery-using-backups.md#geo-restore) | Yes | Нет. Вы можете восстанавливать периодические полные резервные копии COPY_ONLY. См. разделы [Backup](sql-database-managed-instance-transact-sql-information.md#backup) (Резервное копирование) и [RESTORE statement](sql-database-managed-instance-transact-sql-information.md#restore-statement) (Инструкция RESTORE). |
 | [Георепликация](sql-database-geo-replication-overview.md) | Yes | Нет  |
 | [Обработка Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Yes | Yes |
-| [Оптимизация в памяти](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Да. [Только в Premium Edition.](sql-database-in-memory.md) | Нет  |
+| [Оптимизация в памяти](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Да, [только в категориях "Премиум" и "Критически важный для бизнеса"](sql-database-in-memory.md). | Нет  |
 | [Поддержка данных JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Yes | Yes |
 | [Элементы языка](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным элементам. |  Да. См. раздел [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Отличия T-SQL от SQL Server). |
 | [Связанные серверы](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет. Дополнительные сведения см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md). | Только в SQL Server |

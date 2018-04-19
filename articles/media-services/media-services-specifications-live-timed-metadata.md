@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: ae726b141f5f44b1eb0887cbd988881e41e163c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Сигнализация метаданных времени в потоковой трансляции
 
@@ -134,7 +134,7 @@ RTMP поддерживает сигналы метаданных времени
 
 Фрагменты разреженной дорожки содержат поле фрагмента фильма (moof) и поле данных мультимедиа (mdat).
 
-Поле MovieFragmentBox (moof) ДОЛЖНО содержать поле **TrackFragmentExtendedHeaderBox (uuid)**, как указано в [FMP4], со следующими полями:
+Поле MovieFragmentBox (moof) должно содержать поле **TrackFragmentExtendedHeaderBox (uuid)**, как указано в [MS-SSTR], со следующими полями.
 
 | **Имя поля**         | **Тип поля**          | **Обязательный?** | **Описание**                                                                               |
 |------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
@@ -177,7 +177,7 @@ RTMP поддерживает сигналы метаданных времени
 
 ## <a name="31-smooth-streaming-delivery"></a>3.1. Доставка Smooth Streaming
 
-Ознакомьтесь со сведениями обработки разреженной дорожки в спецификациях [FMP4] и [MS-SSTR].
+Ознакомьтесь со сведениями об обработке разреженной дорожки в спецификации [MS-SSTR].
 
 #### <a name="smooth-client-manifest-example"></a>Пример манифеста клиента Smooth
 ~~~ xml
@@ -407,13 +407,11 @@ aligned(8) class DASHEventMessageBox extends FullBox(‘emsg’, version = 0, fl
 
 **[AMF0]** [Формат инициирующего сообщения AMF0](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf).
 
-**[FMP4]** [Файл IIS Smooth Streaming, спецификация формата подключения](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7bAC5A31A4-E455-4000-96E1-AB17BD083144%7d&file=IIS%20Smooth%20Streaming%20File%20Format%20Specification%20-%20v%202%203%2001%20latest%20draft.docx&action=default).
-
-**[LIVE-FMP4]** [Спецификация приема фрагментированного MP4 в реальном времени в службах мультимедиа Azure](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7b5CEE1122-AA28-4368-BC8E-9C0048BF1529%7d&file=AMS%20F-MP4%20Live%20Ingest%20Specification.docx&action=default)
+**[LIVE-FMP4]** [Спецификация приема фрагментированного MP4 в реальном времени в службах мультимедиа Azure](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: часть 12. Файл формата базового медиафайла ISO, четвертый выпуск 15.07.2012.
 
-**[RTMP]** [Протокол обмена сообщений в реальном времени Adobe, 21 декабря 2012 г.](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
+**[RTMP]** [Протокол обмена сообщений в реальном времени Adobe, 21 декабря 2012 г.](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 

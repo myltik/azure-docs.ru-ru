@@ -1,11 +1,11 @@
 ---
-title: "Модель данных Log Analytics для Azure Backup"
-description: "В этой статье представлены сведения о модели данных Log Analytics для данных Azure Backup."
+title: Модель данных Log Analytics для Azure Backup
+description: В этой статье представлены сведения о модели данных Log Analytics для данных Azure Backup.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Модель данных Log Analytics для данных Azure Backup
-В этой статье описывается модель данных, используемая для принудительной отправки данных отчетов в Log Analytics. С помощью этой модели данных можно создавать пользовательские запросы и панели мониторинга. Вы также можете использовать ее в OMS. 
+В этой статье описывается модель данных, используемая для принудительной отправки данных отчетов в Log Analytics. С помощью этой модели данных можно создавать пользовательские запросы и панели мониторинга. Вы также можете использовать ее в Log Analytics. 
 
 ## <a name="using-azure-backup-data-model"></a>Использование модели данных Azure Backup
 Вы можете использовать следующие поля, предоставляемые как часть модели данных, для создания визуальных элементов, пользовательских запросов и панели мониторинга в соответствии с вашими требованиями.
@@ -286,4 +286,4 @@ ms.lasthandoff: 10/11/2017
 | ResourceType |текст |Тип ресурса, для которого собираются данные (хранилища) |
 
 ## <a name="next-steps"></a>Дополнительная информация
-После просмотра модели данных для создания отчетов Azure Backup вы можете приступить к [созданию панели мониторинга](../log-analytics/log-analytics-dashboards.md) в Log Analytics и OMS.
+После просмотра модели данных для создания отчетов Azure Backup вы можете приступить к [созданию панели мониторинга](../log-analytics/log-analytics-dashboards.md) в Log Analytics.

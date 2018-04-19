@@ -1,24 +1,19 @@
 ---
-title: Отладка запросов Azure Stream Analytics с помощью SELECT INTO | Документация Майкрософт
-description: Создайте демонстрационные данные во время запроса с помощью инструкции SELECT INTO в Stream Analytics
-keywords: ''
+title: Отладка запросов Azure Stream Analytics с помощью SELECT INTO
+description: В этой статье объясняется, как извлечь пример данных во время запроса данных в задании Azure Stream Analytics, используя инструкции SELECT INTO в тексте запроса.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f232ba9804886f416ac0941ddc7e602782b6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>Отладка запросов с помощью инструкции SELECT INTO
 
@@ -73,7 +68,7 @@ ms.lasthandoff: 03/30/2018
 
 ## <a name="get-help"></a>Получение справки
 
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -1,13 +1,13 @@
 ---
-title: "Обеспечение высокого уровня доступности SAP NetWeaver на виртуальных машинах Azure | Документация Майкрософт"
-description: "Руководство по обеспечению высокого уровня доступности для SAP NetWeaver на виртуальных машинах Azure"
+title: Обеспечение высокого уровня доступности SAP NetWeaver на виртуальных машинах Azure | Документация Майкрософт
+description: Руководство по обеспечению высокого уровня доступности для SAP NetWeaver на виртуальных машинах Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Руководство по обеспечению высокого уровня доступности SAP NetWeaver на виртуальных машинах Azure
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Конфигурации высокой доступности SAP с несколькими SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -739,7 +739,7 @@ _**Рис. 15.** Правила балансировки нагрузки ASCS/
 
 Если вы хотите использовать другие номера для экземпляров SAP ASCS или SCS, необходимо изменить имена и значения по умолчанию их портов.
 
-1.  На портале Azure выберите **<*SID* > подсистема балансировки нагрузки -lb-ascs** > **Правила балансировки нагрузки**.
+1.  На портале Azure выберите **<*SID*>-балансировщик нагрузки -lb-ascs** > **Правила балансировки нагрузки**.
 2.  Для всех правил балансировки нагрузки, относящихся к экземпляру SAP ASCS или SCS, измените следующие значения.
 
   * ИМЯ
@@ -954,7 +954,7 @@ _**Таблица 4.** Изменение второго параметра TCP/
 
   _**Рис. 38.** Подтверждение перенастройки кластера_
 
-После успешной установки отказоустойчивого кластера Windows необходимо внести изменения в некоторые пороговые значения, чтобы адаптировать обнаружение отработки отказа к условиям в Azure. Параметры, которые нужно изменить, описаны в этом блоге: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds. Предположим, что две виртуальные машины, образующие конфигурацию кластера Windows для ASCS/SCS, находятся в одной подсети. Тогда нужно изменить значения приведенных ниже параметров следующими значениями.
+После успешной установки отказоустойчивого кластера Windows необходимо внести изменения в некоторые пороговые значения, чтобы адаптировать обнаружение отработки отказа к условиям в Azure. Значения параметров, которые нужно изменить, указаны в следующей статье блога: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Предположим, что две виртуальные машины, образующие конфигурацию кластера Windows для ASCS/SCS, находятся в одной подсети. Тогда нужно изменить значения приведенных ниже параметров следующими значениями.
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1134,7 +1134,7 @@ SIOS DataKeeper Cluster Edition нужно установить на обоих 
 1.  В диспетчере DNS Windows создайте запись DNS для имени виртуального узла экземпляра ASCS/SCS.
 
   > [!IMPORTANT]
-  > IP-адрес, назначаемый имени виртуального узла экземпляра ASCS/SCS, должен совпадать с IP-адресом, назначенным Azure Load Balancer (**<*SID*>-lb-ascs**).  
+  > IP-адрес, который вы назначите имени виртуального узла для экземпляра ASCS/SCS, должен совпадать с IP-адресом, назначенным для Azure Load Balancer (**<*SID*>-lb-ascs**).  
   >
   >
 
@@ -1212,7 +1212,7 @@ SIOS DataKeeper Cluster Edition нужно установить на обоих 
 
   Номер порта определен в шаблонах Azure Resource Manager для SAP. Назначить номер порта можно в PowerShell.
 
-  Чтобы задать новое значение ProbePort для кластерного ресурса **SAP <*SID*> IP**, выполните следующий сценарий PowerShell. Обновите переменные PowerShell для своей среды. После выполнения сценария вам будет предложено перезапустить кластерную группу SAP, чтобы активировать изменения.
+  Чтобы задать новое значение ProbePort для кластерного ресурса **SAP <*SID*> IP**, выполните следующий скрипт PowerShell. Обновите переменные PowerShell для своей среды. После выполнения сценария вам будет предложено перезапустить кластерную группу SAP, чтобы активировать изменения.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -1270,7 +1270,7 @@ SIOS DataKeeper Cluster Edition нужно установить на обоих 
   }
   ```
 
-  После подключения роли кластера **SAP <*SID*>** к сети убедитесь, что для параметра **ProbePort** задано новое значение.
+  Подключив роль кластера **SAP <*SID*>**, убедитесь, что используется новое значение параметра **ProbePort**.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>

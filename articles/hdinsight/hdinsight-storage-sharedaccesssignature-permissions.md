@@ -1,8 +1,8 @@
 ---
-title: "Ограничение доступа с помощью подписанных URL-адресов в Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как использовать подписанные URL-адреса для ограничения доступа HDInsight к данным, хранящимся в хранилищах BLOB-объектов."
+title: Ограничение доступа с помощью подписанных URL-адресов в Azure HDInsight | Документация Майкрософт
+description: Узнайте, как использовать подписанные URL-адреса для ограничения доступа HDInsight к данным, хранящимся в хранилищах BLOB-объектов.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Использование подписанных URL-адресов хранилища Azure для ограничения доступа к данным в HDInsight
 

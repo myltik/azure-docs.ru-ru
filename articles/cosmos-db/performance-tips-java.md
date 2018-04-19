@@ -3,9 +3,8 @@ title: Советы по повышению производительности
 description: Узнайте, как улучшить производительность базы данных Azure Cosmos DB с помощью параметров конфигурации клиента
 keywords: как улучшить производительность базы данных
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
@@ -14,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
-ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: ace817bc7a703ed2aa1dcd71f7d84f91ee16cce6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +80,7 @@ Azure Cosmos DB — быстрая и гибкая распределенная
    <a id="max-connection"></a>
 3. **При использовании режима шлюза увеличьте размер пула (MaxPoolSize) для каждого узла.**
 
-    В режиме шлюза Azure Cosmos DB выполняет запросы через HTTPS или REST, а значит на них распространяется стандартное ограничение на количество подключений к одному имени узла или IP-адресу. Возможно, стоит увеличить это значение (до 200–1000), чтобы клиентская библиотека могла использовать несколько одновременных подключений к Azure Cosmos DB. В пакете SDK для Java для параметра [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) по умолчанию установлено значение 100. Используйте [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize), чтобы изменить это значение.
+    В режиме шлюза Azure Cosmos DB выполняет запросы через HTTPS или REST, а значит на них распространяется стандартное ограничение на количество подключений к одному имени узла или IP-адресу. Возможно, стоит увеличить это значение (до 200–1000), чтобы клиентская библиотека могла использовать несколько одновременных подключений к Azure Cosmos DB. В пакете SDK для Java для параметра [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) по умолчанию установлено значение 100. Используйте [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize), чтобы изменить это значение.
 
 4. **Настройка параллельных запросов для секционированных коллекций**
 
@@ -103,7 +103,7 @@ Azure Cosmos DB — быстрая и гибкая распределенная
 
 7. **Адресация на основе имен**
 
-    Используйте адресацию на основе имен, то есть ссылки в формате `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` вместо самоссылающегося формата `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`. Это позволит избежать получения идентификаторов для всех ресурсов, требуемых для создания ссылки. Кэширование этих данных не увеличит производительность, поскольку ресурсы могут создаваться заново (иногда с теми же именами).
+    Используйте адресацию на основе имен, то есть ссылки в формате `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` вместо самоссылающегося (\_self) формата `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`. Это позволит избежать получения идентификаторов для всех ресурсов, требуемых для создания ссылки. Кэширование этих данных не увеличит производительность, поскольку ресурсы могут создаваться заново (иногда с теми же именами).
 
    <a id="tune-page-size"></a>
 8. **Оптимизация производительности посредством настройки размера страницы для запросов и каналов чтения**

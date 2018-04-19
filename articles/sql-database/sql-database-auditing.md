@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Приступая к работе с аудитом базы данных SQL
 Аудит базы данных SQL Azure позволяет отслеживать события базы данных и записывать их в журнал аудита в учетной записи хранения Azure. Аудит также дает следующие возможности:
@@ -118,7 +118,7 @@ ms.lasthandoff: 03/16/2018
 
     4. Объединенный файл откроется в SSMS, где вы сможете его просмотреть и проанализировать, а также экспортировать в XEL- или CSV-файл или в таблицу.
 
-* Используйте созданное [приложение синхронизации](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration). Оно работает в Azure и использует общие API-интерфейсы службы Log Analytics для Operations Management Suite (OMS) для передачи журналов аудита SQL в OMS. Приложение синхронизации отправляет журналы аудита SQL в OMS Log Analytics для использования через панель мониторинга OMS Log Analytics.
+* Используйте созданное [приложение синхронизации](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration). Оно работает в Azure и использует общедоступные API-интерфейсы службы Log Analytics для передачи журналов аудита SQL в Log Analytics. Приложение синхронизации отправляет журналы аудита SQL в Log Analytics для использования через панель мониторинга Log Analytics.
 
 * Используйте Power BI. Вы можете просматривать и анализировать данные журнала аудита в Power BI. Вы можете узнать больше о [Power BI, а также скачать шаблон](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

@@ -1,24 +1,19 @@
 ---
-title: Отладка на основе данных в Azure Stream Analytics с помощью схемы заданий | Документация Майкрософт
-description: Устраняйте неполадки задания Stream Analytics с помощью схемы и метрик заданий.
-keywords: ''
-documentationcenter: ''
+title: Отладка на основе данных в Azure Stream Analytics
+description: В этой статье описывается устранение неполадок в задании Azure Stream Analytics с помощью метрик и схемы заданий на портале Azure.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Отладка на основе данных с помощью схемы заданий
 
@@ -85,7 +80,7 @@ ms.lasthandoff: 03/30/2018
 
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Дополнительную помощь вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Что такое Stream Analytics?](stream-analytics-introduction.md)

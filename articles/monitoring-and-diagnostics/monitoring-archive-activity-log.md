@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Архивация журнала действий Azure
 В этой статье описано, как настроить архивацию [**журнала действий Azure**](monitoring-overview-activity-logs.md) в учетной записи хранения с помощью портала Azure, командлетов PowerShell или кроссплатформенного интерфейса командной строки. Архивацию целесообразно применять, если вам нужно хранить данные журнала действий дольше 90 дней (с полным контролем над политикой хранения) для аудита, статического анализа или резервного копирования. Если вам требуется хранить события в течение не более 90 дней, не нужно настраивать архивацию в учетную запись хранения, так как события журнала действий можно хранить в течение этого периода на платформе Azure.
@@ -43,29 +43,43 @@ ms.lasthandoff: 03/28/2018
 5. Выберите команду **Сохранить**.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Архивация журнала действий с помощью PowerShell
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
-| StorageAccountId |Нет  |Идентификатор ресурса для учетной записи хранения, в которую будут сохранены журналы действий. |
-| Расположения |Yes |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. Список всех регионов можно получить, [посетив эту страницу](https://azure.microsoft.com/en-us/regions) или используя [REST API управления Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Yes |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы хранятся неограниченно долго, то есть всегда. |
-| Категории |Yes |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
+| StorageAccountId |Yes |Идентификатор ресурса для учетной записи хранения, в которую будут сохранены журналы действий. |
+| Расположения |Yes |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. Вы можете просмотреть список всех регионов для своей подписки с помощью `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Нет  |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы хранятся неограниченно долго, то есть всегда. |
+| Категории |Нет  |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action.  Если значение не указано, предполагается наличие всех возможных значений. |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Архивация журнала действий с помощью интерфейса командной строки
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
 | name |Yes |Имя профиля журнала. |
-| storageId |Нет  |Идентификатор ресурса для учетной записи хранения, в которую будут сохранены журналы действий. |
-| Расположения |Yes |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. Список всех регионов можно получить, [посетив эту страницу](https://azure.microsoft.com/en-us/regions) или используя [REST API управления Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Yes |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы будут храниться неограниченно долго, то есть всегда. |
-| Категории |Yes |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
+| storage-account-id |Yes |Идентификатор ресурса для учетной записи хранения, в которую будут сохранены журналы действий. |
+| Расположения |Yes |Разделенный пробелами список регионов, для которых будут собираться события журнала действий. Вы можете просмотреть список всех регионов для своей подписки с помощью `az account list-locations --query [].name`. |
+| days |Yes |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы будут храниться неограниченно долго, то есть всегда.  Если значение равно нулю, для включенного параметра нужно установить значение true. |
+|Включено | Yes |Значение True или False.  Позволяет включить или отключить политику хранения.  Если установлено значение True, параметр дней должен иметь значение больше 0.
+| Категории |Yes |Разделенный пробелами список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Схема хранения журнала действий
 После настройки архивации в учетной записи хранения будет создан контейнер хранилища, как только возникнет событие журнала. Большие двоичные объекты, содержащиеся в контейнере, имеют одинаковый формат в журналах действий и диагностики. Вот как выглядит структура большого двоичного объекта:

@@ -1,26 +1,21 @@
 ---
-title: Выходные данные JSON для Stream Analytics | Документация Майкрософт
-description: Сведения о том, каким образом Stream Analytics направляет данные из Azure Cosmos DB в формат JSON и позволяет архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON.
-keywords: Выходные данные JSON
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Выходные данные Azure Stream Analytics в Cosmos DB
+description: Из этой статьи вы узнаете, как с помощью Azure Stream Analytics сохранять выходные данные в Azure Cosmos DB в формате JSON, что позволяет архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Направление Azure Cosmos DB из Stream Analytics в формат JSON
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Выходные данные Azure Stream Analytics в Azure Cosmos DB  
 Stream Analytics позволяет направлять данные из [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) в формат JSON, позволяя архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON. В этом документе представлены некоторые рекомендации по реализации данной конфигурации.
 
 Тем, кто не знаком с Cosmos DB, мы рекомендуем просмотреть [схему обучения работе с Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/). 
@@ -35,7 +30,7 @@ Stream Analytics позволяет направлять данные из [Azur
 Ниже приведены некоторые параметры коллекций Cosmos DB.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Настройка согласованности, доступности и задержки
-Для соответствия требованиям вашего приложения служба Cosmos DB позволяет настроить базу данных и коллекции и отрегулировать уровень согласованности, доступности и задержки. В зависимости от того, какие уровни согласованности чтения потребуются вашему сценарию для чтения и записи задержки, вы можете выбирать уровень согласованности в своей учетной записи базы данных. Кроме того, Cosmos DB по умолчанию активирует синхронное индексирование для каждой операции CRUD в вашей коллекции. Это еще один полезный параметр для контроля производительности чтения и записи в Cosmos DB. Более подробные сведения на эту тему см. в статье [Уровни согласованности в DocumentDB](../cosmos-db/consistency-levels.md).
+Для соответствия требованиям вашего приложения служба Cosmos DB позволяет настроить базу данных и коллекции и отрегулировать уровень согласованности, доступности и задержки. В зависимости от того, какие уровни согласованности чтения потребуются вашему сценарию для чтения и записи задержки, вы можете выбирать уровень согласованности в своей учетной записи базы данных. Кроме того, Cosmos DB по умолчанию активирует синхронное индексирование для каждой операции CRUD в вашей коллекции. Это еще один полезный параметр для контроля производительности чтения и записи в Cosmos DB. Дополнительные сведения см. в статье об [изменении уровней согласованности в для базы данных и запросов](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Вставка и обновление Upsert в Stream Analytics
 Интеграция Stream Analytics с Cosmos DB позволяет вставлять или обновлять записи в коллекции Cosmos DB с помощью заданного столбца идентификаторов документов. Этот процесс называется также *Upsert*.

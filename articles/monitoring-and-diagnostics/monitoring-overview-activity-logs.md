@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Мониторинг действий подписки с помощью журнала действий Azure
+
 **Журнал действий Azure** — это журнал подписки с подробными сведениями о событиях на уровне подписки, которые произошли в Azure. Сюда входят различные данные — от операционных данных Azure Resource Manager до обновлений в событиях работоспособности службы. Журнал действий раньше назывался журналом аудита или операционным журналом, так как категория "Административная" содержит связанные с подписками события на уровне управления. С помощью журнала изменений можно ответить на вопросы "что? кто? когда?" о любой операции записи (PUT, POST, DELETE) с ресурсами в вашей подписке. Вы также можете отслеживать состояние операции и другие ее свойства. Журнал действий не содержит операции чтения (GET) или операции с ресурсами, которые используют классическую модель или модель RDFE.
 
 ![Журналы действий и другие типы журналов ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
@@ -37,9 +38,7 @@ ms.lasthandoff: 04/03/2018
 События из журнала изменений можно получить с помощью портала Azure, интерфейса командной строки, командлетов PowerShell или REST API Azure Monitor.
 
 > [!NOTE]
-
->  [Новые оповещения](monitoring-overview-unified-alerts.md) сейчас предоставляют дополнительные возможности для создания и администрирования правил генерации оповещений журнала действий.  [Узнайте больше](monitoring-activity-log-alerts-new-experience.md).
-
+>  [Новые оповещения](monitoring-overview-unified-alerts.md) сейчас предоставляют дополнительные возможности для создания и администрирования правил генерации оповещений для журнала действий.  [Узнайте больше](monitoring-activity-log-alerts-new-experience.md).
 
 Просмотрите следующее ознакомительное видео о журнале действий:
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -103,7 +102,7 @@ ms.lasthandoff: 04/03/2018
 * Какие регионы (расположения) будут экспортированы. Обязательно укажите глобальное расположение, так как в журнале действий существует множество глобальных событий.
 * Как долго должен храниться журнал действий в учетной записи хранения.
     - Срок хранения 0 дней означает, что журналы хранятся неограниченно долго. В противном случае укажите количество дней в диапазоне от 1 до 2 147 483 647.
-    - Если политики хранения заданы, но хранение журналов в учетной записи хранения отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены.
+    - Если политики хранения заданы, но хранение журналов в учетной записи хранения отключено (например, выбраны только концентраторы событий или Log Analytics), политики хранения не будут применены.
     - Политики хранения применяются по дням, поэтому в конце дня (по времени в формате UTC) журналы, срок которых теперь превышает период хранения, будут удалены. Например, если настроена политика хранения в течение одного дня, то в начале текущего дня журналы за вчерашний день будет удалены.
 
 Вы можете использовать учетную запись хранения или пространство имен концентратора событий, не входящее в подписку, в которой создаются журналы. Пользователю, который настраивает этот параметр, должен быть предоставлен соответствующий уровень доступа RBAC к обеим подпискам.
@@ -129,12 +128,15 @@ ms.lasthandoff: 04/03/2018
 4. Нажмите кнопку **Сохранить** , чтобы сохранить эти параметры. Параметры будут немедленно применены к подписке
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Настройка профилей журнала с помощью командлетов Azure PowerShell
+
 #### <a name="get-existing-log-profile"></a>Получение существующего профиля журнала
+
 ```
 Get-AzureRmLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Добавление профиля журнала
+
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
@@ -153,33 +155,32 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Настройка профилей журнала с помощью кроссплатформенного интерфейса командной строки
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Настройка профилей журнала с использованием Azure CLI 2.0
+
 #### <a name="get-existing-log-profile"></a>Получение существующего профиля журнала
+
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
-azure insights logprofile list
-```
-```
-azure insights logprofile get --name my_log_profile
-```
+
 Свойство `name` должно содержать имя профиля журнала.
 
 #### <a name="add-a-log-profile"></a>Добавление профиля журнала
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+
+```azurecli
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
-| Свойство | Обязательно | ОПИСАНИЕ |
-| --- | --- | --- |
-| name |Yes |Имя профиля журнала. |
-| storageId |Нет  |Идентификатор ресурса для учетной записи хранения, в которую будет сохранен журнал действий. |
-| serviceBusRuleId |Нет  |Идентификатор правила служебной шины для пространства имен служебной шины, в котором вы будут созданы концентраторы событий. Это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Расположения |Yes |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. |
-| RetentionInDays |Yes |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы хранятся неограниченно долго, то есть всегда. |
-| Категории |Нет  |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
+Полную документацию по созданию профиля монитора с помощью CLI см. в [справочнике по командам CLI](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create).
 
 #### <a name="remove-a-log-profile"></a>Удаление профиля журнала
-```
-azure insights logprofile delete --name my_log_profile
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

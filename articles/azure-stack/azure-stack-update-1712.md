@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Обновление 1712 Azure Stack
 
@@ -43,11 +43,14 @@ ms.lasthandoff: 04/03/2018
 Прежде чем применять это обновление, нужно сначала установить [обновление 1711 ](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) Azure Stack.
 
 ### <a name="post-update-steps"></a>Действия после обновления
+- Когда обновление 1712 установится, установите все применимые исправления. Дополнительные сведения см. в статьях базы знаний по ссылке ниже, а также в статье о нашей [политике обслуживания](azure-stack-servicing-policy.md).  
+  - Ознакомьтесь со статьей базы знаний [KB 4103348 об аварийном завершении работы службы API сетевого контроллера при попытке установить обновление Azure Stack](https://support.microsoft.com/help/4103348).
 
-После установки обновления 1712 Azure Stack это обновление также требует установки обновлений встроенного ПО от партнера OEM.
 
-> [!NOTE]
-> Обновления можно скачать на веб-сайте партнера OEM.
+- После установки обновления 1712 Azure Stack также требуется установить обновления встроенного ПО от партнера OEM.
+
+  > [!NOTE]
+  > Обновления можно скачать на веб-сайте партнера OEM.
 
 ### <a name="new-features-and-fixes"></a>Новые функции и исправления
 

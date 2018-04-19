@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Обновление 1802 Azure Stack
 
@@ -56,7 +56,9 @@ ms.lasthandoff: 04/03/2018
 
 
 ### <a name="post-update-steps"></a>Действия после обновления
-*Действия после обновления для обновления 1802 отсутствуют.*
+После установки 1802 установите все применимые исправления. Дополнительные сведения см. в статьях базы знаний по ссылке ниже, а также в статье о нашей [политике обслуживания](azure-stack-servicing-policy.md).  
+- Ознакомьтесь со статьей базы знаний [KB 4103348 об аварийном завершении работы службы API сетевого контроллера при попытке установить обновление Azure Stack](https://support.microsoft.com/help/4103348).
+
 
 
 ### <a name="new-features-and-fixes"></a>Новые функции и исправления
@@ -82,7 +84,7 @@ ms.lasthandoff: 04/03/2018
 
 - **Добавлена поддержка нескольких доменов сбоя**.  Дополнительные сведения см. в статье [Основные возможности и концепции Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Различные исправления** производительности, стабильности, безопасности и ОС, используемой службой Azure Stack.
+- **Различные исправления** производительности, стабильности, безопасности и операционной системы, используемой службой Azure Stack.
 
 <!--
 #### New features
@@ -141,6 +143,10 @@ ms.lasthandoff: 04/03/2018
 
 #### <a name="compute"></a>Среда выполнения приложений
 - Параметры масштабирования для масштабируемых наборов виртуальной машины на портале недоступны. В качестве обходного решения используйте [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Из-за различий между версиями PowerShell используйте параметр `-Name` вместо параметра `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  В версии 1803 эта проблема устранена. Чтобы устранить эту проблему для версии 1802, установите исправление Azure Stack **1.0.180302.4**. Дополнительные сведения см. в статье базы знаний [KB 4131152 о непригодности к использованию существующих масштабируемых наборов виртуальных машин]( https://support.microsoft.com/help/4131152). 
 
 - Azure Stack поддерживает использование фиксированных VHD. Некоторые образы, предлагаемые в Marketplace для Azure Stack, используют динамические VHD, но они были удалены. Если изменить размер виртуальной машины, к которой подключен динамический диск, это приведет к сбою работы виртуальной машины.
 

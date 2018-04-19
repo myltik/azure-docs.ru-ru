@@ -1,12 +1,12 @@
 ---
-title: "Агрегирование событий Azure Service Fabric c помощью системы диагностики Azure для Linux | Документы Майкрософт"
-description: "Ознакомьтесь со сведениями об агрегировании и сборе событий с использованием LAD для мониторинга и диагностики кластеров Azure Service Fabric."
+title: Агрегирование событий Azure Service Fabric c помощью системы диагностики Azure для Linux | Документы Майкрософт
+description: Ознакомьтесь со сведениями об агрегировании и сборе событий с использованием LAD для мониторинга и диагностики кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9ad63a67d3b51cad1376eb9e97e68fb9102013e3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Агрегирование и сбор событий с помощью системы диагностики Azure для Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Централизованное хранение журналов упрощает анализ и устранение неполадок в кластере, а также в приложениях и службах, работающих в этом кластере.
 
-Один из способов отправки и сбора журналов заключается в использовании расширения системы диагностики Azure для Linux (LAD), которое отправляет журналы в службу хранилища Azure, а также может отправлять журналы в Azure Application Insights или концентраторы событий. Вы также можете использовать внешний процесс, чтобы считывать события из хранилища и передавать их в платформу обработки, например [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов.
+Один из способов отправки и сбора журналов заключается в использовании расширения системы диагностики Azure для Linux (LAD), которое отправляет журналы в службу хранилища Azure, а также может отправлять журналы в Azure Application Insights или концентраторы событий. Вы также можете использовать внешний процесс, чтобы считывать события из хранилища и помещать их на платформу обработки, например в [Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов.
 
 ## <a name="log-and-event-sources"></a>Источники журналов и событий
 
@@ -52,4 +52,4 @@ Service Fabric создает несколько готовых журналов
 ## <a name="next-steps"></a>Дополнительная информация
 
 1. Дополнительные сведения о том, какие события нужно анализировать при устранении неполадок, см. в [документации по LTTng](http://lttng.org/docs) и статье [Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-2. [Настройте агент OMS](service-fabric-diagnostics-event-analysis-oms.md) для сбора метрик, отслеживания развернутых в кластере контейнеров и визуализации журналов. 
+2. [Настройте агент Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) для сбора метрик, мониторинга развернутых в кластере контейнеров и визуализации журналов. 

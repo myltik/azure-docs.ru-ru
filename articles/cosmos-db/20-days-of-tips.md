@@ -1,23 +1,23 @@
 ---
-title: "Советы по использованию \"20 дней с Azure Cosmos DB\" | Документация Майкрософт"
-description: "Все советы из серии \"20 дней с Azure Cosmos DB\" от Симоны Котин (Simona Cotin) в одном месте."
+title: Советы по использованию "20 дней с Azure Cosmos DB" | Документация Майкрософт
+description: Все советы из серии "20 дней с Azure Cosmos DB" от Симоны Котин (Simona Cotin) в одном месте.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Советы по использованию "20 дней с Azure Cosmos DB"
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-2-seeing-is-believing"></a>Совет 2. Не увидишь — не поверишь
 
-Не увидишь — не поверишь. Используйте визуальный интерфейс портала Azure #cosmosDB, чтобы изучить базу данных и выполнить к ней запросы. [https://aka.ms/jprf75](https://aka.ms/jprf75)
+Не увидишь — не поверишь. Используйте визуальный интерфейс Cosmos DB на портале Azure, чтобы изучить базу данных и выполнить к ней запросы [https://aka.ms/jprf75](https://aka.ms/jprf75)
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>Совет 8. Создание приложения Node.js с помощью API SQL
 
-Совет 8. Создайте приложение @nodejs с помощью API SQL и Azure #CosmosDB. Дополнительные сведения см. на странице документации [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8).  
+Совет 8. Создайте приложение @nodejs с помощью API SQL и Azure #CosmosDB. Дополнительные сведения на странице документов [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-9-query-using-mongodb-in-nodejs"></a>Совет 9. Выполнение запросов в Node.js с помощью MongoDB
 
-Совет 9. Выполните запрос к Azure #CosmosDB с помощью API MongoDB в Node.js. Дополнительные сведения см. на странице документации [https://aka.ms/Dert0r](https://aka.ms/Dert0r).  
+Совет 9. Выполните запрос к Azure #CosmosDB с помощью API MongoDB в Node.js. Дополнительные сведения на странице документов [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
 
 ![Выполнение запросов с помощью MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>Совет 10. Копирование данных MongoDB с помощью Studio 3T
 
-Совет 10. Узнайте, как копировать данные MongoDB в Azure Cosmos DB с помощью Studio 3T (MongoChef). Документы доступны на странице [https://aka.ms/apzhww](https://aka.ms/apzhww).
+Совет 10. Узнайте, как копировать данные MongoDB в Azure Cosmos DB с помощью Studio 3T (MongoChef). Документация на странице [https://aka.ms/apzhww](https://aka.ms/apzhww)
 
 > [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-12-go-serverless"></a>Совет 12. Независимость от сервера
 
-Совет 12. Добейтесь независимости от сервера с помощью Azure #CosmosDB и @AzureFunctions! Полная документация доступна на странице [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j).
+Совет 12. Добейтесь независимости от сервера с помощью Azure #CosmosDB и @AzureFunctions! Полная документация на странице [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
 
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-15-vs-code-integration"></a>Совет 15. Интеграция кода
 
-Совет 15. Создайте учетную запись Azure #CosmosDB, не выходя из @code. Установка расширения из [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+Совет 15. Создайте учетную запись Azure #CosmosDB, не выходя из @code. Установка расширения со страницы [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
 
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>Совет 16. Ролик про функции и Twilio
 
-Совет 16. Отличный ролик! Интеграция Azure Cosmos DB, функций и @twilio для отправки SMS при любом изменении базы данных. Документация доступна на странице [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d). 
+Совет 16. Отличный ролик! Интеграция Azure Cosmos DB, функций и @twilio для отправки SMS при любом изменении базы данных. Документация на странице [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>Совет 17. Использование дискриминаторов Mongoose
 
-Совет 17. Оптимизируйте затраты, используя дискриминаторы Mongoose для хранения нескольких сущностей в одной коллекции Cosmos DB: [https://aka.ms/M488jm](https://aka.ms/M488jm).
+Совет 17. Оптимизируйте затраты, используя дискриминаторы Mongoose для хранения нескольких сущностей в одной коллекции Cosmos DB: [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 Блог. [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection](https://aka.ms/M488jm) (Использование дискриминаторов Mongoose для хранения нескольких сущностей в одной коллекции Cosmos DB) Автор: Энтони Чу (Anthony Chu).
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-18-request-units"></a>Совет 18. Единицы запросов
 
-Совет 18. Что такое единицы запроса (ЕЗ) и как их настроить в Azure #CosmosDB. Дополнительные сведения см. в статье [Единицы запросов в базе данных Azure Cosmos DB](https://aka.ms/Kt2nbn) 
+Совет 18. Что такое единицы запроса (ЕЗ) и как их настроить в Azure #CosmosDB. Дополнительная документация на странице [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Статья: [Единицы запросов в базе данных Azure Cosmos DB](https://aka.ms/Kt2nbn)
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-19-partition-partition-partition"></a>Совет 19. Раздел! Раздел! Раздел! 
 
-Совет 19. Раздел! Раздел! Раздел! Ответы на вопросы "зачем" и "как", связанные с Azure #CosmosDB. Документацию см. в статье [Секционирование и масштабирование в Azure Cosmos DB](https://aka.ms/Ts5pon)  
+Совет 19. Раздел! Раздел! Раздел! Ответы на вопросы "зачем" и "как", связанные с Azure #CosmosDB. Документация на странице [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
 
 > [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="tip-20-cheatsheet"></a>Совет 20. Памятка
 
-Совет 20. Все любят старые добрые памятки В Azure #CosmosDB есть такие. См. статью [Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF](https://aka.ms/Nt01nl)
+Совет 20. Все любят старые добрые памятки В Azure #CosmosDB есть такие. См. дополнительные сведения на странице [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
 [Памятка по SQL-запросам Azure Cosmos DB в формате PDF](https://aka.ms/Nt01nl)
 

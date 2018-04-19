@@ -1,13 +1,13 @@
 ---
-title: "Миграция из AWS и других платформ на управляемые диски Azure | Документация Майкрософт"
-description: "Создание виртуальных машин в Azure на основе виртуальных жестких дисков, отправленных из других облаков, например AWS, или с других платформ виртуализации, с использованием управляемых дисков Azure."
+title: Миграция из AWS и других платформ на управляемые диски Azure | Документация Майкрософт
+description: Создание виртуальных машин в Azure на основе виртуальных жестких дисков, отправленных из других облаков, например AWS, или с других платформ виртуализации, с использованием управляемых дисков Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Переход из Amazon Web Services (AWS) и других платформ на Управляемые диски Azure
 
@@ -55,6 +55,7 @@ ms.lasthandoff: 12/07/2017
 
 Этот раздел поможет выбрать соответствующие виртуальные машины и типы дисков.
 
+При планировании миграции с неуправляемых дисков до управляемых следует учитывать, что пользователи с ролью [Участник виртуальных машин](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) не смогут изменять размер виртуальной машины (как это было возможно перед преобразованием). Причина в том, что виртуальные машины с управляемыми дисками требуют разрешения Microsoft.Compute/disks/write для дисков операционной системы.
 
 ### <a name="location"></a>Расположение
 

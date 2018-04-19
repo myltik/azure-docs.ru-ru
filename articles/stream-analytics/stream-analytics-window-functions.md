@@ -1,24 +1,19 @@
 ---
-title: Введение в функции окна Stream Analytics | Документация Майкрософт
-description: Узнайте о трех функциях окна в Stream Analytics ("переворачивающееся", "прыгающее" и "скользящее" окно).
-keywords: "\"переворачивающееся\" окно, \"скользящее\" окно, \"прыгающее\" окно"
-documentationcenter: ''
+title: Общие сведения о функции управления окнами Azure Stream Analytics
+description: В этой статье описаны три функции управления окнами ("переворачивающееся", "прыгающее" и "скользящее" окно), которые используются в заданиях Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Введение в функции окна Stream Analytics
 При использовании потоковой передачи во многих случаях необходимо выполнять операции только с теми данными, которые содержатся во временных окнах. Ключевой возможностью Azure Stream Analytics является встроенная поддержка функций управления окнами, которая существенно повышает производительность разработчиков при создании сложных задач обработки потоков. Stream Analytics позволяет разработчикам использовать [**"переворачивающиеся"**](https://msdn.microsoft.com/library/dn835055.aspx), [**"прыгающие"**](https://msdn.microsoft.com/library/dn835041.aspx) и [**"скользящие"**](https://msdn.microsoft.com/library/dn835051.aspx) окна для временных операций при потоковой передаче данных. Следует отметить, что все операции с [окном](https://msdn.microsoft.com/library/dn835019.aspx) выводят результаты в **конце** этого окна. Результатом для окна будет единичное событие, полученное на основе выбранной статистической функции. Метка времени для этого события соответствует времени завершения окна, и все функции окна выполняются с фиксированной длительностью. И последнее важное замечание: все функции окна следует использовать в предложении [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -41,7 +36,7 @@ ms.lasthandoff: 03/30/2018
 ![Введение в функции "скользящего" окна в Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Справочные сведения по функциям окна
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

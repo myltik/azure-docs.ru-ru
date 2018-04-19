@@ -1,11 +1,11 @@
 ---
-title: "Настройка Apache Tomcat на виртуальной машине Linux | Документация Майкрософт"
-description: "Сведения о настройке Apache Tomcat7 с помощью виртуальной машины Azure под управлением Linux."
+title: Настройка Apache Tomcat на виртуальной машине Linux | Документация Майкрософт
+description: Сведения о настройке Apache Tomcat7 с помощью виртуальной машины Azure под управлением Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Настройка Tomcat7 на виртуальной машине Linux с использованием Azure
 Apache Tomcat (или просто Tomcat, ранее также именуемый Jakarta Tomcat) — это веб-сервер с открытым исходным кодом и контейнер сервлетов, разработанный Apache Software Foundation (ASF). Tomcat реализует спецификации технологий Java Servlet и JavaServer Pages (JSP) от Sun Microsystems, а также обеспечивает чистую среду HTTP-веб-серверов Java для выполнения Java-кода. При самой простой конфигурации Tomcat запускается с помощью одного процесса в операционной системе. Этот процесс запускает виртуальную машину Java. Каждый HTTP-запрос браузера к серверу Tomcat обрабатывается как отдельный поток в рамках процесса Tomcat.  

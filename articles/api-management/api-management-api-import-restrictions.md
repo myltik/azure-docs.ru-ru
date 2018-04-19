@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Ограничения и известные проблемы при импорте API
 ## <a name="about-this-list"></a>Об этом списке
@@ -27,9 +27,11 @@ ms.lasthandoff: 04/03/2018
 ## <a name="open-api"> </a>Open API/Swagger
 Если возникают ошибки при импорте документа Open API, то необходимо проверить, утвержден ли этот процесс. Это можно сделать с помощью конструктора на новом портале Azure ("Конструктор" > "Интерфейс" > Open API Specification Editor (Редактор спецификации Open API)) или инструмента стороннего разработчика, такого как <a href="http://www.swagger.io">редактор Swagger</a>.
 
-* **Имя узла**: для службы управления API требуется указать атрибут имени узла.
-* **Базовый путь**: для службы управления API требуется указать атрибут базового пути.
-* **Схемы**: для службы управления API требуется указать массив схем.
+* Поддерживается только формат JSON для OpenAPI.
+* Схемы, ссылки на которые добавлены с помощью свойств **$ref**, не должны содержать другие свойства **$ref**.
+* Указатели **$ref** не должны использоваться для внешних файлов.
+* Поддерживаются только расширения **x-ms-paths** и **x-servers**.
+* Настраиваемые расширения игнорируются при импорте и не сохраняются для экспорта.
 
 > [!IMPORTANT]
 > Важные сведения и советы, связанные с импортом OpenAPI, см. в этом [документе](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/).

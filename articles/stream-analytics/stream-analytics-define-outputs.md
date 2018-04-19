@@ -1,26 +1,21 @@
 ---
-title: 'Выходные данные Stream Analytics: возможности хранения и анализа | Документация Майкрософт'
+title: Типы выходных данных из заданий Azure Stream Analytics
 description: Узнайте о вариантах вывода данных Stream Analytics, включая данные Power BI, для получения результатов анализа.
-keywords: преобразование данных, результаты анализа, параметры хранилища данных
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Выходные данные Stream Analytics: возможности хранения и анализа
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Выходные данные Stream Analytics: возможности хранения и анализа
 Создавая задание Stream Analytics, необходимо учитывать, каким образом будут использоваться полученные данные. Каким образом будут просматриваться результаты задания Stream Analytics и где они будут храниться
 
 Для работы с различными шаблонами приложений служба Azure Stream Analytics предлагает различные параметры хранения выходных данных и просмотра результатов анализа. Это позволяет легко просматривать выходные данные задания, гибко их применять, отправлять в хранилище и использовать в других целях. Любой выход, настраиваемый в задании, должен существовать до момента запуска задания и начала потока событий. Например, при выводе данных в хранилище BLOB-объектов задание не создаст учетную запись хранения автоматически. Перед запуском задания Stream Analytics создайте учетную запись хранения.
@@ -342,7 +337,7 @@ Azure Stream Analytics вызывает Функции Azure через триг
 
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дополнительная информация
 Вы получили основные сведения о Stream Analytics, управляемой службе аналитики потоковой передачи данных из Интернета вещей. Дополнительные сведения об этой службе см. на следующих ресурсах:

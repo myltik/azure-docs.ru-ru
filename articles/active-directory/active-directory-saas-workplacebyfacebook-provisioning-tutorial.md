@@ -1,6 +1,6 @@
 ---
-title: "Руководство по настройке Workplace by Facebook для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Сведения о настройке единого входа между Azure Active Directory и Workplace by Facebook."
+title: Руководство по настройке Workplace by Facebook для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Сведения о настройке единого входа между Azure Active Directory и Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Руководство по настройке Workplace by Facebook для автоматической подготовки пользователей
 
@@ -75,7 +75,7 @@ Azure AD поддерживает автоматическую синхрони�
 
     ![Подготовка](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. В разделе **Учетные данные администратора** введите секретный токен администратора Workplace by Facebook и укажите URL-адрес клиента, `https://www.facebook.com/scim/v1/`.
+5. В разделе **Учетные данные администратора** введите маркер доступа администратора из Workplace by Facebook и укажите URL-адрес клиента, `https://www.facebook.com/scim/v1/`. Ознакомьтесь с [инструкциями](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) по созданию маркера доступа для Workplace. 
 
 6. На портале Azure щелкните **Проверить подключение** и убедитесь, что Azure AD может подключиться к приложению Workplace by Facebook. Если подключение отсутствует, убедитесь, что у учетной записи Workplace by Facebook есть разрешения администратора команды.
 
@@ -91,7 +91,7 @@ Azure AD поддерживает автоматическую синхрони�
 
 12. Нажмите кнопку **Сохранить**.
 
-Дополнительные сведения о настройке автоматической подготовки см. на странице [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
+Дополнительные сведения о настройке автоматической подготовки см. по адресу [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
 
 Теперь можно создать тестовую учетную запись. Подождите примерно 20 минут, чтобы убедиться, что учетная запись была синхронизирована с Workplace by Facebook.
 

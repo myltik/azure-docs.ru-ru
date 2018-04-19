@@ -1,13 +1,13 @@
 ---
-title: "Развертывание первого приложения в Cloud Foundry в Microsoft Azure | Документация Майкрософт"
-description: "Сведения о развертывании приложения в Cloud Foundry в Azure"
+title: Развертывание первого приложения в Cloud Foundry в Microsoft Azure | Документация Майкрософт
+description: Сведения о развертывании приложения в Cloud Foundry в Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Развертывание первого приложения в Cloud Foundry в Microsoft Azure
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 - [Разверните пакеты Cloud Foundry напрямую][oss-cf-bosh], настроив директор [BOSH](http://bosh.io), виртуальную машину, координирующую развертывание среды Cloud Foundry.
 
 > [!IMPORTANT] 
-> Если вы развертываете PCF из Azure Marketplace, запишите SYSTEMDOMAINURL и учетные данные администратора, необходимые для доступа к Pivotal Apps Manager (описано в руководстве по развертыванию Marketplace). Эти значения необходимы для работы с этим руководством. Для развертываний Marketplace значение SYSTEMDOMAINURL представлено в форме https://system.*IP-адрес*.cf.pcfazure.com.
+> Если вы развертываете PCF из Azure Marketplace, запишите SYSTEMDOMAINURL и учетные данные администратора, необходимые для доступа к Pivotal Apps Manager (описано в руководстве по развертыванию Marketplace). Эти значения необходимы для работы с этим руководством. Для развертываний Marketplace значение SYSTEMDOMAINURL представлено в форме https://system.*ip-address*.cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Подключение к Cloud Controller
 

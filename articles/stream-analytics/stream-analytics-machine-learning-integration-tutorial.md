@@ -1,25 +1,19 @@
 ---
-title: Интеграция Azure Stream Analytics и Машинного обучения Azure | Документация Майкрософт
-description: Использование определяемой пользователем функции и машинного обучения в задании Stream Analytics.
-keywords: ''
-documentationcenter: ''
+title: Интеграция Azure Stream Analytics со службой "Машинное обучение Azure"
+description: В этой статье описывается, как быстро настроить простое задание Azure Stream Analytics, интегрированное со службой "Машинное обучение Azure" с помощью определяемой пользователем функции.
 services: stream-analytics
-author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/01/2018
-ms.author: sngun
-ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Выполнение анализа тональности с помощью Azure Stream Analytics и Машинного обучения Azure
 В этой статье описывается, как быстро настроить простое задание Azure Stream Analytics, интегрированное с Машинным обучением Azure. Вы используете модель машинного обучения для анализа тональности из коллекции Cortana Intelligence для анализа потока текстовых данных, а также определения оценки тональности в реальном времени. С помощью Cortana Intelligence Suite вы сможете выполнить эту задачу, не вникая в особенности создания модели анализа тональности.

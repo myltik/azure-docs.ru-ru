@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Мониторинг сетевых подключений с помощью службы "Наблюдатель за сетями Azure" с использованием портала Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/03/2018
 
 * Экземпляр службы "Наблюдатель за сетями" в регионе, в котором нужно отслеживать подключение. Если у вас его еще нет, создайте экземпляр, следуя инструкциям в статье [Создание экземпляра Наблюдателя за сетями Azure](network-watcher-create.md).
 * Виртуальная машина, используемая для отслеживания. Дополнительные сведения о создании виртуальной машины Windows или Linux см. в [этой](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) или [этой](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) статье соответственно.
-* Расширение `AzureNetworkWatcherExtension`, установленное на виртуальной машине, с которой вы хотите отслеживать подключение. Сведения об установке расширения виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), а для виртуальной машины Linux — [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* Расширение `AzureNetworkWatcherExtension`, установленное на виртуальной машине, с которой вы хотите отслеживать подключение. Сведения об установке расширения виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), а для виртуальной машины Linux — [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Это расширение не нужно устанавливать на целевой конечной точке, которая будет отслеживаться.
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure 
 
