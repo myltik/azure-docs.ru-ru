@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Руководство по безопасности службы хранилища Azure
 
@@ -85,16 +85,16 @@ ms.lasthandoff: 03/30/2018
 * С помощью PowerShell или интерфейса командной строки Azure можно создать отчет, содержащий сведения о том, кто предоставил или отозвал доступ, с какими правами, для каких пользователей и в какой области действия.
 
 #### <a name="resources"></a>Ресурсы
-* [Контроль доступа на основе ролей Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
+* [Контроль доступа на основе ролей Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   В этой статье описывается система управления доступом на основе ролей в Azure Active Directory и принципы ее работы.
-* [RBAC: встроенные роли](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: встроенные роли](../../role-based-access-control/built-in-roles.md)
 
   В этой статье подробно описываются встроенные роли RBAC.
 * [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   В этой статье рассматриваются модель развертывания с помощью Resource Manager и классическая модель, а также описываются преимущества использования Resource Manager и групп ресурсов. В ней описывается, как работают поставщики вычислительных и сетевых ресурсов, а также ресурсов службы хранилища Azure в рамках модели Resource Manager.
-* [Управление доступом на основе ролей с помощью интерфейса REST API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Управление доступом на основе ролей с помощью интерфейса REST API](../../role-based-access-control/role-assignments-rest.md)
 
   В этой статье показано, как использовать REST API для управления RBAC.
 * [Справочник по API REST поставщика ресурсов службы хранилища Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)

@@ -3,22 +3,21 @@ title: Использование хранилища таблиц службы �
 description: Сведения о том, как использовать API хранилища таблиц в PHP для создания и удаления таблиц, вставки и удаления строк, а также создания запросов к таблицам.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Использование хранилища таблиц службы хранилища Azure или API таблиц Cosmos DB в PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 04/06/2018
 ## <a name="overview"></a>Обзор
 Из этого руководства вы узнаете, как реализовать стандартные сценарии с использованием хранилища таблиц службы хранилища Azure и API таблиц Azure Cosmos DB. В приведенных здесь примерах, написанных на PHP, используется [клиентская библиотека таблиц службы хранилища Azure][download]. Здесь рассматриваются такие сценарии, как **создание и удаление таблицы**, а также **вставка, удаление и запрашивание сущностей в таблице**. Дополнительные сведения о службе таблиц Azure см. в разделе [Дальнейшие действия](#next-steps).
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>Создание учетной записи службы Azure
 
-Вы можете работать с таблицами, используя хранилище таблиц Azure или API таблиц Azure Cosmos DB. Дополнительные сведения о различиях между службами см. в разделе о [предложениях для работы с таблицами](table-introduction.md#table-offerings). Для службы, которую вы планируете использовать, потребуется создать учетную запись. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 
-Самый простой способ создать первую учетную запись хранения — воспользоваться [порталом Azure](https://portal.azure.com). Дополнительную информацию см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-Учетную запись хранения также можно создать с помощью [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) или [Azure CLI](../storage/common/storage-azure-cli.md).
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Создание учетной записи API таблиц Azure Cosmos DB
 
-Если вы не хотите сейчас создавать учетную запись хранения, код можно запустить и протестировать в локальной среде с помощью эмулятора хранения Azure. Дополнительные сведения см. в руководстве по [использованию эмулятора хранения Azure для разработки и тестирования](../storage/common/storage-use-emulator.md).
-
-### <a name="create-an-azure-cosmos-db-account"></a>создание учетной записи Azure Cosmos DB;
-
-Инструкции по созданию учетной записи Azure Cosmos DB см. в разделе о [создании учетной записи API таблиц](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>Создание приложения PHP
 

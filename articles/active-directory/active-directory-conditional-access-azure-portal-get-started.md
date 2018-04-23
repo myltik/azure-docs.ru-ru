@@ -1,12 +1,12 @@
 ---
-title: "Начало работы с условным доступом в Azure Active Directory | Документы Майкрософт"
-description: "Тестирование условного доступа с помощью условия расположения."
+title: Начало работы с условным доступом в Azure Active Directory | Документы Майкрософт
+description: Тестирование условного доступа с помощью условия расположения.
 services: active-directory
-keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
-documentationcenter: 
+keywords: условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Начало работы с условным доступом в Azure Active Directory
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="scenario-description"></a>Описание сценария
 
-Во многих организациях общим требованием является обязательная многофакторная идентификация для доступа к приложениям, который выполняется не из корпоративной интрасети. Вы легко можете реализовать это с помощью Azure Active Directory, настроив политику условного доступа на основе расположения. В этой статье вы найдете подробные инструкции по настройке соответствующей политики. С помощью [надежных IP-адресов](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) политика отличает попытки доступа из корпоративной интрасети от попыток доступа из остальных расположений.
+Во многих организациях общим требованием является обязательная многофакторная идентификация для доступа к приложениям, который выполняется не из корпоративной интрасети. Вы легко можете реализовать это с помощью Azure Active Directory, настроив политику условного доступа на основе расположения. В этой статье вы найдете подробные инструкции по настройке соответствующей политики. С помощью [надежных IP-адресов](authentication/howto-mfa-mfasettings.md#trusted-ips) политика отличает попытки доступа из корпоративной интрасети от попыток доступа из остальных расположений.
 
 
 ## <a name="prerequisites"></a>предварительным требованиям
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/16/2018
 
 - Настроить надежные IP-адреса.
 
-Дополнительные сведения о надежных IP-адресах см. в разделе [Надежные IP-адреса](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+Дополнительные сведения о надежных IP-адресах см. в разделе [Надежные IP-адреса](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## <a name="policy-configuration-steps"></a>Настройка политики

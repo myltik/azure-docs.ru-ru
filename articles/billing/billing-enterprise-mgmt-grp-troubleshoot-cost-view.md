@@ -1,10 +1,10 @@
 ---
-title: "Устранение неполадок в представлении корпоративных затрат в Azure | Документация Майкрософт"
-description: "Узнайте, как устранить все проблемы, связанные с представлением организационных затрат в пределах портала Azure."
+title: Устранение неполадок в представлении корпоративных затрат в Azure | Документация Майкрософт
+description: Узнайте, как устранить все проблемы, связанные с представлением организационных затрат в пределах портала Azure.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 527e12cdcc4eaebf98708c389dd21e8ac6ae4ac7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Устранение неполадок в представлении затрат на условиях соглашения Enterprise 
 
-В рамках регистрации на предприятии с помощью некоторых настроек можно ограничить возможность пользователей просматривать затраты.  Этими параметрами управляет администратор регистрации или партнер, если Соглашение о регистрации не приобретено непосредственно в Майкрософт.  В этой статье содержится обзор параметров, а также их взаимосвязи с регистрацией. Эти параметры не зависят от [ролей RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+В рамках регистрации на предприятии с помощью некоторых настроек можно ограничить возможность пользователей просматривать затраты.  Этими параметрами управляет администратор регистрации или партнер, если Соглашение о регистрации не приобретено непосредственно в Майкрософт.  В этой статье содержится обзор параметров, а также их взаимосвязи с регистрацией. Эти параметры не зависят от [ролей RBAC Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Включение доступа к затратам
@@ -44,4 +44,4 @@ ms.lasthandoff: 02/23/2018
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Свяжитесь с административной группой подписки или группой управления, чтобы получить доступ.  
-* Чтобы получить доступ к подпискам, ознакомьтесь со статьей [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), чтобы узнать о необходимой роли.
+* Чтобы получить доступ к подпискам, ознакомьтесь со статьей [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), чтобы узнать о необходимой роли.

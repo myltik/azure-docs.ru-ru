@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8497e8f7b268c52878648d08f94dde6bb81ff94
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca8d5a26205e65668d46be6b558d596ab066c5f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Руководство: создание фабрики данных с помощью Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/23/2018
   
 ### <a name="prerequisites"></a>предварительным требованиям
 1. Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** . Чтобы перейти к статье, вы также можете выбрать в раскрывающемся списке в верхней области параметр **Обзор и предварительные требования**. После выполнения предварительных требований вам необходимо снова вернуться к этой статье. Для этого выберите в раскрывающемся списке параметр **Visual Studio**.
-2. Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.  
+2. Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../role-based-access-control/built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.  
 3. На вашем компьютере должны быть установлены следующие компоненты:
    * Visual Studio 2013 или Visual Studio 2015.
    * Загрузите пакет SDK Azure для Visual Studio 2013 или Visual Studio 2015. Перейдите на [cтраницу загрузки Azure](https://azure.microsoft.com/downloads/) и щелкните **VS 2013** или **VS2015** в разделе **.NET**.

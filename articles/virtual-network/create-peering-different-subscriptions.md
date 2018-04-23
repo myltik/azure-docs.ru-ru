@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Создание пиринга виртуальных сетей, развернутых с помощью Resource Manager в разных подписках 
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 04/06/2018
 
 1. Установите последнюю версию модуля [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) PowerShell. Если вы еще не работали с Azure PowerShell, ознакомьтесь со статьей [Overview of Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Общие сведения об Azure PowerShell).
 2. Запустите сеанс PowerShell.
-3. В PowerShell войдите в Azure как пользователь A, введя команду `login-azurermaccount`. У учетной записи, используемой для входа, должны быть необходимые разрешения для создания пиринга виртуальных сетей. Список разрешений см. в разделе [Создание, изменение и удаление пиринга в виртуальной сети](virtual-network-manage-peering.md#permissions).
+3. В PowerShell войдите в Azure как пользователь A, введя команду `Connect-AzureRmAccount`. У учетной записи, используемой для входа, должны быть необходимые разрешения для создания пиринга виртуальных сетей. Список разрешений см. в разделе [Создание, изменение и удаление пиринга в виртуальной сети](virtual-network-manage-peering.md#permissions).
 4. Создайте группу ресурсов и виртуальную сеть myVnetA. Скопируйте приведенный ниже сценарий в текстовый редактор на своем компьютере. Замените `<SubscriptionA-Id>` идентификатором подписки A. Если вам неизвестен идентификатор подписки, введите команду `Get-AzureRmSubscription`, чтобы просмотреть его. Значение **Id** (Идентификатор) в полученных выходных данных является идентификатором вашей подписки. Чтобы выполнить сценарий, скопируйте измененный сценарий, вставьте его в окно сеанса PowerShell и нажмите клавишу `Enter`.
 
     ```powershell

@@ -5,7 +5,7 @@
 ## [PIM для ресурсов Azure](azure-pim-resource-rbac.md)
 ## [Рабочий процесс утверждения PIM](azure-ad-pim-approval-workflow.md)
 ## [Роли](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Утверждение управления привилегированными пользователями](azure-ad-pim-approval-workflow.md)
+
 
 
 # Начало работы

@@ -1,0 +1,204 @@
+- name: Документация по Машинному обучению Azure (предварительная версия)
+  href: index.yml
+- name: Обзор
+  expanded: true
+  items:
+    - name: Сведения о Машинном обучении Azure
+      href: ../desktop-workbench/overview-what-is-azure-ml.md
+    - name: Обзор службы "Управление моделями"
+      href: ../desktop-workbench/model-management-overview.md
+    - name: Другие продукты Машинного обучения
+      href: ../desktop-workbench/overview-more-machine-learning.md
+    - name: Новые возможности
+      href: ../desktop-workbench/azure-machine-learning-release-notes.md
+- name: Быстрое начало работы
+  items:
+    - name: Установка и запуск
+      href: ../desktop-workbench/quickstart-installation.md
+- name: Учебники
+  items:
+    - name: 1. Подготовка данных
+      href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
+    - name: 2. Сборка моделей
+      href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
+    - name: 3. Развертывание моделей
+      href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
+    - name: 4. Расширенная подготовка данных
+      href: ../desktop-workbench/tutorial-bikeshare-dataprep.md
+- name: Основные понятия
+  items:
+    - name: Основные понятия
+      href: ../desktop-workbench/overview-general-concepts.md
+- name: Практические руководства
+  items:
+    - name: Основные задачи CLI
+      href: ../desktop-workbench/cli-for-azure-machine-learning.md
+    - name: Использование Workbench
+      items:
+        - name: Работа с интегрированными средами разработки Python
+          href: ../desktop-workbench/how-to-configure-your-IDE.md
+        - name: Использование записных книжек Jupyter
+          href: ../desktop-workbench/how-to-use-jupyter-notebooks.md
+        - name: Интеграция с репозиториями Git
+          href: ../desktop-workbench/using-git-ml-project.md
+        - name: Структурирование проектов с помощью процесса обработки и анализа данных группы
+          href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+        - name: Роуминг и совместная работа
+          href: ../desktop-workbench/roaming-and-collaboration.md
+    - name: Использование расширений IDE
+      items:
+        - name: Использование инструментов Visual Studio для ИИ
+          href: ../desktop-workbench/quickstart-visual-studio-tools.md
+        - name: Использование средств Visual Studio Code для искусственного интеллекта
+          href: ../desktop-workbench/quickstart-visual-studio-code-tools.md
+    - name: Использование набора средств для работы с ИИ для Azure IoT Edge
+      href: ../desktop-workbench/use-azure-iot-edge-ai-toolkit.md
+    - name: Настройка вычислительной среды
+      items:
+        - name: Настройка экспериментирования
+          href: ../desktop-workbench/experimentation-service-configuration.md
+        - name: Создание кластера HDInsight Spark и виртуальной машины для обработки и анализа данных
+          href: ../desktop-workbench/how-to-create-dsvm-hdi.md
+        - name: Обучение с помощью графических процессоров
+          href: ../desktop-workbench/how-to-use-gpu.md
+    - name: Получение и интерпретация данных
+      items:
+        - name: Добавление источника данных
+          href: ../desktop-workbench/data-source-wizard.md
+        - name: Руководство по подготовке данных
+          href: ../desktop-workbench/data-prep-getting-started.md
+        - name: Расширенная подготовка данных
+          href: ../desktop-workbench/data-prep-user-guide.md
+        - name: Преобразование подготовки данных
+          href: ../desktop-workbench/data-prep-appendix3-supported-transforms.md
+          items:
+            - name: Объединение столбцов по образцу
+              href: ../desktop-workbench/data-prep-combine-columns-by-example.md
+            - name: Получение столбцов по образцу
+              href: ../desktop-workbench/data-prep-derive-column-by-example.md
+            - name: Разделение столбцов по образцу
+              href: ../desktop-workbench/data-prep-split-column-by-example.md
+            - name: Развертывание JSON
+              href: ../desktop-workbench/data-prep-expand-json.md
+    - name: Разработка моделей
+      items:
+        - name: Классификация Iris с помощью CLI
+          href: ../desktop-workbench/tutorial-iris-azure-cli.md
+        - name: Отслеживание журнала выполнения и метрик модели
+          href: ../desktop-workbench/how-to-use-run-history-model-metrics.md
+        - name: Поиск операций запуска с максимальной точностью
+          href: ../desktop-workbench/how-to-find-best-accuracy-cli.md
+        - name: Чтение и запись файлов
+          href: ../desktop-workbench/how-to-read-write-files.md
+        - name: Использование библиотеки MMLSpark
+          href: ../desktop-workbench/how-to-use-mmlspark.md
+    - name: Ввод модели в эксплуатацию
+      items:
+        - name: Настройка службы "Управление моделями"
+          href: ../desktop-workbench/deployment-setup-configuration.md
+        - name: Масштабирование кластеров и служб
+          href: ../desktop-workbench/how-to-scale-clusters.md
+        - name: Включение SSL в кластере MLC
+          href: ../desktop-workbench/how-to-setup-ssl-on-mlc.md
+        - name: Развертывание веб-службы
+          href: ../desktop-workbench/model-management-service-deploy.md
+        - name: Настройка контейнера
+          href: ../desktop-workbench/model-management-custom-container.md
+        - name: Развертывание на устройстве IoT Edge
+          href: ../desktop-workbench/deploy-to-iot-edge-device.md
+        - name: Использование веб-службы
+          href: ../desktop-workbench/model-management-consumption.md
+        - name: Сбор данных модели
+          href: ../desktop-workbench/how-to-use-model-data-collection.md
+        - name: Руководство по устранению неполадок с развертыванием
+          href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
+    - name: Реальные примеры
+      items:
+        - name: Анализ коллекции документов
+          href: ../desktop-workbench/scenario-document-collection-analysis.md
+        - name: Сопоставление вопросов и ответов
+          href: ../desktop-workbench/scenario-qna-matching.md
+        - name: диагностическое обслуживание;
+          href: ../desktop-workbench/scenario-predictive-maintenance.md
+        - name: Классификация изображений аэрофотосъемки
+          href: ../desktop-workbench/scenario-aerial-image-classification.md
+        - name: Прогнозирование рабочей нагрузки сервера на основе терабайтов данных
+          href: ../desktop-workbench/scenario-big-data.md
+        - name: Прогнозирование потребности в энергии по времени
+          href: ../desktop-workbench/scenario-time-series-forecasting.md
+        - name: Распределенная настройка гиперпараметров
+          href: ../desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md
+        - name: Прогнозирование оттока клиентов
+          href: ../desktop-workbench/scenario-churn-prediction.md
+        - name: Анализ тональности с помощью глубокого обучения
+          href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
+        - name: Распознавание биомедицинских сущностей — проект TDSP
+          href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
+        - name: Классификация доходов США — проект TDSP
+          href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
+        - name: Классификация изображений с помощью CNTK
+          href: ../desktop-workbench/scenario-image-classification-using-cntk.md
+        - name: Глубокое обучение по прогнозному обслуживанию
+          href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
+- name: Справочные материалы
+  items:
+    - name: Подготовка данных
+      items:
+        - name: Расширения Python для подготовки данных
+          href: ../desktop-workbench/data-prep-python-extensibility-overview.md
+        - name: Поддерживаемые источники данных
+          href: ../desktop-workbench/data-prep-appendix2-supported-data-sources.md
+        - name: Загрузка Azure Cosmos DB в качестве источника данных
+          href: ../desktop-workbench/data-prep-load-azure-cosmos-db.md
+        - name: Поддерживаемые инспекторы
+          href: ../desktop-workbench/data-prep-appendix4-supported-inspectors.md
+        - name: Поддерживаемые места назначения данных
+          href: ../desktop-workbench/data-prep-appendix5-supported-destinations.md
+        - name: Поддерживаемые сочетания среды выполнения и среды данных
+          href: ../desktop-workbench/data-prep-supported-runtime-data-environments.md
+        - name: Пример выражений фильтра в Python
+          href: ../desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md
+        - name: Пример пользовательских преобразований потока данных в Python
+          href: ../desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md
+        - name: Пример подключений к источнику в Python
+          href: ../desktop-workbench/data-prep-appendix8-sample-source-connections-python.md
+        - name: Пример подключений к назначению в Python
+          href: ../desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md
+        - name: Пример преобразований столбцов в Python
+          href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md
+        - name: API выполнения подготовки данных
+          href: ../desktop-workbench/data-prep-python-execution-api.md
+        - name: 'Подготовка данных: ввод в эксплуатацию'
+          href: ../desktop-workbench/data-prep-operationalization.md
+    - name: Экспериментирование
+      items:
+        - name: Настройка службы "Экспериментирование"
+          href: ../desktop-workbench/experimentation-service-configuration-reference.md
+        - name: API ведения журналов
+          href: ../desktop-workbench/reference-logging-api.md
+        - name: Шаблон службы "Экспериментирование"
+          href: ../desktop-workbench/experimentation-service-template.md
+    - name: Управление моделями
+      items:
+        - name: API управления моделями
+          href: ../desktop-workbench/model-management-api-reference.md
+        - name: CLI управления моделями
+          href: ../desktop-workbench/model-management-cli-reference.md
+        - name: API сбора данных модели
+          href: ../desktop-workbench/model-data-collection-api-reference.md
+- name: Ресурсы
+  items:
+    - name: Часто задаваемые вопросы
+      href: ../desktop-workbench/frequently-asked-questions.md
+    - name: Устранение неполадок и описание проблем
+      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+    - name: Поддержка и обучение
+      href: ../desktop-workbench/support-for-aml-services.md
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Цены
+      href: ../desktop-workbench/aml-pricing.md
+    - name: Регионы доступности
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Процесс обработки и анализа данных группы
+      href: ../team-data-science-process/overview.md

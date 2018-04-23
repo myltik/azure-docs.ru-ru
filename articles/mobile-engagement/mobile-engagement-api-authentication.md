@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Аутентификация с помощью интерфейсов REST API Служб мобильного взаимодействия
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/30/2018
         Import-Module Azure
 3. Войдите в Azure Resource Manager из PowerShell, выполнив следующую команду. Введите имя пользователя и пароль для учетной записи Azure. 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. Если у вас несколько подписок, сделайте следующее:
 
     a. Получите список всех подписок. Затем скопируйте **SubscriptionId** для подписки, которую необходимо использовать. Убедитесь, что в этой подписке имеется приложение Службы мобильного взаимодействия. Вы будете использовать его для взаимодействия с API-интерфейсами. 

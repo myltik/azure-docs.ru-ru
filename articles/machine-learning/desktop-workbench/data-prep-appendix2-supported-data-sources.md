@@ -1,6 +1,6 @@
 ---
-title: "Поддерживаемые источники данных в инструменте подготовки данных службы \"Машинное обучение Azure\" | Документация Майкрософт"
-description: "В этой статье содержится полный список источников данных, поддерживаемых инструментом подготовки данных службы \"Машинное обучение Azure\"."
+title: Поддерживаемые источники данных в инструменте подготовки данных службы "Машинное обучение Azure" | Документация Майкрософт
+description: В этой статье содержится полный список источников данных, поддерживаемых инструментом подготовки данных службы "Машинное обучение Azure".
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 7b42080ea4bf9a9e49f2695ab8746d9ead7348bd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Поддерживаемые источники данных в инструменте подготовки данных службы "Машинное обучение Azure" 
 В этой статье приведены источники данных, поддерживаемые инструментом подготовки данных службы "Машинное обучение Azure".
@@ -86,7 +86,7 @@ ms.lasthandoff: 03/05/2018
 Чтение файла JSON из хранилища. Файл преобразовывается в плоскую структуру при чтении.
 
 #### <a name="options"></a>Параметры
-- Нет
+- None
 
 ### <a name="parquet"></a>PARQUET
 Чтение набора данных Parquet (одного файла или папки).

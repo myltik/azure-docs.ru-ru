@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3733531efb18a1fc14998af8bad2f61f22032048
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d362d8167cdfb772c70b02cc57bb49d3c2eb01d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Руководство. Копирование данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure
 В этом руководстве для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure, будет использоваться Azure PowerShell. Вы создадите и будете использовать локальную среду выполнения интеграции, которая перемещает данные между локальным и облачным хранилищами данных. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/28/2018
 Вот какие шаги выполняются в этом учебнике:
 
 > [!div class="checklist"]
-> * создадите фабрику данных;
+> * Создадите фабрику данных.
 > * Создайте локальную среду выполнения интеграции.
 > * Создадите SQL Server и связанные службы Azure. 
 > * Создадите SQL Server и наборы данных больших двоичных объектов Azure.
@@ -133,7 +133,7 @@ ms.lasthandoff: 03/28/2018
 2. Выполните следующую команду и введите имя пользователя Azure и пароль, которые используются для входа на портал Azure.
        
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
 
 3. Если у вас несколько подписок Azure, выполните следующую команду, чтобы выбрать нужную подписку. Замените значение **SubscriptionId** на идентификатор подписки Azure:
@@ -142,7 +142,7 @@ ms.lasthandoff: 03/28/2018
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) (заключенное в двойные кавычки, например `"adfrg"`), а затем выполните команду. 
    
@@ -673,7 +673,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * создадите фабрику данных;
+> * Создадите фабрику данных.
 > * Создайте локальную среду выполнения интеграции.
 > * Создадите SQL Server и связанные службы Azure. 
 > * Создадите SQL Server и наборы данных больших двоичных объектов Azure.

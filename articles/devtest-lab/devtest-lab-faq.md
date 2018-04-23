@@ -1,11 +1,11 @@
 ---
-title: "Часто задаваемые вопросы об Azure DevTest Labs | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы об Azure DevTest Labs."
+title: Часто задаваемые вопросы об Azure DevTest Labs | Документация Майкрософт
+description: Ответы на часто задаваемые вопросы об Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Часто задаваемые вопросы об Azure DevTest Labs
 В этой статье содержатся ответы на некоторые самые распространенные вопросы об Azure DevTest Labs.
@@ -55,7 +55,7 @@ DevTest Labs — это бесплатная служба. Вам не нужн
 
 **Безопасность**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Какие уровни безопасности предусмотрены в DevTest Labs?
-Доступ к DevTest Labs определяется [службой управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-built-in-roles.md). Чтобы понять особенности доступа, нужно узнать разницу между разрешением, ролью и областью в соответствии с RBAC.
+Доступ к DevTest Labs определяется [службой управления доступом на основе ролей (RBAC)](../role-based-access-control/built-in-roles.md). Чтобы понять особенности доступа, нужно узнать разницу между разрешением, ролью и областью в соответствии с RBAC.
 
 * **Разрешение.** Это определенный доступ на выполнение конкретного действия. Например, доступ на чтение ко всем виртуальным машинам.
 * **Роль.** Это набор разрешений, которые могут быть сгруппированы и назначены пользователю. Например, пользователь с ролью владельца подписки имеет доступ ко всем ресурсам в подписке.
@@ -159,7 +159,7 @@ DevTest Labs предусматривает два типа ролей для п
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

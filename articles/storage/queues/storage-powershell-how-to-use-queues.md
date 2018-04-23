@@ -1,12 +1,12 @@
 ---
-title: "Выполнение операций с хранилищем очередей Azure с помощью PowerShell | Документация Майкрософт"
-description: "Как выполнять операции с хранилищем очередей Azure при помощи PowerShell"
+title: Выполнение операций с хранилищем очередей Azure с помощью PowerShell | Документация Майкрософт
+description: Как выполнять операции с хранилищем очередей Azure при помощи PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Выполнение операций хранилища очередей Azure с помощью Azure PowerShell
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
 
-Войдите в подписку Azure с помощью команды `Login-AzureRmAccount` и следуйте инструкциям на экране.
+Войдите в подписку Azure с помощью команды `Connect-AzureRmAccount` и следуйте инструкциям на экране.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Получение списка расположений

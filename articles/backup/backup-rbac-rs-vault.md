@@ -1,11 +1,11 @@
 ---
-title: "Управление резервными копиями с помощью управления доступом на основе ролей | Документация Майкрософт"
-description: "Использование управления доступом на основе ролей для управления доступом к операциям управления резервными копиями в хранилище служб восстановления."
+title: Управление резервными копиями с помощью управления доступом на основе ролей | Документация Майкрософт
+description: Использование управления доступом на основе ролей для управления доступом к операциям управления резервными копиями в хранилище служб восстановления.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-ms.openlocfilehash: b6e4c6761e1bd5c17c9c3428491113042d3b1d31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 442d998d8898dc40ee23ca541d35c340edf64dbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Использование управления доступом на основе ролей для управления точками восстановления службы архивации Azure
 Контроль доступа на основе ролей (RBAC) Azure обеспечивает точное управление доступом для Azure. С помощью RBAC вы можете распределить обязанности внутри команды и предоставить пользователям доступ на уровне, который им необходим для выполнения поставленных задач.
@@ -26,13 +26,13 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > Роли, предоставленные службой архивации Azure, ограничены действиями, которые можно выполнить на портале Azure или в командлетах PowerShell хранилища служб восстановления. Эти роли не управляют действиями, выполняемыми в пользовательском интерфейсе клиента агента службы Azure Backup, System Center Data Protection Manager или Azure Backup Server.
 
-Служба архивации Azure предоставляет три встроенные роли для управления операциями управления резервным копированием. Дополнительные сведения см. в статье о [встроенных ролях RBAC в Azure](../active-directory/role-based-access-built-in-roles.md).
+Служба архивации Azure предоставляет три встроенные роли для управления операциями управления резервным копированием. Дополнительные сведения см. в статье о [встроенных ролях RBAC в Azure](../role-based-access-control/built-in-roles.md).
 
-* [Участник резервного копирования.](../active-directory/role-based-access-built-in-roles.md#backup-contributor) Эта роль имеет все разрешения на создание резервных копий и управления ими, кроме разрешения на создание хранилища служб восстановления и предоставление доступа другим пользователям. Эта роль представляет собой администратора управления архивацией, который может выполнять любую операцию управления архивацией.
-* [Оператор архивации.](../active-directory/role-based-access-built-in-roles.md#backup-operator) Эта роль имеет те же разрешения, что и участник, но не может удалять резервные копии и управлять политикой архивации. Эта роль эквивалентна роли участника, за исключением того, что пользователь с этой ролью не может выполнять операции удаления, такие как прекращение архивации с удалением данных или удаление регистрации локальных ресурсов.
-* [Читатель резервных копий](../active-directory/role-based-access-built-in-roles.md#backup-reader). Эта роль имеет разрешения на просмотр всех операций управления архивацией. Используйте эту роль, чтобы осуществлять мониторинг.
+* [Участник резервного копирования.](../role-based-access-control/built-in-roles.md#backup-contributor) Эта роль имеет все разрешения на создание резервных копий и управления ими, кроме разрешения на создание хранилища служб восстановления и предоставление доступа другим пользователям. Эта роль представляет собой администратора управления архивацией, который может выполнять любую операцию управления архивацией.
+* [Оператор архивации.](../role-based-access-control/built-in-roles.md#backup-operator) Эта роль имеет те же разрешения, что и участник, но не может удалять резервные копии и управлять политикой архивации. Эта роль эквивалентна роли участника, за исключением того, что пользователь с этой ролью не может выполнять операции удаления, такие как прекращение архивации с удалением данных или удаление регистрации локальных ресурсов.
+* [Читатель резервных копий](../role-based-access-control/built-in-roles.md#backup-reader). Эта роль имеет разрешения на просмотр всех операций управления архивацией. Используйте эту роль, чтобы осуществлять мониторинг.
 
-Если вы хотите определить собственные роли для дополнительного управления, см. статью [Пользовательские роли в Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+Если вы хотите определить собственные роли для дополнительного управления, см. статью [Пользовательские роли в Azure RBAC](../role-based-access-control/custom-roles.md).
 
 
 
@@ -54,9 +54,9 @@ ms.lasthandoff: 10/11/2017
 | Удаление зарегистрированного локального сервера Windows Server, клиента, SCDPM или Azure Backup Server | Участник архивации |
 
 ## <a name="next-steps"></a>Дополнительная информация
-* [Управление доступом на основе ролей.](../active-directory/role-based-access-control-configure.md) Начало работы с RBAC на портале Azure.
+* [Управление доступом на основе ролей.](../role-based-access-control/role-assignments-portal.md) Начало работы с RBAC на портале Azure.
 * Сведения об управлении доступом с помощью следующих средств:
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
-* [Устранение неполадок при управлении доступом на основе ролей](../active-directory/role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [интерфейс командной строки Azure](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [Устранение неполадок при управлении доступом на основе ролей](../role-based-access-control/troubleshooting.md). Рекомендации по устранению распространенных проблем.

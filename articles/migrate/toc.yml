@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: Практические руководства
   items:
+    - name: Перенос локальных ресурсов в Azure
+      items:
+        - name: Обзор сценария. Перенос локальных ресурсов в Azure
+          href: migrate-scenarios-overview.md
+        - name: Сценарий 1. Оценка готовности локальных компьютеров к переносу в Azure
+          href: migrate-scenarios-assessment.md
     - name: Обнаружение и оценка крупной среды
       href: how-to-scale-assessment.md
     - name: Группирование компьютеров

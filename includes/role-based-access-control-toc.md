@@ -1,5 +1,5 @@
-* [Контроль доступа на основе ролей](../articles/active-directory/role-based-access-control-configure.md)
-* [Управление доступом с помощью Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md)
-* [Управление доступом с помощью Azure CLI](../articles/active-directory/role-based-access-control-manage-access-azure-cli.md)
-* [Встроенные роли RBAC](../articles/active-directory/role-based-access-built-in-roles.md)
+* [Контроль доступа на основе ролей](../articles/role-based-access-control/role-assignments-portal.md)
+* [Управление доступом с помощью Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md)
+* [Управление доступом с помощью Azure CLI](../articles/role-based-access-control/role-assignments-cli.md)
+* [Встроенные роли RBAC](../articles/role-based-access-control/built-in-roles.md)
 

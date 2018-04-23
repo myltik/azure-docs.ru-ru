@@ -1,46 +1,44 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по поиску Azure"
+title: Документация по поиску Azure
 metadata:
   document_id: 
-  title: "Документация по службе \"Поиск Azure\". Учебные материалы, краткие руководства и справочники по API"
+  title: Документация по службе "Поиск Azure". Учебные материалы, краткие руководства и справочники по API
   meta.description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to  consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios.
-  services: search
   author: HeidiSteen
   manager: cgronlun
   ms.service: search
-  ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/04/2018
   ms.author: heidist
-  ms.openlocfilehash: 046159c537d31579f0eb0dcd65c7fb8903dffd20
-  ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+  ms.openlocfilehash: e22cd20edcb9e60b13a5c608b5e51064101b4813
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/13/2018
+  ms.lasthandoff: 04/18/2018
 abstract:
-  description: "Узнайте, как создать решение для корпоративного поиска по частному разнородному контенту с помощью службы \"Поиск Azure\". В руководствах, справочниках по API и другой документации описано, как объединить доступное для поиска содержимое в один быстрый индекс, запрашиваемый с помощью расширяемого синтаксиса для различных сценариев."
+  description: Узнайте, как создать решение для корпоративного поиска по частному разнородному контенту с помощью службы "Поиск Azure". В руководствах, справочниках по API и другой документации описано, как объединить доступное для поиска содержимое в один быстрый индекс, запрашиваемый с помощью расширяемого синтаксиса для различных сценариев.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
       width: 250
-    title: "Обзор службы \"Поиск Azure\" (9:32)"
+    title: Обзор службы "Поиск Azure" (9:32)
     href: https://channel9.msdn.com/Events/Connect/2016/138/player
     width: 250
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Начните работу со службой \"Поиск\" на портале, чтобы определять, загружать и отправлять запросы к индексам на C# или REST."
+    text: Начните работу со службой "Поиск" на портале, чтобы определять, загружать и отправлять запросы к индексам на C# или REST.
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/search/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: https://docs.microsoft.com/azure/search/search-create-service-portal
     - image:
         src: /azure/search/media/index/logo_Csharp.svg
@@ -50,25 +48,25 @@ sections:
         src: /azure/search/media/index/rest.svg
       text: REST
       href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Напишите код на .NET или REST или попробуйте быстро протестировать концепцию с помощью портала."
+    text: Напишите код на .NET или REST или попробуйте быстро протестировать концепцию с помощью портала.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/search/search-howto-dotnet-sdk\">Использование службы \"Поиск Azure\" в приложении .NET</a>"
-    - html: "<a href=\"/azure/search/search-indexer-tutorial\">Индексирование содержимого Базы данных SQL Microsoft Azure с использованием .NET</a>"
-    - html: "<a href=\"/azure/search/search-semi-structured-data\">Индексирование частично структурированных данных в хранилище BLOB-объектов с использованием REST</a>"
-    - html: "<a href=\"/azure/search/search-synonyms-tutorial-sdk\">Добавление синонимов для возврата результатов с эквивалентными терминами</a>"
-    - html: "<a href=\"/azure/search/search-get-started-portal\">Индексирование и тестирование запросов на портале</a>"
-- title: "Ссылка"
+    - html: <a href="/azure/search/search-howto-dotnet-sdk">Использование службы "Поиск Azure" в приложении .NET</a>
+    - html: <a href="/azure/search/search-indexer-tutorial">Индексирование содержимого Базы данных SQL Microsoft Azure с использованием .NET</a>
+    - html: <a href="/azure/search/search-semi-structured-data">Индексирование частично структурированных данных в хранилище BLOB-объектов с использованием REST</a>
+    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Добавление синонимов для возврата результатов с эквивалентными терминами</a>
+    - html: <a href="/azure/search/search-get-started-portal">Индексирование и тестирование запросов на портале</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Языки"
-      html: "<p><a href=\"/dotnet/api/?term=microsoft.azure.search\">.NET</a></p><p><a href=\"/dotnet/api/?term=microsoft.azure.management.search\">.NET (управление)</a></p><p><a href=\"http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html\">Python (управление)</a></p>"
+    - title: Языки
+      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (управление)</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (управление)</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/searchservice\">Справочник по API службы</a></p><p><a href=\"/rest/api/searchmanagement\">Справочник по API для управления</a></p>"
+      html: <p><a href="/rest/api/searchservice">Справочник по API службы</a></p><p><a href="/rest/api/searchmanagement">Справочник по API для управления</a></p>

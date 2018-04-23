@@ -1,11 +1,11 @@
 ---
-title: "Функции Log Analytics для поставщиков служб | Документация Майкрософт"
-description: "Log Analytics позволяет поставщикам управляемых служб (MSP), крупным предприятиям, независимым поставщикам программного обеспечения (ISV) и поставщикам услуг размещения управлять серверами, размещенными в локальной сети клиента или в облачной инфраструктуре, и осуществлять мониторинг таких серверов."
+title: Функции Log Analytics для поставщиков служб | Документация Майкрософт
+description: Log Analytics позволяет поставщикам управляемых служб (MSP), крупным предприятиям, независимым поставщикам программного обеспечения (ISV) и поставщикам услуг размещения управлять серверами, размещенными в локальной сети клиента или в облачной инфраструктуре, и осуществлять мониторинг таких серверов.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Функции Log Analytics для поставщиков услуг
 Log Analytics позволяет поставщикам управляемых служб (MSP), крупным предприятиям, независимым поставщикам программного обеспечения (ISV) и поставщикам услуг размещения управлять серверами, размещенными в локальной сети клиента или в облачной инфраструктуре, и осуществлять мониторинг таких серверов. 
@@ -40,7 +40,7 @@ Log Analytics входит в число служб Azure, доступных в
 Чтобы войти в подписку клиента, необходимо указать идентификатор клиента. Обычно в качестве этого идентификатора используется последняя часть адреса электронной почты, используемого для входа.
 
 * На портале OMS добавьте к URL-адресу портала строку `?tenant=contoso.com`. Например, `mms.microsoft.com/?tenant=contoso.com`
-* В PowerShell укажите параметр `-Tenant contoso.com` при использовании командлета `Add-AzureRmAccount`.
+* В PowerShell укажите параметр `-Tenant contoso.com` при использовании командлета `Connect-AzureRmAccount`.
 * Если для входа на портал OMS для выбранной рабочей области вы используете ссылку `OMS portal` на портале Azure, идентификатор клиента добавляется автоматически.
 
 *Клиент* поставщика облачных решений (CSP) может:

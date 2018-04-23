@@ -1,24 +1,18 @@
 ---
 title: Добавление субъекта-службы к роли администратора сервера Azure Analysis Services | Документация Майкрософт
 description: Узнайте, как добавить субъект-службу для автоматизации к роли администратора сервера
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8e51b80e184b2b1ff24b1051b55088fbc54c271c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>Добавление субъекта-службы к роли администратора сервера 
 
@@ -47,7 +41,7 @@ ms.lasthandoff: 03/08/2018
 
 
 > [!NOTE]
-> Чтобы выполнять операции с сервером с использованием командлетов AzureRm, планировщик субъекта-службы должен также принадлежать к роли **владельца** для этого ресурса (указывается в настройках [управления доступом на основе ролей (RBAC) в Azure](../active-directory/role-based-access-control-what-is.md)). 
+> Чтобы выполнять операции с сервером с использованием командлетов AzureRm, планировщик субъекта-службы должен также принадлежать к роли **владельца** для этого ресурса (указывается в настройках [управления доступом на основе ролей (RBAC) в Azure](../role-based-access-control/overview.md)). 
 
 ## <a name="related-information"></a>Связанные сведения
 

@@ -1,12 +1,12 @@
 ---
-title: "Пошаговое руководство HDInsight Spark с использованием PySpark и Scala в Azure | Документация Майкрософт"
-description: "Примеры процесса обработки и анализа данных группы, которые объясняют, как использовать PySpark и Scala в Azure HDInsight Spark для прогнозной аналитики."
+title: Пошаговое руководство HDInsight Spark с использованием PySpark и Scala в Azure | Документация Майкрософт
+description: Примеры процесса обработки и анализа данных группы, которые объясняют, как использовать PySpark и Scala в Azure HDInsight Spark для прогнозной аналитики.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 30204d1859cd72e5fb821d2f027b82c4eacaa5fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Структурированные проекты обработки и анализа данных группы в Azure Machine Learning Workbench
 
@@ -28,12 +28,12 @@ ms.lasthandoff: 11/03/2017
 
 ## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>Классификация доходов по ИНН в Azure Machine Learning Workbench
 
-Дополнительные сведения о том, как создавать проект TDSP в Azure Machine Learning Workbench, см. в руководстве [Income classification with Team Data Science Process (TDSP) project](../preview/scenario-tdsp-classifying-us-incomes.md) (Классификация доходов по ИНН с помощью проекта обработки и анализа данных). 
+Дополнительные сведения о том, как создавать проект TDSP в Azure Machine Learning Workbench, см. в руководстве [Income classification with Team Data Science Process (TDSP) project](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) (Классификация доходов по ИНН с помощью проекта обработки и анализа данных). 
 
 
 ## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Распознавание биомедицинских форм с помощью обработки естественного языка с помощью глубокого обучения
 
-Пример, использующий проект с экземпляром TDSP в службе машинного обучения Azure, см. в статье [Biomedical Entity Recognition using TDSP Template](../preview/scenario-tdsp-biomedical-recognition.md) (Распознавание биомедицинских форм с использованием шаблона TDSP).
+Пример, использующий проект с экземпляром TDSP в службе машинного обучения Azure, см. в статье [Biomedical Entity Recognition using TDSP Template](../desktop-workbench/scenario-tdsp-biomedical-recognition.md) (Распознавание биомедицинских форм с использованием шаблона TDSP).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

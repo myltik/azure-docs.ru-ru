@@ -1,24 +1,18 @@
 ---
-title: "Индексирование хранилища таблиц Azure с помощью поиска Azure | Документы Майкрософт"
-description: "Вы можете узнать, как индексировать данные в хранилище таблиц Azure с помощью поиска Azure."
-services: search
-documentationcenter: 
+title: Индексирование хранилища таблиц Azure с помощью поиска Azure | Документы Майкрософт
+description: Вы можете узнать, как индексировать данные в хранилище таблиц Azure с помощью поиска Azure.
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 317b76809bb7dc47f607687efe2311727859214a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Индексирование хранилища таблиц Azure с помощью поиска Azure
 В этой статье показано, как использовать поиск Azure для индексирования данных в хранилище таблиц Azure.

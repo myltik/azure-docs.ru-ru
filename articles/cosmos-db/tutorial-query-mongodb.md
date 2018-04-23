@@ -3,10 +3,8 @@ title: Как выполнять запросы в базе данных Azure C
 description: Узнайте, как выполнять запросы с помощью API MongoDB в базе данных Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-tags: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/29/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d8d524038d6483ff5da195648ee763f8faa1dad4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Руководство. Выполнение запросов в Azure Cosmos DB с использованием API MongoDB
 

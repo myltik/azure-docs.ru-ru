@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: Ошибки выделения ресурсов
           href: allocation-failure.md
+        - name: Ошибки с распределением классических виртуальных машин
+          href: allocation-failure-classic.md
         - name: Повторное развертывание виртуальной машины
           href: redeploy-to-new-node.md
         - name: Распространенные сообщения об ошибках

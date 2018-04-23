@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Поиск и применение рекомендаций по производительности
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="viewing-recommendations"></a>Просмотр рекомендаций
 
-Чтобы просмотреть и применить рекомендации по производительности, необходимо изменить разрешения [управления доступом на основе ролей](../active-directory/role-based-access-control-what-is.md) в Azure. Разрешения **Читатель** и **Участник баз данных SQL** необходимы для просмотра рекомендаций, а разрешения **Владелец**, **Участник баз данных SQL** необходимы для выполнения действий: создание, удаление индекса и отмена создания индекса.
+Чтобы просмотреть и применить рекомендации по производительности, необходимо изменить разрешения [управления доступом на основе ролей](../role-based-access-control/overview.md) в Azure. Разрешения **Читатель** и **Участник баз данных SQL** необходимы для просмотра рекомендаций, а разрешения **Владелец**, **Участник баз данных SQL** необходимы для выполнения действий: создание, удаление индекса и отмена создания индекса.
 
 Чтобы найти рекомендации по производительности на портале Azure, выполните следующее.
 
@@ -154,5 +154,5 @@ ms.lasthandoff: 04/06/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Хранилище запросов](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Контроль доступа на основе ролей](../active-directory/role-based-access-control-what-is.md)
+* [Контроль доступа на основе ролей](../role-based-access-control/overview.md)
 

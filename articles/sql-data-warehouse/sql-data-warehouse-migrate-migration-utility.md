@@ -1,11 +1,11 @@
 ---
-title: "Перенос: служебная программа для переноса в хранилище данных | Документация Майкрософт"
-description: "Миграция в хранилище данных SQL."
+title: 'Перенос: служебная программа для переноса в хранилище данных | Документация Майкрософт'
+description: Миграция в хранилище данных SQL.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 4d7ad981-ef31-4513-b337-50bdc4709c09
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Служебная программа для миграции в хранилище данных (предварительная версия)
 > [!div class="op_single_selector"]

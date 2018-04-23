@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev
 ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="group-manager-tasks"></a>Задачи менеджера группы
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 03/28/2018
         
 - Откроется **мастер переименования** для репозитория GroupCommon. Введите *GroupProjectTemplate* в поле **Имя репозитория** и щелкните **Переименовать**. 
 
-![13.](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
+![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Службы и технологии обеспечения безопасности Azure | Документация Майкрософт"
-description: "В статье представлен проверенный список статей о службах и технологиях обеспечения безопасности в Azure."
+title: Службы и технологии обеспечения безопасности Azure | Документация Майкрософт
+description: В статье представлен проверенный список статей о службах и технологиях обеспечения безопасности в Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 838987e7fa5e638a980c592f5cdf775d3110fab0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Службы и технологии безопасности Azure
 Существующие и будущие пользователи Azure часто спрашивают нас о списке доступных в Azure служб и технологий, связанных с обеспечением безопасности.
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/23/2017
 * [Аудит баз данных SQL Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Управление удостоверениями и доступом в Azure
-* [Контроль доступа на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
+* [Контроль доступа на основе ролей в Azure](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Доменные службы Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)

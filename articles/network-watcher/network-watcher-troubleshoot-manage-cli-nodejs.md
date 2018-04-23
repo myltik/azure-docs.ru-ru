@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок шлюза виртуальной сети и подключений Azure — Azure CLI 1.0 | Документы Майкрософт"
-description: "На этой странице объясняется, как устранить неполадки с помощью наблюдателя за сетями и Azure CLI 1.0"
+title: Устранение неполадок шлюза виртуальной сети и подключений Azure — Azure CLI 1.0 | Документы Майкрософт
+description: На этой странице объясняется, как устранить неполадки с помощью наблюдателя за сетями и Azure CLI 1.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2acbc47970acf0eb2aa1aea8535d7157bc73cbb6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ac5ce43d5ec992d8ec1bc5d7c787b1ca071eda98
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>Устранение неполадок шлюза виртуальной сети и подключений с помощью наблюдателя за сетями Azure и Azure CLI 1.0
 
@@ -103,4 +103,4 @@ azure network watcher troubleshoot -g resourceGroupName -n networkWatcherName -t
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Если изменены параметры, которые мешают VPN-подключению, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/virtual-network-manage-nsg-arm-portal.md), чтобы найти сведения о группах безопасности сети и соответствующие правила безопасности.
+Если изменены параметры, которые мешают VPN-подключению, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/manage-network-security-group.md), чтобы найти сведения о группах безопасности сети и соответствующие правила безопасности.

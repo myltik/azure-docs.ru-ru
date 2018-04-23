@@ -1,12 +1,12 @@
 ---
-title: "Передача прав владения подпиской Azure другой учетной записи | Документация Майкрософт"
-description: "Описывается, как передать подписку Azure другому пользователю, а также приводятся часто задаваемые вопросы об этой процедуре."
-keywords: "передача подписки azure,azure передача подписки,перемещение подписки azure в другую учетную запись,изменение владельца подписки azure,перенос подписки azure в другую учетную запись"
-services: 
-documentationcenter: 
+title: Передача прав владения подпиской Azure другой учетной записи | Документация Майкрософт
+description: Описывается, как передать подписку Azure другому пользователю, а также приводятся часто задаваемые вопросы об этой процедуре.
+keywords: передача подписки azure,azure передача подписки,перемещение подписки azure в другую учетную запись,изменение владельца подписки azure,перенос подписки azure в другую учетную запись
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Передача прав владения подпиской Azure другой учетной записи
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/02/2018
 
 > [!IMPORTANT]
 > 
-> Если вы переносите подписку в новый клиент Azure AD, все назначения ролей в механизме [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-what-is.md) удаляются из исходного клиента без возможности восстановления и не переносятся в целевой клиент.
+> Если вы переносите подписку в новый клиент Azure AD, все назначения ролей в механизме [управления доступом на основе ролей (RBAC)](../role-based-access-control/overview.md) удаляются из исходного клиента без возможности восстановления и не переносятся в целевой клиент.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Передача прав владения подпиской Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/02/2018
 
    > [!IMPORTANT]
    > 
-   > Если вы переносите подписку в новый клиент Azure AD, все назначения ролей в механизме [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-what-is.md) удаляются из исходного клиента без возможности восстановления и не переносятся в целевой клиент.
+   > Если вы переносите подписку в новый клиент Azure AD, все назначения ролей в механизме [управления доступом на основе ролей (RBAC)](../role-based-access-control/overview.md) удаляются из исходного клиента без возможности восстановления и не переносятся в целевой клиент.
 
    ![Диалоговое окно "Передача подписки"](./media/billing-subscription-transfer/image2.PNG)
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Можно ли передать все группы ресурсов, виртуальные машины, диски и другие работающие службы?
 
-Все ресурсы, такие как виртуальные машины, диски и веб-сайты, перейдут к новому владельцу. Тем не менее нельзя передавать настроенные [роли администратора](billing-add-change-azure-subscription-administrator.md) и политики [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md) между разными каталогами. Кроме того, не передается [регистрация приложений](../active-directory//develop/active-directory-integrating-applications.md) и другие службы для конкретного клиента.
+Все ресурсы, такие как виртуальные машины, диски и веб-сайты, перейдут к новому владельцу. Тем не менее нельзя передавать настроенные [роли администратора](billing-add-change-azure-subscription-administrator.md) и политики [управления доступом на основе ролей (RBAC)](../role-based-access-control/role-assignments-portal.md) между разными каталогами. Кроме того, не передается [регистрация приложений](../active-directory//develop/active-directory-integrating-applications.md) и другие службы для конкретного клиента.
 
 ### <a id="no-button"></a>Почему не отображается кнопка "Перенос подписки"?
 

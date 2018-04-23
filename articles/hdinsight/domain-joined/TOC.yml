@@ -14,8 +14,12 @@
     - name: Настройка политик Hive
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Управление присоединенными к домену кластерами
-      href: apache-domain-joined-manage.md
+    - name: Использование Visual Studio Code для связывания присоединенного к домену кластера
+      href: ../hdinsight-for-vscode.md
+    - name: Использование IntelliJ для связывания присоединенного к домену кластера
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Использование Eclipse для связывания присоединенного к домену кластера
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Защита данных
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

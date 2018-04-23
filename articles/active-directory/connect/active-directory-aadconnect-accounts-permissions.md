@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: учетные записи и разрешения
 Мастер установки Azure AD Connect предлагает два разных варианта.
@@ -90,7 +90,7 @@ ms.lasthandoff: 03/29/2018
 | Синхронизация паролей |<li>Репликация изменений каталога</li>  <li>Репликация всех изменений каталога |
 | Гибридное развертывание Exchange |Запишите разрешения в атрибуты, описанные в статье [Гибридная обратная запись Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) для пользователей, групп и контактов. |
 | Общедоступная папка почты Exchange |Разрешения на чтение для атрибутов, описанных в статье [Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder), для общедоступных папок. | 
-| Компонент обратной записи паролей |Запишите разрешения в атрибуты, описанные в статье [Приступая к работе с компонентами управления паролями](../active-directory-passwords-writeback.md) для пользователей. |
+| Компонент обратной записи паролей |Запишите разрешения в атрибуты, описанные в статье [Приступая к работе с компонентами управления паролями](../authentication/howto-sspr-writeback.md) для пользователей. |
 | Обратная запись устройств |Разрешения, предоставленные с помощью сценария PowerShell, как описано в статье об [обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md). |
 | Обратная запись групп |Чтение, создание, обновление и удаление объектов групп для синхронизированных **групп Office 365**.  Дополнительные сведения см. в разделе [Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback).|
 

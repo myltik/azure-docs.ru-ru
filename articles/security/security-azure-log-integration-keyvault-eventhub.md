@@ -1,21 +1,21 @@
 ---
-title: "Интеграция журналов из Azure Key Vault с помощью концентраторов событий | Документы Майкрософт"
-description: "Руководство, в котором приводятся необходимые действия для обеспечения доступности журналов Key Vault для SIEM с помощью интеграции журналов Azure."
+title: Интеграция журналов из Azure Key Vault с помощью концентраторов событий | Документы Майкрософт
+description: Руководство, в котором приводятся необходимые действия для обеспечения доступности журналов Key Vault для SIEM с помощью интеграции журналов Azure.
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Руководство по интеграции журналов Azure. Обработка событий Azure Key Vault с помощью концентраторов событий
 
@@ -81,14 +81,14 @@ ms.lasthandoff: 02/21/2018
 
    ![Список загруженных модулей](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Введите команду `Login-AzureRmAccount`. В окне входа введите учетные данные для подписки, которая будет использоваться в этом руководстве.
+3. Введите команду `Connect-AzureRmAccount`. В окне входа введите учетные данные для подписки, которая будет использоваться в этом руководстве.
 
    >[!NOTE]
    >Если вы выполняете вход в Azure с этого компьютера впервые, появится сообщение о предоставлении корпорации Майкрософт разрешения на сбор данных об использовании PowerShell. Рекомендуется включить эту функцию сбора данных, так как она будет использоваться для внесения улучшений в Azure PowerShell.
 
 4. После успешной проверки подлинности вы войдете в систему и увидите сведения, аналогичные приведенным на следующем снимке экрана. Запишите идентификатор подписки и имя подписки, так как они потребуются вам на следующих этапах.
 
-   ![Окно PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
+   ![Окно PowerShell](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
 5. Создайте переменные для хранения значений, которые будут использоваться дальше. Введите следующие строки PowerShell. Может потребоваться настроить параметры в соответствии с вашей средой.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (У вашей подписки может быть другое имя. Вы увидите его в составе выходных данных предыдущей команды.)
     - ```$location = 'West US'``` (Эта переменная будет использоваться для передачи расположения, в котором должны быть созданы ресурсы. Эту переменную можно изменить на любое необходимое расположение.)

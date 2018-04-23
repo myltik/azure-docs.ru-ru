@@ -1,5 +1,5 @@
 - name: Службы машинного обучения Azure (предварительная версия)
-  href: preview/index.yml
+  href: service/index.yml
 - name: Студия машинного обучения Azure
   href: studio/index.yml
 - name: Виртуальная машина для обработки и анализа данных

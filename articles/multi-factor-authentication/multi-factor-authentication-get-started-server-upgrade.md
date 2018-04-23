@@ -1,8 +1,8 @@
 ---
-title: "Переход с PhoneFactor на сервер Многофакторной идентификации Azure | Документация Майкрософт"
-description: "Начало работы с сервером Многофакторной идентификации Azure и замена старой версии агента PhoneFactor."
+title: Переход с PhoneFactor на сервер Многофакторной идентификации Azure | Документация Майкрософт
+description: Начало работы с сервером Многофакторной идентификации Azure и замена старой версии агента PhoneFactor.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
 ms.openlocfilehash: a3451adfe19d547812b1450a9028a48a5fe2d727
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Переход с агента PhoneFactor на сервер Многофакторной идентификации Azure
 Чтобы перейти с агента PhoneFactor версии 5.x или более ранней версии на сервер Многофакторной идентификации Azure, сначала удалите агент PhoneFactor и связанные с ним компоненты. После этого можно установить сервер Многофакторной идентификации и его компоненты.

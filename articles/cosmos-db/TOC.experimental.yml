@@ -71,14 +71,12 @@ items:
     items:
       - name: Глобальное распределение
         href: distribute-data-globally.md
-      - name: Целостность
-        href: consistency-levels.md
       - name: Секционирование
         href: partition-data.md
       - name: Throughput
         href: request-units.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
+      - name: Целостность
+        href: consistency-levels.md
       - name: Бессерверная база данных
         href: serverless-computing-database.md
       - name: Безопасность
@@ -86,10 +84,10 @@ items:
         items:
           - name: Шифрование при хранении
             href: database-encryption-at-rest.md
-          - name: Поддерживаемые брандмауэры
-            href: firewall-support.md
           - name: Защита доступа к данным
             href: secure-access-to-data.md
+      - name: TCO
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Варианты использования
         href: use-cases.md
         items:
@@ -180,7 +178,7 @@ items:
                     href: sql-api-sql-query-metrics.md
               - name: Индекс
                 href: indexing-policies.md
-              - name: Секционирование данных
+              - name: Секционирование данных SQL
                 href: sql-api-partition-data.md
               - name: 'Хранимые процедуры, триггеры и определяемые пользователем функции'
                 href: programming.md
@@ -233,7 +231,7 @@ items:
                   - name: Визуализация данных с помощью драйвера ODBC
                     href: odbc-driver.md
                   - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           - name: Справочные материалы
             items:
               - name: Async Java
@@ -346,6 +344,8 @@ items:
                 href: tutorial-global-distribution-graph.md
           - name: Практические руководства
             items:
+              - name: Секционирование данных Graph
+                href: graph-partitioning.md
               - name: Интеграция
                 items:
                   - name: Подключение к Spark GraphX
@@ -434,6 +434,8 @@ items:
         href: manage-account.md
       - name: Throughput
         href: set-throughput.md
+      - name: Поддерживаемые брандмауэры
+        href: firewall-support.md
       - name: Метрики
         href: use-metrics.md
       - name: Мониторинг соглашений об уровне обслуживания
@@ -466,5 +468,3 @@ items:
         href: faq.md
       - name: Объяснение согласованности данных на примере игры в бейсбол
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: "Устранение неполадок с Azure Cosmos\_DB"
-        href: troubleshoot-azure-cosmosdb.md

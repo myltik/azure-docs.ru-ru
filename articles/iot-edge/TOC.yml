@@ -45,16 +45,12 @@
       href: how-to-install-iot-core.md
     - name: Разработка решений IoT Edge с помощью VS Code
       items:
-        - name: 'Разработка и развертывание модуля C#'
-          href: how-to-vscode-develop-csharp-module.md
-        - name: 'Отладка модуля C#'
-          href: how-to-vscode-debug-csharp-module.md
-        - name: Разработка и развертывание решения "Функции Azure"
-          href: how-to-vscode-develop-azure-function.md
-        - name: Отладка решения "Функции Azure"
-          href: how-to-vscode-debug-azure-function.md
         - name: Использование нескольких облаков
           href: tutorial-multiple-modules-in-vscode.md
+        - name: 'Отладка модуля C#'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Отладка решения "Функции Azure"
+          href: how-to-vscode-debug-azure-function.md
     - name: Хранение данных в граничной системе
       href: sql-storage.md
     - name: Устранение неполадок

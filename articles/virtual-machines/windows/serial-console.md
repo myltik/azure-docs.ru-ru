@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Последовательная консоль виртуальной машины (предварительная версия) 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="prerequisites"></a>предварительным требованиям 
 
 * На виртуальной машине ДОЛЖНА быть включена [диагностика загрузки](boot-diagnostics.md). 
-* Учетной записи, использующей последовательную консоль, должна быть присвоена [роль участника](../../active-directory/role-based-access-built-in-roles.md) для виртуальной машины и учетная запись хранения [диагностики загрузки](boot-diagnostics.md). 
+* Учетной записи, использующей последовательную консоль, должна быть присвоена [роль участника](../../role-based-access-control/built-in-roles.md) для виртуальной машины и учетная запись хранения [диагностики загрузки](boot-diagnostics.md). 
 
 ## <a name="open-the-serial-console"></a>Открытие последовательной консоли
 Получить доступ к последовательной консоли для виртуальной машины можно только на [портале Azure](https://portal.azure.com). Ниже приведены шаги для получения доступа к последовательной консоли виртуальных машин через портал. 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="serial-console-security"></a>Безопасность последовательной консоли 
 
 ### <a name="access-security"></a>Безопасность доступа 
-Доступ к последовательной консоли ограничен кругом пользователей, обладающих на виртуальной машине правами [Участник](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) или более широкими полномочиями доступа к ней. Если клиентам AAD нужна многофакторная идентификация, тогда она потребуется и для доступа к последовательной консоли, так как доступ осуществляется через [портал Azure](https://portal.azure.com).
+Доступ к последовательной консоли ограничен кругом пользователей, обладающих на виртуальной машине правами [Участник](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) или более широкими полномочиями доступа к ней. Если клиентам AAD нужна многофакторная идентификация, тогда она потребуется и для доступа к последовательной консоли, так как доступ осуществляется через [портал Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Безопасность канала
 Все данные, исходящие и поступающие, при пересылке по сети зашифрованы.

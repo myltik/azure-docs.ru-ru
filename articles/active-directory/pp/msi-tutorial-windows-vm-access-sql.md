@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Затем добавьте в группу MSI виртуальной машины.  Требуется значение **ObjectId** управляемого удостоверения службы, которое можно получить с помощью Azure PowerShell.  Сначала скачайте [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Затем войдите с помощью `Login-AzureRmAccount` и выполните следующие команды, чтобы:
+Затем добавьте в группу MSI виртуальной машины.  Требуется значение **ObjectId** управляемого удостоверения службы, которое можно получить с помощью Azure PowerShell.  Сначала скачайте [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Затем войдите с помощью `Connect-AzureRmAccount` и выполните следующие команды, чтобы:
 - Убедиться, что для контекста сеанса задана нужная подписка Azure (если имеется несколько).
 - Перечислить доступные ресурсы в подписке Azure, чтобы удостовериться в наличии группы ресурсов и виртуальной машины с правильными именами.
 - Получить свойства управляемого удостоверения службы виртуальной машины, используя соответствующие значения для `<RESOURCE-GROUP>` и `<VM-NAME>`.

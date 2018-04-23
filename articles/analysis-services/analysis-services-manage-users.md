@@ -1,25 +1,18 @@
 ---
-title: "Аутентификация и разрешения пользователей в службах Azure Analysis Services | Документация Майкрософт"
-description: "Узнайте о проверке подлинности и разрешениях пользователя в службах Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Аутентификация и разрешения пользователей в службах Azure Analysis Services | Документация Майкрософт
+description: Узнайте о проверке подлинности и разрешениях пользователя в службах Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Аутентификация и разрешения пользователей
 Azure Analysis Services использует Azure Active Directory (Azure AD) для управления удостоверениями и проверки подлинности пользователей. У любого пользователя, который создает сервер Azure Analysis Services, управляет им или подключается к нему, должно быть допустимое удостоверение пользователя в [клиенте Azure AD](../active-directory/active-directory-administer.md) в той же подписке.
@@ -69,7 +62,7 @@ Power BI Desktop подключается к Azure Analysis Services с помо
 
 ![Управление доступом на портале Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Роли на этом уровне применяются к пользователям или учетным записям, которым необходимо выполнить задачи на портале или с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье об [управлении доступом на основе ролей](../active-directory/role-based-access-control-what-is.md). 
+Роли на этом уровне применяются к пользователям или учетным записям, которым необходимо выполнить задачи на портале или с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье об [управлении доступом на основе ролей](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Роли базы данных
@@ -85,4 +78,4 @@ Power BI Desktop подключается к Azure Analysis Services с помо
 [Управление доступом к ресурсам с помощью групп Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Управление ролями и пользователями базы данных](analysis-services-database-users.md)  
 [Управление администраторами сервера](analysis-services-server-admins.md)  
-[Управление доступом на основе ролей](../active-directory/role-based-access-control-what-is.md)  
+[Управление доступом на основе ролей](../role-based-access-control/overview.md)  

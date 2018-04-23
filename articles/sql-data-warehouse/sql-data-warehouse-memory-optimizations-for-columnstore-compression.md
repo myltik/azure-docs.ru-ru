@@ -2,23 +2,19 @@
 title: Повышение производительности индекса columnstore в хранилище данных SQL Azure | Документация Майкрософт
 description: Вы можете снизить требования к памяти (или увеличить объем доступной памяти), чтобы достичь максимально возможного числа строк, которые индекс columnstore сжимает в каждой группе строк.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: be167e298a4c0e76d7cf3bb638838047d4e9bcee
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Максимальное повышение качества группы строк для индекса columnstore
 
@@ -139,7 +135,7 @@ OPTION (MAXDOP 1);
 Объем доступной для выполнения пользовательских запросов памяти определяется размером DWU и классом ресурсов пользователя. Чтобы увеличить объем выделенной для запросов загрузки памяти, можно увеличить число DWU или повысить класс ресурсов.
 
 - Сведения об увеличении числа DWU см.в разделе [Масштабирование производительности](quickstart-scale-compute-portal.md).
-- Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Например, располагая DWU 100 и классом ресурсов smallrc, пользователь может использовать 100 МБ памяти для каждого распределения. Дополнительные сведения см. в статье [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL](resource-classes-for-workload-management.md).
 

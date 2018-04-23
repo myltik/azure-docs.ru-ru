@@ -1,24 +1,18 @@
 ---
-title: "Высокая доступность служб Azure Analysis Services | Документы Майкрософт"
-description: "Обеспечение высокой доступности служб Analysis Services Azure."
-services: analysis-services
-documentationcenter: 
+title: Высокая доступность служб Azure Analysis Services | Документы Майкрософт
+description: Обеспечение высокой доступности служб Analysis Services Azure.
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: ed2bb2fe159db146ee520fc600c8b11f2dd4f761
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: f8252e47224b96d43551ad389148a1ce4349c308
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analysis-services-high-availability"></a>Высокая доступность служб Analysis Services
 Эта статья описывает обеспечение высокой доступности для серверов служб Azure Analysis Services. 

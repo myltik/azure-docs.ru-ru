@@ -1,24 +1,17 @@
 ---
-title: "Начало работы со службой поиска Azure в Node.js | Документация Майкрософт"
-description: "Пошаговое создание приложения поиска в облачной службе поиска Azure с использованием Node.js в качестве языка программирования."
-services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
+title: Начало работы со службой поиска Azure в Node.js | Документация Майкрософт
+description: Пошаговое создание приложения поиска в облачной службе поиска Azure с использованием Node.js в качестве языка программирования.
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/26/2017
-ms.author: evboyle
-ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.author: jjed
+ms.openlocfilehash: 75b498d016b6c2696ef116b39186f55f3e876848
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Начало работы со службой поиска Azure на Node.js
 > [!div class="op_single_selector"]

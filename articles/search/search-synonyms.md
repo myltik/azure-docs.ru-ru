@@ -1,23 +1,18 @@
 ---
 pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Предварительная документация по компоненту Synonyms (предварительная версия), доступному в REST API Поиска Azure."
-services: search
-documentationCenter: 
+description: Предварительная документация по компоненту Synonyms (предварительная версия), доступному в REST API Поиска Azure.
 authors: mhko
-manager: pablocas
-editor: 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/07/2016
+manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e11a020c737261c902a54a3a1ad5540e1525de44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Synonyms в Поиске Azure (предварительная версия)
 

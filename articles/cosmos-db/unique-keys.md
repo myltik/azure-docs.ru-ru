@@ -4,7 +4,7 @@ description: Узнайте, как использовать уникальны�
 services: cosmos-db
 keywords: ограничение уникального ключа, нарушение ограничения уникального ключа
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Уникальные ключи в Azure Cosmos DB
 
@@ -111,6 +111,7 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 ```json
 {
     "id": "1",
+    "pk": "1234",
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",

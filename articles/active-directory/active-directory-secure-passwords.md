@@ -1,11 +1,11 @@
 ---
-title: "Многоуровневая защита паролей в Azure AD | Документация Майкрософт"
-description: "В этой статье объясняется, как Azure AD применяет надежные пароли и защищает пароли пользователей от киберпреступников."
+title: Многоуровневая защита паролей в Azure AD | Документация Майкрософт
+description: В этой статье объясняется, как Azure AD применяет надежные пароли и защищает пароли пользователей от киберпреступников.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Многоуровневый подход к безопасности паролей Azure AD
 
@@ -84,4 +84,4 @@ Azure AD и учетные записи Майкрософт обеспечив�
 
 * [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md)
 * [Основы управления удостоверениями Azure](fundamentals-identity.md)
-* [Приступая к работе с Azure](active-directory-passwords-reporting.md)
+* [Приступая к работе с Azure](authentication/howto-sspr-reporting.md)

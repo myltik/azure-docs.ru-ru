@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Руководство по потоковой передаче данных в Azure Databricks при помощи концентраторов событий
 
@@ -173,6 +173,7 @@ ms.lasthandoff: 03/29/2018
 
 В записной книжке **SendTweetsToEventHub** вставьте следующий код и замените заполнители значениями вашего пространства имен концентраторов событий и созданного ранее приложения Twitter. Эта записная книжка выполняет потоковую передачу твитов с ключевым словом Azure в концентраторы событий в режиме реального времени.
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -242,6 +243,7 @@ ms.lasthandoff: 03/29/2018
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 Чтобы запустить записную книжку, нажмите клавиши **SHIFT+ВВОД**. Вы увидите выходные данные, как в следующем фрагменте кода. Каждое событие в выходных данных — это твит, полученный в концентраторах событий и содержащий слово "Azure".
 
@@ -264,6 +266,7 @@ ms.lasthandoff: 03/29/2018
 
 В записной книжке **ReadTweetsFromEventHub** вставьте следующий код и замените заполнители значениями созданных ранее концентраторов событий Azure. Эта записная книжка считывает твиты, переданные ранее в концентраторы событий с помощью записной книжки **SendTweetsToEventHub**.
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -282,6 +285,7 @@ ms.lasthandoff: 03/29/2018
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 Вы получите следующие выходные данные:
 
@@ -312,6 +316,7 @@ ms.lasthandoff: 03/29/2018
 
 Так как выходные данные отображаются в двоичном режиме, используйте следующий фрагмент кода, чтобы преобразовать их в строку.
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -328,6 +333,7 @@ ms.lasthandoff: 03/29/2018
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 Выходные данные будут выглядеть, как следующий фрагмент кода:
 

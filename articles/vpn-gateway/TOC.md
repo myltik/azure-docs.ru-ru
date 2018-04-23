@@ -11,6 +11,12 @@
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [интерфейс командной строки Azure](create-routebased-vpn-gateway-cli.md)
 
+# Примеры
+## [Создание VPN-шлюза](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Аутентификация RADIUS при подключениях типа "точка — сеть"](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Аутентификация на основе сертификата при подключениях типа "точка — сеть"](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Сеть-сеть](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
+
 # Основные понятия
 ## [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md)
 ## [Сведения о параметрах VPN-шлюза](vpn-gateway-about-vpn-gateway-settings.md)
@@ -19,8 +25,9 @@
 ## [О BGP и VPN-шлюзе](vpn-gateway-bgp-overview.md)
 ## [Основные сведения о высокодоступных подключениях](vpn-gateway-highlyavailable.md)
 ## [Сведения о подключениях "точка — сеть"](point-to-site-about.md)
+## [Сведения о маршрутизации "точка — сеть"](vpn-gateway-about-point-to-site-routing.md)
 
-# Практическое руководство
+# Практические руководства
 ## Настройка подключений "сеть — сеть"
 ### [портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)

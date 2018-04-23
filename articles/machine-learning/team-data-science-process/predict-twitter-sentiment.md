@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Предсказание тональности высказываний в Twitter на основе векторного представления слов с помощью процесса обработки и анализа данных группы
 
-В этой статье описано, как повысить эффективность совместной работы, используя алгоритм векторного представления слов _Word2Vec_ и алгоритм _векторного представления слов, характерных при составлении картины тональности (SSWE)_ для предсказания тональности высказываний в Twitter на основе [технологии машинного обучения Azure](../preview/index.yml). Дополнительные сведения о предсказании тональности высказываний в Twitter см. в [репозитории MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) в GitHub. Стандартизация структуры и документации проектов по обработке и анализу данных, которые привязаны к стабильному жизненному циклу обработки и анализа данных, — это главное условие успешной совместной работы в команде специалистов по обработке и анализу данных. [Процесс обработки и анализа данных группы (TDSP)](overview.md) предоставляет этот тип структурированного [жизненного цикла](lifecycle.md). 
+В этой статье описано, как повысить эффективность совместной работы, используя алгоритм векторного представления слов _Word2Vec_ и алгоритм _векторного представления слов, характерных при составлении картины тональности (SSWE)_ для предсказания тональности высказываний в Twitter на основе [технологии машинного обучения Azure](../service/index.yml). Дополнительные сведения о предсказании тональности высказываний в Twitter см. в [репозитории MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) в GitHub. Стандартизация структуры и документации проектов по обработке и анализу данных, которые привязаны к стабильному жизненному циклу обработки и анализа данных, — это главное условие успешной совместной работы в команде специалистов по обработке и анализу данных. [Процесс обработки и анализа данных группы (TDSP)](overview.md) предоставляет этот тип структурированного [жизненного цикла](lifecycle.md). 
 
-Создавая проекты по обработке и анализу данных на основе шаблона _TDSP_, вы формируете стандартизированную платформу для проектов службы "Машинное обучение Azure". Ранее команда TDSP выпустила [репозиторий GitHub с примерами структуры и шаблонов проектов TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Теперь в нем доступны проекты службы "Машинное обучение", созданные на основе специальных [шаблонов TDSP](https://github.com/amlsamples/tdsp). Инструкции по их использованию в службе "Машинное обучение Azure" см. в статье [Структурирование проектов с помощью шаблона процесса обработки и анализа данных группы](../preview/how-to-use-tdsp-in-azure-ml.md). 
+Создавая проекты по обработке и анализу данных на основе шаблона _TDSP_, вы формируете стандартизированную платформу для проектов службы "Машинное обучение Azure". Ранее команда TDSP выпустила [репозиторий GitHub с примерами структуры и шаблонов проектов TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Теперь в нем доступны проекты службы "Машинное обучение", созданные на основе специальных [шаблонов TDSP](https://github.com/amlsamples/tdsp). Инструкции по их использованию в службе "Машинное обучение Azure" см. в статье [Структурирование проектов с помощью шаблона процесса обработки и анализа данных группы](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md). 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Пример полярности тональности высказываний в Twitter
@@ -131,7 +131,7 @@ ms.lasthandoff: 03/28/2018
 
 ![Панель мониторинга Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Дополнительные сведения о вводе в эксплуатацию см. в статье [Развертывание модели машинного обучения в качестве веб-службы](../preview/model-management-service-deploy.md).
+Дополнительные сведения о вводе в эксплуатацию см. в статье [Развертывание модели машинного обучения в качестве веб-службы](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Заключение
 
@@ -143,8 +143,8 @@ ms.lasthandoff: 03/28/2018
 * [Что такое процесс обработки и анализа данных группы?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Использование командного процесса обработки и анализа данных (TDSP) в службе "Машинное обучение Microsoft Azure"](https://aka.ms/how-to-use-tdsp-in-aml).
 * [Шаблон проекта TDSP для службы "Машинное обучение Azure"](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml).
+* [Azure Machine Learning Workbench](../service/index.yml).
 * [Набор данных о доходах граждан США из репозитория ML UCI](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Работа Томаса Миколова (Tomas Mikolov) и его коллег Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems (Распределенные представления слов и фраз и их композиционность. Улучшения в нейросетевых системах обработки информации) за 2013 год](https://arxiv.org/abs/1310.4546)
 * [Работа Дую Тенга (Duyu Tang) и его коллег Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification Association for Computational Linguistics (1) (Изучение векторного представления слов, характерных при составлении картины тональности высказываний в Twitter. Общество компьютерной лингвистики (1)) за 2014 год](http://www.aclweb.org/anthology/P14-1146)

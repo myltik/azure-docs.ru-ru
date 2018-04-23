@@ -100,7 +100,7 @@
         - name: Резервное копирование виртуальных машин
           items:
             - name: Резервное копирование виртуальных машин Azure в хранилище служб восстановления
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Резервное копирование зашифрованных виртуальных машин
               href: backup-azure-vms-encryption.md
             - name: Включение резервного копирования виртуальной машины во время ее создания
@@ -179,9 +179,9 @@
           href: backup-azure-delete-vault.md
     - name: Устранение неполадок
       items:
-        - name: Сообщения об ошибках резервного копирования виртуальных машин IaaS
+        - name: Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: Истечение времени ожидания агента Azure Backup (MARS) или расширения виртуальной машины
+        - name: Истечение времени ожидания агента Azure Backup или расширения виртуальной машины
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Резервное копирование файлов и папок выполняется медленно
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -191,14 +191,20 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Агент службы архивации Azure
           href: backup-azure-mars-troubleshoot.md
-        - name: Резервное копирование файловых ресурсов Azure
+        - name: Общий файловый ресурс Azure
           href: troubleshoot-azure-files.md
 - name: Справочные материалы
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: "Azure CLI\_2.0"
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST (резервное копирование)
+      href: /rest/api/backup/
+    - name: REST (хранилище служб восстановления)
+      href: /rest/api/recoveryservices/
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

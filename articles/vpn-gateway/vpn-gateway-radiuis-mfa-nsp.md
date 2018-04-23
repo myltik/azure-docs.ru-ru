@@ -1,25 +1,25 @@
 ---
-title: "Защита аутентификации RADIUS VPN-шлюза Azure с использованием NPS-сервера для обеспечения Многофакторной идентификации | Документация Майкрософт"
-description: "Описывается интеграция аутентификации RADIUS шлюза Azure с NPS-сервером для обеспечения Многофакторной идентификации."
+title: Защита аутентификации RADIUS VPN-шлюза Azure с использованием NPS-сервера для обеспечения Многофакторной идентификации | Документация Майкрософт
+description: Описывается интеграция аутентификации RADIUS шлюза Azure с NPS-сервером для обеспечения Многофакторной идентификации.
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin
 manager: willchen
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: f0d95cc0dabb253a72afdbc1bc518df882c4d861
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 39ee42d41b41cf7c1844a49286746080db71e973
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Интеграция аутентификации RADIUS шлюза Azure с NPS-сервером для обеспечения Многофакторной идентификации 
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/14/2018
  
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Шаг 2. Настройка сервера политики сети для Azure MFA
 
-1. [Установите расширение NPS для MFA Azure](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension) на NPS-сервере.
+1. [Установите расширение NPS для MFA Azure](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension) на NPS-сервере.
 2. Откройте консоль NPS, щелкните правой кнопкой мыши **RADUIS Clients** (Клиенты RADUIS), а затем выберите **Создать**. Создайте клиент RADUIS, указав следующие параметры.
 
     - **Понятное имя**. Введите любое имя.
@@ -81,4 +81,4 @@ ms.lasthandoff: 02/14/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 - [Многофакторная идентификация Azure](../multi-factor-authentication/multi-factor-authentication.md)
-- [Интеграция имеющейся инфраструктуры NPS со службой Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [Интеграция имеющейся инфраструктуры NPS со службой Многофакторной идентификации Azure](../active-directory/authentication/howto-mfa-nps-extension.md)

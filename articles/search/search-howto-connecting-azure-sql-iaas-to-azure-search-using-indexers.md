@@ -1,24 +1,17 @@
 ---
-title: "Подключение виртуальной машины SQL к Поиску Azure | Документация Майкрософт"
-description: "Активируйте зашифрованные подключения и настройте брандмауэр, чтобы разрешить подключения к SQL Server на виртуальной машине Azure из индексатора Поиска Azure."
-services: search
-documentationcenter: 
+title: Подключение виртуальной машины SQL к Поиску Azure | Документация Майкрософт
+description: Активируйте зашифрованные подключения и настройте брандмауэр, чтобы разрешить подключения к SQL Server на виртуальной машине Azure из индексатора Поиска Azure.
 author: HeidiSteen
-manager: pablocas
-editor: 
-ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
+manager: cgronlun
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f9f429a8a18a6e0722e1cb5e190104665305e06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Настройка подключения из индексатора Поиска Azure к SQL Server на виртуальной машине Azure
 Как было отмечено в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), служба поиска Azure поддерживает создание индексаторов для **SQL Server на виртуальных машинах Azure** (или **виртуальных машинах SQL Azure** для краткости), но существует несколько требований безопасности, которые необходимо выполнить. 

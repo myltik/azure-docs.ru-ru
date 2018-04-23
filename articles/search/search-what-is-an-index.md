@@ -1,22 +1,17 @@
 ---
-title: "Индексы в службе поиска Azure | Документация Майкрософт"
-description: "Дополнительные сведения о понятии индексов в службе поиска Azure и их использовании."
-services: search
-documentationcenter: 
-author: ashmaka
-ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
+title: Индексы в службе поиска Azure | Документация Майкрософт
+description: Дополнительные сведения о понятии индексов в службе поиска Azure и их использовании.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: ashmaka
-ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 933db5a9790088c38d4db8c3fffb1eed3c42c225
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexes-in-azure-search"></a>Индексы в службе поиска Azure
 > [!div class="op_single_selector"]

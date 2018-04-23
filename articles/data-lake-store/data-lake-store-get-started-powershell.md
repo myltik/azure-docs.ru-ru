@@ -1,8 +1,8 @@
 ---
-title: "Начало работы с Azure Data Lake Store с помощью PowerShell | Документация Майкрософт"
-description: "Использование Azure PowerShell для создания учетной записи хранения озера данных и выполнения базовых операций"
+title: Начало работы с Azure Data Lake Store с помощью PowerShell | Документация Майкрософт
+description: Использование Azure PowerShell для создания учетной записи хранения озера данных и выполнения базовых операций
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 31c98b930ccb8203316e3a3b13c3c0dc7d74dd9c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 57b7755bda499cd7113f84d9950b1b06175e11b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Начало работы с хранилищем озера данных Azure с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 1. На рабочем столе откройте новое окно Windows PowerShell. Введите следующий фрагмент кода, чтобы войти в свою учетную запись Azure, выбрать подписку и зарегистрировать поставщик Data Lake Store. Когда вам будет предложено войти, введите учетные данные администратора или владельца подписки.
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription

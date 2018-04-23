@@ -470,6 +470,8 @@
           href: troubleshoot-app-connection.md
         - name: Ошибки выделения ресурсов
           href: allocation-failure.md
+        - name: Ошибки с распределением классических виртуальных машин
+          href: allocation-failure-classic.md
         - name: Проблемы с развертыванием
           href: troubleshoot-deploy-vm.md
         - name: Создание виртуальной машины

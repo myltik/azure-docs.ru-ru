@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: eff58d77b2f79581ee0f611ca25d6cbbc258e996
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными
 > [!NOTE]
@@ -72,7 +72,7 @@ ms.lasthandoff: 03/23/2018
 6. На странице **Новая фабрика данных** нажмите кнопку **Создать**.
 
    > [!IMPORTANT]
-   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
+   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../role-based-access-control/built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
    >
    >
 7. После завершения процедуры создания фабрики данных появится страница **Фабрика данных**, как показано на рисунке ниже.

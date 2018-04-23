@@ -1,25 +1,20 @@
 ---
-title: "Описание операций хранилища данных SQL Azure | Документация Майкрософт"
-description: "Эластичность хранилища данных SQL — это возможность повышать и понижать вычислительную мощность, а также приостанавливать вычислительную работу с помощью обычного ползунка изменения уровня производительности (количества DWU). В этой статье описываются метрики хранилища данных и их связь с DWU. "
+title: Описание операций хранилища данных SQL Azure | Документация Майкрософт
+description: 'Эластичность хранилища данных SQL — это возможность повышать и понижать вычислительную мощность, а также приостанавливать вычислительную работу с помощью обычного ползунка изменения уровня производительности (количества DWU). В этой статье описываются метрики хранилища данных и их связь с DWU. '
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: e48d0a3028d5ebcb5d1bc0afbfc96a391bf4c076
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-workload"></a>Рабочая нагрузка хранилища данных
 Рабочая нагрузка хранилища данных — это все операции, которые выполняются в хранилище данных. Рабочая нагрузка хранилища охватывает весь процесс загрузки данных в хранилище, выполнение анализа, создание отчетов о хранилище, управление данными в хранилище и экспорт данных из хранилища. Глубина и ширина этих процессов зачастую зависят от уровня зрелости хранилища данных.

@@ -1,11 +1,11 @@
 ---
-title: "Создание приложения Azure AD и его настройка для доступа к API служб мультимедиа Azure с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "В этом разделе описывается, как создать и настроить приложение Azure AD для доступа к API служб мультимедиа Azure с помощью Azure CLI 2.0."
+title: Создание приложения Azure AD и его настройка для доступа к API служб мультимедиа Azure с помощью Azure CLI 2.0 | Документация Майкрософт
+description: В этом разделе описывается, как создать и настроить приложение Azure AD для доступа к API служб мультимедиа Azure с помощью Azure CLI 2.0.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Создание и настройка приложения Azure AD для доступа к API служб мультимедиа Azure с помощью Azure CLI 2.0
 
@@ -61,7 +61,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 
 Дополнительные сведения см. в статье [Создание субъекта-службы Azure с помощью Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli).
 
-Ознакомьтесь также с разделом [Управление доступом на основе ролей с помощью интерфейса командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Ознакомьтесь также с разделом [Управление доступом на основе ролей с помощью интерфейса командной строки Azure](../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Дополнительная информация
 

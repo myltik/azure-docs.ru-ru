@@ -1,24 +1,24 @@
 ---
-title: "Создание подписки на раздел пространства имен служебной шины Azure с помощью шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager."
+title: Создание подписки на раздел пространства имен служебной шины Azure с помощью шаблона Azure Resource Manager | Документация Майкрософт
+description: Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 7f854b4f1331cf1272371e1cc7574d40b6b39efd
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: ee9990cb9a112dffe1a7c2980315146c2a1d7ca5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager
 
@@ -105,8 +105,7 @@ ms.lasthandoff: 11/11/2017
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",

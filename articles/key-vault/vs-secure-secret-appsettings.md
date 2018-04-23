@@ -1,24 +1,24 @@
 ---
-title: "Безопасное хранение секретных параметров веб-приложения | Документация Майкрософт"
-description: "Безопасное хранение таких секретных параметров, как учетные данные Azure или сторонние ключи API, с помощью поставщика Key Vault ASP.NET Core, секрета пользователя или построителей конфигурации .NET 4.7.1"
+title: Безопасное хранение секретных параметров веб-приложения | Документация Майкрософт
+description: Безопасное хранение таких секретных параметров, как учетные данные Azure или сторонние ключи API, с помощью поставщика Key Vault ASP.NET Core, секрета пользователя или построителей конфигурации .NET 4.7.1
 services: visualstudio
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
-ms.service: 
+editor: ''
+ms.assetid: ''
+ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eee882dc52ffc37067916dac29324efe0bc95b03
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Безопасное хранение секретных параметров веб-приложения
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 12/08/2017
 
 1. Установите следующий пакет NuGet в своем проекте.
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 ```
 
 2. Определите построитель конфигурации Key Vault в файле Web.config. Поместите этот раздел перед разделом *appSettings*. Замените имя Key Vault на *vaultName*, если ваше хранилище размещено в общедоступном облаке Azure, или укажите полный универсальный код ресурса (URI), если вы используете независимое облако.

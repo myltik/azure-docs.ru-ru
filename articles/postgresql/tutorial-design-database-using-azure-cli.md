@@ -1,5 +1,21 @@
--- title: 'Руководство. Проектирование Базы данных Azure для PostgreSQL с помощью Azure CLI' description: В этом руководстве объясняется, как создать и настроить Базу данных Azure для PostgreSQL с помощью Azure CLI и отправлять к ней запросы.
-services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 01.04.2018.
+---
+title: Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI
+description: Это руководство содержит сведения о создании, настройке первого сервера службы "База данных Azure для PostgreSQL" и выполнении запросов к нему с помощью Azure CLI.
+services: postgresql
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
+editor: jasonwhowell
+ms.service: postgresql
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: tutorial
+ms.date: 04/01/2018
+ms.openlocfilehash: acba480631ba69a81da3029aadfb9cb51797549a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью Azure CLI 
 Из этого руководства вы узнаете, как с помощью Azure CLI (интерфейса командной строки) и других служебных программ выполнять следующие операции:
@@ -27,31 +43,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 Создайте [группу ресурсов Azure](../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group#az_group_create). Группа ресурсов — это логический контейнер, в котором ресурсы Azure развертываются и администрируются как группа. В следующем примере создается группа ресурсов с именем `myresourcegroup` в расположении `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>Добавление расширения
-Добавьте обновленное расширение управления Базы данных Azure для PostgreSQL, используя следующую команду.
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Убедитесь, что установлена правильная версия расширения. 
-```azurecli-interactive
-az extension list
-```
-
-В возвращенных данных JSON должно быть следующее: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Если возвращается версия, отличная от 0.0.5, выполните следующую команду, чтобы обновить расширение: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Создание сервера базы данных Azure для PostgreSQL

@@ -1,18 +1,17 @@
 ---
-title: "Поиск частично структурированных данных в облачном хранилище Azure"
-description: "Поиск частично структурированных данных больших двоичных объектов с помощью службы \"Поиск Azure\"."
+title: Поиск частично структурированных данных в облачном хранилище Azure
+description: Поиск частично структурированных данных больших двоичных объектов с помощью службы "Поиск Azure".
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Часть 2. Поиск частично структурированных данных в облачном хранилище
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/13/2018
 > [!NOTE]
 > Это руководство основывается на поддержке массивов JSON. В данный момент эта функция находится на этапе предварительной версии в службе "Поиск Azure". Она недоступна на портале. Поэтому используется предварительная версия REST API, предоставляющая эту возможность, и клиентский инструмент REST для вызова API.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Выполнение инструкций [предыдущего руководства](../storage/blobs/storage-unstructured-search.md) для создания учетной записи хранения и службы поиска.
 

@@ -1,11 +1,11 @@
 ---
-title: "Уровни производительности хранилища данных SQL Azure | Документация Майкрософт"
-description: "Общие сведения об оптимизированных для вычислений и эластичности уровнях производительности хранилища данных SQL Azure."
+title: Уровни производительности хранилища данных SQL Azure | Документация Майкрософт
+description: Общие сведения об оптимизированных для вычислений и эластичности уровнях производительности хранилища данных SQL Azure.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Уровни производительности хранилища данных SQL Azure (предварительная версия)
 Хранилище данных SQL предлагает два уровня производительности, которые оптимизированы для аналитических рабочих нагрузок. В этой статье описываются основные понятия уровней производительности, которые помогут вам выбрать наиболее подходящий уровень для вашей рабочей нагрузки. 

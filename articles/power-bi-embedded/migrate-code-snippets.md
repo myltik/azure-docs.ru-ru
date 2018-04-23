@@ -1,24 +1,24 @@
 ---
-title: "Фрагменты кода для переноса содержимого из коллекций рабочих областей Power BI | Документация Майкрософт"
-description: "Ниже приведены фрагменты кода основных операций, необходимых для переноса содержимого."
+title: Фрагменты кода для переноса содержимого из коллекций рабочих областей Power BI | Документация Майкрософт
+description: Ниже приведены фрагменты кода основных операций, необходимых для переноса содержимого.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 64f012322c89236fa8827fddf2f9090d0a167b76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ae69655292fd4ead04229e251280fe5920cb4d50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="code-snippets-for-migrating-content-from-power-bi-workspace-collections"></a>Фрагменты кода для переноса содержимого из коллекций рабочих областей Power BI
 

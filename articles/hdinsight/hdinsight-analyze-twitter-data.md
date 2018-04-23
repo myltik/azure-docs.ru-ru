@@ -1,25 +1,23 @@
 ---
-title: "Анализ данных Twitter с помощью Hadoop в HDInsight — Azure | Документы Майкрософт"
-description: "Узнайте, как использовать Hive для анализа данных Twitter с помощью Hadoop в HDInsight, чтобы определить частоту употребления конкретного слова."
+title: Анализ данных Twitter с помощью Hadoop в HDInsight — Azure | Документы Майкрософт
+description: Узнайте, как использовать Hive для анализа данных Twitter с помощью Hadoop в HDInsight, чтобы определить частоту употребления конкретного слова.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Анализ данных Twitter с помощью Hive в HDInsight
 Социальные веб-сайты являются одной из основных движущих сил для внедрения данных большого размера. Общедоступные API, предоставляемые сайтами, такими как Twitter, — полезный источник данных для анализа и понимания популярных тенденций.
@@ -38,7 +36,7 @@ ms.lasthandoff: 11/03/2017
     Перед выполнением сценариев Windows PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     При наличии нескольких подписок Azure используется следующий командлет для установки текущей подписки:
@@ -77,7 +75,7 @@ Twitter использует протокол OAuth для обеспечени�
 
 **Создание приложения Twitter**
 
-1. Войдите на веб-сайт [https://apps.twitter.com/](https://apps.twitter.com/). Щелкните ссылку **Войти сейчас** , если у вас нет учетной записи Twitter.
+1. Войдите на портал [https://apps.twitter.com/](https://apps.twitter.com/). Перейдите по ссылке **Войти сейчас** , если у вас нет учетной записи Twitter.
 2. Щелкните **Создать новое приложение**.
 3. Введите **Имя**, **Описание**, **Веб-сайт**. В поле **Веб-сайт** можно использовать URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
@@ -122,7 +120,7 @@ Twitter использует протокол OAuth для обеспечени�
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -396,7 +394,7 @@ Twitter использует протокол OAuth для обеспечени�
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID

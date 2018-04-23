@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Интеграция обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверка входных данных
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 С помощью инфраструктуры процедур идентификации, лежащей в основе Azure Active Directory B2C (Azure AD B2C), можно выполнять интеграцию с RESTful API в пути взаимодействия пользователя. В этом пошаговом руководстве вы узнаете, как Azure AD B2C взаимодействует со службами RESTful (веб-API) .NET Framework.
 
 ## <a name="introduction"></a>Введение

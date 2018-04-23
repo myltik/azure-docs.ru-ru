@@ -238,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Перемещение служб
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: Автоматическое масштабирование служб
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: Мониторинг и диагностика.
       items:
         - name: Обзор мониторинга
@@ -261,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: Создание отчетов о событиях работоспособности
           href: service-fabric-report-health.md
-        - name: Мониторинг с помощью OMS
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Интеграция со службой управления API
       href: service-fabric-api-management-overview.md
 - name: Практические руководства
@@ -405,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Настройка gMSA для контейнеров Windows
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Настройка периодического резервного копирования (кластеры в Azure)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: Настройка периодического резервного копирования (изолированные кластеры)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Перенос старого приложения Java для поддержки Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Работа в среде разработки Windows или Visual Studio
@@ -555,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: Добавление агента OMS
               href: service-fabric-diagnostics-oms-agent.md
+            - name: Мониторинг с помощью OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: Мониторинг контейнеров
               href: service-fabric-diagnostics-oms-containers.md
         - name: Анализ с помощью Application Insights

@@ -1,8 +1,8 @@
 ---
-title: "Создание панелей мониторинга Azure программными средствами | Документация Майкрософт"
-description: "В этой статье описывается создание панелей мониторинга Azure программными средствами."
+title: Создание панелей мониторинга Azure программными средствами | Документация Майкрософт
+description: В этой статье описывается создание панелей мониторинга Azure программными средствами.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3d72c8b026dd7c72be01aabcb47e76174d7afd6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Создание панелей мониторинга Azure программными средствами
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/09/2018
 
 ![команда общего доступа](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Если вы щелкните команду "Общий доступ", появится диалоговое окно с предложением выбрать подписку и группу ресурсов для публикации. Имейте в виду, что [у вас должен быть доступ на запись](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) в отношении выбранной подписки и группы ресурсов.
+Если вы щелкните команду "Общий доступ", появится диалоговое окно с предложением выбрать подписку и группу ресурсов для публикации. Имейте в виду, что [у вас должен быть доступ на запись](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) в отношении выбранной подписки и группы ресурсов.
 
 ![совместное использование и доступ](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Как связать или добавить подписку Azure в Azure Active Directory
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/16/2018
 2. Щелкните **Сменить каталог**.
 
     ![Снимок экрана, показывающий кнопку "Сменить каталог"](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Просмотрите предупреждения. Все пользователи [управления доступом на основе ролей (RBAC)](role-based-access-control-configure.md) с назначенными правами доступа и все администраторы подписки потеряют доступ, если изменить каталог подписки.
+3. Просмотрите предупреждения. Все пользователи [управления доступом на основе ролей (RBAC)](../role-based-access-control/role-assignments-portal.md) с назначенными правами доступа и все администраторы подписки потеряют доступ, если изменить каталог подписки.
 4. Выберите каталог.
 
     ![Снимок экрана, показывающий элемент интерфейса "Сменить каталог"](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/16/2018
 
 * Дополнительные сведения о создании каталога Azure AD бесплатно см. в статье [Как получить клиент Azure Active Directory](develop/active-directory-howto-tenant.md).
 * Сведения о передаче прав владения выставлением счетов по подписке Azure см. в статье [Передача прав владения подпиской Azure другой учетной записи](../billing/billing-subscription-transfer.md).
-* Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
+* Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Дополнительные сведения о назначении ролей в Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 <!--Image references-->

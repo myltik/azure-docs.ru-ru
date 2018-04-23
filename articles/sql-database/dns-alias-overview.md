@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1793f44026db55d17fabde5fb92bc46795109418
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Псевдоним DNS для Базы данных SQL Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/16/2018
 - *Отсутствие привязки к какому-либо региону.* Псевдонимы DNS не привязаны к региону. Любые псевдонимы DNS можно изменить таким образом, чтобы они ссылались на сервер Базы данных SQL Azure, который находится в любом географическом регионе.
     - Однако при этом оба сервера должны находится в одной *подписке* Azure.
 
-- *Разрешения.* Для управления псевдонимом DNS пользователю нужно разрешение *Участник на уровне сервера* или разрешение с большими правами. Дополнительные сведения см. в статье [Начало работы с управлением доступом на основе ролей на портале Azure](../active-directory/role-based-access-control-what-is.md).
+- *Разрешения.* Для управления псевдонимом DNS пользователю нужно разрешение *Участник на уровне сервера* или разрешение с большими правами. Дополнительные сведения см. в статье [Начало работы с управлением доступом на основе ролей на портале Azure](../role-based-access-control/overview.md).
 
 
 

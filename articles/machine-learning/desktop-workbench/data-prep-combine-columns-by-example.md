@@ -1,6 +1,6 @@
 ---
-title: "Преобразование Combine Columns by Example (Объедение столбцов по образцу) в Azure Machine Learning Workbench"
-description: "Справочная документация по преобразованию Combine Columns by Example (Объедение столбцов по образцу)."
+title: Преобразование Combine Columns by Example (Объедение столбцов по образцу) в Azure Machine Learning Workbench
+description: Справочная документация по преобразованию Combine Columns by Example (Объедение столбцов по образцу).
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Преобразование Combine Columns by Example (Объедение столбцов по образцу).
 Это преобразование позволяет добавить новый столбец, объединив значения из нескольких столбцов. Пользователь может указать разделитель или предоставить примеры объединенных значений, чтобы выполнить это преобразование. Когда пользователь предоставляет примеры сочетания, преобразование обрабатывается на основе подхода **По образцу**, который используется в преобразовании **Derive Column by Example** (Получение столбцов по образцу).
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/05/2018
 
 |Дата|Месяц|Год|Hour|Минута|Секунда|Объединенный столбец|
 |:----|:----|:----|:----|:----|:----|:----|
-|13.|Окт|2016|15|01|23|**13-Окт-2016 15:01:23 PDT**|
+|13|Окт|2016|15|01|23|**13-Окт-2016 15:01:23 PDT**|
 |16|Окт|2016|16|22|33|16-Окт-2016 15:01:33 PDT|
 |17|Окт|2016|12|43|12|17-Окт-2016 15:01:12 PDT|
 |12|Ноя|2016|14|22|44|12-Ноя-2016 15:01:44 PDT|

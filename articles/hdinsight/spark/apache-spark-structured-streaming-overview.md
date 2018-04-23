@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: aa56c1e2f1f506be51f449a1cf10b4f0bc57a152
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ca4a248e9da2c0d50aaf320370b1f3050a0ff263
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Обзор структурированной потоковой передачи Spark
 
@@ -138,7 +136,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="deploying-spark-streaming-applications"></a>Развертывание приложений потоковой передачи Spark
 
-Как правило, приложение потоковой передачи Spark создается локально в JAR-файле, а затем развертывается в Spark в HDInsight путем копирования JAR-файла в хранилище по умолчанию, подключенное к кластеру HDInsight. Можно запустить приложение с использованием интерфейсов REST API LIVY, доступных в кластере с использованием операции POST. Текст операции POST содержит документ JSON, предоставляющий путь к JAR-файлу, имя класса, основной метод которого определяет и выполняет приложение потоковой передачи, при необходимости требования к ресурсам задания (например, количество исполнителей, ядер и объем памяти) и настройки конфигурации, необходимые для кода приложения.
+Как правило, приложение потоковой передачи Spark создается локально в JAR-файле, а затем развертывается в Spark в HDInsight путем копирования JAR-файла в хранилище по умолчанию, подключенное к кластеру HDInsight. Можно запустить приложение с использованием интерфейсов REST API LIVY, к которым можно получить доступ в кластере с помощью операции POST. Текст операции POST содержит документ JSON, предоставляющий путь к JAR-файлу, имя класса, основной метод которого определяет и выполняет приложение потоковой передачи, а также (необязательно) требования к ресурсам задания (например, количество исполнителей, ядер и объем памяти) и настройки конфигурации, необходимые для кода приложения.
 
 ![Развертывание приложения потоковой передачи Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 

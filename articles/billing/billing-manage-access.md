@@ -1,11 +1,11 @@
 ---
-title: "Управление доступом к счетам Azure с помощью ролей | Документы Майкрософт"
-description: 
-services: 
-documentationcenter: 
+title: Управление доступом к счетам Azure с помощью ролей | Документы Майкрософт
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Управление доступом к сведениям о счетах Azure с помощью управления доступом на основе ролей
 
-Вы можете предоставить членам группы доступ к информации о счетах Azure, назначив своей подписке одну из следующих ролей пользователя: администратор учетной записи, администратор служб, соадминистратор, владелец, участник, читатель и читатель счетов. Они получат доступ к счетам на [портале Azure](https://portal.azure.com/) и смогут использовать [API-интерфейсы выставления счетов](billing-usage-rate-card-overview.md) для программного получения счетов (после выражения согласия) и сведений об использовании. Дополнительные сведения о том, кто может назначать роли и какие роли за что отвечают, см. в статье [Роли в Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+Вы можете предоставить членам группы доступ к информации о счетах Azure, назначив своей подписке одну из следующих ролей пользователя: администратор учетной записи, администратор служб, соадминистратор, владелец, участник, читатель и читатель счетов. Они получат доступ к счетам на [портале Azure](https://portal.azure.com/) и смогут использовать [API-интерфейсы выставления счетов](billing-usage-rate-card-overview.md) для программного получения счетов (после выражения согласия) и сведений об использовании. Дополнительные сведения о том, кто может назначать роли и какие роли за что отвечают, см. в статье [Роли в Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a> Допуск дополнительных пользователей к счетам
 

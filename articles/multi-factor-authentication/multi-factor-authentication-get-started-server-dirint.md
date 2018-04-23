@@ -1,8 +1,8 @@
 ---
-title: "Интеграция каталогов между сервером Многофакторной идентификации Azure и Active Directory"
-description: "На этой странице описана процедура интеграции сервера Многофакторной идентификации Azure c Active Directory для синхронизации каталогов."
+title: Интеграция каталогов между сервером Многофакторной идентификации Azure и Active Directory
+description: На этой странице описана процедура интеграции сервера Многофакторной идентификации Azure c Active Directory для синхронизации каталогов.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 9d06da0d15bfeffb17da81e4b5ae4423d01ed770
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Интеграция каталогов между сервером Azure Multi-Factor Authentication и Active Directory
 Воспользуйтесь разделом "Интеграция каталогов" сервера Многофакторной идентификации Azure для интеграции с Active Directory или другим каталогом LDAP. Вы сможете настроить атрибуты в соответствии со схемой каталога и автоматическую синхронизацию пользователей.

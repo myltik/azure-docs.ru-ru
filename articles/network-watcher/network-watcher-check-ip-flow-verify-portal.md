@@ -1,11 +1,11 @@
 ---
-title: "Наблюдатель за сетями Azure: проверка трафика с помощью функции проверки потока IP-адресов | Документация Майкрософт"
-description: "В этой статье описывается, как проверить состояние передачи входящего и исходящего трафика виртуальной машины: разрешен он или запрещен"
+title: 'Наблюдатель за сетями Azure: проверка трафика с помощью функции проверки потока IP-адресов | Документация Майкрософт'
+description: 'В этой статье описывается, как проверить состояние передачи входящего и исходящего трафика виртуальной машины: разрешен он или запрещен'
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e0e3e9a8-70eb-409a-a744-0ce9deb27148
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8333ccfd1e4cc917c8af4b3006292e43b77ecc7f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b6d929f025c8b95709b7c0eb28ee78310e5f12a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Проверка состояния входящего и исходящего трафика виртуальной машины (разрешен или запрещен) с помощью функции проверки потока IP-адресов службы наблюдения за сетями Azure
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Если трафик блокируется, чего не должно быть, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/virtual-network-manage-nsg-arm-portal.md). В ней содержатся сведения об отслеживании группы безопасности сети и определенных правил безопасности.
+Если трафик блокируется, чего не должно быть, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/manage-network-security-group.md). В ней содержатся сведения об отслеживании группы безопасности сети и определенных правил безопасности.
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

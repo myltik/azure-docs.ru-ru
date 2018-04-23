@@ -1,6 +1,6 @@
 ---
-title: "Использование функции сбора данных модели в Azure Machine Learning Workbench | Документация Майкрософт"
-description: "В этом документе рассказывается о том, как использовать функцию сбора данных в Azure Machine Learning Workbench."
+title: Использование функции сбора данных модели в Azure Machine Learning Workbench | Документация Майкрософт
+description: В этом документе рассказывается о том, как использовать функцию сбора данных в Azure Machine Learning Workbench.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
 ms.openlocfilehash: 2251f8d241f3ec47d46c04160caf997bcd025124
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Сбор данных модели с помощью функции сбора данных
 

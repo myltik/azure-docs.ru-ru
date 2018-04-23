@@ -1,12 +1,12 @@
 ---
-title: "Требование безопасной передачи в службе хранилища Azure | Документация Майкрософт"
-description: "Узнайте о функции \"Требуется безопасное перемещение\" для службы хранилища Azure и о том, как ее включить."
+title: Требование безопасной передачи в службе хранилища Azure | Документация Майкрософт
+description: Узнайте о функции "Требуется безопасное перемещение" для службы хранилища Azure и о том, как ее включить.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Требование безопасной передачи в службе хранилища Azure
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/07/2017
 
 Для работы с этим примером требуется модуль Azure PowerShell 4.1 или более поздней версии. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
  Для проверки параметра можно использовать командную строку ниже:
 
