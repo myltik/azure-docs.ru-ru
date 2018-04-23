@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Шаблоны диспетчера ресурсов
+      href: backup-rm-template-samples.md
 - name: Основные понятия
   items:
     - name: Часто задаваемые вопросы

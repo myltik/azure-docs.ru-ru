@@ -3,16 +3,17 @@ title: Ограничения поиска Azure | Документация Ма
 description: Ограничения службы поиска Azure, используемые при планировании мощности, а также ограничения запросов и ответов на них.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 23f67099bff7cdadcee44eed50e9944ecf7c5672
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Ограничения поиска Azure
 Максимальные ограничения хранилища, рабочих нагрузок, количества индексов, документов и других объектов зависят от того, для какой ценовой категории вы [подготовили службу поиска Azure](search-create-service-portal.md): **Бесплатный**, **Базовый** или **Стандартный**.

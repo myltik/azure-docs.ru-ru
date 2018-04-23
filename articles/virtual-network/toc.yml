@@ -327,7 +327,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Переполнение стека
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-network'
-    - name: Поставщик сетевых ресурсов
-      href: resource-groups-networking.md
     - name: Часто задаваемые вопросы
       href: virtual-networks-faq.md

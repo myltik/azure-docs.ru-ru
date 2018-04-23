@@ -2,17 +2,17 @@
 title: включение файла
 description: включение файла
 services: virtual-network
-author: genli
+author: genlin
 ms.service: virtual-network
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 10f723d5298e745520c4db41b994bd2b97aaa365
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 226dfd9add69e8d89a030b858c819691d7b20627
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 Несмотря на то что при использовании системных маршрутов трафик для развертывания передается автоматически, существуют случаи, когда требуется управлять маршрутизацией пакетов через виртуальное устройство. Для этого нужно создать определяемые пользователем маршруты, которые указывают, чтобы при следующем прыжке пакеты, передаваемые в конкретную подсеть, передавались в виртуальное устройство, и включить IP-пересылку для виртуальной машины, работающей в качестве виртуального устройства.
 

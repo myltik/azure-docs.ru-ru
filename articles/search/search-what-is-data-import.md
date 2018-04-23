@@ -3,15 +3,16 @@ title: Импорт данных в службе "Поиск Azure" | Докум
 description: Сведения об отправке данных в индекс в службе поиска Azure.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: 3f5f6c4ea8ba45d0fefb84e7338ffdc44f852246
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e54b89d31042d43a14379dea6daffd3e7763a64a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-in-azure-search"></a>Индексация в службе поиска Azure
 > [!div class="op_single_selector"]

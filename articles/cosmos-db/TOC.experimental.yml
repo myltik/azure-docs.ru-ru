@@ -209,17 +209,17 @@ items:
                   - name: Подключение к Spark
                     href: spark-connector.md
                   - name: Потоковая передача в HDInsight с помощью Kafka и Spark
-                    href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Развертывание веб-сайта в службе приложений Azure
                     href: create-website.md
                   - name: Вход в приложения с помощью Logic Apps
-                    href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+                    href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
                   - name: Привязка к Функциям Azure
-                    href: ../azure-functions/functions-bindings-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Интеграция с Поиском Azure
-                    href: ../search/search-howto-index-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Перенос данных с помощью фабрики данных Azure
-                    href: ../data-factory/connector-azure-cosmos-db.md
+                    href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
                   - name: Анализ данных в реальном времени с помощью Azure Stream Analytics
                     href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: Получение измененной записи HL7 FHIR с помощью Logic Apps
@@ -231,7 +231,7 @@ items:
                   - name: Визуализация данных с помощью драйвера ODBC
                     href: odbc-driver.md
                   - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+                    href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
           - name: Справочные материалы
             items:
               - name: Async Java
@@ -381,7 +381,7 @@ items:
               - name: .NET
                 href: table-storage-how-to-use-dotnet.md
               - name: 'F#'
-                href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
               - name: Node.js
                 href: table-storage-cloud-service-nodejs.md
               - name: Java

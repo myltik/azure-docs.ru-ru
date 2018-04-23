@@ -4,16 +4,17 @@ description: Управление доступом к конечной точк�
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 6e2201778fe9cc75701fdb6a89cde268d1481994
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 83a082eb7a18c65a5824bf272e0397b18883277f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Создание ключей API и управление ими для службы "Поиск Azure"
 

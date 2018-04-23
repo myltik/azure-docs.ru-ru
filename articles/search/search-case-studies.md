@@ -4,16 +4,17 @@ description: Примеры использования и истории кли�
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 6fddec08f23de8f310ad9e675409b80818b1c98d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bc15d214d48978b2f8a6bceb3d1a0e945f10bd67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Служба поиска Azure: примеры использования и истории клиентов
 Узнайте, как указанные ниже организации смогли улучшить свой бизнес за счет интеграции широких возможностей поиска в онлайн-приложениях.

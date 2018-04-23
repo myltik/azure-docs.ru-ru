@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 906ea3c37823616597ee74dbadf50618d5c4e11d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 66a3a31574778bb1238498b523d51dc0d32ac22f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Обзор управления безопасностью Azure и мониторинга
 Azure предоставляет механизмы безопасности, облегчающие управление облачными службами и виртуальными машинами Azure, а также их мониторинг. Эта статья содержит краткое описание основных служб и функций безопасности. Здесь также приведены ссылки на статьи с дополнительными сведениями.
@@ -75,7 +75,7 @@ Azure Multi-factor Authentication (MFA) — это метод проверки �
 Подробнее.
 
 * [Многофакторная проверка подлинности](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Что такое Многофакторная идентификация Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+* [Что такое Многофакторная идентификация Azure?](../active-directory/authentication/multi-factor-authentication.md)
 * [Принципы работы службы Многофакторной идентификации Azure](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
