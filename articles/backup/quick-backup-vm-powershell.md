@@ -1,13 +1,13 @@
 ---
-title: "Краткое руководство по Azure. Резервное копирование виртуальной машины с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как создавать резервные копии виртуальных машин с помощью Azure PowerShell"
+title: Краткое руководство по Azure. Резервное копирование виртуальной машины с помощью PowerShell | Документация Майкрософт
+description: Узнайте, как создавать резервные копии виртуальных машин с помощью Azure PowerShell
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91303368f96b477f0756e4d3b9d19601797f0ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Резервное копирование виртуальной машины в Azure с помощью PowerShell
 Модуль Azure PowerShell используется для создания и администрирования ресурсов Azure с помощью командной строки или скриптов. Для защиты данных можно создавать архивы с регулярным интервалом. Служба Azure Backup создает точки восстановления, которые могут храниться в геоизбыточных хранилищах служб восстановления. В этой статье объясняется, как создать резервную копию виртуальной машины с помощью модуля Azure PowerShell. Эти действия можно также выполнить с помощью [Azure CLI](quick-backup-vm-cli.md) или [портала Azure](quick-backup-vm-portal.md).
@@ -31,10 +31,10 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
-Войдите в подписку Azure с помощью команды `Login-AzureRmAccount` и следуйте инструкциям на экране.
+Войдите в подписку Azure с помощью команды `Connect-AzureRmAccount` и следуйте инструкциям на экране.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 При первом использовании службы Azure Backup зарегистрируйте поставщик служб восстановления Azure в своей подписке с помощью команды [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).

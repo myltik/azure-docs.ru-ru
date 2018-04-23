@@ -1,12 +1,12 @@
 ---
-title: "Сбор метрик ресурсов PaaS в Azure с помощью Log Analytics | Документация Майкрософт"
-description: "Узнайте, как с помощью PowerShell включить сбор метрик ресурсов PaaS в Azure для хранения и анализа в службе Log Analytics."
+title: Сбор метрик ресурсов PaaS в Azure с помощью Log Analytics | Документация Майкрософт
+description: Узнайте, как с помощью PowerShell включить сбор метрик ресурсов PaaS в Azure для хранения и анализа в службе Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Сбор метрик ресурсов PaaS в Azure с помощью Log Analytics
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 01/03/2018
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.   
+3. Выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure.   
 4. Запустите скрипт `.\Enable-AzureRmDiagnostics.ps1` без параметров, чтобы включить сбор данных из определенного ресурса в вашей подписке, или с параметром `-ResourceGroup <myResourceGroup>`, чтобы указать ресурс в определенной группе ресурсов.   
 5. Если у вас есть несколько подписок, выберите в списке нужную, указав правильное значение.<br><br> ![Выбор подписки в списке, выведенном при помощи скрипта](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Если доступна всего одна подписка, скрипт выбирает ее автоматически.
 6. Затем при помощи скрипта выводится список рабочих областей Log Analytics, зарегистрированных в выбранной подписке.  Выберите в нем нужную область.<br><br> ![Выбор рабочей области в списке, выведенном при помощи скрипта](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

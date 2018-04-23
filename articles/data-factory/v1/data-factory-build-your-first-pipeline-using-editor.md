@@ -1,11 +1,11 @@
 ---
-title: "Создание первой фабрики данных (портал Azure) | Документация Майкрософт"
-description: "В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрик данных на портале Azure."
+title: Создание первой фабрики данных (портал Azure) | Документация Майкрософт
+description: В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрик данных на портале Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Руководство. Создание первой фабрики данных с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/02/2018
 
 Здесь не приводятся общие сведения о службе фабрики данных. Дополнительные сведения о службе см. в статье [Введение в фабрику данных Azure](data-factory-introduction.md).  
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Например, действие копирования, копирующее данные из исходного хранилища данных в целевое. Еще один пример — действие HDInsight Hive, запускающее сценарий Hive, преобразующий входные данные в выходные. 
 
 Чтобы создать фабрику данных, сделайте следующее:
@@ -80,7 +80,7 @@ ms.lasthandoff: 03/02/2018
 8. Нажмите кнопку **Создать**.
 
    > [!IMPORTANT]
-   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
+   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
    >
    >
 9. На панели мониторинга вы увидите приведенный ниже элемент с состоянием **Deploying data factory** (Развертывание фабрики данных).    
@@ -425,7 +425,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="summary"></a>Сводка
 Следуя инструкциям из этого руководства, вы создали фабрику данных для обработки данных путем выполнения сценария Hive в кластере Hadoop HDInsight. Вы использовали редактор фабрики данных на портале Azure для выполнения следующих действий:  
 
-* создадите фабрику данных;
+* Создадите фабрику данных.
 * Создание двух связанных служб:
    * Служба хранилища — связанная служба для связывания хранилища BLOB-объектов, которое содержит входные и выходные файлы, с фабрикой данных.
    * HDInsight — связанная служба по запросу для связывания кластера HDInsight Hadoop с фабрикой данных. Фабрика данных своевременно создает кластер HDInsight Hadoop для обработки входных данных и генерирования выходных данных.

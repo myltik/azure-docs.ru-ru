@@ -1,8 +1,8 @@
 ---
-title: "Сценарии работы с данными с использованием Data Lake Store | Документация Майкрософт"
-description: "Сведения о различных сценариях и средствах для приема, обработки, загрузки и визуализации данных в хранилище озера данных"
+title: Сценарии работы с данными с использованием Data Lake Store | Документация Майкрософт
+description: Сведения о различных сценариях и средствах для приема, обработки, загрузки и визуализации данных в хранилище озера данных
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8cd666af9e05b543b6794612ec5acf6f8a27756
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Использование хранилища озера данных Azure для потребностей больших данных
 Процесс обработки больших данных состоит из указанных далее четырех ключевых этапов.
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/24/2018
 
 | источник данных | Средство для приема |
 | --- | --- |
-| Локальный компьютер |<ul> <li>[портале Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Кроссплатформенный интерфейс командной строки Azure 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Data Lake Tools для Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Локальный компьютер |<ul> <li>[портал Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Кроссплатформенный интерфейс командной строки Azure 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Data Lake Tools для Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Большой двоичный объект хранилища Azure |<ul> <li>[Фабрика данных Azure](../data-factory/connector-azure-data-lake-store.md)</li> <li>[инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp, запущенный на кластере HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Потоковые данные
@@ -131,4 +131,4 @@ ms.lasthandoff: 02/24/2018
 ![Визуализация данных в Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "визуализация данных в Data Lake Store")
 
 * Сначала с помощью [фабрики данных Azure переместите данные из Data Lake Store в хранилище данных SQL Azure](../data-factory/copy-activity-overview.md).
-* После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
+* После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) для создания визуального представления данных.

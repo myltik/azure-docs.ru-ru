@@ -1,9 +1,9 @@
 ---
-title: "Включение Microsoft Windows Hello для бизнеса в организации | Документация Майкрософт"
-description: "Инструкции по развертыванию для включения в организации службы Microsoft Passport."
+title: Включение Microsoft Windows Hello для бизнеса в организации | Документация Майкрософт
+description: Инструкции по развертыванию для включения в организации службы Microsoft Passport.
 services: active-directory
-documentationcenter: 
-keywords: "настройка Microsoft Passport, развертывание Microsoft Windows Hello для бизнеса"
+documentationcenter: ''
+keywords: настройка Microsoft Passport, развертывание Microsoft Windows Hello для бизнеса
 author: MarkusVi
 manager: mtillman
 tags: azure-classic-portal
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Включение Microsoft Windows Hello для бизнеса в организации
 После [подключения присоединенных к домену устройств Windows 10 к Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md) выполните следующую процедуру, чтобы включить Microsoft Windows Hello для бизнеса в организации:

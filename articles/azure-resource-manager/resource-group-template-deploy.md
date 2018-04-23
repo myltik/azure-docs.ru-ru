@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/03/2018
 
 Развертываемый шаблон Resource Manager может быть локальным файлом на вашем компьютере или внешним файлом, расположенным в репозитории, например в GitHub. Шаблон, развертываемый в этой статье, доступен в разделе [Пример шаблона](#sample-template) или как [шаблон учетной записи хранения в GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-При необходимости установите модуль Azure PowerShell, следуя инструкциям из [руководства по Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Login-AzureRmAccount`, чтобы подключиться к Azure.
+При необходимости установите модуль Azure PowerShell, следуя инструкциям из [руководства по Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Connect-AzureRmAccount`, чтобы подключиться к Azure.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/03/2018
 В следующем примере создается группа ресурсов и развертывается шаблон с локального компьютера:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

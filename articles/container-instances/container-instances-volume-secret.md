@@ -1,6 +1,6 @@
 ---
-title: "Подключение тома secret в службе \"Экземпляры контейнеров Azure\""
-description: "Узнайте, как подключить том secret для хранения конфиденциальной информации, чтобы обеспечить доступ экземплярам контейнеров"
+title: Подключение тома secret в службе "Экземпляры контейнеров Azure"
+description: Узнайте, как подключить том secret для хранения конфиденциальной информации, чтобы обеспечить доступ экземплярам контейнеров
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 6f8e1b6faac11b668a143f8013a198831a428c51
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e20dc3b37bc766b2a8a352eb62c03f5e2ee14c52
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Подключение тома secret в службе "Экземпляры контейнеров Azure"
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 02/14/2018
 
 Например, следующий шаблон Resource Manager создает группу контейнеров, состоящую из одного контейнера. С помощью контейнера подключается том *secret*, состоящий из двух секретов в кодировке Base64.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Пример развертывания экземпляра контейнера с помощью шаблона Azure Resource Manager см. в статье [Развертывание группы контейнеров](container-instances-multi-container-group.md).

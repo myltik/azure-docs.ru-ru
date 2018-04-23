@@ -22,7 +22,7 @@
 1. Войдите в учетную запись Microsoft Azure в режиме управления ресурсами и выберите подписку следующим образом:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Задайте имя группы ресурсов и имя виртуальной машины следующим образом:
@@ -65,7 +65,7 @@
 1. Войдите в учетную запись Microsoft Azure в режиме управления ресурсами и выберите подписку следующим образом:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Задайте имя группы ресурсов и имя виртуальной машины следующим образом:
@@ -109,7 +109,7 @@
 Неуправляемые диски:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Управляемые диски:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

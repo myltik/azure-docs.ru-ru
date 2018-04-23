@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Развертывание службы "Машинное обучение Azure" в качестве модуля IoT Edge (предварительная версия)
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 03/29/2018
 
 * Устройство Azure IoT Edge, которое вы создали при работе с кратким руководством или первым руководством.
 * Строка подключения Центра Интернета вещей, к которому подключается ваше устройство IoT Edge.
-* Учетная запись Студии машинного обучения Azure. Чтобы создать учетную запись, выполните инструкции из статьи [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts) (Создание учетной записи для службы "Машинное обучение Azure" и установка Azure Machine Learning Workbench). Для этого руководства не нужно устанавливать приложение рабочего места (Workbench). 
-* Служба управления модулями для Azure ML на вашем компьютере. Чтобы настроить среду и создать учетную запись, выполните инструкции из раздела о [настройке управления моделью](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+* Учетная запись Студии машинного обучения Azure. Чтобы создать учетную запись, выполните инструкции из статьи [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) (Создание учетной записи для службы "Машинное обучение Azure" и установка Azure Machine Learning Workbench). Для этого руководства не нужно устанавливать приложение рабочего места (Workbench). 
+* Служба управления модулями для Azure ML на вашем компьютере. Чтобы настроить среду и создать учетную запись, выполните инструкции из раздела о [настройке управления моделью](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
 
 Модуль машинного обучения Azure не поддерживает процессоры ARM. 
 

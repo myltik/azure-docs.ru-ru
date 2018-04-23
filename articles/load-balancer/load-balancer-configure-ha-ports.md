@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Настройка высокодоступных портов для внутренней подсистемы балансировки нагрузки
 
@@ -39,12 +39,6 @@ ms.lasthandoff: 03/23/2018
 ![Пример развертывания высокодоступных портов](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>Регистрация в предварительной версии
-
-Чтобы зарегистрироваться в предварительной версии компонента "Порты с высоким уровнем доступности" в Azure Load Balancer уровня "Стандартный", зарегистрируйте свою подписку, чтобы получить доступ, используя Azure CLI 2.0 или PowerShell. Зарегистрируйте подписку для [предварительной версии Load Balancer уровня "Стандартный"](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->На регистрацию предварительных версий Load Balancer уровня "Стандартный" может уйти до часа.
 
 ## <a name="configure-high-availability-ports"></a>Настройка портов высокого уровня доступности
 

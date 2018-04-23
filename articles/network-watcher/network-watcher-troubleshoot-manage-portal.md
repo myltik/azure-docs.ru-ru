@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок шлюза виртуальной сети и подключений Azure (портал) | Документация Майкрософт"
-description: "На этой странице объясняется, как использовать для устранения неполадок наблюдатель за сетями с портала"
+title: Устранение неполадок шлюза виртуальной сети и подключений Azure (портал) | Документация Майкрософт
+description: На этой странице объясняется, как использовать для устранения неполадок наблюдатель за сетями с портала
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: becc4f799e34aabba5c703f09e51a4b7d497c45a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Устранение неполадок шлюза виртуальной сети и подключений с помощью наблюдателя за сетями с портала Azure
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Если изменены параметры, которые мешают VPN-подключению, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/virtual-network-manage-nsg-arm-portal.md), чтобы найти сведения о группах безопасности сети и соответствующие правила безопасности.
+Если изменены параметры, которые мешают VPN-подключению, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/manage-network-security-group.md), чтобы найти сведения о группах безопасности сети и соответствующие правила безопасности.
 
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png
