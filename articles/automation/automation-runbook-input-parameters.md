@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2ce87c300d3e9092794e6e437dc9919c7eb0f3c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-input-parameters"></a>Входные параметры Runbook
 
@@ -37,16 +37,16 @@ ms.lasthandoff: 03/17/2018
 
 Для определения параметров модулей Runbook рабочих процессов PowerShell используется следующий общий формат, где несколько параметров разделяются запятыми.
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > Если не указать атрибут **Mandatory** при определении параметров, то по умолчанию параметр будет необязательным. Кроме того, если в модулях runbook рабочего процесса PowerShell задать для параметра значение по умолчанию, то он будет считаться необязательным в PowerShell, независимо от значения атрибута **Mandatory**.
@@ -61,13 +61,16 @@ ms.lasthandoff: 03/17/2018
 
 Чтобы передать значение при наличии в runbook входного параметра типа object, следует использовать хэш-таблицу PowerShell с парами (имя — значение). Например, если в Runbook есть такой параметр:
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 вы можете передать для него следующее значение:
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Настройка входных параметров в графических модулях Runbook
 
@@ -146,7 +149,7 @@ ms.lasthandoff: 03/17/2018
   
   **Пример.**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
@@ -155,7 +158,7 @@ ms.lasthandoff: 03/17/2018
   
   **Пример.**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
   
   Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
@@ -170,7 +173,7 @@ ms.lasthandoff: 03/17/2018
 
 * **Метод, предусматривающий использование Azure Resource Manager.** Для запуска модуля Runbook можно использовать пакет SDK для языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -189,7 +192,7 @@ ms.lasthandoff: 03/17/2018
   ```
 * **Метод для классической модели развертывания Azure.** Запустить модуль runbook можно с помощью пакета SDK для используемого языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -209,7 +212,7 @@ ms.lasthandoff: 03/17/2018
   
   Чтобы запустить этот метод, создайте словарь для хранения параметров Runbook, **VMName** и **resourceGroupName**, а также их значений. Запустите модуль Runbook. Ниже приведен фрагмент кода C# для вызова метода, определенного выше.
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -239,7 +242,7 @@ ms.lasthandoff: 03/17/2018
 
 Если вы хотите запустить модуль Runbook **Get-AzureVMTextual**, созданный ранее с использованием параметров **VMName** и **resourceGroupName**, используйте следующий формат JSON в тексте запроса.
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{

@@ -3,15 +3,16 @@ title: Как реализовать фасетную навигацию в сл
 description: Добавьте фасетную навигацию в приложения, которые интегрируются с Поиском Azure, размещенной облачной службой поиска в Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 9ca289d4a8ce9849e3ec8fa4c2a3ca89f4dc311e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Как реализовать фасетную навигацию в службе поиска Azure
 Фасетная навигация представляет собой механизм фильтрации, обеспечивающий самоуправляемую детализированную навигацию в приложениях поиска. Термин "фасетная навигация" может быть неизвестен вам, но вы, вероятно, использовали этот механизм ранее. Как показано в следующем примере, фасетная навигации — это не что иное, как категории, с помощью которых фильтруются результаты.

@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Общие сведения о решениях идентификации Azure
 Microsoft Azure Active Directory (Azure AD) — это облачное решение по управлению идентификацией и доступом, предоставляющее службы каталогов, функции контроля удостоверений и управления доступом к приложениям. Azure AD позволяет быстро [выполнять единый вход](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) в 1000 предварительно интегрированных пользовательских и коммерческих приложений в [коллекции приложений Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Вы наверняка уже используете многие из этих приложений, например Office 365, Salesforce.com, Box, ServiceNow и Workday.
@@ -107,7 +107,7 @@ Microsoft Azure предоставляет несколько вариантов
 В сети есть множество полезных ресурсов, которые помогут вам больше узнать об Azure AD. Ниже приведен список отличных статей для начала работы.
 
 * [Обеспечение гибридного управления для каталога с помощью Azure AD Connect](active-directory-aadconnect.md)
-* [Повышенная безопасность для постоянного подключения к Интернету](../multi-factor-authentication/multi-factor-authentication.md)
+* [Повышенная безопасность для постоянного подключения к Интернету](authentication/multi-factor-authentication.md)
 * [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Приступая к работе с помощью Azure AD Reporting](active-directory-reporting-getting-started.md)
 * [Управление паролями из любой точки мира](active-directory-passwords-update-your-own-password.md)

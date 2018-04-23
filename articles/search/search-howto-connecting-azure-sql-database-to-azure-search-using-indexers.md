@@ -3,16 +3,17 @@ title: Подключение базы данных SQL Azure к службе п
 description: Узнайте, как извлекать данные из Базы данных SQL Azure в индекс Поиска Azure с помощью индексаторов.
 author: chaosrealm
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: eugenesh
-ms.openlocfilehash: c0aa256f856a85f53c00ed88b9b8303e1af527d4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 

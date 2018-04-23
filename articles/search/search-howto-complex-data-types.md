@@ -5,14 +5,15 @@ author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: bc7deddc73139e587114c2d58c3fd176df47225c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Моделирование сложных типов данных в службе поиска Azure
 Внешние наборы данных, используемые для заполнения индекса Поиска Azure, иногда включают иерархические или вложенные подструктуры, которые невозможно аккуратно разделить на табличные наборы строк. К примерам таких структур можно отнести несколько расположений и номеров телефонов для одного клиента, несколько цветов и размеров для одного SKU, несколько авторов на одну книгу и т. д. В моделировании эти структуры называются *сложные типы данных*, *составные типы данных*, *композитные типы данных*, *агрегатные типы данных* и т. д.

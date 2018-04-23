@@ -3,7 +3,6 @@
 # Обзор
 ## [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md)
 ## [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md)
-## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Начало работы
 ## Создание VPN-шлюза на основе маршрутов
@@ -122,6 +121,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Блог](https://azure.microsoft.com/blog/topics/networking)
 ## [Форум](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## [Цены](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla)

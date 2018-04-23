@@ -3,7 +3,7 @@ title: Создание виртуальной сети (классическо�
 description: Узнайте, как создать виртуальную сеть (классическую) с помощью портала Azure.
 services: virtual-network
 documentationcenter: ''
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 88fe34ffc5c32071b25574978618b2e49f46f19f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 60e9aa1daaa2edea534dabd549ed666fdcdd1940
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>Создание (классической) виртуальной сети с помощью портала Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

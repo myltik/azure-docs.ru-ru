@@ -1,12 +1,12 @@
 ---
-title: "Защита баз данных PaaS в Azure | Документы Майкрософт"
+title: Защита баз данных PaaS в Azure | Документы Майкрософт
 description: " Ознакомьтесь с рекомендациями по безопасности Базы данных SQL Azure и хранилища данных SQL, чтобы защитить свои веб-приложения и мобильные приложения PaaS. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>Защита баз данных PaaS в Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/22/2017
 - для проверки подлинности удостоверений на уровне базы данных используются данные пользователей автономной базы данных;
 - поддержка аутентификации на основе маркеров для приложений, подключающихся к базе данных SQL;
 - поддержка аутентификации с использованием AD FS (федерация доменов) или собственную аутентификацию с помощью имени пользователя и пароля для локального каталога Azure AD без синхронизации домена;
-- поддержка подключений из SQL Server Management Studio, использующих универсальную аутентификацию Active Directory, в том числе [Многофакторную идентификацию (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA обеспечивает надежную аутентификацию с использованием ряда простых вариантов проверки посредством телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении. Дополнительные сведения см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
+- поддержка подключений из SQL Server Management Studio, использующих универсальную аутентификацию Active Directory, в том числе [Многофакторную идентификацию (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA обеспечивает надежную аутентификацию с использованием ряда простых вариантов проверки посредством телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении. Дополнительные сведения см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Дополнительные сведения об аутентификации Azure AD см. в следующих статьях:
 
