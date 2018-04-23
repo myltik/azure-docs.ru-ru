@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Использование Azure PowerShell для создания субъекта-службы с сертификатом
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Создание субъекта-службы с самозаверяющим сертификатом
 
-Ниже приводится простой пример сценария. В нем используется команда [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal), чтобы создать субъект-службу с самозаверяющим сертификатом, а затем выполняется [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) для присвоения этому субъекту-службе роли [участника](../active-directory/role-based-access-built-in-roles.md#contributor). Назначение ролей ограничивается текущей выбранной подпиской Azure. Чтобы выбрать другую подписку, выполните [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Ниже приводится простой пример сценария. В нем используется команда [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal), чтобы создать субъект-службу с самозаверяющим сертификатом, а затем выполняется [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) для присвоения этому субъекту-службе роли [участника](../role-based-access-control/built-in-roles.md#contributor). Назначение ролей ограничивается текущей выбранной подпиской Azure. Чтобы выбрать другую подписку, выполните [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -75,7 +75,7 @@ Param (
  [String] $ApplicationDisplayName
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -150,7 +150,7 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -170,7 +170,7 @@ Param (
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Создание субъекта-службы с помощью сертификата из центра сертификации
 
-В приведенном ниже примере создается субъект-служба с сертификатом, выданным центром сертификации. Назначение ограничено указанной подпиской Azure. Также в примере этот субъект-служба добавляется в роль [участника](../active-directory/role-based-access-built-in-roles.md#contributor). Если при назначении ролей возникнет ошибка, назначение выполняется повторно.
+В приведенном ниже примере создается субъект-служба с сертификатом, выданным центром сертификации. Назначение ограничено указанной подпиской Azure. Также в примере этот субъект-служба добавляется в роль [участника](../role-based-access-control/built-in-roles.md#contributor). Если при назначении ролей возникнет ошибка, назначение выполняется повторно.
 
 ```powershell
 Param (
@@ -187,7 +187,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -Subscription $SubscriptionId
  
@@ -239,7 +239,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId

@@ -1,11 +1,11 @@
 ---
-title: "Пример сценария Azure PowerShell. Создание веб-приложения и развертывание кода из GitHub | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для создания веб-приложения и развертывания кода из GitHub."
+title: Пример сценария Azure PowerShell. Создание веб-приложения и развертывание кода из GitHub | Документация Майкрософт
+description: Пример сценария Azure PowerShell для создания веб-приложения и развертывания кода из GitHub.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 573766f4b1256ec0ba85edd3742b16684db4bd10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fbda001d86c63c6ec045f7a3ac5ec1d10e15fe4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>Создание веб-приложения и развертывание кода из GitHub
 
 Этот пример скрипта создает веб-приложение в службе приложений со связанными ресурсами, а затем развертывает код веб-приложения из открытого репозитория GitHub (без непрерывного развертывания). Дополнительные сведения о непрерывном развертывании на GitHub см. в статье [Создание веб-приложения с непрерывным развертыванием из GitHub](app-service-powershell-continuous-deployment-github.md).
 
-При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, необходима ссылка на репозиторий GitHub, который содержит код веб-приложения.
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, необходима ссылка на репозиторий GitHub, который содержит код веб-приложения.
 
 ## <a name="sample-script"></a>Пример скрипта
 

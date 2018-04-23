@@ -1,6 +1,6 @@
 ---
-title: "Создание шлюза приложений с брандмауэром веб-приложения — Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с брандмауэром веб-приложения с помощью Azure PowerShell."
+title: Создание шлюза приложений с брандмауэром веб-приложения — Azure PowerShell | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с брандмауэром веб-приложения с помощью Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,31 +11,31 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: fe36076988e65837340ec70982de788e532c455d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 662e8bc8b1119022cf88bf40108bb8d1e680f122
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Создание шлюза приложений с брандмауэром веб-приложения с помощью Azure PowerShell
 
-С помощью Azure PowerShell можно создать [шлюз приложений](application-gateway-introduction.md) с [брандмауэром веб-приложения](application-gateway-web-application-firewall-overview.md) (WAF), в котором используется [масштабируемый набор виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для внутренних серверов. Для защиты приложения WAF применяет правила [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project). В эти правила входит защита от атак, например от внедрения кода SQL, межсайтовых сценариев и перехватов сеанса. 
+С помощью Azure PowerShell можно создать [шлюз приложений](application-gateway-introduction.md) с [брандмауэром веб-приложения](application-gateway-web-application-firewall-overview.md) (WAF), в котором используется [масштабируемый набор виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для внутренних серверов. Для защиты приложения WAF применяет правила [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project). Эти правила включают защиту от атак, например от внедрения кода SQL, межсайтовых скриптов и захватов сеанса. 
 
 В этой статье раскрываются следующие темы:
 
 > [!div class="checklist"]
 > * Настройка сети
-> * создание шлюза приложений с включенным брандмауэром веб-приложения;
-> * создание масштабируемого набора виртуальных машин;
-> * создание учетной записи хранения и настройка диагностики.
+> * Создание шлюза приложений с включенным WAF.
+> * создавать масштабируемый набор виртуальных машин;
+> * Создание учетной записи хранения и настройка диагностики.
 
-![Пример брандмауэра веб-приложения](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
+![Пример брандмауэра веб-приложений](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -73,7 +73,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Создание IP-конфигураций и интерфейсного порта
 
-Свяжите созданную ранее подсеть *myAGSubnet* со шлюзом приложений, используя командлет [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Назначьте адрес *myAGPublicIPAddress* шлюзу приложений с помощью командлета [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
+Свяжите созданную ранее подсеть *myAGSubnet* со шлюзом приложений, используя командлет [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Назначьте шлюзу приложений адрес *myAGPublicIPAddress* с помощью командлета [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -91,7 +91,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
   -Port 80
 ```
 
-### <a name="create-the-backend-pool-and-settings"></a>Создание внутреннего пула и настройка параметров
+### <a name="create-the-backend-pool-and-settings"></a>Создание серверного пула и настройка параметров
 
 Создайте внутренний пул с именем *appGatewayBackendPool* для шлюза приложений с помощью командлета [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Настройте параметры для внутренних пулов адресов, используя командлет [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
@@ -155,7 +155,7 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>создавать масштабируемый набор виртуальных машин;
 
-В этом примере создается масштабируемый набор виртуальных машин, чтобы предоставить серверы для внутреннего пула в шлюзе приложений. Масштабируемый набор назначается внутреннему пулу при настройке параметров IP-адреса.
+В этом примере создается масштабируемый набор виртуальных машин, чтобы предоставить серверы для серверного пула в шлюзе приложений. Масштабируемый набор назначается серверному пулу при настройке параметров IP-адреса.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -266,8 +266,8 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 > [!div class="checklist"]
 > * Настройка сети
-> * создание шлюза приложений с включенным брандмауэром веб-приложения;
+> * Создание шлюза приложений с включенным WAF.
 > * создавать масштабируемый набор виртуальных машин;
-> * создание учетной записи хранения и настройка диагностики.
+> * Создание учетной записи хранения и настройка диагностики.
 
 Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.

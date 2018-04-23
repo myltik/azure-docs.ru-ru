@@ -1,10 +1,10 @@
 ---
-title: "Автомасштабирование узлов кластера пакета HPC | Документация Майкрософт"
-description: "Автоматическое увеличение и уменьшение количества вычислительных узлов кластера пакета HPC в Azure"
+title: Автомасштабирование узлов кластера пакета HPC | Документация Майкрософт
+description: Автоматическое увеличение и уменьшение количества вычислительных узлов кластера пакета HPC в Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Автоматическое изменение размера ресурсов кластера пакета HPC в Azure в соответствии с рабочей нагрузкой кластера
 Если вы развертываете в кластере пакета HPC "расширительные" узлы Azure или создаете кластер пакета HPC на виртуальных машинах Azure, может потребоваться способ автоматического увеличения или сжатия ресурсов кластера (например, узлов или ядер) в соответствии с рабочей нагрузкой в кластере. Такой способ масштабирования ресурсов позволяет более эффективно использовать ресурсы Azure и управлять затратами на них.
@@ -50,13 +50,13 @@ ms.lasthandoff: 10/27/2017
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Если ваша учетная запись используется в нескольких клиентах Azure Active Directory или подписках Azure, можно выполнить следующую команду, чтобы выбрать правильный клиент и подписку:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Выполните следующую команду для просмотра текущего выбранного клиента и подписки:
@@ -186,12 +186,12 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 * **Кластер узла HPC 2012 R2 с обновлением 1 или более поздней версии** — сценарий **AzureAutoGrowShrink.ps1** установлен в папку %CCP_HOME%bin. Головной узел кластера может быть развернут локально или на виртуальной машине Azure. Ознакомьтесь со статьей [Настройка гибридного кластера с пакетом HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md), чтобы приступить к работе с локальными головными узлами и "расширительными" узлами Azure. Выполните быстрое развертывание кластера пакета HPC на виртуальных машинах Azure, как указано в [описании сценария развертывания IaaS пакета HPC](hpcpack-cluster-powershell-script.md), или см. [краткое руководство по шаблонам Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0.** В настоящее время сценарий зависит от конкретной версии Azure PowerShell.
 * **Для кластеров с расширительными узлами Azure** — запустите сценарий на клиентском компьютере с установленным пакетом HPC или на головном узле. При выполнении на клиентском компьютере важно убедиться, что переменная $env:CCP_SCHEDULER задана и указывает на головной узел. "Расширительные" узлы Azure должны быть добавлены в кластер, однако они могут находиться в неразвернутом состоянии.
-* **Для кластера, развернутого на виртуальных машинах Azure (модель развертывания Resource Manager).** Для кластера виртуальных машин Azure, развернутого с использованием модели Resource Manager, сценарий поддерживает два метода аутентификации Azure: вход в учетную запись Azure для постоянного выполнения сценария (запустив `Login-AzureRmAccount`) или настройка субъекта-службы для аутентификации с помощью сертификата. Пакет HPC содержит сценарий **ConfigARMAutoGrowShrinkCert.ps** для создания субъекта-службы с сертификатом. Сценарий создает приложение Azure Active Directory (Azure AD) и субъект-службу, а также присваивает ей роль участника. Чтобы выполнить сценарий, запустите Azure PowerShell с правами администратора и выполните следующие команды:
+* **Для кластера, развернутого на виртуальных машинах Azure (модель развертывания Resource Manager).** Для кластера виртуальных машин Azure, развернутого с использованием модели Resource Manager, сценарий поддерживает два метода аутентификации Azure: вход в учетную запись Azure для постоянного выполнения сценария (запустив `Connect-AzureRmAccount`) или настройка субъекта-службы для аутентификации с помощью сертификата. Пакет HPC содержит сценарий **ConfigARMAutoGrowShrinkCert.ps** для создания субъекта-службы с сертификатом. Сценарий создает приложение Azure Active Directory (Azure AD) и субъект-службу, а также присваивает ей роль участника. Чтобы выполнить сценарий, запустите Azure PowerShell с правами администратора и выполните следующие команды:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```

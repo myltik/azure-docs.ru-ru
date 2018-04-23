@@ -1,6 +1,6 @@
 ---
-title: "Создание шлюза приложений с несколькими сайтами с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений, на котором размещено несколько сайтов, с помощью Azure PowerShell."
+title: Создание шлюза приложений с несколькими сайтами с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений, на котором размещено несколько сайтов, с помощью Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: ed385eac624f5c59981c01ee70ba2a1700a78653
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be3ecf1d1ce292df47cbe117390e863f4bd4d5b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Создание шлюза приложений с несколькими сайтами с помощью Azure PowerShell
 
-Чтобы настроить [размещение нескольких веб-сайтов](application-gateway-multi-site-overview.md) при создании [шлюза приложений](application-gateway-introduction.md), можно использовать Azure PowerShell. В этом руководстве мы создадим внутренние пулы с использованием масштабируемых наборов виртуальных машин. Затем вы настроите прослушиватели и правила на основе собственных доменов, чтобы обеспечить передачу веб-трафика на соответствующие серверы в пуле. В этом руководстве предполагается, что вы владеете несколькими доменами, и для примера используются *www.contoso.com* и *www.fabrikam.com*.
+Чтобы настроить [размещение нескольких веб-сайтов](application-gateway-multi-site-overview.md) при создании [шлюза приложений](application-gateway-introduction.md), можно использовать Azure PowerShell. В этом руководстве мы создадим внутренние пулы с использованием масштабируемых наборов виртуальных машин. Затем вы настроите прослушиватели и правила на основе принадлежащих вам доменов, чтобы обеспечить передачу веб-трафика на соответствующие серверы в пулах. В этом руководстве предполагается, что вам принадлежат несколько доменов. Для примера здесь используются домены *www.contoso.com* и *www.fabrikam.com*.
 
 В этой статье раскрываются следующие темы:
 
 > [!div class="checklist"]
 > * Настройка сети
 > * Создание шлюза приложений
-> * Создание прослушивателей и правил маршрутизации.
+> * создание прослушивателей и правил маршрутизации;
 > * создание масштабируемых наборов виртуальных машин с внутренними пулами.
-> * Создание записи CNAME в домене.
+> * создание записи CNAME в домене.
 
 ![Пример маршрутизации нескольких сайтов](./media/application-gateway-create-multisite-azureresourcemanager-powershell/scenario.png)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -249,7 +249,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>Создание записи CNAME в домене
 
-После создания шлюза приложений с общедоступным IP-адресом можно получить DNS-адрес и использовать его для создания записи CNAME в своем домене. Чтобы получить DNS-адрес шлюза приложений, используйте командлет [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Скопируйте значение *fqdn* для DNSSettings и используйте его в качестве значения создаваемой записи CNAME. Использование записей A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска шлюза приложений.
+После создания шлюза приложений с общедоступным IP-адресом можно получить DNS-адрес и использовать его для создания записи CNAME в своем домене. Чтобы получить DNS-адрес шлюза приложений, используйте командлет [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Скопируйте значение *fqdn* для DNSSettings и используйте его в качестве значения создаваемой записи CNAME. Использовать записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска шлюза приложений.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -272,9 +272,9 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 > [!div class="checklist"]
 > * Настройка сети
 > * Создание шлюза приложений
-> * Создание прослушивателей и правил маршрутизации.
+> * создание прослушивателей и правил маршрутизации;
 > * создание масштабируемых наборов виртуальных машин с внутренними пулами.
-> * Создание записи CNAME в домене.
+> * создание записи CNAME в домене.
 
 > [!div class="nextstepaction"]
 > [Дополнительные сведения о возможностях шлюза приложений](application-gateway-introduction.md)

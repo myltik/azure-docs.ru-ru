@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Различные административные роли в Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/08/2018
 ## <a name="roles-not-managed-in-pim"></a>Роли, которыми нельзя управлять в PIM
 Роли в Exchange Online или SharePoint Online, за исключением упомянутых выше, не представлены в Azure AD и поэтому не отображаются в PIM. Дополнительные сведения об изменении детализированных назначений ролей в этих службах Office 365 см. в статье [Роли администраторов в Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Подписки Azure и группы ресурсов также не представлены в Azure AD. Дополнительные сведения об управлении подписками Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md), а сведения об управлении доступом на основе ролей Azure — в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md).
+Подписки Azure и группы ресурсов также не представлены в Azure AD. Дополнительные сведения об управлении подписками Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md), а сведения об управлении доступом на основе ролей Azure — в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

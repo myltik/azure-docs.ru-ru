@@ -1,13 +1,13 @@
 ---
-title: "Шифрование дисков в службе \"Масштабируемые наборы виртуальных машин Azure\" | Документация Майкрософт"
-description: "Узнайте, как шифровать подключенные диски в масштабируемых наборах виртуальных машин."
+title: Шифрование дисков в службе "Масштабируемые наборы виртуальных машин Azure" | Документация Майкрософт
+description: Узнайте, как шифровать подключенные диски в масштабируемых наборах виртуальных машин.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Шифрование диска ОС и подключенных дисков данных в масштабируемом наборе виртуальных машин
 [Масштабируемые наборы виртуальных машин](/azure/virtual-machine-scale-sets/) Azure поддерживают шифрование дисков Azure (ADE).  Шифрование дисков Azure можно включить для масштабируемых наборов виртуальных машин Windows и Linux, чтобы защитить хранящиеся в них неактивные данные с помощью стандартной отраслевой технологии шифрования. Дополнительные сведения см. в статье "Azure Disk Encryption for Windows and Linux virtual machines" (Использование шифрования дисков Azure для виртуальных машин Windows и Linux).
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/21/2018
 Для работы предварительной версии службы шифрования дисков Azure для масштабируемых наборов виртуальных машин необходимо самостоятельно зарегистрировать подписку с помощью следующих команд PowerShell. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Общие сведения об удостоверениях Azure Stack
 
@@ -169,9 +169,9 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="use-role-based-access-control"></a>Использование контроля доступа на основе ролей  
 Управление доступом на основе ролей (RBAC) в Azure Stack согласуется с реализацией в Microsoft Azure. Вы можете управлять доступом к ресурсам путем назначения соответствующей роли RBAC пользователям, группам и приложениям. Для получения дополнительных сведений об использовании RBAC с помощью Azure Stack, ознакомьтесь со следующими статьями:
-- [Начало работы с управлением доступом на основе ролей на портале Azure](/azure/active-directory/role-based-access-control-what-is).
-- [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](/azure/active-directory/role-based-access-control-configure).
-- [Создание пользовательских ролей для управления доступом на основе ролей в Azure](/azure/active-directory/role-based-access-control-custom-roles).
+- [Начало работы с управлением доступом на основе ролей на портале Azure](/azure/role-based-access-control/overview).
+- [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](/azure/role-based-access-control/role-assignments-portal).
+- [Создание пользовательских ролей для управления доступом на основе ролей в Azure](/azure/role-based-access-control/custom-roles).
 - [Управление доступом на основе ролей](azure-stack-manage-permissions.md) в Azure Stack.
 
 

@@ -1,25 +1,18 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 6 \"Создание мер\" | Документы Майкрософт"
-description: "Описывает создание мер в учебном проекте служб Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Учебник по службам Azure Analysis Services: занятие 6 "Создание мер" | Документы Майкрософт'
+description: Описывает создание мер в учебном проекте служб Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 31531abb5c2d2309317f1b88a1a794392b914f90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-measures"></a>Создание мер
 

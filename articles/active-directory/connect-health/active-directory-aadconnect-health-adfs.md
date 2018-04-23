@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Мониторинг AD FS с помощью Azure AD Connect Health
 Приведенная ниже информация относится к мониторингу инфраструктуры AD FS с помощью Azure AD Connect Health. Сведения о мониторинге синхронизации Azure AD Connect с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health с AD DS](active-directory-aadconnect-health-adds.md).
@@ -127,7 +127,7 @@ Azure AD Connect Health для AD FS предоставляет отчет о 50
 
 > [!NOTE]
 > Чтобы применять этот отчет, необходимо убедиться, что включен аудит AD FS. Дополнительные сведения см. в разделе [Включение аудита для AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Для доступа к предварительной версии требуются разрешения глобального администратора или [читателя безопасности](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader).  
+> Для доступа к предварительной версии требуются разрешения глобального администратора или [читателя безопасности](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
 > 
 
 ### <a name="what-is-in-the-report"></a>Что есть в этом отчете

@@ -1,8 +1,8 @@
 ---
-title: "Создание кластеров Hadoop с помощью командной строки в Azure HDInsight | Документы Майкрософт"
-description: "Узнайте, как создавать кластеры HDInsight с кроссплатформенного Azure CLI 1.0."
+title: Создание кластеров Hadoop с помощью командной строки в Azure HDInsight | Документы Майкрософт
+description: Узнайте, как создавать кластеры HDInsight с кроссплатформенного Azure CLI 1.0.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e56829c771ae47933f79c519920a20c1308873fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Создание кластеров HDInsight с помощью интерфейса командной строки Azure
 

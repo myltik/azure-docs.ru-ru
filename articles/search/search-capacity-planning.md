@@ -1,25 +1,17 @@
 ---
-title: "Планирование загрузки для Поиска Azure | Документация Майкрософт"
-description: "Настройка вычислительных ресурсов секций и реплик в Поиске Azure, в которых каждый ресурс оценивается в оплачиваемых единицах поиска."
-services: search
-documentationcenter: 
+title: Планирование загрузки для Поиска Azure | Документация Майкрософт
+description: Настройка вычислительных ресурсов секций и реплик в Поиске Azure, в которых каждый ресурс оценивается в оплачиваемых единицах поиска.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: caca793b529d8025f3c6a994ea8598068ee1b053
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Масштабирование уровней ресурсов для рабочих нагрузок запросов и индексирования в Поиске Azure
 После [выбора ценовой категории](search-sku-tier.md) и [подготовки службы поиска](search-create-service-portal.md) следующим шагом является необязательное увеличение количества реплик или секций, используемых службой. Каждый уровень предоставляет фиксированное число единиц выставления счетов. В этой статье объясняется, как выделять эти единицы для достижения оптимальной конфигурации, позволяющей сбалансировать ваши требования к для выполнению запросов, индексированию и хранению данных.

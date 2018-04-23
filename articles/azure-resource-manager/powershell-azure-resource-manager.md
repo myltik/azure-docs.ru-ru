@@ -1,8 +1,8 @@
 ---
-title: "Управление решениями Azure с помощью PowerShell | Документация Майкрософт"
-description: "Воспользуйтесь Azure PowerShell и Resource Manager для управления ресурсами."
+title: Управление решениями Azure с помощью PowerShell | Документация Майкрософт
+description: Воспользуйтесь Azure PowerShell и Resource Manager для управления ресурсами.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a3dcbfe09d47388b80cee15ff0e46f8b75b474a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Управление ресурсами с помощью Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Сведения об установке и использовании Azure PowerShell локально см. в [этой статье](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Сведения об установке и использовании Azure PowerShell локально см. в [этой статье](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="understand-scope"></a>Общие сведения об области
 
@@ -51,9 +51,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 В этой статье вы развертываете виртуальную машину и связанную с ней виртуальную сеть. Для управления решениями виртуальной машины существует три роли для конкретных ресурсов, предоставляющие необходимый тип доступа:
 
-* [Участник виртуальной машины](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Участник сети](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Участник учетной записи хранения](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Участник виртуальной машины](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Участник сети](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Участник учетной записи хранения](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Вместо назначения ролей для отдельных пользователей зачастую бывает проще [создать группу Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) для пользователей, которым необходимо выполнять подобные действия. А затем назначить этой группе соответствующую роль. Чтобы упростить работу, создайте группу Azure Active Directory без членов. Вы по-прежнему можете назначить группе роль для области. 
 

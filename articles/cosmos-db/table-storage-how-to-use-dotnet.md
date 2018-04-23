@@ -3,9 +3,8 @@ title: Приступая к работе с хранилищем таблиц A
 description: Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL).
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +48,8 @@ ms.lasthandoff: 03/16/2018
 ### <a name="more-samples"></a>Другие примеры
 Дополнительные примеры использования хранилища таблиц см. в статье [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Создание учетной записи службы Azure
-
-Вы можете работать с таблицами, используя хранилище таблиц Azure или Azure Cosmos DB. Дополнительные сведения о различиях между службами см. в разделе о [предложениях для работы с таблицами](table-introduction.md#table-offerings). Для службы, которую вы планируете использовать, потребуется создать учетную запись. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 Самый простой способ создать первую учетную запись хранения Azure — воспользоваться [порталом Azure](https://portal.azure.com). Дополнительную информацию см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -63,8 +59,7 @@ ms.lasthandoff: 03/16/2018
 Если вы не хотите сейчас создавать учетную запись хранения, код можно протестировать в локальной среде с помощью эмулятора хранения Azure. Дополнительные сведения см. в статье [Использование эмулятора хранения Azure для разработки и тестирования](../storage/common/storage-use-emulator.md).
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Создание учетной записи API таблиц Azure Cosmos DB
-
-Инструкции по созданию учетной записи API таблиц Azure Cosmos DB см. в [этом разделе](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>Настройка среды разработки
 Теперь настройте среду разработки в Visual Studio для работы с примерами кода из этого руководства.

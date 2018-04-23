@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3bfedf940bd884fc8093f14236b6f3e4f7596839
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Управление службой хранилища в независимых от Azure облаках с помощью Azure PowerShell
 
@@ -48,7 +48,7 @@ Get-AzureRmEnvironment
 Войдите в учетную запись с доступом к облаку, к которому требуется подключиться, и укажите среду. В этом примере показано, как войти в учетную запись облака Azure для государственных организаций.   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzureRmAccount –Environment AzureUSGovernment
 ```
 
 Для доступа к облаку для Китая используйте среду **AzureChinaCloud**. Для доступа к облаку для Германии используйте среду**AzureGermanCloud**.

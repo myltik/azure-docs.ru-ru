@@ -1,11 +1,11 @@
 ---
-title: "Совместное использование учетных записей с помощью Azure AD | Документация Майкрософт"
-description: "Описывает, как Azure Active Directory позволяет организациям обеспечить безопасное совместное использование учетных записей для локальных приложений и потребительских облачных служб."
+title: Совместное использование учетных записей с помощью Azure AD | Документация Майкрософт
+description: Описывает, как Azure Active Directory позволяет организациям обеспечить безопасное совместное использование учетных записей для локальных приложений и потребительских облачных служб.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b6a83d91ec5d8466669655d6c3bd7ae7b42dd2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c0687a2d0dd9bb42f566daf3835c1c3130054e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Совместное использование учетных записей в Azure AD
 ## <a name="overview"></a>Обзор
@@ -69,7 +69,7 @@ Azure AD поддерживает общие учетные записи для 
 * Выполните [назначение на основе групп](active-directory-accessmanagement-group-saasapps.md) и выберите способ ввода общих учетных данных.
 * Необязательно: в некоторых приложениях, таких как Facebook, Twitter или LinkedIn, можно включить [автоматическое изменение пароля Azure AD](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-Можно также сделать свою общую учетную запись более безопасной с помощью службы Многофакторной идентификации (MFA) (ознакомьтесь с дополнительными сведениями о [защите приложений с помощью Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)). Кроме того, можно делегировать возможность управления доступом к приложению с помощью функции управления группами в компоненте [самообслуживания Azure AD](active-directory-accessmanagement-self-service-group-management.md).
+Можно также сделать свою общую учетную запись более безопасной с помощью службы Многофакторной идентификации (MFA) (ознакомьтесь с дополнительными сведениями о [защите приложений с помощью Azure AD](authentication/concept-mfa-whichversion.md)). Кроме того, можно делегировать возможность управления доступом к приложению с помощью функции управления группами в компоненте [самообслуживания Azure AD](active-directory-accessmanagement-self-service-group-management.md).
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

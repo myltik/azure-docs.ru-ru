@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1f52079e00c7c5f4e70acf8c86f648ed9281744e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Управление виртуальными машинами с помощью Azure CLI
 
@@ -43,15 +43,15 @@ az group create --name myResourceGroup --location "East US"
 
 ## <a name="role-based-access-control"></a>Контроль доступа на основе ролей
 
-Вам нужно, чтобы у пользователей вашей организации был необходимый уровень доступа к этим ресурсам. Вы не хотите предоставлять пользователям неограниченный доступ, но при этом требуется обеспечить им возможность работать. [Управление доступом на основе ролей](../../active-directory/role-based-access-control-what-is.md) позволяет предоставлять пользователям разрешения на выполнение определенных действий в той или иной области.
+Вам нужно, чтобы у пользователей вашей организации был необходимый уровень доступа к этим ресурсам. Вы не хотите предоставлять пользователям неограниченный доступ, но при этом требуется обеспечить им возможность работать. [Управление доступом на основе ролей](../../role-based-access-control/overview.md) позволяет предоставлять пользователям разрешения на выполнение определенных действий в той или иной области.
 
 Для создания и удаления назначений ролей пользователи должны иметь доступ `Microsoft.Authorization/roleAssignments/*`. Такой доступ предоставляется с помощью ролей владельца или администратора доступа пользователей.
 
 Для управления решениями виртуальной машины существует три роли для конкретных ресурсов, предоставляющие необходимый тип доступа:
 
-* [Участник виртуальной машины](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Участник сети](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Участник учетной записи хранения](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Участник виртуальной машины](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Участник сети](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Участник учетной записи хранения](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Вместо назначения ролей для отдельных пользователей зачастую бывает проще [создать группу Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) для пользователей, которым необходимо выполнять подобные действия. А затем назначить этой группе соответствующую роль. Чтобы упростить работу, создайте группу Azure Active Directory без членов. Вы по-прежнему можете назначить группе роль для области. 
 

@@ -3,8 +3,8 @@ title: Журнал ведения диагностики Azure Cosmos DB | До
 description: Это руководство поможет вам приступить к работе с журналами Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Журнал ведения диагностики Azure Cosmos DB
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 03/28/2018
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. Azure PowerShell получает все подписки, связанные с этой учетной записью, и по умолчанию использует первую из них.

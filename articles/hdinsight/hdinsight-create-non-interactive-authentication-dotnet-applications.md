@@ -1,26 +1,24 @@
 ---
-title: "Создание приложений .NET с неинтерактивной проверкой подлинности в Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как создавать приложения Microsoft .NET с неинтерактивной проверкой подлинности в Azure HDInsight."
+title: Создание приложений .NET с неинтерактивной проверкой подлинности в Azure HDInsight | Документация Майкрософт
+description: Узнайте, как создавать приложения Microsoft .NET с неинтерактивной проверкой подлинности в Azure HDInsight.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Создание приложения .NET HDInsight с неинтерактивной проверкой подлинности
 Приложение Microsoft .NET Azure HDInsight можно запустить с помощью его собственного удостоверения (неинтерактивный режим) или удостоверения пользователя, вошедшего в приложение (интерактивный режим). В этой статье описано, как создать приложение .NET с неинтерактивной проверкой подлинности для подключения к Azure и управления HDInsight. Пример интерактивного приложения см. в разделе [Подключение к Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -35,7 +33,7 @@ ms.lasthandoff: 01/03/2018
 * Кластер HDInsight. Дополнительные сведения см. в [руководстве по началу работы](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Назначение роли приложению Azure AD
-Назначьте приложению Azure AD определенную [роль](../active-directory/role-based-access-built-in-roles.md), чтобы предоставить ему разрешения на выполнение действий. Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуют более низкие уровни области действия. Например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать данные группы ресурсов и всех содержащихся в ней ресурсов. В этом руководстве показано, как задать область действия на уровне группы ресурсов. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
+Назначьте приложению Azure AD определенную [роль](../role-based-access-control/built-in-roles.md), чтобы предоставить ему разрешения на выполнение действий. Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуют более низкие уровни области действия. Например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать данные группы ресурсов и всех содержащихся в ней ресурсов. В этом руководстве показано, как задать область действия на уровне группы ресурсов. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Добавление роли владельца в приложение Azure AD**
 
@@ -127,4 +125,4 @@ ms.lasthandoff: 01/03/2018
 ## <a name="next-steps"></a>Дополнительная информация
 * [Создание приложения Azure Active Directory и субъекта-службы на портале Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Узнайте, как [выполнять проверку подлинности субъекта-службы в Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-* Узнайте, как [управлять доступом на основе ролей (RBAC) в Azure](../active-directory/role-based-access-control-configure.md).
+* Узнайте, как [управлять доступом на основе ролей (RBAC) в Azure](../role-based-access-control/role-assignments-portal.md).

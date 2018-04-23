@@ -134,24 +134,24 @@
 #### [Использование сертификатов](active-directory-reporting-api-with-certificates.md)
 
 ## Управление паролями
-### [Общие сведения о паролях](active-directory-passwords-overview.md)
+### [Общие сведения о паролях](authentication/active-directory-passwords-overview.md)
 ### Документы пользователя
 #### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 #### [Рекомендации по паролям](active-directory-secure-passwords.md)
 #### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
-### [Принципы работы SSPR](active-directory-passwords-how-it-works.md)
-### [Руководство по развертыванию SSPR](active-directory-passwords-best-practices.md)
+### [Принципы работы SSPR](authentication/concept-sspr-howitworks.md)
+### [Руководство по развертыванию SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR и Windows 10](active-directory-passwords-login.md)
-### [Политики SSPR](active-directory-passwords-policy.md)
-### [Настройка SSPR](active-directory-passwords-customize.md)
-### [Требования к данным SSPR](active-directory-passwords-data.md)
-### [Отчеты SSPR](active-directory-passwords-reporting.md)
+### [Политики SSPR](authentication/concept-sspr-policy.md)
+### [Настройка SSPR](authentication/concept-sspr-customization.md)
+### [Требования к данным SSPR](authentication/howto-sspr-authenticationdata.md)
+### [Отчеты SSPR](authentication/howto-sspr-reporting.md)
 ### ИТ-администрирование. Сброс паролей
 #### [портал Azure](active-directory-users-reset-password-azure-portal.md)
-### [Лицензия SSPR](active-directory-passwords-licensing.md)
+### [Лицензия SSPR](authentication/concept-sspr-licensing.md)
 ### [Обратная запись паролей](active-directory-passwords-writeback.md)
-### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
-### [Часто задаваемые вопросы](active-directory-passwords-faq.md)
+### [Устранение неполадок](authentication/active-directory-passwords-troubleshoot.md)
+### [Часто задаваемые вопросы](authentication/active-directory-passwords-faq.md)
 
 
 ## Управление устройствами

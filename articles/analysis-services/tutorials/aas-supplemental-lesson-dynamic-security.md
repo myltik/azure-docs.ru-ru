@@ -1,25 +1,18 @@
 ---
-title: "Дополнительное занятие для учебника по службам Azure Analysis Services: \"Динамическая безопасность\" | Документы Майкрософт"
-description: "Описывает использование динамической безопасности с помощью фильтров строк в учебном проекте служб Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Дополнительное занятие для учебника по службам Azure Analysis Services: "Динамическая безопасность" | Документы Майкрософт'
+description: Описывает использование динамической безопасности с помощью фильтров строк в учебном проекте служб Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 7512af39041090db22d4ef45ec46925c14c4adb9
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5084bb0785e22a4b38f7f80f4c3b29a0ad92dadb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Дополнительное занятие. Динамическая безопасность
 

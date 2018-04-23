@@ -3,7 +3,7 @@ title: Управление устройствами Azure IoT с помощью
 description: С помощью инструмента интерфейса командной строки iothub-explorer можно управлять устройствами в Центре Интернета вещей Azure, используя прямые методы и возможности управления требуемыми свойствами двойника.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: управление устройствами Интернета вещей Azure, управление устройствами в Центре Интернета вещей Azure, управление устройствами, Интернет вещей, управление устройствами в Центре Интернета вещей
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
-ms.author: xshi
-ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 26e08c3d6b1c96e2d508c87f188118aec02bab6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Использование обозревателя Центра Интернета вещей для управления устройствами в Центре Интернета вещей Azure
 

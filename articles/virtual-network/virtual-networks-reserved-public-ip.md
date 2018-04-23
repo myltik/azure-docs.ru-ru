@@ -1,10 +1,10 @@
 ---
-title: "Управление зарезервированными IP-адресами Azure (классическая модель) с помощью PowerShell | Документация Майкрософт"
-description: "Сведения о зарезервированных IP-адресах (классическая модель) и управлении ими с помощью PowerShell."
+title: Управление зарезервированными IP-адресами Azure (классическая модель) с помощью PowerShell | Документация Майкрософт
+description: Сведения о зарезервированных IP-адресах (классическая модель) и управлении ими с помощью PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli
+ms.openlocfilehash: fafb2566d1b58a37dd1d0e4bab129d7fb01a9f89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Зарезервированные IP-адреса (классическая модель)
 
@@ -26,7 +26,6 @@ ms.lasthandoff: 12/21/2017
 > * [портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 IP-адреса в Azure делятся на две категории: динамические и зарезервированные. Общедоступные IP-адреса, управляемые Azure, являются динамическими по умолчанию. Это означает, что IP-адрес, используемый для указанной облачной службы (VIP) или для прямого доступа к виртуальной машине или экземпляру роли (ILPIP), время от времени может изменяться, при отключении или остановке (высвобождении) ресурсов.

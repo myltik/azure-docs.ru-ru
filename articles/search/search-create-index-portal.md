@@ -1,23 +1,18 @@
 ---
-title: "Создание индекса службы Поиска Azure с помощью портала | Документация Майкрософт"
-description: "Создание индекса с помощью портала Azure"
-services: search
-manager: jhubbard
+title: Создание индекса службы Поиска Azure с помощью портала | Документация Майкрософт
+description: Создание индекса с помощью портала Azure
+manager: cgronlun
 author: heidisteen
-documentationcenter: 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0352b8c830e875afc9b1d1b006ba4d2a512d7a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Создание индекса службы поиска Azure с помощью портала Azure
 > [!div class="op_single_selector"]

@@ -1,11 +1,11 @@
 ---
-title: "Создание и изменение канала ExpressRoute с помощью PowerShell и Azure Resource Manager | Документация Майкрософт"
-description: "В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute."
+title: Создание и изменение канала ExpressRoute с помощью PowerShell и Azure Resource Manager | Документация Майкрософт
+description: В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0d45e97cc42826375a99df16a73c9a7b0c359224
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Создание и изменение канала ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [интерфейс командной строки Azure](howto-circuit-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/21/2017
 Чтобы начать настройку, войдите в свою учетную запись Azure. Для подключения используйте следующие примеры:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Просмотрите подписки учетной записи.

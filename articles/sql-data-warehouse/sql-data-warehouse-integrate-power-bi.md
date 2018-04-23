@@ -1,11 +1,11 @@
 ---
-title: "Использование Power BI с хранилищем данных SQL | Документация Майкрософт"
-description: "Советы по использованию Power BI с хранилищем данных SQL Azure для разработки решений."
+title: Использование Power BI с хранилищем данных SQL | Документация Майкрософт
+description: Советы по использованию Power BI с хранилищем данных SQL Azure для разработки решений.
 services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Использование Power BI с хранилищем данных SQL
 Так же как при работе с базой данных SQL Azure, функция прямого соединения хранилища данных SQL позволяет использовать аналитические возможности Power BI.  Прямое соединение позволяет отправлять запросы в хранилище данных SQL Azure в режиме реального времени по мере исследования данных.  Благодаря этому в сочетании с масштабом хранилища данных SQL пользователи могут за считаные минуты создавать динамические отчеты на основе терабайтов данных.  Кроме того, появление кнопки "Открыть в Power BI" дает возможность пользователям подключить Power BI напрямую к хранилищу данных SQL, не собирая сведений из других частей Azure.

@@ -10,20 +10,18 @@ ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebb9fab63d57f880e8b556bf6e3a1c9c8934527d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Использование подписанных URL-адресов хранилища Azure для ограничения доступа к данным в HDInsight
 
-HDInsight имеет полный доступ к данным в учетных записях хранения Azure, связанных с кластером. Чтобы ограничить этот доступ, вы можете применить подписанные URL-адреса для контейнера больших двоичных объектов. Например, так можно предоставить доступ только для чтения данных. Подписанные URL-адреса (SAS) — это функция учетных записей хранения Azure, позволяющая ограничивать доступ к данным, например предоставлять доступ к данным только для чтения.
+HDInsight имеет полный доступ к данным в учетных записях хранения Azure, связанных с кластером. Чтобы ограничить этот доступ, вы можете применить подписанные URL-адреса для контейнера больших двоичных объектов. Подписанные URL-адреса (SAS) — это функция учетных записей хранения Azure, позволяющая ограничивать доступ к данным, например предоставлять доступ к данным только для чтения.
 
 > [!IMPORTANT]
 > Чтобы создать решение на основе Apache Ranger, попробуйте использовать HDInsight, присоединенный к домену. Дополнительные сведения см. в статье [Настройка присоединенных к домену кластеров HDInsight (предварительная версия)](./domain-joined/apache-domain-joined-configure.md).
@@ -165,7 +163,7 @@ HDInsight имеет полный доступ к данным в учетных
 1. В командной строке выполните следующую команду для проверки подлинности в подписке Azure:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     При появлении запроса войдите в систему, используя учетную запись своей подписки Azure.

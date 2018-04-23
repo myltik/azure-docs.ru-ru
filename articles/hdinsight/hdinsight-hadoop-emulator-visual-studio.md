@@ -1,8 +1,8 @@
 ---
-title: "Средства Data Lake для Visual Studio с песочницей Hortonworks — Azure HDInsight | Документы Майкрософт"
-description: "Узнайте, как использовать средства Azure Data Lake для Visual Studio с песочницей Hortonworks, работающей в локальной виртуальной машине. С помощью этих средств можно создавать и выполнять задания Hive и Pig в песочнице и просматривать выходные данные и журнал задания."
+title: Средства Data Lake для Visual Studio с песочницей Hortonworks — Azure HDInsight | Документы Майкрософт
+description: Узнайте, как использовать средства Azure Data Lake для Visual Studio с песочницей Hortonworks, работающей в локальной виртуальной машине. С помощью этих средств можно создавать и выполнять задания Hive и Pig в песочнице и просматривать выходные данные и журнал задания.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51438f70fa5ab4a3ee088033ec2da51697f8e273
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Использование средств Azure Data Lake для Visual Studio с песочницей Hortonworks
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Управление виртуальными машинами с помощью Azure PowerShell
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Сведения об установке и использовании Azure PowerShell локально см. в [этой статье](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. Для локальных установок также [скачайте модуль Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/), чтобы создать новую группу Azure Active Directory.
+Сведения об установке и использовании Azure PowerShell локально см. в [этой статье](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. Для локальных установок также [скачайте модуль Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/), чтобы создать новую группу Azure Active Directory.
 
 ## <a name="understand-scope"></a>Общие сведения об области
 
@@ -43,15 +43,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="role-based-access-control"></a>Контроль доступа на основе ролей
 
-Вам нужно, чтобы у пользователей вашей организации был необходимый уровень доступа к этим ресурсам. Вы не хотите предоставлять пользователям неограниченный доступ, но при этом требуется обеспечить им возможность работать. [Управление доступом на основе ролей](../../active-directory/role-based-access-control-what-is.md) позволяет предоставлять пользователям разрешения на выполнение определенных действий в той или иной области.
+Вам нужно, чтобы у пользователей вашей организации был необходимый уровень доступа к этим ресурсам. Вы не хотите предоставлять пользователям неограниченный доступ, но при этом требуется обеспечить им возможность работать. [Управление доступом на основе ролей](../../role-based-access-control/overview.md) позволяет предоставлять пользователям разрешения на выполнение определенных действий в той или иной области.
 
 Для создания и удаления назначений ролей пользователи должны иметь доступ `Microsoft.Authorization/roleAssignments/*`. Такой доступ предоставляется с помощью ролей владельца или администратора доступа пользователей.
 
 Для управления решениями виртуальной машины существует три роли для конкретных ресурсов, предоставляющие необходимый тип доступа:
 
-* [Участник виртуальной машины](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Участник сети](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Участник учетной записи хранения](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Участник виртуальной машины](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Участник сети](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Участник учетной записи хранения](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Вместо назначения ролей для отдельных пользователей зачастую бывает проще [создать группу Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) для пользователей, которым необходимо выполнять подобные действия. А затем назначить этой группе соответствующую роль. Чтобы упростить работу, создайте группу Azure Active Directory без членов. Вы по-прежнему можете назначить группе роль для области. 
 

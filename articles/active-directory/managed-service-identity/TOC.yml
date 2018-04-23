@@ -9,6 +9,34 @@
               href: tutorial-windows-vm-access-arm.md
             - name: Виртуальная машина Linux
               href: tutorial-linux-vm-access-arm.md
+    - name: Учебники
+      items:
+        - name: Виртуальные машины и масштабируемые наборы виртуальных машин Windows
+          items:
+            - name: Доступ к Azure Data Lake Store
+              href: tutorial-windows-vm-access-datalake.md
+            - name: Доступ к службе хранилища Azure с помощью ключа доступа
+              href: tutorial-windows-vm-access-storage.md
+            - name: Доступ к службе хранилища Azure с помощью SAS
+              href: tutorial-windows-vm-access-storage-sas.md
+            - name: Доступ к Azure SQL
+              href: tutorial-windows-vm-access-sql.md
+            - name: Доступ к Azure Key Vault
+              href: tutorial-windows-vm-access-nonaad.md
+            - name: Доступ к Azure Cosmos DB
+              href: tutorial-windows-vm-access-cosmos-db.md
+        - name: Виртуальные машины и масштабируемые наборы виртуальных машин Linux
+          items:
+            - name: Доступ к Azure Data Lake Store
+              href: tutorial-linux-vm-access-datalake.md
+            - name: Доступ к службе хранилища Azure с помощью ключа доступа
+              href: tutorial-linux-vm-access-storage-access-key.md
+            - name: Доступ к службе хранилища Azure с помощью SAS
+              href: tutorial-linux-vm-access-storage-sas.md
+            - name: Доступ к Azure Key Vault
+              href: tutorial-linux-vm-access-nonaad.md
+            - name: Доступ к Azure Cosmos DB
+              href: tutorial-linux-vm-access-cosmos-db.md
     - name: Настройка MSI для виртуальной машины Azure
       items:
         - name: Использование портала Azure
@@ -45,30 +73,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Использование с пакетами Azure SDK
           href: how-to-use-vm-sdk.md
-    - name: Использование управляемого удостоверения виртуальной машины или масштабируемого набора виртуальных машин Windows
-      items:
-        - name: Доступ к Azure Data Lake Store
-          href: tutorial-windows-vm-access-datalake.md
-        - name: Доступ к Azure SQL
-          href: tutorial-windows-vm-access-sql.md
-        - name: Доступ к службе хранилища Azure с помощью ключа доступа
-          href: tutorial-windows-vm-access-storage.md
-        - name: Доступ к службе хранилища Azure с помощью SAS
-          href: tutorial-windows-vm-access-storage-sas.md
-        - name: Доступ к Azure Key Vault
-          href: tutorial-windows-vm-access-nonaad.md
-    - name: Использование управляемого удостоверения виртуальной машины или масштабируемого набора виртуальных машин Linux
-      items:
-        - name: Доступ к Azure Data Lake Store
-          href: tutorial-linux-vm-access-datalake.md
-        - name: Доступ к службе хранилища Azure с помощью ключа доступа
-          href: tutorial-linux-vm-access-storage.md
-        - name: Доступ к службе хранилища Azure с помощью SAS
-          href: tutorial-linux-vm-access-storage-sas.md
-        - name: Доступ к Azure Key Vault
-          href: tutorial-linux-vm-access-nonaad.md
-        - name: Доступ к Azure Cosmos DB
-          href: tutorial-linux-vm-access-cosmos-db.md
     - name: Часто задаваемые вопросы и известные проблемы
       href: known-issues.md
     - name: Справочные материалы

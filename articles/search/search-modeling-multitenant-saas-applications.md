@@ -1,23 +1,18 @@
 ---
-title: "Моделирование мультитенантности в службе поиска Azure | Документация Майкрософт"
-description: "Узнайте о распространенных шаблонах разработки мультитенантных приложений SaaS с использованием Поиска Azure."
-services: search
-manager: jhubbard
+title: Моделирование мультитенантности в службе поиска Azure | Документация Майкрософт
+description: Узнайте о распространенных шаблонах разработки мультитенантных приложений SaaS с использованием Поиска Azure.
+manager: jlembicz
 author: ashmaka
-documentationcenter: 
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 99be323b72326a9d912fa28cd63999ecd98a671b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Шаблоны разработки для мультитенантных приложений SaaS и Поиска Azure
 Мультитенантным называется приложение, предоставляющее одинаковые службы и возможности любому числу клиентов, каждый из которых не может видеть или совместно использовать данные любого другого клиента. В этом документе рассматриваются стратегии изоляции клиентов в мультитенантных приложениях на основе Поиска Azure.

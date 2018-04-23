@@ -13,13 +13,18 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b91b76d049d1a7f299b7890665dd9281e08321e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 04cab032995731b4e473793eff4b1a3fcd46496a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Обеспечение отказоустойчивости для действия копирования с помощью пропуска несовместимых строк
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Версия 1 — общедоступная](data-factory-copy-activity-fault-tolerance.md)
+> * [Версия 2 — предварительная](../copy-activity-fault-tolerance.md)
+
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [отказоустойчивостью действий копирования в фабрике данных версии 2](../copy-activity-fault-tolerance.md).
 

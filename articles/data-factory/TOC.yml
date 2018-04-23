@@ -374,7 +374,9 @@
           href: manage-azure-ssis-integration-runtime.md
         - name: Настройка параметров производительности для среды выполнения интеграции Azure Integration Services
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Вызов пакетов Integration Services при помощи хранимой процедуры
+        - name: Запуск пакетов Integration Services с помощью действия Integration Services
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: Выполнение пакетов Integration Services с помощью действия хранимой процедуры
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Планирование среды выполнения интеграции Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: mbaldwin;
 ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Руководство по эксплуатации предложений виртуальных машин в Azure Marketplace
 В этой статье объясняется, как обновить действующее предложение виртуальной машины в Azure Marketplace. Она вам поможет добавить один или нескольких новых SKU в существующее предложение. Она также поможет вам удалить действующее предложение виртуальной машины или номер SKU.

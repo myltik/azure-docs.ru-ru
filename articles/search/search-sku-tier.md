@@ -1,25 +1,18 @@
 ---
-title: "Выбор SKU или ценовой категории для службы поиска Azure | Документация Майкрософт"
-description: "Выполнять подготовку службы поиска Azure можно в рамках таких SKU: \"Бесплатный\", \"Базовый\" и \"Стандартный\" (последний уровень доступен с разными конфигурациями ресурсов и уровнями производительности)."
-services: search
-documentationcenter: 
+title: Выбор SKU или ценовой категории для службы поиска Azure | Документация Майкрософт
+description: 'Выполнять подготовку службы поиска Azure можно в рамках таких SKU: "Бесплатный", "Базовый" и "Стандартный" (последний уровень доступен с разными конфигурациями ресурсов и уровнями производительности).'
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 8d4b7bca-02a5-43ee-b3f8-03551dfb32fd
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 498ceb4a5d9e0bb9c8c5b5711c8c2687df3a3409
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Выбор SKU или ценовой категории для службы поиска Azure
 В Поиске Azure [служба подготавливается](search-create-service-portal.md) согласно конкретной ценовой категории или SKU. Доступны такие уровни: **Бесплатный**, **Базовый** и **Стандартный** (уровень **Стандартный** доступен для нескольких конфигураций и емкостей).

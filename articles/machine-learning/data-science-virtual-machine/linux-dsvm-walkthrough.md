@@ -3,22 +3,23 @@ title: Обработка и анализ данных с использован
 description: Сведения о том, как выполнить несколько общих задач обработки и анализа данных с использованием специально подготовленной виртуальной машины Linux.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: gokuma
+ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Обработка и анализ данных с помощью виртуальной машины для обработки и анализа данных Linux в Azure
 В этом пошаговом руководстве показано, как выполнить несколько общих задач обработки и анализа данных с использованием специально подготовленной виртуальной машины Linux. Виртуальная машина Linux для обработки и анализа данных — это доступный в Azure образ ВМ, на которой предварительно установлен ряд инструментов, обычно используемых для анализа данных и машинного обучения. Основные программные компоненты описаны в статье [Подготовка виртуальной машины Linux для обработки и анализа данных](linux-dsvm-intro.md) . Образ виртуальной машины позволяет за считаные минуты приступить к обработке и анализу данных, не требуя установки и настройки всех инструментов по отдельности. При необходимости виртуальную машину можно с легкостью масштабировать и приостановить, если она не используется. Таким образом, это гибкий и экономичный ресурс.

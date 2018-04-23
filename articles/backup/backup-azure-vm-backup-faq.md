@@ -1,12 +1,12 @@
 ---
-title: "Часто задаваемые вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы о работе службы Azure Backup для резервного копирования виртуальных машин, а также об ограничениях и результатах изменения политики"
+title: Часто задаваемые вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин | Документация Майкрософт
+description: Ответы на часто задаваемые вопросы о работе службы Azure Backup для резервного копирования виртуальных машин, а также об ограничениях и результатах изменения политики
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "azure backup для резервного копирования виртуальных машин, восстановление виртуальных машин azure, политика резервного копирования"
+editor: ''
+keywords: azure backup для резервного копирования виртуальных машин, восстановление виртуальных машин azure, политика резервного копирования
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/22/2018
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Почему моя виртуальная машина не отображается в мастере настройки резервного копирования?
 В мастере настройки резервного копирования службы Azure Backup отображается только список виртуальных машин, которые:
-  * Еще не защищены. Состояние резервного копирования виртуальной машины можно проверить в меню параметров в колонке "Виртуальные машины". См. дополнительные сведения о том, как [проверить состояние резервного копирования виртуальной машины](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade).
+  * Еще не защищены. Состояние резервного копирования виртуальной машины можно проверить в меню параметров в колонке "Виртуальные машины". См. дополнительные сведения о том, как [проверить состояние резервного копирования виртуальной машины](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
   * Находятся в том же регионе, что и виртуальная машина.
 
 ## <a name="backup"></a>Резервное копирование

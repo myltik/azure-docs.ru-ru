@@ -4,7 +4,7 @@ description: Сведения об API-интерфейсе и пакете SDK 
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b26a06f1dfba6124254f42c216891596b118d4d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 447c07a5a5e75c5f70a2310c596d52ce439f6033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для .NET Core для API-интерфейса SQL
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/30/2018
 
 <tr><td>**Примеры**</td><td>[Примеры кода для .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Начало работы**</td><td>[Azure Cosmos DB. Приступая к работе с API DocumentDB и .NET Core](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Приступите к работе**</td><td>[Azure Cosmos DB. Приступая к работе с API DocumentDB и .NET Core](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Учебник по веб-приложениям**</td><td>[Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 

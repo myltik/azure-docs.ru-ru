@@ -1,6 +1,6 @@
 ---
-title: "Использование шлюза приложения Azure с внутренней подсистемой балансировки нагрузки с помощью PowerShell | Документация Майкрософт"
-description: "На этой странице приводятся инструкции по созданию, настройке, запуску и удалению шлюза приложений Azure с внутренним балансировщиком нагрузки (ILB) с помощью диспетчера ресурсов Azure."
+title: Использование шлюза приложения Azure с внутренней подсистемой балансировки нагрузки с помощью PowerShell | Документация Майкрософт
+description: На этой странице приводятся инструкции по созданию, настройке, запуску и удалению шлюза приложений Azure с внутренним балансировщиком нагрузки (ILB) с помощью диспетчера ресурсов Azure.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 8d96af009055a5c0349f0ac17054bebee4e54d36
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dd6455622a7fecd99c23aef1b181035ffe6061dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Создание шлюза приложений с внутренним балансировщиком нагрузки (ILB) с помощью диспетчера ресурсов Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 12/21/2017
 ### <a name="step-1"></a>Шаг 1
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### <a name="step-2"></a>Шаг 2

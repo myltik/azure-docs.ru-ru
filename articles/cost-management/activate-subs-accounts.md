@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Активация подписок и учетных записей Azure с помощью службы "Управление затратами Azure"
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/09/2018
 - разрешение на регистрацию приложения CloudynCollector в клиенте Azure AD;
 - возможность назначать приложения ролям в подписках Azure.
 
-У учетных записей в подписках Azure должен быть доступ `Microsoft.Authorization/*/Write` для назначения приложения CloudynCollector. Это разрешение предоставляется ролью [владельца](../active-directory/role-based-access-built-in-roles.md#owner) или [администратора доступа пользователей](../active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+У учетных записей в подписках Azure должен быть доступ `Microsoft.Authorization/*/Write` для назначения приложения CloudynCollector. Это разрешение предоставляется ролью [владельца](../role-based-access-control/built-in-roles.md#owner) или [администратора доступа пользователей](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 Если вашей учетной записи назначена роль **участник**, значит у вас нет соответствующего разрешения для назначения приложения. При попытке присвоить приложение CloudynCollector подписке Azure появится сообщение об ошибке.
 

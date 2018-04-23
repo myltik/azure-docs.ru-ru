@@ -1,22 +1,22 @@
 ---
-title: "Регистрация устройств X.509 в службе подготовки устройств Azure с помощью Node.js | Документация Майкрософт"
-description: "Краткое руководство по Azure. Регистрация устройств X.509 в службе подготовки устройств Центра Интернета вещей Azure с помощью пакета SDK для службы Node.js"
+title: Регистрация устройств X.509 в службе подготовки устройств Azure с помощью Node.js | Документация Майкрософт
+description: Краткое руководство по Azure. Регистрация устройств X.509 в службе подготовки устройств Центра Интернета вещей Azure с помощью пакета SDK для службы Node.js
 services: iot-dps
-keywords: 
-author: JimacoMS2
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 12/21/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ca6b4cce0d89a4d65e94fd10ed7278c3afa8fdff
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0d255cd3a076b892f0732766e0084f78a7859aa4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Регистрация устройств X.509 в службе подготовки устройств Центра Интернета вещей с помощью пакета SDK для службы Node.js
 

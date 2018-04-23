@@ -121,7 +121,7 @@
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-twin-how-to-configure.md)
 #### [Серверная часть и устройство Python](iot-hub-python-python-twin-how-to-configure.md)
-### Использование заданий устройства для обновления встроенного ПО устройства
+### Использование двойников устройств для обновления встроенного ПО устройства
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-firmware-update.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-firmware-update.md)

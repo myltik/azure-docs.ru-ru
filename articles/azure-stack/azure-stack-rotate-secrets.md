@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 509570dfe0e3d4be2e589ac1958dd377dc4e8e03
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Смена секретов в Azure Stack
 
@@ -105,9 +105,9 @@ $PEPCreds = Get-Credential
 $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint 
 
 #Run Secret Rotation
-$CertPassword = "CertPasswordHere" | ConvertTo-SecureString
+$CertPassword = ConvertTo-SecureString "Certpasswordhere" -AsPlainText -Force
 $CertShareCred = Get-Credential 
-$CertSharePath = <NetworkPathofCertShare>   
+$CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -session $PEPsession -ScriptBlock { 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
@@ -140,7 +140,7 @@ Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredent
 | Параметр | type | Обязательно | Позиция | значение по умолчанию | ОПИСАНИЕ |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Строка  | Ложь  | именованная  | None  | Путь к общей папке в каталоге **\Certificates**, который содержит все сертификаты конечных точек внешней сети. Требуется только при смене внешних и внутренних секретов. Конечным каталогом должен быть **\Certificates**. |
-| CertificatePassword | SecureString | Ложь  | именованная  | None  | Пароль для всех сертификатов, предоставляемых в -PfXFilesPath. Необходимое значение, если PfxFilesPath предоставлен, когда сменяются внешние и внутренние секреты. |
+| CertificatePassword | SecureString | Ложь  | именованная  | Нет  | Пароль для всех сертификатов, предоставляемых в -PfXFilesPath. Необходимое значение, если PfxFilesPath предоставлен, когда сменяются внешние и внутренние секреты. |
 |
 
 ### <a name="examples"></a>Примеры

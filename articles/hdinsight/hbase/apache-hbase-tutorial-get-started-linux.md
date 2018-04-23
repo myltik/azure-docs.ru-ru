@@ -1,26 +1,24 @@
 ---
-title: "Начало работы с примером HBase в HDInsight в Azure | Документация Майкрософт"
-description: "Ознакомьтесь с примером Apache HBase, чтобы начать использовать Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
-keywords: "hbasecommand, пример hbase"
+title: Начало работы с примером HBase в HDInsight в Azure | Документация Майкрософт
+description: Ознакомьтесь с примером Apache HBase, чтобы начать использовать Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive.
+keywords: hbasecommand, пример hbase
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 04c1f924e033fb690ebc086c7ea37156d0a8bbba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Начало работы с примером Apache HBase в HDInsight
 

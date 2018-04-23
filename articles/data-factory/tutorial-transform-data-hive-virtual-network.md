@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: fda9cab53290d7af69e243ce47df702b25d1de67
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e9f8ae08a98ecb192fefed310b2392f9a90c7363
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
 В этом руководстве с помощью Azure PowerShell вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * создадите фабрику данных; 
+> * Создадите фабрику данных. 
 > * Создали и настроили среду выполнения интеграции с самостоятельным размещением.
 > * Создали и развернули эти связанные службы.
 > * Создали и развернули конвейер, который содержит действие Hive.
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/28/2018
 
  
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 
 1. Укажите имя группы ресурсов. В этом руководстве вы создадите группу ресурсов. Но при необходимости можно использовать существующую группу ресурсов. 
@@ -97,7 +97,7 @@ ms.lasthandoff: 03/28/2018
     Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Чтобы просмотреть все подписки для этой учетной записи, выполните следующую команду:
 
@@ -398,7 +398,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]
-> * создадите фабрику данных; 
+> * Создадите фабрику данных. 
 > * Создали и настроили среду выполнения интеграции с самостоятельным размещением.
 > * Создали и развернули эти связанные службы.
 > * Создали и развернули конвейер, который содержит действие Hive.

@@ -1,11 +1,11 @@
 ---
-title: "Работа с фабрикой данных Azure и хранилищем данных SQL | Документация Майкрософт"
-description: "Советы по использованию фабрики данных Azure (ADF) с хранилищем данных SQL для разработки решений."
+title: Работа с фабрикой данных Azure и хранилищем данных SQL | Документация Майкрософт
+description: Советы по использованию фабрики данных Azure (ADF) с хранилищем данных SQL для разработки решений.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 492de762-c7a2-4cdb-943f-3135230e94f1
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Работа с фабрикой данных Azure и хранилищем данных SQL
 Фабрика данных Azure обеспечивает полностью управляемый способ передачи данных и выполнения хранимых процедур в хранилище данных SQL.  Благодаря этому настройка и планирование сложных процедур ETL в хранилище данных SQL становятся проще. Более подробный обзор фабрики данных Azure см. в [документации по фабрике данных Azure][Azure Data Factory documentation].

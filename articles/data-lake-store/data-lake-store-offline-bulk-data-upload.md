@@ -1,8 +1,8 @@
 ---
-title: "Отправка больших объемов данных в Data Lake Store автономными методами | Документация Майкрософт"
-description: "Использование средства AdlCopy для копирования данных из больших двоичных объектов хранилища Azure в Data Lake Store"
+title: Отправка больших объемов данных в Data Lake Store автономными методами | Документация Майкрософт
+description: Использование средства AdlCopy для копирования данных из больших двоичных объектов хранилища Azure в Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee6f4ab1ac5892536d7f419c198158dc34d6f49e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Использование службы импорта и экспорта Azure для автономного копирования данных в Data Lake Store
 В этой статье вы узнаете о том, как скопировать огромные наборы данных (> 200 ГБ) в Azure Data Lake Store, используя методы автономного копирования, такие как [служба импорта и экспорта Azure](../storage/common/storage-import-export-service.md). В частности, в качестве примера в этой статье используется файл размером 339 420 860 416 байт, т. е. 319 ГБ на диске. Давайте назовем этот файл 319GB.tsv.
@@ -195,7 +195,7 @@ ms.lasthandoff: 02/01/2018
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

@@ -12,15 +12,15 @@
 ## [Метрики и диагностика Load Balancer уровня "Стандартный"](load-balancer-standard-diagnostics.md)
 
 # Начало работы
-## [Создание Load Balancer уровня "Базовый"](load-balancer-get-started-internet-portal.md)
-### [Создание Load Balancer уровня "Базовый" (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Создание Load Balancer уровня "Базовый" (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Создание Load Balancer уровня "Стандартный"](load-balancer-standard-public-portal.md)
-### [Создание Load Balancer уровня "Стандартный" (CLI)](load-balancer-standard-public-cli.md)
+## [Создание Load Balancer уровня "Базовый"](quickstart-create-basic-load-balancer-portal.md)
+### [Создание Load Balancer уровня "Базовый" (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Создание Load Balancer уровня "Базовый" (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Создание Load Balancer уровня "Стандартный"](quickstart-load-balancer-standard-public-portal.md)
+### [Создание Load Balancer уровня "Стандартный" (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # Практическое руководство
 
-## [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](load-balancer-get-started-internet-az-portal.md)
+## [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный" (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Создание зональной общедоступной подсистемы балансировки нагрузки в Azure Load Balancer уровня "Стандартный"](load-balancer-get-started-internet-availability-zones-zonal-portal.md)

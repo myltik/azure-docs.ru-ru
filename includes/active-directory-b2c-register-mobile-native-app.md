@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: active-directory-b2c
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: davidmu
+ms.custom: include file
+ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/18/2018
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Для регистрации мобильного или собственного приложения используйте параметры, указанные в таблице.
@@ -8,7 +24,7 @@
 | ------------ | ------- | -------------------------------------------------- |
 | **Имя** | Приложение Contoso B2C | Введите **имя** приложения, которое будет служить его описанием для пользователей. |
 | **Собственный клиент** | Yes | Выберите **Да** для регистрация мобильного или собственного приложения. |
-| **Пользовательский URI перенаправления** | `com.onmicrosoft.contoso.appname://redirect/path` | Введите URI перенаправления с настраиваемой схемой. Укажите [правильный URI перенаправления](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri), который не содержит специальных знаков, например символов подчеркивания. |
+| **Пользовательский URI перенаправления** | `com.onmicrosoft.contoso.appname://redirect/path` | Введите URI перенаправления с настраиваемой схемой. Укажите [правильный URI перенаправления](../articles/active-directory-b2c/active-directory-b2c-app-registration.md), который не содержит специальных знаков, например символов подчеркивания. |
 
 Чтобы зарегистрировать приложение, щелкните **Создать** .
 

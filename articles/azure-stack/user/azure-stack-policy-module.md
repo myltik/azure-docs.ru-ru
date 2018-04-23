@@ -1,11 +1,11 @@
 ---
-title: "Использование модуля политики Azure Stack | Документация Майкрософт"
-description: "Сведения о том,как ограничить подписку Azure, чтобы ее поведение было аналогично подписке Azure Stack"
+title: Использование модуля политики Azure Stack | Документация Майкрософт
+description: Сведения о том,как ограничить подписку Azure, чтобы ее поведение было аналогично подписке Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7a909a36597d9ceb31b6dc9f142c4a9d9d37b464
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Управление политикой Azure с использованием модуля политики Azure Stack
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/11/2017
 Следующая команда позволяет применить используемую по умолчанию политику Azure Stack к подписке Azure. Перед выполнением замените *Azure Subscription Name* именем своей подписки Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Возможно, вам потребуется применить политики более детализировано.  Например, у вас могут быть другие ресурсы, выполняющиеся той же подписке.  Областью действия приложения политики можно задать определенную группу ресурсов, которая позволит тестировать приложения для работы с Azure Stack с использованием ресурсов Azure. Перед выполнением замените *Azure Subscription Name* именем своей подписки Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

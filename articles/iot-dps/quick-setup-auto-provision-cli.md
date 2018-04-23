@@ -1,22 +1,22 @@
 ---
-title: "Настройка подготовки устройств с помощью Azure CLI | Документация Майкрософт"
-description: "Краткое руководство Azure. Настройка службы \"Подготовка устройств к добавлению в Центр Интернета вещей\" с помощью Azure CLI"
+title: Настройка подготовки устройств с помощью Azure CLI | Документация Майкрософт
+description: Краткое руководство Azure. Настройка службы "Подготовка устройств к добавлению в Центр Интернета вещей" с помощью Azure CLI
 services: iot-dps
-keywords: 
-author: JimacoMS2
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 09b212a5abe2ebb9c123f3adcbdfa59390d16c10
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 70248ea2bdd595e6206084ef59822ec0a7ca7d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Настройка службы подготовки устройств к добавлению в Центр Интернета вещей с помощью Azure CLI
 

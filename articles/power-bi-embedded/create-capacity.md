@@ -1,24 +1,24 @@
 ---
-title: "Создание емкости Power BI Embedded на портале Azure | Документация Майкрософт"
-description: "В этой статье содержится пошаговое руководство по созданию емкости Power BI Embedded в Microsoft Azure."
+title: Создание емкости Power BI Embedded на портале Azure | Документация Майкрософт
+description: В этой статье содержится пошаговое руководство по созданию емкости Power BI Embedded в Microsoft Azure.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Создание емкости Power BI Embedded на портале Azure
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 Для работы с этим кратким руководством вам понадобится:
 
 * **Подписка Azure**: откройте ссылку на [бесплатную пробную версию Azure](https://azure.microsoft.com/free/), чтобы создать учетную запись.
-* **Azure Active Directory**: ваша подписка должна быть связана с клиентом Azure Active Directory (AAD). И ***необходимо войти в Azure с учетной записью в этом клиенте***. Учетные записи Майкрософт не поддерживаются. Дополнительные сведения см. в руководстве по аутентификации и настройке пользовательских разрешений.
+* **Azure Active Directory**: ваша подписка должна быть связана с клиентом Azure Active Directory (AAD). И ***необходимо войти в Azure с учетной записью в этом клиенте***. Учетные записи Майкрософт не поддерживаются. Дополнительные сведения см. в руководстве по [аутентификации и настройке пользовательских разрешений](../analysis-services/analysis-services-manage-users.md).
 * **Клиент Power BI:** по крайней мере одна учетная запись в клиенте AAD должна быть зарегистрирована в Power BI.
 * **Группа ресурсов**: используйте уже имеющуюся группу ресурсов или [создайте новую](../azure-resource-manager/resource-group-overview.md).
 

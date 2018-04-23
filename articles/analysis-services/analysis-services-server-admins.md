@@ -1,25 +1,18 @@
 ---
-title: "Управление администраторами серверов в службах Azure Analysis Services | Документы Майкрософт"
-description: "Узнайте, как управлять администраторами серверов служб Analysis Services в Azure."
-services: analysis-services
-documentationcenter: 
+title: Управление администраторами серверов в службах Azure Analysis Services | Документы Майкрософт
+description: Узнайте, как управлять администраторами серверов служб Analysis Services в Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Управление администраторами серверов
 Администраторами сервера должны быть допустимые пользователи или группы в Azure Active Directory (Azure AD) для клиента, в котором размещен сервер. Для управления администраторами сервера можно использовать элемент **Администраторы служб Analysis Services** для сервера на портале Azure или свойств сервера в SSMS. 
@@ -41,5 +34,5 @@ ms.lasthandoff: 02/21/2018
 ## <a name="next-steps"></a>Дополнительная информация 
 [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)  
 [Управление ролями и пользователями базы данных](analysis-services-database-users.md)  
-[Управление доступом на основе ролей](../active-directory/role-based-access-control-what-is.md)  
+[Управление доступом на основе ролей](../role-based-access-control/overview.md)  
 

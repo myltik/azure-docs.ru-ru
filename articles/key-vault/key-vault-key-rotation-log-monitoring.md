@@ -1,11 +1,11 @@
 ---
-title: "Настройка полной смены ключей и аудита в хранилище ключей Azure | Документация Майкрософт"
-description: "Узнайте, как настроить смену ключей и отслеживание журналов хранилища ключей."
+title: Настройка полной смены ключей и аудита в хранилище ключей Azure | Документация Майкрософт
+description: Узнайте, как настроить смену ключей и отслеживание журналов хранилища ключей.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Настройка полной смены ключей и аудита в хранилище ключей
 ## <a name="introduction"></a>Введение
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/05/2018
 Чтобы приложение могло получить секрет из хранилища ключей, секрет нужно создать и передать в хранилище. Для этого запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. PowerShell получит все подписки, связанные с этой учетной записью. По умолчанию PowerShell будет использовать первую из них.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

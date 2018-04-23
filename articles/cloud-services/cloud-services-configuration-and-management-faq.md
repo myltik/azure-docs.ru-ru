@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Проблемы конфигурации и управления для облачных служб Azure. Вопросы и ответы (FAQ)
 
@@ -192,7 +192,7 @@ Windows 10 и Windows Server 2016 в стандартной конфигурац
 Когда все будет готово, проверьте наличие HTTP/2 с помощью одного из следующих методов.
 
 - Включите версию протокола для журналов IIS и изучите журналы IIS. HTTP/2 будет отображаться в журналах. 
-- Включите средства разработчика клавишей F12 в браузере Internet Explorer или Microsoft Edge и перейдите на вкладку "Сети", чтобы проверить версию протокола. 
+- Включите средства разработчика клавишей F12 в браузере Internet Explorer или Edge и перейдите на вкладку "Сети", чтобы проверить версию протокола. 
 
 Дополнительные сведения см. в статье [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 в IIS).
 
@@ -201,7 +201,7 @@ Windows 10 и Windows Server 2016 в стандартной конфигурац
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Как реализовать доступ на основе ролей для облачных служб?
 Облачные службы не поддерживают модель управления доступом на основе ролей (RBAC), так как она не является службой на основе Azure Resource Manager.
 
-См. [Управление доступом на основе ролей в Azure и классические администраторы подписки](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
+См. [Управление доступом на основе ролей в Azure и классические администраторы подписки](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
 
 ## <a name="remote-desktop"></a>Удаленный рабочий стол
 

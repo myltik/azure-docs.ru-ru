@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Интеграция локальных каталогов с Azure Active Directory
 Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для приложений Office 365, Azure и программного обеспечения как услуги (SaaS), интегрированных с Azure AD. В этом разделе описаны шаги планирования, развертывания и использования. Здесь представлена коллекция ссылок на статьи, относящиеся к этой области.
@@ -97,7 +97,7 @@ Azure AD Connect поставляется с несколькими функци
 
 [Синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md) подразумевает синхронизацию хэша паролей из Active Directory в Azure AD. Пользователи могут использовать один и тот же пароль локально и в облаке, но управление им осуществляется только из одного расположения. Так как при синхронизации паролей в качестве главного источника используется локальная служба Active Directory, вы также можете применить собственную политику паролей.
 
-[Компонент обратной записи паролей](../active-directory-passwords-getting-started.md) позволит вашим пользователям изменять и сбрасывать пароли в облаке, а также применять вашу локальную политику паролей.
+[Компонент обратной записи паролей](../authentication/quickstart-sspr.md) позволит вашим пользователям изменять и сбрасывать пароли в облаке, а также применять вашу локальную политику паролей.
 
 [Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md) позволит записать устройство, зарегистрированное в Azure AD, в локальную службу Active Directory, чтобы его можно было использовать для условного доступа.
 
@@ -110,7 +110,7 @@ Azure AD Connect поставляется с несколькими функци
 | --- | --- |
 |Настройка фильтрации | [Синхронизация Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md)|
 |Синхронизация хэша паролей | [Служба синхронизации Azure AD Connect: реализация синхронизации хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Компонент обратной записи паролей | [Приступая к работе с компонентами управления паролями](../active-directory-passwords-getting-started.md)|
+|Компонент обратной записи паролей | [Приступая к работе с компонентами управления паролями](../authentication/quickstart-sspr.md)|
 |Обратная запись устройств | [Включение обратной записи устройств в службе Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |предотвращения случайного удаления | [Синхронизация Azure AD Connect: предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Автоматическое обновление | [Azure AD Connect: автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)|

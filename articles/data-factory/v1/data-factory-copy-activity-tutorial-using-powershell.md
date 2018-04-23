@@ -1,11 +1,11 @@
 ---
-title: "Руководство по созданию конвейера для переноса данных с помощью Azure PowerShell | Документация Майкрософт"
-description: "В этом руководстве вы создадите конвейер фабрики данных Azure с действием копирования с помощью Azure PowerShell."
+title: Руководство по созданию конвейера для переноса данных с помощью Azure PowerShell | Документация Майкрософт
+description: В этом руководстве вы создадите конвейер фабрики данных Azure с действием копирования с помощью Azure PowerShell.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dc9476e6a9ee4f4832862ad45dc5a9fbae6ccce6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 09698f06ebbc39d9913c0cbd43ad29c1f0dae9c8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Руководство по созданию конвейера фабрики данных для переноса данных с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ ms.lasthandoff: 03/02/2018
     Действие копирования копирует данные из большого двоичного объекта из хранилища BLOB-объектов Azure в таблицу в базе данных SQL Azure. Его можно использовать, чтобы копировать данные из любого поддерживаемого источника в любое расположение. Список поддерживаемых хранилищ данных см. в [этом разделе](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 5. Выполните мониторинг конвейера. На этом этапе вы **отследите** срезы входных и выходных наборов данных с помощью PowerShell.
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 > [!IMPORTANT]
 > Выполните [предварительные требования, необходимые для работы с этим руководством](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), если вы еще этого не сделали.   
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 03/02/2018
     Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```   
    
     Чтобы просмотреть все подписки для этой учетной записи, выполните следующую команду:

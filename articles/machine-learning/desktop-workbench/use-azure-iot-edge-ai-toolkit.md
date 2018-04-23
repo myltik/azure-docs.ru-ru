@@ -1,6 +1,6 @@
 ---
-title: "Использование набора средств для работы с искусственным интеллектом для службы Azure IoT Edge| Документация Майкрософт"
-description: "В этой статье описываются методы использования набора средств для работы с искусственным интеллектом для службы Azure IoT Edge."
+title: Использование набора средств для работы с искусственным интеллектом для службы Azure IoT Edge| Документация Майкрософт
+description: В этой статье описываются методы использования набора средств для работы с искусственным интеллектом для службы Azure IoT Edge.
 services: machine-learning
 author: tedway
 ms.author: tedway
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ms.openlocfilehash: 315d545e7ee530d660e92e29a60428e09e3795d5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-ai-toolkit-for-azure-iot-edge"></a>Использование набора средств для работы с искусственным интеллектом для службы Azure IoT Edge
 

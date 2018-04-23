@@ -4,8 +4,7 @@ description: Сведения об API и пакете SDK для обработ
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
-manager: kirillg
-editor: mimig1
+manager: kfile
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 43ba189332cf012a80c309a0dc0f383e38a0915c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Пакет SDK для обработчика канала изменений в .NET: скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -37,7 +36,7 @@ ms.lasthandoff: 03/30/2018
 |---|---|
 |**Скачивание пакета SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Документация по API**|[Справочная документация по изменению API библиотеки обработчика веб-каналов](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Начало работы**|[Начало работы с пакетом SDK для обработчика канала изменений в .NET](change-feed.md)|
+|**Приступите к работе**|[Начало работы с пакетом SDK для обработчика канала изменений в .NET](change-feed.md)|
 |**Текущая поддерживаемая платформа**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Заметки о выпуске

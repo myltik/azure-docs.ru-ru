@@ -3,7 +3,7 @@ title: Удаленное подключение к узлу кластера Az
 description: Узнайте, как установить удаленное подключение к экземпляру масштабируемого набора (узел кластера Service Fabric).
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: 8c7d5446429089a0fc931175b55e81e1ad0c97a0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: aljo
+ms.openlocfilehash: 68e3b8ae5bdaa3ad9f1c470294ef5c3bcf0c1893
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Удаленное подключение к экземпляру масштабируемого набора виртуальных машин или узлу кластера
 В кластере Service Fabric в Azure для каждого определяемого типа узла кластера [настраивается отдельный масштаб виртуальных машин](service-fabric-cluster-nodetypes.md).  Вы можете установить удаленное подключение к определенным экземплярам масштабируемого набора (или узлам кластера).  В отличие от одноэкземплярных виртуальных машин, экземпляры масштабируемых наборов не имеют собственных виртуальных IP-адресов. Поэтому поиск IP-адреса и порта, которые можно использовать для удаленного подключения к определенному экземпляру, может оказаться непростой задачей.

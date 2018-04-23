@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Перенос хранилища данных в хранилище класса Premium
 В хранилище данных SQL Azure недавно реализована возможность использовать [хранилище класса Premium, чтобы обеспечить более предсказуемую производительность][premium storage for greater performance predictability]. Теперь хранилища данных, расположенные в хранилище класса Standard, можно перенести в хранилище класса Premium. Такой перенос будет выполнен автоматически. Также вы можете выполнить его самостоятельно, если предпочитаете выбрать точное время для переноса (необходимо учитывать время простоя).

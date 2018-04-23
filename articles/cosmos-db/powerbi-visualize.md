@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: sngun
 ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Руководство по Power BI для Azure Cosmos DB: визуализация данных с помощью соединителя Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) — это веб-служба, с помощью которой можно создавать и совместно использовать панели мониторинга и отчеты с важными данными.  Power BI Desktop — это специальное средство создания отчетов, позволяющее получать данные из различных источников, объединять и преобразовывать их, создавая подробные отчеты и визуализации, и публиковать их в Power BI.  Последняя версия Power BI Desktop теперь позволяет подключаться к вашей учетной записи Azure Cosmos DB через соединитель Azure Cosmos DB для Power BI.   

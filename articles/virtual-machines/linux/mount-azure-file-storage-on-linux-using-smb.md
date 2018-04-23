@@ -3,7 +3,7 @@ title: Подключение хранилища файлов Azure на вир�
 description: Как подключить хранилище файлов Azure на виртуальных машинах Linux, используя протокол SMB и Azure CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: de200c9b18b9d27325bcb92e0d27e83ad7c65811
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью протокола SMB
 
-Из этой статье вы узнаете, как работать со службой хранилища файлов Azure на виртуальной машине Linux, используя SMB-подключение и Azure CLI 2.0. Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Эти действия можно также выполнить с помощью [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Для этого необходимы следующие компоненты:
+Из этой статье вы узнаете, как работать со службой хранилища файлов Azure на виртуальной машине Linux, используя SMB-подключение и Azure CLI 2.0. Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Эти действия можно также выполнить с помощью [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). Для этого необходимы следующие компоненты:
 
 - [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/);
 - [файлы открытого и закрытого ключа SSH](mac-create-ssh-keys.md).
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Подключение общего ресурса SMB хранилища файлов к точке подключения
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>Сохранение подключения после перезагрузки
 Для этого добавьте приведенную ниже строку в файл `/etc/fstab`.
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>Подробное пошаговое руководство
@@ -121,7 +121,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     Создайте локальный каталог в файловой системе Linux для подключения общего ресурса SMB. Все данные, записанные в подключенный локальный каталог или считанные из него, перенаправляются в общую папку SMB, размещенную в хранилище файлов. Чтобы создать локальный каталог в /mnt/mymountdirectory, используйте приведенный ниже пример.
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. Подключите общий ресурс SMB к локальному каталогу.
@@ -129,7 +129,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     Укажите собственные имя пользователя и ключ учетной записи хранения для подключения, как показано ниже.
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. Обеспечьте сохранение подключения SMB после перезагрузок.
@@ -137,11 +137,11 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     При перезагрузке виртуальной машины Linux подключенный общий ресурс SMB отключается во время завершения работы. Чтобы общий ресурс SMB повторно подключался при загрузке, добавьте строку в файл Linux /etc/fstab. Linux использует файл fstab, чтобы получить список файловых систем, которые следует подключить во время загрузки. Если добавить общий ресурс SMB, общая папка хранилища файлов станет постоянно подключенной файловой системой в виртуальной машине Linux. Общий ресурс SMB в хранилище файлов можно добавить в новую виртуальную машину, используя cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- [Настройка виртуальной машины Linux во время создания с помощь cloud-init](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Добавление диска к виртуальной машине Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Шифрование дисков на виртуальной машине Linux с помощью интерфейса командной строки Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Настройка виртуальной машины Linux во время создания с помощь cloud-init](using-cloud-init.md)
+- [Добавление диска к виртуальной машине Linux](add-disk.md)
+- [Шифрование дисков на виртуальной машине Linux с помощью интерфейса командной строки Azure](encrypt-disks.md)

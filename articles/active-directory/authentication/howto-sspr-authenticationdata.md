@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cd5adf8e78fd6a1a39e41896502185fbadd936cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Развертывание сброса пароля без регистрации пользователя
 
@@ -154,7 +154,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Требования к лицензированию самостоятельного сброса пароля в Azure AD](concept-sspr-licensing.md)
 * [Доступные пользователям методы проверки подлинности](concept-sspr-howitworks.md#authentication-methods)
 * [Параметры политики для SSPR](concept-sspr-policy.md)
-* [Что такое обратная запись паролей и каково ее назначение](../active-directory-passwords-writeback.md)
+* [Что такое обратная запись паролей и каково ее назначение](howto-sspr-writeback.md)
 * [Как сообщать о действиях в SSPR](howto-sspr-reporting.md)
 * [Обзор всех параметров SSPR и их значение](concept-sspr-howitworks.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)

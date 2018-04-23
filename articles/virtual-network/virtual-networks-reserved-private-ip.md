@@ -1,10 +1,10 @@
 ---
-title: "Настройка статического внутреннего частного IP-адреса для классической виртуальной машины Azure"
-description: "Основные сведения о статических внутренних IP-адресах (DIP) и управлении ими"
+title: Настройка статического внутреннего частного IP-адреса для классической виртуальной машины Azure
+description: Основные сведения о статических внутренних IP-адресах (DIP) и управлении ими
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
-ms.author: jdial
-ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: b668a06b91a5fcb1dd08737e0422b599bdb3e27f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Как задать статический внутренний частный IP-адрес с помощью PowerShell (классическая модель)
 В большинстве случаев для виртуальной машины не нужно указывать статический внутренний IP-адрес. Виртуальные машины в виртуальной сети будут автоматически получать внутренний IP-адрес из указанного вами диапазона. Однако в некоторых случаях указание статического IP-адреса для конкретной виртуальной машины имеет смысл. Например, если на виртуальной машине планируется запускать DNS или она будет контроллером домена. Статический внутренний IP-адрес остается у виртуальной машины даже при переходе в состояние остановки или отзыва. 

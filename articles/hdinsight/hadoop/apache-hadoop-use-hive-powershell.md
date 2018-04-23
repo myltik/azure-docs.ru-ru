@@ -1,8 +1,8 @@
 ---
-title: "Использование Hive Hadoop с помощью PowerShell в HDInsight — Azure | Документы Майкрософт"
-description: "Использование PowerShell для выполнения запросов Hive в Hadoop в HDInsight."
+title: Использование Hive Hadoop с помощью PowerShell в HDInsight — Azure | Документы Майкрософт
+description: Использование PowerShell для выполнения запросов Hive в Hadoop в HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: fbd5ad2aedf0c3022e702a63f8e3d12735b41313
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Выполнение запросов Hive с помощью PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -47,7 +45,7 @@ Azure PowerShell предоставляет *командлеты* , позво�
 
 При выполнении запросов Hive на удаленном кластере HDInsight используются следующие командлеты:
 
-* `Add-AzureRmAccount` — выполняет аутентификацию Azure PowerShell для подписки Azure.
+* `Connect-AzureRmAccount` — выполняет аутентификацию Azure PowerShell для подписки Azure.
 * `New-AzureRmHDInsightHiveJobDefinition` — создает *определение задания* с использованием заданных операторов HiveQL.
 * `Start-AzureRmHDInsightJob` — отправляет определение задания в HDInsight и запускает задание. Будет возвращен объект *задания*.
 * `Wait-AzureRmHDInsightJob` — использует объект-задание для проверки состояния задания. Он ожидает завершения задания или превышения времени ожидания.

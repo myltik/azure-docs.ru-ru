@@ -1,24 +1,24 @@
 ---
-title: "Репликация многоуровневого приложения SharePoint с помощью Azure Site Recovery | Документы Майкрософт"
-description: "В этой статье рассматривается репликация многоуровневого приложения SharePoint с помощью возможностей Azure Site Recovery."
+title: Репликация многоуровневого приложения SharePoint с помощью Azure Site Recovery | Документы Майкрософт
+description: В этой статье рассматривается репликация многоуровневого приложения SharePoint с помощью возможностей Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Репликация многоуровневого приложения SharePoint для аварийного восстановления с помощью Azure Site Recovery | Документы Майкрософт
 

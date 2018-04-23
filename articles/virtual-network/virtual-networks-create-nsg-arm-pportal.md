@@ -1,6 +1,6 @@
 ---
-title: "Создание групп безопасности сети с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создавать и развертывать группы безопасности сети с помощью портала Azure."
+title: Создание групп безопасности сети с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как создавать и развертывать группы безопасности сети с помощью портала Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>Создание групп безопасности сети с помощью портала Azure
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-the-nsg-frontend-nsg"></a>Создание группы безопасности сети NSG-FrontEnd
 Чтобы создать группу безопасности сети **NSG-FrontEnd** , как показано в описанном выше сценарии, выполните указанные ниже действия.
 
-1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
+1. В браузере перейдите по адресу http://portal.azure.com и при необходимости выполните вход с помощью учетной записи Azure.
 2. Щелкните **Обзор >** > **Сетевые группы безопасности**.
    
     ![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
@@ -92,6 +92,6 @@ ms.lasthandoff: 10/11/2017
 3. Повторите шаги раздела [Связывание группы безопасности сети с подсетью FrontEnd](#Associate-the-NSG-to-the-FrontEnd-subnet), чтобы связать группу безопасности сети **NSG-BackEnd** с подсетью **BackEnd**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Узнайте, как [управлять существующими группами безопасности сети](virtual-network-manage-nsg-arm-portal.md)
+* Узнайте, как [управлять существующими группами безопасности сети](manage-network-security-group.md)
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Обзор мониторинга сети Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Управление доступом на основе ролей (RBAC) в Наблюдателе за сетями
 
-Наблюдатель за сетями использует [модель управления доступом на основе ролей Azure](../active-directory/role-based-access-control-what-is.md). Для Наблюдателя за сетями необходимы указанные ниже разрешения. Важно убедиться, что у роли, которая используется для вызова интерфейсов API Наблюдателя за сетями или для работы с Наблюдателем за сетями на портале, имеется необходимый уровень доступа.
+Наблюдатель за сетями использует [модель управления доступом на основе ролей Azure](../role-based-access-control/overview.md). Для Наблюдателя за сетями необходимы указанные ниже разрешения. Важно убедиться, что у роли, которая используется для вызова интерфейсов API Наблюдателя за сетями или для работы с Наблюдателем за сетями на портале, имеется необходимый уровень доступа.
 
 |Ресурс| Разрешение|
 |---|---| 

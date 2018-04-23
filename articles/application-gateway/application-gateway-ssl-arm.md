@@ -1,6 +1,6 @@
 ---
-title: "Создание шлюза приложений с завершением SSL-запросов с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью Azure PowerShell."
+title: Создание шлюза приложений с завершением SSL-запросов с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3a10cf99c34ea32168c04588777f75c7e18a7b45
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Создание шлюза приложений с завершением SSL-запросов с помощью Azure PowerShell
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/29/2018
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Создание самозаверяющего сертификата
 

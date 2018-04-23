@@ -1,11 +1,11 @@
 ---
-title: "Настройка сосуществующих подключений VPN типа ExpressRoute и \"сеть — сеть\" с помощью модели Azure Resource Manager | Документация Майкрософт"
-description: "В этой статье описывается настройка параллельных подключений ExpressRoute и VPN-подключений типа \"сеть — сеть\" для модели развертывания Resource Manager."
+title: Настройка сосуществующих подключений VPN типа ExpressRoute и "сеть — сеть" с помощью модели Azure Resource Manager | Документация Майкрософт
+description: В этой статье описывается настройка параллельных подключений ExpressRoute и VPN-подключений типа "сеть — сеть" для модели развертывания Resource Manager.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 905b793ab38644ea742a108741b033ddc91ee322
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Настройка параллельных подключений ExpressRoute и "сайт-сайт"
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ VPN-подключение типа "сеть-сеть" можно настро�
 2. Войдите в учетную запись и настройте среду.
 
   ```powershell
-  login-AzureRmAccount
+  Connect-AzureRmAccount
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location

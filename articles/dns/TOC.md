@@ -8,6 +8,7 @@
 ## [DNS: часто задаваемые вопросы](dns-faq.md)
 ## [Использование частных зон DNS](private-dns-overview.md)
 ## [Сценарии Частной зоны DNS](private-dns-scenarios.md)
+## [Оповещения и метрики DNS](dns-alerts-metrics.md)
 
 
 # Начало работы

@@ -1,25 +1,20 @@
 ---
-title: "Работа со службой Azure Stream Analytics и хранилищем данных SQL | Документация Майкрософт"
-description: "Советы по использованию службы Azure Stream Analytics и хранилища данных SQL для разработки решений."
+title: Работа со службой Azure Stream Analytics и хранилищем данных SQL | Документация Майкрософт
+description: Советы по использованию службы Azure Stream Analytics и хранилища данных SQL для разработки решений.
 services: sql-data-warehouse
-documentationcenter: NA
-author: ckarst
-manager: barbkess
-editor: 
-ms.assetid: 8aeb2247-20c5-4a29-b327-30a8ce09dfdc
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 10/31/2016
-ms.author: cakarst;barbkess
-ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 76cbbddca70d3bc8091dbea383213446adac533e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Работа со службой Azure Stream Analytics и хранилищем данных SQL
 Azure Stream Analytics является полностью управляемой службой, которая обеспечивает низкую задержку, высокий уровень доступности и масштабируемую обработку сложных событий посредством потоковой передачи данных в облако. Основные сведения см. в статье [Что такое Stream Analytics?][Introduction to Azure Stream Analytics] Вы также можете узнать о создании комплексного решения с помощью Stream Analytics в руководстве [Приступая к работе с Azure Stream Analytics: выявление мошенничества в режиме реального времени][Get started using Azure Stream Analytics].

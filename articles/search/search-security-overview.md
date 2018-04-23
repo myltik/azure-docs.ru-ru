@@ -1,24 +1,17 @@
 ---
 title: Безопасность данных и операций в Поиске Azure | Документация Майкрософт
 description: Безопасность службы "Поиск Azure" основывается на соответствии SOC 2, шифровании, проверке подлинности и доступе на основе удостоверений с использованием идентификаторов безопасности пользователей и групп в фильтрах этой службы.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-ms.assetid: ''
 ms.service: search
-ms.devlang: ''
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3985e4fff5eb1eb0c80b267dd8983488d10cb4e5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Безопасность и управляемый доступ в службе поиска Azure
 
@@ -51,7 +44,7 @@ ms.lasthandoff: 03/23/2018
 В Azure Stack есть несколько механизмов безопасности. Следовательно, они автоматически доступны для созданных вами ресурсов Поиска Azure.
 
 + [Блокировки на уровне подписки или ресурсов для предотвращения удаления](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Управление доступом на основе ролей (RBAC) для управления доступом к информации и административным операциям](../active-directory/role-based-access-control-what-is.md)
++ [Управление доступом на основе ролей (RBAC) для управления доступом к информации и административным операциям](../role-based-access-control/overview.md)
 
 Все службы Azure поддерживают элементы управления доступом на основе ролей (RBAC) для согласованного задания уровней доступа во всех службах. Например, просматривать конфиденциальные данные, такие как ключ администратора, могут только пользователи с ролью владельца или участника, а состояние службы доступно для обладателей любой роли. RBAC предоставляет роли владельца, участника и читателя. По умолчанию все администраторы службы являются участниками роли владельца.
 

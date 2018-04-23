@@ -7,15 +7,15 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Контроль прав доступа для создания запросов в службу поддержки и управления ими с помощью управления доступом на основе ролей (RBAC) Azure
 
-[Управление доступом на основе ролей (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) обеспечивает точный контроль доступа в Azure.
+[Управление доступом на основе ролей (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) обеспечивает точный контроль доступа в Azure.
 Модель RBAC Azure используется при создании запросов на поддержку на портале Azure ([portal.azure.com](https://portal.azure.com)) для предоставления прав на создание таких запросов и управление ими.
 Доступ предоставляется путем назначения соответствующей роли RBAC пользователям, группам и приложениям в определенной области. Это может быть подписка, группа ресурсов или ресурс.
 

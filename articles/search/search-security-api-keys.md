@@ -1,25 +1,19 @@
 ---
 title: Создание и защита ключей API администратора и запроса, а также управление ими в службе "Поиск Azure" | Документация Майкрософт
 description: Управление доступом к конечной точке службы с помощью ключей API. Ключи администратора предоставляют доступ на запись. Ключи запроса создаются для доступа только для чтения.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 tags: azure-portal
-ms.assetid: ''
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: ab04214dc02f337afdf8268b7d05b5e0896efc73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6e2201778fe9cc75701fdb6a89cde268d1481994
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Создание ключей API и управление ими для службы "Поиск Azure"
 
@@ -65,10 +59,10 @@ ms.lasthandoff: 03/23/2018
 
 + На панели мониторинга службы щелкните **Управление доступом (IAM)**, чтобы просмотреть назначенные роли для службы.
 
-Просмотр и повторное создание ключей доступны для следующих ролей: владелец, участник, [участник службы поиска](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor).
+Просмотр и повторное создание ключей доступны для следующих ролей: владелец, участник, [участник службы поиска](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor).
 
 > [!Note]
-> Чтобы применить доступ к результатам поиска на основе удостоверений, вы можете создать фильтры безопасности по идентификаторам, удаляя из результатов те документы, к которым запрашивающая сторона не должна иметь доступ. Дополнительные сведения см. в статьях [о фильтрах безопасности](search-security-trimming-for-azure-search.md) и [безопасности в Active Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Чтобы применить доступ к результатам поиска на основе удостоверений, вы можете создать фильтры безопасности по идентификаторам, удаляя из результатов те документы, к которым запрашивающая сторона не должна иметь доступ. Дополнительные сведения см. в статьях о [фильтрах безопасности](search-security-trimming-for-azure-search.md) и [безопасности в Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 ## <a name="see-also"></a>См. также
 

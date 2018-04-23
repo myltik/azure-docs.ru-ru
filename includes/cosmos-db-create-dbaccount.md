@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/16/2018
+---
 1. В новом окне браузера войдите на [портал Azure](https://portal.azure.com/).
 2. Последовательно выберите **Создать ресурс** > **Базы данных** > **Azure Cosmos DB**.
    
@@ -17,7 +33,7 @@
 
     Затем щелкните **Создать**.
 
-    ![Страница "Новая учетная запись" для Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Страница "Новая учетная запись" для Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
 4. Создание учетной записи займет несколько минут. Дождитесь, пока на портале откроется страница с сообщением **Congratulations! Your Azure Cosmos DB account was created** (Поздравляем! Ваша учетная запись Azure Cosmos DB создана).
 

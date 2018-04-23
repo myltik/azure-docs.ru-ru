@@ -1,13 +1,13 @@
 ---
-title: "Создание подключения между виртуальными сетями. Классический портал Azure | Документация Майкрософт"
-description: "Подключение виртуальных сетей Azure между собой с помощью PowerShell и портала Azure."
+title: Создание подключения между виртуальными сетями. Классический портал Azure | Документация Майкрософт
+description: Подключение виртуальных сетей Azure между собой с помощью PowerShell и портала Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Настройка подключения между виртуальными сетями (классическая модель)
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 02/21/2018
 2. Откройте консоль PowerShell с повышенными правами и подключитесь к своей учетной записи. Для подключения используйте следующий пример кода:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Просмотрите подписки учетной записи.

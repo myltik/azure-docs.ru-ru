@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Управление регистрацией клиента в Azure Stack
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/12/2018
 |---                         | --- |
 | registrationSubscriptionID | Подписка Azure, которая использовалась для первоначальной регистрации. |
 | customerSubscriptionID     | Подписка Azure (не Azure Stack), принадлежащая клиенту, для которого выполняется регистрация. Ее нужно создать в предложении поставщика облачных служб (CSP). На практике это осуществляется через Центр партнеров. Если у клиента более одного клиента, подписку нужно создать в клиенте, который будет использоваться для входа в Azure Stack. |
-| resourceGroup              | Группа ресурсов в Azure, в которой хранятся данные регистрации. |
+| resourceGroup              | Группа ресурсов Azure, в которой хранятся данные об этой регистрации. |
 | registrationName           | Имя регистрации Azure Stack. Это объект, который хранится в Azure. Имя обычно представлено в формате azurestack-CloudID, где CloudID — это идентификатор облака для развертывания Azure Stack. |
 
 > [!Note]  
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="powershell"></a>PowerShell
 
-Обновите ресурс регистрации при помощи командлета New-AzureRmResource. Войдите в Azure (`Login-AzureRMAccount`) с помощью учетной записи, которая использовалась для первоначальной регистрации. Пример добавление клиента:
+Обновите ресурс регистрации при помощи командлета New-AzureRmResource. Войдите в Azure (`Connect-AzureRmAccount`) с помощью учетной записи, которая использовалась для первоначальной регистрации. Пример добавления клиента:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -73,12 +73,12 @@ ms.lasthandoff: 03/12/2018
 | Параметр                  | ОПИСАНИЕ          |
 |---                         | ---                  |
 | registrationSubscriptionId | Подписка Azure, которая использовалась для первоначальной регистрации.   |
-| resourceGroup              | Группа ресурсов в Azure, в которой хранятся данные регистрации.    |
+| resourceGroup              | Группа ресурсов Azure, в которой хранятся данные об этой регистрации.    |
 | registrationName           | Имя регистрации Azure Stack. Это объект, который хранится в Azure. Обычно имя указывается в формате **azurestack**-***CloudID***, где ***CloudID*** — это идентификатор облака для развертывания Azure Stack.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Для перечисления всех зарегистрированных клиентов воспользуйтесь командлетом Get-AzureRmResovurce. Войдите в Azure (`Login-AzureRMAccount`) с помощью учетной записи, которая использовалась для первоначальной регистрации. Пример добавления клиента:
+Для перечисления всех зарегистрированных клиентов воспользуйтесь командлетом Get-AzureRmResovurce. Войдите в Azure (`Connect-AzureRmAccount`) с помощью учетной записи, которая использовалась для первоначальной регистрации. Пример добавления клиента:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -146,4 +146,4 @@ api-version=2017-06-01 HTTP/1.1`
 
 ## <a name="next-steps"></a>Дополнительная информация
 
- - Дополнительные сведения см. в статье об [использовании ресурсов и выставлении счетов в Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Дополнительные сведения см. в статье о [потреблении ресурсов и выставлении счетов в Azure Stack](/azure-stack-billing-and-chargeback.md).

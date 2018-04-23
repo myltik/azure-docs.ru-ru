@@ -14,6 +14,8 @@
   items:
     - name: Добавление личного домена
       href: cdn-map-content-to-custom-domain.md
+    - name: Настройка HTTPS в личном домене
+      href: cdn-custom-ssl.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -38,10 +40,6 @@
               href: cdn-sas-storage-support.md
         - name: Общий доступ к ресурсам независимо от источника
           href: cdn-cors.md
-        - name: Добавление личного домена к конечной точке CDN
-          href: cdn-map-content-to-custom-domain.md
-        - name: Настройка HTTPS в личном домене
-          href: cdn-custom-ssl.md
     - name: Оптимизация содержимого
       items:
         - name: Общие сведения об оптимизации
@@ -137,6 +135,11 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Функции обработчика правил Azure CDN
           href: cdn-rules-engine-reference-features.md
+    - name: HTTP-заголовки (Verizon)
+      href: cdn-verizon-http-headers.md
+      items:
+        - name: Заголовки X-EC-Debug
+          href: cdn-http-debug-headers.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET

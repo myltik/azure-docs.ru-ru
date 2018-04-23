@@ -1,6 +1,6 @@
 ---
-title: "Создание субъекта-службы для Azure Stack | Документация Майкрософт"
-description: "Описывается создание субъекта-службы, который можно использовать в Azure Resource Manager в сочетании с контролем доступа на основе ролей для управления доступом к ресурсам."
+title: Создание субъекта-службы для Azure Stack | Документация Майкрософт
+description: Описывается создание субъекта-службы, который можно использовать в Azure Resource Manager в сочетании с контролем доступа на основе ролей для управления доступом к ресурсам.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3a22efa4ace8b779f51ca5036b7df536b8c39313
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6b53e46253edc063b1b7ae94bf2fac2781a0613a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Предоставление приложениям доступа к Azure Stack
 
@@ -105,7 +105,7 @@ $servicePrincipal = New-AzSADGraphServicePrincipal `
 Назначив нужную роль, вы сможете войти в Azure Stack с помощью следующей команды, используя созданный субъект-службу:
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 
@@ -113,7 +113,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>Назначение роли субъекту-службе
-Чтобы обеспечить доступ к ресурсам в подписке, необходимо назначить приложению роль. Укажите, какая роль предоставит приложению необходимые разрешения. Дополнительные сведения о доступных ролях см. в статье [RBAC: встроенные роли](../../active-directory/role-based-access-built-in-roles.md).
+Чтобы обеспечить доступ к ресурсам в подписке, необходимо назначить приложению роль. Укажите, какая роль предоставит приложению необходимые разрешения. Дополнительные сведения о доступных ролях см. в статье [RBAC: встроенные роли](../../role-based-access-control/built-in-roles.md).
 
 Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуют более низкие уровни области действия. Например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать группу ресурсов и все содержащиеся в ней ресурсы.
 

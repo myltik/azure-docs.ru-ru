@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Поддержка графа Gremlin в базе данных Azure Cosmos DB
 Azure Cosmos DB поддерживает [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) — язык обхода графов [Apache TinkerpPop](http://tinkerpop.apache.org), предназначенный для создания сущностей графа и выполнения операций запросов графов Graph API. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
@@ -153,12 +153,6 @@ TinkerPop — это стандартная платформа, которая 
 | Свойство | ОПИСАНИЕ |
 | --- | --- |
 | value | Значение свойства.
-
-## <a name="gremlin-partitioning"></a>Секционирование Gremlin
-
-В базе данных Azure Cosmos DB графы хранятся в контейнерах, которые можно независимо масштабировать по отношению к пропускной способности и хранилищу (выражено в нормализованных запросах в секунду). Каждый контейнер должен определять необязательное, но все же рекомендуемое свойство ключа секции, указывающее логическую границу секции для связанных данных. Каждая вершина и ребро должны содержать свойство `id`, которое является уникальным для сущностей в этом значении ключа секции. Дополнительные сведения см. в статье о [секционировании и масштабировании в базе данных Azure Cosmos DB](partition-data.md).
-
-Операции Gremlin быстро и эффективно выполняются с данными графа, охватывающими несколько секций в базе данных Azure Cosmos DB. Однако рекомендуется выбирать тот ключ секции для графов, который широко используется в запросах как фильтр, содержит отдельные значения и имеет схожую частоту доступа для этих значений. 
 
 ## <a name="gremlin-steps"></a>Шаги Gremlin
 Теперь рассмотрим шаги Gremlin, поддерживаемые базой данных Azure Cosmos DB. Дополнительные сведения о Gremlin см. в [руководстве по TinkerPop](http://tinkerpop.apache.org/docs/current/reference).

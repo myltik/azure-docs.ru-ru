@@ -1,13 +1,13 @@
 ---
-title: "Настройка виртуальной машины Windows в Azure | Документы Майкрософт"
-description: "Сведения об использовании расширения пользовательских скриптов для автоматизации установки приложений в виртуальные машины Windows в Azure."
+title: Настройка виртуальной машины Windows в Azure | Документы Майкрософт
+description: Сведения об использовании расширения пользовательских скриптов для автоматизации установки приложений в виртуальные машины Windows в Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 63858da0a4a47d67ec659e922ab10f9f7bc97938
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 6afb5757e11108eec856d821d92afed9681a2668
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Настройка виртуальной машины Windows в Azure
 Для быстрой и согласованной настройки виртуальных машин, как правило, применяются средства автоматизации. Часто для настройки виртуальной машины Windows применяется [расширение настраиваемых сценариев для Windows](extensions-customscript.md). Из этого руководства вы узнали, как выполнять такие задачи:
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/14/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.3 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.3 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 
 ## <a name="custom-script-extension-overview"></a>Общие сведения о расширении настраиваемых сценариев

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по машинному обучению Azure"
+title: Документация по машинному обучению Azure
 metadata:
-  title: "Документация по машинному обучению Azure. Руководства и справочник по API"
-  description: "Документация, видеоролики и примеры моделей для машинного обучения, представляющего собой облачную службу для специалистов по обработке и анализу данных и разработчиков, использующих прогнозную аналитику в приложениях."
+  title: Документация по машинному обучению Azure. Руководства и справочник по API
+  description: Документация, видеоролики и примеры моделей для машинного обучения, представляющего собой облачную службу для специалистов по обработке и анализу данных и разработчиков, использующих прогнозную аналитику в приложениях.
   services: machine-learning
   author: garyericson
   manager: jhubbard
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/01/2018
   ms.author: garye
-  ms.openlocfilehash: 3303174486e9fd7a5b0f6dfe713be93e569a80a7
-  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.openlocfilehash: 6bfeb53dccd9d281cd467b8261eff5cd47cb4dfb
+  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 04/19/2018
 abstract:
-  description: "Узнайте, как использовать Машинное обучение Azure с полностью управляемыми службами для создания, развертывания и администрирования моделей машинного обучения и искусственного интеллекта в облаке. В учебных материалах, кратких руководствах, справочниках и примерах показано, как создавать и развертывать модели для любых приложений."
+  description: Узнайте, как использовать Машинное обучение Azure с полностью управляемыми службами для создания, развертывания и администрирования моделей машинного обучения и искусственного интеллекта в облаке. В учебных материалах, кратких руководствах, справочниках и примерах показано, как создавать и развертывать модели для любых приложений.
 sections:
 - title: 
   items:
@@ -27,13 +27,13 @@ sections:
     style: cards
     className: cardsA
     items:
-    - html: "<a href=\"/azure/machine-learning/preview/\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/i_machine-learning.svg\" alt=\"Azure Machine Learning services\"> (предварительная версия) <br><b>Службы машинного обучения Azure</b></a> <p>Узнайте, как эти службы позволяют специалистам по обработке и анализу данных разрабатывать решения ИИ, используя средства и библиотеки Python с различными службами данных и вычислений Azure.</p>"
-    - html: "<a href=\"/azure/machine-learning/studio/\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/machine-learning-studio.svg\" alt=\"Azure Machine Learning Studio\"> <br><b>Студия машинного обучения Azure</b></a> <p>Узнайте, как использовать этот инструмент для совместной работы, поддерживающий функцию перетаскивания объектов и предназначенный для создания, тестирования и развертывания решений для прогнозной аналитики.</p>"
-    - html: "<a href=\"/azure/machine-learning/data-science-virtual-machine/index\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/virtualmachine.svg\" alt=\"Data Science Virtual Machine\"> <br><b>Виртуальная машина для обработки и анализа данных</b></a> <p>Узнайте, как использовать виртуальные машины для обработки и анализа данных и глубинного обучения, а также настроенные образы виртуальных машин в Azure, оснащенные средствами обработки и анализа данных, с помощью которых можно создавать интеллектуальные приложения для расширенной аналитики.</p>"
-- title: "5-минутные руководства по началу работы"
+    - html: <a href="/azure/machine-learning/service/"> <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (предварительная версия) <br><b>Службы машинного обучения Azure</b></a> <p>Узнайте, как эти службы позволяют специалистам по обработке и анализу данных разрабатывать решения ИИ, используя средства и библиотеки Python с различными службами данных и вычислений Azure.</p>
+    - html: <a href="/azure/machine-learning/studio/"> <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio"> <br><b>Студия машинного обучения Azure</b></a> <p>Узнайте, как использовать этот инструмент для совместной работы, поддерживающий функцию перетаскивания объектов и предназначенный для создания, тестирования и развертывания решений для прогнозной аналитики.</p>
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index"> <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine"> <br><b>Виртуальная машина для обработки и анализа данных</b></a> <p>Узнайте, как использовать виртуальные машины для обработки и анализа данных и глубинного обучения, а также настроенные образы виртуальных машин в Azure, оснащенные средствами обработки и анализа данных, с помощью которых можно создавать интеллектуальные приложения для расширенной аналитики.</p>
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как быстро настроить и использовать службы машинного обучения Azure (предварительная версия), Студию машинного обучения и виртуальные машины для обработки и анализа данных:"
+    text: 'Узнайте, как быстро настроить и использовать службы машинного обучения Azure (предварительная версия), Студию машинного обучения и виртуальные машины для обработки и анализа данных:'
   - type: table
     style: dataMatrix
     columns:
@@ -44,20 +44,20 @@ sections:
     - image:
         src: media/index/virtualmachine.svg
     rows:
-    - title: "Настройка"
+    - title: Настройка
       values:
-      - href: /azure/machine-learning/preview/quickstart-installation
+      - href: /azure/machine-learning/service/quickstart-installation
       - href: /azure/machine-learning/studio/create-workspace
       - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
-    - title: "Создание модели"
+    - title: Создание модели
       values:
-      - href: /azure/machine-learning/preview/quickstart-installation
+      - href: /azure/machine-learning/service/quickstart-installation
       - href: /azure/machine-learning/studio/create-experiment
       - href: 
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как создавать, развертывать и использовать модели с помощью служб машинного обучения Azure (предварительная версия) и Студии машинного обучения:"
+    text: 'Узнайте, как создавать, развертывать и использовать модели с помощью служб машинного обучения Azure (предварительная версия) и Студии машинного обучения:'
   - type: table
     style: dataMatrix
     columns:
@@ -66,31 +66,31 @@ sections:
     - image:
         src: media/index/machine-learning-studio.svg
     rows:
-    - title: "Подготовка данных"
+    - title: Подготовка данных
       values:
-      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-1
+      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
       - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-    - title: "Создание модели"
+    - title: Создание модели
       values:
-      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-2
+      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
       - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-    - title: "Ввод модели в эксплуатацию"
+    - title: Ввод модели в эксплуатацию
       values:
-      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-3
+      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3
       - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-    - title: "Использование модели"
+    - title: Использование модели
       values:
-      - href: /azure/machine-learning/preview/model-management-consumption
+      - href: /azure/machine-learning/desktop-workbench/model-management-consumption
       - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-- title: "Другие технологии машинного обучения Майкрософт"
+- title: Другие технологии машинного обучения Майкрософт
   items:
   - type: list
     style: cards
     className: cardsA
     items:
-    - html: "<a href=\"/azure/machine-learning/team-data-science-process\"> <img src=\"media/index/tdsp.png\" alt=\"Team Data Science Process\" height=\"32\" width=\"32\"> <p><b>Что такое процесс обработки и анализа данных группы?</b></p> </a> Командный процесс обработки и анализа данных позволяет специалистам эффективно доставлять решения прогнозной аналитики и интеллектуальные приложения."
-    - html: "<a href=\"/sql/advanced-analytics/r/r-services\"> <img src=\"media/index/logo_sql.png\" alt=\"SQL Server Machine Learning Services\" height=\"32\" width=\"32\"> <p><b>Службы машинного обучения SQL Server</b></p> </a> Аналитика в базе данных с поддержкой R и Python."
-    - html: "<a href=\"/machine-learning-server/\"> <img src=\"media/index/ml-server.png\" alt=\"Microsoft Machine Learning Server\" height=\"32\" width=\"32\"> <p><b>Microsoft Machine Learning Server</b></p> </a> Гибкая корпоративная платформа машинного обучения, поддерживающая развертывания R и Python в Windows и Linux, а также в кластерах HDInsight Spark и Hadoop."
-    - html: "<a href=\"/azure/batch-ai/\"> <img src=\"media/index/batch.png\" alt=\"Batch AI Training\" height=\"32\" width=\"32\"> <p><b>Служба обучения Batch AI</b></p> </a> Управляемая служба, которая помогает параллельно экспериментировать с моделями искусственного интеллекта на любой платформе и массово обучает их, используя кластер графических процессоров."
-    - html: "<a href=\"/azure/#pivot=products&panel=cognitive\"> <img src=\"media/index/cognitive-services.png\" alt=\"Cognitive Services\" height=\"32\" width=\"32\"> <p><b>Cognitive Services</b></p> </a> API-интерфейсы, предоставляющие интеллектуальные алгоритмы для приложений, веб-сайтов и программ-роботов."
-    - html: "<a href=\"/cognitive-toolkit/\"> <img src=\"media/index/cntk.png\" alt=\"Microsoft Cognitive Toolkit\" height=\"32\" width=\"32\"> <p><b>Microsoft Cognitive Toolkit</b></p> </a> Бесплатный набор средств с открытым кодом, позволяющий обучать алгоритмы глубинного обучения."
+    - html: <a href="/azure/machine-learning/team-data-science-process"> <img src="media/index/tdsp.png" alt="Team Data Science Process" height="32" width="32"> <p><b>Что такое процесс обработки и анализа данных группы?</b></p> </a> Командный процесс обработки и анализа данных позволяет специалистам эффективно доставлять решения прогнозной аналитики и интеллектуальные приложения.
+    - html: <a href="/sql/advanced-analytics/r/r-services"> <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services" height="32" width="32"> <p><b>Службы машинного обучения SQL Server</b></p> </a> Аналитика в базе данных с поддержкой R и Python.
+    - html: <a href="/machine-learning-server/"> <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server" height="32" width="32"> <p><b>Microsoft Machine Learning Server</b></p> </a> Гибкая корпоративная платформа машинного обучения, поддерживающая развертывания R и Python в Windows и Linux, а также в кластерах HDInsight Spark и Hadoop.
+    - html: <a href="/azure/batch-ai/"> <img src="media/index/batch.png" alt="Batch AI Training" height="32" width="32"> <p><b>Служба обучения Batch AI</b></p> </a> Управляемая служба, которая помогает параллельно экспериментировать с моделями искусственного интеллекта на любой платформе и массово обучает их, используя кластер графических процессоров.
+    - html: <a href="/azure/#pivot=products&panel=cognitive"> <img src="media/index/cognitive-services.png" alt="Cognitive Services" height="32" width="32"> <p><b>Cognitive Services</b></p> </a> API-интерфейсы, предоставляющие интеллектуальные алгоритмы для приложений, веб-сайтов и программ-роботов.
+    - html: <a href="/cognitive-toolkit/"> <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit" height="32" width="32"> <p><b>Microsoft Cognitive Toolkit</b></p> </a> Бесплатный набор средств с открытым кодом, позволяющий обучать алгоритмы глубинного обучения.

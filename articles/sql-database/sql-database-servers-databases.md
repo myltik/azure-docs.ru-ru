@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Создание серверов базы данных SQL Azure и баз данных SQL Azure и управление ими
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/05/2018
 - Выступает в качестве родительского ресурса для баз данных, эластичных пулов и хранилищ данных.
 - Предоставляет пространство имен для баз данных, эластичных пулов и хранилищ данных.
 - Представляет собой логический контейнер со строгой семантикой времени существования (при удалении сервера удаляются также все расположенные на нем базы данных, эластичные пулы и хранилища данных).
-- Участвует в [управлении доступом на основе ролей Azure](/active-directory/role-based-access-control-what-is) (базы данных, эластичные пулы и хранилища данных, содержащиеся на сервере, наследуют его права доступа).
+- Участвует в [управлении доступом на основе ролей Azure](/azure/role-based-access-control/overview) (базы данных, эластичные пулы и хранилища данных, содержащиеся на сервере, наследуют его права доступа).
 - Выступает в качестве элемента высокого приоритета при идентификации баз данных, эластичных пулов и хранилищ данных для управления ресурсами Azure (см. схему URL-адресов для баз данных и пулов).
 - Выравнивает ресурсы в регионе.
 - Предоставляет конечную точку подключения к базе данных (<serverName>.database.windows.net).
@@ -79,9 +79,8 @@ ms.lasthandoff: 04/05/2018
 
 > [!IMPORTANT]
 > Сведения о выборе ценовой категории для базы данных см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
->
 
-Сведения о создании управляемого экземпляра см. в статье [Создание управляемого экземпляра](sql-database-managed-instance-tutorial-portal.md).
+Сведения о создании управляемого экземпляра см. в статье [Создание управляемого экземпляра](sql-database-managed-instance-create-tutorial-portal.md).
 
 ### <a name="manage-an-existing-sql-server"></a>Управление существующим сервером SQL Server
 

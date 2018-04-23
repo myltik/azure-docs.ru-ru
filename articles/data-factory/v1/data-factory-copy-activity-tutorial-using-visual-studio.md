@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c25bd85c362e7055109e0a2a178a417ef110899a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e82c73c1d2984631e8d2dd2eb0f93c9751a1cf1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Руководство. Создание конвейера с действием копирования с помощью Visual Studio
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 1. Прочтите [обзорную статью](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .       
-2. Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
+2. Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../role-based-access-control/built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
 3. На вашем компьютере должны быть установлены следующие компоненты: 
    * Visual Studio 2013 или Visual Studio 2015.
    * Загрузите пакет SDK Azure для Visual Studio 2013 или Visual Studio 2015. Перейдите на [cтраницу загрузки Azure](https://azure.microsoft.com/downloads/) и щелкните **VS 2013** или **VS2015** в разделе **.NET**.

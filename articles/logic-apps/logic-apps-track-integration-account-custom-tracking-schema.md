@@ -1,11 +1,11 @@
 ---
-title: "Настраиваемые схемы отслеживания для мониторинга сообщений B2B в Azure Logic Apps | Документация Майкрософт"
-description: "Создавайте настраиваемые схемы отслеживания для мониторинга сообщений из транзакций типа \"бизнес — бизнес\" (B2B) в учетной записи интеграции Azure."
+title: Настраиваемые схемы отслеживания для мониторинга сообщений B2B в Azure Logic Apps | Документация Майкрософт
+description: Создавайте настраиваемые схемы отслеживания для мониторинга сообщений из транзакций типа "бизнес — бизнес" (B2B) в учетной записи интеграции Azure.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Включение отслеживания для комплексного мониторинга рабочего процесса
 Доступна встроенная функция отслеживания, которую можно включить для различных частей рабочего процесса B2B, например для отслеживания сообщений AS2 или X12. При создании рабочих процессов, содержащих приложение логики, BizTalk Server, SQL Server или любой другой уровень, можно включить настраиваемое отслеживание, которое ведет журнал событий от начала до конца рабочего процесса. 
@@ -85,5 +85,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о [мониторинге сообщений B2B](logic-apps-monitor-b2b-message.md).   
-* Дополнительные сведения об [отслеживании сообщений B2B на портале Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Дополнительные сведения об [отслеживании сообщений B2B в Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Дополнительные сведения о [Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md).

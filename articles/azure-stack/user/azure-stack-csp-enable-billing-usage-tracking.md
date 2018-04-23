@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Предоставление поставщику облачных служб возможности управлять подпиской Azure Stack
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 03/12/2018
 Добавьте поставщика облачных служб в качестве владельца подписки. 
 
 1. Добавьте выбранного поставщика облачных служб в качестве гостевого пользователя с ролью пользователя в вашем каталоге клиента.  Пошаговые инструкции по добавлению пользователя см. в статье [Краткое руководство по добавлению новых пользователей в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
-2. Назначьте гостевому пользователю роль владельца. Дополнительные сведения о добавлении поставщика облачных служб в подписку см. в статье [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+2. Назначьте гостевому пользователю роль владельца. Дополнительные сведения о добавлении поставщика облачных служб в подписку см. в статье [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 3. Поставщик облачных служб создаст для вас локальную подписку Azure Stack.
 4. Теперь вы можете использовать Azure Stack.
 5. Затем поставщик облачных служб должен создать ресурс в вашей подписке, чтобы убедиться, что он может управлять ресурсами. 
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-  - Дополнительные сведения о получении в Azure Stack информации об использовании ресурсов см. в статье [Потребление ресурсов и выставление счетов в Azure Stack](../azure-stack-billing-and-chargeback.md).
+  - Дополнительные сведения см. в статье о [потреблении ресурсов и выставлении счетов в Azure Stack](../azure-stack-billing-and-chargeback.md).

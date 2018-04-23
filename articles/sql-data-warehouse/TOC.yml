@@ -11,6 +11,8 @@
   items:
     - name: Создание подключения (портал)
       href: create-data-warehouse-portal.md
+    - name: Создание — PowerShell
+      href: create-data-warehouse-powershell.md
     - name: Остановка и возобновление вычислений
       items:
         - name: Microsoft Azure

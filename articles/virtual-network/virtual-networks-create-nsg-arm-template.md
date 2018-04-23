@@ -1,6 +1,6 @@
 ---
-title: "Создание групп безопасности сети с помощью шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Узнайте, как создавать и развертывать группы безопасности сети с помощью шаблона Azure Resource Manager."
+title: Создание групп безопасности сети с помощью шаблона Azure Resource Manager | Документация Майкрософт
+description: Узнайте, как создавать и развертывать группы безопасности сети с помощью шаблона Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Создание групп безопасности сети с помощью шаблона Azure Resource Manager
 

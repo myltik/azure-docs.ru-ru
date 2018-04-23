@@ -1,11 +1,11 @@
 ---
-title: "Создание первой фабрики данных (шаблон Resource Manager) | Документация Майкрософт"
-description: "Работая с этим руководством, вы создадите образец конвейера фабрики данных Azure с помощью шаблона Azure Resource Manager."
+title: Создание первой фабрики данных (шаблон Resource Manager) | Документация Майкрософт
+description: Работая с этим руководством, вы создадите образец конвейера фабрики данных Azure с помощью шаблона Azure Resource Manager.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7ef516f80bb626a012a6141bc06382057385e635
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d3297cc1dbbbfb99272a1374f060adaf59024810
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Руководство. Создание фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
 > [!div class="op_single_selector"]
@@ -315,7 +315,7 @@ ms.lasthandoff: 03/02/2018
 1. Запустите **Azure PowerShell** и выполните следующие команды: 
    * Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```  
    * Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
     ```PowerShell

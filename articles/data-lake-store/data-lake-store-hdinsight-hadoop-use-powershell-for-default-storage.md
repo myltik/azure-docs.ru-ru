@@ -1,8 +1,8 @@
 ---
-title: "Создание кластеров HDInsight, использующих Data Lake Store, с помощью PowerShell | Документация Майкрософт"
-description: "Создание и использование кластеров HDInsight, использующих Azure Data Lake Store, с помощью Azure PowerShell."
+title: Создание кластеров HDInsight, использующих Data Lake Store, с помощью PowerShell | Документация Майкрософт
+description: Создание и использование кластеров HDInsight, использующих Azure Data Lake Store, с помощью Azure PowerShell.
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 2f1793c2de2b68a8b155ada73044c6bc36882612
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Создание кластеров HDInsight, использующих Data Lake Store, с помощью PowerShell
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/21/2017
 1. На своем компьютере откройте окно PowerShell и введите приведенные ниже фрагменты кода. Когда будет предложено выполнить вход, войдите как один администраторов или владельцев из подписки. 
 
         # Sign in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription

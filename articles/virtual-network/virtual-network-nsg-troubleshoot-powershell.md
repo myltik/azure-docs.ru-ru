@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок, связанных с группами безопасности сети, с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как устранять проблемы, вызванные группами безопасности сети, в модели развертывания Azure Resource Manager с помощью Azure PowerShell."
+title: Устранение неполадок, связанных с группами безопасности сети, с помощью PowerShell | Документация Майкрософт
+description: Узнайте, как устранять проблемы, вызванные группами безопасности сети, в модели развертывания Azure Resource Manager с помощью Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Устранение неполадок, связанных с группами безопасности сети, с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Портал Azure](virtual-network-nsg-troubleshoot-portal.md)
+> * [портал Azure](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -44,7 +44,7 @@ NSG позволяют управлять типом трафика, перед�
 ## <a name="detailed-troubleshooting-steps"></a>Подробные инструкции по устранению неполадок
 Выполните шаги ниже, чтобы устранить проблемы с NSG для виртуальной машины.
 
-1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в разделе [Действия](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Следующая команда возвращает все правила NSG, применяемые к сетевому интерфейсу с именем *VM1-NIC1* в группе ресурсов *RG1*.
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

@@ -2,23 +2,23 @@
 
 # Обзор
 ## [Что такое Многофакторная идентификация Azure?](multi-factor-authentication.md)
-## [Принцип работы](multi-factor-authentication-how-it-works.md)
-## [Как получить Azure MFA](multi-factor-authentication-versions-plans.md)
+## [Принцип работы](../active-directory/authentication/concept-mfa-howitworks.md)
+## [Как получить Azure MFA](../active-directory/authentication/concept-mfa-licensing.md)
 
 # Начало работы
-## [Выбор расположения для развертывания](multi-factor-authentication-get-started.md)
-## [Многофакторная идентификация (MFA) в облаке](multi-factor-authentication-get-started-cloud.md)
+## [Выбор расположения для развертывания](../active-directory/authentication/concept-mfa-whichversion.md)
+## [Многофакторная идентификация (MFA) в облаке](../active-directory/authentication/howto-mfa-getstarted.md)
 ## [Локальная Многофакторная идентификация (MFA)](multi-factor-authentication-get-started-server.md)
 ## [Многофакторная идентификация (MFA) для пользователей Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Рекомендации по обеспечению безопасности](multi-factor-authentication-security-best-practices.md)
 
 # Практическое руководство
 ## Развертывание и использование
-### [Настройка параметров](multi-factor-authentication-whats-next.md)
+### [Настройка параметров](../active-directory/authentication/howto-mfa-mfasettings.md)
 ### [Отчеты в MFA](multi-factor-authentication-manage-reports.md)
-### [Использование существующих серверов политики сети](multi-factor-authentication-nps-extension.md)
-#### [Расширенная конфигурация для расширения NPS](nps-extension-advanced-configuration.md)
-### [Создание поставщика аутентификации](multi-factor-authentication-get-started-auth-provider.md)
+### [Использование существующих серверов политики сети](../active-directory/authentication/howto-mfa-nps-extension.md)
+#### [Расширенная конфигурация для расширения NPS](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
+### [Создание поставщика аутентификации](../active-directory/authentication/concept-mfa-authprovider.md)
 ### Развертывание MFA в локальной среде
 #### [Установка пользовательского портала](multi-factor-authentication-get-started-portal.md)
 #### [Расширенные конфигурации VPN](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,9 +38,9 @@
 ### [VPN](nps-extension-vpn.md)
 ### Интеграция MFA в локальной среде
 #### [Службы федерации](multi-factor-authentication-get-started-adfs.md)
-##### [Использование AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Использование AD FS](../active-directory/authentication/howto-mfa-adfs.md)
 ##### [Использование AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-##### [Использование AD FS на платформе Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
+##### [Использование AD FS на платформе Windows Server 2012 R2](../active-directory/authentication/howto-mfaserver-adfs-2012.md)
 #### Каталоги
 ##### [Проверка подлинности LDAP](multi-factor-authentication-get-started-server-ldap.md)
 ##### [Проверка подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md)
@@ -54,7 +54,7 @@
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](multi-factor-authentication-faq.md)
 ### [Задать вопрос](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-### [Ошибки расширения NPS](multi-factor-authentication-nps-errors.md)
+### [Ошибки расширения NPS](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

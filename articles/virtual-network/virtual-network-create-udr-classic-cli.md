@@ -1,11 +1,11 @@
 ---
-title: "Контроль маршрутизации в виртуальной сети Azure с помощью интерфейса командной строки (классическая модель) | Документация Майкрософт"
-description: "Сведения об управлении маршрутизацией и виртуальными сетями с помощью интерфейса командной строки Azure в классической модели развертывания"
+title: Контроль маршрутизации в виртуальной сети Azure с помощью интерфейса командной строки (классическая модель) | Документация Майкрософт
+description: Сведения об управлении маршрутизацией и виртуальными сетями с помощью интерфейса командной строки Azure в классической модели развертывания
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
 ms.service: virtual-network
@@ -14,19 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 6bfdfcdde39d64d662bb6d2ea55fadca24d49091
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: genli
+ms.openlocfilehash: 820387d35b912d01a8a296bd1a80edecf781cbb5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Управление маршрутизацией и использование виртуальных модулей (классический режим) с помощью интерфейса командной строки Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [интерфейс командной строки Azure](tutorial-create-route-table-cli.md)
-> * [Шаблон](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
 > * [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 

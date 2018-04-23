@@ -1,11 +1,11 @@
 ---
-title: "Включение резервного копирования для Azure Stack с помощью PowerShell | Документация Майкрософт"
-description: "Включите службу резервного копирования инфраструктуры с помощью Windows PowerShell для восстановления Azure Stack в случае сбоя."
+title: Включение резервного копирования для Azure Stack с помощью PowerShell | Документация Майкрософт
+description: Включите службу резервного копирования инфраструктуры с помощью Windows PowerShell для восстановления Azure Stack в случае сбоя.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d21bb919686e318b1caf7267b3115dae20938884
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Включение резервного копирования для Azure Stack с помощью PowerShell
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Включите службу резервного копирования инфраструктуры с помощью Windows PowerShell для восстановления Azure Stack в случае сбоя. Чтобы включить резервное копирование, начать его и получить сведения о результатах резервного копирования через конечную точку управления оператором, вы можете использовать командлеты PowerShell.
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 01/12/2018
       -EnvironmentName AzureStackAdmin
     
     # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
 ## <a name="generate-a-new-encryption-key"></a>Создание ключа шифрования
@@ -135,5 +135,5 @@ ms.lasthandoff: 01/12/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
- - Дополнительные сведения о резервном копировании см. в статье [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ) (Архивация Azure Stack).  
-- Дополнительные сведения о том, как убедиться, что резервное копирование выполнено, см. в разделе [Подтверждение завершения резервного копирования на портале администрирования](azure-stack-backup-back-up-azure-stack.md ).
+ - Дополнительные сведения о резервном копировании см. в статье [Резервное копирование для Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
+- См. дополнительные сведения о [подтверждении завершения резервного копирования на портале администрирования](azure-stack-backup-back-up-azure-stack.md ).

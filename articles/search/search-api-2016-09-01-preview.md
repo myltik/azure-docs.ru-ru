@@ -1,24 +1,18 @@
 ---
-title: "REST API службы поиска Azure версии 2016-09-01-Preview | Документация Майкрософт"
-description: "В версии 2016-09-01-Preview API REST службы поиска Azure реализованы экспериментальные функции, такие как поиски синонимов и запросы moreLikeThis."
-services: search
-documentationcenter: na
+title: REST API службы поиска Azure версии 2016-09-01-Preview | Документация Майкрософт
+description: В версии 2016-09-01-Preview API REST службы поиска Azure реализованы экспериментальные функции, такие как поиски синонимов и запросы moreLikeThis.
 author: mhko
 manager: jlembicz
-editor: 
-ms.assetid: 3dba3bf8-9c83-42f6-82bc-04727bd11037
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: search
+ms.topic: reference
 ms.date: 10/25/2017
 ms.author: nateko
-ms.openlocfilehash: 082c207f892fcc277d30d66c6165dd9920d3ab27
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bbfdb2641d68f1262cc6293462c7022701357374
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-service-rest-api-version-2016-09-01-preview"></a>API REST службы поиска Azure, версия 2016-09-01-Preview
 Эта статья представляет собой справочную документацию по версии `api-version=2016-09-01-Preview`. Она расширяет текущую общедоступную версию [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx), изменения в которую заблокированы, и содержит перечисленные ниже экспериментальные функции.

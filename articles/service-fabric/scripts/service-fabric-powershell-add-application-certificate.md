@@ -1,13 +1,13 @@
 ---
-title: "Пример сценария Azure PowerShell — добавление сертификата приложения в кластер | Документы Майкрософт"
-description: "Пример сценария Azure PowerShell — добавление сертификата приложения в кластер Service Fabric."
+title: Пример сценария Azure PowerShell — добавление сертификата приложения в кластер | Документы Майкрософт
+description: Пример сценария Azure PowerShell — добавление сертификата приложения в кластер Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c9cf6485c2621f839b93da162e5f4d82a8d287a4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Добавление сертификата приложения в кластер Service Fabric
 
 В этом примере сценария создается самозаверяющий сертификат из указанного хранилища ключей Azure. Затем этот сертификат устанавливается на все узлы кластера Service Fabric. Сертификат также скачивается в локальную папку. Имя скачанного сертификата совпадает с именем сертификата в хранилище ключей. Измените параметры, если это необходимо.
 
-При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве по Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве по Azure PowerShell](/powershell/azure/overview), а затем выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 ## <a name="sample-script"></a>Пример скрипта
 

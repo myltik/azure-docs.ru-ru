@@ -1,12 +1,12 @@
 ---
-title: "Масштабирование и размещение Функций Azure | Документация Майкрософт"
-description: "Дополнительные сведения о выборе между планом потребления для решения \"Функции Azure\" и планом службы приложений."
+title: Масштабирование и размещение Функций Azure | Документация Майкрософт
+description: Дополнительные сведения о выборе между планом потребления для решения "Функции Azure" и планом службы приложений.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: azure functions, functions, consumption plan, app service plan, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Масштабирование и размещение Функций Azure
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/18/2018
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Дополнительные сведения о типах учетных записей хранилища см. в разделе [Введение в службы хранилища Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Дополнительные сведения о типах учетных записей хранилища см. в разделе [Введение в службы хранилища Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Как работает план потребления
 

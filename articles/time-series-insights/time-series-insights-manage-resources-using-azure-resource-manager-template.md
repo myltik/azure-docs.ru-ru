@@ -1,6 +1,6 @@
 ---
-title: "Как управлять средой \"Аналитика временных рядов Azure\" с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
-description: "В этой статье описано, как программно управлять средой \"Аналитика временных рядов Azure\" с помощью Azure Resource Manager."
+title: Как управлять средой "Аналитика временных рядов Azure" с помощью шаблонов Azure Resource Manager | Документация Майкрософт
+description: В этой статье описано, как программно управлять средой "Аналитика временных рядов Azure" с помощью Azure Resource Manager.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Создание ресурсов службы "Аналитика временных рядов" с помощью шаблонов Resource Manager
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 12/14/2017
 В командной строке PowerShell выполните следующую команду:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Вам будет предложено войти в учетную запись Azure. Войдя в систему, выполните следующую команду, чтобы просмотреть доступные подписки:
@@ -266,7 +266,8 @@ Outputs                 :
 
 Домашняя страница шаблона быстрого запуска на GitHub также содержит кнопку **Развертывание в Azure**. При нажатии на нее открывается страница "Настраиваемое развертывание" на портале Azure. На этой странице можно ввести или выбрать значения для каждого параметра из таблиц [обязательных](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) или [необязательных параметров](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters). Если нажать кнопку **Приобрести** после заполнения параметров, начнется развертывание шаблона.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Дополнительная информация

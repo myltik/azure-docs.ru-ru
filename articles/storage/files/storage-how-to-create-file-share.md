@@ -1,12 +1,12 @@
 ---
-title: "Как создать общую папку в службе \"Файлы Azure\" | Документация Майкрософт"
-description: "Как создать общую папку Azure в службе файлов Azure с помощью портала Azure, PowerShell и Azure CLI."
+title: Как создать общую папку в службе "Файлы Azure" | Документация Майкрософт
+description: Как создать общую папку Azure в службе файлов Azure с помощью портала Azure, PowerShell и Azure CLI.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Создание общей папки в службе файлов Azure
 Вы можете создавать общие папки Azure с помощью [портала Azure](https://portal.azure.com/), командлетов PowerShell службы хранилища Azure, клиентских библиотек службы хранилища Azure и интерфейса REST API службы хранилища Azure. Из этого руководства вы узнаете:
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Создание общей папки с помощью интерфейса командной строки (CLI)
 1. **Чтобы подготовиться к использованию интерфейса командной строки (CLI), загрузите и установите Azure CLI.**  
-    Дополнительные сведения см. в руководстве по [установке Azure CLI 2.0](/cli/azure/install-az-cli2.md), а также руководстве по [обзору Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md).
+    Дополнительные сведения см. в руководстве по [установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli), а также руководстве по [обзору Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Создайте строку подключения для учетной записи хранения, где нужно создать общую папку.**  
     В примере ниже замените значения ```<storage-account>``` и ```<resource_group>``` именем учетной записи хранения и именем группы ресурса:

@@ -1,24 +1,18 @@
 ---
 title: Индексирование хранилища BLOB-объектов Azure с помощью службы поиска Azure
 description: Узнайте, как индексировать хранилище BLOB-объектов Azure и извлекать текст из документов с помощью службы поиска Azure.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c997982868213bc1e0315a8d19c95b7c97f81de3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure
 В этой статье показано, как использовать поиск Azure для индексации документов (например, файлов PDF, Microsoft Office и некоторых других распространенных форматов), которые хранятся в хранилище BLOB-объектов Azure. Во-первых, объясняются основные принципы установки и настройки индексатора больших двоичных объектов. Затем предлагается более углубленно изучить возможные сценарии и поведения.

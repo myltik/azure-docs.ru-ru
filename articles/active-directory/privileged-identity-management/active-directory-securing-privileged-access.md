@@ -1,8 +1,8 @@
 ---
-title: "Защита привилегированного доступа в Azure AD | Документация Майкрософт"
-description: "В этом разделе описаны подходы к защите привилегированного доступа в Azure, Azure Active Directory и Microsoft Online Services."
+title: Защита привилегированного доступа в Azure AD | Документация Майкрософт
+description: В этом разделе описаны подходы к защите привилегированного доступа в Azure, Azure Active Directory и Microsoft Online Services.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Защита привилегированного доступа в Azure AD
 Защита привилегированного доступа — исключительно важный первый шаг для защиты корпоративных ресурсов в современных организациях. Привилегированные учетные записи — это учетные записи, которые администрируют ИТ-системы и управляют ими. Злоумышленники в Интернете обычно используют эти учетные записи для доступа к данным и системам организации. Чтобы защитить привилегированный доступ, необходимо исключить риск доступа пользователей-злоумышленников к учетным записям и системам.
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/22/2018
 С условным контролем доступа Azure Active Directory проверяет определенные условия проверки подлинности пользователя, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению.
 
 ## <a name="related-articles"></a>Связанные статьи
-* Включение [Многофакторной идентификации Azure](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+* Включение [Многофакторной идентификации Azure](../authentication/howto-mfa-getstarted.md)
 * Включение [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Включение [защиты идентификации Azure AD](../active-directory-identityprotection.md)
 * Включение [элементов управления условным доступом](../active-directory-conditional-access-azure-portal.md)

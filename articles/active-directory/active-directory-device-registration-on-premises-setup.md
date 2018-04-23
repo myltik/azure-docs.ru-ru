@@ -1,11 +1,11 @@
 ---
-title: "Настройка локального условного доступа в Azure Active Directory | Документация Майкрософт"
-description: "Пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2."
+title: Настройка локального условного доступа в Azure Active Directory | Документация Майкрософт
+description: Пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory
 Когда требуется, чтобы пользователи присоединяли свои личные устройства к рабочей области в службе регистрации устройств Azure Active Directory (Azure AD), эти устройства можно помечать как известные организации. Ниже приведено пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
@@ -89,7 +89,7 @@ ms.lasthandoff: 01/18/2018
 | Выполните часть 2 включения обратной записи устройств в службе Azure AD Connect. Выполнив это, вернитесь к данному руководству. |[Включение обратной записи устройств в службе Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Необязательно.] Часть 4. Включение Многофакторной идентификации
-Мы настоятельно рекомендуем настроить один из нескольких вариантов Многофакторной идентификации. Если вы хотите требовать прохождение многофакторной проверки подлинности, ознакомьтесь с разделом [Выберите для себя решение "Многофакторная идентификация Azure](../multi-factor-authentication/multi-factor-authentication-get-started.md). Она содержит описание каждого решения, а также ссылки, которые помогут вам настроить выбранное решение.
+Мы настоятельно рекомендуем настроить один из нескольких вариантов Многофакторной идентификации. Если вы хотите требовать прохождение многофакторной проверки подлинности, ознакомьтесь с разделом [Выберите для себя решение "Многофакторная идентификация Azure](authentication/concept-mfa-whichversion.md). Она содержит описание каждого решения, а также ссылки, которые помогут вам настроить выбранное решение.
 
 ## <a name="part-5-verification"></a>Часть 5. Проверка
 Развертывание уже выполнено, и можно опробовать некоторые сценарии. Воспользуйтесь приведенными ниже ссылками, чтобы поэкспериментировать со службой и ознакомиться с ее возможностями.

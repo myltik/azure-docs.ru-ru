@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 5d65ce4c199c9ddc54e0120fe1c456a95a34f649
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4122052e48e57a27492433d01ee93536a9bbcf35
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Включение синхронизации хэшей паролей с доменными службами Azure AD
 Выполняя предыдущие задачи, вы включили доменные службы Azure Active Directory для клиента Azure Active Directory (Azure AD). Следующая задача — включить синхронизацию необходимых хэшей паролей, чтобы проверить подлинность NTLM и Kerberos в доменных службах Azure AD. Когда синхронизация хэшей паролей настроена, пользователи могут входить в управляемый домен с помощью учетных данных организации.
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/03/2018
     ![Выбор параметра "Изменение пароля"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!TIP]
-   > Если параметр **Изменить пароль** не отображается в окне панели доступа, убедитесь, что для вашей организации настроено [управление паролями в Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+   > Если параметр **Изменить пароль** не отображается в окне панели доступа, убедитесь, что для вашей организации настроено [управление паролями в Azure AD](../active-directory/authentication/quickstart-sspr.md).
    >
    >
 4. На странице **изменения пароля** введите старый пароль, затем введите новый пароль и подтвердите его.
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="related-content"></a>Похожий контент
 * [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md)
-* [Приступая к работе с компонентами управления паролями](../active-directory/active-directory-passwords-getting-started.md)
+* [Приступая к работе с компонентами управления паролями](../active-directory/authentication/quickstart-sspr.md)
 * [Включение синхронизации хэшей паролей с доменными службами Azure AD для синхронизированного клиента Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Администрирование управляемого домена доменных служб Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 * [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md)

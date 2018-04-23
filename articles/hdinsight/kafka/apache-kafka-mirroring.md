@@ -1,8 +1,8 @@
 ---
-title: "Зеркальное отображение разделов Apache Kafka в Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как использовать функцию зеркального отображения Apache Kafka, чтобы сохранить реплику Kafka в кластере HDInsight, создав зеркальную копию разделов во вторичном кластере."
+title: Зеркальное отображение разделов Apache Kafka в Azure HDInsight | Документация Майкрософт
+description: Узнайте, как использовать функцию зеркального отображения Apache Kafka, чтобы сохранить реплику Kafka в кластере HDInsight, создав зеркальную копию разделов во вторичном кластере.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,16 @@ ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39d7eeaf565a6c58bac162d110e6fd1cd96ad1f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Репликация разделов Apache Kafka с помощью Kafka в HDInsight и MirrorMaker
 
@@ -69,7 +69,7 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Шаблон Azure Resource Manager находится по адресу **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
+    Шаблон Azure Resource Manager доступен по адресу **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
     > [!WARNING]
     > Чтобы обеспечить доступность Kafka в HDInsight, кластер должен содержать не менее трех рабочих узлов. Этот шаблон создает кластер Kafka, содержащий три рабочих узла.

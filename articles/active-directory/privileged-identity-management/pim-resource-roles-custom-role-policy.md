@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 9ac14125b837f45634870941e72ea63e9921ca70
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6336d99df1bbdd71c66a9757af1d9fb356a91bf6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-custom-roles-to-target-pim-settings"></a>Использование настраиваемых ролей для настройки параметров управления привилегированными пользователями
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="create-the-custom-role"></a>Создание настраиваемой роли
 
-[Чтобы создать для ресурса настраиваемую роль, выполните инструкции в этом руководстве](../role-based-access-control-custom-roles.md).
+[Чтобы создать для ресурса настраиваемую роль, выполните инструкции в этом руководстве](../../role-based-access-control/custom-roles.md).
 
 Присвойте этой роли описательное имя, чтобы легко определять, какие из встроенных ролей нужно дублировать.
 

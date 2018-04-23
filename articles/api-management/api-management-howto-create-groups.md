@@ -3,7 +3,7 @@ title: Управление учетными записями разработч
 description: Сведения об управлении учетными записями разработчика с помощью групп в службе управления API Azure
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 184c8fff35a59715407989589d6d69b3dc2481e0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: df2e25bca907e90c12d18ea76f9c6a94c38a4ece
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API
 В службе управления API группы используются для управления видимостью продуктов для разработчиков. Продукты сначала делаются видимыми для групп, а затем разработчики в таких группах могут просматривать и подписываться на продукты, которые связаны с группами. 

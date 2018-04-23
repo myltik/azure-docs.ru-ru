@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: создание базы данных документов с помощью Java и портала Azure
 
@@ -54,43 +54,11 @@ Azure Cosmos DB — это глобально распределенная мн
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Добавление демонстрационных данных
 
-Теперь вы можете добавить данные в новую коллекцию с помощью обозревателя данных.
-
-1. Разверните коллекцию **Элементы**, щелкните **Документы** > **Новый документ**.
-
-   ![Создание документов в обозревателе данных на портале Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Теперь добавьте в коллекцию документ со описанной ниже структурой и щелкните **Сохранить**. Чтобы скопировать код JSON в буфер обмена, используйте кнопку **Копировать** в поле кода.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Копирование данных JSON и нажатие кнопки "Сохранить" в обозревателе данных на портале Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Создайте и сохраните еще один документ, изменив в нем `id` на значение 2. Остальные свойства вы тоже можете изменить по своему усмотрению. Новые документы могут иметь любую структуру, так как Azure Cosmos DB не устанавливает определенные схемы данных.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>Обращение к данным
 
-Теперь вы можете применить запросы в обозревателе данных для получения и фильтрации данных.
-
-1. Как вы видите, по умолчанию выбран запрос `SELECT * FROM c`. Этот запрос по умолчанию извлекает и отображает все документы в коллекции. 
-
-    ![Стандартный запрос SELECT * FROM c в обозревателе данных](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Оставайтесь на вкладке **Документы**. Чтобы изменить запрос, нажмите кнопку **Изменить фильтр** и добавьте `ORDER BY c._ts DESC` в поле предиката запроса, а затем выберите действие **Применить фильтр**.
-
-    ![Изменение запроса по умолчанию с добавлением предиката ORDER BY c._ts DESC и применение фильтра](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-Новый запрос перечисляет все документы в порядке убывания метки времени, поэтому теперь первым в списке будет второй документ. Если вы знакомы с синтаксисом SQL, используйте в этом поле любой поддерживаемый [SQL-запрос](sql-api-sql-query.md). 
-
-На этом мы завершим работу с обозревателем данных. Прежде чем продолжить работу с кодом, мы хотим напомнить вам вот о чем. В обозревателе данных вы можете создавать хранимые процедуры, триггеры и определяемые пользователем функции, чтобы реализовать бизнес-логику на стороне сервера и масштабировать пропускную способность. Это средство позволяет использовать все встроенные возможности программного доступа к данным, доступные в API-интерфейсах, к которым вы можете быстро получить доступ на портале Azure.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Клонирование примера приложения
 

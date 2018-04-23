@@ -47,6 +47,7 @@
 ### [портал Azure](resource-group-portal.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
+### [Создание подписок EA программными средствами](programmatically-create-subscription.md)
 ### [Создание групп управления](management-groups-create.md)
 ### [Администрирование групп управления](management-groups-manage.md)
 ### [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md)

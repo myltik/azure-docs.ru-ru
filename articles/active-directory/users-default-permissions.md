@@ -1,24 +1,24 @@
 ---
-title: "Сравнение разрешений пользователя по умолчанию в Azure Active Directory | Документация Майкрософт"
-description: "Сравнение разрешений участника, гостя, владельца приложения и владельца группы."
+title: Сравнение разрешений пользователя по умолчанию в Azure Active Directory | Документация Майкрософт
+description: Сравнение разрешений участника, гостя, владельца приложения и владельца группы.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Разрешения пользователя по умолчанию в Azure Active Directory
 
@@ -77,6 +77,6 @@ When a user adds a new enterprise application, they are automatically added as a
 ## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
-* Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
+* Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 * [Управление пользователями](active-directory-create-users.md)

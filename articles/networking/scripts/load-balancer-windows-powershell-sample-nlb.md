@@ -1,31 +1,31 @@
 ---
-title: "Пример сценария Azure PowerShell. Балансировка трафика на виртуальных машинах для обеспечения высокой доступности | Документы Майкрософт"
-description: "Пример сценария Azure PowerShell. Балансировка трафика на виртуальных машинах для обеспечения высокой доступности"
+title: Пример сценария Azure PowerShell. Балансировка трафика на виртуальных машинах для обеспечения высокой доступности | Документы Майкрософт
+description: Пример сценария Azure PowerShell. Балансировка трафика на виртуальных машинах для обеспечения высокой доступности
 services: load-balancer
 documentationcenter: load-balancer
 author: georgewallace
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: c77def8906b151f2cc6e4bbc4188be8ecbeac732
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d65cbdcf7867cc7a2a225648dc8b1ab7137bcb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Балансировка трафика на виртуальных машинах для обеспечения высокой доступности
 
 Этот пример скрипта позволяет создать все необходимые компоненты для запуска нескольких виртуальных машин Windows, настроенных в высокодоступной конфигурации с балансировкой нагрузки. После выполнения этого сценария будут созданы три виртуальные машины, которые будут добавлены в группу доступности Azure. Доступ к ним можно будет получить через Azure Load Balancer.
 
-При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

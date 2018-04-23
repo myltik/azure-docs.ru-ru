@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d4931c710bebc5e6c3ee23fb58e1432bb86da4a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Выходные данные и сообщения Runbook в службе автоматизации Azure
 В большинстве модулей runbook в службе автоматизации Azure используются выходные данные определенного типа, например сообщение об ошибке для пользователя или сложный объект, предназначенный для использования другим рабочим процессом. Windows PowerShell предоставляет [несколько потоков](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) для отправки выходных данных из сценария или рабочего процесса. Служба автоматизации Azure по-разному работает с каждым из этих потоков, и необходимо следовать рекомендациям по их использованию при создании Runbook.
@@ -33,29 +33,32 @@ ms.lasthandoff: 03/23/2018
 
 Можно записать данные в поток вывода с помощью [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) или поместив объект в отдельную строку в Runbook.
 
-    #The following lines both write an object to the output stream.
-    Write-Output –InputObject $object
-    $object
+```PowerShell
+#The following lines both write an object to the output stream.
+Write-Output –InputObject $object
+$object
+```
 
 ### <a name="output-from-a-function"></a>Выходные данные функции
 При записи в поток вывода в функции, которая находится в Runbook, выходные данные передаются обратно в Runbook. Если Runbook присваивает эти выходные данные переменной, то они не записываются в поток вывода. Запись в любые другие потоки из функции сопровождается записью в соответствующий поток для runbook.
 
 Рассмотрим следующий пример runbook:
 
-    Workflow Test-Runbook
-    {
-        Write-Verbose "Verbose outside of function" -Verbose
-        Write-Output "Output outside of function"
-        $functionOutput = Test-Function
-        $functionOutput
+```PowerShell
+Workflow Test-Runbook
+{
+  Write-Verbose "Verbose outside of function" -Verbose
+  Write-Output "Output outside of function"
+  $functionOutput = Test-Function
+  $functionOutput
 
-    Function Test-Function
-     {
-        Write-Verbose "Verbose inside of function" -Verbose
-        Write-Output "Output inside of function"
-      }
-    }
-
+  Function Test-Function
+  {
+    Write-Verbose "Verbose inside of function" -Verbose
+    Write-Output "Output inside of function"
+  }
+}
+```
 
 Поток вывода для задания Runbook будет следующим:
 
@@ -81,13 +84,15 @@ ms.lasthandoff: 03/23/2018
 
 Следующий пример Runbook выводит строковый объект и включает в себя объявление типа выходных данных. Если Runbook выводит массив определенного типа, все равно следует указать его тип, а не массив типа.
 
-    Workflow Test-Runbook
-    {
-       [OutputType([string])]
+```PowerShell
+Workflow Test-Runbook
+{
+  [OutputType([string])]
 
-       $output = "This is some string output."
-       Write-Output $output
-    }
+  $output = "This is some string output."
+  Write-Output $output
+}
+ ```
 
 Чтобы объявить тип выходных данных в графических модулях runbook или графических модулях runbook рабочего процесса PowerShell, в разделе **Входные и выходные данные** можно указать имя типа выходных данных. Рекомендуем использовать полное имя класса .NET, чтобы упростить идентификацию при использовании ссылок из родительского модуля. Так все свойства этого класса предоставляются шине данных в модуле runbook. Это повышает гибкость при использовании свойств для условной логики, ведения журнала и создания ссылок со значениями для других действий в модуле runbook.<br> ![Runbook: раздел "Входные и выходные данные"](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
@@ -115,11 +120,13 @@ ms.lasthandoff: 03/23/2018
 
 Создайте предупреждение или сообщение об ошибке с помощью командлета [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) или [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). Действия также могут записывать данные в эти потоки.
 
-    #The following lines create a warning message and then an error message that will suspend the runbook.
+```PowerShell
+#The following lines create a warning message and then an error message that will suspend the runbook.
 
-    $ErrorActionPreference = "Stop"
-    Write-Warning –Message "This is a warning message."
-    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+$ErrorActionPreference = "Stop"
+Write-Warning –Message "This is a warning message."
+Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+```
 
 ### <a name="verbose-stream"></a>Подробный поток
 Поток подробных сообщений предназначен для общей информации о работе Runbook. Так как в Runbook недоступен [поток отладки](#Debug), подробные сообщения следует использовать для отладки. По умолчанию подробные сообщения из опубликованных runbook не сохраняются в журнале заданий. Чтобы подробные сообщения сохранялись, настройте для опубликованных модулей runbook добавление подробных записей в журнал на вкладке "Настройка" для runbook на портале Azure. В большинстве случаев для Runbook следует оставить значение по умолчанию, при котором подробные записи не добавляются в журнал. Это обусловлено вопросами производительности. Включайте этот параметр только для устранения неполадок и отладки Runbook.
@@ -128,9 +135,11 @@ ms.lasthandoff: 03/23/2018
 
 Для создания подробного сообщения используется командлет [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) .
 
-    #The following line creates a verbose message.
+```PowerShell
+#The following line creates a verbose message.
 
-    Write-Verbose –Message "This is a verbose message."
+Write-Verbose –Message "This is a verbose message."
+```
 
 ### <a name="debug-stream"></a>Поток отладки
 Поток отладки предназначен для использования интерактивным пользователем и не должен использоваться в модулях Runbook.
@@ -168,24 +177,25 @@ Windows PowerShell использует [привилегированные пе
 
 В следующем примере запускается пример Runbook и ожидается его завершение. После завершения его поток вывода собирается из задания.
 
-    $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```PowerShell
+$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
-    $doLoop = $true
-    While ($doLoop) {
-       $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
-       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
-       $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
-    }
+$doLoop = $true
+While ($doLoop) {
+  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+  $status = $job.Status
+  $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
+}
 
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
-    
-    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
-    
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+
+# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+``` 
 
 ### <a name="graphical-authoring"></a>Графическая разработка
 Для графических модулей Runbook дополнительное ведение журнала доступно в виде трассировки на уровне действий. Существует два уровня трассировки: базовая и подробная. Базовая трассировка включает время начала и окончания каждого действия в модуле Runbook, а также сведения обо всех повторных действиях, включая число попыток и время начала. Подробная трассировка включает те же данные, что и базовая, плюс входные и выходные данные каждого действия. Сейчас записи трассировки ведутся с использованием подробного потока, поэтому при включении трассировки необходимо также включать подробное ведение журнала. Для графических модулей runbook с включенной трассировкой вести записи о ходе выполнения не требуется, так как базовая трассировка не только решает эту задачу, но и является более информативной.

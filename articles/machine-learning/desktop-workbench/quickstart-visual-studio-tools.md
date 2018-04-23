@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="visual-studio-tools-for-ai"></a>Инструменты Visual Studio для ИИ
 Инструменты Visual Studio для ИИ — это расширение для разработки, тестирования и развертывания решений с использованием глубокого обучения и ИИ. Они обеспечивают простую интеграцию со службой "Машинного обучения Azure", в частности, просмотр журнала выполнения, в котором подробно описываются результаты предыдущего обучения и пользовательские метрики. Они предоставляют обозреватель примеров, позволяющий просматривать и загружать новые проекты с помощью [Microsoft Cognitive Toolkit (ранее — CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) и других платформ глубокого обучения. И, наконец они предоставляют обозреватель для целевых объектов вычислений, что дает возможность отправлять задания для обучения моделей в удаленных средах, например, на виртуальных машин Azure или серверах Linux с графическими процессорами. Кроме того, они предоставляют простой доступ к службе [Azure Batch AI (предварительная версия)](https://docs.microsoft.com/azure/batch-ai/).

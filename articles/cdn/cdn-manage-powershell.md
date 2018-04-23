@@ -1,11 +1,11 @@
 ---
-title: "Управление Azure CDN с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как использовать командлеты Azure PowerShell для управления Azure CDN."
+title: Управление Azure CDN с помощью PowerShell | Документация Майкрософт
+description: Узнайте, как использовать командлеты Azure PowerShell для управления Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
 ms.workload: tbd
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5bd2eed7b34cafa43e8f38279890405d4ae55568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5634ecdec04f023d9eb901c4ad0fb21b13bcfdc1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Управление Azure CDN с помощью PowerShell
 PowerShell — это одно из самых гибких средств управления профилями и конечными точками Azure CDN.  PowerShell можно использовать интерактивно или подготовить скрипты для автоматизации задач управления.  В этом руководстве описано несколько распространенных задач по управлению профилями и конечными точками Azure CDN, которые можно выполнять с помощью PowerShell.
 
 ## <a name="prerequisites"></a>предварительным требованиям
-Чтобы использовать PowerShell для управления профилями и конечными точками Azure CDN, прежде всего нужно установить модуль Azure PowerShell.  Сведения об установке Azure PowerShell и подключении к Azure с помощью командлета `Login-AzureRmAccount` см. в статье [How to install and configure Azure PowerShell](/powershell/azure/overview) (Установка и настройка Azure PowerShell).
+Чтобы использовать PowerShell для управления профилями и конечными точками Azure CDN, прежде всего нужно установить модуль Azure PowerShell.  Сведения об установке Azure PowerShell и подключении к Azure с помощью командлета `Connect-AzureRmAccount` см. в статье [How to install and configure Azure PowerShell](/powershell/azure/overview) (Установка и настройка Azure PowerShell).
 
 > [!IMPORTANT]
-> Чтобы выполнять командлеты Azure PowerShell, необходимо сначала войти в систему с помощью `Login-AzureRmAccount`.
+> Чтобы выполнять командлеты Azure PowerShell, необходимо сначала войти в систему с помощью `Connect-AzureRmAccount`.
 > 
 > 
 

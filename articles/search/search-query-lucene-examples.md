@@ -1,25 +1,18 @@
 ---
-title: "Примеры запросов Lucene для службы поиска Azure | Документация Майкрософт"
-description: "Синтаксис запросов Lucene для поиска нечетких соответствий, поиска с учетом расположения, повышения приоритета слов, поиска по регулярным выражениям и поиска с использованием подстановочных знаков."
-services: search
-documentationcenter: 
+title: Примеры запросов Lucene для службы поиска Azure | Документация Майкрософт
+description: Синтаксис запросов Lucene для поиска нечетких соответствий, поиска с учетом расположения, повышения приоритета слов, поиска по регулярным выражениям и поиска с использованием подстановочных знаков.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf033d7549f3a1213d7a2b2c3694ae7415643eb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Примеры синтаксиса запросов Lucene для создания запросов в службе поиска Azure
 При создании запросов для поиска Azure можно использовать [простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) по умолчанию или альтернативное [средство синтаксического анализа запросов Lucene в службе поиска Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Средство синтаксического анализа запросов Lucene поддерживает более сложные конструкции запросов, а именно: запросы, относящиеся к полям, поиск нечетких соответствий, поиск с учетом расположения, повышение приоритета слов и поиск по регулярным выражениям.

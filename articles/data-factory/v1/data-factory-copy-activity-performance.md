@@ -14,13 +14,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Руководство по настройке производительности действия копирования
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Версия 1 — общедоступная](data-factory-copy-activity-performance.md)
+> * [Версия 2 — предварительная](../copy-activity-performance.md)
+
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [руководством по оптимизации производительности и настройке действий копирования для фабрики данных версии 2](../copy-activity-performance.md).
 

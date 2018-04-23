@@ -1,6 +1,6 @@
 ---
-title: "Создание шлюза приложений с перенаправлением трафика HTTP в HTTPS с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с перенаправлением трафика HTTP в HTTPS с помощью Azure PowerShell."
+title: Создание шлюза приложений с перенаправлением трафика HTTP в HTTPS с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с перенаправлением трафика HTTP в HTTPS с помощью Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: a831171b267cca1ffdbf8eef33baafa71dd9bd79
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d67ed204ee263c139b09232b63ad18a85af1e82e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Создание шлюза приложений с перенаправлением трафика HTTP в HTTPS с помощью Azure PowerShell
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/09/2018
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Для выполнения команд в этом руководстве необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Для выполнения команд в этом руководстве необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Создание самозаверяющего сертификата
 
@@ -186,7 +186,7 @@ $appgw = New-AzureRmApplicationGateway `
   -SslCertificates $cert
 ```
 
-## <a name="add-a-listener-and-redirection-rule"></a>Добавление прослушивателя и правила перенаправления
+## <a name="add-a-listener-and-redirection-rule"></a>добавление прослушивателя и правила перенаправления;
 
 ### <a name="add-the-http-port"></a>Добавление HTTP-порта
 

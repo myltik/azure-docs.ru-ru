@@ -1,17 +1,17 @@
 ---
-title: "Управление сервером конфигурации для аварийного восстановления VMware с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье описывается, как управлять сервером конфигурации для аварийного восстановления VMware в Azure с помощью Azure Site Recovery."
+title: Управление сервером конфигурации для аварийного восстановления VMware с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье описывается, как управлять сервером конфигурации для аварийного восстановления VMware в Azure с помощью Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Управление сервером конфигурации для виртуальных машин VMware
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 03/08/2018
 1. [Установите](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) модуль Azure PowerShell.
 2. Войдите в учетную запись Azure с помощью следующей команды:
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Выберите подписку хранилища.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

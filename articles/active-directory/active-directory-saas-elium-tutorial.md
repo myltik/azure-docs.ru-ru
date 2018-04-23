@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Руководство. Интеграция Azure Active Directory с Elium
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/05/2018
 1. Добавление Elium из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-elium-from-the-gallery"></a>Добавление Elium из коллекции
+## <a name="adding-elium-from-the-gallery"></a>Добавление Elium из коллекции.
 Чтобы настроить интеграцию Elium с Azure AD, необходимо добавить Elium из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Elium из коллекции, сделайте следующее:**
@@ -117,7 +117,7 @@ ms.lasthandoff: 04/05/2018
     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Эти значения можно получить из **файла метаданных SP**, который можно скачать по адресу `https://<platform-domain>/login/saml2/metadata`, что будет объяснено далее в руководстве.
+    > Эти значения приведены в качестве примера. Эти значения можно получить из **файла метаданных SP**, который можно скачать по адресу `https://<platform-domain>.elium.com/login/saml2/metadata`, что будет объяснено далее в руководстве.
 
 5. Приложение Elium ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в конфигурацию атрибутов токена SAML. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения.
 

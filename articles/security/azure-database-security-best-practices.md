@@ -1,12 +1,12 @@
 ---
-title: "Рекомендации по обеспечению безопасности баз данных Azure | Документация Майкрософт"
-description: "В этой статье представлены рекомендации по безопасности баз данных Azure."
+title: Рекомендации по обеспечению безопасности баз данных Azure | Документация Майкрософт
+description: В этой статье представлены рекомендации по безопасности баз данных Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Рекомендации по обеспечению безопасности базы данных Azure
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/08/2017
 Поскольку авторизованные пользователи, например администратор службы безопасности или администратор базы данных, имеют доступ к данным даже при использовании прозрачного шифрования, следует соблюдать ряд дополнительных рекомендаций:
 
 -   включить проверку подлинности SQL на уровне базы данных;
--   выполнять проверку подлинности Azure AD с использованием [ролей RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is);
+-   выполнять проверку подлинности Azure AD с использованием [ролей RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview);
 -   использовать раздельные учетные записи для проверки подлинности пользователей и приложений (это позволит ограничить разрешения, предоставляемые пользователям и приложениям, и снизить риски вредоносных действий);
 -   реализовать защиту на уровне базы данных с помощью предопределенных ролей базы данных (например, db_datareader и db_datawriter) или собственных пользовательских ролей для приложения, которые явным образом предоставляют разрешения для определенных объектов базы данных.
 

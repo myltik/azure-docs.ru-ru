@@ -1,25 +1,25 @@
 ---
-title: "Прогнозирование погоды с помощью машинного обучения Azure на основе данных Центра Интернета вещей | Документация Майкрософт"
-description: "Используйте машинное обучение Azure, чтобы прогнозировать вероятность дождя на основе данных о температуре и влажности, которые собираются от датчиков в Центре Интернета вещей."
+title: Прогнозирование погоды с помощью машинного обучения Azure на основе данных Центра Интернета вещей | Документация Майкрософт
+description: Используйте машинное обучение Azure, чтобы прогнозировать вероятность дождя на основе данных о температуре и влажности, которые собираются от датчиков в Центре Интернета вещей.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "Прогнозирование погоды с помощью машинного обучения"
+tags: ''
+keywords: Прогнозирование погоды с помощью машинного обучения
 ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
-ms.author: xshi
-ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 453b4de8a93e897b4455403855438d7705945514
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Прогнозирование погоды в машинном обучении Azure с помощью данных от датчиков Центра Интернета вещей
 

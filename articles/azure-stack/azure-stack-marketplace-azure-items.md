@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Элементы Azure Marketplace, доступные для Azure Stack
 
@@ -220,5 +220,4 @@ Microsoft Azure Stack поддерживает указанные ниже ви�
 | ![Брандмауэр приложения PT](media/azure-stack-marketplace-azure-items/pt.png) | [Брандмауэр приложения PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Брандмауэр приложения PT обнаруживает известные и новые уязвимости, предотвращая атаки на веб-приложения. <b>Скачайте оба элемента PT из Marketplace.</b> | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise позволяет автоматизировать весь жизненный цикл инфраструктуры Azure Stack. <b>Скачайте оба элемента Puppet из Marketplace.</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Лучшая в своем классе служба с открытым кодом для управления инфраструктурой. | SUSE |
-| ![Резервное копирование и репликация в Veeam](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication 9.5](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) (Резервное копирование и репликация в Veeam версии 9.5) | Резервное копирование и репликация в Veeam версии 9.5. | Veeam |
 | ![ZeroDown Software Tool](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | Средство ZeroDown Software Tool версии 7.1 для миграции и обеспечения высокого уровня доступности. | ZeroDown Software |

@@ -1,9 +1,9 @@
 ---
-title: "Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory | Документация Майкрософт"
-description: "Обзор уязвимостей, обнаруживаемых защитой идентификации Azure Active Directory."
+title: Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory | Документация Майкрософт
+description: Обзор уязвимостей, обнаруживаемых защитой идентификации Azure Active Directory.
 services: active-directory
-keywords: "защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
-documentationcenter: 
+keywords: защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory
 Уязвимости — это слабые стороны среды, которыми могут воспользоваться злоумышленники. Мы рекомендуем устранить эти уязвимости, чтобы улучшить систему безопасности своей организации и предотвратить использование уязвимостей злоумышленниками.
@@ -38,7 +38,7 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 Мы рекомендуем настроить обязательную проверку с помощью Многофакторной идентификации Azure при входе пользователей. Multi-Factor Authentication играет основную роль в основанных на рисках политиках условного доступа в защите идентификации.
 
-Дополнительные сведения см. в статье [Что такое Многофакторная идентификация Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+Дополнительные сведения см. в статье [Что такое Многофакторная идентификация Azure?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Неуправляемые облачные приложения
 Благодаря этой уязвимости можно выявить неуправляемые облачные приложения в организации.
