@@ -1,13 +1,13 @@
 ---
-title: "Пример скрипта Azure PowerShell. Маршрутизация трафика для обеспечения высокой доступности приложений | Документация Майкрософт"
-description: "Пример скрипта Azure PowerShell для маршрутизация трафика с целью обеспечения высокой доступности приложений."
+title: Пример скрипта Azure PowerShell. Маршрутизация трафика для обеспечения высокой доступности приложений | Документация Майкрософт
+description: Пример скрипта Azure PowerShell для маршрутизация трафика с целью обеспечения высокой доступности приложений.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
 editor: georgewallace
 tags: azure-infrastructure
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: powershell
 ms.topic: article
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 2f0ac4fd1779661aab04bafb217e64af5d619a2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24054625870cb073eec9769f50f370deb2828535
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Маршрутизация трафика для обеспечения высокой доступности приложений
 
 Этот скрипт создает группу ресурсов, два плана службы приложений, два веб-приложения, профиль и две конечные точки диспетчера трафика. Диспетчер трафика направляет трафик в приложение в основном регионе. Если оно недоступно, трафик направляется в дополнительный регион. Перед выполнением этого скрипта необходимо задать уникальные в Azure значения MyWebApp, MyWebAppL1 и MyWebAppL2. После выполнения вы сможете подключиться к приложению в основном регионе, используя URL-адрес mywebapp.trafficmanager.net.
 
-При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

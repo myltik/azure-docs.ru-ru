@@ -1,6 +1,6 @@
 ---
-title: "Схема безопасности и соответствия требованиям Azure. Автоматизация трехуровневых веб-приложений (для служебного пользования (Соединенное Королевство))"
-description: "Схема безопасности и соответствия требованиям Azure. Автоматизация трехуровневых веб-приложений (для служебного пользования (Соединенное Королевство))"
+title: Схема безопасности и соответствия требованиям Azure. Автоматизация трехуровневых веб-приложений (для служебного пользования (Соединенное Королевство))
+description: Схема безопасности и соответствия требованиям Azure. Автоматизация трехуровневых веб-приложений (для служебного пользования (Соединенное Королевство))
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Схема безопасности и соответствия требованиям Azure. Автоматизация трехуровневых веб-приложений (для служебного пользования (Соединенное Королевство))
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 02/11/2018
 
 **Управление ресурсами**. Управление ресурсами Azure, такими как виртуальные машины, виртуальные сети и подсистемы балансировки нагрузки, осуществляется путем их группировки в [группы ресурсов Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Роли управления доступом на основе ресурсов можно присвоить каждой группе ресурсов, чтобы предоставлять доступ только уполномоченным пользователям.
 
-**Ограничение контроля доступа**. Используйте [управление доступом на основе ролей](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC), чтобы управлять ресурсами приложения с помощью [пользовательских ролей](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) RBAC, позволяющих ограничить операции, которые DevOps может выполнять на каждом из уровней. При предоставлении разрешений используйте [принцип минимальных привилегий](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Ведите журнал всех административных операций и проводите регулярный аудит, чтобы следить за тем, все ли изменения конфигурации были запланированы.
+**Ограничение контроля доступа**. Используйте [управление доступом на основе ролей](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC), чтобы управлять ресурсами приложения с помощью [пользовательских ролей](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC, позволяющих ограничить операции, которые DevOps может выполнять на каждом из уровней. При предоставлении разрешений используйте [принцип минимальных привилегий](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Ведите журнал всех административных операций и проводите регулярный аудит, чтобы следить за тем, все ли изменения конфигурации были запланированы.
 
 **Доступ к Интернету**. Эта эталонная архитектура использует [шлюз приложений Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) в качестве шлюза с выходом в Интернет и подсистемы балансировки нагрузки. В качестве альтернативы [шлюзу приложений Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) некоторые клиенты могут попробовать использовать сетевые виртуальные модули сторонних производителей, чтобы получить дополнительные уровни сетевой безопасности.
 

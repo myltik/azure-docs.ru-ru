@@ -1,25 +1,18 @@
 ---
-title: "Моделирование сложных типов данных в службе поиска Azure | Документация Майкрософт"
-description: "Вложенные или иерархические структуры данных можно моделировать в индексе Поиска Azure с помощью плоских наборов строк и типа данных \"Коллекции\"."
-services: search
-documentationcenter: 
-author: LiamCa
-manager: pablocas
-editor: 
+title: Моделирование сложных типов данных в службе поиска Azure | Документация Майкрософт
+description: Вложенные или иерархические структуры данных можно моделировать в индексе Поиска Azure с помощью плоских наборов строк и типа данных "Коллекции".
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: liamca
-ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bc7deddc73139e587114c2d58c3fd176df47225c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Моделирование сложных типов данных в службе поиска Azure
 Внешние наборы данных, используемые для заполнения индекса Поиска Azure, иногда включают иерархические или вложенные подструктуры, которые невозможно аккуратно разделить на табличные наборы строк. К примерам таких структур можно отнести несколько расположений и номеров телефонов для одного клиента, несколько цветов и размеров для одного SKU, несколько авторов на одну книгу и т. д. В моделировании эти структуры называются *сложные типы данных*, *составные типы данных*, *композитные типы данных*, *агрегатные типы данных* и т. д.

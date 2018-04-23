@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Настройка среды разработки для Mac OS X
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/06/2018
     >
     >При тестировании больших приложений мы рекомендуем увеличить число ресурсов, выделенных для Docker. Для этого щелкните **значок Docker**, выберите **Дополнительно** и настройте число ядер и объем памяти.
 
-2. В новом каталоге создайте файл с именем `.Dockerfile` для создания образа Service Fabric.
+2. В новом каталоге создайте файл с именем `Dockerfile` для создания образа Service Fabric.
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -86,7 +86,7 @@ ms.lasthandoff: 04/06/2018
     >[!TIP]
     > По умолчанию вы получите образ с последней версией Service Fabric. Сведения о конкретной версии см. на странице [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
-3. Чтобы создать образ для многократного использования на основе файла `.Dockerfile`, откройте терминал и с помощью команды `cd` перейдите в каталог, в котором хранится `.Dockerfile`. Затем выполните следующий код:
+3. Чтобы создать образ для многократного использования на основе файла `Dockerfile`, откройте терминал и с помощью команды `cd` перейдите в каталог, в котором хранится `Dockerfile`. Затем выполните следующий код:
 
     ```bash 
     docker build -t mysfcluster .

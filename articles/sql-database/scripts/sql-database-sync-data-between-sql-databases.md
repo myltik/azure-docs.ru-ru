@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b42c0fcb57bb044f240724e640140b24dd7ebe01
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf3d6ca00f884bf16d9c20a483df9853a2e64975
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Использование PowerShell для синхронизации данных между несколькими базами данных SQL
  
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 
 Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Выполните команду `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 Общие сведения о синхронизации данных SQL см. в статье [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL Azure (предварительная версия)](../sql-database-sync-data.md).
 
@@ -96,7 +96,7 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-add-azurermaccount 
+Connect-AzureRmAccount 
 select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.

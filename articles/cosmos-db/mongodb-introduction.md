@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 4baf691268fdb11f769a39144c2b5461ee9c2362
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Знакомство с Azure Cosmos DB: API MongoDB
 
@@ -73,5 +73,5 @@ ms.lasthandoff: 04/06/2018
 * Сведения о создании подключения между базой данных Azure Cosmos DB и приложением MongoDB в Studio 3T см. в статье [Использование Studio 3T (MongoChef) с Azure Cosmos DB](mongodb-mongochef.md).
 * При импорте данных в API для базы данных MongoDB следуйте инструкциям в статье [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](mongodb-migrate.md).
 * Подключитесь к учетной записи API для MongoDB с помощью [Robomongo](mongodb-robomongo.md).
-* С помощью [команды GetLastRequestStatistics и метрик портала Azure](request-units.md#GetLastRequestStatistics) узнайте, сколько единиц запроса (ЕЗ) используют ваши операции.
+* С помощью [команды GetLastRequestStatistics и метрик портала Azure](set-throughput.md#GetLastRequestStatistics) узнайте, сколько единиц запроса (ЕЗ) используют ваши операции.
 * Узнайте, как [настроить параметры чтения для глобально распределенных приложений](../cosmos-db/tutorial-global-distribution-mongodb.md).

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 173d151c2b86db621ee452e68b06baa709f86cdc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Изучение основных понятий рабочего процесса Windows PowerShell для модулей Runbook службы автоматизации 
 Модули Runbook в службе автоматизации Azure реализованы в виде рабочих процессов Windows PowerShell.  Рабочий процесс Windows PowerShell похож на сценарий Windows PowerShell, но имеет ряд существенных отличий, которые могут запутать нового пользователя.  Хотя эта статья предназначена помочь вам в написании модулей Runbook с помощью рабочего процесса PowerShell, мы рекомендуем использовать для этого PowerShell, если только вам не требуются контрольные точки.  Существует ряд различий в синтаксисе при разработке модулей runbook рабочего процесса PowerShell, и эти различия требуют немного больше усилий для написания эффективных рабочих процессов.  
@@ -228,7 +228,7 @@ InlineScript использует описанный ниже синтаксис
     workflow CreateTestVms
     {
        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-       $null = Add-AzureRmAccount -Credential $Cred
+       $null = Connect-AzureRmAccount -Credential $Cred
 
        $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
 
@@ -243,7 +243,7 @@ InlineScript использует описанный ниже синтаксис
           $Cred = $null
           Checkpoint-Workflow
           $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-          $null = Add-AzureRmAccount -Credential $Cred
+          $null = Connect-AzureRmAccount -Credential $Cred
          }
      }
 

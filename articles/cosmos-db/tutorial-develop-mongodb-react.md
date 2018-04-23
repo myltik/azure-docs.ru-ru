@@ -1,25 +1,25 @@
 ---
-title: "Руководство по MongoDB, React и Node для Azure | Документация Майкрософт"
-description: "Узнайте, как создать в Azure Cosmos DB приложение MongoDB с помощью React и Node.js и тех же API-интерфейсов, которые используются для MongoDB в этой серии руководств с видео."
+title: Руководство по MongoDB, React и Node для Azure | Документация Майкрософт
+description: Узнайте, как создать в Azure Cosmos DB приложение MongoDB с помощью React и Node.js и тех же API-интерфейсов, которые используются для MongoDB в этой серии руководств с видео.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 96cd397a7f04fe579b9c6331423abe107ad1c6d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c2cb4b30cb056303c07d5e82861e4022489c7072
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Создание приложения MongoDB с помощью React и Azure Cosmos DB  
 

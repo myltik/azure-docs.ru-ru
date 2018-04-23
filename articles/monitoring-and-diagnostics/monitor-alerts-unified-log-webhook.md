@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Действия веб-перехватчика для правил оповещений журнала
 При [создании оповещения в Azure](monitor-alerts-unified-usage.md) можно [настроить конфигурацию с помощью групп действий](monitoring-action-groups.md) для выполнения одного или нескольких действий.  В этой статье описываются различные доступные действия веб-перехватчика и сведения о том, как настроить пользовательский веб-перехватчик на основе JSON.
@@ -61,15 +61,19 @@ ms.lasthandoff: 04/06/2018
 
 Например, можно указать следующие пользовательские полезные данные, содержащие один параметр — *text*.  Служба, вызываемая этим действием webhook, будет ожидать этот параметр.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 При отправке в webhook этот пример полезных данных разрешается в нечто следующее:
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 Чтобы включить результаты поиска в пользовательские полезные данные, добавьте **IncudeSearchResults** как свойство верхнего уровня в полезные данные JSON. 
 
@@ -85,7 +89,8 @@ ms.lasthandoff: 04/06/2018
 #### <a name="log-alert-for-azure-log-analytics"></a>Оповещение журнала для Azure Log-Analytics
 Ниже приведен пример полезных данных для стандартного действия веб-перехватчика *без настраиваемого параметра JSON* при использовании в оповещениях на основе Log Analytics.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ ms.lasthandoff: 04/06/2018
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ ms.lasthandoff: 04/06/2018
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ ms.lasthandoff: 04/06/2018
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Оповещение журнала для Azure Application Insights
 Ниже приведен пример полезных данных для стандартного веб-перехватчика *без настраиваемого параметра JSON* при использовании в оповещениях журнала на основе Application Insights.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ ms.lasthandoff: 04/06/2018
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ ms.lasthandoff: 04/06/2018
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ ms.lasthandoff: 04/06/2018
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > А компонент Log Alerts for Application Insights на данный момент доступен в общедоступной предварительной версии — функциональные возможности и взаимодействие с пользователем могут быть изменены.
@@ -163,14 +168,16 @@ ms.lasthandoff: 04/06/2018
 #### <a name="log-alert-with-custom-json-payload"></a>Оповещение журнала с настраиваемыми полезными данными JSON
 Например, чтобы создать пользовательские полезные данные, включающие только имя оповещения и результаты поиска, выполните этот код: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 Ниже приведен пример полезных данных для настраиваемого действия веб-перехватчика для любого оповещения журнала.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ ms.lasthandoff: 04/06/2018
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ ms.lasthandoff: 04/06/2018
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>Дополнительная информация

@@ -1,8 +1,8 @@
 ---
-title: "Управление ресурсами Azure с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как использовать портал Azure и Azure Resource Manager для управления ресурсами. В статье объясняется, как работать с панелями мониторинга для отслеживания ресурсов."
+title: Управление ресурсами Azure с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как использовать портал Azure и Azure Resource Manager для управления ресурсами. В статье объясняется, как работать с панелями мониторинга для отслеживания ресурсов.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Управление ресурсами Azure через портал
 
@@ -127,6 +127,6 @@ ms.lasthandoff: 11/16/2017
 * Сведения о просмотре журналов действий см. в статье [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
 * Дополнительные сведения о развертывании см. в статье [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md).
 * Сведения о развертывании ресурсов через портал см. в статье [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
-* Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
+* Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md).
 * Инструкции по использованию Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md).
 

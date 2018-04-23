@@ -1,8 +1,8 @@
 ---
-title: "Использование Hadoop Hive с cURL в HDInsight — Azure | Документы Майкрософт"
-description: "Информация об удаленной отправке заданий Pig в HDInsight с помощью Curl."
+title: Использование Hadoop Hive с cURL в HDInsight — Azure | Документы Майкрософт
+description: Информация об удаленной отправке заданий Pig в HDInsight с помощью Curl.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: c830abdf8220f222a06b771b8c9fc905146420b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8a7627e35a39dd4c9c94d273aa9f02c977dc88bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Выполнение запросов Hive с Hadoop в HDInsight с помощью REST
 
@@ -77,7 +75,8 @@ ms.lasthandoff: 02/21/2018
     
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -100,7 +99,8 @@ ms.lasthandoff: 02/21/2018
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -122,7 +122,8 @@ ms.lasthandoff: 02/21/2018
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
-       -Method POST
+       -Method POST `
+       -UseBasicParsing
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -162,7 +163,8 @@ ms.lasthandoff: 02/21/2018
     $reqParams=@{"user.name"="admin"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
        -Credential $creds `
-       -Body $reqParams
+       -Body $reqParams `
+       -UseBasicParsing
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")

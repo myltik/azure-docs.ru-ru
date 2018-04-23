@@ -12,10 +12,10 @@ ms.date: 03/14/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Создание управляемого экземпляра базы данных SQL Azure на портале Azure
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/16/2018
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
 > [!IMPORTANT]
-> Список регионов, в которых сейчас доступен Управляемый экземпляр см. в разделе [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Перенос баз данных в полностью управляемую службу при помощи Управляемого экземпляра Базы данных SQL Azure).
+> Список регионов, в которых сейчас доступен Управляемый экземпляр см. в статье[Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Перенос баз данных в полностью управляемую службу при помощи Управляемого экземпляра Базы данных SQL Azure).
  
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
@@ -205,7 +205,7 @@ ms.lasthandoff: 03/16/2018
    |**Диапазон адресов (блок CIDR)**|Любой допустимый диапазон адресов в виртуальной сети (используется по умолчанию).||
    |**группа безопасности сети**.|Нет||
    |**Таблица маршрутов**|None||
-   |**Конечные точки службы**|Нет||
+   |**Конечные точки службы**|None||
 
    ![сведения о подсети виртуальной машины](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 

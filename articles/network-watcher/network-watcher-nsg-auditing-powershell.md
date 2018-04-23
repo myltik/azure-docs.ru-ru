@@ -1,11 +1,11 @@
 ---
-title: "Наблюдатель за сетями Azure: автоматизация аудита NSG с помощью представления группы безопасности службы | Документация Майкрософт"
-description: "На этой странице представлены инструкции по настройке аудита группы безопасности сети"
+title: 'Наблюдатель за сетями Azure: автоматизация аудита NSG с помощью представления группы безопасности службы | Документация Майкрософт'
+description: На этой странице представлены инструкции по настройке аудита группы безопасности сети
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Автоматизация аудита группы безопасности сети с помощью представления группы безопасности в Наблюдателе за сетями Azure
 
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Если параметры изменены, см. статью об [управлении группами безопасности сети с помощью портала](../virtual-network/virtual-network-manage-nsg-arm-portal.md). В ней содержатся сведения об отслеживании группы безопасности сети и нужных правил безопасности.
+Если параметры изменены, см. статью об [управлении группами безопасности сети с помощью портала](../virtual-network/manage-network-security-group.md). В ней содержатся сведения об отслеживании группы безопасности сети и нужных правил безопасности.
 
 
 

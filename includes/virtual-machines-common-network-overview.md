@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 При создании виртуальной машины Azure вам потребуется [виртуальная сеть](../articles/virtual-network/virtual-networks-overview.md). Вы можете создать ее или использовать уже готовую. Кроме того, необходимо решить, как в этой виртуальной сети будет предоставляться доступ к виртуальным машинам. Очень важно [спланировать это перед созданием ресурсов](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md), а также ознакомиться с [ограничениями, применяемыми к сетевым ресурсам](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/03/2018
 | Портал Azure | При создании виртуальной машины на портале Azure сетевой интерфейс создается автоматически (нельзя использовать сетевой интерфейс, созданный отдельно). На портале виртуальные машины создаются только с одним сетевым интерфейсом. Чтобы создать виртуальную машину с несколькими сетевыми интерфейсами, используйте другой метод. |
 | [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Воспользуйтесь командлетом [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) с параметром **-PublicIpAddressId**, чтобы указать идентификатор созданного ранее общедоступного IP-адреса. |
 | [интерфейс командной строки Azure](../articles/virtual-machines/linux/multiple-nics.md) | Чтобы указать идентификатор созданного ранее общедоступного IP-адреса, выполните команду [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) с параметром **--public-ip-address**. |
-| [Шаблон](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Используйте шаблон [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Сетевой интерфейс в виртуальной сети с общедоступным IP-адресом) в качестве руководства по развертыванию сетевого интерфейса с помощью шаблона. |
+| [Шаблон](../articles/virtual-network/template-samples.md) | Используйте шаблон [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Сетевой интерфейс в виртуальной сети с общедоступным IP-адресом) в качестве руководства по развертыванию сетевого интерфейса с помощью шаблона. |
 
 ## <a name="ip-addresses"></a>IP-адреса; 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/03/2018
 | [портал Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | По умолчанию общедоступные IP-адреса являются динамическими, и адреса, связанные с ними, могут измениться при удалении или остановке виртуальной машины. Чтобы общедоступный IP-адрес виртуальной машины не изменялся, необходимо создать статический общедоступный IP-адрес. По умолчанию при создании виртуальной машины на портале сетевому интерфейсу назначается динамический частный IP-адрес. После создания виртуальной машины его можно изменить на статический.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Используйте командлет [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) с параметром **-AllocationMethod**. Укажите для этого параметра значение Dynamic или Static. |
 | [интерфейс командной строки Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Используйте команду [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) с параметром **--allocation-method**. Укажите для этого параметра значение Dynamic или Static. |
-| [Шаблон](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Используйте шаблон [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Сетевой интерфейс в виртуальной сети с общедоступным IP-адресом) в качестве руководства по развертыванию общедоступного IP-адреса с помощью шаблона. |
+| [Шаблон](../articles/virtual-network/template-samples.md) | Используйте шаблон [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Сетевой интерфейс в виртуальной сети с общедоступным IP-адресом) в качестве руководства по развертыванию общедоступного IP-адреса с помощью шаблона. |
 
 После создания общедоступного IP-адреса его можно связать с виртуальной машиной, присвоив его сетевому интерфейсу.
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 04/03/2018
 | [портал Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | При создании виртуальной машины на портале Azure группа безопасности сети создается автоматически и связывается с сетевым интерфейсом, созданным на портале. Имя группы безопасности сети состоит из имени виртуальной машины и части **-nsg**. Эта группа безопасности сети содержит одно правило для входящего подключения с приоритетом 1000, разрешением RDP, протоколом TCP, портом 3389 и действием "Разрешить". Если вы хотите разрешить любой другой входящий трафик к виртуальной машине, добавьте в эту группу безопасности сети дополнительные правила. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Используйте командлет [New AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) и предоставьте сведения о необходимом правиле. Командлет [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) позволяет создать группу безопасности сети, командлет [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) — настроить группу безопасности сети для подсети, а командлет [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) — добавить группу безопасности сети в виртуальную сеть. |
 | [интерфейс командной строки Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Используйте команду [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create), чтобы изначально создать группу безопасности сети. Команда [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) позволяет добавить правила в группу безопасности сети, а команда [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) — добавить группу безопасности сети в подсеть. |
-| [Шаблон](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Используйте шаблон [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) (Создание группы безопасности сети) в качестве руководства по развертыванию группы безопасности сети с помощью шаблона. |
+| [Шаблон](../articles/virtual-network/template-samples.md) | Используйте шаблон [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) (Создание группы безопасности сети) в качестве руководства по развертыванию группы безопасности сети с помощью шаблона. |
 
 ## <a name="load-balancers"></a>Балансировщики нагрузки
 

@@ -1,6 +1,6 @@
 ---
-title: "Подключение тома emptyDir в службе \"Экземпляры контейнеров Azure\""
-description: "Узнайте, как подключить том emptyDir для обмена данными между контейнерами в группе контейнеров службы \"Экземпляры контейнеров Azure\""
+title: Подключение тома emptyDir в службе "Экземпляры контейнеров Azure"
+description: Узнайте, как подключить том emptyDir для обмена данными между контейнерами в группе контейнеров службы "Экземпляры контейнеров Azure"
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 01b44f357d160a48852ee843cd8bebd138e95dfc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 71725257697456b27f2cf79200789517005c4319
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Подключение тома emptyDir в службе "Экземпляры контейнеров Azure"
 
@@ -41,6 +41,7 @@ ms.lasthandoff: 02/14/2018
 
 Например, при помощи следующего шаблона Resource Manager создается группа из двух контейнеров, в каждом из которых подключается том *emptyDir*:
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
 Пример развертывания экземпляра контейнера с помощью шаблона Azure Resource Manager см. в статье [Развертывание группы контейнеров](container-instances-multi-container-group.md).

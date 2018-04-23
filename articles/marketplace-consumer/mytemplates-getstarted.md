@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Начало работы с частными шаблонами на портале Azure
 Шаблон [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) — это декларативный шаблон, который используется для определения развертывания. С его помощью можно определить ресурсы для развертывания решения и указать параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
@@ -103,7 +103,7 @@ ms.lasthandoff: 03/16/2018
 ![Развертывание шаблона](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Совместное использование ресурса шаблона
-Ресурс **шаблона** можно использовать совместно с коллегами. Совместное использование очень похоже на [назначение ролей для любого ресурса в Azure](../active-directory/role-based-access-control-configure.md). Владелец **шаблона** предоставляет разрешения другим пользователям, которые могут взаимодействовать с ресурсом шаблона. Пользователь или группа пользователей, которым предоставляется общий доступ к **шаблону**, могут просматривать шаблон Resource Manager и свойства его коллекции.
+Ресурс **шаблона** можно использовать совместно с коллегами. Совместное использование очень похоже на [назначение ролей для любого ресурса в Azure](../role-based-access-control/role-assignments-portal.md). Владелец **шаблона** предоставляет разрешения другим пользователям, которые могут взаимодействовать с ресурсом шаблона. Пользователь или группа пользователей, которым предоставляется общий доступ к **шаблону**, могут просматривать шаблон Resource Manager и свойства его коллекции.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Контроль доступа к ресурсам Microsoft.Gallery
 | Роль | Разрешения |

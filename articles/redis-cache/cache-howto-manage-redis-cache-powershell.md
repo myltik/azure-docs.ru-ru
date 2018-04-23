@@ -1,11 +1,11 @@
 ---
-title: "Управление кэшем Redis для Azure с помощью Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как осуществлять администрирование кэша Redis для Azure с помощью Azure PowerShell."
+title: Управление кэшем Redis для Azure с помощью Azure PowerShell | Документация Майкрософт
+description: Узнайте, как осуществлять администрирование кэша Redis для Azure с помощью Azure PowerShell.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Управление кэшем Redis для Azure с использованием Azure PowerShell
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/19/2018
 
 Сначала необходимо войти в Azure с помощью следующей команды.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Укажите адрес электронной почты и пароль своей учетной записи Azure в диалоговом окне входа в Microsoft Azure.
 
@@ -66,18 +66,18 @@ ms.lasthandoff: 01/19/2018
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Подключение к другим облакам
-Среда Azure по умолчанию — это `AzureCloud`, представляющая экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Add-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
+Среда Azure по умолчанию — это `AzureCloud`, представляющая экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Connect-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
 
 Чтобы просмотреть список доступных сред, выполните командлет `Get-AzureRmEnvironment` .
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Подключение к облаку Azure Government
 Чтобы подключиться к облаку Azure Government, используйте одну из следующих команд.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 или
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Чтобы создать кэш в облаке Azure Government, используйте одно из следующих расположений.
 
@@ -89,11 +89,11 @@ ms.lasthandoff: 01/19/2018
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Подключение к облаку Azure China
 Чтобы подключиться к облаку Azure China, используйте одну из следующих команд.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 или
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Чтобы создать кэш в облаке Azure China, используйте одно из следующих расположений.
 
@@ -105,12 +105,12 @@ ms.lasthandoff: 01/19/2018
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Подключение к Microsoft Azure для Германии
 Чтобы подключиться к Microsoft Azure для Германии, используйте одну из следующих команд.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 или
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Чтобы создать кэш в Microsoft Azure для Германии, используйте одно из следующих расположений.
 

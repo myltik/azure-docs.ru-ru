@@ -1,24 +1,18 @@
 ---
-title: "Использование службы поиска Azure в приложении .NET | Документация Майкрософт"
-description: "Использование службы поиска Azure в приложении .NET"
-services: search
-documentationcenter: 
+title: Использование службы поиска Azure в приложении .NET | Документация Майкрософт
+description: Использование службы поиска Azure в приложении .NET
 author: brjohnstmsft
 manager: jlembicz
-editor: 
-ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 67d56b89ece9baf92d033708981b1d83d4f757a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Использование службы поиска Azure в приложении .NET
 В этой статье представлено пошаговое руководство, которое поможет вам приступить к работе с [SDK для Поиска Azure в .NET](https://aka.ms/search-sdk). Пакет SDK для .NET позволяет реализовать широкие возможности поиска в приложении с помощью службы поиска Azure.

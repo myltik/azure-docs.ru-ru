@@ -1,24 +1,18 @@
 ---
-title: "Рекомендации по производительности и оптимизации службы поиска Azure | Документация Майкрософт"
-description: "Настройка производительности Поиска Azure и выбор оптимального масштаба"
-services: search
-documentationcenter: 
+title: Рекомендации по производительности и оптимизации службы поиска Azure | Документация Майкрософт
+description: Настройка производительности Поиска Azure и выбор оптимального масштаба
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14f46e2f76268f4d865d9ea6b16e8eda047ffe31
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Рекомендации по производительности и оптимизации Поиска Azure
 Эффективный поиск является ключом к успеху многих мобильных и веб-приложений. Быстрый поиск и получение соответствующих результатов влияют на качество обслуживания клиентов как в сфере недвижимости или продаж подержанных автомобилей, так и в сфере интернет-каталогов. Этот документ поможет получить рекомендации по эффективному использованию Поиска Azure, особенно для сложных сценариев с расширенными требованиями к масштабируемости, многоязыковой поддержке или пользовательской модели ранжирования.  Кроме того, в этом документе описаны внутренние механизмы и рассмотрены подходы, которые эффективно работают в реальных клиентских приложениях.

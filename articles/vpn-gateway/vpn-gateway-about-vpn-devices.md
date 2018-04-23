@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
 ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-устройства и параметры IPsec/IKE для подключений типа "сеть — сеть" через VPN-шлюз
 
@@ -160,30 +160,30 @@ ms.lasthandoff: 04/03/2018
 
 |-  |**Шифрование**|**Аутентификация**|**Группа PFS**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Нет         |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
 | 2 |AES256        |SHA1              |None         |
 | 3 |3DES          |SHA1              |None         |
 | 4. |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |Нет         |
-| 6 |3DES          |SHA256            |Нет         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
 
 #### <a name="azure-gateway-as-responder"></a>Шлюз Azure в качестве ответчика
 
 |-  |**Шифрование**|**Аутентификация**|**Группа PFS**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Нет         |
-| 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |Нет         |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |Нет         |
+| 3 |3DES          |SHA1              |None         |
 | 4. |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
-| 7 |DES           |SHA1              |Нет         |
+| 5 |AES128        |SHA1              |Нет         |
+| 6 |3DES          |SHA256            |Нет         |
+| 7 |DES           |SHA1              |None         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
 | 11|AES128        |SHA1              |1            |
 | 12|AES128        |SHA1              |2            |
-| 13.|AES128        |SHA1              |14           |
+| 13|AES128        |SHA1              |14           |
 | 14|3DES          |SHA1              |1            |
 | 15|3DES          |SHA1              |2            |
 | 16|3DES          |SHA256            |2            |

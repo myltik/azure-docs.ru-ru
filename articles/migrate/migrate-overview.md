@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8f6c2c54dd20b663eb43c716a2bd82310cf0256a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 283a505f9e16b081e0eb2e51d935c9b12e8721cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="about-azure-migrate"></a>Сведения о службе "Миграция Azure"
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/06/2018
 |-------------------|------------------------|---------------|---------|
 |Сборщик          |со службой "Миграция Azure"   |TCP 443        |Сборщик подключается к службе через SSL-порт 443|
 |Сборщик          |с сервером vCenter          |По умолчанию 9443   | По умолчанию сборщик подключается к серверу vCenter Server через порт 9443. Если сервер прослушивает другой порт, на виртуальной машине сборщика его нужно настроить как исходящий порт. |
-|Локальная виртуальная машина     | Рабочая область Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |Агент MMA использует TCP-порт 443 для подключения к Log Analytics. Этот порт требуется, только если используется визуализация зависимостей и устанавливается Microsoft Monitoring Agent (MMA). |
+|Локальная виртуальная машина     | Рабочая область Log Analytics          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |Агент MMA использует TCP-порт 443 для подключения к Log Analytics. Этот порт требуется, только если используется визуализация зависимостей и устанавливается Microsoft Monitoring Agent (MMA). |
 
 
   
