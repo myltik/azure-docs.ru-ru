@@ -15,11 +15,11 @@ ms.date: 06/20/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: ec77d90b4544916242d572ef4f250752ac21f2d1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3df8d4af21fe37a44983da1aae330785b62323db
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Принципы работы службы Многофакторной идентификации Azure
 Безопасность двухшаговой проверки подлинности заключается в многоуровневом подходе. Нарушения нескольких факторов проверки подлинности представляет нетривиальную задачу для злоумышленников. Даже если злоумышленнику удается получить пароль пользователя, им нельзя воспользоваться без доверенного устройства. 
@@ -48,4 +48,4 @@ ms.lasthandoff: 04/19/2018
 
 - Развертывание Azure MFA [в облаке или локально](concept-mfa-whichversion.md)
 
-- Ознакомьтесь с ответами на часто задаваемые вопросы в статье [Часто задаваемые вопросы о Многофакторной идентификации Azure](../../multi-factor-authentication/multi-factor-authentication-faq.md).
+- Ознакомьтесь с ответами на часто задаваемые вопросы в статье [Часто задаваемые вопросы о Многофакторной идентификации Azure](multi-factor-authentication-faq.md).
