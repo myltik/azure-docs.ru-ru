@@ -31,6 +31,7 @@
 ### [Управление администраторами сервера](analysis-services-server-admins.md)
 ### [Отслеживание метрик службы](analysis-services-monitor.md)
 ### [Настройка журнала ведения диагностики](analysis-services-logging.md)
+### [Использование шлюза при работе с источниками данных в виртуальной сети](analysis-services-vnet-gateway.md)
 ## Подключение
 ### [Получение клиентских библиотек](analysis-services-data-providers.md)
 ### [Подключение с помощью Excel](analysis-services-connect-excel.md)

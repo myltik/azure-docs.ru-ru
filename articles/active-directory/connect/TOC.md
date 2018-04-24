@@ -50,7 +50,7 @@
 ### [Поддержка нескольких доменов для федерации](active-directory-aadconnect-multiple-domains.md)
 ### [Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Использование поставщика удостоверений (IdP) SAML 2.0 для единого входа](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Синхронизация учетных записей гостевых пользователей, использующих электронную почту для входа в систему ](active-directory-aadconnect-guest-sync.md)
 
 
 ## Управление синхронизацией Azure AD Connect

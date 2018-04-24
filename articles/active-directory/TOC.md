@@ -17,7 +17,7 @@
 ## [Настройка фирменной символики компании](customize-branding.md)
 ## [Добавление пользователей в Azure AD](add-users-azure-active-directory.md)
 ## [Назначение лицензий пользователям](license-users-groups.md)
-## [Настройка самостоятельного сброса пароля](active-directory-passwords-getting-started.md)
+## [Настройка самостоятельного сброса пароля](authentication/quickstart-sspr.md)
 
 
 # Практическое руководство
@@ -63,6 +63,8 @@
 #### [Динамические группы и B2B-пользователи](active-directory-b2b-dynamic-groups.md)
 #### [Аудит и отчеты](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B для гибридных организаций](active-directory-b2b-hybrid-organizations.md)
+##### [Предоставление пользователям B2B доступа к локальным приложениям](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Предоставление локальным пользователям доступа к облачным приложениям](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [Доступ внешних пользователей к B2B и Office 365](active-directory-b2b-o365-external-user.md)
 #### [Лицензирование B2B](active-directory-b2b-licensing.md)
 #### [Текущие ограничения](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies-azure-portal.md)
 #### [Уведомления](active-directory-reporting-notifications.md)
+#### [Справочные материалы по действиям аудита](active-directory-reporting-activity-audit-reference.md)
 #### [Коды ошибок входа в систему](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Многофакторная проверка подлинности](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Устранение неполадок
@@ -141,7 +144,7 @@
 #### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 ### [Принципы работы SSPR](authentication/concept-sspr-howitworks.md)
 ### [Руководство по развертыванию SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR и Windows 10](active-directory-passwords-login.md)
+### [SSPR и Windows 10](authentication/tutorial-sspr-windows.md)
 ### [Политики SSPR](authentication/concept-sspr-policy.md)
 ### [Настройка SSPR](authentication/concept-sspr-customization.md)
 ### [Требования к данным SSPR](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### ИТ-администрирование. Сброс паролей
 #### [портал Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Лицензия SSPR](authentication/concept-sspr-licensing.md)
-### [Обратная запись паролей](active-directory-passwords-writeback.md)
+### [Обратная запись паролей](authentication/howto-sspr-writeback.md)
 ### [Устранение неполадок](authentication/active-directory-passwords-troubleshoot.md)
 ### [Часто задаваемые вопросы](authentication/active-directory-passwords-faq.md)
 

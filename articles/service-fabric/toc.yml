@@ -27,9 +27,11 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2. Развертывание приложения
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3. Настройка непрерывной интеграции и доставки
+        - name: 3. Включение HTTPS
+          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+        - name: 4. Настройка непрерывной интеграции и доставки
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 4. Мониторинг и диагностика
+        - name: 5. Мониторинг и диагностика
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Развертывание приложения Java
       items:
@@ -553,36 +555,40 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: Мониторинг и диагностика
       items:
-        - name: Анализ с помощью OMS
+        - name: Мониторинг приложений
           items:
-            - name: Настройка OMS Log Analytics
-              href: service-fabric-diagnostics-oms-setup.md
-            - name: Добавление агента OMS
-              href: service-fabric-diagnostics-oms-agent.md
-            - name: Мониторинг с помощью OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
+            - name: Анализ с помощью Application Insights
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Добавление функции ведения журнала в приложение
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: Статистическая обработка событий с помощью EventFlow
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
             - name: Мониторинг контейнеров
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Анализ с помощью Application Insights
-          href: service-fabric-diagnostics-event-analysis-appinsights.md
-        - name: Статистическая обработка событий с помощью EventFlow
-          href: service-fabric-diagnostics-event-aggregation-eventflow.md
-        - name: Статистическая обработка событий с помощью системы диагностики Azure
+        - name: Мониторинг кластеров
           items:
-            - name: Windows
+            - name: Система диагностики Azure (Windows)
               href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux
+            - name: Система диагностики Azure (Linux)
               href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Мониторинг производительности с помощью WAD
-          href: service-fabric-diagnostics-perf-wad.md
-        - name: Отчеты и проверка работоспособности
-          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-        - name: Добавление ведения журнала в службу
-          href: service-fabric-how-to-diagnostics-log.md
-        - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
-          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-        - name: Просмотр отчетов о работоспособности
-          href: service-fabric-view-entities-aggregated-health.md
+            - name: Настройка OMS Log Analytics
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Мониторинг с помощью OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: Мониторинг инфраструктуры
+          items:
+            - name: Мониторинг производительности с помощью WAD
+              href: service-fabric-diagnostics-perf-wad.md
+            - name: Мониторинг производительности с помощью агента OMS
+              href: service-fabric-diagnostics-oms-agent.md
+        - name: Мониторинг работоспособности
+          items:
+            - name: Отчеты и проверка работоспособности
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Просмотр отчетов о работоспособности
+              href: service-fabric-view-entities-aggregated-health.md
         - name: Устранение неполадок локального кластера
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Справочные материалы
