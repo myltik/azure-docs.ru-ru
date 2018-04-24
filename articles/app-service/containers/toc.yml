@@ -59,6 +59,8 @@
       href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Среда службы приложений
       href: ../environment/intro.md
+    - name: Входящие и исходящие IP-адреса
+      href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Аутентификация и авторизация
       href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Выбор типа развертывания

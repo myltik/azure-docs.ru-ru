@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Учебники
   items:
-    - name: 1. Приложение с базой данных
+    - name: Использование приложения с базой данных
       items:
         - name: .NET Core с базой данных SQL
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Использование Python и PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: "1.\_Размещение REST API"
+    - name: Безопасный доступ к базе данных SQL
+      href: app-service-web-tutorial-connect-msi.md
+    - name: Размещение REST API
       href: app-service-web-tutorial-rest-api.md
-    - name: 2. Сопоставление пользовательского домена
+    - name: Сопоставление личного домена
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3. Привязка SSL-сертификата
+    - name: Привязка SSL-сертификата
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4. Добавление CDN
+    - name: Добавление CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5. Аутентификация пользователей
+    - name: Проверка подлинности пользователей
       href: app-service-web-tutorial-auth-aad.md
 - name: Примеры
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Функции ОС
       href: web-sites-available-operating-system-functionality.md
+    - name: Входящие и исходящие IP-адреса
+      href: app-service-ip-addresses.md
     - name: Аутентификация и авторизация
       href: app-service-authentication-overview.md
     - name: Гибридные подключения
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Настройка аутентификации
           href: app-service-authentication-how-to.md
+        - name: Запрет IP-адресов
+          href: app-service-ip-restrictions.md
         - name: Использование удостоверения управляемой службы
           href: app-service-managed-service-identity.md
         - name: Использование SSL-сертификата в коде приложения

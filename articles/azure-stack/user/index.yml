@@ -1,31 +1,31 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация пользователя по Azure Stack"
+title: Документация пользователя по Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: "Документация по Azure Stack. Руководства и справочники по API"
-  description: "Сведения об использовании служб Azure Stack и создании приложений для Azure Stack."
+  title: Документация по Azure Stack. Руководства и справочники по API
+  description: Сведения об использовании служб Azure Stack и создании приложений для Azure Stack.
   services: azure-stack
-  author: carolz
-  manager: carolz
+  author: jeffgilb
+  manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/02/2017
-  ms.author: carolz
-  ms.openlocfilehash: 5a4a9b6ad3a1de27a722a6b5b250e68aa72e52e7
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 04/13/2018
+  ms.author: jeffgilb
+  ms.openlocfilehash: a9da65ec8634f0e8905d44ef690eb7885fbf6a80
+  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 04/23/2018
 abstract:
-  description: "Azure Stack ― это гибридная облачная платформа, позволяющая использовать службы Azure из центра обработки данных вашей компании или поставщика услуг. Разработчик может создавать приложения, используя Azure Stack. Затем их можно развернуть в Azure Stack или в Azure, либо можно создать действительно гибридные приложения, использующие подключение между облаком Azure Stack и Azure. Узнайте, как создавать ресурсы и развертывать приложения, изучив наши краткие руководства и руководства.<br/><br/>Если вы оператор Azure Stack, который управляет инфраструктурой и предлагает службы, ознакомьтесь с нашей <a href=\"/azure/azure-stack/\">документацией для операторов</a>."
+  description: Azure Stack ― это гибридная облачная платформа, позволяющая использовать службы Azure из центра обработки данных вашей компании или поставщика услуг. Разработчик может создавать приложения, используя Azure Stack. Затем их можно развернуть в Azure Stack или в Azure, либо можно создать действительно гибридные приложения, использующие подключение между облаком Azure Stack и Azure. Узнайте, как создавать ресурсы и развертывать приложения, изучив наши краткие руководства и руководства.<br/><br/>Если вы оператор Azure Stack, который управляет инфраструктурой и предлагает службы, ознакомьтесь с нашей <a href="/azure/azure-stack/">документацией для операторов</a>.<br/><br/>Если вы — оператор Azure Stack и хотите использовать Пакет средств разработки Azure Stack (ASDK), развертывание Azure Stack с использованием одного узла, см. <a href="/azure/azure-stack/asdk">документацию по скачиванию и бесплатному использованию ASDK</a>.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как развернуть виртуальную машину Windows в Azure Stack."
+    text: Узнайте, как развернуть виртуальную машину Windows в Azure Stack.
   - type: list
     style: icon48
     items:
@@ -39,10 +39,10 @@ sections:
       href: azure-stack-quick-create-vm-windows-powershell.md
     - image:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      text: "Интерфейс командной строки"
+      text: Интерфейс командной строки
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
-    text: "Узнайте, как развернуть виртуальную машину Linux в Azure Stack."
+    text: Узнайте, как развернуть виртуальную машину Linux в Azure Stack.
   - type: list
     style: icon48
     items:
@@ -56,21 +56,21 @@ sections:
       href: azure-stack-quick-create-vm-linux-powershell.md
     - image:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      text: "Интерфейс командной строки"
+      text: Интерфейс командной строки
       href: azure-stack-quick-create-vm-linux-cli.md
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Развертывайте приложения в Azure и Azure Stack."
+    text: Развертывайте приложения в Azure и Azure Stack.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/azure-stack/user/azure-stack-solution-pipeline\">Развертывание приложений в Azure Stack и Azure</a>"
-- title: "Справочные материалы"
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Развертывание приложений в Azure Stack и Azure</a>
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10\">PowerShell для Azure Stack</a></p><p><a href=\"/cli/azure/reference-index?view=azure-cli-2017-03-09-profile\">Azure Stack CLI</a></p>"
+    - title: Командная строка
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell для Azure Stack</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Azure Stack CLI</a></p>

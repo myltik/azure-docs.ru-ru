@@ -48,6 +48,7 @@
 ### [Пошаговое руководство по решению для диагностического обслуживания](iot-suite-predictive-walkthrough.md)
 
 ## подключенная фабрика.
+### [Что такое подключенная фабрика?](iot-suite-connected-factory-features.md)
 ### [Общие сведения о решении подключенного производства](iot-suite-connected-factory-overview.md)
 ### [Инструкция по работе с решением для организации подключенного производства](iot-suite-connected-factory-sample-walkthrough.md)
 

@@ -12,4 +12,5 @@
 ## Использование приложения Microsoft Authenticator
 ### [Начало работы с приложением](microsoft-authenticator-app-how-to.md)
 ### [Вход с помощью телефона](microsoft-authenticator-app-phone-signin-faq.md)
+### [Резервное копирование и восстановление учетных данных](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Часто задаваемые вопросы](microsoft-authenticator-app-faq.md)

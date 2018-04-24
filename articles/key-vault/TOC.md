@@ -1,30 +1,28 @@
 # [Документация по хранилищу ключей](index.md)
 
 # Обзор
-## [Что такое хранилище ключей?](key-vault-whatis.md)
-## [Обзор службы](https://azure.microsoft.com/services/key-vault/)
+## [Общие сведения о Key Vault](key-vault-overview.md)
 
-# Начало работы
+# Быстрое начало работы
+## [Создание Key Vault с помощью CLI](quick-create-cli.md)
+## [Создание Key Vault с помощью PowerShell](quick-create-powershell.md)
+## [Создание Key Vault с помощью портала](quick-create-portal.md)
+
+# Учебники
+## [Настройка веб-приложения Azure для считывания секрета из Key Vault](tutorial-web-application-keyvault.md)
+# Примеры
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Основные понятия
 ## [Начало работыс хранилищем ключей](key-vault-get-started.md)
 ## [Настройка смены ключей и аудита](key-vault-key-rotation-log-monitoring.md)
 ## [Использование хранилища ключей из веб-приложения](key-vault-use-from-web-application.md)
+## [Системы безопасности](key-vault-ovw-security-worlds.md)
+## [Обратимое удаление](key-vault-ovw-soft-delete.md)
+## [Ключи учетной записи хранения](key-vault-ovw-storage-keys.md)
+## [Регулирование](key-vault-ovw-throttling.md)
+## [Что такое хранилище ключей?](key-vault-whatis.md)
 
-# Практическое руководство
-## Разработка
-### [Краткое видеоруководство для разработчика](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
-### [Руководство разработчика для хранилища ключей](key-vault-developers-guide.md)
-### [Ограничения служб](key-vault-service-limits.md)
-### [Ключи с защитой HSM](key-vault-hsm-protected-keys.md)
-### [Переход на .NET 2.0](key-vault-dotnet2api-release-notes.md)
-### [Сохранение секретов веб-приложения](vs-secure-secret-appsettings.md)
-### [Проверка подлинности служб с помощью .NET](service-to-service-authentication.md)
-
-### Общие сведения
-#### [Системы безопасности](key-vault-ovw-security-worlds.md)
-#### [Обратимое удаление](key-vault-ovw-soft-delete.md)
-#### [Ключи учетной записи хранения](key-vault-ovw-storage-keys.md)
-#### [Регулирование](key-vault-ovw-throttling.md)
-
+# Практические руководства
 ## управление
 ### [Ведение журнала Azure Key Vault](key-vault-logging.md)
 ### [Доступ за брандмауэрами](key-vault-access-behind-firewall.md)
@@ -40,7 +38,6 @@
 ### [Служба автоматизации Azure](automation-manage-key-vault.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [интерфейс командной строки Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -49,18 +46,21 @@
 ### [Управление хранилищем](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 ### [Управление содержимым хранилища](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
-
-# Сопутствующие материалы
-## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
-## [Управление правами Azure](https://technet.microsoft.com/en-US/dn175750)
-## [Расширенное управление ключами с помощью хранилища ключей](https://msdn.microsoft.com/en-us/library/azure/dn198405)
-## [Многофакторная идентификация](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+## Разработка
+### [Краткое видеоруководство для разработчика](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
+### [Руководство разработчика для хранилища ключей](key-vault-developers-guide.md)
+### [Ограничения служб](key-vault-service-limits.md)
+### [Ключи с защитой HSM](key-vault-hsm-protected-keys.md)
+### [Переход на .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Сохранение секретов веб-приложения](vs-secure-secret-appsettings.md)
+### [Проверка подлинности служб с помощью .NET](service-to-service-authentication.md)
 
 # Ресурсы
+## [Обзор службы](https://azure.microsoft.com/services/key-vault/)
 ## [Сведения о ключах, секретах и сертификатах](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Блог](http://blogs.technet.com/b/kv/)
 ## [Примеры кода](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Форумы](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Форумы](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Цены](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
