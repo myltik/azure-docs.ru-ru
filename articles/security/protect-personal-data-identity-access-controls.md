@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory и Многофакторная идентификация. Защита персональных данных с помощью управления удостоверениями и доступом
 
@@ -137,7 +137,7 @@ Microsoft Azure предоставляет средства управления
 
 4. Нажмите кнопку **Сохранить**
 
-В этом же окне можно скачать сервер Многофакторной идентификации. Дополнительные сведения о том, как выбрать размер и спланировать развертывание, см. в статье [Приступая к работе с сервером Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+В этом же окне можно скачать сервер Многофакторной идентификации. Дополнительные сведения о том, как выбрать размер и спланировать развертывание, см. в статье [Приступая к работе с сервером Многофакторной идентификации Azure](../active-directory/authentication/howto-mfaserver-deploy.md).
 
 Дополнительные сведения об управлении поставщиком Многофакторной идентификации см. в статье [Начало работы с поставщиком Azure Multi Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider).
 

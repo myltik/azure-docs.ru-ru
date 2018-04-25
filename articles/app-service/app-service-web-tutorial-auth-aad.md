@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: cephalin
-ms.openlocfilehash: 66e127e3c2c025818bb972d8937d8fb238d49e15
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Руководство по сквозной проверке подлинности и авторизации в службе приложений Azure
 
@@ -273,7 +273,7 @@ Azure Active Directory используется в качестве постав
 
 ![API ASP.NET Core, выполняющийся в службе приложений Azure](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-В левой части браузера щелкните **subscriptions** > **_&lt;ваша\_подписка>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_&lt;имя\_приложения\_серверной\_части>_** > **config** > **authsettings**.
+В левой части браузера щелкните **subscriptions** > **_&lt;ваша\_подписка>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<имя\_\_интерфейсного\_приложения>_** > **config** > **authsettings**.
 
 В представлении **authsettings** щелкните **Изменить**. Установите значение `additionalLoginParams` в следующую строку JSON, используя код приложения, который вы скопировали. 
 

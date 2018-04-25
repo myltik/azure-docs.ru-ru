@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: ab2da4e372759fb26d50daf519faecd1810c084d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8937be0e3f18d58d4cdd909de0ca2c455cc46c1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Публикация содержимого служб мультимедиа Azure с помощью REST
 > [!div class="op_single_selector"]
@@ -28,7 +28,6 @@ ms.lasthandoff: 04/19/2018
 > 
 > 
 
-## <a name="overview"></a>Обзор
 Вы можете осуществлять потоковую передачу набора MP4-файлов с адаптивной скоростью, создавая указатель потоковой передачи OnDemand и формируя URL-адрес потоковой передачи. В статье, посвященной [кодированию ресурса](media-services-rest-encode-asset.md), описано кодирование данных в набор MP4-файлов с переменной скоростью. Если содержимое шифруется, то перед созданием указателя настройте политику доставки ресурсов-контейнеров (как описано в [этой](media-services-rest-configure-asset-delivery-policy.md) статье). 
 
 Можно также использовать указатель потоковой передачи OnDemand, чтобы формировать URL-адреса, указывающие на MP4-файлы для последовательного скачивания.  

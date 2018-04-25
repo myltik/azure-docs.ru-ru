@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Как развернуть самостоятельный сброс пароля
 
 Для успешного развертывания функции самостоятельного сброса пароля (SSPR) в Azure Active Directory (Azure AD) в большинстве случаев следует выполнить следующие шаги:
 
-1. [Включите сброс паролей в каталоге](../active-directory-passwords-getting-started.md).
-2. [Настройте разрешения локальной службы Active Directory для обратной записи паролей](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Настройте обратную запись паролей](../active-directory-passwords-writeback.md#configure-password-writeback) для записи паролей Azure AD обратно в ваш локальный каталог.
+1. [Включите сброс паролей в каталоге](quickstart-sspr.md).
+2. [Настройте разрешения локальной службы Active Directory для обратной записи паролей](howto-sspr-writeback.md#active-directory-permissions).
+3. [Настройте обратную запись паролей](howto-sspr-writeback.md#configure-password-writeback) для записи паролей Azure AD обратно в ваш локальный каталог.
 4. [Назначьте и проверьте необходимые лицензии](concept-sspr-licensing.md).
 5. Решите, следует ли выполнять постепенное развертывание. Если нужно развернуть SSPR постепенно, можно предоставить доступ только одной группе пользователей. Так вы сможете протестировать программу с определенной группой. Чтобы выполнить развертывание для определенной группы, установите для параметра **Разрешен самостоятельный сброс пароля** значение **Выбрано** и выберите нужную группу безопасности для использования сброса пароля. 
 6. Заполните [данные проверки подлинности](howto-sspr-authenticationdata.md), необходимые для регистрации пользователей, например номер рабочего телефона, мобильного телефона и запасной адрес электронной почты.
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/19/2018
    > [!NOTE]
    > Если изменить значение "Выбранная группа" этого параметра на значение "Все", данные аутентификации, которые зарегистрировал пользователь-участник тестовой группы, останутся действительными. Настройки пользователей, для которых зарегистрированы данные аутентификации, продолжат функционировать.
 
-12. [Включите для пользователей Windows 10 сброс пароля на экране входа](../active-directory-passwords-login.md).
+12. [Включите для пользователей Windows 10 сброс пароля на экране входа](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Протестируйте SSPR с использованием учетной записи пользователя, а не администратора, так как Майкрософт предъявляет строгие требования к проверке подлинности учетных записей администраторов Azure. Дополнительные сведения о политике паролей администратора см. в статье о [политике паролей](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -90,7 +90,7 @@ ms.lasthandoff: 04/19/2018
 * [Требования к лицензированию самостоятельного сброса пароля в Azure AD](concept-sspr-licensing.md)
 * [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](howto-sspr-authenticationdata.md)
 * [Параметры политики для SSPR](concept-sspr-policy.md)
-* [Что такое обратная запись паролей и каково ее назначение](../active-directory-passwords-writeback.md)
+* [Что такое обратная запись паролей и каково ее назначение](howto-sspr-writeback.md)
 * [Как сообщать о действиях в SSPR](howto-sspr-reporting.md)
 * [Обзор всех параметров SSPR и их значение](concept-sspr-howitworks.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
