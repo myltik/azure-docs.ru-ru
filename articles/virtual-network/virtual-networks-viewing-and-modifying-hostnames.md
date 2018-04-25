@@ -1,10 +1,10 @@
 ---
-title: "Просмотр и изменение имен узлов | Документация Майкрософт"
-description: "Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
+title: Просмотр и изменение имен узлов | Документация Майкрософт
+description: Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
-ms.author: jdial
-ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Просмотр и изменение имен узлов
 Чтобы позволить ссылаться на экземпляры ролей по имени узла, необходимо задать значение имени узла в файле конфигурации службы для каждой роли. Для этого добавьте имя нужного узла в атрибут **vmName** элемента **Role**. Значение атрибута **vmName** используется в качестве основы для имени узла каждого экземпляра роли. Например, если **vmName** имеет значение *webrole* и этот экземпляр имеет три роли, имена узлов экземпляров будут следующими: *webrole0*, *webrole1* и *webrole2*. Вам не нужно указывать имя узла для виртуальных машин в файле конфигурации, так как имя узла виртуальной машины заполняется на основе ее имени. Дополнительные сведения о настройке службы Microsoft Azure см. в статье, посвященной [схеме конфигурации службы Azure (файл CSCFG)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Убедитесь, что у вас есть сертификат клиента для подключения к порталу Azure. Чтобы получить сертификат клиента, выполните действия, описанные в разделе [Пошаговое руководство. Скачивание и импорт параметров публикации и информации о подписке](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Задайте запись заголовка с именем x-ms-version и значением 2013-11-01.
-3. Отправьте запрос в следующем формате: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true.
+3. Отправьте запрос в следующем формате: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Найдите элемент **HostName** для каждого элемента **RoleInstance**.
 
 > [!WARNING]

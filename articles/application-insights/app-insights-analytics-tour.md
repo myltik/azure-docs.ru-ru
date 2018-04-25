@@ -1,8 +1,8 @@
 ---
-title: "Обзор аналитики в Azure Application Insights | Документация Майкрософт"
-description: "Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights."
+title: Обзор аналитики в Azure Application Insights | Документация Майкрософт
+description: Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Знакомство с аналитикой в Application Insights
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов Log Analytics.
@@ -170,7 +170,7 @@ ms.lasthandoff: 02/01/2018
 
 ```
 
-[Справочник по значениям даты и времени](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Справочник по значениям даты и времени](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>Оператор [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): выбор, переименование и вычисление столбцов
@@ -541,7 +541,7 @@ requests
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +554,6 @@ requests
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Чтобы проверить, относится ли пользовательское измерение к определенному типу:
@@ -565,6 +564,18 @@ requests
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Специальные символы
+
+Для доступа к идентификаторам, имена которых содержат специальные символы или ключевые слова, необходимо использовать `['` и `']` или `["` и `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Справочник по правилам именования идентификаторов](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Панели мониторинга
 Результаты можно закрепить на панели мониторинга, чтобы все важные диаграммы и таблицы были под рукой.

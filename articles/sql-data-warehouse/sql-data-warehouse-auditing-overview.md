@@ -1,28 +1,26 @@
 ---
-title: "Аудит в хранилище данных SQL Azure | Документация Майкрософт"
-description: "Приступая к работе с аудитом в хранилище данных SQL Azure"
+title: Аудит в хранилище данных SQL Azure | Документация Майкрософт
+description: Сведения об аудите и настройке аудита в хранилище данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: 
-author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 6e0072602586b5a1b873a3a6a0ff71a9d640ff29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Аудит в хранилище данных SQL Azure
 
+Сведения об аудите и настройке аудита в хранилище данных SQL Azure.
+
+## <a name="what-is-auditing"></a>Что такое аудит?
 Аудит хранилища данных SQL позволяет фиксировать события, происходящие в базе данных, в журнале аудита в вашей учетной записи хранения Azure. Аудит может помочь вам соблюсти стандарты, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности. Аудит хранилища данных SQL объединен с Microsoft Power BI для создания отчетов и анализа.
 
 Средства аудита позволяют и способствуют соблюдению стандартов, но не гарантируют соответствия им. Дополнительную информацию о программах Azure, поддерживающих проверку соблюдения стандартов, см. в <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Центре управления безопасностью Azure</a>.

@@ -1,11 +1,11 @@
 ---
-title: "Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Linux"
-description: "Руководство, в котором показано, как получить доступ к Azure Data Lake Store с помощью управляемого удостоверения службы (MSI) виртуальной машины Linux."
+title: Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Linux
+description: Руководство, в котором показано, как получить доступ к Azure Data Lake Store с помощью управляемого удостоверения службы (MSI) виртуальной машины Linux.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: bef549a0cb8a876bbf8fbf281a6c2d1d489736af
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9dc1e87dee83aa3f10d5319ac3df3933b7d96a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Linux
 
@@ -58,16 +58,13 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>Активация MSI на виртуальной машине
 
-MSI на виртуальной машине можно использовать для получения маркера доступа из Azure AD без необходимости указывать в коде учетные данные. Активирование удостоверения MSI необходимо для установки расширения виртуальной машины MSI и непосредственно для активирования удостоверения MSI в Azure Resource Manager.  
+MSI на виртуальной машине позволяет получить маркеры доступа из Azure AD без необходимости указывать в коде учетные данные. Включение MSI предназначено для двух целей: выполняется регистрация виртуальной машины в Azure Active Directory для создания управляемого удостоверения и его настройка на этой виртуальной машине.
 
 1. В качестве **виртуальной машины** выберите ту, на которой нужно активировать MSI.
 2. В левой области выберите раздел **Конфигурация**.
 3. Появится страница **Управляемое удостоверение службы**. Чтобы зарегистрировать и активировать удостоверение MSI, выберите **Да**. Если необходимо отключить его, выберите **Нет**.
    ![Выбор "Зарегистрировать в Azure Active Directory"](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Щелкните **Сохранить**.
-5. Если вы хотите проверить расширения на этой виртуальной машине Linux, выберите раздел **Расширения**. Если удостоверение MSI активировано, вы увидите в списке **ManagedIdentityExtensionforLinux**.
-
-   ![Список расширений](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Предоставление виртуальной машине доступа к Azure Data Lake Store
 
@@ -105,7 +102,7 @@ MSI на виртуальной машине можно использовать
 3. В окне терминала с помощью CURL выполните запрос к локальной конечной точке MSI, чтобы получить маркер доступа для файловой системы Data Lake Store. Идентификатор ресурса для Data Lake Store: https://datalake.azure.net/.  Очень важно добавить в идентификатор ресурса конечную косую черту.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
    ```
     
    Успешный ответ содержит маркер доступа, используемый для аутентификации в Data Lake Store.

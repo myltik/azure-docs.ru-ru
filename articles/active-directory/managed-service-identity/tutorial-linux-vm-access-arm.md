@@ -1,8 +1,8 @@
 ---
-title: "Доступ к Azure Resource Manager с помощью MSI виртуальной машины Linux"
-description: "В рамках этого руководства вы узнаете, как получить доступ к Azure Resource Manager с помощью управляемого удостоверения службы (MSI) виртуальной машины Linux."
+title: Доступ к Azure Resource Manager с помощью MSI виртуальной машины Linux
+description: В рамках этого руководства вы узнаете, как получить доступ к Azure Resource Manager с помощью управляемого удостоверения службы (MSI) виртуальной машины Linux.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 842e0b42dee7e03f0ddb3f3a2445007a812ceb7e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 130d4756ff6be6b3a625e71536968c9dcbf92ad0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>Активация MSI на виртуальной машине
 
-MSI на виртуальной машине позволяет получить маркер доступа из Azure AD без необходимости указывать в коде учетные данные. На самом деле активация MSI необходима для установки расширения виртуальной машины MSI и непосредственно активации MSI на виртуальной машине.  
+MSI на виртуальной машине позволяет получить маркер доступа из Azure AD без необходимости указывать в коде учетные данные. Включение MSI предназначено для двух целей: выполняется регистрация виртуальной машины в Azure Active Directory для создания управляемого удостоверения и его настройка на этой виртуальной машине.
 
 1. Выберите **виртуальную машину**, на которой нужно активировать MSI.
 2. В левой области навигации щелкните **Конфигурация**.
@@ -64,10 +64,6 @@ MSI на виртуальной машине позволяет получить
 4. Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию.
 
     ![Замещающий текст](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Если вы хотите проверить расширения на этой **виртуальной машине Linux**, щелкните раздел **Расширения**. Если удостоверение MSI активировано, вы увидите в списке **ManagedIdentityExtensionforLinux**.
-
-    ![Замещающий текст](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Предоставление виртуальной машине доступа к группе ресурсов в Azure Resource Manager 
 
@@ -94,7 +90,7 @@ MSI на виртуальной машине позволяет получить
     Запрос cURL маркера доступа приведен ниже.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]

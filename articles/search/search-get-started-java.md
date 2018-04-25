@@ -1,24 +1,17 @@
 ---
-title: "Начало работы со службой поиска Azure в Java | Документация Майкрософт"
-description: "Создание облачного приложения поиска в Azure с использованием Java в качестве языка программирования."
-services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+title: Начало работы со службой поиска Azure в Java | Документация Майкрософт
+description: Создание облачного приложения поиска в Azure с использованием Java в качестве языка программирования.
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
-ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.author: jjed
+ms.openlocfilehash: 73e18b91412fd93897f9596077948fd7ea459e71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Начало работы с Поиском Azure в Java
 > [!div class="op_single_selector"]

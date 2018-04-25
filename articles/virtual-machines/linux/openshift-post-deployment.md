@@ -1,32 +1,32 @@
 ---
-title: "Задачи, выполняемые после развертывания OpenShift в Azure | Документация Майкрософт"
-description: "Дополнительные задачи, которые необходимо выполнить после развертывания кластера OpenShift."
+title: Задачи, выполняемые после развертывания OpenShift в Azure | Документация Майкрософт
+description: Дополнительные задачи, которые необходимо выполнить после развертывания кластера OpenShift.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="post-deployment-tasks"></a>Задачи, выполняемые после развертывания
 
 После развертывания кластера OpenShift можно настроить дополнительные элементы. В этой статье рассматриваются следующие задачи:
 
 - Настройка единого входа с использованием Azure Active Directory (Azure AD).
-- Настройка Operations Management Suite для мониторинга OpenShift.
+- Как настроить мониторинг OpenShift с помощью Log Analytics
 - Настройка метрик и ведения журнала.
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Настройка единого входа с использованием Azure Active Directory
@@ -38,9 +38,9 @@ ms.lasthandoff: 11/11/2017
 В этом примере для регистрации приложения используется Azure CLI, а для настройки разрешений — графический пользовательский интерфейс (портал). Чтобы зарегистрировать приложение, нужно знать следующие сведения для пяти параметров:
 
 - Отображаемое имя. Имя регистрируемого приложения (например, OCPAzureAD).
-- Домашняя страница. URL-адрес консоли OpenShift (например, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console).
-- URI идентификатора. URL-адрес консоли OpenShift (например, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console).
-- URL-адрес ответа. Главный общедоступный URL-адрес и имя регистрируемого приложения (например, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD).
+- Домашняя страница. URL-адрес консоли OpenShift (например, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URI. URL-адрес консоли OpenShift (например, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URL-адрес ответа. Главный общедоступный URL-адрес и имя регистрации приложения (например, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Пароль. Защищенный пароль (используйте надежный пароль).
 
 В следующем примере регистрируется приложение на основе приведенных выше сведений.
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 В консоли OpenShift предложены два варианта аутентификации: htpasswd_auth и [Регистрация приложения].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Мониторинг OpenShift с помощью Operations Management Suite
+## <a name="monitor-openshift-with-log-analytics"></a>Мониторинг OpenShift с помощью Log Analytics
 
-У вас есть два варианта, чтобы настроить мониторинг OpenShift с помощью Microsoft Operations Management Suite: установить агент OMS на узле виртуальной машины или использовать контейнер OMS. В этой статье приведены инструкции по развертыванию контейнера OMS.
+Есть два способа настроить мониторинг OpenShift с помощью Log Analytics: установить агент OMS на узле виртуальной машины или использовать контейнер OMS. В этой статье приведены инструкции по развертыванию контейнера OMS.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Создание проекта OpenShift для Operations Management Suite и настройка доступа пользователя
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Создание проекта OpenShift для Log Analytics и настройка доступа пользователя
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Создание YAML-файла для секрета
 
-Чтобы создать YAML-файл секрета, нужно знать два типа сведений — идентификатор и общий ключ рабочей области OMS. 
+Чтобы создать YAML-файл секрета, нужно знать два типа сведений — идентификатор и общий ключ рабочей области Log Analytics. 
 
 Ниже представлен пример файла ocp-secret.yml: 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-Замените здесь строку wsid_data идентификатором рабочей области OMS в кодировке Base64. Затем замените строку key_data общим ключом рабочей области OMS в кодировке Base64.
+Замените здесь строку wsid_data идентификатором рабочей области Log Analytics в кодировке Base64. Затем замените строку key_data общим ключом рабочей области Log Analytics в кодировке Base64.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -326,11 +326,11 @@ oc create -f ocp-omsagent.yml
 Создайте SSH-подключение с первого главного узла (источник) или узла-бастиона (OCP) c использованием учетных данных, указанных во время развертывания. Введите следующую команду:
 
 ```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
@@ -340,10 +340,10 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 Создайте SSH-подключение с первого главного узла (источник) или узла-бастиона (OCP) c использованием учетных данных, указанных во время развертывания. Введите следующую команду:
 
 ```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True 
 
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True 
 ```
 

@@ -1,26 +1,24 @@
 ---
-title: "Использование пустых граничных узлов в кластерах Hadoop в Azure HDInsight | Документация Майкрософт"
-description: "Сведения о том, как добавить пустой граничный узел в кластер HDInsight, который может использоваться в качестве клиента, а затем тестировать и разместить приложения HDInsight."
+title: Использование пустых граничных узлов в кластерах Hadoop в Azure HDInsight | Документация Майкрософт
+description: Сведения о том, как добавить пустой граничный узел в кластер HDInsight, который может использоваться в качестве клиента, а затем тестировать и разместить приложения HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Использование пустых граничных узлов в кластерах Hadoop в HDInsight
 
@@ -72,7 +70,7 @@ ms.lasthandoff: 01/12/2018
 > При использовании технологии Apache можно получить помощь на соответствующих сайтах для проектов Apache, например [Hadoop](http://hadoop.apache.org/) на сайте [http://apache.org](http://apache.org).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Добавление граничного узла в имеющийся кластер
-В этом разделе описано, как использовать шаблон Resource Manager, чтобы добавить граничный узел в имеющийся кластер HDInsight.  Шаблон Resource Manager можно найти в [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Шаблон Resource Manager вызывает действие сценария, находящегося по адресу https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Этот скрипт не выполняет никаких действий.  Он необходим для демонстрации вызова действия скрипта с помощью шаблона Resource Manager.
+В этом разделе описано, как использовать шаблон Resource Manager, чтобы добавить граничный узел в имеющийся кластер HDInsight.  Шаблон Resource Manager можно найти в [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Шаблон диспетчера ресурсов вызывает действие скрипта, расположенное по адресу https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Этот скрипт не выполняет никаких действий.  Он необходим для демонстрации вызова действия скрипта с помощью шаблона Resource Manager.
 
 **Добавление граничного узла в имеющийся кластер**
 
@@ -95,7 +93,7 @@ ms.lasthandoff: 01/12/2018
 > Выберите группу ресурсов Azure, используемую для существующего кластера HDInsight.  Иначе вы получите сообщение об ошибке "Не удается выполнить запрошенную операцию с вложенным ресурсом. Родительский ресурс &lt;ClusterName> не найден."
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Добавление граничного узла при создании кластера
-В этом разделе описано, как использовать шаблон Resource Manager, чтобы создать кластер HDInsight с граничным узлом.  Шаблон Resource Manager можно найти в [коллекции шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Шаблон Resource Manager вызывает действие сценария, находящегося по адресу https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Этот скрипт не выполняет никаких действий.  Он необходим для демонстрации вызова действия скрипта с помощью шаблона Resource Manager.
+В этом разделе описано, как использовать шаблон Resource Manager, чтобы создать кластер HDInsight с граничным узлом.  Шаблон Resource Manager можно найти в [коллекции шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Шаблон диспетчера ресурсов вызывает действие скрипта, расположенное по адресу https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Этот скрипт не выполняет никаких действий.  Он необходим для демонстрации вызова действия скрипта с помощью шаблона Resource Manager.
 
 **Добавление граничного узла в имеющийся кластер**
 

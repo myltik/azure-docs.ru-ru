@@ -1,25 +1,18 @@
 ---
-title: "Видео, примеры и руководства, в которых описывается использование службы поиска Azure | Документация Майкрософт"
-description: "Центральный список всех видеороликов, примеров, демонстраций и руководств, созданных для Поиска Azure — размещенной облачной службы в Microsoft Azure."
-services: search
-documentationcenter: 
+title: Видео, примеры и руководства, в которых описывается использование службы поиска Azure | Документация Майкрософт
+description: Централизованный список всех видеороликов, примеров, демонстраций и руководств, созданных для Поиска Azure — размещенной облачной службы в Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Поиск Azure: примеры кода, демоверсии, видео и учебники
 Видео, демоверсии, учебники и примеры приложений для быстрого начала работы.

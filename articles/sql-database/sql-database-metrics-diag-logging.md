@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Метрики и журналы диагностики базы данных SQL Azure 
 База данных SQL Azure может выдавать значения метрик и журналы диагностики для упрощения мониторинга. Вы можете настроить базу данных SQL для хранения сведений об использовании ресурсов, о рабочих ролях и сеансах, а также настроить подключение к одному из этих ресурсов Azure:
@@ -191,11 +191,11 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Установка решения SQL Analytics из коллекции
 
-1. После создания ресурса Log Analytics и переноса данных в него установите решение SQL Analytics. На домашней странице Operations Management Suite в боковом меню выберите **Solutions Gallery** (Коллекция решений). В коллекции выберите решение **Аналитика SQL Azure** и щелкните **Добавить**.
+1. После создания ресурса Log Analytics и переноса данных в него установите решение SQL Analytics. На домашней странице в боковом меню выберите **Коллекция решений**. В коллекции выберите решение **Аналитика SQL Azure** и щелкните **Добавить**.
 
    ![Решение мониторинга](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. На домашней странице Operations Management Suite появится плитка **Аналитика SQL Azure**. Выберите эту плитку, чтобы открыть панель аналитики SQL.
+2. На домашней странице появится плитка **Аналитика SQL Azure**. Выберите эту плитку, чтобы открыть панель аналитики SQL.
 
 ### <a name="use-the-sql-analytics-solution"></a>Использование решения "Аналитика SQL"
 

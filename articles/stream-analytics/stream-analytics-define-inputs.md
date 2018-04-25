@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2db5398b7f252f723f342c1b978b27dd273321ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Подключение данных: узнайте о потоках входных данных из событий в Stream Analytics
 Подключение данных к заданию Stream Analytics — это поток событий из источника данных, который называется *входными данными* задания. Stream Analytics полностью интегрируется с источниками потоков данных Azure, включая [Концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [Центр Интернета вещей Azure](https://azure.microsoft.com/services/iot-hub/) и [хранилище BLOB-объектов Azure](https://azure.microsoft.com/services/storage/blobs/). Эти источники входных данных могут быть из той же подписки Azure, что и задание аналитики, или из другой подписки.
@@ -129,6 +129,8 @@ FROM Input
 По умолчанию метка времени событий хранилища больших двоичных объектов в Stream Analytics — это метка времени последнего изменения большого двоичного объекта, то есть `BlobLastModifiedUtcTime`. Для обработки данных как потока с помощью метки времени в полезных данных события необходимо использовать ключевое слово [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 Входным данным в формате CSV *необходимо*, чтобы строка заголовка определяла поля для набора данных. Кроме того, все поля заголовка строки должны быть уникальными.
+
+Если исходное сообщение (JSON, CSV или AVRO) было перенаправлено из Интернета вещей или концентратора событий в хранилище BLOB-объектов в формате AVRO, Stream Analytics не сможет десериализовать такие входные данные из хранилища BLOB-объектов.
 
 > [!NOTE]
 > Stream Analytics не поддерживает добавление содержимого в существующий файл большого двоичного объекта. Stream Analytics просматривает каждый файл только один раз, и любые изменения, которые произойдут в нем после того, как задание прочитает данные, не обрабатываются. Мы рекомендуем отправлять все данные для файла большого двоичного объекта за один раз, а затем добавлять более новые события в другой новый файл большого двоичного объекта.

@@ -9,28 +9,24 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Как использовать управляемое удостоверение службы Azure (общедоступная предварительная версия) в службе приложений и Функциях Azure
 
 > [!NOTE] 
-> Управляемые удостоверения службы для службы приложений и Функций Azure сейчас доступны в предварительной версии.
+> Управляемые удостоверения службы для службы приложений и Функций Azure сейчас доступны в предварительной версии. Служба приложений в Linux и функция "Веб-приложение для контейнеров" сейчас не поддерживаются.
 
 В этой статье показано, как создавать управляемые удостоверения службы для приложений службы приложений и Функций Azure, а также как их использовать для получения доступа к другим ресурсам. Управляемые удостоверения службы от Azure Active Directory позволяют приложению без проблем получить доступ к другим ресурсами, защищенным AAD, таким как Azure Key Vault. Удостоверения управляются платформой Azure, и для них не нужно подготавливать или изменять секреты. Дополнительные сведения об управляемых удостоверениях службы см. в [этой статье](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Создание приложения с удостоверением
 
 Чтобы создать приложение с удостоверением, необходимо задать дополнительные свойства в приложении.
-
-> [!NOTE] 
-> Только основной слот сайта получит идентификатор. Управляемые удостоверения служб слотов развертывания пока не поддерживаются.
-
 
 ### <a name="using-the-azure-portal"></a>Использование портала Azure
 
@@ -48,11 +44,11 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="using-the-azure-cli"></a>Использование Azure CLI
 
-Чтобы настроить управляемое удостоверение службы с помощью Azure CLI, используйте команду `az webapp assign-identity` для существующего приложения. Примеры из этого раздела можно выполнять тремя способами:
+Чтобы настроить управляемое удостоверение службы с помощью Azure CLI, используйте команду `az webapp identity assign` для существующего приложения. Примеры из этого раздела можно выполнять тремя способами:
 
 - использовать [Azure Cloud Shell](../cloud-shell/overview.md) с портала Azure;
 - использовать внедренный компонент Azure Cloud Shell с помощью кнопки "Попробовать", расположенной в правом верхнем углу каждого блока кода ниже.
-- [установить последнюю версию интерфейса командной строки (CLI) 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 или более позднюю версию), если вы предпочитаете использовать локальную консоль CLI. 
+- [установить последнюю версию интерфейса командной строки (CLI) 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 или более позднюю версию), если вы предпочитаете использовать локальную консоль CLI. 
 
 Ниже описаны действия по созданию веб-приложения и присвоению удостоверения ему с помощью CLI:
 
@@ -65,14 +61,14 @@ ms.lasthandoff: 03/16/2018
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Выполните команду `assign-identity`, чтобы создать удостоверение для этого приложения.
+3. Выполните команду `identity assign`, чтобы создать удостоверение для этого приложения.
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Использование шаблона Azure Resource Manager

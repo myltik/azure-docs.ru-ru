@@ -1,8 +1,8 @@
 ---
-title: "Доступ к Azure Key Vault с помощью MSI виртуальной машины Windows"
-description: "В рамках этого руководства вы узнаете, как получить доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Доступ к Azure Key Vault с помощью MSI виртуальной машины Windows
+description: В рамках этого руководства вы узнаете, как получить доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 3c1f41f407dc85eac40d1aa545c588426db6a382
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c65e2dc3d1b7a754bda54bb9127bbc777b514768
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>Активация MSI на виртуальной машине 
 
-MSI на виртуальной машине позволяет получить маркер доступа из Azure AD без необходимости указывать в коде учетные данные. При активации MSI в Azure создается управляемое удостоверение для виртуальной машины. На самом деле активация MSI необходима для установки расширения виртуальной машины MSI и непосредственно активации MSI в Azure Resource Manager.
+MSI на виртуальной машине позволяет получить маркер доступа из Azure AD без необходимости указывать в коде учетные данные. При активации MSI в Azure создается управляемое удостоверение для виртуальной машины. На самом деле включение MSI предназначено для двух целей: выполняется регистрация виртуальной машины в Azure Active Directory для создания управляемого удостоверения и его настройка на этой виртуальной машине.
 
 1.  Выберите **виртуальную машину**, на которой нужно активировать MSI.  
 2.  В левой области навигации щелкните **Конфигурация**. 
@@ -66,10 +66,6 @@ MSI на виртуальной машине позволяет получить
 4.  Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию.  
 
     ![Замещающий текст](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Если вы хотите проверить расширения на этой виртуальной машине, щелкните **Расширения**. Если удостоверение MSI активировано, вы увидите в списке **ManagedIdentityExtensionforWindows**.
-
-    ![Замещающий текст](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Предоставление виртуальной машине доступа к секрету в Key Vault 
  
@@ -112,25 +108,25 @@ MSI на виртуальной машине позволяет получить
     Запрос PowerShell:
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://vault.azure.net"} -Headers @{Metadata="true"} 
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -Method GET -Headers @{Metadata="true"} 
     ```
     
     Затем извлеките полный ответ, который хранится в виде форматированной строки JSON в объекте $response.  
     
     ```powershell
-    PS C:\> $content = $response.Content | ConvertFrom-Json 
+    $content = $response.Content | ConvertFrom-Json 
     ```
     
     Затем извлеките маркер доступа из ответа.  
     
     ```powershell
-    PS C:\> $KeyVaultToken = $content.access_token 
+    $KeyVaultToken = $content.access_token 
     ```
     
     Наконец используйте команду Invoke-WebRequest PowerShell для извлечения секрета, созданного ранее в хранилище Key Vault, и передайте маркер доступа в заголовок авторизации.  Вам потребуется URL-адрес вашего хранилища ключей, который находится в разделе **Основные компоненты** на странице **Обзор** в этом хранилище.  
     
     ```powershell
-    PS C:\> (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
+    (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
     ```
     
     Ответ будет выглядеть следующим образом: 

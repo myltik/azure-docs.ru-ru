@@ -1,11 +1,11 @@
 ---
-title: "Как получить доступ к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Windows"
-description: "Руководство, в котором показано, как получить доступ к Azure Data Lake Store с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Как получить доступ к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Windows
+description: Руководство, в котором показано, как получить доступ к Azure Data Lake Store с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: be76fa089003a7e881bcddcfeeb628e4a704ce21
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f410b6c0c1f24a9f9d453c833074cbd515f46b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Windows
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>Активация MSI на виртуальной машине 
 
-MSI на виртуальной машине позволяет получить маркеры доступа из Azure AD без необходимости указывать в коде учетные данные. Активация MSI указывает Azure создать управляемое удостоверение для виртуальной машины. На самом деле активация MSI необходима для установки расширения виртуальной машины MSI и непосредственно активации MSI в Azure Resource Manager.
+MSI на виртуальной машине позволяет получить маркеры доступа из Azure AD без необходимости указывать в коде учетные данные. Активация MSI указывает Azure создать управляемое удостоверение для виртуальной машины. На самом деле включение MSI выполняет две функции: выполняется регистрация виртуальной машины в Azure Active Directory для создания управляемого удостоверения и его настройка на этой виртуальной машине.
 
 1. Выберите **виртуальную машину**, на которой нужно активировать MSI.  
 2. В левой области навигации щелкните **Конфигурация**. 
@@ -102,7 +102,7 @@ MSI на виртуальной машине позволяет получить
 4. С помощью команды PowerShell `Invoke-WebRequest` выполните запрос к локальной конечной точке MSI, чтобы получить маркер доступа к Azure Data Lake Store.  Идентификатор ресурса для Data Lake Store: https://datalake.azure.net/.  Data Lake проводит точное сопоставление с идентификатором ресурса, и косая черта в конце важна.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
    ```
     
    Преобразуйте ответ из объекта JSON в объект PowerShell. 

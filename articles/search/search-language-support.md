@@ -1,24 +1,17 @@
 ---
-title: "Поддержка нескольких языков в Поиске Azure | Документация Майкрософт"
-description: "Служба поиска Azure поддерживает 56 языков — для этого используются языковые анализаторы Lucene и технология Майкрософт для обработки естественных языков."
-services: search
-documentationcenter: 
+title: Индексация на нескольких языках в службе поиска Azure | Документация Майкрософт
+description: Служба поиска Azure поддерживает 56 языков — для этого используются языковые анализаторы Lucene и технология Майкрософт для обработки естественных языков.
 author: yahnoosh
-manager: pablocas
-editor: 
-ms.assetid: 55a00b44-804d-41bb-9c96-e6ea498616f5
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: jlembicz
-ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fc038c288f878d72d29ce35ba983b3d4b6f3633e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Создание индекса для многоязычных документов в поиске Azure
 > [!div class="op_single_selector"]

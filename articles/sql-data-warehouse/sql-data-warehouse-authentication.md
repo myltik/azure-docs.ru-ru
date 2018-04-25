@@ -1,35 +1,23 @@
 ---
-title: "Аутентификация в хранилище данных SQL Azure | Документация Майкрософт"
-description: "Применение аутентификации Azure Active Directory (AAD) и SQL Server для подключения к хранилищу данных SQL Azure."
+title: Аутентификация в хранилище данных SQL Azure | Документация Майкрософт
+description: Узнайте, как пройти аутентификацию в хранилище данных SQL Azure с помощью аутентификации Azure Active Directory (AAD) или SQL Server.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 2340168e736c13b5d911a987d36b0224d3c3b1ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>Аутентификация в хранилище данных SQL Azure
-> [!div class="op_single_selector"]
-> * [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
-> * [Аутентификация](sql-data-warehouse-authentication.md)
-> * [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
-> * [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Аутентификация в хранилище данных SQL Azure
+Узнайте, как пройти аутентификацию в хранилище данных SQL Azure с помощью аутентификации Azure Active Directory (AAD) или SQL Server.
 
 Для подключения к хранилищу данных SQL необходимо передавать учетные данные безопасности для аутентификации. После установки подключения некоторые его параметры настраиваются при установке сеанса запроса.  
 

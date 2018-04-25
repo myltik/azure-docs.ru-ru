@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД | Документация Майкрософт"
-description: "SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД"
+title: SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД | Документация Майкрософт
+description: SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 596b88d8bfeaa42caaa234b945973b1404a5f1d3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -290,7 +290,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -810,7 +810,7 @@ SQL Server 2014 открывает возможность хранить фай�
 
 [comment]: <> (TODO старый блог)
 [comment]: <> (Подробные инструкции и необходимые условия для установки конфигурации AlwaysOn в Azure лучше всего выполнять после изучения руководства, которое доступно [здесь][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
-[comment]: <> (Установка AlwaysOn с предварительной настройкой с помощью коллекции Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (Предварительно настроенная установка AlwaysOn из коллекции Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (Создание прослушивателя группы доступности лучше всего описано в [этом][virtual-machines-windows-classic-ps-sql-int-listener] руководстве)
 [comment]: <> (Защита сетевых конечных точек с помощью списков управления доступом лучше всего объясняется здесь:)
 [comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
@@ -821,7 +821,7 @@ SQL Server 2014 открывает возможность хранить фай�
 Группу доступности AlwaysOn SQL Server можно также развернуть в разных регионах Azure. В работе этой функции задействовано подключение Azure между виртуальными сетями ([подробнее об этом][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (TODO старый блог)
-[comment]: <> (Настройка групп доступности AlwaysOn SQL Server при таком сценарии описана здесь: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (Сведения о настройке групп доступности AlwaysOn SQL Server см. здесь: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Сводка по высокой доступности SQL Server в Azure
 Учитывая тот факт, что хранилище Azure осуществляет защиту содержимого, существует на одну причину меньше настаивать на образе горячей замены. Это означает, что в вашем сценарии обеспечения высокой доступности необходимо реализовать защиту только от следующих ситуаций.

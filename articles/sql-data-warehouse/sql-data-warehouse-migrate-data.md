@@ -1,25 +1,20 @@
 ---
-title: "Перенос данных в хранилище данных SQL | Документация Майкрософт"
-description: "Советы по переносу данных в хранилище данных SQL Azure для разработки решений."
+title: Перенос данных в хранилище данных SQL | Документация Майкрософт
+description: Советы по переносу данных в хранилище данных SQL Azure для разработки решений.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/29/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 3839f02d8e083ed384f0d01fccee6ad951477f3b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-data"></a>Перенос данных
 Данные из различных источников можно переместить в хранилище данных SQL с помощью различных инструментов.  Для достижения этой цели можно использовать ADF Copy, службы SSIS и bcp. Тем не менее по мере увеличения объема данных есть смысл подумать о разделении процесса переноса на несколько этапов. Это позволит оптимизировать каждый этап как в плане производительности, так и в плане гибкости, обеспечивая плавный перенос данных.
@@ -106,7 +101,7 @@ PolyBase требует наличия признака конца строки 
 
 В PolyBase необходимо определить каждый столбец в файле как часть внешней таблицы. Убедитесь, что все экспортируемые столбцы обязательные и что типы соответствуют требуемым стандартам.
 
-Сведения о поддерживаемых типах данных см. в предыдущей статье "Перенос схемы".
+Сведения о поддерживаемых типах данных см. в предыдущей статье [Перенос схем в хранилище данных SQL].
 
 ### <a name="location-of-data-files"></a>Размещение файлов данных
 Хранилище данных SQL использует PolyBase для загрузки данных только из хранилища больших двоичных объектов Azure. Следовательно, данные должны быть перенесены в хранилище больших двоичных объектов.
@@ -190,10 +185,11 @@ PolyBase также поддерживает так называемую фун�
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[Перенос схем в хранилище данных SQL]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

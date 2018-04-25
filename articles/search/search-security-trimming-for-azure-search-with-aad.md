@@ -1,18 +1,17 @@
 ---
-title: "Фильтры безопасности для усечения результатов в службе \"Поиск Azure\" с использованием удостоверений Active Directory | Документация Майкрософт"
-description: "Управление доступом к содержимому службы \"Поиск Azure\" с помощью фильтров безопасности и удостоверений Active Directory."
-services: search
+title: Фильтры безопасности для усечения результатов в службе "Поиск Azure" с использованием удостоверений Active Directory | Документация Майкрософт
+description: Управление доступом к содержимому службы "Поиск Azure" с помощью фильтров безопасности и удостоверений Active Directory.
 author: revitalbarletz
 manager: jlembicz
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d7df9ede1851680fb6327cac7eed0a479928cea0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Фильтры безопасности для усечения результатов в службе "Поиск Azure" с использованием удостоверений Active Directory
 
@@ -97,7 +96,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Шаг 4. Кэширование идентификаторов групп
-Чтобы уменьшить задержки в сети, при необходимости можно кэшировать ассоциации пользователей и групп, чтобы при выдаче запроса на поиск группы возвращались из кэша и не приходилось обращаться в AAD. Для отправки единого запроса HTTP с несколькими пользователями и создания кэша можно использовать API пакетной службы Azure Active Directory [https://developer.microsoft.com/graph/docs/concepts/json_batching].
+Чтобы уменьшить задержки в сети, при необходимости можно кэшировать ассоциации пользователей и групп, чтобы при выдаче запроса на поиск группы возвращались из кэша и не приходилось обращаться в AAD. Для отправки единого HTTP-запроса с несколькими пользователями и создания кэша можно использовать (API пакетной службы AAD)[https://developer.microsoft.com/graph/docs/concepts/json_batching].
 
 Microsoft Graph может обрабатывать большое число запросов. Если возникает огромное количество запросов, Microsoft Graph отклоняет запрос с кодом состояния HTTP 429. Дополнительные сведения см. в статье [Руководство по регулированию Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

@@ -1,30 +1,26 @@
 ---
-title: "Архитектура MPP в хранилище данных SQL Azure | Документация Майкрософт"
-description: "Узнайте, как в хранилище данных SQL Azure с помощью массового параллелизма (MPP) и возможностей хранилища Azure можно достичь высокой эффективности и масштабируемости."
+title: Хранилище данных SQL Azure. Архитектура MPP | Документация Майкрософт
+description: Узнайте, как в хранилище данных SQL Azure с помощью массового параллелизма (MPP) и возможностей хранилища Azure можно достичь высокой эффективности и масштабируемости.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: e8fef156f4b78c9f7241c9eb9623e061f5a31fe7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Хранилище данных SQL Azure. Архитектура обработки с массовым параллелизмом (MPP)
 Узнайте, как в хранилище данных SQL Azure с помощью массового параллелизма (MPP) и возможностей хранилища Azure можно достичь высокой эффективности и масштабируемости. 
 
 ## <a name="mpp-architecture-components"></a>Компоненты архитектуры MPP
-Хранилище данных SQL использует масштабируемую архитектуру для распределения вычислительной обработки данных на нескольких узлах. Единица масштабирования представляет собой абстракцию вычислительной мощности, известную как единица использования хранилища данных. Хранилище данных SQL отделяет вычислительные ресурсы от ресурсов хранилища, что дает возможность пользователю масштабировать вычислительные ресурсы независимо от данных в системе.
+Хранилище данных SQL использует масштабируемую архитектуру для распределения вычислительной обработки данных на нескольких узлах. Единица масштабирования представляет собой абстракцию вычислительной мощности, известную как единица использования хранилища данных. Хранилище данных SQL отделяет вычислительные ресурсы от ресурсов хранилища, что дает возможность масштабировать вычислительные ресурсы независимо от данных в системе.
 
 ![Архитектура хранилища данных SQL](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

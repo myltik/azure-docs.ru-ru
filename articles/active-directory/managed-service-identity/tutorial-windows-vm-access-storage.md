@@ -1,8 +1,8 @@
 ---
-title: "Доступ к службе хранилища Azure с использованием MSI виртуальной машины Windows"
-description: "Из этого руководства вы узнаете, как получить доступ к службе хранилища Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Доступ к службе хранилища Azure с использованием MSI виртуальной машины Windows
+description: Из этого руководства вы узнаете, как получить доступ к службе хранилища Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2e78fb3344d77f33907c97e66ce262f79d13f778
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1237040b32975f3481fb7750d4878651932b74cc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Доступ к службе хранилища Azure с помощью ключа доступа и управляемого удостоверения службы виртуальной машины Windows
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>Активация MSI на виртуальной машине
 
-MSI на виртуальной машине позволяет получить маркер доступа из Azure AD без необходимости указывать в коде учетные данные. На самом деле активация MSI необходима для выполнения двух функций: установки расширения виртуальной машины в MSI и непосредственно активации MSI на виртуальной машине.  
+MSI на виртуальной машине позволяет получить маркер доступа из Azure AD без необходимости указывать в коде учетные данные. На самом деле включение MSI выполняет две функции: выполняется регистрация виртуальной машины в Azure Active Directory для создания управляемого удостоверения и его настройка на этой виртуальной машине.
 
 1. Перейдите в группу ресурсов новой виртуальной машины и выберите виртуальную машину, созданную на предыдущем шаге.
 2. В разделе настроек виртуальной машины слева щелкните **Конфигурация**.
@@ -64,10 +64,6 @@ MSI на виртуальной машине позволяет получить
 4. Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию.
 
     ![Замещающий текст](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Если вы хотите проверить расширения на этой виртуальной машине, щелкните **Расширения**. Если удостоверение MSI активировано, вы увидите в списке **ManagedIdentityExtensionforWindows**.
-
-    ![Замещающий текст](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Создайте учетную запись хранения. 
 
@@ -119,7 +115,7 @@ MSI на виртуальной машине позволяет получить
 4. С помощью команды Invoke-WebRequest PowerShell сделайте запрос к локальной конечной точке MSI, чтобы получить маркер доступа к Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

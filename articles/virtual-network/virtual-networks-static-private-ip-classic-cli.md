@@ -1,10 +1,10 @@
 ---
-title: "Настройка частных IP-адресов для виртуальных машин (классическая модель) (Azure CLI 1.0) | Документация Майкрософт"
-description: "Узнайте, как настроить частные IP-адреса для виртуальных машин (классическая модель) с помощью интерфейса командной строки Azure (CLI) версии 1.0."
+title: Настройка частных IP-адресов для виртуальных машин (классическая модель) (Azure CLI 1.0) | Документация Майкрософт
+description: Узнайте, как настроить частные IP-адреса для виртуальных машин (классическая модель) с помощью интерфейса командной строки Azure (CLI) версии 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Настройка частных IP-адресов для виртуальной машины (классическая модель) с помощью Azure CLI 1.0
 
@@ -114,6 +114,10 @@ ms.lasthandoff: 10/11/2017
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>Настройка IP-адресов в операционной системе
+
+Не рекомендуется без необходимости статически назначать виртуальной машине Azure частный IP-адрес в ее операционной системе. Если вы будете вручную устанавливать частный IP-адрес в операционной системе, убедитесь, что он соответствует частному IP-адресу, назначенному виртуальной машине Azure, иначе соединение с виртуальной машиной может быть потеряно. Никогда не следует вручную назначать общедоступный IP-адрес для виртуальной машины Azure в ее операционной системе.
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Мониторинг использования и ожидаемых затрат
 
@@ -61,12 +61,16 @@ ms.lasthandoff: 04/03/2018
 3. "Application Insights\Избыточные данные — ценовая категория "Базовый",
 4. "Application Insights\Включенные данные",
 
-объединены в новую общую метрику приема данных, называемую **Общие службы\Прием данных**, так как новая модель ценообразования не предусматривает основанных на узле распределений данных.
+объединены в новую общую метрику приема данных, называемую **Общие службы\Прием данных**, так как новая модель ценообразования не предусматривает включенных назначений данных на узел.
 
 Еще одно изменение: данные, попавшие в Log Analytics или Application Insights в регионах с более высокими затратами, будут показаны с новыми региональными метриками, чтобы правильно отразить это, например **Data Ingestion (US West Central)** (Прием данных (центрально-западная часть США)).
 
 > [!NOTE]
-> Если у вас есть подписка Operations Management Suite (OMS), вы получите распределение приема данных Log Analytics и Application Insights для каждого приобретенного узла. Так как это применяется на уровне учетной записи (а не подписки), эта оценка не может отобразить эффект этих распределений. Обратитесь к своему представителю учетной записи, чтобы более подробно рассмотреть новую модель ценообразования для этого случая.
+> Ожидаемые затраты на подписку не влияют на назначение данных на узел уровня учетной записи в подписке Operations Management Suite (OMS). Обратитесь к своему представителю учетной записи, чтобы более подробно рассмотреть новую модель ценообразования для этого случая.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Новая модель ценообразования и назначения в подписке Operations Management Suite
+
+Клиенты, которые приобрели Microsoft Operations Management Suite E1 и E2, имеют право на назначение приема данных для [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) и [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Чтобы получить эти назначения для рабочих областей Log Analytics либо ресурсов Application Insights в конкретной подписке, для этой подписки должна по-прежнему применяться модель ценообразования, используемая до апреля 2018 г., в которой доступны ценовая категория "За узел (OMS)" и тарифный план "Корпоративный". В зависимости от количества узлов в наборе, приобретенном организацией, переход некоторых подписок на новую модель ценообразования по-прежнему может быть выгодным, но это требует тщательного анализа. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Изменения при переходе на новую модель ценообразования
 
