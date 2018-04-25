@@ -1,11 +1,11 @@
 ---
-title: "Поиск следующего прыжка с помощью возможности определения следующего прыжка Наблюдателя за сетями Azure (REST) | Документация Майкрософт"
-description: "В этой статье описано, как определить тип следующего прыжка и IP-адрес, используя возможность определения следующего прыжка с помощью Azure REST API."
+title: Поиск следующего прыжка с помощью возможности определения следующего прыжка Наблюдателя за сетями Azure (REST) | Документация Майкрософт
+description: В этой статье описано, как определить тип следующего прыжка и IP-адрес, используя возможность определения следующего прыжка с помощью Azure REST API.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка Наблюдателя за сетями с помощью Azure REST API.
 

@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
 ms.openlocfilehash: 76a8e19bacdbde938758bf41ed7f209521f513aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>База данных Azure Cosmos DB. Подключение к приложению MongoDB с помощью .NET
 

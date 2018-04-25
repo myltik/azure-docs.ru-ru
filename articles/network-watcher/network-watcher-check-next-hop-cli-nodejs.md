@@ -1,11 +1,11 @@
 ---
-title: "Поиск следующего прыжка с помощью возможности определения следующего прыжка в Наблюдателе за сетями Azure (Azure CLI 1.0) | Документация Майкрософт"
-description: "В этой статье описано, как определить тип следующего прыжка и IP-адрес, используя возможность определения следующего прыжка в Azure CLI."
+title: Поиск следующего прыжка с помощью возможности определения следующего прыжка в Наблюдателе за сетями Azure (Azure CLI 1.0) | Документация Майкрософт
+description: В этой статье описано, как определить тип следующего прыжка и IP-адрес, используя возможность определения следующего прыжка в Azure CLI.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0700c274-3e0d-4dca-acfa-3ceac8990613
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка в Наблюдателе за сетями Azure в Azure CLI 1.0.
 
@@ -74,7 +74,7 @@ info:    network watcher next-hop command OK
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* Нет
+* None
 
 ## <a name="next-steps"></a>Дополнительная информация
 
