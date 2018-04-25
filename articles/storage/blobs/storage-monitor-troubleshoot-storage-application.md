@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг и устранение неполадок приложения облачного хранилища в Azure | Документация Майкрософт"
-description: "Мониторинг и устранение неполадок облачного приложения с помощью инструментов диагностики, метрик и оповещений."
+title: Мониторинг и устранение неполадок приложения облачного хранилища в Azure | Документация Майкрософт
+description: Мониторинг и устранение неполадок облачного приложения с помощью инструментов диагностики, метрик и оповещений.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Мониторинг и устранение неполадок приложения облачного хранилища
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 02/22/2018
 
 В меню слева щелкните **Группы ресурсов**, а затем — **myResourceGroup** и выберите свою учетную запись хранения в списке ресурсов.
 
-В разделе **Диагностика** установите для параметра **Состояние** значение **Вкл.** Убедитесь, что **Статистические метрики больших двоичных объектов**, **Большой двоичный объект на метрики API** и **Журналы больших двоичных объектов** включены.
+В разделе **Диагностика** установите для параметра **Состояние** значение **Вкл.** Убедитесь, что все параметры в разделе **Свойства большого двоичного объекта** включены.
 
 Затем нажмите кнопку **Сохранить**.
 
-![Область диагностики](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Область диагностики](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>Включение оповещений
 

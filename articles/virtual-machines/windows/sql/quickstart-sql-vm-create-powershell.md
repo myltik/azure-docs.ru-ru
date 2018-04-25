@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины SQL Server под управлением Windows с помощью Azure PowerShell | Документация Майкрософт"
-description: "Это руководство содержит инструкции по созданию виртуальной машины SQL Server 2017 под управлением Windows с помощью Azure PowerShell."
+title: Создание виртуальной машины SQL Server под управлением Windows с помощью Azure PowerShell | Документация Майкрософт
+description: Это руководство содержит инструкции по созданию виртуальной машины SQL Server 2017 под управлением Windows с помощью Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Краткое руководство по созданию виртуальной машины SQL Server под управлением Windows с помощью Azure PowerShell
 
@@ -40,10 +40,10 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="configure-powershell"></a>Настройка PowerShell
 
-1. Откройте PowerShell и установите доступ к учетной записи Azure, выполнив команду **Add-AzureRmAccount**.
+1. Откройте PowerShell и установите доступ к учетной записи Azure, выполнив команду **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Должно отобразиться окно входа, в котором необходимо ввести свои учетные данные. Используйте тот же адрес электронной почты и пароль, который вы используете для входа на портал Azure.

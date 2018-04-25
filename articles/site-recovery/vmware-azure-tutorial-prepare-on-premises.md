@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Подготовка локальных серверов VMware для аварийного восстановления в Azure
 
@@ -25,9 +25,12 @@ ms.lasthandoff: 03/16/2018
 > * Проверить требования сервера VMware.
 > * Проверить требования виртуальных машин VMware.
 
-В этой серии руководств показано, как создать резервную копию одной виртуальной машины с помощью Azure Site Recovery. При необходимости защищать несколько виртуальных машин VMware необходимо скачать [инструмент планирования развертывания](https://aka.ms/asr-deployment-planner) для репликации VMware. Этот инструмент собирает сведения о совместимости виртуальной машины, дисках на каждой виртуальной машине и обработке данных на дисках. Инструмент также проверяет соответствие требованиям к пропускной способности сети и инфраструктуре Azure для успешной репликации и тестовой отработки отказа. [Узнайте больше](site-recovery-deployment-planner.md) об использовании этого инструмента.
+В этой серии руководств показано, как реплицировать одну виртуальную машину с помощью Azure Site Recovery. 
 
 Это второе руководство в серии. Убедитесь, что [компоненты Azure настроены](tutorial-prepare-azure.md), как описано в предыдущем руководстве.
+
+Если вы реплицируете несколько виртуальных машин, скачайте [инструмент "Планировщик развертывания"](https://aka.ms/asr-deployment-planner) для репликации из VMware. [Узнайте больше](site-recovery-deployment-planner.md).
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Подготовка учетной записи для автоматического обнаружения
 

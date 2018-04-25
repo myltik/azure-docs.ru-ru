@@ -1,6 +1,6 @@
 ---
-title: "Краткое руководство Azure по выполнению пакетного задания с помощью .NET"
-description: "Быстрый запуск пакетного задания и задач с помощью пакетной службы клиентской библиотеки .NET."
+title: Краткое руководство Azure по выполнению пакетного задания с помощью .NET
+description: Быстрый запуск пакетного задания и задач с помощью пакетной службы клиентской библиотеки .NET.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Краткое руководство по выполнению первого пакетного задания Azure с помощью API для .NET
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 или более поздняя версия). 
+* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 или более поздняя версия); 
 
-* Учетная запись пакетной службы и связанная учетная запись хранения общего назначения. Чтобы создать эти учетные записи, см. примеры быстрого начала работы с пакетной службой с помощью [портала Azure](quick-create-portal.md) или [Azure CLI](quick-create-cli.md). 
+* учетная запись пакетной службы и связанная учетная запись службы хранилища Azure. Чтобы создать эти учетные записи, см. примеры быстрого начала работы с пакетной службой с помощью [портала Azure](quick-create-portal.md) или [Azure CLI](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
 

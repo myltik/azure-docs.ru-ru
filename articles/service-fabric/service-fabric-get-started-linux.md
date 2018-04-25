@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cf678eac16f8b13c5ffaa1d5673ca1cb47440cf9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
@@ -41,16 +41,17 @@ ms.lasthandoff: 04/06/2018
 
     * Ubuntu 16.04 (`Xenial Xerus`).
 
-* Убедитесь, что установлен пакет `apt-transport-https`:
-
-      ```bash
-      sudo apt-get install apt-transport-https
-      ```
+      * Убедитесь, что установлен пакет `apt-transport-https`:
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
+    * Red Hat Enterprise Linux 7.4 (поддержка предварительной версии Service Fabric)
 
 
 ## <a name="installation-methods"></a>Методы установки
 
-### <a name="1-script-installation"></a>1. Установка с помощью скрипта
+### <a name="1-script-installation-ubuntu"></a>1. Установка с помощью скрипта (Ubuntu)
 
 Скрипт позволяет быстро установить общий пакет SDK для Service Fabric и среду выполнения Service Fabric с помощью CLI **sfctl**. Выполните шаги по установке вручную, приведенные в следующем разделе, чтобы определить, какие компоненты следует установить и условия использования каких лицензий следует принять. При запуске скрипта предполагается, что вы принимаете условия использования лицензий на все устанавливаемое программное обеспечение. 
 
@@ -63,8 +64,10 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### <a name="2-manual-installation"></a>2. Установка вручную
 Чтобы установить среду выполнения Service Fabric и общий пакет SDK вручную, ознакомьтесь с остальными разделами руководства.
 
-## <a name="update-your-apt-sources"></a>Обновление списка источников APT
+## <a name="update-your-apt-sourcesyum-repositories"></a>Обновление списка источников APT и репозиториев Yum
 Прежде чем перейти к установке пакета SDK и связанного пакета среды выполнения с помощью средства командной строки apt-get, необходимо обновить список источников APT.
+
+### <a name="ubuntu"></a>Ubuntu
 
 1. Откройте окно терминала.
 2. Добавьте репозиторий Service Fabric в список источников.
@@ -105,9 +108,43 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
     sudo apt-get update
     ```
 
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (поддержка предварительной версии Service Fabric)
+
+1. Откройте окно терминала.
+2. Скачайте и установите дополнительные пакеты для Enterprise Linux (EPEL).
+
+    ```bash
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install epel-release-latest-7.noarch.rpm
+    ```
+3. Добавьте пакет репозитория EfficiOS RHEL7 в систему.
+
+    ```bash
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    ```
+
+4. Импортируйте ключ подписывания пакета efficios в локальный набор ключей GPG.
+
+    ```bash
+    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+5. Добавьте репозиторий RHEL в систему.
+   ```bash
+      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+   ```
+6. Установите пакет SDK для dotnet.
+   ```bash
+      yum install rh-dotnet20 -y
+      scl enable rh-dotnet20 bash
+   ```
+
 ## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Установка и настройка пакета SDK для Service Fabric для настройки локального кластера
 
 После обновления источников пакетов можно установить пакет SDK. Установите пакет SDK для Service Fabric, подтвердите установку и примите условия лицензионного соглашения.
+
+### <a name="ubuntu"></a>Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -120,11 +157,18 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (поддержка предварительной версии Service Fabric)
+
+```bash
+sudo yum install servicefabricsdkcommon
+```
+
 Среда выполнения Service Fabric, которая поставляется упомянутой выше установкой, содержит пакеты, перечисленные в таблице ниже. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | OpenJDK 1.8 | Неявно с использованием npm | последняя |
+RHEL | - | OpenJDK 1.8 | Неявно с использованием npm | последняя |
 
 ## <a name="set-up-a-local-cluster"></a>Настройка локального кластера
   Если установка выполнена, можно запустить локальный кластер.
@@ -135,7 +179,7 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | Неявно с использованием npm 
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. Откройте веб-браузер и перейдите к [Service Fabric Explorer](http://localhost:19080/Explorer). Если кластер запущен, вы увидите панель мониторинга Service Fabric Explorer.
+  2. Откройте веб-браузер и перейдите к [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Если кластер запущен, вы увидите панель мониторинга Service Fabric Explorer. Полная настройка кластера занимает несколько минут. Если ваш браузер не может открыть URL-адрес или Service Fabric Explorer указывает на неготовность системы, подождите несколько минут и повторите попытку.
 
       ![Обозреватель Service Fabric Explorer в Linux][sfx-linux]
 
@@ -167,6 +211,11 @@ Ubuntu
   sudo apt install nodejs-legacy
   ```
 
+Red Hat Enterprise Linux 7.4 (поддержка предварительной версии Service Fabric)
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
+  ```
 2. Установите на компьютере генератор шаблонов [Yeoman](http://yeoman.io/) из NPM.
 
   ```bash
@@ -189,21 +238,30 @@ Ubuntu
 
 Для создания служб Service Fabric с помощью Java установите пакет JDK 1.8 и средство Gradle, чтобы выполнять задачи сборки. Указанный ниже фрагмент кода устанавливает Open JDK 1.8 и средство Gradle. Библиотеки Java для Service Fabric извлекаются из Maven.
 
+
+Ubuntu 
  ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
+Red Hat Enterprise Linux 7.4 (поддержка предварительной версии Service Fabric)
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
+  ```
+ 
 ## <a name="install-the-eclipse-plug-in-optional"></a>Установка подключаемого модуля Eclipse (необязательно)
 
-Подключаемый модуль Eclipse для Service Fabric можно установить из интегрированной среды разработки Eclipse для разработчиков Java. Eclipse можно использовать для создания приложений с гостевыми исполняемыми файлами и контейнерами Service Fabric в дополнение к Java-приложениям Service Fabric.
+Подключаемый модуль Eclipse для Service Fabric можно установить из интегрированной среды разработки Eclipse для разработчиков Java или Java EE. Eclipse можно использовать для создания приложений с гостевыми исполняемыми файлами и контейнерами Service Fabric в дополнение к Java-приложениям Service Fabric.
 
 > [!IMPORTANT]
 > Для подключаемого модуля Service Fabric требуется Eclipse Neon или более поздняя версия. Чтобы проверить версию Eclipse, выполните инструкции под этим примечанием. Если у вас установлена более ранняя версия Eclipse, скачайте более новые версии с [сайта Eclipse](https://www.eclipse.org). Не рекомендуется устанавливать Eclipse поверх существующей установки (перезаписывать). Вы можете удалить ее перед запуском установщика или установить новую версию в другом каталоге. 
 > 
-> В Ubuntu мы рекомендуем установить Eclipse непосредственно с сайта, а не с помощью установщика пакета (`apt` или `apt-get`). Так вы получите последнюю версию Eclipse. 
+> В Ubuntu мы рекомендуем установить Eclipse непосредственно с сайта, а не с помощью установщика пакета (`apt` или `apt-get`). Так вы получите последнюю версию Eclipse. Можно установить среду разработки Eclipse для разработчиков Java или Java EE.
 
-1. Откройте Eclipse и убедитесь, что у вас установлена версия Eclipse Neon или выше и последняя версия Buildship (1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help** > **Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями на странице [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship. Подключаемые модули Eclipse для Gradle).
+1. Откройте Eclipse и проверьте, установлена ли у вас версия Eclipse Neon или выше и последняя версия Buildship (2.2.1 или выше). Вы можете проверить версии установленных компонентов, щелкнув **Help** > **About Eclipse** > **Installation Details** (Справка > О программе Eclipse > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями на странице [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship. Подключаемые модули Eclipse для Gradle).
 
 2. Чтобы установить подключаемый модуль Service Fabric, выберите **Help** > **Install New Software** (Справка > Установка нового программного обеспечения).
 
@@ -217,7 +275,7 @@ Ubuntu
 
 6. Выполните шаги установки и примите условия лицензионного соглашения.
 
-Если подключаемый модуль Eclipse Service Fabric уже установлен, убедитесь, что вы используете последнюю версию. Это можно проверить, выбрав **Help** > **Installation Details** (Справка > Сведения об установке) и выполнив поиск по запросу Service Fabric в списке установленных подключаемых модулей. Выберите **обновление**, если доступна более новая версия.
+Если подключаемый модуль Eclipse Service Fabric уже установлен, убедитесь, что вы используете последнюю версию. Это можно проверить, выбрав **Help** > **About Eclipse** > **Installation Details** (Справка > О программе Eclipse > Сведения об установке) и выполнив поиск по запросу Service Fabric в списке установленных подключаемых модулей. Выберите **обновление**, если доступна более новая версия.
 
 Дополнительные сведения см. в статье [Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java](service-fabric-get-started-eclipse.md).
 
@@ -237,11 +295,22 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 ## <a name="remove-the-sdk"></a>Удаление пакета SDK
 Чтобы удалить пакеты SDK для Service Fabric, выполните следующие команды:
 
+### <a name="ubuntu"></a>Ubuntu
+
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
+```
+
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (поддержка предварительной версии Service Fabric)
+
+```bash
+sudo yum remote servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

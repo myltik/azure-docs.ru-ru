@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Контроль доступа в Azure Data Lake Store
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 03/28/2018
 * участники;
 * читатели;
 
-Каждому пользователю с ролью **Владелец** учетной записи Data Lake Store автоматически присваивается статус суперпользователя этой учетной записи. Дополнительные сведения см. в статье об [управлении доступом на основе ролей](../active-directory/role-based-access-control-configure.md).
+Каждому пользователю с ролью **Владелец** учетной записи Data Lake Store автоматически присваивается статус суперпользователя этой учетной записи. Дополнительные сведения см. в статье об [управлении доступом на основе ролей](../role-based-access-control/role-assignments-portal.md).
 Если требуется создать пользовательскую роль RBAC с разрешениями суперпользователя, назначьте ей следующие разрешения:
 - Microsoft.DataLakeStore/accounts/Superuser/action;
 - Microsoft.Authorization/roleAssignments/write.
@@ -184,7 +184,7 @@ ms.lasthandoff: 03/28/2018
 * владельцем, если он является участником целевой группы.
 
 > [!NOTE]
-> Группа владельцев *не может* изменить списки ACL для файла или папки.
+> Группа владельцев *не может* изменить списки ACL для файла или папки.  Если группа владельцев закрепляется за пользователем, который создал учетную запись с вариантом корневой папки, (**Вариант 1** выше), одна учетная запись пользователя не может предоставлять разрешения группе владельцев.  Разрешение можно назначить допустимой группе пользователей, если это применимо.
 
 ## <a name="access-check-algorithm"></a>Алгоритм проверки доступа
 

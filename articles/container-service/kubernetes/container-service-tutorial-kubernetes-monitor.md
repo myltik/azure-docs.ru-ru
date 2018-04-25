@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6dc5ce87e1e7a8629e96426701d4ac691fa4c687
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Мониторинг кластера Kubernetes с помощью Log Analytics
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 04/06/2018
 
 > [!div class="checklist"]
 > * Получение параметров рабочей области Log Analytics
-> * Настройка агентов OMS на узлах Kubernetes.
-> * Доступ к данным мониторинга на портале OMS или на портале Azure.
+> * настройка агентов Log Analytics на узлах Kubernetes;
+> * доступ к данным мониторинга на портале Log Analytics или на портале Azure.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="get-workspace-settings"></a>Получение параметров рабочей области
 
-На [портале OMS](https://mms.microsoft.com) последовательно выберите **Параметры** > **Подключенные источники** > **Серверы Linux**. Здесь можно найти *идентификатор рабочей области*, а также основной и дополнительный *ключ рабочей области*. Запишите эти значения, так как они понадобятся для настройки агентов OMS в кластере.
+На [портале Log Analytics](https://mms.microsoft.com) последовательно выберите **Параметры** > **Подключенные источники** > **Серверы с Linux**. Здесь можно найти *идентификатор рабочей области*, а также основной и дополнительный *ключ рабочей области*. Запишите эти значения, так как они понадобятся для настройки агентов Log Analytics в кластере.
 
 ## <a name="create-kubernetes-secret"></a>Создание секрета Kubernetes
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/06/2018
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
 ```
 
-## <a name="set-up-oms-agents"></a>Настройка агентов OMS
+## <a name="set-up-log-analytics-agents"></a>Настройка агентов Log Analytics
 
 Следующий файл манифеста Kubernetes можно использовать для настройки агентов мониторинга контейнеров в кластере Kubernetes. Он создает [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes, который запускает идентичный модуль на каждом узле кластера.
 
@@ -142,11 +142,11 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="access-monitoring-data"></a>Доступ к данным мониторинга
 
-Просматривать и анализировать данные мониторинга контейнера можно с помощью [решения "Контейнер"](../../log-analytics/log-analytics-containers.md) на портале Azure или на портале OMS.
+Просматривать и анализировать данные мониторинга контейнера можно с помощью [решения "Контейнер"](../../log-analytics/log-analytics-containers.md) на портале Azure или на портале Log Analytics.
 
-Для установки решения "Контейнер" с помощью [портала OMS](https://mms.microsoft.com) перейдите в **Коллекция решений**. Затем добавьте **решение "Контейнер"**. Кроме того, можно добавить решение "Контейнеры" из [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+Для установки решения "Контейнер" с помощью [портала Log Analytics](https://mms.microsoft.com) перейдите к разделу **Коллекция решений**. Затем добавьте **решение "Контейнер"**. Кроме того, можно добавить решение "Контейнеры" из [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-На портале OMS найдите плитку сводки **Контейнеры** на панели мониторинга. Щелкните плитку, чтобы просмотреть дополнительные сведения, в том числе события контейнера, ошибки, состояние, список образов, использование ЦП и памяти. Более детализированные сведения можно получить, щелкнув строку на одной из плиток или выполнив [поиск по журналам](../../log-analytics/log-analytics-log-searches.md).
+На портале Log Analytics найдите плитку сводки **Контейнеры** на панели мониторинга. Щелкните плитку, чтобы просмотреть дополнительные сведения, в том числе события контейнера, ошибки, состояние, список образов, использование ЦП и памяти. Более детализированные сведения можно получить, щелкнув строку на одной из плиток или выполнив [поиск по журналам](../../log-analytics/log-analytics-log-searches.md).
 
 ![Панель мониторинга "Контейнеры" на портале OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -160,8 +160,8 @@ omsagent   3         3         3         0            3           <none>        
 
 > [!div class="checklist"]
 > * Получение параметров рабочей области Log Analytics
-> * Настройка агентов OMS на узлах Kubernetes.
-> * Доступ к данным мониторинга на портале OMS или на портале Azure.
+> * настройка агентов Log Analytics на узлах Kubernetes;
+> * доступ к данным мониторинга на портале Log Analytics или на портале Azure.
 
 
 Чтобы увидеть предварительно созданные примеры сценариев для службы контейнеров, перейдите по ссылке ниже.

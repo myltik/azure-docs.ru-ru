@@ -1,11 +1,11 @@
 ---
-title: "Управление рабочими областями в Azure Log Analytics | Документация Майкрософт"
-description: "Для управления рабочими областями в Azure Log Analytics можно использовать различные задачи администрирования, применяемые к пользователям, учетным записям, рабочим областям и учетным записям Azure."
+title: Управление рабочими областями в Azure Log Analytics | Документация Майкрософт
+description: Для управления рабочими областями в Azure Log Analytics можно использовать различные задачи администрирования, применяемые к пользователям, учетным записям, рабочим областям и учетным записям Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-workspaces"></a>Управление рабочими областями
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/08/2018
 Существует две модели разрешений, которые позволяют управлять доступом к рабочей области Log Analytics:
 
 1. Устаревшие роли пользователей в Log Analytics.
-2. [Доступ на основе ролей Azure.](../active-directory/role-based-access-control-configure.md)
+2. [Доступ на основе ролей Azure.](../role-based-access-control/role-assignments-portal.md)
 
 В следующей таблице представлены права доступа, которые можно назначить с помощью каждой модели разрешений.
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 03/08/2018
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Управление доступом к службе Log Analytics с помощью разрешений Azure
-Чтобы предоставить доступ к рабочей области Log Analytics с помощью разрешений Azure, следуйте указаниям в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
+Чтобы предоставить доступ к рабочей области Log Analytics с помощью разрешений Azure, следуйте указаниям в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md).
 
 В Azure доступны две встроенные роли пользователей для Log Analytics:
 - читатель Log Analytics;
@@ -156,7 +156,7 @@ ms.lasthandoff: 03/08/2018
 - Группа ресурсов — доступ ко всем рабочим областям в группе ресурсов.
 - Ресурс — доступ к только указанной рабочей области.
 
-Используйте [пользовательские роли](../active-directory/role-based-access-control-custom-roles.md) для создания ролей с определенными разрешениями.
+Используйте [пользовательские роли](../role-based-access-control/custom-roles.md) для создания ролей с определенными разрешениями.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Роли пользователей Azure и роли пользователей портала Log Analytics
 Если у вас есть по крайней мере разрешение на чтение Azure в рабочей области Log Analytics, вы можете открыть портал OMS, щелкнув задачу **Портал OMS** при просмотре рабочей области Log Analytics.
@@ -174,11 +174,11 @@ ms.lasthandoff: 03/08/2018
 | Для управляемых подписок поставщика облачных решений (CSP) <br> Учетная запись, используемая для входа в систему, находится в Azure Active Directory, привязанном к рабочей области | Администратор | Обычно это клиент CSP |
 | Для управляемых подписок поставщика облачных решений (CSP) <br> Учетная запись, используемая для входа в систему, не находится в Azure Active Directory, привязанном к рабочей области | участник; | Обычно это CSP |
 
-<sup>1</sup> Дополнительные сведения об определении ролей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md). При оценке ролей действие `*` не эквивалентно действию `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Дополнительные сведения об определении ролей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../role-based-access-control/custom-roles.md). При оценке ролей действие `*` не эквивалентно действию `Microsoft.OperationalInsights/workspaces/*`.
 
 Некоторые моменты в отношении портала Azure, которые следует учитывать:
 
-* При входе на портал OMS по адресу http://mms.microsoft.com появится список **Выберите рабочую область**. Этот список содержит только те рабочие области, для которых назначена роль пользователя Log Analytics. Чтобы просматривать рабочие области, к которым у вас есть доступ благодаря подпискам Azure, необходимо указать клиент как часть URL-адреса. Пример: `mms.microsoft.com/?tenant=contoso.com`. Чаще всего идентификатор клиента — это последняя часть адреса электронной почты, используемого для входа в систему.
+* При входе на портал OMS по адресу http://mms.microsoft.com появится список **Select a workspace** (Выберите рабочую область). Этот список содержит только те рабочие области, для которых назначена роль пользователя Log Analytics. Чтобы просматривать рабочие области, к которым у вас есть доступ благодаря подпискам Azure, необходимо указать клиент как часть URL-адреса. Пример: `mms.microsoft.com/?tenant=contoso.com`. Чаще всего идентификатор клиента — это последняя часть адреса электронной почты, используемого для входа в систему.
 * Если необходимо перейти непосредственно на портал, доступный вам за счет разрешений Azure, ресурс необходимо указать в составе URL-адреса. Этот URL-адрес можно получить с помощью PowerShell.
 
   Пример: `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.

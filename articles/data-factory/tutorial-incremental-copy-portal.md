@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/23/2018
 
 > [!div class="checklist"]
 > * Подготовите хранилище данных для хранения значений предела.
-> * создадите фабрику данных;
+> * Создадите фабрику данных.
 > * создадите связанные службы; 
 > * Создание наборов данных источника, приемника и предела.
 > * Создали конвейер.
@@ -152,7 +152,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1. Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
 1. В меню слева щелкните **Создать**, выберите **Данные+аналитика** и щелкните **Фабрика данных**. 
@@ -433,7 +433,7 @@ PersonID | Name | LastModifytime
 
 > [!div class="checklist"]
 > * Подготовите хранилище данных для хранения значений предела.
-> * создадите фабрику данных;
+> * Создадите фабрику данных.
 > * создадите связанные службы; 
 > * Создание наборов данных источника, приемника и предела.
 > * Создали конвейер.

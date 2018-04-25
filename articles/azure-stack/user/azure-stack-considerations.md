@@ -1,34 +1,32 @@
 ---
-title: "Основные различия между Azure и Azure Stack при использовании служб и создании приложений | Документация Майкрософт"
-description: "Что необходимо знать при использовании служб или создании приложений для Azure Stack."
+title: Основные различия между Azure и Azure Stack при использовании служб и создании приложений | Документация Майкрософт
+description: Необходимые сведения об использовании служб или создании приложений для Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
+ms.date: 04/16/2018
 ms.author: mabrigg
-ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eab208175f7eb3b761ec7266483a7cd5268198e8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Важные аспекты использования служб и создания приложений в Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
-
-Если вы используете службы или создаете приложения в Azure Stack, важно иметь представление о различиях между Azure Stack и Azure. В этой статье представлен обзор важнейших аспектов, которые нужно учесть при выборе Azure Stack в качестве гибридной облачной среды разработки.
+Если вы используете службы или создаете приложения в Azure Stack, важно иметь представление о различиях между Azure Stack и Azure. В этой статье описаны ключевые моменты, которые нужно учесть при выборе Azure Stack в качестве гибридной облачной среды разработки.
 
 ## <a name="overview"></a>Обзор
 
-Azure Stack ― это гибридная облачная платформа, позволяющая использовать службы Azure из центра обработки данных вашей компании или поставщика услуг. Разработчик может создавать приложения для работы в Azure Stack. Эти приложения можно развернуть в Azure Stack или в Azure. Также вы можете создать настоящие гибридные приложения, которые используют взаимодействие между облаком Azure Stack и Azure.
+Azure Stack ― это гибридная облачная платформа, позволяющая использовать службы Azure из центра обработки данных вашей компании или поставщика услуг. Можно создать приложение в Azure Stack и развернуть его в Azure Stack, Azure или гибридное облако Azure.
 
 У оператора Azure Stack можно узнать, какие службы доступны для использования и как получить поддержку. Эти службы предоставляются в составе настраиваемых планов и предложений.
 
@@ -42,6 +40,7 @@ Azure Stack ― это гибридная облачная платформа, 
 ## <a name="cheat-sheet-high-level-differences"></a>Памятка: основные различия
 
 В следующей таблице перечислены основные различия между Azure Stack и Azure. Не забывайте о них, когда создаете приложения для Azure Stack или используете службы Azure Stack.
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 | Область | Azure (глобальная) | Azure Stack |
 | -------- | ------------- | ----------|

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6ee23beaa450129be7c173da9efc687cc3790a15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee4e200fa57a38249b0be2997de7e3268a9302cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 04/03/2018
 Чтобы установить и использовать PowerShell локально, потребуется установить последнюю версию командлетов PowerShell для Azure Resource Manager. Командлеты PowerShell обновляются часто, и вам, как правило, необходимо обновить командлеты PowerShell, чтобы получить новейшие функциональные возможности. Если вы не обновите командлеты PowerShell, при указании значений может произойти сбой. 
 
 Чтобы определить, какая версия используется, выполните командлет Get-Module -ListAvailable AzureRM. Если необходимо выполнить обновление, см. статью об [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Подробнее: [Установка и настройка Azure PowerShell](/powershell/azure/overview).
-Если модуль PowerShell запущен локально, необходимо также выполнить командлет Login-AzureRmAccount, чтобы создать подключение к Azure.
+Если модуль PowerShell запущен локально, необходимо также выполнить командлет Connect-AzureRmAccount, чтобы создать подключение к Azure.
 
 
 ### <a name="example"></a>Примеры значений

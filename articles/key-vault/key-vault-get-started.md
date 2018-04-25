@@ -1,8 +1,8 @@
 ---
-title: "Приступая к работе с хранилищем ключей Azure | Документация Майкрософт"
-description: "Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure."
+title: Приступая к работе с хранилищем ключей Azure | Документация Майкрософт
+description: Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Приступая к работе с хранилищем ключей Azure
 Это руководство поможет вам приступить к работе с Azure Key Vault с использованием PowerShell. Здесь также объясняется, как выполнить следующие задачи:
@@ -49,10 +49,10 @@ ms.lasthandoff: 11/20/2017
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Например, чтобы получить справку по командлету **Login-AzureRmAccount** , введите следующее:
+Например, чтобы получить справку по командлету **Connect-AzureRmAccount**, введите следующее:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 Чтобы ознакомиться с моделью развертывания с помощью Azure Resource Manager в Azure PowerShell, можно также прочитать следующие статьи:
@@ -64,13 +64,13 @@ Get-Help Login-AzureRmAccount -Detailed
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
  При использовании определенного экземпляра Azure примените параметр -Environment. Например:  
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. Azure PowerShell получает все подписки, связанные с этой учетной записью, и по умолчанию использует первую из них.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 В выходных данных командлета будут показаны свойства созданного хранилища ключей. Среди всех свойств есть два самых важных:
 
 * **Имя хранилища** — в нашем примере это **ContosoKeyVault**. Вы будете использовать это имя для выполнения других командлетов хранилища ключей;
-* **URI хранилища** — в нашем примере это https://contosokeyvault.vault.azure.net/. Необходимо, чтобы приложения, использующие ваше хранилище через REST API, использовали этот URI.
+* **Код URI хранилища**. В данном примере это https://contosokeyvault.vault.azure.net/. Необходимо, чтобы приложения, использующие ваше хранилище через REST API, использовали этот URI.
 
 Теперь ваша учетная запись Azure авторизована, и вы можете выполнять любые операции в этом хранилище ключей. Пока что это недоступно для других учетных записей.
 
@@ -138,7 +138,7 @@ $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'
 $key.id
 ```
 
-Для доступа к ключу, созданному или отправленному в Azure Key Vault, вы можете использовать его URI. С помощью адреса **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** можно получить текущую версию, а с помощью адреса **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** — конкретную версию.  
+Для доступа к ключу, созданному или отправленному в Azure Key Vault, вы можете использовать его URI. Можно использовать **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** для получения текущей версии или **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** для получения этой конкретной версии.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Импорт существующего PFX-файла в Azure Key Vault
 
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, чтобы всегда получать текущую версию, и адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**, чтобы получить конкретную версию.
+Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Используйте **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, чтобы всегда получать актуальную версию, или **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**, чтобы получить эту конкретную версию.
 
 Чтобы отобразить URI для этого секрета, введите:
 
@@ -226,7 +226,7 @@ $secret.Id
 >[!NOTE]
 Вам необходимо выбрать каталог, содержащий подписку Azure, которую вы использовали для создания хранилища ключей. 
 3. Щелкните **Регистрация нового приложения**.
-4. В колонке **Создание** укажите имя своего приложения, а затем выберите **Веб-приложение и/или веб-API** (по умолчанию) и укажите **URL-адрес для входа** для веб-приложения. Если у вас пока нет этих сведений, вы можете указать фиктивное значение для использования на этом шаге (например, можно указать http://test1.contoso.com). Неважно, существуют ли эти сайты. 
+4. В колонке **Создание** укажите имя своего приложения, а затем выберите **Веб-приложение и/или веб-API** (по умолчанию) и укажите **URL-адрес для входа** для веб-приложения. Если у вас пока нет этих сведений, вы можете указать фиктивное значение для использования на этом этапе (например, можно указать http://test1.contoso.com). Неважно, существуют ли эти сайты. 
 
     ![Регистрация нового приложения](./media/key-vault-get-started/new-application-registration.png)
     >[!WARNING]
@@ -241,7 +241,10 @@ $secret.Id
 10. **Идентификатор приложения** и сведения о **ключе** вам понадобятся на следующем шаге, чтобы задать разрешения в своем хранилище.
 
 ## <a id="authorize"></a>Авторизация приложения для использования ключа или секрета
-Предоставить приложению доступ к ключу или секрету в хранилище можно с помощью командлета [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+Авторизовать приложение для получения доступа к ключу или секрету в хранилище можно двумя способами.
+
+### <a name="using-powershell"></a>с использованием PowerShell.
+Для работы с PowerShell используйте командлет [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Например, если имя хранилища — **ContosoKeyVault** , идентификатор клиента приложения — 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed и вам нужно авторизовать это приложение для расшифровки и подписи с использованием ключей в вашем хранилище, выполните следующую команду:
 
@@ -254,6 +257,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Использование портала Azure
+Вы можете изменить параметры авторизации приложения, чтобы использовать ключи или секреты:
+1. Выберите **Политики доступа** в колонке ресурсов Key Vault.
+2. Нажмите кнопку [+Добавить] в верхней части колонки.
+3. Щелкните **Выбор субъекта**, чтобы выбрать приложение, созданное ранее.
+4. В раскрывающемся списке **Разрешения ключей** выберите "Расшифровать" и "Подписать", чтобы разрешить приложению выполнять расшифровку и подписывание с помощью ключей в хранилище.
+5. В раскрывающемся списке **Разрешения секретов** выберите "Получить", чтобы разрешить приложению считывать секреты в хранилище.
 
 ## <a id="HSM"></a>Работа с аппаратным модулем безопасности (HSM)
 Чтобы обеспечить более высокий уровень защиты, можно импортировать ключи или создать их в аппаратных модулях безопасности (ключи никогда не покидают их пределов). В качестве аппаратных модулей безопасности используются модули FIPS 140-2 с проверкой уровня 2. Если это требование вас не касается, пропустите этот подраздел и перейдите к подразделу [Удаление хранилища ключей, а также связанных ключей и секретов](#delete).

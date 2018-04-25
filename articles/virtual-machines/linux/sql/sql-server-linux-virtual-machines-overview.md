@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.author: jroth
-ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Обзор SQL Server на виртуальных машинах Azure (Linux)
 
@@ -24,27 +24,16 @@ ms.lasthandoff: 03/23/2018
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-В этой статье описано, как использовать SQL Server на виртуальных машинах Linux в Azure, а также приведены [ссылки на образы портала](#create).
+SQL Server на виртуальных машинах Azure позволяет использовать полные версии SQL Server в облаке без необходимости управлять каким-либо локальным оборудованием. Кроме того, оплата по мере использования упрощает лицензирование для виртуальных машин SQL Server.
 
-> [!NOTE]
-> Если вы уже знакомы с решением SQL Server и просто хотите узнать, как развертывать виртуальную машину SQL Server на базе Linux, см. статью [Подготовка виртуальной машины SQL Server на базе Linux на портале Azure](provision-sql-server-linux-virtual-machine.md). Если же вы хотите создать виртуальную машину Windows с помощью SQL Server, см. статью [Подготовка виртуальной машины SQL Server на портале Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
+Виртуальные машины Azure работают во многих [географических регионах](https://azure.microsoft.com/regions/) по всему миру. На выбор предоставляется множество [размеров машин](../sizes.md). Коллекция образов позволяет создать виртуальную машину SQL Server нужной версии и выпуска, а также с требуемой операционной системой. Благодаря этому виртуальные машины — отличный вариант для различных рабочих нагрузок SQL Server.
 
-Виртуальные машины Azure предоставляют разработчикам или администраторам базы данных возможность перенести локальные рабочие нагрузки и приложения SQL Server в облако.
+## <a id="create"></a> Начало работы с виртуальными машинами SQL
 
-## <a name="scenarios"></a>Сценарии
-
-Существует множество причин для размещения данных в Azure. Если вы разрабатываете или переносите свое приложение в Azure, вы получаете повышенную производительность за счет размещения серверных данных в Azure. Вы автоматически получаете доступ ко множеству центров обработки данных, что позволяет обеспечить глобальное присутствие и аварийное восстановление. Кроме того, данные надежно защищены и хранятся на протяжении длительного срока.
-
-Выполнение SQL Server на виртуальной машине Azure — один из вариантов хранения реляционных данных в Azure. Вы также можете воспользоваться службой базы данных SQL Azure. Дополнительные сведения о выборе между SQL Server на виртуальных машинах или в базе данных SQL Azure см. в статье [Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
-
-## <a id="create"></a> Создание виртуальной машины SQL
-
-Пошаговое руководство по созданию виртуальной машины SQL см. в статье [Подготовка виртуальной машины SQL Server на базе Linux на портале Azure](provision-sql-server-linux-virtual-machine.md).
-
-Следующая таблица содержит матрицу последних образов SQL Server в коллекции виртуальных машин. Выберите необходимые версию, выпуск и операционную систему и щелкните соответствующую ссылку, чтобы начать создание виртуальной машины SQL.
+Чтобы приступить к работе, выберите образ виртуальной машины SQL Server требуемой версии, выпуска и с нужной операционной системой. В следующих разделах приведены прямые ссылки на портал Azure для получения образов виртуальной машины SQL Server из коллекции.
 
 > [!TIP]
-> Сведения о ценах на виртуальные машины SQL Server на базе Linux для этих образов см. на [этой странице](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> Дополнительные сведения о ценах на образы SQL см. на [странице с ценами на виртуальные машины Azure SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 | Version (версия) | Операционная система | Выпуск |
 | --- | --- | --- |
@@ -65,6 +54,33 @@ ms.lasthandoff: 03/23/2018
 | SLES | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Нет](./media/sql-server-linux-virtual-machines-overview/no.png) | ![Нет](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Да](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
+## <a name="related-products-and-services"></a>Связанные продукты и услуги
+
+### <a name="linux-virtual-machines"></a>Виртуальные машины Linux
+
+* [Обзор виртуальных машин](../overview.md).
+
+### <a name="storage"></a>Хранилище
+
+* [Введение в службу хранилища Microsoft Azure](../../../storage/common/storage-introduction.md)
+
+### <a name="networking"></a>Сеть
+
+* [Обзор виртуальной сети](../../../virtual-network/virtual-networks-overview.md)
+* [IP-адреса в Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Создание полного доменного имени на портале Azure](../portal-create-fqdn.md)
+
+### <a name="sql"></a>SQL
+
+* [Документация по SQL Server в Linux](https://docs.microsoft.com/sql/linux).
+* [Сравнение со службой "База данных SQL"](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+
 ## <a name="next-steps"></a>Дополнительная информация
 
-Дополнительные сведения о настройке и использовании SQL Server на базе Linux см. в [этой статье](https://docs.microsoft.com/sql/linux/sql-server-linux-overview).
+Начало работы с SQL Server на виртуальных машинах Azure с Linux:
+
+* [Создание виртуальной машины SQL Server на портале Azure](provision-sql-server-linux-virtual-machine.md).
+
+Ответы на часто задаваемые вопросы о виртуальных машинах SQL на платформе Linux:
+
+* [Часто задаваемые вопросы об SQL Server на виртуальных машинах Azure с Linux](sql-server-linux-faq.md)

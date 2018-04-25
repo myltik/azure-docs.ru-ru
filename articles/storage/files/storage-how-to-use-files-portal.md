@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9b8a7988be2c3a2622dd45a264abcb674b7d169e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Управление файловыми ресурсами Azure с помощью портала Azure 
 [Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от корпорации Майкрософт. Файловые ресурсы Azure можно подключить в Windows, Linux и macOS. В этом руководстве рассматриваются основы работы с файловыми ресурсами Azure с помощью [портала Azure](https://portal.azure.com/). Ниже перечислено, что вы можете узнать.
@@ -47,10 +47,10 @@ ms.lasthandoff: 03/29/2018
 4. В поле **Имя** введите *myshare*.
 5. Чтобы создать файловый ресурс Azure, нажмите кнопку **ОК**.
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Управление содержимым файлового ресурса Azure
-Теперь, когда файловый ресурс Azure создан, его можно подключить с помощью SMB к [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) или [macOS](storage-how-to-use-files-mac.md). Кроме того, этим ресурсом можно управлять с помощью портала Azure. Все запросы через портал Azure выполняются с помощью File REST API, который позволяет создавать, изменять и удалять файлы и каталоги на клиентах без доступа по SMB.
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Использование материалов, расположенных в файловом ресурсе Azure
+Теперь, когда файловый ресурс Azure создан, его можно подключить с помощью SMB к [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) или [macOS](storage-how-to-use-files-mac.md). Кроме того, с этим ресурсом можно работать с помощью портала Azure. Все запросы через портал Azure выполняются с помощью File REST API, который позволяет создавать, изменять и удалять файлы и каталоги на клиентах без доступа по SMB.
 
-### <a name="create-directory"></a>Создание каталога
+### <a name="create-a-directory"></a>Создайте каталог
 Чтобы создать каталог с именем *myDirectory* в корне файлового ресурса Azure:
 
 1. На странице **Служба файлов** выберите файловый ресурс **myshare**. Откроется страница для вашего файлового ресурса.

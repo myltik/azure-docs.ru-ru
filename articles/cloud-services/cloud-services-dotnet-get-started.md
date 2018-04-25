@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с облачными службами Azure и ASP.NET | Документация Майкрософт"
-description: "Узнайте, как можно создать многоуровневое приложение с помощью ASP.NET MVC и Azure. Такое приложение выполняется в облачной службе и обладает веб-ролью и рабочей ролью. В его работе используются: Entity Framework, база данных SQL, очереди и BLOB-объекты службы хранилища Azure."
+title: Начало работы с облачными службами Azure и ASP.NET | Документация Майкрософт
+description: 'Узнайте, как можно создать многоуровневое приложение с помощью ASP.NET MVC и Azure. Такое приложение выполняется в облачной службе и обладает веб-ролью и рабочей ролью. В его работе используются: Entity Framework, база данных SQL, очереди и BLOB-объекты службы хранилища Azure.'
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Начало работы с облачными службами Azure и ASP.NET
 
@@ -34,8 +34,8 @@ ms.lasthandoff: 02/21/2018
 
 Приложение использует [рабочий шаблон на основе очередей](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) для разгрузки процессора от задач создания эскизов в фоновом режиме.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Альтернативная архитектура: веб-сайты и веб-задания
-Это руководство описывает, как запускать фоновые и интерфейсные компоненты в облачной службе Azure. Альтернативой является запуск интерфейсного компонента на [веб-сайте Azure](/services/web-sites/) и использование [веб-заданий](http://go.microsoft.com/fwlink/?LinkId=390226) (пока предварительной версии) для фонового компонента. Руководство по веб-заданиям см. в статье [Создание веб-задания .NET в службе приложений Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Сведения о том, как выбрать службы, см. в статье о [сравнении веб-сайтов, облачных служб и виртуальных машин Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>Альтернативная архитектура: функции "Веб-приложения" и "Веб-задания"
+Это руководство описывает, как запускать фоновые и интерфейсные компоненты в облачной службе Azure. Альтернативой является запуск интерфейсной части с помощью функции [Веб-приложения Azure](/azure/app-service/) и использование функции [Веб-задания](http://go.microsoft.com/fwlink/?LinkId=390226) для серверной части. Руководство по веб-заданиям см. в статье [Создание веб-задания .NET в службе приложений Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Сведения о том, как выбрать службы, см. в статье о [сравнении веб-сайтов, облачных служб и виртуальных машин Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Что вы узнаете
 * Как подготовить компьютер к разработке для Azure путем установки пакета Azure SDK.

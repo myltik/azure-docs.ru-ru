@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Руководство. Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
@@ -149,7 +149,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="upload-your-ssl-certificate"></a>Передача SSL-сертификата
 
-Чтобы передать SSL-сертификат, щелкните **SSL-сертификаты** в левой области навигации веб-приложения.
+Чтобы передать SSL-сертификат, щелкните **Параметры SSL** в левой области навигации веб-приложения.
 
 Щелкните **Отправить сертификат**. 
 
@@ -159,7 +159,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![Передача сертификата](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-По завершении передачи сертификата службой приложений он появится на странице **SSL-сертификаты**.
+По завершении передачи сертификата службой приложений он появится на странице **Параметры SSL**.
 
 ![Сертификат добавлен](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -216,7 +216,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 По умолчанию любой пользователь по-прежнему может получить доступ к вашему веб-приложению с помощью HTTP. Вы можете перенаправить все HTTP-запросы на HTTPS-порт.
 
-На странице веб-приложения в области слева выберите **Личные домены**. Затем в окне **Только HTTPS**выберите **ВКЛ**.
+На странице веб-приложения в области слева выберите **Параметры SSL**. Затем в окне **Только HTTPS**выберите **ВКЛ**.
 
 ![Принудительное использование HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>Принудительное применение TLS 1.1/1.2
+
+Приложение по умолчанию разрешает применение [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) версии 1.0, которая больше не считается безопасной в соответствии с отраслевыми стандартами, такими как [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Чтобы принудительно применить TLS более поздней версии, выполните следующие инструкции:
+
+На странице веб-приложения в области слева выберите **Параметры SSL**. Затем в разделе **версии TLS** выберите минимальную требуемую версию TLS.
+
+![Принудительное использование HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+После этой операции приложение отклоняет все подключения с более ранними версиями TLS.
 
 ## <a name="automate-with-scripts"></a>Автоматизация с помощью сценариев
 

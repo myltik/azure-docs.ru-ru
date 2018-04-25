@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9ef6b216889416ea00786dcd3043d6e0f246b305
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Общие сведения о виртуальных машинах Linux и Windows для обработки и анализа данных
 
@@ -62,23 +62,24 @@ ms.lasthandoff: 03/29/2018
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro Plus с общей активацией — Excel, Word и PowerPoint   |Да                      |Нет              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 с предустановленными популярными пакетами    |Да                      |Да              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) с предварительно установленными популярными пакетами для языка Julia                         |Да                      |Да              |
-| Реляционные базы данных                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(только CentOS) |
+| Реляционные базы данных                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS)<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Инструменты базы данных                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Драйверы ODBC и JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (инструмент запросов), <br /> * bcp, sqlcmd <br /> * Драйверы ODBC и JDBC|
 | Масштабируемое аналитическое решение в базе данных со службами ML SQL Server (R, Python) | Да     |Нет              |
 | **[Jupyter Notebook Server](http://jupyter.org/) со следующими ядрами**                                  | Да     | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Да | Да |
-|     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 и 3.5 | Да | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Python | Да | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Да | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Да | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | Нет | Да (только Ubuntu) |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | Нет | Да |
 | JupyterHub (многопользовательский сервер блокнотов)| Нет | Да |
+| JupyterLab (многопользовательский сервер блокнотов) | Нет | Да (только Ubuntu) |
 | **Инструменты разработки, редакторы кода и интегрированные среды разработки**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) с подключаемым модулем Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools (SSDT), [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) и [инструментами R для Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) с подключаемым модулем Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) и [Инструменты R для Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Да | Нет |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | Нет | Да |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm](https://www.jetbrains.com/pycharm/) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (интегрированная среда разработки Julia)](http://junolab.org/)| Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim и Emacs | Да | Да |
@@ -105,12 +106,14 @@ ms.lasthandoff: 03/29/2018
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | Нет | Да (только Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | Нет | Да (только Ubuntu) |
-| **Инструменты глубокого обучения на основе GPU** |Версия для Windows Server 2016  | Да |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (ранее известный как CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Да | Да |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Да | Да |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Да | Да|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | Нет | Да (только Ubuntu) |
+| **Deep Learning Tools** <br>Все средства используют GPU или ЦП |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) (Windows 2016) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y (Windows 2016) | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | Нет | Y (Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y (Windows 2016) | Да|
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe и Caffe2](https://github.com/caffe2/caffe2) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Chainer](https://chainer.org/) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| Нет | Да |
@@ -118,43 +121,18 @@ ms.lasthandoff: 03/29/2018
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Сервер модели MXNet ](https://github.com/awslabs/mxnet-model-server) | Нет | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | Нет | Да |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, драйвер Nvidia](https://developer.nvidia.com/cuda-toolkit) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | Да | Да |
 | **Платформа для больших данных (только Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* Локальный изолированный экземпляр [Spark](http://spark.apache.org/) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Локальный изолированный экземпляр [Spark](http://spark.apache.org/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Локальный экземпляр [Hadoop](http://hadoop.apache.org/) (HDFS, YARN) | Нет | Да |
 
+## <a name="get-started"></a>Начало работы
 
+### <a name="windows-data-science-vm"></a>Виртуальная машина для обработки и анализа данных
+* См. дополнительные сведения о [создании виртуальной машины Windows для обработки и анализа данных](provision-vm.md). Дополнительные сведения о том, как выполнять разные задачи рамках в проекта по обработке и анализу данных на виртуальной машине Windows для обработки и анализа данных, см. в статье [10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных](vm-do-ten-things.md).
 
-## <a name="get-started-with-the-windows-data-science-vm"></a>Начало работы с виртуальной машиной Windows для обработки и анализа данных
-* Создайте экземпляр нужной версии DSVM для Windows, перейдя к странице, посвященной
-  * [DSVM на платформе Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
-  
-  или 
-  * [DSVM на платформе Windows Server 2012](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/). 
-* Нажмите кнопку **Получить сейчас**.
-* Войдите в виртуальную машину из удаленного рабочего стола, используя учетные данные, указанные при ее создании.
-* Чтобы обнаружить и запустить средства, выберите меню **Запустить**.
-
-## <a name="get-started-with-the-linux-data-science-vm"></a>Приступая к работе с виртуальной машиной Linux для обработки и анализа данных
-* Создайте экземпляр нужной версии DSVM для Linux, перейдя к странице, посвященной 
-  * [DSVM на платформе Ubuntu](http://aka.ms/dsvm/ubuntu)
-
-  или
-
-  * [DSVM на платформе CentOS](http://aka.ms/dsvm/centos)
-
-  
-* Нажмите кнопку **Получить сейчас**.
-* Войдите в виртуальную машину из клиента SSH, такого как PuTTY, с помощью команды SSH или используйте учетные данные, указанные при создании этой виртуальной машины.
-* В командной строке оболочки введите dsvm-more-info.
-* Для графического рабочего стола скачайте [отсюда](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) клиент X2Go в зависимости от его платформы и выполните инструкции в документе [Подготовка виртуальной машины Linux для обработки и анализа данных](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-
-## <a name="next-steps"></a>Дополнительная информация
-### <a name="for-the-windows-data-science-vm"></a>Для виртуальной машины Windows для обработки и анализа данных
-* Дополнительные сведения о том, как запустить конкретные средства, доступные в версии Windows, см. в разделе [Подготовка виртуальной машины Майкрософт для обработки и анализа данных](provision-vm.md), а
-* дополнительные сведения о том, как выполнять различные задачи рамках в проекта по обработке и анализу данных на виртуальной машине Windows, см. в статье [10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных](vm-do-ten-things.md).
-
-### <a name="for-the-linux-data-science-vm"></a>Для виртуальной машины Linux для обработки и анализа данных
-* Дополнительные сведения о том, как запустить конкретные средства, доступные в версии Linux, см. в разделе [Подготовка виртуальной машины Linux для обработки и анализа данных](linux-dsvm-intro.md).
-* Пошаговое руководство по некоторым общим задачам обработки и анализа данных на виртуальных машинах Linux см. в статье [Обработка и анализ данных с использованием специально подготовленной виртуальной машины Linux](linux-dsvm-walkthrough.md).
+### <a name="linux-data-science-vm"></a>Виртуальная машина Linux для обработки и анализа данных
+* См. дополнительные сведения о [создании виртуальной машины Linux (Ubuntu) для обработки и анализа данных](dsvm-ubuntu-intro.md). См. дополнительные сведения о [создании виртуальной машины CentOS для обработки и анализа данных в Azure](linux-dsvm-intro.md).
+* Пошаговое руководство по некоторым общим задачам обработки и анализа данных на виртуальных машинах Linux (CentOS и Ubuntu) см. в статье [Обработка и анализ данных с использованием специально подготовленной виртуальной машины Linux](linux-dsvm-walkthrough.md).
 

@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Настройка аварийного восстановления виртуальных машин Azure в дополнительный регион Azure (предварительная версия)
 
@@ -77,7 +74,7 @@ ms.lasthandoff: 03/28/2018
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Исходящие подключения для диапазонов IP-адресов
 
-При использовании прокси-сервера, брандмауэра на основе IP-адресов или правил NSG для управления исходящими подключениями необходимо включить в список разрешенных следующие диапазоны IP-адресов. Скачайте список диапазонов по следующим ссылкам:
+Чтобы управлять исходящим подключением с использованием IP-адресов, а не URL-адресов, внесите в список разрешений соответствующие диапазоны центра обработки данных, адреса Office 365, а также адреса конечных точек служб для брандмауэров на основе IP-адресов, прокси-серверов или правил NSG.
 
   - [Диапазоны IP-адресов центра обработки данных Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Диапазоны IP-адресов центра обработки данных Microsoft Azure в Германии](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ ms.lasthandoff: 03/28/2018
   - [URL-адреса и диапазоны IP-адресов Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [IP-адреса конечных точек службы Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Используйте эти списки для настройки средства контроля сетевого доступа в своей сети. Для создания необходимых правил NSG можно использовать [этот скрипт](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+Для создания необходимых правил NSG можно использовать [этот скрипт](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
 ## <a name="verify-azure-vm-certificates"></a>Проверка сертификатов виртуальной машины Azure
 
@@ -105,7 +102,7 @@ ms.lasthandoff: 03/28/2018
 
 - **Читатель Site Recovery**. Эта роль имеет разрешения на просмотр всех операций управления Site Recovery. Она лучше всего подходит для специалиста по контролю ИТ, который может отслеживать текущее состояние защиты и отправлять запросы в службу поддержки.
 
-Дополнительные сведения см. в статье о [встроенных ролях RBAC в Azure](../active-directory/role-based-access-built-in-roles.md).
+Дополнительные сведения см. в статье о [встроенных ролях RBAC в Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="enable-replication"></a>Включение репликации
 

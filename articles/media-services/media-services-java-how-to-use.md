@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с пакетом SDK для Java для служб мультимедиа Azure | Документация Майкрософт"
-description: "В этом руководстве описано, как реализовать простую службу доставки видео по запросу (VOD) с помощью приложения служб мультимедиа Azure (AMS) и Java."
+title: Начало работы с пакетом SDK для Java для служб мультимедиа Azure | Документация Майкрософт
+description: В этом руководстве описано, как реализовать простую службу доставки видео по запросу (VOD) с помощью приложения служб мультимедиа Azure (AMS) и Java.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b8dea132fc1af546b64f51e5ab395ad8bc3fe37
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Начало работы с клиентским пакетом SDK для Java для служб мультимедиа Azure
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/02/2018
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->С выпуска пакета `azure-media` версии `0.9.8` для аутентификации пакет SDK поддерживает службу Azure Active Directory и не поддерживает службу контроля доступа Azure. Службы контроля доступа будут объявлены устаревшими 1 июня 2018 г. Мы рекомендуем как можно быстрее перейти на использование модели аутентификации Azure AD. Дополнительные сведения о переходе см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+>С выпуска пакета `azure-media` версии `0.9.8` для аутентификации пакет SDK поддерживает службу Azure Active Directory и не поддерживает службу контроля доступа Azure. Службы контроля доступа будут объявлены устаревшими 22 июня 2018 г. Мы рекомендуем как можно быстрее перейти на использование модели аутентификации Azure AD. Дополнительные сведения о переходе см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >Исходный код пакета SDK для Java для служб мультимедиа Azure можно найти в [репозитории GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Перейдите на ветвь 0.9, а не на главную ветвь. 

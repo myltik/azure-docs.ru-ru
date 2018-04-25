@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 47629350967026f6901441ff20d182cd7fd5be3a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Привязки Azure Cosmos DB для службы "Функции Azure"
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="trigger"></a>Триггер
 
-Триггер Azure Cosmos DB использует [канал изменений Azure Cosmos DB](../cosmos-db/change-feed.md) для ожидания передачи данных изменений между разделами. На канале изменений публикуются вставки и обновления, а не удаления. 
+Триггер Azure Cosmos DB использует [канал изменений Azure Cosmos DB](../cosmos-db/change-feed.md) для ожидания передачи данных изменений между разделами. На канале изменений публикуются вставки и обновления, а не удаления. Триггер вызывается для каждой операции вставки или обновления в отслеживаемой коллекции. 
 
 ## <a name="trigger---example"></a>Пример триггера
 

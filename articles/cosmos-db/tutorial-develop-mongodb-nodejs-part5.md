@@ -1,25 +1,25 @@
 ---
-title: "Руководство по MongoDB, Angular и Node — часть 5 | Документация Майкрософт"
-description: "Часть 5 серии руководств по созданию в Azure Cosmos DB приложения MongoDB с помощью Angular и Node и тех же API, которые используются для MongoDB"
+title: Руководство по MongoDB, Angular и Node — часть 5 | Документация Майкрософт
+description: Часть 5 серии руководств по созданию в Azure Cosmos DB приложения MongoDB с помощью Angular и Node и тех же API, которые используются для MongoDB
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c06247279df9eaaedf128a2eeec801b4e323c535
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 7a4b25792577247d3121c5226da55081ed55ff2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Создание приложения MongoDB с помощью Angular и Azure Cosmos DB. Часть 5. Использование Mongoose для подключения к Azure Cosmos DB
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 12/05/2017
 
 1. Теперь давайте снова запустим приложение. В Visual Studio Code сохраните все изменения, нажмите кнопку **Отладка** слева ![Значок отладки в Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), затем — кнопку **Начать отладку** ![Значок начала отладки в Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-3. Теперь в браузере откройте окно инструментов для разработчиков, затем вкладку параметров сети и перейдите по адресу http://localhost:3000. Вот наше приложение.
+3. Теперь в браузере откройте окно инструментов для разработчиков, выберите вкладку параметров сети и перейдите по адресу http://localhost:3000. Вот наше приложение.
 
     ![Новая учетная запись Azure Cosmos DB на портале Azure](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Краткое руководство по Azure Application Insights | Документация Майкрософт"
-description: "В этой статье предоставляются инструкции для быстрой настройки мониторинга веб-приложения Java с помощью Application Insights."
+title: Краткое руководство по Azure Application Insights | Документация Майкрософт
+description: В этой статье предоставляются инструкции для быстрой настройки мониторинга веб-приложения Java с помощью Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Запуск мониторинга веб-приложения Java
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/21/2018
 
 Для работы с этим кратким руководством сделайте следующее:
 
-- Установите Oracle JRE 1.6 или более поздней версии либо Zulu JRE 1.6 или более поздней версии.
+- Установите JRE 1.7 или 1.8.
 - Установите бесплатную [интегрированную среду разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/). В этом кратком руководстве используется Eclipse Oxygen (4.7).
 - Подписка Azure и веб-проект Java Dynamic.
  

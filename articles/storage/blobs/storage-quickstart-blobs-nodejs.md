@@ -1,19 +1,19 @@
 ---
-title: Краткое руководство Azure. Отправка, скачивание и составление списка больших двоичных объектов в службе хранилища Azure с помощью Node.js | Документация Майкрософт
-description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер. Затем используете клиентскую библиотеку службы хранилища для Node.js, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
+title: Краткое руководство Azure. Создание большого двоичного объекта в хранилище объектов с помощью Node.js | Документация Майкрософт
+description: В рамках этого краткого руководства вы создадите учетную запись хранения и контейнер в хранилище объектов (больших двоичных объектов). Затем используете клиентскую библиотеку службы хранилища для Node.js, чтобы отправить большой двоичный объект в службу хранилища Azure, скачать его и составить список больших двоичных объектов в контейнере.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Краткое руководство по передаче, скачиванию и составлению списка больших двоичных объектов с помощью Node.js
 
@@ -82,7 +82,7 @@ const storage = require('azure-storage');
 - *dotenv* загружает переменные среды, заданные в файле формата *ENV*, в текущий контекст выполнения.
 - *path* требуется, чтобы определить абсолютный путь к файлу для передачи в хранилище BLOB-объектов.
 - *yargs* предоставляет простой интерфейс для доступа к аргументам командной строки.
-- *azure-storage* — модуль [SDK службы хранилища Azure](/nodejs/api/azure-storage) для Node.js.
+- *azure-storage* — модуль [SDK службы хранилища Azure](https://docs.microsoft.com/javascript/api/azure-storage) для Node.js.
 
 Затем инициализируется ряд переменных.
 
@@ -294,4 +294,4 @@ try {
 > [!div class="nextstepaction"]
 > [Практическое руководство по операциям в хранилище BLOB-объектов](storage-nodejs-how-to-use-blob-storage.md)
 
-Справочник по Node.js для хранилища Azure см. в пакете [azure-storage](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+Справочник по Node.js для хранилища Azure см. в пакете [azure-storage](https://docs.microsoft.com/javascript/api/azure-storage).

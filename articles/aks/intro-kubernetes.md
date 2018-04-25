@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f418e70c6da46443b95e5fd4056ca26d46d95505
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-container-service-aks-preview"></a>Знакомство с предварительной версией Службы контейнеров Azure (AKS)
 
@@ -41,7 +41,7 @@ AKS снижает сложность управления кластером Ku
 Задача AKS заключается в том, чтобы предоставить клиентам среду для размещения контейнеров с помощью популярных средств и технологий с открытым исходным кодом. Для этого мы предоставляем стандартные конечные точки API Kubernetes. С помощью этих стандартных конечных точек можно использовать любое программное обеспечение, способное взаимодействовать с кластером Kubernetes. Например, можно выбрать [kubectl][kubectl-overview], [Helm][helm] или [Draft][draft].
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Создание кластера Kubernetes с помощью Службы контейнеров Azure (AKS)
-Чтобы начать использовать AKS, разверните кластер AKS с помощью [Azure CLI][aks-quickstart] или через портал (найдите **службу контейнеров Azure** в Marketplace). Если вы опытный пользователь, которому требуется дополнительный контроль над шаблонами Azure Resource Manager, вы можете создать пользовательский кластер Kubernetes и развернуть его с помощью интерфейса командной строки `az`, используя проект с открытым кодом [acs-engine][acs-engine].
+Чтобы начать использовать AKS, разверните кластер AKS с помощью [Azure CLI][aks-quickstart] или через портал (найдите **службу контейнеров Azure** в Marketplace). Если вы опытный пользователь, которому требуется дополнительный контроль над шаблонами Azure Resource Manager, создайте пользовательский кластер Kubernetes и разверните его с помощью интерфейса командной строки `az`, используя проект с открытым кодом [acs-engine][acs-engine].
 
 ### <a name="using-kubernetes"></a>Использование Kubernetes
 Kubernetes автоматизирует развертывание, масштабирование приложений-контейнеров и управление ими. Это решение предоставляет обширный набор возможностей, в том числе:

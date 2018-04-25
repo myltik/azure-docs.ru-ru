@@ -1,5 +1,5 @@
 ---
-title: Отправка, получение списка и удаление больших двоичных объектов с помощью службы хранилища Azure с использованием JavaScript и HTML в браузере
+title: Краткое руководство Azure. Создание большого двоичного объекта в хранилище объектов с помощью JavaScript и HTML в браузере
 description: Узнайте, как использовать экземпляр BlobService для загрузки, получения списка и удаления больших двоичных объектов с помощью JavaScript на странице HTML.
 services: storage
 keywords: storage, javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>Краткое руководство. Отправка, получение списка и удаление больших двоичных объектов с помощью службы хранилища Azure с использованием JavaScript и HTML в браузере
-Это краткое руководство демонстрирует, как управлять большими двоичными объектами с помощью кода, полностью выполняемого в браузере, наряду с необходимыми мерами безопасности для обеспечения защищенного доступа к вашей учетной записи хранения больших двоичных объектов. Для работы с этим кратким руководством вам потребуется [подписка Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Краткое руководство. Отправка, получение списка и удаление больших двоичных объектов с помощью JavaScript и HTML в браузере
+В этом кратком руководстве описано, как управлять BLOB-объектами из кода, выполняемого в браузере. Этот подход позволяет реализовать требуемые меры безопасности, чтобы обеспечить безопасный доступ к вашей учетной записи хранилища больших двоичных объектов. Для работы с этим кратким руководством вам потребуется [подписка Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>Копирование параметров безопасности
-Во время работы с этим кратким руководством для создания маркера безопасности необходимо несколько значений, связанных с безопасностью. Значения для последующего использования можно скопировать в текстовый редактор на портале. 
-
-Выберите учетную запись хранения на портале и найдите раздел **Параметры**. В разделе "Параметры" выберите **Ключи доступа** и выделите **имя учетной записи хранения** и **ключ** под заголовком **key1**. (Чтобы скопировать значение в буфер обмена, можно использовать кнопку "Копировать" справа от поля ввода.)
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Настройка учетных записей хранения CORS 
 Прежде чем веб-приложение сможет получить доступ к хранилищу BLOB-объектов из клиента, в учетной записи следует включить [совместное использование ресурсов между серверами](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) или CORS. 
@@ -55,7 +50,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="create-a-shared-access-signature"></a>Создание подписанного URL-адреса
 Подписанный URL-адрес (SAS) используется кодом, запущенным в браузере, для проверки подлинности запросов в хранилище BLOB-объектов. Используя SAS, клиент может выполнять проверку подлинности без ключа доступа к учетной записи или строки подключения. Дополнительные сведения см. в статье [Использование подписанных URL-адресов (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-Можно создать подписанный URL-адрес с помощью Azure CLI с использованием оболочки облака Azure. Ниже перечислены параметры, для которых необходимо указать значения, чтобы создать SAS.
+Можно создать подписанный URL-адрес с помощью Azure CLI с использованием Azure Cloud Shell или с помощью Обозревателя службы хранилища Azure Ниже перечислены параметры, для которых необходимо указать значения, чтобы создать SAS с помощью CLI.
 
 | Параметр      |ОПИСАНИЕ  | Placeholder |
 |----------------|-------------|-------------|
@@ -121,7 +116,7 @@ npm i http-server
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Получение клиентских скриптов хранилища BLOB-объектов
+### <a name="get-the-blob-storage-client-library"></a>Получение клиентской библиотеки хранилища BLOB-объектов
 [Загрузите клиентские библиотеки JavaScript](https://aka.ms/downloadazurestoragejs), извлеките содержимое ZIP-файла и поместите файлы скриптов из папки *bundle* в папку с именем *scripts*.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>Добавление ссылки на скрипт клиента на страницу
@@ -153,7 +148,7 @@ npm start
 - элемент *INPUT*, используемый для отправки файла;
 - заполнитель для кода хранилища.
 
-### <a name="create-a-blob-service"></a>Создание службы BLOB-объектов 
+### <a name="create-an-instance-of-blobservice"></a>Создание экземпляра BlobService 
 [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) предоставляет интерфейс для хранилища BLOB-объектов. Для создания экземпляра службы необходимо указать имя учетной записи хранения и SAS, созданный на предыдущем шаге.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Передача больших двоичных объектов
-Чтобы отправить большой двоичный объект из формы HTML, сначала получите ссылку на выбранный файл через массив `files` элемента *INPUT*, установив для параметра *type* значение *file*.
+Чтобы отправить большой двоичный объект из формы HTML, получите ссылку на выбранный файл из элемента *INPUT*. Выбранный файл доступен через массив `files`, когда для *type* установлено значение *file*.
 
 Из скрипта вы можете ссылаться на элемент HTML и передавать выбранный файл в службу BLOB-объектов.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+Метод *ListBlobsSegmented* возвращает коллекцию больших двоичных объектов. По умолчанию коллекция включает 5000 больших двоичных объектов. Но это значение можно изменить в соответствии с потребностями. В [следующем примере](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132) показано, как работать с большим числом больших двоичных объектов и как клиентская библиотека поддерживает разбиение по страницам. 
+
 
 ### <a name="delete-blobs"></a>Удаление blob-объектов
 Вы можете удалить переданный большой двоичный объект, вызвав метод [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor).

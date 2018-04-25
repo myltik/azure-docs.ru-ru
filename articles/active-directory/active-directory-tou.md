@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Функция "Условия использования Azure Active Directory"
 Функция "Условия использования Azure AD" — это простой способ, которым организации могут предоставлять сведения своим пользователям.  Благодаря этой презентации пользователи видят соответствующие заявления об отказе согласно юридическим требованиям и для соответствия стандартам.
@@ -96,7 +96,7 @@ ms.lasthandoff: 04/03/2018
 2. Нажмите кнопку "Просмотреть журналы аудита"</br>
 ![Событие аудита](media/active-directory-tou/tou8.png)
 3.  На экране "Журналы аудита" Azure AD можно фильтровать информацию с помощью раскрывающихся списков, чтобы получить информацию журнала аудита для конкретного целевого объекта.
-![Событие аудита](media/active-directory-tou/tou9.png)
+[Событие аудита](media/active-directory-tou/tou9.png)
 4.  Вы также можете скачать данные в CSV-файл для использования на локальном компьютере.
 
 ## 

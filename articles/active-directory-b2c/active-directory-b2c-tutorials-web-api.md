@@ -1,22 +1,22 @@
 ---
-title: Руководство по использованию Azure Active Directory B2C для защиты веб-API ASP.NET
+title: Руководство. Предоставление доступа к веб-API ASP.NET из веб-приложения с помощью Azure Active Directory B2C | Документация Майкрософт
 description: Руководство по использованию Active Directory B2C для защиты веб-API ASP.NET и его вызова из веб-приложения ASP.NET.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 editor: ''
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Руководство по использованию Azure Active Directory B2C для защиты веб-API ASP.NET
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Руководство. Предоставление доступа к веб-API ASP.NET из веб-приложения с помощью Azure Active Directory B2C
 
 В этом руководстве показано, как вызывать защищенный ресурс веб-API Azure Active Directory (Azure AD) B2C из веб-приложения ASP.NET.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/23/2018
 
 1. Выберите **Azure AD B2C** из списка служб на портале Azure.
 
-2. В разделе параметров B2C щелкните **Приложения**, а затем — **+ Добавить**.
+2. В разделе параметров B2C щелкните **Приложения**, а затем — **Добавить**.
 
     Чтобы зарегистрировать пример веб-API в клиенте, используйте следующие параметры.
     
@@ -89,11 +89,13 @@ ms.lasthandoff: 03/23/2018
 | **Область** | Hello.Read | Доступ на чтение к hello |
 | **Область** | Hello.Write | Доступ на запись к hello |
 
+Выберите команду **Сохранить**.
+
 Опубликованные области можно использовать для предоставления приложению клиента разрешения на доступ к веб-API.
 
 ### <a name="grant-app-permissions-to-web-api"></a>Предоставление приложению разрешений на использование веб-API
 
-Чтобы вызвать защищенный веб-API из приложения, необходимо предоставить приложению разрешения на доступ к API. 
+Чтобы вызвать защищенный веб-API из приложения, необходимо предоставить приложению разрешения на доступ к API. В рамках этого руководства используется веб-приложение, созданное с помощью руководства [по использованию Azure Active Directory B2C для аутентификации пользователей в веб приложении ASP.NET](active-directory-b2c-tutorials-web-app.md). 
 
 1. На портале Azure выберите **Azure AD B2C** из списка служб и щелкните **Приложения**, чтобы просмотреть список зарегистрированных приложений.
 
@@ -109,7 +111,7 @@ ms.lasthandoff: 03/23/2018
 
 **Пример веб-приложения** зарегистрирован для вызова защищенного **примера веб-API**. Пользователь [выполняет аутентификацию](../active-directory/develop/active-directory-dev-glossary.md#authentication) в Azure AD B2C для использования веб-приложения. Веб-приложение получает [предоставление авторизации](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) из Azure AD B2C для доступа к защищенному веб-API.
 
-## <a name="update-web-api-code"></a>Обновление кода веб-API
+## <a name="update-code"></a>Обновление кода
 
 Теперь, когда веб-API зарегистрирован и определены области, необходимо настроить код веб-API для использования клиента Azure AD B2C. В этом руководстве настройте пример веб-API. 
 
@@ -137,11 +139,11 @@ ms.lasthandoff: 03/23/2018
 
 3. Настройте URI API-интерфейса. Это URI, который веб-приложение использует для выполнения запроса API. Кроме того, настройте запрошенные разрешения.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### <a name="configure-the-web-api"></a>Настройка веб-API
 
@@ -162,7 +164,7 @@ ms.lasthandoff: 03/23/2018
 4. Обновите параметр политики, указав имя, сгенерированное при создании политики регистрации и входа.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Настройте параметр области в соответствии с тем, что вы создали на портале.
@@ -172,7 +174,7 @@ ms.lasthandoff: 03/23/2018
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## <a name="run-the-sample-web-app-and-web-api"></a>Запуск примера веб-приложения и веб-API
+## <a name="run-the-sample"></a>Запуск примера
 
 Необходимо выполнить оба проекта: **TaskWebApp** и **TaskService**. 
 

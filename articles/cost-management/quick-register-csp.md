@@ -1,20 +1,20 @@
 ---
-title: "Регистрация в Azure Cost Management с помощью партнера CSP | Документация Майкрософт"
-description: "Используйте данные партнера CSP для регистрации в службе \"Управление затратами Azure\"."
+title: Регистрация в Azure Cost Management с помощью партнера CSP | Документация Майкрософт
+description: Используйте данные партнера CSP для регистрации в службе "Управление затратами Azure".
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9e09961685ad688098970ae4ea73e1a90f6a95ca
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Регистрация в партнерской программе CSP и просмотр данных о затратах
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 03/09/2018
 
 - Войдите на портал Azure по адресу http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Создание пробной регистрации
+## <a name="register-with-azure-cost-management"></a>Регистрация в службе "Управление затратами Azure"
 
 1. На портале Azure в списке служб выберите **Cost Management + Billing** (Управление затратами + Выставление счетов).
 2. В разделе **Обзор**, щелкните **Управление затратами**.  
     ![Страница "Управление затратами"](./media/quick-register-csp/cost-mgt-billing-service.png)
 3. На странице **Управление затратами** нажмите кнопку **Go to Cost Management** (Перейти к управлению затратами), чтобы открыть страницу регистрации Cloudyn в новом окне.
 4. На странице пробной регистрации на портале Cloudyn введите название вашей компании, выберите **Microsoft CSP Partner Program Administrator** (Администратор партнерской программы Microsoft CSP), а затем нажмите кнопку **Next** (Далее).  
-5. Введите **Application ID** (Идентификатор приложения), **Commerce ID** (Идентификатор коммерции), **Application Secret key** (Секретный ключ приложения) и выберите **Default Pricing Plan** (Тарифный план по умолчанию). Если у вас нет под рукой этих сведений, то войдите на портал Центра партнеров по адресу [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com), используя основную учетную запись администратора, и выполните следующие действия:
+5. Введите **Application ID** (Идентификатор приложения), **Commerce ID** (Идентификатор коммерции), **Application Secret key** (Секретный ключ приложения) и выберите **Default Pricing Plan** (Тарифный план по умолчанию). Если у вас нет под рукой этих сведений, войдите на портал Центра партнеров по адресу [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com), используя основную учетную запись администратора, и выполните следующие действия:
   1. Последовательно выберите **Панель мониторинга** > **Параметры учетной записи** > **Управление приложениями**.
   2. Если вы ранее создали веб-приложение, то пропустите этот шаг. Если нет, то нажмите кнопку **Add new web app** (Добавить новое веб-приложение) в разделе **Веб-приложение**.
   3. Скопируйте **идентификатор приложения** (GUID) из своего веб-приложения.

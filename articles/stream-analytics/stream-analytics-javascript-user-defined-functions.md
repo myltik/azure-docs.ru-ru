@@ -1,22 +1,36 @@
 ---
-title: Определяемые пользователем функции JavaScript в Azure Stream Analytics
-description: В этой статье описывается, как выполнять расширенные запросы с помощью определяемых пользователем функций JavaScript в Azure Stream Analytics.
+title: 'Руководство. Определяемые пользователем функции JavaScript в Azure Stream Analytics | Документация Майкрософт '
+description: С помощью этого руководства вы научитесь выполнять расширенные запросы с помощью определяемых пользователем функций JavaScript
+keywords: javascript, определяемые пользователем функции, udf
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.reviewer: jasonh
+ms.custom: mvc
+ms.date: 04/01/2018
+ms.workload: data-services
+ms.author: sngun
+ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Определяемые пользователем функции JavaScript в Azure Stream Analytics
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Руководство. Определяемые пользователем функции JavaScript в Azure Stream Analytics
+
 Azure Stream Analytics поддерживает определяемые пользователем функции, написанные на языке JavaScript. Благодаря обширному набору методов, которые предоставляют объекты JavaScript **String**, **RegExp**, **Math**, **Array** и **Date**, в заданиях Stream Analytics стало проще создавать сложные преобразования данных.
+
+Из этого руководства вы узнаете, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * задавать определяемые пользователем функции JavaScript;
+> * добавлять функцию на портал;
+> * определять запрос для выполнения функции.
+
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a name="javascript-user-defined-functions"></a>Определяемые пользователем функции JavaScript
 Определяемые пользователем функции JavaScript поддерживают скалярные вычислительные функции без отслеживания состояния, не требующие внешнего подключения. Возвращаемое значение функции может быть только скалярным (одиночным). Добавив в задание определяемую пользователем функцию JavaScript, вы сможете использовать ее в любом месте запроса, например во встроенной скалярной функции.
@@ -133,12 +147,19 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Ставшие ненужными группу ресурсов, задание потоковой передачи и все связанные ресурсы можно удалить. При удалении задания будет прекращена тарификация за единицы потоковой передачи, потребляемые заданием. Если вы планируете использовать это задание в будущем, вы можете остановить и перезапустить его позже при необходимости. Если вы не собираетесь использовать это задание дальше, удалите все ресурсы, созданные в ходе работы с этим руководством, выполнив следующие шаги:
+
+1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите имя созданного ресурса.  
+2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите имя ресурса для удаления и щелкните **Удалить**.
+
 ## <a name="get-help"></a>Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дополнительная информация
-* [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
-* [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Справочник по языку запросов Azure Stream Analytics).
-* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) (Справочник по API-интерфейсу REST для управления Stream Analytics).
+
+С помощью этого руководства вы создали задание Stream Analytics, в котором выполняется простая определяемая пользователем функция JavaScript. Дополнительные сведения о Stream Analytics см в последующих статьях, посвященных сценариям в режиме реального времени:
+
+> [!div class="nextstepaction"]
+> [Анализ тональности в Twitter в режиме реального времени в Azure Stream Analytics](stream-analytics-twitter-sentiment-analysis-trends.md)

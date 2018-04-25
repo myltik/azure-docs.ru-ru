@@ -1,6 +1,6 @@
 ---
-title: "Краткое руководство Azure по выполнению пакетного задания на портале"
-description: "Быстро научитесь выполнять пакетное задание на портале Azure."
+title: Краткое руководство Azure по выполнению пакетного задания на портале
+description: Быстро научитесь выполнять пакетное задание на портале Azure.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Краткое руководство по выполнению первого пакетного задания на портале Azure
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/01/2018
 
 2. Введите значения параметров **Account name** (Имя учетной записи) и **Resource group** (Группа ресурсов). Имя учетной записи должно быть уникальным в пределах выбранного **расположения** Azure и содержать от 3 до 24 символов (буквы нижнего регистра или цифры). 
 
-3. В разделе **Учетная запись хранения** выберите имеющуюся учетную запись хранения общего назначения или создайте новую.
+3. В разделе **Учетная запись хранения** выберите имеющуюся учетную запись хранения или создайте новую.
 
 4. Оставьте значения по умолчанию для остальных параметров и нажмите кнопку **Create** (Создать), чтобы создать учетную запись.
 

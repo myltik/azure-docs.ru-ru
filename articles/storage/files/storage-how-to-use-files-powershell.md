@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c30bcc293cfe57452844dd74378593c234146802
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Управление файловыми ресурсами Azure с помощью Azure PowerShell 
 [Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от корпорации Майкрософт. Файловые ресурсы Azure можно подключить в Windows, Linux и macOS. В этом руководстве рассматриваются основы работы с файловыми ресурсами Azure с помощью PowerShell. В этой статье раскрываются следующие темы:
@@ -34,10 +34,10 @@ ms.lasthandoff: 03/29/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Если вы хотите установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.1.1 или более поздней версии. Чтобы узнать, какую версию модуля Azure PowerShell вы используете, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Если вы хотите установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.1.1 или более поздней версии. Чтобы узнать, какую версию модуля Azure PowerShell вы используете, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
-Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure и управление ими. Если у вас еще нет группы ресурсов Azure, вы можете создать ее с помощью командлета [`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure и управление ими. Если у вас еще нет группы ресурсов Azure, вы можете создать ее с помощью командлета [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в регионе "Восточная часть США".
 
@@ -70,15 +70,17 @@ New-AzureStorageShare `
 > [!Important]  
 > Имена общих ресурсов должны содержать только строчные буквы, цифры и отдельные дефисы, и они не могут начинаться с дефиса. Дополнительные сведения о присвоении имен общим папкам и файлам см. в статье [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Именование общих ресурсов, каталогов, файлов и метаданных и ссылка на них).
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Управление содержимым файлового ресурса Azure
-Теперь, когда файловый ресурс Azure создан, его можно подключить с помощью SMB к [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) или [macOS](storage-how-to-use-files-mac.md). Кроме того, этим ресурсом Azure можно управлять с помощью модуля Azure PowerShell. Этот способ является предпочтительным, так как все запросы в PowerShell выполняются через File REST API, который позволяет создавать, изменять и удалять файлы и каталоги в общих файловых ресурсах из:
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Использование материалов, расположенных в файловом ресурсе Azure
+Теперь, когда файловый ресурс Azure создан, его можно подключить с помощью SMB к [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) или [macOS](storage-how-to-use-files-mac.md). Кроме того, с этим ресурсом Azure можно работать с помощью модуля Azure PowerShell. Этот способ является предпочтительным, так как все запросы в PowerShell выполняются через File REST API, который позволяет создавать, изменять и удалять файлы и каталоги в общих файловых ресурсах из:
 
 - PowerShell Cloud Shell (которая не может подключать файловые ресурсы через SMB);
 - клиентов, которые не могут подключать общие ресурсы SMB, такие как локальные клиенты, в которых не разблокирован порт 445;
 - сценариев без сервера, например из службы [Функции Azure](../../azure-functions/functions-overview.md). 
 
+
 ### <a name="create-directory"></a>Создание каталога
-Чтобы создать каталог с именем *myDirectory* в корне файлового ресурса Azure, используйте командлет [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+Чтобы создать каталог с именем *myDirectory* в корне файлового ресурса Azure, используйте командлет [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -88,7 +90,7 @@ New-AzureStorageDirectory `
 ```
 
 ### <a name="upload-a-file"></a>Отправить файл.
-Чтобы продемонстрировать, как отправить файл с помощью командлета [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent), сначала необходимо создать нужный файл на временном диске PowerShell Cloud Shell. 
+Чтобы продемонстрировать, как отправить файл с помощью командлета [Set-AzureStorageFileContent](/powershell/module/azure.storage/set-azurestoragefilecontent), сначала необходимо создать нужный файл на временном диске PowerShell Cloud Shell. 
 
 Этот пример указывает текущую дату и время в новом файле на временном диске, а затем загружает этот файл в файловый ресурс.
 
@@ -106,14 +108,14 @@ Set-AzureStorageFileContent `
 
 При работе в PowerShell локально `C:\Users\ContainerAdministrator\CloudDrive\` следует заменить путем, который имеется на вашем компьютере.
 
-После отправки файла можно использовать командлет [`Get-AzureStorageFile`](/powershell/module/Azure.Storage/Get-AzureStorageFile), чтобы убедиться, что файл отправлен в файловый ресурс Azure. 
+После отправки файла можно использовать командлет [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile), чтобы убедиться, что файл отправлен в файловый ресурс Azure. 
 
 ```azurepowershell-interactive
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 ### <a name="download-a-file"></a>Скачивание файла
-С помощью командлета [`Get-AzureStorageFileContent`](/powershell/module/azure.storage/get-azurestoragefilecontent) можно загрузить копию только что отправленного файла на временный диск Cloud Shell.
+С помощью командлета [Get-AzureStorageFileContent](/powershell/module/azure.storage/get-azurestoragefilecontent) можно скачать копию только что отправленного файла на временный диск Cloud Shell.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -136,7 +138,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 ### <a name="copy-files"></a>Копирование файлов
-Одна из распространенных задач заключается в копировании файлов из одного файлового ресурса в другой или из контейнера хранилища BLOB-объектов Azure и в него. Чтобы продемонстрировать эту функцию, можно создать общий ресурс и скопировать только что отправленный в него файл с помощью командлета [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy). 
+Одна из распространенных задач заключается в копировании файлов из одного файлового ресурса в другой или из контейнера хранилища BLOB-объектов Azure и в него. Чтобы продемонстрировать эту функцию, можно создать общий ресурс и скопировать только что отправленный в него файл с помощью командлета [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy). 
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -148,7 +150,7 @@ New-AzureStorageDirectory `
    -ShareName "myshare2" `
    -Path "myDirectory2"
 
-Start-AzureStorageFileCopy 
+Start-AzureStorageFileCopy `
     -Context $storageAcct.Context `
     -SrcShareName "myshare" `
     -SrcFilePath "myDirectory\SampleUpload.txt" `
@@ -160,7 +162,7 @@ Start-AzureStorageFileCopy
 Если сейчас вывести список файлов в новом файловом ресурсе, вы увидите скопированный файл.
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDirectory2" 
+Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
 Хотя командлет `Start-AzureStorageFileCopy` удобен для ad-hoc-перемещения файлов между файловыми ресурсами Azure и контейнерами хранилища BLOB-объектов Azure, рекомендуем использовать AzCopy для больших перемещений (с точки зрения количества или размера перемещаемых файлов). См. дополнительные сведения об использовании [AzCopy для Windows](../common/storage-use-azcopy.md) and [AzCopy для Linux](../common/storage-use-azcopy-linux.md). Программу AzCopy требуется установить локально — она недоступна в Cloud Shell. 
@@ -171,7 +173,7 @@ Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDi
 - [диспетчер логических томов (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) для систем Linux;
 - [файловая система Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) для macOS. 
 
-Вы можете создать моментальный снимок, используя метод `Snapshot` для объекта PowerShell для общего файлового ресурса, полученного с помощью командлета [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare). 
+Вы можете создать моментальный снимок, используя метод `Snapshot` для объекта PowerShell для общего файлового ресурса, полученного с помощью командлета [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare). 
 
 ```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -212,7 +214,7 @@ Start-AzureStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Удаление моментального снимка общего ресурса
-Моментальный снимок общего ресурса можно удалить с помощью командлета [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare) с переменной, содержащей ссылку `$snapshot` в параметре `-Share`.
+Моментальный снимок общего ресурса можно удалить с помощью командлета [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare) с переменной, содержащей ссылку `$snapshot` в параметре `-Share`.
 
 ```azurepowershell-interactive
 Remove-AzureStorageShare -Share $snapshot

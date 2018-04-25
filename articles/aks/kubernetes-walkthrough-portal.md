@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Краткое руководство. Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -83,6 +83,11 @@ ms.lasthandoff: 03/23/2018
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+Укажите подписку (если она не указана)
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 Выполните команду [az acs kubernetes get-credentials][az-aks-get-credentials], чтобы настроить подключение kubectl к кластеру Kubernetes.
 
 Скопируйте следующий код и вставьте его в Cloud Shell. Если нужно, измените в нем имя группы ресурсов и имя кластера.
@@ -110,7 +115,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 Файл манифеста Kubernetes определяет требуемое состояние кластера, в том числе выполняемые в нем образы контейнеров. В нашем примере манифест создает все объекты, необходимые для запуска приложения Azure для голосования.
 
-Создайте файл с именем `azure-vote.yaml` и скопируйте в него следующий код YAML. Если вы работаете в Azure Cloud Shell, вы можете создать этот файл с помощью Vi или Nano, как на обычной виртуальной или физической системе.
+Создайте файл с именем `azure-vote.yaml` и скопируйте в него следующий код YAML. Если вы работаете в Azure Cloud Shell, создайте этот файл с помощью Vi или Nano, как в обычной виртуальной или физической системе.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +216,13 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Теперь можно перейти по внешнему IP-адресу в приложение Azure для голосования.
+Теперь перейдите по внешнему IP-адресу в приложение Azure для голосования.
 
 ![Изображение перехода к приложению Azure для голосования](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Удаление кластера
 
-Если кластер больше не нужен, просто удалите группу ресурсов кластера. Это действие удалит все связанные ресурсы. Для этого выделите группу ресурсов на портале Azure и нажмите кнопку "Удалить". Также можно применить команду [az group delete][az-group-delete] в Cloud Shell.
+Если кластер больше не нужен, просто удалите его группу ресурсов. После этого будут удалены все связанные ресурсы. Для этого выделите группу ресурсов на портале Azure и нажмите кнопку "Удалить". Также можно применить команду [az group delete][az-group-delete] в Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait

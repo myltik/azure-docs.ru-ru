@@ -1,12 +1,12 @@
 ---
-title: "Интеграция Azure Service Fabric со службой управления API | Документация Майкрософт"
-description: "В этом руководстве вы узнаете, как быстро приступить к работе со службой управления API Azure и Service Fabric."
+title: Интеграция Azure Service Fabric со службой управления API | Документация Майкрософт
+description: В этом руководстве вы узнаете, как быстро приступить к работе со службой управления API Azure и Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Руководство. Развертывание службы управления API с помощью Service Fabric
 Это руководство представляет собой четвертую часть цикла.  Расширенный сценарий развертывания для службы управления API Azure в Service Fabric.  Управление API позволяет публиковать API-интерфейсы с широким набором правил маршрутизации для служб серверной части Service Fabric. Обычно, облачным приложениям требуется интерфейсный шлюз, который предоставляет единую точку передачи входящего трафика пользователей, устройств или других приложений. В Service Fabric шлюзом может быть любая служба без отслеживания состояния, предназначенная для обработки входящего трафика, например приложение ASP.NET Core, концентраторы событий, Центр Интернета вещей или служба управления API Azure. 
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/12/2018
 Войдите в учетную запись Azure и выберите подписку, прежде чем выполнять команды Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ az account set --subscription <guid>
 
    В кластере Service Fabric в Azure должна запуститься служба Java без отслеживания состояния с именем `fabric:/EchoServerApplication/EchoServerService`.
 
-5. Откройте браузер и введите в адресной строке http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Отобразится сообщение "[version 1.0]Hello World!!!" .
+5. Откройте браузер и введите http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Должен отобразиться текст "[версия 1.0] Hello World!!!". .
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Загрузка и изучение шаблонов Resource Manager
 Загрузите и сохраните следующие шаблоны Resource Manager и файл параметров:
@@ -179,7 +179,7 @@ az account set --subscription <guid>
 
 - Для параметра **displayName** можно указать любое имя API-интерфейса. В этом руководстве введите имя Service Fabric App.
 - Параметр **name** содержит уникальное описательное имя для API-интерфейса, например service-fabric-app. Оно выводится на порталах разработчика и издателя. 
-- Параметр **serviceUrl** определяет HTTP-службу, которая реализует API-интерфейс. Портал управления API направит запросы по этому адресу. Для серверных систем Service Fabric это значение URL-адреса не используется. Здесь вы можете использовать любое значение. В этом руководстве используйте, например, http://servicefabric. 
+- Параметр **serviceUrl** определяет HTTP-службу, которая реализует API-интерфейс. Портал управления API направит запросы по этому адресу. Для серверных систем Service Fabric это значение URL-адреса не используется. Здесь вы можете использовать любое значение. Для выполнения задач этого руководства используйте, например, http://servicefabric. 
 - Значение **path** добавляется к основному URL-адресу вашей службы управления API. Основной URL-адрес является общим для всех интерфейсов API, размещенных в экземпляре службы API Management. API Management отличает интерфейсы API по их суффиксу. Следовательно, суффикс должен быть уникальным для каждого API для заданного издателя. 
 - Параметр **protocols** определяет, какие протоколы можно использовать для доступа к API. Для этого руководства укажите протоколы **http** и **https**.
 - Параметр **path** содержит суффикс для API-интерфейса. Мы будем использовать суффикс myapp.

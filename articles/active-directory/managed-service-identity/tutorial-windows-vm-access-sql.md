@@ -1,8 +1,8 @@
 ---
-title: "Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows"
-description: "В рамках этого руководства вы узнаете, как получить доступ к службе SQL Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
+title: Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows
+description: В рамках этого руководства вы узнаете, как получить доступ к службе SQL Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aaec2fe989c4b0ae1867e629f6b46ab29297cb41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows
 
@@ -55,17 +55,13 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="enable-msi-on-your-vm"></a>Активация MSI на виртуальной машине 
 
-MSI на виртуальной машине позволяет получить маркеры доступа из Azure AD без необходимости указывать в коде учетные данные. Активация MSI указывает Azure создать управляемое удостоверение для виртуальной машины. На самом деле активация MSI необходима для установки расширения виртуальной машины MSI и непосредственно активации MSI в Azure Resource Manager.
+MSI на виртуальной машине позволяет получить маркеры доступа из Azure AD без необходимости указывать в коде учетные данные. Активация MSI указывает Azure создать управляемое удостоверение для виртуальной машины. На самом деле включение MSI выполняет две функции: выполняется регистрация виртуальной машины в Azure Active Directory для создания управляемого удостоверения и его настройка на этой виртуальной машине.
 
 1.  Выберите **виртуальную машину**, на которой нужно активировать MSI.  
 2.  В левой области навигации щелкните **Конфигурация**. 
 3.  Появится страница **Managed Service Identity** (Управляемое удостоверение службы). Чтобы зарегистрировать и активировать MSI, нажмите кнопку **Да**. Чтобы удалить удостоверение, нажмите кнопку "Нет". 
 4.  Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию.  
     ![Замещающий текст](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Если вы хотите проверить расширения на этой виртуальной машине, щелкните **Расширения**. Если удостоверение MSI активировано, вы увидите в списке **ManagedIdentityExtensionforWindows**.
-
-    ![Замещающий текст](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Предоставление виртуальной машине доступа к базе данных на сервере SQL Azure
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Затем добавьте в группу MSI виртуальной машины.  Требуется значение **ObjectId** управляемого удостоверения службы, которое можно получить с помощью Azure PowerShell.  Сначала скачайте [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Затем войдите с помощью `Login-AzureRmAccount` и выполните следующие команды, чтобы:
+Затем добавьте в группу MSI виртуальной машины.  Требуется значение **ObjectId** управляемого удостоверения службы, которое можно получить с помощью Azure PowerShell.  Сначала скачайте [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Затем войдите с помощью `Connect-AzureRmAccount` и выполните следующие команды, чтобы:
 - Убедиться, что для контекста сеанса задана нужная подписка Azure (если имеется несколько).
 - Перечислить доступные ресурсы в подписке Azure, чтобы удостовериться в наличии группы ресурсов и виртуальной машины с правильными именами.
 - Получить свойства управляемого удостоверения службы виртуальной машины, используя соответствующие значения для `<RESOURCE-GROUP>` и `<VM-NAME>`.
@@ -182,7 +178,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 SQL Azure изначально поддерживает проверку подлинности Azure AD, поэтому может напрямую принимать маркеры доступа, полученные с использованием MSI.  Для создания подключения к SQL используется метод на основе **маркера доступа**.  Он реализуется как часть интеграции SQL Azure с Azure AD и отличается от указания учетных данных в строке подключения.
 
-Ниже приведен пример кода .NET для установки подключения к SQL с помощью маркера доступа.  Этот код должен выполняться на виртуальной машине, чтобы иметь доступ к конечной точке MSI виртуальной машины.  Для использования метода с маркером доступа необходима платформа **.NET Framework 4.6** или более поздней версии.  Замените значения AZURE-SQL-SERVERNAME и DATABASE соответствующим образом.  Обратите внимание, что идентификатор ресурса для SQL Azure — "https://database.windows.net/".
+Ниже приведен пример кода .NET для установки подключения к SQL с помощью маркера доступа.  Этот код должен выполняться на виртуальной машине, чтобы иметь доступ к конечной точке MSI виртуальной машины.  Для использования метода с маркером доступа необходима платформа **.NET Framework 4.6** или более поздней версии.  Замените значения AZURE-SQL-SERVERNAME и DATABASE соответствующим образом.  Обратите внимание, что идентификатор ресурса для SQL Azure — https://database.windows.net/.
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ if (accessToken != null) {
 4.  С помощью команды PowerShell `Invoke-WebRequest` сделайте запрос к локальной конечной точке MSI, чтобы получить маркер доступа к SQL Azure.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     Преобразуйте ответ из объекта JSON в объект PowerShell. 

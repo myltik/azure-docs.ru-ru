@@ -1,6 +1,6 @@
 ---
-title: "Проекты группы ресурсов Azure в Visual Studio | Документация Майкрософт"
-description: "Использование Visual Studio для создания проекта группы ресурсов Azure и развертывания ресурсов в Azure."
+title: Проекты группы ресурсов Azure в Visual Studio | Документация Майкрософт
+description: Использование Visual Studio для создания проекта группы ресурсов Azure и развертывания ресурсов в Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bd0680a16596931b5f595bbdd4e48414c8dbde73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Создание и развертывание групп ресурсов Azure с помощью Visual Studio
 С помощью Visual Studio и [пакета Azure SDK](https://azure.microsoft.com/downloads/) можно создать проект для развертывания инфраструктуры и кода в Azure. Например, можно определить веб-узел, веб-сайт и базу данных для приложения, а затем развернуть эту инфраструктуру вместе с кодом. Или можно определить виртуальную машину, виртуальную сеть и учетную запись хранилища, а затем развернуть эту инфраструктуру со сценарием, который выполняется на виртуальной машине. Проект развертывания **группа ресурсов Azure** позволяет развернуть все необходимые ресурсы в ходе одной воспроизводимой операции. Подробнее о развертывании ресурсов и управлении ими см. в разделе [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/18/2017
 5. Щелкните кнопку **Развернуть** , чтобы развернуть проект в Azure. Консоль PowerShell откроется вне экземпляра Visual Studio. При появлении запроса в консоли PowerShell введите пароль администратора базы данных. **Консоль PowerShell может быть скрыта под другими элементами или свернута на панели задач.** Откройте ее и введите пароль.
    
    > [!NOTE]
-   > В Visual Studio может отобразиться запрос на установку командлетов Azure PowerShell. Командлеты Azure PowerShell необходимы для успешного развертывания групп ресурсов. При появлении запроса установите их.
+   > В Visual Studio может отобразиться запрос на установку командлетов Azure PowerShell. Командлеты Azure PowerShell необходимы для успешного развертывания групп ресурсов. При появлении запроса установите их. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps).
    > 
    > 
 6. Развертывание может занять несколько минут. Состояние развертывания отображается в окне **Выходные данные** . После успешного завершения развертывания появится примерно такое сообщение:
@@ -216,6 +216,102 @@ ms.lasthandoff: 11/18/2017
     
      ![Показать развернутое приложение](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
+## <a name="add-an-operations-dashboard-to-your-deployment"></a>Добавление панели мониторинга операций к развертыванию
+Теперь, когда мы создали решение, осталось привести его в рабочее состояние. Вы можете использовать не только ресурсы, доступные через интерфейс Visual Studio. Мы можем использовать общие панели мониторинга, которые определены в качестве ресурсов в JSON. Это можно сделать, изменив наш шаблон и добавив настраиваемый ресурс. 
+
+1. Откройте файл WebsiteSqlDeploy.json и добавьте следующий блок кода Json после ресурса учетной записи хранилища, но перед закрывающей скобкой ] раздела с ресурсами.
+
+```json
+    ,{
+      "properties": {
+        "lenses": {
+          "0": {
+            "order": 0,
+            "parts": {
+              "0": {
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "colSpan": 4,
+                  "rowSpan": 6
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "resourceGroup",
+                      "isOptional": true
+                    },
+                    {
+                      "name": "id",
+                      "value": "[resourceGroup().id]",
+                      "isOptional": true
+                    }
+                  ],
+                  "type": "Extension/HubsExtension/PartType/ResourceGroupMapPinnedPart"
+                }
+              },
+              "1": {
+                "position": {
+                  "x": 4,
+                  "y": 0,
+                  "rowSpan": 3,
+                  "colSpan": 4
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "__Customizations__\n\nUse this dashboard to create and share the operational views of services critical to the application performing. To customize simply pin components to the dashboard and then publish when you're done. Others will see your changes when you publish and share the dashboard.\n\nYou can customize this text too. It supports plain text, __Markdown__, and even limited HTML like images <img width='10' src='https://portal.azure.com/favicon.ico'/> and <a href='https://azure.microsoft.com' target='_blank'>links</a> that open in a new tab.\n",
+                        "title": "Operations",
+                        "subtitle": "[resourceGroup().name]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "model": {
+            "timeRange": {
+              "value": {
+                "relative": {
+                  "duration": 24,
+                  "timeUnit": 1
+                }
+              },
+              "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+            }
+          }
+        }
+      },
+      "apiVersion": "2015-08-01-preview",
+      "name": "[concat('ARM-',resourceGroup().name)]",
+      "type": "Microsoft.Portal/dashboards",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "hidden-title": "[concat('OPS-',resourceGroup().name)]"
+      }
+    }
+}
+```
+
+2. Повторно разверните группу ресурсов. На панели мониторинга на портале Azure вы увидите общую панель мониторинга, добавленную в список вариантов. 
+
+    ![Настраиваемая панель мониторинга](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+
+
+
+   > [!NOTE] 
+   > Доступом к панели мониторинга можно управлять с помощью групп RBAC. Настройки можно опубликовать в ресурсе после его развертывания. Обратите внимание. Если вы повторно развернете группу ресурсов, она будет сброшена до значений по умолчанию в шаблоне. Учитывайте это, добавляя в шаблон настройки. См. дополнительные сведения о [создании панелей мониторинга Azure программными средствами](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+
+
+    ![Настраиваемая панель мониторинга](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
+    
+    
 ## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения об управлении ресурсами на портале см. в статье [Управление ресурсами Azure через портал](resource-group-portal.md).
 * Дополнительные сведения о шаблонах см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

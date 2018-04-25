@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c164406b3b988b5848f662d544ffa78bd6955d0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -966,7 +966,7 @@ Microsoft Azure предусматривает несколько способо
 
 **PowerShell**
 
-* Войдите в свою подписку с помощью командлета *Login-AzureRmAccount*.
+* Войдите в свою подписку с помощью командлета *Connect-AzureRmAccount*.
 * Укажите подписку контекста с помощью командлета *Set-AzureRmContext* с параметром SubscriptionId или SubscriptionName. Дополнительные сведения см. по адресу <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>.
 * Загрузите виртуальный жесткий диск с помощью командлета *Add-AzureRmVhd* в учетную запись хранения. Дополнительные сведения см. по адресу <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>.
 * (Необязательно.) Создайте управляемый диск из виртуального жесткого диска с помощью командлета *New-AzureRmDisk*. Дополнительные сведения см. по адресу <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>.
@@ -993,7 +993,7 @@ Microsoft Azure предусматривает несколько способо
 Чтобы передать существующую виртуальную машину или виртуальный жесткий диск из локальной сети и использовать в качестве образа виртуальной машины Azure, эта виртуальная машина или виртуальный жесткий диск должен отвечать требованиям, перечисленным в разделе [Подготовка виртуальной машины к развертыванию с помощью пользовательского образа для SAP][planning-guide-5.2.2] этого документа.
 
 * Используйте *sysprep* в Windows или *waagent-deprovision* в Linux, чтобы подготовить к работе виртуальную машину. Процесс для Windows подробно описан в [техническом руководстве по Sysprep](https://technet.microsoft.com/library/cc766049.aspx), а для Linux — в разделе [Запись образа виртуальной машины Linux для его использования в качестве шаблона диспетчера ресурсов][capture-image-linux-step-2-create-vm-image].
-* Войдите в свою подписку с помощью командлета *Login-AzureRmAccount*.
+* Войдите в свою подписку с помощью командлета *Connect-AzureRmAccount*.
 * Укажите подписку контекста с помощью командлета *Set-AzureRmContext* с параметром SubscriptionId или SubscriptionName. Дополнительные сведения см. по адресу <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>.
 * Загрузите виртуальный жесткий диск с помощью командлета *Add-AzureRmVhd* в учетную запись хранения. Дополнительные сведения см. по адресу <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>.
 * (Необязательно.) Создайте образ управляемого диска из виртуального жесткого диска с помощью командлета *New-AzureRmImage*. Дополнительные сведения см. по адресу <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>.

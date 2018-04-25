@@ -1,25 +1,25 @@
 ---
-title: "Руководство по MongoDB, Angular и Node — часть 3 | Документация Майкрософт"
-description: "Часть 3 серии руководств по созданию в Azure Cosmos DB приложения MongoDB с помощью Angular, Node и тех же API, которые используются для MongoDB."
+title: Руководство по MongoDB, Angular и Node — часть 3 | Документация Майкрософт
+description: Часть 3 серии руководств по созданию в Azure Cosmos DB приложения MongoDB с помощью Angular, Node и тех же API, которые используются для MongoDB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Создание приложения MongoDB с помощью Angular и Azure Cosmos DB. Часть 3. Создание пользовательского интерфейса с помощью Angular
 
@@ -100,8 +100,8 @@ ms.lasthandoff: 12/05/2017
     > 1. Нажмите кнопку **Расширения** ![Кнопка "Расширения" в Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png).
     > 2. Введите в поле поиска *angular essentials*.
     > 3. Щелкните **Install**(Установить). 
-    > 4. Нажмите кнопку **Перезагрузить**, чтобы использовать новые расширения.
-    > Их также можно скачать по адресу [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
+    > 4. Нажмите кнопку **Перезагрузить**, чтобы использовать новые расширения
+    > или скачайте их с [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
     > ![Расширение в наборе основных компонентов Angular](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
 7. Вернитесь к файлу **heroes.component.html** и скопируйте в него указанный ниже код. `<div>` — это контейнер для всей страницы. В контейнере содержится список компонентов Hero, которые нам нужно создать, чтобы при щелчке компонента можно было выбрать, изменить или удалить его в пользовательском интерфейсе. В HTML-коде есть несколько стилей, которые можно применить, чтобы выделить выбранный компонент. Также предусмотрена область редактирования для добавления нового компонента Hero или изменения существующего. 

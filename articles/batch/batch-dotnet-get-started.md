@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbd96187ad73a9c7e27b28f137e25fe66e2944ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Приступая к созданию решений с помощью клиентской библиотеки пакетной службы для .NET
 
@@ -40,12 +40,8 @@ ms.lasthandoff: 04/03/2018
 ### <a name="accounts"></a>учетные записи;
 * **Учетная запись Azure.** Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
 * **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure](batch-account-create-portal.md).
-* **Учетная запись хранения**. См. раздел [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
+* **Учетная запись хранения.** Параметры учетной записи хранения в пакетной службе см. в [обзоре функций пакетной службы](batch-api-basics.md#azure-storage-account).
 
-> [!IMPORTANT]
-> Сейчас пакетная служба поддерживает *только* тип учетной записи хранения **общего назначения**, как описано в шаге 5 раздела [Создайте учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account) статьи [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
->
->
 
 ### <a name="visual-studio"></a>Visual Studio
 Вам понадобится **Visual Studio 2015 или более поздней версии** для создания примера проекта. Бесплатные и пробные версии Visual Studio можно найти на странице [обзора продуктов Visual Studio][visual_studio].
@@ -101,11 +97,6 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
-
-> [!IMPORTANT]
-> Как упоминалось выше, необходимо указать учетные данные для учетной записи хранения **общего назначения** в службе хранилища Azure. В приложениях пакетной службы используется хранилище BLOB-объектов в пределах учетной записи хранения **общего назначения**. Не указывайте учетные данные для учетной записи службы хранилища, во время создания которой в качестве типа учетной записи выбрано значение *Хранилище BLOB-объектов* .
->
->
 
 Учетные данные учетных записей пакетной службы и службы хранилища можно найти в колонке учетной записи каждой службы на [портале Azure][azure_portal]:
 

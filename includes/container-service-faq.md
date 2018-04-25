@@ -92,6 +92,16 @@ ssh userName@masterFQDN –A –p 22
 
 Дополнительные сведения см. в статье [Подключение к кластеру службы контейнеров Azure](../articles/container-service/kubernetes/container-service-connect.md).
 
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>В Windows не работает разрешение имени DNS. Что делать?
+
+Есть некоторые известные проблемы DNS в Windows, исправления для которых по-прежнему находятся в процессе активной разработки. Убедитесь, что используются самые актуальные обработчик ACS и версия Windows (с установленными [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) и [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848)), чтобы в среде были доступны соответствующие преимущества. В противном случае см. инструкции по устранению проблем в следующей таблице:
+
+| Симптом DNS | Возможное решение  |
+|-------------|-------------|
+|Если контейнер рабочей нагрузки нестабилен и аварийно завершает работу, пространство имен очищается | Повторно разверните все затронутые службы |
+| Доступ к виртуальному IP-адресу службы отсутствует | Настройте [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), чтобы одна обычная (непривилегированная) группа pod всегда находилась в рабочем состоянии |
+|Если узел, в котором работает контейнер, становится недоступным, запросы DNS могут завершаться ошибкой, что приведет к наличию отрицательной записи кэша | Выполните следующую команду внутри затронутых контейнеров: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Если проблема все еще не решена, попробуйте полностью отключить кэширование DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
+
 ## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте больше о [Службе контейнеров Azure](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).

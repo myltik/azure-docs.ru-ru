@@ -1,6 +1,6 @@
 ---
-title: Настройка мониторинга с помощью OMS Log Analytics в Azure Service Fabric | Документация Майкрософт
-description: Узнайте, как настроить визуализацию и анализ событий в Operations Management Suite для мониторинга кластеров Azure Service Fabric.
+title: Настройка мониторинга с помощью Log Analytics в Azure Service Fabric | Документация Майкрософт
+description: Узнайте, как настроить визуализацию и анализ событий в Log Analytics для мониторинга кластеров Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Настройка Log Analytics в Operations Management Suite для кластера
+# <a name="set-up-log-analytics-for-a-cluster"></a>Настройка Log Analytics для кластера
 
-Рабочую область Operations Management Suite (OMS) можно настроить с помощью Azure Resource Manager, PowerShell или Azure Marketplace. Если необходимо сохранить обновленный шаблон развертывания Resource Manager для будущего использования, примените тот же шаблон для настройки среды OMS. Развертывание через Marketplace проще, если вы уже развернули кластер с включенной диагностикой. Если у вас нет доступа на уровне подписки в учетной записи, в которой развертывается OMS, используйте PowerShell или выполните развертывание с помощью шаблона Resource Manager.
+Рабочую область Log Analytics можно настроить в Azure Resource Manager, PowerShell или с помощью Azure Marketplace. Если необходимо сохранить обновленный шаблон развертывания Resource Manager для будущего использования, примените тот же шаблон для настройки среды OMS. Развертывание через Marketplace проще, если вы уже развернули кластер с включенной диагностикой. Если у вас нет доступа на уровне подписки в учетной записи, в которой развертывается OMS, используйте PowerShell или выполните развертывание с помощью шаблона Resource Manager.
 
 > [!NOTE]
-> Чтобы настроить OMS для мониторинга кластера, необходимо включить систему диагностики для просмотра событий уровня кластера или платформы.
+> Чтобы настроить Log Analytics для мониторинга кластера, необходимо включить систему диагностики для просмотра событий уровня кластера или платформы.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Развертывание OMS с помощью Azure Marketplace
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

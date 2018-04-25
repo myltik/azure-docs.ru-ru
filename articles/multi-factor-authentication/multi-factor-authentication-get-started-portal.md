@@ -1,8 +1,8 @@
 ---
-title: "Пользовательский портал на сервере MFA Azure | Документация Майкрософт"
-description: "Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication и пользовательским порталом."
+title: Пользовательский портал на сервере MFA Azure | Документация Майкрософт
+description: Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication и пользовательским порталом.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Пользовательский портал для сервера Многофакторной идентификации Azure
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/11/2017
    > [!NOTE]
    > Этот сертификат SSL обычно является публично подписанным SSL-сертификатом.
 
-4. Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, где установлен пользовательский портал (например, https://mfa.contoso.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
+4. Откройте веб-браузер на любом компьютере и перейдите по URL-адресу к странице, с которой был установлен пользовательский портал (например, https://mfa.contoso.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
 
 ![Установка пользовательского портала сервера MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -105,10 +105,10 @@ ms.lasthandoff: 12/11/2017
     * Найдите раздел **USE_WEB_SERVICE_SDK** и замените **value="false"** на **value="true"**
     * Найдите раздел **WEB_SERVICE_SDK_AUTHENTICATION_USERNAME** и замените **value=""** на **value="DOMAIN\User"** где DOMAIN\User — учетная запись службы, принадлежащая группе PhoneFactor Admins.
     * Найдите раздел **WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD** и измените **value=""** на **value="Password"**, где Password — это пароль для учетной записи службы, указанной в предыдущей строке.
-    * Найдите значение **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** и замените этот URL-адрес заполнителя URL-адресом SDK веб-службы, которую мы установили на шаге 2.
+    * Найдите значение **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** и измените этот заполнитель для URL-адреса на URL-адрес пакета SDK веб-службы, который мы установили на шаге 2.
     * Сохраните файл Web.Config и закройте Блокнот.
 
-6. Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, где установлен пользовательский портал (например, https://mfa.contoso.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
+6. Откройте веб-браузер на любом компьютере и перейдите по URL-адресу к странице, с которой был установлен пользовательский портал (например, https://mfa.contoso.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
 
 Если у вас есть вопросы о настройке SSL-сертификата на сервере IIS, ознакомьтесь со статьей [How to Set Up SSL on IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Как настроить SSL-сертификат на сервере IIS 7).
 

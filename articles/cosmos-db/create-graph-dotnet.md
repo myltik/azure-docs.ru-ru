@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e70e3d7b4cfd37cb28bda7df6210ad45415d9673
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dd2ff95c23b149cd8d5becf086c021060b0ec5a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB. Создание приложения .NET Framework или Core с помощью API Graph
 
@@ -46,19 +46,29 @@ Azure Cosmos DB — это глобально распределенная мн
 
 Теперь необходимо клонировать приложение API Graph из GitHub. Задайте строку подключения и выполните ее. Вы узнаете, как можно упростить работу с данными программным способом. 
 
-1. Откройте окно терминала, например Git Bash, и выполните команду `cd`, чтобы перейти в рабочий каталог.  
+1. Откройте командную строку, создайте папку git-samples, а затем закройте окно командной строки.
 
-2. Выполните команду ниже, чтобы клонировать репозиторий с примером. 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Откройте окно терминала git, например git bash, и выполните команду `cd`, чтобы перейти в новую папку для установки примера приложения.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Выполните команду ниже, чтобы клонировать репозиторий с примером. Эта команда создает копию примера приложения на локальном компьютере.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. Затем откройте файл решения в Visual Studio.
+4. Затем откройте файл решения в Visual Studio.
 
-4. Восстановите пакеты NuGet в проекте, в том числе драйвер Gremlin.Net и пакет Newtonsoft.Json.
+5. Восстановите пакеты NuGet в проекте, в том числе драйвер Gremlin.Net и пакет Newtonsoft.Json.
 
-5. Вы также можете установить драйвер Gremlin.Net (версии 3.2.7) вручную, используя диспетчер пакетов Nuget или [служебную программу командной строки NuGet](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools). 
+6. Вы также можете установить драйвер Gremlin.Net (версии 3.2.7) вручную, используя диспетчер пакетов Nuget или [служебную программу командной строки NuGet](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools). 
 
     ```bash
     nuget install Gremlin.Net -Version 3.2.7
@@ -66,7 +76,9 @@ Azure Cosmos DB — это глобально распределенная мн
 
 ## <a name="review-the-code"></a>Просмотр кода
 
-Сделаем краткий обзор того, что происходит в приложении. Откройте файл Program.cs, и вы увидите, что эти строки кода создают ресурсы Azure Cosmos DB. 
+Этот шаг не является обязательным. Если вы хотите узнать, как создать в коде ресурсы базы данных, изучите приведенные ниже фрагменты кода. Если вас это не интересует, можете сразу переходить к разделу [Обновление строки подключения](#update-your-connection-string). 
+
+Приведенные ниже фрагменты кода взяты из файла Program.cs.
 
 * Задайте параметры подключения на основе учетной записи, созданной ранее (строка 19). 
 
@@ -196,10 +208,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если вы не собираетесь использовать это приложение дальше, удалите все ресурсы, созданные в ходе работы с этим руководством, на портале Azure, сделав следующее: 
-
-1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите имя созданного ресурса. 
-2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите имя ресурса для удаления и щелкните **Удалить**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 

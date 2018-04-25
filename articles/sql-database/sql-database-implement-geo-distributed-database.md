@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Реализация географически распределенной базы данных
 
@@ -380,4 +380,17 @@ sudo apt-get install maven
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Дополнительные сведения см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md).
+С помощью этого руководства вы научились настраивать базу данных SQL Azure и приложение для отработки отказа в удаленный регион, а затем тестировать план отработки отказа.  Вы научились выполнять следующие задачи: 
+
+> [!div class="checklist"]
+> * создавать пользователей базы данных и предоставлять им разрешения;
+> * настраивать правила брандмауэра уровня базы данных;
+> * создавать группу отработки отказа георепликации;
+> * создавать и компилировать приложения Java для запроса базы данных SQL Azure;
+> * выполнять отработку аварийного восстановления.
+
+Перейдите к следующему руководству, чтобы узнать, как создать Управляемый экземпляр.
+
+> [!div class="nextstepaction"]
+>[Создание Управляемого экземпляра](sql-database-managed-instance-create-tutorial-portal.md)
+

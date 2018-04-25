@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure
 
@@ -129,8 +129,8 @@ ms.lasthandoff: 03/17/2018
 
 - Правила виртуальной сети применяются только к виртуальным сетям Azure Resource Manager, но не к сетям на основе [классической модели развертывания][arm-deployment-model-568f].
 
-- Включение конечных точек службы виртуальной сети для базы данных SQL Azure также включает конечные точки для служб MySQL и PostGres Azure. Тем не менее, если конечные точки включены в базе данных, подключиться через них к экземплярам MySQL или Postgres не удастся.
-    - Основной причиной является то, что сейчас MySQL и PostGres не поддерживают списки управления доступом (ACL).
+- Включение конечных точек службы виртуальной сети для базы данных SQL Azure также включает конечные точки для служб MySQL и PostgreSQL Azure. Тем не менее, если конечные точки включены в базе данных, подключиться через них к экземплярам MySQL или PostgreSQL не удастся.
+    - Основной причиной является то, что сейчас MySQL и PostgreSQL не поддерживают списки управления доступом (ACL).
 
 - К приведенным ниже элементам сети применяются диапазоны IP-адресов в брандмауэре, а правила виртуальной сети — нет:
     - [виртуальная частная сеть (VPN) типа "сеть — сеть"][vpn-gateway-indexmd-608y].
@@ -226,6 +226,10 @@ PolyBase часто используют для загрузки данных в
 
 В этом разделе показано, как с помощью [портала Azure][http-azure-portal-link-ref-477t] создать *правило виртуальной сети* в базе данных SQL Azure. Правило предписывает базе данных SQL принимать подключения из определенной подсети, которая помечена как *конечная точка службы виртуальной сети*.
 
+> [!NOTE]
+> Убедитесь, что конечные точки службы включены для виртуальной сети и подсети, которые будут добавлены к правилам брандмауэра для виртуальной сети сервера.
+> Если не включить конечные точки службы для виртуальной сети и подсети, вы получите запрос на портале об их включении. Щелкните кнопку включения в колонке, в которой добавляется правило.
+
 #### <a name="powershell-alternative"></a>Альтернатива PowerShell
 
 Создать правила виртуальной сети можно также с помощью сценария PowerShell. Для этого используется командлет **New-AzureRmSqlServerVirtualNetworkRule**. Если вам это интересно, ознакомьтесь с разделом [Создание конечной точки службы и правила виртуальной сети для базы данных SQL Azure с помощью PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
@@ -315,7 +319,7 @@ PolyBase часто используют для загрузки данных в
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

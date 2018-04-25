@@ -1,23 +1,28 @@
 ---
-title: Перенос базы данных SQL Server в базу данных SQL Azure | Документация Майкрософт
-description: Сведения о переносе базы данных SQL Server в базу данных SQL Azure.
+title: Перенос базы данных SQL Server в службу "База данных SQL Azure" с использованием DMS | Документация Майкрософт
+description: Сведения о переносе базы данных SQL Server в службу "База данных SQL Azure" с использованием DMS.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Перенос базы данных SQL Server в базу данных SQL Azure
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Перенос базы данных SQL Server в службу "База данных SQL Azure" с использованием DMS
 
-Перемещение базы данных SQL Server в базу данных SQL Azure такое же простое, как и создание пустой базы данных SQL в Azure и импорт базы данных в Azure с помощью [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595). Из этого руководства вы узнаете, как выполнять такие задачи.
+Переместить базу данных SQL Server в одну базу данных службы "База данных SQL Azure" так же просто, как создать пустую базу данных SQL в Azure и импортировать базы данных в Azure с помощью средства [Помощник по миграции данных](https://www.microsoft.com/download/details.aspx?id=53595). Дополнительные сведения о возможностях миграции см. в статье о [переносе базы данных в службу "База данных SQL Azure"](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Чтобы выполнить миграцию в Управляемый экземпляр Базы данных SQL, см. статью о [миграции из SQL Server в Управляемый экземпляр](sql-database-managed-instance-migrate.md).
+
+Из этого руководства вы узнаете, как выполнять такие задачи.
 
 > [!div class="checklist"]
 > * Создание пустой базы данных SQL Azure на портале Azure (с помощью нового или имеющегося сервера базы данных SQL Azure).

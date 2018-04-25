@@ -1,6 +1,6 @@
 ---
-title: Тестовый выпуск включенного веб-приложения Azure AD B2C
-description: Краткое руководство по применению примера веб-приложения ASP.NET, использующего Azure Active Directory B2C для предоставления входа пользователя.
+title: Краткое руководство. Настройка входа в приложение ASP.NET с помощью Azure Active Directory B2C | Документация Майкрософт
+description: Запуск примера веб-приложения ASP.NET, использующего Azure Active Directory B2C для предоставления возможности входа с учетной записью.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4342e8c58c9bb20580d8428a6c9869f9a3b893cb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Краткое руководство по тестовому выпуску веб-приложения с поддержкой Azure AD B2C
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Краткое руководство. Настройка входа в приложение ASP.NET с помощью Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C обеспечивает управление идентификаторами облака для защиты приложения, бизнеса и клиентов. Azure AD B2C позволяет приложениям выполнять проверку подлинности учетных записей социальных сетей и корпоративных учетных записей с помощью протоколов открытого стандарта.
 

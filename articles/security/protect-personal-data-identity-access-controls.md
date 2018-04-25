@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory и Многофакторная идентификация. Защита персональных данных с помощью управления удостоверениями и доступом
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="company-goal"></a>Цель компании
 
-Цель компании — обеспечить строго контролируемый доступ к персональным данным. Очень важно, чтобы удостоверения пользователей с доступом к персональным данным проходили строгую аутентификацию. Политика минимальных привилегий (https://en.wikipedia.org/wiki/Principle_of_least_privilege) должна применяться, чтобы уполномоченные пользователи имели лишь необходимый уровень доступа.
+Цель компании — обеспечить строго контролируемый доступ к персональным данным. Очень важно, чтобы удостоверения пользователей с доступом к персональным данным проходили строгую аутентификацию. Политика [минимальных привилегий] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) должна применяться, чтобы уполномоченные пользователи имели лишь необходимый уровень доступа.
 
 ## <a name="solutions"></a>Решения
 
@@ -83,11 +83,11 @@ Microsoft Azure предоставляет средства управления
 
 ### <a name="azure-role-based-access-control"></a>Управление доступом на основе ролей в Azure
 
-[Управление доступом на основе ролей в Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) позволяет администраторам Azure управлять доступом к ресурсам Azure, предоставив доступ на основе назначенных пользователю ролей. Вы сможете распределить обязанности внутри команды и предоставить доступ пользователям, группам и приложениям на том уровне, который им необходим для выполнения поставленных задач.
+[Управление доступом на основе ролей в Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) позволяет администраторам Azure управлять доступом к ресурсам Azure, предоставив доступ на основе назначенных пользователю ролей. Вы сможете распределить обязанности внутри команды и предоставить доступ пользователям, группам и приложениям на том уровне, который им необходим для выполнения поставленных задач.
 
 Для предоставления доступа на основе ролей можно использовать портал Azure, средства командной строки Azure и API управления Azure.
 
-Дополнительные сведения об управлении доступом на основе ролей в Azure см. в статье [Начало работы с управлением доступом на основе ролей на портале Azure](https://docs.microsoft.com/active-directory/role-based-access-control-what-is).
+Дополнительные сведения об управлении доступом на основе ролей в Azure см. в статье [Начало работы с управлением доступом на основе ролей на портале Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Управление Azure RBAC с помощью PowerShell
 
@@ -111,7 +111,7 @@ Microsoft Azure предоставляет средства управления
 
 - Вывод списка настраиваемых ролей
 
-Инструкции по управлению RBAC Azure с помощью PowerShell см. в статье [Управление доступом на основе ролей с помощью Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Инструкции по управлению RBAC Azure с помощью PowerShell см. в статье [Управление доступом на основе ролей с помощью Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Многофакторная идентификация Azure
 
@@ -125,7 +125,7 @@ Microsoft Azure предоставляет средства управления
 
 ![Пользователи, для которых настроена Многофакторная идентификация](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Если у вас нет лицензий, вам нужно определить наиболее подходящий тип развертывания. Рекомендуем сначала прочесть статью, посвященную [теме выбора решения Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started.md). Если вы решили, что вам нужен сервер Многофакторной идентификации, выполните такие действия:
+Если у вас нет лицензий, вам нужно определить наиболее подходящий тип развертывания. Рекомендуем сначала прочесть статью, посвященную [теме выбора решения Многофакторной идентификации Azure](../active-directory/authentication/concept-mfa-whichversion.md). Если вы решили, что вам нужен сервер Многофакторной идентификации, выполните такие действия:
 
 1. Войдите на портал Azure как администратор и выберите **Active Directory**.
 
@@ -184,6 +184,6 @@ Microsoft Azure предоставляет средства управления
 
 - [Часто задаваемые вопросы о Многофакторной идентификации Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Устранение неполадок при управлении доступом на основе ролей](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Устранение неполадок при управлении доступом на основе ролей](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Защита идентификации Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

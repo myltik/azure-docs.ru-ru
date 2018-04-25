@@ -11,14 +11,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2fb966d92dec713d5bf5ca48e8d15ae489227739
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c0db53a8eadefe661837ab0dbc84fd2eb4bf6057
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Руководство. Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure
 
@@ -46,8 +46,8 @@ ms.lasthandoff: 04/06/2018
 
 Для работы с этим руководством:
 
-1. [установите Git](https://git-scm.com/);
-1. [установите пакет SDK для .NET Core 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md).
+* [установите Git](https://git-scm.com/);
+* [установите .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-net-core-app"></a>Создание локального приложения .NET Core
 
@@ -98,7 +98,7 @@ dotnet run
 
 В Cloud Shell создайте логический сервер базы данных SQL с помощью команды [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
-Замените заполнитель *\<server_name>* уникальным именем базы данных SQL. Это имя используется как часть конечной точки базы данных SQL (`<server_name>.database.windows.net`), поэтому оно должно быть уникальным для логических серверов в Azure. В нем могут использоваться только строчные буквы, цифры и дефис (-). Его длина должна быть от 3 до 50 знаков. Кроме того, замените *\<db_username >* на имя пользователя, а *\<db_password >* — на пароль по своему усмотрению. 
+Замените заполнитель *\<server_name>* уникальным именем базы данных SQL. Это имя используется как часть конечной точки базы данных SQL (`<server_name>.database.windows.net`), поэтому оно должно быть уникальным для логических серверов в Azure. В нем могут использоваться только строчные буквы, цифры и дефис (-). Его длина должна быть от 3 до 50 знаков. Кроме того, замените *\<db_username >* на имя пользователя, а *\<db_password >*  — на пароль по своему усмотрению. 
 
 
 ```azurecli-interactive
@@ -146,7 +146,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 В следующей строке замените *\<server_name>*, *\<db_username>* и *\<db_password>* на использованные ранее значения.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Это строка подключения для вашего приложения .NET Core. Скопируйте ее для дальнейшего использования.
@@ -169,7 +169,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 
-Чтобы задать строки подключения для приложения Azure, используйте команду [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в Cloud Shell. В следующей команде замените *\<app name>* на собственное значение, а параметр *\<connection_string>* — на строку подключения, созданную ранее.
+Чтобы задать строки подключения для приложения Azure, используйте команду [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в Cloud Shell. В следующей команде замените *\<app name>* на собственное значение, а параметр *\<connection_string>*  — на строку подключения, созданную ранее.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -201,7 +201,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -214,7 +214,8 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 Сохраните изменения и зафиксируйте их в репозитории Git. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Публикация в Azure из Git
@@ -293,7 +294,7 @@ dotnet ef database update
 
 Откройте файл _Controllers\TodosController.cs_.
 
-Найдите метод `Create()` и добавьте `Done` в список свойств атрибута `Bind`. Когда все будет готово, сигнатура метода `Create()` должна выглядеть следующим образом:
+Найдите метод `Create([Bind("ID,Description,CreatedDate")] Todo todo)` и добавьте `Done` в список свойств атрибута `Bind`. Когда все будет готово, сигнатура метода `Create()` должна выглядеть следующим образом:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -346,7 +347,8 @@ dotnet run
 ### <a name="publish-changes-to-azure"></a>Публикация изменений в Azure
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

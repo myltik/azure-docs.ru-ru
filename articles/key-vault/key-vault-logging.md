@@ -1,8 +1,8 @@
 ---
-title: "Ведение журнала хранилища ключей Azure | Документация Майкрософт"
-description: "Это руководство поможет вам приступить к работе с журналами хранилища ключей Azure."
+title: Ведение журнала хранилища ключей Azure | Документация Майкрософт
+description: Это руководство поможет вам приступить к работе с журналами хранилища ключей Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Ведение журнала хранилища ключей Azure
 Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [цен на хранилище ключей](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/17/2017
 ## <a id="connect"></a>Подключение к подпискам
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. Azure PowerShell получит все подписки, связанные с этой учетной записью, и по умолчанию будет использовать первую из них.
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/17/2017
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 Вы получите приблизительно такой результат:
 
-**Универсальный код ресурса (URI) контейнера: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI контейнера: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Имя**
 

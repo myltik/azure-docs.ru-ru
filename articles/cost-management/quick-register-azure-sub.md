@@ -1,20 +1,20 @@
 ---
-title: "Регистрация подписки Azure в Azure Cost Management | Документация Майкрософт"
-description: "Используйте подписку Azure для регистрации в службе \"Управление затратами Azure\"."
+title: Регистрация подписки Azure в Azure Cost Management | Документация Майкрософт
+description: Используйте подписку Azure для регистрации в службе "Управление затратами Azure".
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a8ff85d9d40d2d6b1169e41ac69fac7e808a1df2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Регистрация индивидуальной подписки Azure и просмотр данных о затратах
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/09/2018
 
 - Войдите на портал Azure по адресу http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Создание пробной регистрации
+## <a name="register-with-azure-cost-management"></a>Регистрация в службе "Управление затратами Azure"
 
 1. На портале Azure в списке служб выберите **Cost Management + Billing** (Управление затратами + Выставление счетов).
 2. В разделе **Обзор**, щелкните **Управление затратами**.  
