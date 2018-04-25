@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с веб-приложением Azure AD v2.0 .NET с поддержкой входа | Документация Майкрософт"
-description: "Как создать веб-приложение .NET MVC, которое поддерживает вход пользователей в систему с помощью личной, рабочей и учебной учетных записей Майкрософт."
+title: Начало работы с веб-приложением Azure AD v2.0 .NET с поддержкой входа | Документация Майкрософт
+description: Как создать веб-приложение .NET MVC, которое поддерживает вход пользователей в систему с помощью личной, рабочей и учебной учетных записей Майкрософт.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Добавление функции входа в веб-приложение .NET MVC
 Конечная точка версии 2.0 позволяет быстро реализовать аутентификацию в веб-приложениях с поддержкой личных учетных записей Майкрософт, а также рабочих или учебных учетных записей.  В веб-приложениях ASP.NET это можно делать с помощью ПО промежуточного уровня OWIN корпорации Microsoft, включенного в .NET Framework 4.5.
