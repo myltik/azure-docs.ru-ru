@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Расширение (копирование) оповещений с портала OMS в Azure
 На портале Operations Management Suite (OMS) отображаются только оповещения Log Analytics.  Новые возможности оповещений теперь интегрированы в различные службы и элементы Microsoft Azure. Новая функция **Оповещения** в Azure Monitor на портале Azure содержит оповещения журнала действий, оповещения метрик и оповещения журнала в Log Analytics и Application Insights. 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/06/2018
  ![В течение запланированного периода действия пользователя с оповещениями перенаправляются в Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Плата за расширение уведомлений с портала OMS в Azure и использование оповещений Azure для запросов на основе журнала Log Analytics не взимается, если это осуществляется в рамках и по условиям, указанным в статье [Цены на Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).  
+> Плата за расширение уведомлений с портала OMS в Azure и использование оповещений Azure для запросов на основе журнала Log Analytics не взимается, если это осуществляется в рамках и по условиям, указанным в статье [Цены на Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  
 
 Пользователи могут воспользоваться преимуществами расширения оповещений до этой даты, добровольно решив сделать свои оповещения управляемыми в Azure.
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup: восстановление состояния системы в Windows Server | Документация Майкрософт"
-description: "Это пошаговое руководство по восстановлению состояния системы Windows Server из резервной копии в Azure."
+title: 'Azure Backup: восстановление состояния системы в Windows Server | Документация Майкрософт'
+description: Это пошаговое руководство по восстановлению состояния системы Windows Server из резервной копии в Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Восстановление состояния системы в Windows Server
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 12/19/2017
 Резервная копия состояния системы включает данные Active Directory. Выполните следующие действия для восстановления предыдущего состояния доменных служб Active Directory (AD DS).
 
 1. Перезапустите контроллер домена в режиме восстановления служб каталогов (DSRM).
-2. Выполните [следующие действия](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx), чтобы восстановить доменные службы Active Directory с помощью командлетов системы архивации данных Windows Server.
+2. Выполните [следующие действия](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx), чтобы восстановить доменные службы Active Directory с помощью командлетов системы архивации данных Windows Server.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Устранение неполадок при сбое восстановления состояния системы

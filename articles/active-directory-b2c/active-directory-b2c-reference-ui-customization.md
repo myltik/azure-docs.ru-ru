@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: ea33fa95aa7b73668aeee313a9d71a7f78e89a77
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: настройка пользовательского интерфейса Azure AD B2C
 
@@ -345,3 +345,4 @@ ms.lasthandoff: 03/23/2018
   * Ограниченная поддержка Internet Explorer 9, 8
   * Google Chrome 42.0 и выше
   * Mozilla Firefox 38.0 и выше
+* Убедитесь, что в HTML не включены теги `<form>`. Они будут мешать операциям POST, созданным на основе внедренного кода HTML из Azure AD B2C.

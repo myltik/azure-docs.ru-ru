@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Создание определяемых пользователем маршрутов с помощью шаблона
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 03/08/2018
 
         info:    New mode is arm
 
-3. В браузере перейдите по ссылке **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, скопируйте содержимое JSON-файла и вставьте в новый файл на своем компьютере. В этом сценарии скопируйте следующие значения в файл **c:\udr\azuredeploy.parameters.json**.
+3. В браузере перейдите к **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, скопируйте содержимое JSON-файла и вставьте его в новый файл на своем компьютере. В этом сценарии скопируйте следующие значения в файл **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {

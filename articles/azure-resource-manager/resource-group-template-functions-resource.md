@@ -1,12 +1,12 @@
 ---
-title: "Функции шаблонов Azure Resource Manager для работы с ресурсами | Документация Майкрософт"
-description: "Описывает функции, используемые в шаблоне Azure Resource Manager для получения значений ресурсов."
+title: Функции шаблонов Azure Resource Manager для работы с ресурсами | Документация Майкрософт
+description: Описывает функции, используемые в шаблоне Azure Resource Manager для получения значений ресурсов.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Функции для работы с ресурсами в шаблонах Azure Resource Manager
 
 Диспетчер ресурсов предоставляет следующие функции для получения значений ресурсов:
 
-* [listKeys и list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -36,12 +38,14 @@ ms.lasthandoff: 01/23/2018
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys и list{Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets и list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Возвращает значения для любого типа ресурса, который поддерживает операцию list. Наиболее распространенным вариантом применения является `listKeys`. 
+Возвращает значения для любого типа ресурса, который поддерживает операцию list. Наиболее распространенными вариантами применения являются `listKeys` и `listSecrets`. 
 
 ### <a name="parameters"></a>Параметры
 

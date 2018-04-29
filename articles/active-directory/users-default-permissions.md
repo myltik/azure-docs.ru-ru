@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Разрешения пользователя по умолчанию в Azure Active Directory
 
-В Azure Active Directory (Azure AD) набор разрешений по умолчанию предоставляется всем пользователям. Доступ пользователей зависит от назначенного типа пользователя, [принадлежности к роли](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal) и владения отдельными объектами. В этой статье описываются эти разрешения по умолчанию и содержится сравнение значений по умолчанию для участников и гостевых пользователей.
+В Azure Active Directory (Azure AD) набор разрешений по умолчанию предоставляется всем пользователям. Доступ пользователей зависит от назначенного типа пользователя, [принадлежности к роли](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) и владения отдельными объектами. В этой статье описываются эти разрешения по умолчанию и содержится сравнение значений по умолчанию для участников и гостевых пользователей.
 
 ## <a name="member-and-guest-users"></a>Участники и гостевые пользователи
 Набор полученных разрешений по умолчанию зависит от того, является ли пользователь участником клиента или гостевым пользователем в рамках совместной работы B2B. Дополнительные сведения о совместной работе B2B и гостевых пользователях см. в статье [Что такое служба совместной работы Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md). 

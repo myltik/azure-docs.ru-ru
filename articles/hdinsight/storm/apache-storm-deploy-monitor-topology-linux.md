@@ -1,8 +1,8 @@
 ---
-title: "Развертывание топологий Apache Storm в HDInsight на основе Linux и управление ими | Документация Майкрософт"
-description: "Узнайте, как развертывать и отслеживать топологии Apache Storm, а также управлять ими с помощью панели мониторинга Storm в HDInsight на основе Linux. Использование инструментов Hadoop для Visual Studio."
+title: Развертывание топологий Apache Storm в HDInsight на основе Linux и управление ими | Документация Майкрософт
+description: Узнайте, как развертывать и отслеживать топологии Apache Storm, а также управлять ими с помощью панели мониторинга Storm в HDInsight на основе Linux. Использование инструментов Hadoop для Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight и управление ими
 
@@ -95,7 +93,7 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="submit-a-topology-programmatically"></a>Отправка топологии: программный метод
 
-Топологию можно развернуть программными средствами с помощью службы Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) приведен пример приложения Java, в котором показано, как развернуть и запустить топологию с помощью службы Nimbus.
+Топологию можно развернуть программными средствами с помощью службы Nimbus. По адресу [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) приведен пример приложения Java, в котором показано, как развернуть и запустить топологию с помощью службы Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Мониторинг и управление: Visual Studio
 
@@ -166,7 +164,7 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="monitor-and-manage-storm-ui"></a>Мониторинг и управление: пользовательский интерфейс Storm
 
-Пользовательский интерфейс Storm предоставляет веб-интерфейс для работы с запущенными топологиями и включен в состав кластера HDInsight. Чтобы открыть пользовательский интерфейс Storm, в веб-браузере перейдите по адресу **https://CLUSTERNAME.azurehdinsight.net/stormui**, где **CLUSTERNAME** — это имя вашего кластера.
+Пользовательский интерфейс Storm предоставляет веб-интерфейс для работы с запущенными топологиями и включен в состав кластера HDInsight. Чтобы открыть пользовательский интерфейс Storm, в веб-браузере перейдите по адресу **https://CLUSTERNAME.azurehdinsight.net/stormui**, где **CLUSTERNAME** — это имя вашего кластера.
 
 > [!NOTE]
 > При появлении соответствующего запроса введите имя пользователя и пароль администратора кластера (admin), которые использовались при создании кластера.
@@ -220,7 +218,7 @@ ms.lasthandoff: 02/23/2018
 
 ### <a name="base-uri"></a>Базовый универсальный код ресурса
 
-Базовый универсальный код ресурса (URI) для REST API в кластерах HDInsight под управлением Linux доступен на головном узле: **https://HEADNODEFQDN:8744/api/v1/** . Доменное имя головного узла формируется при создании кластера и не является статическим.
+Базовый универсальный код ресурса (URI) для REST API в кластерах HDInsight под управлением Linux доступен в головном узле по адресу **https://HEADNODEFQDN:8744/api/v1/**. Доменное имя головного узла формируется при создании кластера и не является статическим.
 
 Полное доменное имя (FQDN) головного узла кластера можно получить несколькими способами.
 

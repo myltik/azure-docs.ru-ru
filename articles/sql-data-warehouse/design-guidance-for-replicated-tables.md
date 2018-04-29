@@ -1,24 +1,20 @@
 ---
-title: "Руководство по проектированию реплицированных таблиц — хранилище данных SQL Azure | Документы Майкрософт"
-description: "Рекомендации по проектированию реплицированных таблиц в схеме хранилища данных SQL Azure."
+title: Руководство по проектированию реплицированных таблиц — хранилище данных SQL Azure | Документы Майкрософт
+description: Рекомендации по проектированию реплицированных таблиц в схеме хранилища данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ronortloff
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 10/23/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Руководство по проектированию для использования реплицированных таблиц в хранилище данных SQL Azure
 В данной статье представлены рекомендации по проектированию реплицированных таблиц в схеме хранилища данных SQL Azure. Данные рекомендации позволяют повысить производительность запросов за счет уменьшения перемещения данных и упрощения запросов.
@@ -84,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Преобразование существующих циклических таблиц в реплицированные таблицы
 Если имеются циклические таблицы, их рекомендуется преобразовать в реплицированные таблицы, если они удовлетворяют критериям, обозначенным в этой статье. Реплицированные таблицы эффективнее по сравнению с циклическими таблицами, поскольку они исключают необходимость в перемещении данных.  Для соединений в циклической таблице всегда требуется перемещение данных. 
 
-В этом примере используется функция [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) для изменения таблицы DimSalesTerritory в реплицированную таблицу. В данном примере неважно, была ли таблица DimSalesTerritory хэш-распределена или распределена методом циклического перебора.
+В этом примере используется функция [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) для изменения таблицы DimSalesTerritory в реплицированную таблицу. В данном примере неважно, была ли таблица DimSalesTerritory хэш-распределена или распределена методом циклического перебора.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -112,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Пример производительности запросов для циклической и реплицированной таблиц 
 
-Поскольку вся таблица уже существует на каждом вычислительном узле, для реплицированной таблицы не требуется перемещать данные для соединений. Если таблицы измерений распределены методом циклического перебора, соединение копирует таблицу измерения в полном объеме на каждом вычислительном узле. Чтобы переместить данные, план запроса содержит операцию, которая называется BroadcastMoveOperation. Операции перемещения данных данного типа снижают производительность запросов. Устранить это можно с помощью реплицированных таблиц. Чтобы просмотреть действия плана запроса, используйте представление системного каталога [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
+Поскольку вся таблица уже существует на каждом вычислительном узле, для реплицированной таблицы не требуется перемещать данные для соединений. Если таблицы измерений распределены методом циклического перебора, соединение копирует таблицу измерения в полном объеме на каждом вычислительном узле. Чтобы переместить данные, план запроса содержит операцию, которая называется BroadcastMoveOperation. Операции перемещения данных данного типа снижают производительность запросов. Устранить это можно с помощью реплицированных таблиц. Чтобы просмотреть действия плана запроса, используйте представление системного каталога [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
 
 Например, в следующем запросе к схеме AdventureWorks таблица ` FactInternetSales` хэш-распределена. Таблицы `DimDate` и `DimSalesTerritory` являются таблицами измерений меньшего размера. Этот запрос возвращает общий объем продаж в Северной Америке за 2004 финансовый год:
  
@@ -140,7 +136,7 @@ WHERE d.FiscalYear = 2004
 
 Перестроение требуется после следующего:
 - Загрузка или изменение данных
-- Масштабирование хранилища данных с использованием другого [уровня обслуживания](performance-tiers.md#service-levels).
+- Масштабирование хранилища данных с использованием другого уровня обслуживания.
 - Обновление определения таблицы
 
 Перестроение не требуется после следующего:
@@ -178,7 +174,7 @@ WHERE d.FiscalYear = 2004
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Перестроение реплицированной таблицы после пакетной загрузки
 Чтобы обеспечить согласованное выполнение запросов, рекомендуется принудительно обновить реплицированные таблицы после пакетной загрузки. В противном случае при выполнении первого запроса потребуется дождаться обновления таблиц, что включает перестроение индексов. В зависимости от размера и количество затронутых реплицированных таблиц это может оказать значительное влияние на производительность.  
 
-В этом запросе используется динамическое административное представление [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) для отображения реплицированных таблиц, которые были изменены, но не перестроены.
+В этом запросе используется динамическое административное представление [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) для отображения реплицированных таблиц, которые были изменены, но не перестроены.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -200,8 +196,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Дополнительная информация 
 Чтобы создать реплицированную таблицу, воспользуйтесь одной из следующих инструкций:
 
-- [CREATE TABLE (хранилище данных Azure SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (хранилище данных SQL Azure)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (хранилище данных Azure SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (хранилище данных SQL Azure)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Обзор распределенных таблиц см. в разделе [Распределенные таблицы](sql-data-warehouse-tables-distribute.md).
 

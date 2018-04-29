@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ec8c9de6ecd81900c4104abf58ecbe032e43fad9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Использование удостоверения управляемой службы (MSI) виртуальной машины Azure для входа 
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="resource-ids-for-azure-services"></a>Идентификаторы ресурсов для служб Azure
 
-Список ресурсов, которые поддерживают Azure AD и были протестированы с MSI и соответствующими идентификаторами ресурсов, см. в разделе [Службы Azure, поддерживающие аутентификацию Azure AD](overview.md#azure-services-that-support-azure-ad-authentication).
+Список ресурсов, которые поддерживают Azure AD и были протестированы с MSI и соответствующими идентификаторами ресурсов, см. в разделе [Службы Azure, поддерживающие аутентификацию Azure AD](services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 ## <a name="error-handling-guidance"></a>Руководство по обработке ошибок 
 

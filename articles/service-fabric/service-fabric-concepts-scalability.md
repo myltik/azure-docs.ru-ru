@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Масштабирование в Service Fabric
 Azure Service Fabric упрощает создание масштабируемых приложений, обеспечивая управление службами, секциями и репликами на узлах кластера. Выполнение множества рабочих нагрузок на одном и том же оборудовании обеспечивает не только максимальное использование ресурсов, но и гибкость в выборе способа масштабирования рабочих нагрузок. В этом видео Channel 9 объясняется, как создавать масштабируемые приложения для микрослужб:
@@ -117,12 +117,7 @@ Service Fabric поддерживает секционирование. Секц
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Масштабирование путем добавления и удаления узлов кластера 
 Еще один вариант масштабирования в Service Fabric — изменение размера кластера. Изменение размера кластера означает добавление или удаление узлов одного или нескольких типов в кластере. Например, рассмотрим случай, в котором все узлы в кластере нагружены. Это означает, что ресурсы кластера почти полностью использованы. В этом случае лучшим способом масштабирования является добавление узлов в кластер. После присоединения новых узлов к кластеру диспетчер кластерных ресурсов Service Fabric переместит на них службы, что снизит общую нагрузку на существующие узлы. Для служб без отслеживания состояния с числом экземпляров, равным -1, дополнительные экземпляры службы создаются автоматически. Это позволяет перенести некоторые вызовы с существующих узлов на новые узлы. 
 
-Добавление и удаление узлов в кластере можно выполнять с помощью модуля PowerShell для Azure Resource Manager Service Fabric.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Дополнительные сведения см. в статье о [масштабировании кластера](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Сборка
 Давайте рассмотрим все идеи, которые мы уже обсудили, на следующем примере. Предположим, что вы пытаетесь создать службу, которая выступает в качестве адресной книги для хранения имен и контактной информации. 

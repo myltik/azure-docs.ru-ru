@@ -1,35 +1,4 @@
-- name: Управляемое удостоверение службы (назначенное пользователем)
-  href: msi-overview.md
+- name: Использование виртуальной машины MSI для доступа к хранилищу Azure
   items:
-    - name: Настройка MSI для виртуальной машины Azure
-      items:
-        - name: Использование Azure CLI
-          href: msi-qs-configure-cli-windows-vm.md
-        - name: Использование пакета Azure SDK
-          href: msi-qs-configure-sdk-windows-vm.md
-    - name: Предоставление доступа MSI к Resource Manager
-      items:
-        - name: Использование Azure CLI
-          href: msi-howto-assign-access-cli.md
-    - name: Использование удостоверения управляемой службы для виртуальной машины
-      items:
-        - name: Получение маркера доступа
-          href: msi-how-to-use-vm-msi-token.md
-        - name: Вход в Azure CLI
-          href: msi-how-to-use-vm-msi-sign-in.md
-        - name: Использование с пакетами Azure SDK
-          href: msi-how-to-use-vm-msi-sdk.md
-    - name: Использование виртуальной машины MSI для доступа к Azure Resource Manager
-      items:
-        - name: С помощью виртуальной машины Linux
-          href: msi-tutorial-linux-vm-access-arm.md
-    - name: Использование MSI виртуальной машины для доступа к Azure Cosmos DB
-      items:
-        - name: С помощью виртуальной машины Linux
-          href: msi-tutorial-linux-vm-access-cosmosdb.md
-    - name: Использование виртуальной машины MSI для доступа к хранилищу Azure
-      items:
-        - name: С помощью виртуальной машины Linux и ключа доступа
-          href: msi-tutorial-linux-vm-access-storage.md
-    - name: Часто задаваемые вопросы и известные проблемы
-      href: msi-known-issues.md
+    - name: С помощью виртуальной машины Linux и ключа доступа
+      href: msi-tutorial-linux-vm-access-storage.md

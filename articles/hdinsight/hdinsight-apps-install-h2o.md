@@ -12,15 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Установка опубликованного приложения H2O Sparkling Water
 
@@ -84,9 +82,9 @@ H2O Sparkling Water обеспечивает:
 
     ![Выбор примера Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Найдите путь, содержащий **milsongs-cls-train.csv.gz**, и замените весь путь на **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
+7. Найдите путь, который содержит **milsongs-cls-train.csv.gz**, и замените весь путь значением **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
-8. Найдите путь, содержащий **milsongs-cls-test.csv.gz**, и замените его на **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
+8. Найдите путь, который содержит **milsongs-cls-test.csv.gz**, и замените его значением **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
 9. Чтобы выполнить все инструкции в ячейках записной книжки, на панели инструментов нажмите кнопку **Run All** (Запустить все).
 

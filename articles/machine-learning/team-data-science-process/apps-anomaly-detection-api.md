@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API обнаружения аномалий в машинном обучении
 ## <a name="overview"></a>Обзор
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/28/2018
 Чтобы использовать API-интерфейс, необходимо развернуть его в подписке Azure. Он будет размещаться там в роли веб-службы машинного обучения Azure.  Это можно сделать в [коллекции решений ИИ Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  В результате в подписке Azure будут развернуты две веб-службы AzureML (и соответствующие ресурсы). Одна из них используется для обнаружения аномалий и сезонности, а вторая работает без обнаружения сезонности.  Когда завершится развертывание, этими интерфейсами API можно управлять на странице [веб-служб AzureML](https://services.azureml.net/webservices/).  На этой странице вы можете найти расположения конечных точек, ключи API и примеры кода для вызова API.  Более подробные инструкции см. [здесь](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Масштабирование API
-По умолчанию для развертывания применяется бесплатный тарифный план для разработки и тестирования. Он предоставляет 1000 транзакций и 2 часа вычислений ежемесячно.  Этот план вы можете сменить на любой другой в соответствии с потребностями.  Сведения о ценах на разные планы приводятся [на этой странице](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) в разделе "Цены на производственный веб-API".
+По умолчанию для развертывания применяется бесплатный тарифный план для разработки и тестирования. Он предоставляет 1000 транзакций и 2 часа вычислений ежемесячно.  Этот план вы можете сменить на любой другой в соответствии с потребностями.  Сведения о ценах на разные планы приводятся [на этой странице](https://azure.microsoft.com/pricing/details/machine-learning/) в разделе "Цены на производственный веб-API".
 
 ## <a name="managing-aml-plans"></a>Управление планами AML 
 Управление тарифным планом осуществляется [здесь](https://services.azureml.net/plans/).  Имя плана формируется на основе имени группы ресурсов, которую вы выберете при развертывании API. К нему добавляется строка, используемая только для вашей подписки.  Инструкции по обновлению плана можно найти [на этой странице](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) в разделе "Управление планами выставления счетов".

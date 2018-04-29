@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3c4c9a330286eb00aa6a0da6e95b56b49b6eaa6c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Метрики службы хранилища Azure в Azure Monitor (предварительная версия)
+# <a name="azure-storage-metrics-in-azure-monitor"></a>Метрики службы хранилища Azure в Azure Monitor
 
 С помощью метрик службы хранилища Azure вы можете анализировать тенденции использования, выполнять трассировку запросов и диагностику проблем учетной записи хранения.
 

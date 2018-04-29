@@ -1,6 +1,6 @@
 ---
-title: "Создание шлюза приложений с перенаправлением на основе URL-пути при помощи Azure PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с перенаправлением трафика на основе URL-пути с помощью Azure PowerShell."
+title: Создание шлюза приложений с перенаправлением на основе URL-пути при помощи Azure PowerShell | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с перенаправлением трафика на основе URL-пути с помощью Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: davidmu
-ms.openlocfilehash: 64b077a387bce0dd5c1f34aaca4dfcdda5b65824
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85a684d4d988bdc01acdb3af3ddce028270cf105
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Создание шлюза приложений с перенаправлением на основе URL-пути при помощи Azure PowerShell
 
@@ -25,10 +25,10 @@ ms.lasthandoff: 02/09/2018
 > [!div class="checklist"]
 > * Настройка сети
 > * Создание шлюза приложений
-> * Добавление прослушивателей и правил маршрутизации.
-> * Создание масштабируемых наборов виртуальных машин для внутренних пулов.
+> * добавление прослушивателей и правил маршрутизации;
+> * создание масштабируемых наборов виртуальных машин для внутренних пулов.
 
-Ниже приведен пример трафика сайта, поступающего из портов 8080 и 8081 и перенаправляемого в те же внутренние пулы.
+Ниже приведен пример трафика сайта. Трафик поступает из портов 8080 и 8081 и перенаправляется в те же внутренние пулы.
 
 ![Пример маршрутизации для URL-адресов](./media/tutorial-url-redirect-powershell/scenario.png)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -424,7 +424,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Тестирование шлюза приложений
 
-Чтобы получить общедоступный IP-адрес шлюза приложений, используйте командлет [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Скопируйте общедоступный IP-адрес и вставьте его в адресную строку браузера. Например, *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm* или *http://52.168.55.24:8081/images/test.htm*.
+Чтобы получить общедоступный IP-адрес шлюза приложений, используйте командлет [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Скопируйте общедоступный IP-адрес и вставьте его в адресную строку браузера. Например *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm* или *http://52.168.55.24:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -440,7 +440,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Тестирование URL-адреса видео в шлюзе приложений](./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png)
 
-Теперь измените URL-адрес на http://&lt;ip-address&gt;:8081/images/test.htm, заменив &lt;ip-address&gt; своим IP-адресом, и вы увидите, что трафик перенаправляется обратно во внутренний пул образов по адресу http://&lt;ip-address&gt;:8080/images.
+Теперь измените URL-адрес на http://&lt;ip-address&gt;:8081/images/test.html, заменив &lt;ip-address&gt; своим IP-адресом. Вы увидите, что трафик перенаправляется обратно во внутренний пул образов по адресу http://&lt;ip-address&gt;:8080/images.
 
 ## <a name="next-steps"></a>Дополнительная информация
 
@@ -449,8 +449,8 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 > [!div class="checklist"]
 > * Настройка сети
 > * Создание шлюза приложений
-> * Добавление прослушивателей и правил маршрутизации.
-> * Создание масштабируемых наборов виртуальных машин для внутренних пулов.
+> * добавление прослушивателей и правил маршрутизации;
+> * создание масштабируемых наборов виртуальных машин для внутренних пулов.
 
 > [!div class="nextstepaction"]
 > [Дополнительные сведения о возможностях шлюза приложений](application-gateway-introduction.md)

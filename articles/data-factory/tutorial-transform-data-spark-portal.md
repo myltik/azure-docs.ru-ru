@@ -3,21 +3,20 @@ title: Преобразование данных с помощью Spark в фа
 description: В этом руководстве представлены пошаговые инструкции по преобразованию данных с использованием действия Spark в фабрике данных Azure.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
-ms.author: shengc
-ms.openlocfilehash: af8045a6681443cfc9cfa681cedce5d290aac0f1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: e32fa771595fdc4bf5fe54ec14630961d467d40f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 В этом руководстве вы создадите конвейер фабрики данных Azure с помощью портала Azure. Конвейер преобразует данные с помощью действия Spark и связанной службы Azure HDInsight по запросу. 
@@ -25,7 +24,7 @@ ms.lasthandoff: 03/23/2018
 В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * создадите фабрику данных; 
+> * Создадите фабрику данных. 
 > * Создание конвейера, использующего действие Spark.
 > * Активация выполнения конвейера.
 > * Выполнение мониторинга выполнения конвейера.
@@ -78,7 +77,7 @@ ms.lasthandoff: 03/23/2018
 2. Создайте вложенную папку с именем **inputfiles** в папке **spark**. 
 3. Отправьте файл **minecraftstory.txt** во вложенную папку **inputfiles**. 
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1. Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
 1. В меню слева выберите **Создать**, **Данные+аналитика**, **Фабрика данных**. 
@@ -196,7 +195,7 @@ ms.lasthandoff: 03/23/2018
    
    c. Перейдите к папке **adftutorial/spark/script**, выберите в ней файл **WordCount_Spark.py**, а затем выберите **Готово**.      
 
-5. Чтобы проверить работу конвейера, нажмите кнопку **Проверка** на панели инструментов. Чтобы закрыть окно проверки, нажмите кнопку **>>**Стрелка вправо. 
+5. Чтобы проверить работу конвейера, нажмите кнопку **Проверка** на панели инструментов. Чтобы закрыть окно проверки, нажмите кнопку **>>** Стрелка вправо. 
     
    ![Кнопка Validate (Проверка)](./media/tutorial-transform-data-spark-portal/validate-button.png)
 6. Выберите **Опубликовать все**. Пользовательский интерфейс фабрики данных опубликует сущности (связанные службы и конвейер) в службе фабрики данных Azure. 
@@ -244,7 +243,7 @@ ms.lasthandoff: 03/23/2018
 Конвейер из этого примера преобразует данные с помощью действия Spark и связанной службы HDInsight по запросу. Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]
-> * создадите фабрику данных; 
+> * Создадите фабрику данных. 
 > * Создание конвейера, использующего действие Spark.
 > * Активация выполнения конвейера.
 > * Выполнение мониторинга выполнения конвейера.

@@ -1,8 +1,8 @@
 ---
-title: "Начало работы с языком U-SQL | Документация Майкрософт"
-description: "Основы языка U-SQL."
+title: Начало работы с языком U-SQL | Документация Майкрософт
+description: Основы языка U-SQL.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>Начало работы с U-SQL
 U-SQL — это язык, который объединяет декларативный SQL и императивный C#, позволяя обрабатывать данные любого масштаба. Масштабируемые распределенные запросы U-SQL позволяют эффективно анализировать данные в таких реляционных хранилищах, как база данных SQL Azure. С помощью U-SQL вы можете обрабатывать неструктурированные данные, применяя схему к пользовательской логике чтения и вставки, а также определяемым пользователем функциям. Кроме того, U-SQL содержит расширения, которые помогают разработчику точно управлять способом выполнения в нужном масштабе. 
@@ -226,7 +226,7 @@ U-SQL поддерживает знакомые предложения ORDER BY,
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Сведения о расширенных сценариях агрегирования см. в справочной документации U-SQL по [статистическим, аналитическим и ссылочным функциям](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx).
+Сведения о расширенных сценариях агрегирования см. в справочной документации U-SQL по [статистическим, аналитическим и ссылочным функциям](https://msdn.microsoft.com/library/azure/mt621335.aspx).
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
