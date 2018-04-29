@@ -1,6 +1,6 @@
 ---
-title: "Ограничения запросов Azure Resource Manager | Документация Майкрософт"
-description: "В данной статье описывается использование регулирования запросов Azure Resource Manager при достижении ограничений подписки."
+title: Ограничения запросов Azure Resource Manager | Документация Майкрософт
+description: В данной статье описывается использование регулирования запросов Azure Resource Manager при достижении ограничений подписки.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 04/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d670fd7a9a165977fa5c8d3ce4caf5ff1b1df1e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Регулирование запросов Resource Manager
 Для каждой подписки и клиента Resource Manager ограничивает число запросов на чтение до 15 000 и запросов на запись — до 1200 в час. Эти ограничения применяются к каждому экземпляру Azure Resource Manager. В каждом регионе Azure существует несколько экземпляров, а Azure Resource Manager развертывается во всех регионах Azure.  На практике ограничений гораздо больше, чем указано выше, так как запросы пользователя обычно обслуживаются разными экземплярами.
@@ -29,15 +29,15 @@ ms.lasthandoff: 01/29/2018
 
 Число запросов ограничивается либо подпиской, либо клиентом. Если в вашей подписке имеется несколько приложений, одновременно выполняющих запросы, то количество этих запросов суммируется, после чего определяется количество оставшихся запросов.
 
-Запросы, ограничиваемые подпиской, включают в себя передачу идентификатора подписки (например, извлечение ресурсов в подписке). Запросы, ограничиваемые клиентом, не включают в себя идентификатор подписки (например, извлечение действительных расположений Azure).
+Запросы, ограничиваемые подпиской, включают в себя передачу идентификатора подписки (например, извлечение ресурсов в подписке). Запросы, ограничиваемые клиентом, не включают идентификатор подписки (например, извлечение действительных расположений Azure).
 
 ## <a name="remaining-requests"></a>Количество оставшихся запросов
 Количество оставшихся запросов можно определить, проверяя заголовки ответов. Каждый запрос содержит значения количества оставшихся запросов на чтение и запись. В приведенной ниже таблице описаны заголовки ответов, в которых можно проверить эти значения.
 
 | Заголовок ответа | ОПИСАНИЕ |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |Оставшееся количество запросов на чтение для подписки. |
-| x-ms-ratelimit-remaining-subscription-writes |Оставшееся количество запросов на запись для подписки. |
+| x-ms-ratelimit-remaining-subscription-reads |Оставшееся число запросов на чтение для подписки. Это значение возвращается при операциях чтения. |
+| x-ms-ratelimit-remaining-subscription-writes |Оставшееся число запросов на запись для подписки. Это значение возвращается при операциях записи. |
 | x-ms-ratelimit-remaining-tenant-reads |Оставшееся количество запросов на чтение для клиента. |
 | x-ms-ratelimit-remaining-tenant-writes |Оставшееся количество запросов на запись для клиента. |
 | x-ms-ratelimit-remaining-subscription-resource-requests |Оставшееся количество запросов для типа ресурса для подписки.<br /><br />Это значение заголовка возвращается только в том случае, если служба переопределила ограничение по умолчанию. Resource Manager добавляет это значение вместо ограничения подписки на запросы на чтение или запись. |
@@ -70,7 +70,6 @@ Get-AzureRmResourceGroup -Debug
 Он возвращает массу значений, включая следующее значение ответа.
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -79,7 +78,25 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
+```
+
+Чтобы получить ограничение на запись, используйте операцию записи: 
+
+```powershell
+New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+```
+
+Будет возвращено множество значений, включая следующие:
+
+```powershell
+DEBUG: ============================ HTTP RESPONSE ============================
+
+Status Code:
+Created
+
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
 В **интерфейсе командной строки Azure** извлечь значение заголовка можно с помощью параметра подробного вывода.
@@ -88,20 +105,37 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 az group list --verbose --debug
 ```
 
-Он возвращает массу значений, включая следующий объект.
+Будет возвращено множество значений, включая следующие:
 
 ```azurecli
-...
-silly: returnObject
-{
-  "statusCode": 200,
-  "header": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache",
-    "content-type": "application/json; charset=utf-8",
-    "expires": "-1",
-    "x-ms-ratelimit-remaining-subscription-reads": "14998",
-    ...
+msrest.http_logger : Response status: 200
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Content-Encoding': 'gzip'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'Vary': 'Accept-Encoding'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+```
+
+Чтобы получить ограничение на запись, используйте операцию записи: 
+
+```azurecli
+az group create -n myresourcegroup --location westus --verbose --debug
+```
+
+Будет возвращено множество значений, включая следующие:
+
+```azurecli
+msrest.http_logger : Response status: 201
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Length': '163'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>Ожидание перед отправкой следующего запроса

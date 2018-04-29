@@ -1,24 +1,18 @@
 ---
-title: "Псевдонимы сервера Azure Analysis Services | Документация Майкрософт"
-description: "Описывается создание и использование псевдонимов сервера."
-services: analysis-services
-documentationcenter: 
+title: Псевдонимы сервера Azure Analysis Services | Документация Майкрософт
+description: Описывается создание и использование псевдонимов сервера.
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: e0119580c4128ffd237127a62e29dac34297da5d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>Псевдонимы сервера
 
@@ -31,7 +25,7 @@ ms.lasthandoff: 02/21/2018
 - Направление пользователей на разные серверы в разное время суток. 
 - Направление пользователей в разные регионы к экземплярам, которые расположены ближе к ним, как при использовании диспетчера трафика Azure. 
 
-Любая конечная точка HTTP, которая возвращает допустимое имя сервера Analysis Services Azure, может использоваться в качестве псевдонима.
+Любая конечная точка HTTPS, которая возвращает допустимое имя сервера Analysis Services Azure, может использоваться в качестве псевдонима. Эта конечная точка должна поддерживать протокол HTTPS и использовать порт 443, и этот порт не должен быть указан в универсальном коде ресурса (URI).
 
 ![Псевдоним в формате ссылки](media/analysis-services-alias/aas-alias-browser.png)
 

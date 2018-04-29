@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/05/2018
 Прозрачное шифрование данных (TDE) в хранилище данных SQL Azure помогает защититься от вредоносных атак благодаря шифрованию и расшифровке неактивных данных в реальном времени. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Защита базы данных в хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Базы данных SQL Azure
-База данных SQL Azure также поддерживает прозрачное шифрование данных, которое помогает защитить от угрозы вредоносных атак за счет шифрования и расшифровки данных в реальном времени, не внося изменения в само приложение. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Прозрачное шифрование данных для хранилища данных и базы данных SQL Azure](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+База данных SQL Azure также поддерживает прозрачное шифрование данных, которое помогает защитить от угрозы вредоносных атак за счет шифрования и расшифровки данных в реальном времени, не внося изменения в само приложение. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Прозрачное шифрование данных для хранилища данных и базы данных SQL Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Хранилище озера данных Azure
 В Azure Data Lake Store можно также включить шифрование данных, хранящихся в учетной записи. При включении Data Lake Store автоматически шифрует данные перед сохранением и расшифровывает их до извлечения. Таким образом данные полностью прозрачны для клиента, который получает к ним доступ. Дополнительные сведения см. в статье [Обеспечение безопасности в хранилище озера данных Azure](../data-lake-store/data-lake-store-security-overview.md). 
@@ -86,7 +86,7 @@ Amazon Redshift поддерживает шифрование неактивны
 Salesforce поддерживает шифрование Shield Platform Encryption, которое позволяет зашифровать все файлы, вложения и настраиваемые поля. Дополнительные сведения см. в статье [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Основные сведения о потоке проверки подлинности OAuth веб-сервера).  
 
 ## <a name="hybrid-scenarios"></a>Гибридные сценарии
-Для реализации гибридных сценариев необходимо установить локальную среду выполнения интеграции в локальной сети, виртуальной сети (Azure) или виртуальном частном облаке (Amazon). У локальной среды выполнения интеграции должен быть доступ к локальным хранилищам данных. Дополнительные сведения о локальной среде выполнения интеграции см. в статье [Создание и настройка локальной среды выполнения интеграции](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
+Для реализации гибридных сценариев необходимо установить локальную среду выполнения интеграции в локальной сети, виртуальной сети (Azure) или виртуальном частном облаке (Amazon). У локальной среды выполнения интеграции должен быть доступ к локальным хранилищам данных. Дополнительные сведения о локальной среде выполнения интеграции см. в статье [Создание и настройка локальной среды выполнения интеграции](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
 ![Каналы локальной среды выполнения интеграции](media/data-movement-security-considerations/data-management-gateway-channels.png)
 

@@ -12,15 +12,13 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Использование средств Azure HDInsight для Visual Studio Code
 
@@ -31,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 Для выполнения действий в этом руководстве необходимы такие компоненты:
 
-- Кластер HDInsight.  Сведения о создании кластера см. в статье о [начале работы с HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Кластер HDInsight. Сведения о создании кластера см. в статье о [начале работы с HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono требуется только для Linux и macOS.
 
@@ -102,7 +100,7 @@ ms.lasthandoff: 03/28/2018
     - отправка пакетных сценариев PySpark;
     - настройка конфигурации.
 
-**Связывание кластера**
+<a id="linkcluster"></a>**Связывание кластера**
 
 Вы можете связать обычный кластер с помощью управляемого имени пользователя Ambari, а кластер безопасности — с помощью имени пользователя домена (например, user1@contoso.com).
 1. Откройте палитру команд, нажав **CTRL+SHIFT+P** и введите **HDInsight: Link a cluster** (HDInsight: связать кластер).
@@ -277,8 +275,50 @@ ms.lasthandoff: 03/28/2018
 
 После отправки задания Python в окне **вывода** в VS Code отобразятся журналы отправки. Также отображаются **URL-адрес пользовательского интерфейса Spark** и **URL-адрес пользовательского интерфейса Yarn**. URL-адрес можно открыть в веб-браузере, чтобы отследить состояние задания.
 
-
+>[!NOTE]
+>PySpark3 больше не поддерживается в Livy 0.4 (который является кластером HDI Spark 2.2). Python поддерживает только PySpark. Это известная проблема, при которой отправляется сбой Spark 2.2 с помощью python3.
    
+## <a name="livy-configuration"></a>Конфигурация Livy
+Поддерживается конфигурация Livy, ее можно установить в настройках проекта в папке рабочего пространства. Дополнительные сведения см. в [файле сведений Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ Параметры проекта:
+
+    ![Конфигурация Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ Поддерживаемые конфигурации Livy:   
+
+    **Пакеты POST**   
+    Текст запроса
+
+    | name | description | Тип | 
+    | :- | :- | :- | 
+    | file | Файл, содержащий выполнение приложения | path (обязательный параметр) | 
+    | proxyUser | Пользователь для олицетворения при выполнении задания | строка | 
+    | className | Основной класс Java или Spark приложения | строка |
+    | args | Аргументы командной строки для приложения | Список строк | 
+    | jars | jars для использования в этом сеансе | Список строк | 
+    | pyFiles | Файлы Python для использования в этом сеансе | Список строк |
+    | файлов | Файлы для использования в этом сеансе | Список строк |
+    | driverMemory | Объем памяти для процесса драйвера | строка |
+    | driverCores | Число ядер для процесса драйвера | int |
+    | executorMemory | Объем памяти для каждого процесса исполнителя | строка |
+    | executorCores | Число ядер для каждого исполнителя | int |
+    | numExecutors | Количество исполнителей для запуска в этом сеансе | int |
+    | archives | Архивы для использования в этом сеансе | Список строк |
+    | очередь | Имя очереди YARN для отправки | строка |
+    | name | Имя этого сеанса | строка |
+    | conf | Свойства конфигурации Spark. | Сопоставление key=val |
+
+    Текст ответа   
+    Созданный объект пакетной службы
+
+    | name | description | Тип | 
+    | :- | :- | :- | 
+    | id | Идентификатор сеанса | int | 
+    | appId | Идентификатор приложения для этого сеанса |  Строка |
+    | appInfo | Информация о приложении | Сопоставление key=val |
+    | log | Строки журнала | Список строк |
+    | state |   Состояние пакета | строка |
 
 
 ## <a name="additional-features"></a>Дополнительные функции

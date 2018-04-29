@@ -1,11 +1,11 @@
 ---
-title: "Автоматизированная архивация для виртуальных машин SQL Server (классическая модель) | Документация Майкрософт"
-description: "Описание функции автоматической архивации для SQL Server на виртуальных машинах Azure с использованием модели развертывания Resource Manager. "
+title: Автоматизированная архивация для виртуальных машин SQL Server (классическая модель) | Документация Майкрософт
+description: 'Описание функции автоматической архивации для SQL Server на виртуальных машинах Azure с использованием модели развертывания Resource Manager. '
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bca1c6c357527a32de499ac9207b1bb734dad7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/21/2018
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> Виртуальные машины Resource Manager поддерживают автоматизированную архивацию для SQL Server 2016. Дополнительные сведения см. в статье об [автоматической архивации SQL Server 2016 версии 2 на виртуальных машинах Azure (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
+> Виртуальные машины Resource Manager поддерживают автоматизированную архивацию для SQL Server 2016. Дополнительные сведения см. в статье об [автоматической архивации SQL Server 2016 версии 2 на виртуальных машинах Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Конфигурация базы данных**
 

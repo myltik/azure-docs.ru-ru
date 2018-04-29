@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Включение ведения журнала диагностики для веб-приложений в службе приложений Azure
 ## <a name="overview"></a>Обзор
@@ -84,7 +84,7 @@ ms.lasthandoff: 04/03/2018
 > Доступ к сведениям, хранящимся в **хранилищах таблиц** или **хранилищах BLOB-объектов**, можно получить только с помощью клиента хранилища или приложения, которое может напрямую работать с этими системами хранения данных. Например, в Visual Studio 2013 содержится проводник хранилищ, который может использоваться для просмотра таблицы или blob-хранилища, а HDInsight может получать доступ к данным, хранящимся в хранилище blob-объектов. Можно также написать приложение, которое обращается к хранилищу Azure, используя один из [пакетов SDK для Azure](/downloads/#).
 >
 > [!NOTE]
-> Вы также можете включить диагностику из PowerShell Azure с помощью командлета **Set-AzureWebsite**. Если компонент Azure PowerShell не установлен или не настроен для использования подписки Azure, ознакомьтесь с разделом [Установка и настройка Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Вы также можете включить диагностику из PowerShell Azure с помощью командлета **Set-AzureWebsite**. Если компонент Azure PowerShell не установлен или не настроен для использования подписки Azure, ознакомьтесь с разделом [Установка и настройка Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 04/03/2018
 Команда сохранит файлы журналов для веб-приложения, заданного параметром **-Name**, в файл **logs.zip** в текущем каталоге.
 
 > [!NOTE]
-> Если компонент Azure PowerShell не установлен или не настроен для использования подписки Azure, ознакомьтесь с разделом [Установка и настройка Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Если компонент Azure PowerShell не установлен или не настроен для использования подписки Azure, ознакомьтесь с разделом [Установка и настройка Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 04/03/2018
 Команда сохранит журналы веб-приложения (webappname) в файл **diagnostics.zip** в текущем каталоге.
 
 > [!NOTE]
-> Если интерфейс командной строки Azure (Azure CLI) не установлен или не настроен для использования подписки Azure, ознакомьтесь с разделом [Установка Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Если интерфейс командной строки Azure (Azure CLI) не установлен или не настроен для использования подписки Azure, ознакомьтесь с разделом [Установка Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 

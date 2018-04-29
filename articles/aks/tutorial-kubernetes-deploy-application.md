@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Руководство. Запуск приложения в Службе контейнеров Azure (AKS)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/23/2018
 > * выполнение приложения в Kubernetes;
 > * Тестирование приложения
 
-При помощи последующих руководств выполняется масштабирование и обновление приложения, а также настройка Log Analytics для отслеживания кластера Kubernetes.
+В последующих руководствах описывается, как развернуть и обновить приложение, а также настроить Log Analytics для мониторинга кластера Kubernetes.
 
 Для работы с этим руководством требуется понимание основных концепций Kubernetes. Подробные сведения см. в [документации по Kubernetes][kubernetes-documentation].
 
@@ -115,7 +115,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 Если не удалось загрузить приложение, возможно, возникла проблема с авторизацией реестра образов.
 
-Выполните приведенные ниже инструкции по [разрешению доступа при помощи секрета Kubernetes](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Выполните приведенные ниже инструкции по [разрешению доступа при помощи секрета Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f3278c064a01e3dea1d7a629b4a7b2e846a71208
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
@@ -31,45 +31,88 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="install-the-azure-functions-core-tools"></a>Установка основных инструментов Функций Azure
 
-[Основные инструменты службы "Функции Azure"] являются локальной версией среды выполнения службы "Функции Azure", которые можно запускать на локальном компьютере для разработки. Это не эмулятор или симулятор. Это та же среда выполнения, которая используется в Функциях Azure. Существует две версии основных инструментов службы "Функции Azure": одна — для версии 1.x среды выполнения, а вторая — для версии 2.x. Обе версии представлены в виде [пакета npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Основные инструменты службы "Функции Azure"] являются локальной версией среды выполнения службы "Функции Azure", которые можно запускать на локальном компьютере для разработки. Это не эмулятор или симулятор. Это та же среда выполнения, которая используется в Функциях Azure. Есть две версии основных инструментов Функций Azure:
 
->[!NOTE]  
-> Прежде чем устанавливать любую из этих версий, необходимо [установить NodeJS](https://docs.npmjs.com/getting-started/installing-node), в состав которого входит npm. Для версии 2.x этих инструментов поддерживается только версия Node.js 8.5 и более поздние. 
++ [Версия 1.x](#v1): поддерживает версию 1.x в среде выполнения. Эта версия поддерживается только на компьютерах с Windows и устанавливается из [пакета npm](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Версия 2.x](#v2): поддерживает версию 2.x в среде выполнения. Эта версия поддерживает [Windows](#windows-npm), [macOS](#brew) и [Linux](#linux). Использует диспетчеры пакетов определенной платформы или пакеты npm для установки. 
 
-### <a name="version-2x-runtime"></a>Среда выполнения версии 2.x
+### <a name="v1"></a>Версия 1.x
 
-В версии 2.x инструментов используется среда выполнения Функций Azure версии 2.x, которая основана на .NET Core. Эта версия поддерживается на всех платформах, которые поддерживает .NET Core 2.x. Используйте эту версию для кроссплатформенной разработки, и когда требуется среда выполнения Функций версии 2.x. 
+В исходной версии инструментов используется среда выполнения Функций 1.x. Эта версия использует .NET Framework (4.7.1) и поддерживается только на компьютерах с Windows. Прежде чем устанавливать инструменты версии 1.x, необходимо [установить NodeJS](https://docs.npmjs.com/getting-started/installing-node), в состав которого входит пакет npm.
 
->[!IMPORTANT]   
-> Прежде чем устанавливать основные инструменты службы "Функции Azure", [установите NET Core 2.0](https://www.microsoft.com/net/core).  
->
-> Среда выполнения Функций Azure версии 2.0 доступна в предварительной версии. Сейчас поддерживаются не все возможности Функций Azure. Дополнительные сведения см. в статье [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Известные проблемы в среде выполнения Функций Azure версии 2.0). 
-
- Чтобы установить инструменты версии 2.0, используйте следующую команду:
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-При установке на Ubuntu используйте `sudo`, как показано ниже:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-При установке на macOS и Linux может потребоваться включить флаг `unsafe-perm`, как показано ниже:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>Среда выполнения версии 1.x
-
-В исходной версии инструментов используется среда выполнения Функций 1.x. Эта версия использует .NET Framework и поддерживается только на компьютерах Windows. Чтобы установить инструменты версии 1.x, используйте следующую команду:
+Чтобы установить инструменты версии 1.x, используйте следующую команду:
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>Версия 2.x
+
+>[!NOTE]
+> Среда выполнения Функций Azure версии 2.0 доступна в предварительной версии. Сейчас поддерживаются не все возможности Функций Azure. Дополнительные сведения см. в статье [Обзор версий среды выполнения для решения "Функции Azure"](functions-versions.md). 
+
+В версии 2.x инструментов используется среда выполнения Функций Azure версии 2.x, которая основана на .NET Core. Эта версия поддерживается на всех платформах, которые поддерживает .NET Core 2.x, включая [Windows](#windows-npm), [macOS](#brew) и [Linux](#linux).
+
+#### <a name="windows-npm"></a>Windows
+
+На следующих шагах пакет npm используется для установки основных инструментов на компьютерах с Windows. Кроме того, можно использовать [Chocolatey](https://chocolatey.org/). Дополнительные сведения см. в [файле сведений об основных инструментах](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+
+1. Установите [.NET Core 2.0 для Windows](https://www.microsoft.com/net/download/windows).
+
+2. Установите [Node.js], который содержит пакет npm. Для версии 2.x этих инструментов поддерживается только версия Node.js 8.5 и более поздние.
+
+3. Установите пакет основных инструментов:
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>MacOS с Homebrew
+
+На следующих шагах Homebrew используется для установки основных инструментов на компьютерах macOS.
+
+1. Установите [.NET Core 2.0 для macOS](https://www.microsoft.com/net/download/macos).
+
+1. Установите [Homebrew](https://brew.sh/), если вы этого не сделали ранее.
+
+2. Установите пакет основных инструментов:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a> Linux (Ubuntu/Debian) с APT
+
+На следующих шагах [APT](https://wiki.debian.org/Apt) используется для установки основных инструментов на дистрибутив Linux Ubuntu/Debian. Чтобы выполнить установку на другие дистрибутивы Linux, ознакомьтесь с [файлом сведений об основных инструментах](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+
+1. Установите [.NET Core 2.0 для Linux](https://www.microsoft.com/net/download/linux).
+
+1. Зарегистрируйте ключ продукта Майкрософт как доверенный:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Настройте веб-канал пакета, заменив `<version>` в команде ниже на соответствующее имя версии из таблицы:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Дистрибутив Linux | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+3. Установите пакет основных инструментов:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
 
 ## <a name="run-azure-functions-core-tools"></a>Запуск основных инструментов службы "Функции Azure"
  
@@ -137,15 +180,19 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 | Параметр      | ОПИСАНИЕ                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Если задано значение **true**, все значения шифруются с помощью ключа локального компьютера. Используется с командами `func settings`. Значение по умолчанию — **false**. |
-| **Значения** | Коллекция параметров приложения, используемых при локальном выполнении. **AzureWebJobsStorage** и **AzureWebJobsDashboard** являются примерами. Полный список см. в разделе [Справочник по параметрам приложения](functions-app-settings.md).  |
+| **Значения** | Коллекция параметров приложения, используемых при локальном выполнении. **AzureWebJobsStorage** и **AzureWebJobsDashboard** являются примерами. Полный список см. в разделе [Справочник по параметрам приложения](functions-app-settings.md). Многие триггеры и привязки имеют свойство, относящееся к параметру приложения, например **Connection** для триггера хранилища BLOB-объектов. Для таких свойств требуется параметр приложения, определенный в массиве **Values**. Это также относится к любому свойству привязки, которое вы задали для имени параметра приложения, поместив значение между знаками процента, например `%AppSettingName%`. |
 | **Host** | Параметры в этом разделе служат для настройки хост-процесса Функций при выполнении в локальной среде. | 
 | **LocalHttpPort** | Задает порт по умолчанию, используемый при выполнении локального узла Функций (`func host start` и `func run`). Параметр командной строки `--port` имеет приоритет над этим значением. |
 | **CORS** | Определяет источники, для которых разрешен [общий доступ к ресурсам независимо от источника (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Источники указываются в виде разделенного запятыми списка без пробелов. Допускается подстановочное значение (\*), разрешающее запросы из любого источника. |
 | **ConnectionStrings** | Содержит строки подключения к базе данных для функций. Строки подключения, содержащиеся в этом объекте, добавляются в среду с типом поставщика **System.Data.SqlClient**.  | 
 
-Большинство триггеров и привязок имеют свойство **Connection**, которое сопоставляется с именем переменной среды или параметра приложения. Для каждого свойства подключения должен быть определен параметр в файле local.settings.json. 
+Эти параметры также могут считываться в коде как переменные среды. Дополнительные сведения см. в разделе о переменных среды в этих справочниках для определенного языка:
 
-Эти параметры также могут считываться в коде как переменные среды. В C# используйте [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) или [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). Для JavaScript используйте `process.env`. Параметры, указанные как системные переменные среды, имеют приоритет над значениями в файле local.settings.json. 
++ [Предкомпилированный код C#](functions-dotnet-class-library.md#environment-variables)
++ [Скрипт C# (CSX)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 Параметры в файле local.settings.json используются инструментами Функций только при выполнении в локальной среде. По умолчанию эти параметры не переносятся автоматически при публикации проекта в Azure. [При публикации](#publish) используйте параметр `--publish-local-settings`, чтобы добавить эти параметры в приложение-функцию в Azure.
 
@@ -275,7 +322,7 @@ curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Обратите внимание, что запросы GET можно выполнять из браузера, передавая данные в строке запроса. Для всех остальных методов HTTP необходимо использовать cURL, Fiddler, Postman или аналогичный инструмент тестирования HTTP.  
+Запросы GET можно выполнять из браузера, передавая данные в строке запроса. Для всех остальных методов HTTP необходимо использовать cURL, Fiddler, Postman или аналогичный инструмент тестирования HTTP.  
 
 #### <a name="non-http-triggered-functions"></a>Функции, не активируемые по протоколу HTTP
 Все виды функций, кроме триггеров HTTP и веб-перехватчиков, можно тестировать в локальной среде путем вызова конечной точки администрирования. Вызов этой конечной точки при помощи запроса HTTP POST на локальном сервере активирует функцию. При необходимости можно передать тестовые данные в среду выполнения в тексте запроса POST. Это аналогично выполнению функции с помощью вкладки **Тест** на портале Azure.  
@@ -361,3 +408,4 @@ az functionapp config appsettings set --name <function_app> \
 
 [Основные инструменты службы "Функции Azure"]: https://www.npmjs.com/package/azure-functions-core-tools
 [портале Azure]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

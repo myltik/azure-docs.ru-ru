@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0ebf71a68f00b9766e14ea775fa2b1e9f15a201b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d325e71125e875590b54b84700b6ec9e0fe7dd7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Создание и подготовка имитированного устройства X.509 с помощью Java устройства, SDK службы и групп регистрации для службы подготовки устройств Центра Интернета вещей
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/16/2018
 
 1. Установите на компьютер систему `git` и добавьте ее в переменные среды, доступные в командном окне. Последнюю версию средств `git` для установки, которая включает **Git Bash**, приложение командной строки для взаимодействия с локальным репозиторием Git, можно найти на [этой странице](https://git-scm.com/download/). 
 
-1. Для создания тестовых сертификатов воспользуйтесь данными из [обзора сертификата](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Более подробно создание сертификатов рассмотрено в статье [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) (Использование сценариев PowerShell для управления сертификатами X.509, подписанными ЦС).
+1. Для создания тестовых сертификатов воспользуйтесь данными из [обзора сертификата](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Более подробно создание сертификатов рассмотрено в статье [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) (Использование сценариев PowerShell для управления сертификатами X.509, подписанными ЦС).
 
     > [!NOTE]
     > На этом шаге необходим [OpenSSL](https://www.openssl.org/), который можно либо создать и установить из источника, либо скачать и установить из [сторонних ресурсов](https://wiki.openssl.org/index.php/Binaries), например [из этого](https://sourceforge.net/projects/openssl/). Если _корневой_, _промежуточный_ сертификаты и сертификат _устройства_ уже созданы, то этот шаг можно пропустить.

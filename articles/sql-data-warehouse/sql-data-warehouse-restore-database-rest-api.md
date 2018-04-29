@@ -1,87 +1,51 @@
 ---
-title: "Восстановление хранилища данных SQL Azure (REST API) | Документация Майкрософт"
-description: "Задачи REST API для восстановления хранилища данных SQL."
+title: Восстановление хранилища данных SQL Azure с помощью REST API | Документация Майкрософт
+description: Здесь описывается восстановление хранилища данных SQL Azure с помощью REST API.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: fca922c6-b675-49c7-907e-5dcf26d451dd
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: backup-restore
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 8739429342d3c8bbe0f09041976758276a9c3228
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 2e1874fdf7c11d98d369072739c5937caffe6e96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>Восстановление хранилища данных SQL Azure (REST API)
-> [!div class="op_single_selector"]
-> * [Обзор][Overview]
-> * [Портал][Portal]
-> * [PowerShell][PowerShell]
-> * [REST][REST]
-> 
-> 
-
-Из этой статьи вы узнаете, как восстановить хранилище данных SQL Azure с помощью REST API.
+# <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Восстановление хранилища данных SQL Azure с помощью интерфейсов REST API
+Здесь описывается восстановление хранилища данных SQL Azure с помощью REST API.
 
 ## <a name="before-you-begin"></a>Перед началом работы
-**Проверьте ресурсы DTU.** Каждое хранилище данных SQL размещается на сервере SQL Server (например, myserver.database.windows.net), которому выделена квота DTU по умолчанию.  Перед восстановлением хранилища данных SQL убедитесь, что у сервера SQL Server осталась достаточная квота DTU для восстанавливаемой базы данных. Чтобы узнать, как вычислить необходимое количество DTU или запросить дополнительные единицы DTU, ознакомьтесь с разделом [Создание запроса в службу поддержки][Request a DTU quota change].
+**Проверьте ресурсы DTU.** Каждое хранилище данных SQL размещается на логическом сервере SQL Server (например, myserver.database.windows.net), которому выделена [квота DTU](../sql-database/sql-database-what-is-a-dtu.md) по умолчанию.  Перед восстановлением хранилища данных SQL убедитесь, что у сервера SQL Server осталась достаточная квота DTU для восстанавливаемой базы данных. Чтобы запросить дополнительные единицы DTU, вы можете [создать запрос в службу поддержки](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="restore-an-active-or-paused-database"></a>Восстановление активной или приостановленной базы данных
-Процедура восстановления базы данных
+## <a name="restore-an-active-or-paused-data-warehouse"></a>Восстановление активного или приостановленного хранилища данных
+Чтобы восстановить хранилище данных, сделайте следующее:
 
 1. Получите список точек восстановления базы данных с помощью операции Get Database Restore Points.
-2. Начните восстановление с помощью операции [Create Database Restore Request][Create database restore request].
-3. Отследите состояние восстановления с помощью операции [Database Operation Status][Database operation status].
+2. Начните восстановление с помощью операции [Create Database Restore Request](https://msdn.microsoft.com/library/azure/dn509571.aspx) .
+3. Отследите состояние восстановления с помощью операции [Database Operation Status](https://msdn.microsoft.com/library/azure/dn720371.aspx) .
 
 > [!NOTE]
-> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Configure your database after recovery].
+> Чтобы настроить хранилище данных после восстановления, см. раздел [Настройка базы данных после восстановления](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 > 
 > 
 
-## <a name="restore-a-deleted-database"></a>Восстановление удаленной базы данных.
-Восстановление удаленной базы данных.
+## <a name="restore-a-deleted-data-warehouse"></a>Восстановление хранилища данных после удаления
+Чтобы восстановить хранилище данных после удаления, сделайте следующее:
 
-1. Создайте список всех удаленных баз данных, доступных для восстановления, с помощью операции [List Restorable Dropped Databases][List restorable dropped databases].
-2. Получите подробные сведения об удаленной базе данных, которую необходимо восстановить, с помощью операции [Get Restorable Dropped Database][Get restorable dropped database].
-3. Начните восстановление с помощью операции [Create Database Restore Request][Create database restore request].
-4. Отследите состояние восстановления с помощью операции [Database Operation Status][Database operation status].
+1. Создайте список всех удаленных хранилищ данных, доступных для восстановления, с помощью операции [List Restorable Dropped Databases](https://msdn.microsoft.com/library/azure/dn509562.aspx).
+2. Получите подробные сведения об удаленном хранилище данных, которое необходимо восстановить, с помощью операции [Get restorable dropped database][Get restorable dropped database].
+3. Начните восстановление с помощью операции [Create Database Restore Request](https://msdn.microsoft.com/library/azure/dn509571.aspx) .
+4. Отследите состояние восстановления с помощью операции [Database Operation Status](https://msdn.microsoft.com/library/azure/dn720371.aspx) .
 
 > [!NOTE]
-> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Configure your database after recovery].
+> Чтобы настроить хранилище данных после восстановления, см. раздел [Настройка базы данных после восстановления](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 > 
 > 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения о функциях, обеспечивающих непрерывность бизнес-процессов в выпусках Базы данных SQL Azure, см. в статье [Обзор обеспечения непрерывности бизнес-процессов с помощью базы данных SQL Azure][Azure SQL Database business continuity overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-
-<!--MSDN references-->
-[Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
-[Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
-[List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+Дополнительные сведения о функциях, обеспечивающих непрерывность бизнес-процессов в выпусках базы данных SQL Azure, см. в статье [Обзор непрерывности бизнес-процессов в базе данных SQL Azure](../sql-database/sql-database-business-continuity.md).

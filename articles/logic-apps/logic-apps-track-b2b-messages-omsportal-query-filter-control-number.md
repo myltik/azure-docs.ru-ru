@@ -1,11 +1,11 @@
 ---
-title: "Запрос сообщений B2B с помощью Operations Management Suite в Azure Logic Apps | Документы Майкрософт"
-description: "Отслеживание сообщений AS2, X12 и EDIFACT на портале Operations Management Suite с помощью запросов"
+title: Запрос сообщений B2B в Log Analytics — Azure Logic Apps | Документация Майкрософт
+description: Создание запросов на отслеживание сообщений AS2, X12 и EDIFACT в Log Analytics
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Запрос сообщений AS2, X 12 и EDIFACT в Microsoft Operations Management Suite (OMS)
+# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Запрос сообщений AS2, X12 и EDIFACT в Log Analytics
 
-Чтобы найти сообщения AS2, X12 или EDIFACT, которые отслеживаются с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md) в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), можно создавать запросы, применяющие фильтры к действиям на основе заданных критериев. Например, можно найти сообщения с определенным контрольным номером обмена.
+Чтобы найти сообщения AS2, X12 или EDIFACT, которые отслеживаются с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md), можно создавать запросы, применяющие фильтры по требуемым критериям. Например, можно найти сообщения с определенным контрольным номером обмена.
 
 ## <a name="requirements"></a>Требования
 
@@ -30,41 +30,41 @@ ms.lasthandoff: 02/21/2018
 
 * Учетная запись интеграции, настроенная для мониторинга и ведения журнала. Узнайте подробнее о [создании учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) и [настройке мониторинга и ведения журнала для этой учетной записи](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Если это еще не сделано, [опубликуйте диагностические данные в службе Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) и [настройте отслеживание сообщений в OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Если это еще не сделано, [опубликуйте данные диагностики в службе Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) и [настройте отслеживание сообщений в Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Помимо соблюдения всех указанных выше требований, у вас должна иметься рабочая область в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Для отслеживания взаимодействия B2B в OMS следует использовать одну и ту же рабочую область OMS. 
+> Кроме этого, у вас должна быть рабочая область в Log Analytics. Для отслеживания взаимодействия B2B используйте ту же рабочую область Log Analytics. 
 >  
-> Если у вас нет рабочей области OMS, узнайте о том, [как ее создать](../log-analytics/log-analytics-get-started.md).
+> См. дополнительные сведения о [создании рабочей области Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Создание запросов сообщений с фильтрами на портале Operations Management Suite
+## <a name="create-message-queries-with-filters-in-log-analytics"></a>Создание запросов сообщений с фильтрами в службе Log Analytics
 
 В этом примере показано, как найти сообщение по контрольному номеру обмена.
 
 > [!TIP] 
-> Если известно имя рабочей области OMS, перейдите на домашнюю страницу рабочей области (`https://{your-workspace-name}.portal.mms.microsoft.com`) и перейдите к шагу 4. В противном случае начните с шага 1.
+> Если известно название рабочей области в Log Analytics, перейдите на домашнюю страницу этой рабочей области (`https://{your-workspace-name}.portal.mms.microsoft.com`) и начинайте с шага 4. В противном случае начните с шага 1.
 
 1. На [портале Azure](https://portal.azure.com) выберите **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
 
    ![Поиск Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. В разделе **Log Analytics** найдите и выберите рабочую область OMS.
+2. В разделе **Log Analytics** найдите и выберите рабочую область Log Analytics.
 
-   ![Выбор рабочей области OMS](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Выбор рабочей области Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. В разделе **Управление** выберите **Портал OMS**.
 
    ![Выбор портала OMS](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
-4. На домашней странице OMS выберите **Поиск по журналам**.
+4. На домашней странице выберите **Поиск по журналам**.
 
-   ![На домашней странице OMS выберите "Поиск по журналам"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![На домашней странице выберите "Поиск по журналам".](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -или-
 
-   ![В меню OMS выберите "Поиск по журналам"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![В меню выберите "Поиск по журналам".](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. В поле поиска введите поле, которое требуется найти, и нажмите клавишу **ВВОД**. При вводе OMS предлагает возможные совпадения и операции, которые можно использовать. Узнайте подробнее о [способах поиска данных в Log Analytics](../log-analytics/log-analytics-log-searches.md).
+5. В поле поиска введите поле, которое требуется найти, и нажмите клавишу **ВВОД**. При вводе Log Analytics предлагает возможные совпадения и операции, которые можно использовать. Узнайте подробнее о [способах поиска данных в Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    В этом примере выполняется поиск событий с параметром **Type=AzureDiagnostics**.
 
@@ -106,15 +106,15 @@ ms.lasthandoff: 02/21/2018
 
    ![Выбор запроса](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Поиск и запуск сохраненных запросов на портале Operations Management Suite
+## <a name="find-and-run-saved-queries-in-log-analytics"></a>Поиск и запуск сохраненных запросов в Log Analytics
 
-1. Откройте домашнюю страницу рабочей области OMS (`https://{your-workspace-name}.portal.mms.microsoft.com`) и выберите **Поиск по журналам**.
+1. Откройте домашнюю страницу рабочей области Log Analytics (`https://{your-workspace-name}.portal.mms.microsoft.com`) и выберите **Поиск по журналам**.
 
-   ![На домашней странице OMS выберите "Поиск по журналам"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![На домашней странице Log Analytics выберите "Поиск по журналам"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -или-
 
-   ![В меню OMS выберите "Поиск по журналам"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![В меню выберите "Поиск по журналам".](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 2. На домашней странице **Поиск по журналам** выберите **Избранное**.
 

@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: настройка пользовательского интерфейса с динамическим содержимым, используя пользовательские политики
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Пользовательские политики Azure Active Directory B2C (Azure AD B2C) позволяют отправлять параметр в строке запроса. Передавая параметр в конечную точку HTML, вы можете динамически изменять содержимое страницы. Например, можно изменить фоновое изображение страницы регистрации или входа в Azure AD B2C на основе параметра, передаваемого из веб-приложения или мобильного приложения. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
@@ -193,7 +196,7 @@ ms.lasthandoff: 03/23/2018
     >Чтобы проверить, что на сайте, где вы размещаете содержимое, включен механизм CORS и можно тестировать запросы CORS, перейдите на веб-сайт [test-cors.org](http://test-cors.org/). 
 
 * Обслуживаемое содержимое защищено с помощью **HTTPS**.
-* Вы используете *абсолютные URL-адреса*, например *https://ваш_домен/content* для всех ссылок, а также содержимого и изображений CSS.
+* Вы используете *абсолютные URL-адреса*, например *https://yourdomain/content*, для всех ссылок, содержимого CSS и изображений.
 
 ## <a name="step-5-configure-your-content-definition"></a>Шаг 5. Настройка определения содержимого
 Чтобы настроить `ContentDefinition`, сделайте следующее:

@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Использование образа Azure Marketplace для создания виртуальной машины Terraform Linux с управляемым удостоверением службы
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 04/05/2018
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Дополнительные сведения об управлении удаленным состоянием см. на [этой странице](https://www.terraform.io/docs/state/remote.html). В этом файле содержится ключ доступа к хранилищу. Его необходимо записать в систему управления версиями.  
+ Дополнительные сведения об управлении удаленным состоянием см. на [этой странице](https://www.terraform.io/docs/state/remote.html). В этом файле предоставляется ключ доступа к хранилищу, который нужно исключить перед фиксацией файлов конфигурации Terraform в системе управления версиями.
 
 ## <a name="next-steps"></a>Дополнительная информация
 В этой статье вы узнали, как настроить виртуальную машину Terraform Linux в Azure. Ниже приведены ресурсы, содержащие дополнительные сведения о Terraform в Azure. 

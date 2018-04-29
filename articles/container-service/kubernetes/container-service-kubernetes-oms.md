@@ -3,17 +3,17 @@ title: Мониторинг кластера Azure Kubernetes с помощью 
 description: Мониторинг кластера Kubernetes в Службе контейнеров Azure с помощью Log Analytics
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Мониторинг кластера службы контейнеров Azure с помощью Log Analytics
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 03/28/2018
 $ az --version
 ```
 
-Если средство `az` не установлено, следуйте инструкциям, приведенным [здесь](https://github.com/azure/azure-cli#installation).  
-Кроме того, можно использовать [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), имеющий средства Azure CLI `az` и `kubectl`, которые уже установлены.  
+Если средство `az` не установлено, следуйте инструкциям, приведенным [здесь](https://github.com/azure/azure-cli#installation).
+Кроме того, можно использовать [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), имеющий средства Azure CLI `az` и `kubectl`, которые уже установлены.
 
 Чтобы проверить наличие средства `kubectl`, выполните такую команду:
 
@@ -67,40 +67,40 @@ Log Analytics — это облачное решение Майкрософт д
 ## <a name="installing-log-analytics-on-kubernetes"></a>Установка Log Analytics в Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Получение идентификатора и ключа рабочей области
-Чтобы агент OMS мог взаимодействовать со службой, для него нужно настроить идентификатор и ключ рабочей области. Чтобы получить идентификатор и ключ рабочей области, необходимо создать учетную запись OMS по адресу <https://mms.microsoft.com>.
-Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить идентификатор и ключ, щелкнув **Параметры**, **Подключенные источники**, а затем — **Linux Servers** (Серверы Linux), как показано ниже.
+Чтобы агент Log Analytics мог взаимодействовать со службой, для него нужно настроить идентификатор и ключ рабочей области. Чтобы получить идентификатор и ключ рабочей области, необходимо создать учетную запись OMS по адресу <https://mms.microsoft.com>.
+Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить идентификатор и ключ, щелкнув **Параметры**, **Подключенные источники**, а затем — **Серверы с Linux**, как показано ниже.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-oms-agent-using-a-daemonset"></a>Установка агента OMS с помощью DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Установка агента Log Analytics с помощью DaemonSet
 Kubernetes использует наборы DaemonSet для выполнения отдельного экземпляра контейнера на каждом узле в кластере.
 Они идеально подходят для выполнения агентов мониторинга.
 
 Ниже приведен [YAML-файл DaemonSet](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Сохраните его под именем `oms-daemonset.yaml` и замените в нем значения заполнителей `WSID` и `KEY` идентификатором и ключом рабочей области.
 
-После добавления идентификатора и ключа рабочей области в конфигурацию DaemonSet вы можете установить агент OMS в кластер, воспользовавшись программой командной строки `kubectl`.
+После добавления идентификатора и ключа рабочей области в конфигурацию DaemonSet вы можете установить агент Log Analytics в кластере, воспользовавшись программой командной строки `kubectl`.
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Установка агента OMS с помощью секрета Kubernetes
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Установка агента Log Analytics с помощью секрета Kubernetes
 Для защиты идентификатора и ключа рабочей области Log Analytics можно использовать секрет Kubernetes как часть YAML-файла DaemonSet.
 
- - Скопируйте сценарий, файл шаблона секретов и YAML-файл DaemonSet (из [репозитория](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) и убедитесь, что они находятся в одном и том же каталоге. 
+ - Скопируйте скрипт, файл шаблона секретов и YAML-файл DaemonSet (из [репозитория](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) и убедитесь, что они находятся в одном и том же каталоге.
       - Сценарий создания секретов — secret-gen.sh.
       - Шаблон секретов — secret-template.yaml.
    - YAML-файл DaemonSet — omsagent-ds-secrets.yaml.
- - Выполните скрипт. Сценарий будет запрашивать идентификатор и первичный ключ рабочей области Log Analytics. Вставьте их, и сценарий создаст YAML-файл секрета, который можно запустить.   
+ - Выполните скрипт. Сценарий будет запрашивать идентификатор и первичный ключ рабочей области Log Analytics. Вставьте их, и скрипт создаст YAML-файл секрета, который можно запустить.
    ```
-   #> sudo bash ./secret-gen.sh 
+   #> sudo bash ./secret-gen.sh
    ```
 
    - Создайте модуль секретов, выполнив следующую команду: ``` kubectl create -f omsagentsecret.yaml ```
- 
-   - Чтобы проверить, выполните следующую команду: 
 
-   ``` 
+   - Чтобы проверить, выполните следующую команду:
+
+   ```
    root@ubuntu16-13db:~# kubectl get secrets
    NAME                  TYPE                                  DATA      AGE
    default-token-gvl91   kubernetes.io/service-account-token   3         50d
@@ -116,10 +116,10 @@ $ kubectl create -f oms-daemonset.yaml
    Data
    ====
    WSID:   36 bytes
-   KEY:    88 bytes 
+   KEY:    88 bytes
    ```
- 
+
   - Создайте набор daemon-set omsagent, выполнив команду ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Заключение
-Вот и все! Через несколько минут можно будет увидеть, как в панель мониторинга OMS поступает поток данных.
+Вот и все! Через несколько минут можно будет увидеть, как в панель мониторинга Log Analytics поступает поток данных.

@@ -1,26 +1,24 @@
 ---
-title: "Анализ данных Twitter с помощью Apache Hive в Azure HDInsight | Документация Майкрософт"
-description: "Сведения о преобразовании необработанных данных Twitter в поддерживающую поиск таблицу Hive с помощью Hive и Hadoop в HDInsight."
+title: Анализ данных Twitter с помощью Apache Hive в Azure HDInsight | Документация Майкрософт
+description: Сведения о преобразовании необработанных данных Twitter в поддерживающую поиск таблицу Hive с помощью Hive и Hadoop в HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 1e3a9b12a9621baf91d49be48fb79a5d6bca1326
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Анализ данных Twitter с помощью Hive и Hadoop в HDInsight
 
@@ -37,7 +35,7 @@ Twitter позволяет получать [данные для каждого 
 
 ### <a name="create-a-twitter-application"></a>Создание приложения Twitter
 
-1. С помощью браузера войдите на веб-сайт [https://apps.twitter.com/](https://apps.twitter.com/). Щелкните ссылку **Зарегистрируйтесь прямо сейчас**, если у вас нет учетной записи Twitter.
+1. Из браузера перейдите по адресу [https://apps.twitter.com/](https://apps.twitter.com/) и выполните вход. Щелкните ссылку **Зарегистрируйтесь прямо сейчас**, если у вас нет учетной записи Twitter.
 
 2. Щелкните **Создать новое приложение**.
 

@@ -1,8 +1,8 @@
 ---
-title: "Рекомендации по настройке производительности Azure Data Lake Store | Документация Майкрософт"
-description: "Рекомендации по настройке производительности Azure Data Lake Store"
+title: Рекомендации по настройке производительности Azure Data Lake Store | Документация Майкрософт
+description: Рекомендации по настройке производительности Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Настройка Azure Data Lake Store для повышения производительности
 
@@ -42,7 +42,7 @@ Azure Data Lake Store можно масштабировать, чтобы пре
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Сетевое подключение к Azure Data Lake Store
 
-Сетевое подключение между исходными данными и Azure Data Lake Store иногда может быть узким местом. Если исходные данные находятся в локальной среде, рекомендуется использовать выделенный канал с [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/). Если исходные данные находятся в Azure, вы сможете обеспечить лучшую производительность, если разместить данные в том же регионе Azure, что и Data Lake Store.
+Сетевое подключение между исходными данными и Azure Data Lake Store иногда может быть узким местом. Если исходные данные находятся в локальной среде, рекомендуется использовать выделенный канал с [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Если исходные данные находятся в Azure, вы сможете обеспечить лучшую производительность, если разместить данные в том же регионе Azure, что и Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Настройка средств приема данных для обеспечения максимальной параллелизации
 

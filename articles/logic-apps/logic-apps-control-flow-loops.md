@@ -1,12 +1,12 @@
 ---
-title: "Циклы. Обработка массивов или повторение действий в Azure Logic Apps | Документация Майкрософт"
-description: "Обработка массивов с помощью циклов for each или повторение действий до выполнения определенных условий в приложениях логики."
+title: Циклы. Обработка массивов или повторение действий в Azure Logic Apps | Документация Майкрософт
+description: Обработка массивов с помощью циклов for each или повторение действий до выполнения определенных условий в приложениях логики.
 services: logic-apps
-keywords: "Циклы for each"
-documentationcenter: 
+keywords: Циклы for each
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Циклы. Обработка массивов или повторение действий до выполнения условия
 
@@ -153,9 +153,6 @@ ms.lasthandoff: 03/05/2018
 
 * Вызов конечной точки до получения нужного ответа.
 * Создайте запись в базе данных, дождитесь утверждения определенного поля в этой записи и продолжите обработку. 
-
-> [!NOTE]
-> Циклы until не могут включать циклы for each или другие циклы until.
 
 Например, каждый день в 8:00 это приложение логики увеличивает значение переменной, пока оно не станет равно 10. Затем приложение логики отправляет сообщение электронной почты с подтверждением текущего значения. Хотя этот пример используется в Office 365 Outlook, его можно применять для любого поставщика услуг электронной почты, поддерживаемого Logic Apps ([см. список соединителей](https://docs.microsoft.com/connectors/)). Если вы используете другую учетную запись электронной почты, общие шаги те же, но пользовательский интерфейс может немного отличаться. 
 

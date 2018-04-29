@@ -1,9 +1,9 @@
 ---
-title: "Отправка заданий в кластер Spark в Azure HDInsight с помощью Livy Spark | Документация Майкрософт"
-description: "Узнайте, как выполнить удаленную отправку заданий Spark в кластер Azure HDInsight с помощью Apache Spark REST API."
+title: Отправка заданий в кластер Spark в Azure HDInsight с помощью Livy Spark | Документация Майкрософт
+description: Узнайте, как выполнить удаленную отправку заданий Spark в кластер Azure HDInsight с помощью Apache Spark REST API.
 keywords: apache spark rest api,livy spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,21 +11,19 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Удаленная отправка заданий Spark в кластер Azure HDInsight с помощью Apache Spark REST API
 
-Узнайте, как использовать Livy, интерфейс Apache Spark REST API, который используется для удаленной отправки заданий в кластер HDInsight Spark. Дополнительные сведения см. на сайте [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Узнайте, как использовать Livy, интерфейс Apache Spark REST API, который используется для удаленной отправки заданий в кластер HDInsight Spark. Подробную документацию см. здесь: [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 Вы можете использовать Livy для выполнения интерактивных оболочек Spark или отправки пакетных заданий для запуска в кластере Spark. В статье рассматривается использование Livy для отправки пакетных заданий. Во фрагментах кода в этой статье используется Curl для отправки вызовов REST API к конечной точке Livy Spark.
 

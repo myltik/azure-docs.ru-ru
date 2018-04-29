@@ -1,12 +1,12 @@
 ---
-title: "Рекомендации Azure Advisor по безопасности | Документация Майкрософт"
-description: "Используйте Azure Advisor для повышения безопасности развернутых служб Azure."
+title: Рекомендации Azure Advisor по безопасности | Документация Майкрософт
+description: Используйте Azure Advisor для повышения безопасности развернутых служб Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: ea6fc67a0f5bdfe09435a00c4d2651f312695d25
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: e8a2350744e7b967cc19d0e73686f32edf980eac
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-security-recommendations"></a>Рекомендации Azure Advisor по безопасности
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/08/2017
 
 Центр безопасности помогает вам выявлять и предотвращать угрозы, а также принимать ответные меры благодаря более полной информации о состоянии ресурсов Azure и контролю над их безопасностью. Он периодически анализирует состояние безопасности ресурсов Azure. Когда Центр безопасности выявляет потенциальные уязвимости системы безопасности, он создает рекомендации. Рекомендации помогают настраивать необходимые элементы управления. 
 
-Дополнительные сведения о рекомендациях по безопасности см. в разделе [Управление рекомендациями по безопасности в Центре безопасности Azure](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
+Дополнительные сведения о рекомендациях по безопасности см. в разделе [Управление рекомендациями по безопасности в Центре безопасности Azure](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Как получить доступ к рекомендации по безопасности в Помощнике по Azure
 

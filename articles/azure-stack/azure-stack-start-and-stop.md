@@ -1,28 +1,28 @@
 ---
-title: "Запуск и остановка Azure Stack | Документация Майкрософт"
-description: "Сведения о том, как запустить и завершить работу Azure Stack."
+title: Запуск и остановка Azure Stack | Документация Майкрософт
+description: Сведения о том, как запустить и завершить работу Azure Stack.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Запуск и остановка Azure Stack
-
-*Область применения: интегрированные системы Azure Stack (1712 и более поздних версий).*
+Следуйте инструкциям по корректному завершению работы и перезапуску служб Azure Stack, приведенным в этой статье. 
 
 ## <a name="stop-azure-stack"></a>Остановка Azure Stack 
 
@@ -86,4 +86,4 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="next-steps"></a>Дополнительная информация 
 
-Дополнительные сведения о средстве диагностики Azure Stack и регистрации проблем см. в статье "Средства диагностики Azure Stack". Средства диагностики Azure Stack. Средства диагностики Azure Stack. Средства диагностики Azure Stack.
+Дополнительные сведения о средстве диагностики Azure Stack и регистрации проблем см. в статье [Средства диагностики Azure Stack](azure-stack-diagnostics.md).

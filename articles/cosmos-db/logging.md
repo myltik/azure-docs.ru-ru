@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Журнал ведения диагностики Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="logs-available-in-azure"></a>Журналы, доступные в Azure
 
-Прежде чем говорить о том, как отслеживать учетную запись Azure Cosmos DB, давайте ознакомимся с некоторыми сведениями о ведении журналов и мониторинге. На платформе Azure существуют различные типы журналов. Например, [журналы действий Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [журналы диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [метрики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), события, мониторинг пульса, журналы операций и т. д. Существует множество журналов. Полный список журналов можно просмотреть в [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) на портале Azure. 
+Прежде чем говорить о том, как отслеживать учетную запись Azure Cosmos DB, давайте ознакомимся с некоторыми сведениями о ведении журналов и мониторинге. На платформе Azure существуют различные типы журналов. Например, [журналы действий Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [журналы диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [метрики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), события, мониторинг пульса, журналы операций и т. д. Существует множество журналов. Полный список журналов можно просмотреть в [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) на портале Azure. 
 
 На следующем изображении показаны различные виды доступных журналов Azure.
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/19/2018
 
 ### <a name="azure-metrics"></a>Метрики Azure
 
-Наиболее важным типом данных [метрик Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) являются данные телеметрии Azure (также называемые _счетчиками производительности_), которые выдаются большинством ресурсов Azure. Метрики позволяют просматривать сведения о пропускной способности, хранилище, согласованности, доступности и задержке ресурсов Azure Cosmos DB. Дополнительные сведения см. в статье [Мониторинг и отладка с помощью метрик в Azure Cosmos DB](use-metrics.md).
+Наиболее важным типом данных [метрик Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) являются данные телеметрии Azure (также называемые _счетчиками производительности_), которые выдаются большинством ресурсов Azure. Метрики позволяют просматривать сведения о пропускной способности, хранилище, согласованности, доступности и задержке ресурсов Azure Cosmos DB. Дополнительные сведения см. в статье [Мониторинг и отладка с помощью метрик в Azure Cosmos DB](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Журналы диагностики Azure
 

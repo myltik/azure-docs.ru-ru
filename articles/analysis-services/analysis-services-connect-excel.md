@@ -1,25 +1,18 @@
 ---
-title: "Подключение к Azure Analysis Services с помощью Excel | Документы Майкрософт"
-description: "Сведения о подключении к серверу Azure Analysis Services с помощью Excel."
-services: analysis-services
-documentationcenter: 
+title: Подключение к Azure Analysis Services с помощью Excel | Документы Майкрософт
+description: Сведения о подключении к серверу Azure Analysis Services с помощью Excel.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: f5f77b70874f10a29b4ea4dba307a67361c8e2bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 8414597c2c394e0b642ff47cba79c87488f56b24
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-with-excel"></a>Подключение с помощью Excel
 
@@ -35,6 +28,9 @@ ms.lasthandoff: 02/21/2018
 1. В Excel 2016 на ленте **Данные** последовательно выберите **Получить внешние данные** > **Из других источников** > **Из служб Analysis Services**.
 
 2. В мастере подключения к данным введите имя сервера, включая протокол и универсальный код ресурса (URI), в поле **Имя сервера**. Затем для параметра **Учетные данные** выберите значение **Использовать следующие имя пользователя и пароль**, введите имя пользователя, например nancy@adventureworks.com, и пароль для него.
+
+    > [!NOTE]
+    > Если вы входите в систему с учетной записью Майкрософт, Live ID, Yahoo, Gmail, и т. д. или требуется войти с помощью многофакторной проверки подлинности, оставьте поле пароля пустым. Пароль запрашивается после нажатия кнопки "Далее".
 
     ![Подключение из Excel: вход](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

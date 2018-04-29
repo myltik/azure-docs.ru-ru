@@ -1,11 +1,11 @@
 ---
-title: "Вызов программ Spark из фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как вызывать программы Spark из фабрики данных Azure с помощью действия MapReduce."
+title: Вызов программ Spark из фабрики данных Azure | Документация Майкрософт
+description: Узнайте, как вызывать программы Spark из фабрики данных Azure с помощью действия MapReduce.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Вызов программ Spark из конвейеров фабрики данных Azure
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Пошаговое руководство по созданию конвейера с действием Spark
 Ниже приведены стандартные действия, необходимые для создания конвейера фабрики данных с действием Spark. 
 
-* создадите фабрику данных;
+* Создадите фабрику данных.
 * Создайте связанную службу хранилища Azure для связи хранилища, которое связано с кластером HDInsight Spark, с фабрикой данных.
 * Создайте связанную службу HDInsight, чтобы связать кластер Spark в HDInsight с фабрикой данных.
 * Создайте набор данных, который ссылается на связанную службу хранилища. Затем определите выходной набор данных для действия, даже если выходные данные не выдаются. 
@@ -59,11 +59,11 @@ ms.lasthandoff: 03/02/2018
 
 2. Создайте кластер Spark в HDInsight, следуя инструкциям в [этом руководстве](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Свяжите учетную запись хранения, созданную на шаге 1, с этим кластером.
 
-3. Скачайте и просмотрите файл скрипта Python **test.py**, который расположен по адресу [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Скачайте и просмотрите файл сценария Python **test.py**, расположенный по адресу [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Отправьте файл **test.py** в папку **pyFiles** контейнера **adfspark** в хранилище BLOB-объектов. Создайте контейнер и папку, если их нет.
 
-### <a name="create-a-data-factory"></a>Создать фабрику данных
+### <a name="create-a-data-factory"></a>Создание фабрики данных
 Чтобы создать фабрику данных, сделайте следующее:
 
 1. Войдите на [портале Azure](https://portal.azure.com/).
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/02/2018
 7. Нажмите кнопку **Создать**.
 
    > [!IMPORTANT]
-   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
+   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
 
 8. Созданная фабрика данных появится на панели мониторинга портала Azure.
 

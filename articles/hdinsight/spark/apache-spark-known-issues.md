@@ -1,8 +1,8 @@
 ---
-title: "Устранение неполадок кластера Apache Spark в Azure HDInsight | Документы Майкрософт"
-description: "Сведения о проблемах, связанных с кластерами Apache Spark в Azure HDInsight, и их решении."
+title: Устранение неполадок кластера Apache Spark в Azure HDInsight | Документы Майкрософт
+description: Сведения о проблемах, связанных с кластерами Apache Spark в Azure HDInsight, и их решении.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,32 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-<<<<<<< HEAD
-ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
-=======
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
->>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Известные проблемы в работе кластера Apache Spark в HDInsight
 
 В этом документе отслеживаются все известные проблемы с общедоступной предварительной версией Spark HDInsight.  
 
 ## <a name="livy-leaks-interactive-session"></a>Утечка интерактивного сеанса Livy
-При перезапуске Livy во время работы интерактивного сеанса (из Ambari или в связи с перезагрузкой виртуальной машины headnode 0) происходит утечка сеанса интерактивного задания. Из-за этого новые задания задерживаются в состоянии "Принято" и не запускаются.
+При перезапуске Livy (из Ambari или в связи с перезапуском виртуальной машины headnode 0) во время работы интерактивного сеанса происходит утечка сеанса интерактивного задания. В результате этого новые задания могут "зависнуть" в состоянии "Принято".
 
 **Устранение.**
 
@@ -62,7 +52,12 @@ ms.lasthandoff: 02/24/2018
 Вручную запустите сервер журналов из Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Проблема разрешений в каталоге журналов Spark
-Когда hdiuser отправляет задание с параметром spark-submit, возникает ошибка java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Отказано в доступе), а журнал драйверов не перезаписывается. 
+Отправляя задание с помощью команды spark-submit, hdiuser возвращает следующую ошибку:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+При этом журнал драйверов не ведется. 
 
 **Устранение.**
 
@@ -73,7 +68,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Соединитель Spark-Phoenix не поддерживается
 
-В настоящее время в кластере HDInsight Spark не поддерживается соединитель Spark-Phoenix.
+Кластеры HDInsight Spark не поддерживают соединитель Spark-Phoenix.
 
 **Устранение.**
 
@@ -83,7 +78,7 @@ ms.lasthandoff: 02/24/2018
 Ниже приведены некоторые известные проблемы, связанные с записными книжками Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Записные книжки со знаками не из набора ASCII в именах файлов
-Записные книжки Jupyter, которые могут использоваться в кластерах Spark HDInsight, не должны содержать в именах файлов знаки не из набора ASCII. При попытке передать через пользовательский интерфейс Jupyter файл, имя которого содержит знаки не из набора ASCII, операция не выполняется и пользователь об этом не оповещается (то есть Jupyter не позволяет передать файл и при этом не уведомляет об ошибке). 
+Не используйте в именах файлов записных книжек Jupyter символы не из набора ASCII. При попытке отправить через пользовательский интерфейс Jupyter файл, имя которого содержит символы не из набора ASCII, происходит сбой без сообщения об ошибке. Jupyter не позволяет отправить файл, но и не выдает явную ошибку.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Ошибка при загрузке записных книжек большого размера
 При загрузке записных книжек большого размера может возникнуть ошибка **`Error loading notebook`** .  

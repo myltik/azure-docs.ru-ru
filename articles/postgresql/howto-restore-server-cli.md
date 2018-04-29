@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI
 
@@ -113,6 +113,10 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 Если вы настроили сервер для геоизбыточного резервного копирования, из резервной копии можно создать новый сервер. Его можно создать в любом регионе, где доступна службы "База данных Azure для PostgreSQL".  
 
 Чтобы создать сервер с помощью геоизбыточного резервного копирования, выполните команду Azure CLI `az postgres server georestore`.
+
+> [!NOTE]
+> Сразу после создания сервер может быть недоступен для восстановления геоданных. Заполнение метаданных может занять несколько часов.
+>
 
 Для геовосстановления сервера в командной строке Azure CLI введите следующую команду.
 

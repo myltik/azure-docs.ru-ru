@@ -1,31 +1,26 @@
 ---
-title: "Подключение к хранилищу данных SQL Azure | Документация Майкрософт"
-description: "Как найти имя сервера и строку подключения к хранилищу данных SQL Azure"
+title: Подключение к хранилищу данных SQL Azure | Документация Майкрософт
+description: Подключитесь к хранилищу данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Подключение к хранилищу данных SQL Azure
-Эта статья поможет вам установить первое подключение к хранилищу данных SQL.
+Подключитесь к хранилищу данных SQL Azure.
 
 ## <a name="find-your-server-name"></a>Поиск имени сервера
-Чтобы подключиться к хранилищу данных SQL, прежде всего нужно знать, как найти имя вашего сервера.  Например, имя сервера в следующем примере — samplesvr.database.windows.net. Чтобы найти полное имя сервера, сделайте следующее.
+Имя сервера в следующем примере — samplesvr.database.windows.net. Чтобы найти полное имя сервера, сделайте следующее.
 
 1. Перейдите на [портал Azure][Azure portal].
 2. Щелкните **Хранилища данных SQL**.
@@ -35,7 +30,7 @@ ms.lasthandoff: 01/24/2018
     ![Полное имя сервера][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Поддерживаемые драйверы и строки подключения
-Хранилище данных SQL Azure поддерживает драйверы [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] и [JDBC][JDBC]. Щелкните один из указанных типов драйверов для получения информации об обновлениях и документации. Чтобы автоматически создать строку подключения используемого драйвера на портале Azure, щелкните **Показать строки подключения к базам данных** на странице из предыдущего примера.  Ниже приведены примеры синтаксиса строк подключения для каждого драйвера.
+Хранилище данных SQL Azure поддерживает драйверы [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] и [JDBC][JDBC]. Щелкните один из указанных типов драйверов для получения информации об обновлениях и документации. Чтобы автоматически создать строку подключения используемого драйвера на портале Azure, щелкните **Показать строки подключения к базам данных** на странице из предыдущего примера. Ниже приведены примеры синтаксиса строк подключения для каждого драйвера.
 
 > [!NOTE]
 > Рекомендуем задать время ожидания подключения, равное 300 секундам, чтобы подключение могло выдерживать короткие периоды недоступности.

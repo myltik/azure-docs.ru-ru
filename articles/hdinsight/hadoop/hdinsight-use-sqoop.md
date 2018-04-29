@@ -1,26 +1,24 @@
 ---
-title: "Выполнение заданий Apache Sqoop с помощью Azure HDInsight (Hadoop) | Документация Майкрософт"
-description: "Вы узнаете, как использовать Azure PowerShell с рабочей станции для запуска Sqoop, импорта и экспорта между кластером HDInsight и базой данных Azure SQL."
+title: Выполнение заданий Apache Sqoop с помощью Azure HDInsight (Hadoop) | Документация Майкрософт
+description: Вы узнаете, как использовать Azure PowerShell с рабочей станции для запуска Sqoop, импорта и экспорта между кластером HDInsight и базой данных Azure SQL.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e72585906b972c3d7ffb2513fceb27e3e8bc1c5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Использование Sqoop с Hadoop в HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -62,7 +60,7 @@ ms.lasthandoff: 03/09/2018
 В данном руководстве используются эти два набора данных для тестирования импорта и экспорта Sqoop.
 
 ## <a name="create-cluster-and-sql-database"></a>Создание кластера и базы данных SQL
-В этом разделе показано, как создать кластер, Базу данных SQL и ее схемы для выполнения заданий руководства с помощью портала Azure и шаблона Azure Resource Manager. Шаблон можно найти в [шаблонах быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Шаблон Resource Manager вызывает пакет BACPAC для развертывания схем таблиц в базе данных SQL.  Пакет BACPAC расположен в общедоступном контейнере больших двоичных объектов: https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Чтобы использовать закрытый контейнер для BACPAC-файлов, используйте следующие значения в шаблоне:
+В этом разделе показано, как создать кластер, Базу данных SQL и ее схемы для выполнения заданий руководства с помощью портала Azure и шаблона Azure Resource Manager. Шаблон можно найти в [шаблонах быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Шаблон Resource Manager вызывает пакет BACPAC для развертывания схем таблиц в базе данных SQL.  Пакет BACPAC хранится в общедоступном контейнере больших двоичных объектов (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac). Чтобы использовать закрытый контейнер для BACPAC-файлов, используйте следующие значения в шаблоне:
    
 ```json
 "storageKeyType": "Primary",
@@ -308,7 +306,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create Azure resouce group

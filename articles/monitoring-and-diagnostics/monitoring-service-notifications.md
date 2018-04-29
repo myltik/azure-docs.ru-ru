@@ -1,8 +1,8 @@
 ---
 title: Что такое уведомления о работоспособности служб Azure? | Документация Майкрософт
 description: Уведомления о работоспособности служб позволяют просматривать соответствующие сообщения, публикуемые Microsoft Azure.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 4/12/2017
+ms.author: dukek
+ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Просмотр уведомлений о работоспособности служб на портале Azure
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/05/2018
 correlationId | Обычно GUID в строковом формате. События, относящиеся к одному действию, обычно имеют одинаковое значение correlationId.
 eventDataId | Уникальный идентификатор события.
 eventName | Название события.
-level | Уровень события. Одно из следующих значений: **Критический**, **Ошибка**, **Предупреждение** или **Информация**.
+level | Уровень события.
 resourceProviderName | Имя поставщика ресурсов для затронутого ресурса.
 тип_ресурса| Тип затронутого ресурса.
 subStatus | Обычно код состояния HTTP соответствующего вызова REST, но может также включать другие строки, описывающие подсостояние. Например: OК (код состояния HTTP: 200), Создано (код состояния HTTP: 201), Принято (код состояния HTTP: 202), Содержимое отсутствует (код состояния HTTP: 204), Недопустимый запрос (код состояния HTTP: 400), Не найдено (код состояния HTTP: 404), Конфликт (код состояния HTTP: 409), Внутренняя ошибка сервера (код состояния HTTP: 500), Служба недоступна (код состояния HTTP: 503), Истекло время ожидания шлюза (код состояния HTTP: 504).
@@ -54,14 +54,52 @@ category | Это свойство всегда имеет значение **Se
 ResourceId | Идентификатор затронутого ресурса.
 Properties.title | Локализованное название этого сообщения. По умолчанию используется английский язык.
 Properties.communication | Локализованные сведения сообщения с разметкой HTML. По умолчанию используется английский язык.
-Properties.incidentType | Одно из следующих значений: **AssistedRecovery**, **ActionRequired**, **Information**, **Incident**, **Maintenance** или **Security**.
+Properties.incidentType | Одно из следующих значений: **ActionRequired**, **Information**, **Incident**, **Maintenance** или **Security**.
 Properties.trackingId | Инцидент, с которым связано это событие. Используйте его для сопоставления событий, связанных с инцидентом.
 Properties.impactedServices | Экранированный большой двоичный объект в формате JSON, описывающий службы и регионы, на которые влияет инцидент. Это свойство содержит список служб, у каждой из которых есть имя **ServiceName**, и список затронутых регионов, у каждого из которых есть регион **RegionName**.
 Properties.defaultLanguageTitle | Сообщение на английском языке.
 Properties.defaultLanguageContent | Сообщение на английском языке с разметкой HTML или в виде обычного текста.
-Properties.stage | Возможные значения для **AssistedRecovery**, **ActionRequired**, **Information**, **Incident** и **Security**: **Active**, **Resolved**. Возможные значения для **Maintenance**: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, **Complete**.
+Properties.stage | Возможные значения параметров **Incident** и **Security**: **Active,** **Resolved** или **RCA**. У параметров **ActionRequired** и **Information** может быть только одно значение — **Active**. Значения параметра **Maintenance**: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** или **Complete**.
 Properties.communicationId | Сообщение, с которым связано это событие.
 
+### <a name="details-on-service-health-level-information"></a>Подробнее о сведениях уровня работоспособности служб
+  <ul>
+    <li><b>Требуется действие</b> (properties.incidentType == ActionRequired) <dl>
+            <dt>Информация</dt>
+            <dd>Требуется участие администратора, чтобы предотвратить влияние на существующие службы.</dd>
+        </dl>
+    </li>
+    <li><b>Обслуживание</b> (properties.incidentType == Maintenance) <dl>
+            <dt>Предупреждение</dt>
+            <dd>Экстренное обслуживание.<dd>
+            <dt>Информация</dt>
+            <dd>Обычное плановое обслуживание.</dd>
+        </dl>
+    </li>
+    <li><b>Информация</b> (properties.incidentType == Information) <dl>
+            <dt>Информация</dt>
+            <dd>Может потребоваться участие администратора, чтобы предотвратить влияние на существующие службы.</dd>
+        </dl>
+    </li>
+    <li><b>Безопасность</b> (properties.incidentType == Security) <dl>
+            <dt>Ошибка</dt>
+            <dd>Масштабные проблемы с доступом к нескольким службам в нескольких регионах, затрагивающие широкий круг клиентов.</dd>
+            <dt>Предупреждение</dt>
+            <dd>Проблемы с доступом к отдельным службам и/или регионам, затрагивающие определенную группу клиентов.</dd>
+            <dt>Информация</dt>
+            <dd>Проблемы с задержками и/или операциями управления, не влияющие на доступность службы.</dd>
+        </dl>
+    </li>
+    <li><b>Проблемы со службами</b> (properties.incidentType == Incident) <dl>
+            <dt>Ошибка</dt>
+            <dd>Масштабные проблемы с доступом к нескольким службам в нескольких регионах, затрагивающие широкий круг клиентов.</dd>
+            <dt>Предупреждение</dt>
+            <dd>Проблемы с доступом к отдельным службам и/или регионам, затрагивающие определенную группу клиентов.</dd>
+            <dt>Информация</dt>
+            <dd>Проблемы с задержками и/или операциями управления, не влияющие на доступность службы.</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Просмотр уведомлений о работоспособности службы на портале Azure
 1.  На [портале Azure](https://portal.azure.com) выберите **Монитор**.

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: поддерживаемые топологии | Документация Майкрософт"
-description: "В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect."
+title: 'Azure AD Connect: поддерживаемые топологии | Документация Майкрософт'
+description: В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
@@ -35,6 +35,11 @@ ms.lasthandoff: 02/28/2018
 | Сервер синхронизации Azure AD Connect, подробно |![Сервер синхронизации Azure AD Connect, подробно](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Неподдерживаемый сценарий |![Неподдерживаемый сценарий](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Мы поддерживаем изменение или использование служб синхронизации Azure AD Connect только в контексте официально задокументированных конфигураций или действий. Любые иные конфигурации или действия могут привести к несогласованному или неподдерживаемому состоянию служб синхронизации Azure AD Connect. Для таких развертываний Майкрософт не предоставляет техническую поддержку.
+
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Один лес, один клиент Azure AD
 ![Топология для одного леса и одного клиента](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

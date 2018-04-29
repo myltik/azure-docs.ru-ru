@@ -1,25 +1,23 @@
 ---
-title: "Добавление дополнительных учетных записей хранения Azure в HDInsight | Документация Майкрософт"
-description: "Сведения о добавлении дополнительных учетных записей хранения Azure в существующий кластер HDInsight."
+title: Добавление дополнительных учетных записей хранения Azure в HDInsight | Документация Майкрософт
+description: Сведения о добавлении дополнительных учетных записей хранения Azure в существующий кластер HDInsight.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Добавление дополнительных учетных записей хранения в HDInsight
 
@@ -55,7 +53,7 @@ ms.lasthandoff: 01/22/2018
 
 ## <a name="the-script"></a>Сценарий
 
-__Расположение скрипта__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Расположение скрипта__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 
 __Требования__
 
@@ -68,7 +66,7 @@ __Требования__
 > [!IMPORTANT]
 > Следуя инструкциям из документации по настройке, используйте следующие сведения для применения этого сценария:
 >
-> * Замените все примеры URI действия сценария соответствующим URI для этого сценария (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Замените любой URI действия в примере скрипта кодом URI для этого скрипта (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 > * Замените все параметры в примере соответствующим именем учетной записи хранения Azure и ключом учетной записи хранения, добавляемой в кластер. При использовании портала Azure эти параметры должны быть разделены пробелом.
 > * Вам не нужно отмечать этот скрипт как __сохраняемый__, так как он непосредственно обновляет конфигурацию Ambari для кластера.
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Замените `$PASSWORD` паролем учетной записи администратора для входа на кластер. Замените `$CLUSTERNAME` именем кластера HDInsight. Замените `$STORAGEACCOUNTNAME` именем учетной записи хранения.
 >
-> Чтобы получить и проанализировать данные JSON, в этом примере используются [curl (http://curl.haxx.se/)](http://curl.haxx.se/) и [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/).
+> В этом примере для извлечения и анализа данных JSON используются [curl (http://curl.haxx.se/)](http://curl.haxx.se/) и [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/).
 
 Используя эту команду, замените __CLUSTERNAME__ именем кластера HDInsight. Замените __PASSWORD__ паролем администратора для входа в кластер по протоколу HTTP. Замените __STORAGEACCOUNT__ именем учетной записи хранилища, добавленной с помощью действия скрипта. Выходные данные этой команды выглядят так:
 
@@ -116,7 +114,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 Чтобы решить эту проблему, необходимо удалить существующую запись для учетной записи хранения. Чтобы удалить имеющуюся запись, выполните указанные ниже действия.
 
-1. Откройте в браузере веб-интерфейс Ambari для кластера HDInsight. URI — https://CLUSTERNAME.azurehdinsight.net. Замените __CLUSTERNAME__ именем кластера.
+1. Откройте в браузере веб-интерфейс Ambari для кластера HDInsight. Значение URI — https://CLUSTERNAME.azurehdinsight.net. Замените __CLUSTERNAME__ именем кластера.
 
     При появлении запроса введите имя пользователя и пароль для входа в кластер по протоколу HTTP.
 

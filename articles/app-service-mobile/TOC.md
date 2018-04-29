@@ -171,7 +171,7 @@
 ## [Рекомендации по работе со службой приложений](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [Цены](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Цены](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)

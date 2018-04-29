@@ -23,7 +23,7 @@
 ## [Служба приложений](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Ресурсы
-## [Видео о Помощнике по Azure](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
+## [Видео о Помощнике по Azure](https://azure.microsoft.com/resources/videos/index/?services=advisor)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 

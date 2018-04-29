@@ -86,5 +86,5 @@
 
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=developer-tools)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

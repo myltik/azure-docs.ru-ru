@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Вычислительные среды, поддерживаемые фабрикой данных Azure
 В этой статье описываются различные среды вычислений, которые можно использовать для обработки и преобразования данных. Здесь содержатся также сведения о различных конфигурациях (конфигурациях по запросу и ваших собственных), которые поддерживаются фабрикой данных при настройке связанных служб, связывающих эти среды вычислений с фабрикой данных Azure.
@@ -426,6 +426,65 @@ ms.lasthandoff: 04/05/2018
 | tenant               | Укажите сведения о клиенте (доменное имя или идентификатор клиента), в котором находится приложение. Эти сведения можно получить, наведя указатель мыши на правый верхний угол страницы портала Azure. | Yes                                      |
 | connectVia           | Среда выполнения интеграции, используемая для отправки действий в связанную службу. Вы можете использовать среду выполнения интеграции Azure или локальную среду выполнения интеграции. Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. | Нет                                        |
 
+
+
+## <a name="azure-databricks-linked-service"></a>Связанная служба Azure Databricks
+Вы можете создать **связанную службу Azure Databricks**, чтобы зарегистрировать рабочую область Databricks, которая будет использоваться для выполнения рабочих нагрузок (записных книжек) Databricks.
+
+### <a name="example---using-new-job-cluster-in-databricks"></a>Пример. Использование нового кластера заданий в Databricks
+
+```json
+{
+    "name": "AzureDatabricks_LS",
+    "properties": {
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "eastus.azuredatabricks.net",
+            "newClusterNodeType": "Standard_D3_v2",
+            "newClusterNumOfWorker": "1:10",
+            "newClusterVersion": "4.0.x-scala2.11",
+            "accessToken": {
+                "type": "SecureString",
+                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+            }
+        }
+    }
+}
+
+```
+
+### <a name="example---using-existing-interactive-cluster-in-databricks"></a>Пример. Использование существующего интерактивного кластера в Databricks
+
+```json
+{
+    "name": " AzureDataBricksLinedService",
+    "properties": {
+      "type": " AzureDatabricks",
+      "typeProperties": {
+        "domain": "https://westeurope.azuredatabricks.net",
+        "accessToken": {
+            "type": "SecureString", 
+            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+          },
+        "existingClusterId": "{clusterId}"
+        }
+}
+
+```
+
+### <a name="properties"></a>properties
+
+| Свойство             | ОПИСАНИЕ                              | Обязательно                                 |
+| -------------------- | ---------------------------------------- | ---------------------------------------- |
+| name                 | Имя связанной службы               | Yes   |
+| Тип                 | Свойству "type" необходимо присвоить значение **AzureDatabricks**. | Yes                                      |
+| Домен               | Укажите регион Azure на основе региона рабочей области Databricks. Пример: https://eastus.azuredatabricks.net | Yes                                 |
+| accessToken          | Чтобы фабрика данных прошла аутентификацию в Azure Databricks, необходим маркер доступа. Маркер доступа должен быть создан в рабочей области Databricks. Подробные инструкции по поиску маркера доступа см. в [этой статье](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token).  | Yes                                       |
+| existingClusterId    | Идентификатор существующего кластера, где будут выполняться все задания. Это должен быть уже созданный интерактивный кластер. Если кластер перестанет отвечать, вам может понадобиться перезапустить его вручную. Для улучшения надежности Databricks предлагает выполнять задания на новых кластерах. Идентификатор интерактивного кластера можно найти, выбрав "Рабочая область Databricks -> Кластеры -> Имя интерактивного кластера -> Конфигурация -> Теги". [Дополнительные сведения](https://docs.databricks.com/user-guide/clusters/tags.html) | Нет  
+| newClusterVersion    | Версия Spark кластера. Она создаст кластер заданий в Databricks. | Нет   |
+| newClusterNumOfWorker| Необходимое число рабочих узлов текущего кластера. В кластере присутствует один драйвер Spark и исполнители num_workers для такого числа узлов: Spark num_workers + 1. Строка в формате Int32, например "1", означает, что параметр numOfWorker имеет значение 1, а "1:10" — автомасштабирование от 1 (минимум) до 10 (максимум).  | Нет                 |
+| newClusterNodeType   | Используя отдельное значение, это поле кодирует доступные ресурсы для каждого узла Spark в этом кластере. Например, узлы Spark могут быть подготовлены и оптимизированы для операций в памяти или для ресурсоемких рабочих нагрузок. Это поле также обязательно для нового кластера.                | Нет                |
+| newClusterSparkConf  | Набор необязательных, определяемых пользователем пар "ключ — значение" в конфигурации Spark. Пользователи также могут передавать строку дополнительных параметров JVM драйверу и исполнителям через spark.driver.extraJavaOptions и spark.executor.extraJavaOptions соответственно. | Нет   |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Связанная служба базы данных SQL Azure

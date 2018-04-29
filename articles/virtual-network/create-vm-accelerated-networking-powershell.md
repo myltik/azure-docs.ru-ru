@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Создание виртуальной машины Windows с ускоренной сетью
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Виртуальные машины должны создаваться с включенной функцией ускорения сети. Эту функцию невозможно включить на имеющихся виртуальных машинах. Чтобы включить функцию ускорения сети, сделайте следующее:
 >   1. Удаление виртуальной машины
 >   2. Повторно создайте виртуальную машину с включенной функцией ускорения сети.
@@ -52,7 +52,7 @@ Microsoft Windows Server 2012 R2 Datacenter и Windows Server 2016.
 Дополнительные сведения см. в статье [Размеры виртуальных машин Windows в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>регионы
-Доступна во всех общедоступных регионах Azure и облаке Azure для государственных организаций. 
+Доступна во всех общедоступных регионах Azure и облаке Azure для государственных организаций.
 
 ## <a name="limitations"></a>Ограничения
 При использовании этой возможности действуют следующие ограничения:
@@ -61,11 +61,11 @@ Microsoft Windows Server 2012 R2 Datacenter и Windows Server 2016.
 * **Создание виртуальной машины.** Сетевой интерфейс с включенной функцией ускорения сети можно подключить к виртуальной машине при ее создании. Этого нельзя сделать для имеющейся виртуальной машины. При добавлении виртуальной машины в имеющуюся группу доступности для всех виртуальных машин в группе доступности нужно включить функцию ускорения сети.
 * **Развертывание только с помощью Azure Resource Manager:** классические виртуальные машины нельзя развернуть с включенной функцией ускорения сети.
 
-В этой статье описано, как создать виртуальную машину с ускорением работы в сети. Но с помощью Azure PowerShell вы также можете [создать аналогичную виртуальную машину на портале Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Создавая виртуальную машину с поддерживаемыми операционной системы, на портале в разделе **Параметры** выберите **Включено** для параметра **Ускорение работы в сети**. После создания виртуальной машины необходимо выполнить инструкции по [подтверждению установки драйвера в операционной системе](#confirm-the-driver-is-installed-in-the-operating-system).
+В этой статье описано, как создать виртуальную машину с ускорением работы в сети. Но с помощью Azure PowerShell вы также можете [создать аналогичную виртуальную машину на портале Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Создавая виртуальную машину на портале в разделе **Параметры** выберите **Включено** для параметра **Ускоренная сеть**. Параметр включения ускоренной сети не отобразится на портале, пока не выбраны [поддерживаемая операционная система](#supported-operating-systems) и [размер виртуальной машины](#supported-vm-instances). После создания виртуальной машины необходимо выполнить инструкции по [подтверждению установки драйвера в операционной системе](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 
-Установите [Azure PowerShell](/powershell/azure/install-azurerm-ps) версии 5.1.1 или более поздней. Чтобы определить текущую версию, выполните командлет `Get-Module -ListAvailable AzureRM`. Если требуется установка или обновление, установите последнюю версию модуля AzureRM из [коллекции PowerShell](https://www.powershellgallery.com/packages/AzureRM). В сеансе PowerShell войдите в учетную запись Azure с помощью командлета [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Установите [Azure PowerShell](/powershell/azure/install-azurerm-ps) версии 5.1.1 или более поздней. Чтобы определить текущую версию, выполните командлет `Get-Module -ListAvailable AzureRM`. Если требуется установка или обновление, установите последнюю версию модуля AzureRM из [коллекции PowerShell](https://www.powershellgallery.com/packages/AzureRM). В сеансе PowerShell войдите в учетную запись Azure с помощью командлета [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myNic* и *myVM*.
 
@@ -200,13 +200,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Проверка установки драйвера в операционной системе
 
-После создания виртуальной машины в Azure подключитесь к ней и проверьте, установлен ли драйвер в Windows. 
+После создания виртуальной машины в Azure подключитесь к ней и проверьте, установлен ли драйвер в Windows.
 
 1. Откройте [портал](https://portal.azure.com) Azure в браузере и войдите, используя учетную запись Azure.
 2. В верхней области портала Azure в поле с текстом *Поиск ресурсов* введите *MyVm*. Когда виртуальная машина **MyVm** появится в результатах поиска, щелкните ее. Если под кнопкой **Подключиться** отображается элемент **Создание**, это означает, что виртуальная машина по-прежнему создается в Azure. Когда элемент **Создание** больше не будет отображаться под кнопкой **Подключиться**, вы можете нажать кнопку **подключения** в левом верхнем углу страницы обзора.
 3. Введите имя пользователя и пароль, указанный при [создании виртуальной машины](#create-the-virtual-machine). Ознакомьтесь с разделом [Подключение к виртуальной машине](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine), если вы никогда не подключались к виртуальной машине Windows в Azure.
 4. В главном меню Windows щелкните правой кнопкой мыши кнопку "Пуск" и выберите **Диспетчер устройств**. Разверните узел **Сетевые адаптеры**. Проверьте, есть ли в списке виртуальный адаптер **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**, как показано на следующем рисунке:
-   
+
     ![Диспетчер устройств](./media/create-vm-accelerated-networking/device-manager.png)
 
 Ускорение работы в сети теперь включено на вашей виртуальной машине.

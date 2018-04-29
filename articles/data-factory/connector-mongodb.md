@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Копирование данных из MongoDB с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 
 В частности, этот соединитель MongoDB поддерживает:
 
-- MongoDB **версии 2.4, 2.6, 3.0 и 3.2**.
+- MongoDB **версий 2.4, 2.6, 3.0, 3.2, 3.4 и 3.6**.
 - Копирование данных с использованием **базовой** или **анонимной** проверки подлинности.
 
 ## <a name="prerequisites"></a>предварительным требованиям
@@ -63,6 +63,8 @@ ms.lasthandoff: 03/23/2018
 | Имя пользователя |Учетная запись пользователя для доступа к MongoDB |Да (если используется обычная проверка подлинности) |
 | password |Пароль для пользователя Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). |Да (если используется обычная проверка подлинности) |
 | authSource |Имя базы данных MongoDB, которое будет использоваться для проверки учетных данных при проверке подлинности |Нет. Для обычной проверки подлинности по умолчанию используется учетная запись администратора и база данных, указанная с помощью свойства databaseName |
+| enableSsl | Указывает, шифруются ли подключения к серверу с помощью протокола SSL. По умолчанию для этого параметра используется значение false.  | Нет  |
+| allowSelfSignedServerCert | Указывает, следует ли разрешить использование самозаверяющих сертификатов с сервера. По умолчанию для этого параметра используется значение false.  | Нет  |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать локальную среду выполнения интеграции или среду выполнения интеграции Azure (если хранилище данных является общедоступным). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
 
 **Пример.**
@@ -116,7 +118,7 @@ ms.lasthandoff: 03/23/2018
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>Свойства действия копирования

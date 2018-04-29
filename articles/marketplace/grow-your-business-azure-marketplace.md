@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fd51ad8289ac03bf7b4d2a5bd0222db98bcf6737
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Расширение бизнеса благодаря Azure Marketplace
 
 Разработав технические средства для своей страницы в Azure Marketplace, количество пользователей, посещающих страницу вашего приложения, а также популярность вашего продукта можно увеличить, следуя маркетинговым рекомендациям. 
 
 >[!NOTE]
->Дополнительные сведения о процессе публикации и технических требованиях см. в статье [Руководство по публикации в Azure Marketplace и AppSource](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
+>Дополнительные сведения о процессе публикации и технических требованиях см. в статье [Руководство по публикации в Azure Marketplace и AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
 ## <a name="how-marketing-helps"></a>Основные преимущества маркетинга
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/05/2018
 
 Расширение можно включить с помощью [портала Azure](https://portal.azure.com/#), Azure PowerShell или сценариев интерфейса командной строки Azure.
 
-Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, выполните эти [инструкции в блоге Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, выполните эти [инструкции в блоге Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 В данной статье рассматривается включение и настройка расширения с помощью команд Azure CLI. Это позволит считывать и просматривать данные непосредственно из таблицы хранилища.
 

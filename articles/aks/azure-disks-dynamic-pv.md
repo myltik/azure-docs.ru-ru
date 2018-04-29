@@ -8,17 +8,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Постоянные тома с дисками Azure
 
 Постоянный том — это часть хранилища, которая подготовлена к использованию для модулей pod Kubernetes. Постоянный том может использоваться одним или несколькими модулями pod и может быть подготовлен динамически или статически. Дополнительные сведения о постоянных томах Kubernetes см. в разделе [Kubernetes persistent volumes][kubernetes-volumes] (Постоянные тома Kubernetes).
 
 В этом документе описываются использование постоянных томов с дисками Azure в кластере Службы контейнеров Azure (AKS).
+
+> [!NOTE]
+> Диск Azure можно подключить только с в режиме доступа ReadWriteOnce, который предоставляет доступ только к одному узлу AKS. Если вам нужно использовать постоянный том на нескольких узлах, попробуйте использовать [службу файлов Azure][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Встроенные классы хранения
 
@@ -40,7 +43,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 Создайте файл `azure-premimum.yaml` и скопируйте в него следующий манифест.
 
-Обратите внимание на то, что класс хранения `managed-premium` указан в заметке и утверждение запрашивает диск емкостью `5GB` с правами доступа `ReadWriteOnce`. 
+Обратите внимание на то, что класс хранения `managed-premium` указан в заметке и утверждение запрашивает диск емкостью `5GB` с правами доступа `ReadWriteOnce`.
 
 ```yaml
 apiVersion: v1
@@ -63,12 +66,9 @@ spec:
 kubectl create -f azure-premimum.yaml
 ```
 
-> [!NOTE]
-> Диск Azure можно подключить только с в режиме доступа ReadWriteOnce, который предоставляет доступ только к одному узлу AKS. Если вам нужно использовать постоянный том на нескольких узлах, попробуйте использовать [службу файлов Azure][azure-files-pvc].
-
 ## <a name="using-the-persistent-volume"></a>Использование постоянного тома
 
-После создания утверждения постоянного тома и успешной подготовки диска можно создать группу pod с доступом к диску. Приведенный ниже манифест создает группу pod, использующую утверждение постоянного тома `azure-managed-disk` для подключения диска Azure по пути `/mnt/azure`. 
+После создания утверждения постоянного тома и успешной подготовки диска можно создать группу pod с доступом к диску. Приведенный ниже манифест создает группу pod, использующую утверждение постоянного тома `azure-managed-disk` для подключения диска Azure по пути `/mnt/azure`.
 
 Создайте файл `azure-pvc-disk.yaml` и скопируйте в него следующий манифест.
 
@@ -96,7 +96,7 @@ spec:
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-Теперь у вас есть работающий pod с диском Azure, подключенным к каталогу `/mnt/azure`. Подключенный том можно увидеть, изучив pod с помощью команды `kubectl describe pod mypod`.
+Теперь у вас есть работающий pod с диском Azure, подключенным к каталогу `/mnt/azure`. Эта конфигурация может отображаться при проверке вашего модуля через `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

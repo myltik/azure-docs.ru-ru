@@ -1,8 +1,8 @@
 ---
-title: "Миграция из кластера HDInsight под управлением Windows в кластер HDInsight под управлением Linux в Azure | Документы Майкрософт"
-description: "Узнайте, как выполнить миграцию из кластера HDInsight под управлением Windows на кластер HDInsight под управлением Linux."
+title: Миграция из кластера HDInsight под управлением Windows в кластер HDInsight под управлением Linux в Azure | Документы Майкрософт
+description: Узнайте, как выполнить миграцию из кластера HDInsight под управлением Windows на кластер HDInsight под управлением Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6d4b537834b8a70f0015fc9c6316dae20af5dd5a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux
 
@@ -148,7 +146,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="management-and-monitoring"></a>Управление и мониторинг
 
-Многие веб-интерфейсы, которыми вы могли пользоваться в HDInsight под управлением Windows, например журнал заданий или пользовательский интерфейс Yarn, доступны в Ambari. Кроме того, представление Hive Ambari позволяет выполнять запросы Hive с помощью веб-браузера. Пользовательский веб-интерфейс Ambari доступен в кластерах HDInsight на платформе Linux по адресу: https://CLUSTERNAME.azurehdinsight.net.
+Многие веб-интерфейсы, которыми вы могли пользоваться в HDInsight под управлением Windows, например журнал заданий или пользовательский интерфейс Yarn, доступны в Ambari. Кроме того, представление Hive Ambari позволяет выполнять запросы Hive с помощью веб-браузера. Пользовательский веб-интерфейс Ambari доступен в кластерах под управлением Linux по адресу: https://CLUSTERNAME.azurehdinsight.net.
 
 Дополнительные сведения о работе с Ambari см. в следующих документах:
 
@@ -234,7 +232,7 @@ Ambari имеет систему предупреждений, которые м
 | В кластерах под управлением Windows я пользуюсь... | В кластерах под управлением Linux... |
 | --- | --- |
 | Панель мониторинга Storm |Панель мониторинга Storm недоступна. Сведения об отправке топологий приведены в разделе [Развертывание и управление топологиями Storm в HDInsight под управлением Linux](storm/apache-storm-deploy-monitor-topology-linux.md) . |
-| Пользовательский интерфейс Storm |Пользовательский интерфейс Storm доступен по адресу https://CLUSTERNAME.azurehdinsight.net/stormui. |
+| Пользовательский интерфейс Storm |Пользовательский интерфейс Storm доступен по адресу https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio для создания, развертывания и управления C# или гибридными топологиями |Visual Studio можно использовать для создания, развертывания топологий C# (SCP.NET) или гибридных топологий и управления ими в кластерах Storm в HDInsight под управлением Linux. Visual Studio можно использовать только для кластеров, созданных после 28 октября 2016 года. |
 
 ## <a name="hbase"></a>hbase

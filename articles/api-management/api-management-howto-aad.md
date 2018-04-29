@@ -1,11 +1,11 @@
 ---
-title: "Авторизация учетных записей разработчиков с помощью Azure Active Directory в службе управления API Azure | Документация Майкрософт"
-description: "Узнайте, как авторизовать пользователей с помощью Azure Active Directory в службе управления API."
+title: Авторизация учетных записей разработчиков с помощью Azure Active Directory в службе управления API Azure | Документация Майкрософт
+description: Узнайте, как авторизовать пользователей с помощью Azure Active Directory в службе управления API.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/09/2018
     Справа появится область **Создание**. Здесь вам нужно ввести информацию о приложении Azure AD.
 17. Введите имя приложения.
 18. Выберите в качестве типа приложения **Веб-приложение или API**.
-19. В поле URL-адреса входа введите URL-адрес входа на свой портал разработчика. В этом примере URL-адрес входа: https://apimwithaad.portal.azure-api.net/signin.
+19. В поле URL-адреса входа введите URL-адрес входа на свой портал разработчика. В данном примере URL-адрес входа — https://apimwithaad.portal.azure-api.net/signin.
 20. Выберите **Создать**, чтобы создать приложение.
 21. Чтобы найти приложение, выберите **Регистрация приложений** и выполните поиск по имени.
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 02/09/2018
 
     В разделе **Разрешенные клиенты** можно указать несколько доменов. Прежде чем какой-либо пользователь сможет выполнить вход из домена, отличного от домена, в котором было зарегистрировано приложение, глобальный администратор этого другого домена должен предоставить разрешение для доступа приложения к данным каталога. Чтобы предоставить разрешение, глобальный администратор должен выполнить следующее:
     
-    a. Перейти по адресу `https://<URL of your developer portal>/aadadminconsent` (например, https://contoso.portal.azure-api.net/aadadminconsent).
+    a. Перейдите на страницу `https://<URL of your developer portal>/aadadminconsent` (например, https://contoso.portal.azure-api.net/aadadminconsent).
     
     Б. Ввести имя домена клиента Azure AD, к которому требуется предоставить доступ.
     

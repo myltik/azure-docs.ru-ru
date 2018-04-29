@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Смена неуправляемого каталога от имени администратора в Azure Active Directory
 В этой статье описывается два способа смены доменного имени DNS в неуправляемом каталоге в Azure Active Directory (Azure AD). Когда пользователь самостоятельно регистрируется в облачной службе, использующей Azure AD, он добавляется в неуправляемый каталог Azure AD на основе домена электронной почты. Дополнительные сведения о самостоятельной (или "вирусной") регистрации в службе см. в разделе [What is self-service signup for Azure Active Directory?]() (Что такое самостоятельная регистрация для Azure Active Directory?).
@@ -83,14 +83,12 @@ ms.lasthandoff: 03/29/2018
 - Пользователи
 - Подписки
 - Назначения лицензий
- 
-При внешней смене администратором доменного имени [параметр **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) поддерживается только для двух служб — Power BI и Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Поддержка внешней смены администратором
 Внешняя смена администратором поддерживается следующими веб-службами:
 
 - Power BI
-- Служба Azure Rights Management (RMS)
+- управление правами Azure;
 - Exchange Online
 
 Поддерживаемые планы обслуживания:
@@ -99,12 +97,19 @@ ms.lasthandoff: 03/29/2018
 - Power BI Pro;
 - PowerApps (бесплатная версия);
 - PowerFlow (бесплатная версия);
-- Служба Azure Rights Management Basic (RMS);
-- Служба Azure Rights Management Enterprise (RMS);
+- RMS для частных лиц;
 - Microsoft Stream;
 - Dynamics 365 (бесплатная пробная версия).
 
-Внешняя смена администратором не поддерживается для служб, которые имеют планы обслуживания, включающие SharePoint, OneDrive или Skype для бизнеса. Например, это может быть бесплатная подписка или SKU "Базовый" для Office.
+Внешняя смена администратором не поддерживается для служб, которые имеют планы обслуживания, включающие SharePoint, OneDrive или Skype для бизнеса. Например, это может быть бесплатная подписка или SKU "Базовый" для Office. При необходимости можно воспользоваться параметром [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) для удаления доменного имени из неуправляемого клиента и его проверки в нужном клиенте. При использовании параметра ForceTakeover пользователи не перемещаются, и их доступ к подписке сохраняется. Перемещается только доменное имя. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Дополнительные сведения о службе RMS для частных лиц
+
+Что касается [RMS для частных лиц](/information-protection/understand-explore/rms-for-individuals), то для неуправляемого клиента, находящегося в том же регионе, что и принадлежащий вам клиент, автоматически созданный [ключ клиента Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) и [шаблоны защиты по умолчанию](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) перемещаются вместе с доменным именем. 
+
+Ключ и шаблоны не перемещаются лишь в том случае, если неуправляемый клиент находится в другом регионе. Например, неуправляемый клиент находится в Европе, а ваш клиент находится в Северной Америке. 
+
+Несмотря на то что RMS для частных лиц поддерживает проверку подлинности в Azure AD для получения доступа к защищенному содержимому, он не запрещает пользователям также защищать содержимое. Если пользователи защитили содержимое с помощью подписки RMS для частных лиц, а ключи и шаблоны не были перемещены, содержимое останется недоступным после получения прав администрирования доменом.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Командлеты Azure AD PowerShell для параметра ForceTakeover
 Вы можете видеть эти командлеты, используемые в [примере PowerShell](#powershell-example).

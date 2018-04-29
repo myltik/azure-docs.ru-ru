@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Публикация в пользовательском разделе для службы "Сетка событий Azure"
 
@@ -73,7 +73,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 ]
 ```
 
-Описание этих свойств см. в статье [Схема событий службы "Сетка событий Azure"](event-schema.md).
+Описание этих свойств см. в статье [Схема событий службы "Сетка событий Azure"](event-schema.md). При отправке событий в службу "Сетка событий" общий размер массива не может превышать 1 МБ. Размер каждого события в массиве ограничен 64 КБ.
 
 Ниже приведен пример допустимой схемы данных события:
 
@@ -98,9 +98,10 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 |Результат  |Ответ  |
 |---------|---------|
 |Успешно  | 200 ОК  |
-|Неправильная конечная точка | 404 — не найдено |
-|Недопустимый ключ доступа | 401 — недостаточно прав |
 |Неправильный формат данных события | 400 — недопустимый запрос |
+|Недопустимый ключ доступа | 401 — недостаточно прав |
+|Неправильная конечная точка | 404 — не найдено |
+|Массив или событие превышает допустимый размер | 413 (слишком большой объем полезных данных) |
 
 Текст сообщений об ошибках имеет следующий формат:
 

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Nexonia | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Nexonia."
+title: Руководство по интеграции Azure Active Directory с Nexonia | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Nexonia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Руководство по интеграции Azure Active Directory с Nexonia
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 01/19/2018
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Nexonia.
 
   > [!Note]
-   > Если при интеграции возникают проблемы, воспользуйтесь этой [ссылкой](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) для ознакомления с руководством по устранению неполадок. Если вам по-прежнему не удается найти решение, направьте запрос в службу поддержки через портал Azure.
+   > Если при интеграции возникают проблемы, воспользуйтесь этой [ссылкой](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) для ознакомления с руководством по устранению неполадок. Если вам по-прежнему не удается найти решение, направьте запрос в службу поддержки через портал Azure.
 
 **Чтобы настроить единый вход Azure AD в Nexonia, выполните следующие действия:**
 

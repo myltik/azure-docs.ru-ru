@@ -1,29 +1,24 @@
 ---
-title: "Руководство по использованию эластичных запросов для хранилища данных SQL Azure | Документация Майкрософт"
-description: "Узнайте, как использовать эластичные запросы с хранилищем данных SQL Azure."
+title: Руководство. Использование эластичных запросов для хранилища данных SQL Azure | Документация Майкрософт
+description: Для задач этого руководства используется функция эластичных запросов. Она позволяет обращаться к хранилищу данных SQL Azure из службы "База данных SQL Azure".
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>Настройка эластичных запросов для хранилища данных SQL
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Руководство. Доступ к данным в хранилище данных SQL Azure из службы "База данных SQL Azure" с помощью эластичных запросов
 
-В этом руководстве вы узнаете, как использовать эластичный запрос для отправки запроса из базы данных SQL к хранилищу данных SQL. Эластичный запрос представляет собой функциональные возможности, которые используются между продуктами SQL Azure. Дополнительные сведения о принципах работы эластичных запросов см. в разделе [**Использование эластичных запросов с хранилищем данных SQL**][How to use Elastic Query with SQL Data Warehouse].
+Для задач этого руководства используется функция эластичных запросов. Она позволяет обращаться к хранилищу данных SQL Azure из службы "База данных SQL Azure". 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Предварительные требования для прохождения этого учебника
 
@@ -128,7 +123,7 @@ ms.lasthandoff: 12/11/2017
 
 5. Обратите внимание на то, что теперь в **экземпляре базы данных SQL** есть определение внешней таблицы.
 
-   ![Определение внешней таблицы для эластичного запроса](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![Определение внешней таблицы для эластичного запроса](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. Отправьте приведенный ниже запрос, который запрашивает данные из экземпляра хранилища данных. Он должен вернуть пять значений, которые были вставлены на шаге 2. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Поздравляем, вы ознакомились с основами эластичных запросов. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>Дополнительная информация
+См. [рекомендации по использованию эластичных запросов в хранилище данных SQL Azure](how-to-use-elastic-query-with-sql-data-warehouse.md).

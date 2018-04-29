@@ -1,9 +1,9 @@
 ---
-title: "Поддерживаемые службы и схемы в журналах диагностики Azure | Документация Майкрософт"
-description: "Узнайте о поддерживаемых схемах служб и событий для журналов диагностики Azure."
+title: Поддерживаемые службы и схемы в журналах диагностики Azure | Документация Майкрософт
+description: Узнайте о поддерживаемых схемах служб и событий для журналов диагностики Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Поддерживаемые службы, схемы и категории для журналов диагностики Azure
 
@@ -73,6 +73,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
 |Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeStore/accounts|Requests|Журналы запросов|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Журналы сервера PostgreSQL|
 |Microsoft.Devices/IotHubs|Подключения|Подключения|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Телеметрия устройства|
 |Microsoft.Devices/IotHubs|C2DCommands|Команды, отправляемые из облака на устройство|
@@ -84,6 +85,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Devices/IotHubs|TwinQueries|Запросы к двойникам|
 |Microsoft.Devices/IotHubs|JobsOperations|Операции заданий|
 |Microsoft.Devices/IotHubs|DirectMethods|Прямые методы|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|Диагностика E2E (предварительная версия)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Операции с устройствами|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Операции со службой|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Событие группы безопасности сети|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Счетчик правил группы безопасности сети|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Событие потока правил группы безопасности сети|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|События оповещения балансировщика нагрузки|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Состояние работоспособности балансировщика нагрузки|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Уведомления о защите от атак DDoS|
@@ -107,6 +108,8 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Журналы диагностики шлюзов|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Журналы диагностики туннелей|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Журналы диагностики маршрутов|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Журналы диагностики IKE|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Журналы диагностики P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Событие вывода результатов проверки работоспособности диспетчера трафика|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Таблица счетчиков GWM.|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Данные отчетов службы архивации Azure|
@@ -127,6 +130,7 @@ ms.lasthandoff: 01/25/2018
 |Microsoft.Sql/servers/databases|Блоки|Блоки|
 |Microsoft.Sql/servers/databases|SQLInsights|Аналитика SQL|
 |Microsoft.Sql/servers/databases|Аудит|Журналы аудита|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Событие аудита безопасности SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
 |Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|
 

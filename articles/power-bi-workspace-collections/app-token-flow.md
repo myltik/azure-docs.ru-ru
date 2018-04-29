@@ -1,12 +1,12 @@
 ---
-title: "Аутентификация и авторизация в коллекциях рабочих областей Power BI | Документация Майкрософт"
-description: "Аутентификация и авторизация в коллекциях рабочих областей Power BI."
+title: Аутентификация и авторизация в коллекциях рабочих областей Power BI | Документация Майкрософт
+description: Аутентификация и авторизация в коллекциях рабочих областей Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: ae9627c6bb5e7bb099598acaa2eb29375c35593e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Аутентификация и авторизация в коллекциях рабочих областей Power BI
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 | Утверждение | ОПИСАНИЕ |
 | --- | --- |
 | **ver** |Версия маркера приложения. Текущая версия — 0.2.0. |
-| **aud** |Целевой получатель маркера. Для коллекций рабочих областей Power BI используйте адрес https://analysis.windows.net/powerbi/api. |
+| **aud** |Целевой получатель маркера. Для коллекций рабочих областей Power BI используйте https://analysis.windows.net/powerbi/api. |
 | **iss** |Строка, указывающая приложение, которое выдало маркер. |
 | **type** |Тип маркера приложения, который создается. Сейчас поддерживается только тип **embed** |
 | **wcn** |Имя коллекции рабочих областей, для которой выдается маркер |

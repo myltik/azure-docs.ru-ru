@@ -1,8 +1,8 @@
 ---
-title: "Включение дампов кучи для служб Hadoop в HDInsight — Azure | Документы Майкрософт"
-description: "Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа."
+title: Включение дампов кучи для служб Hadoop в HDInsight — Azure | Документы Майкрософт
+description: Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux
 
@@ -91,7 +89,7 @@ ms.lasthandoff: 02/28/2018
 
 Чтобы изменить конфигурацию службы, выполните следующие действия.
 
-1. Откройте веб-интерфейс Ambari для вашего кластера. URL-адрес: https://YOURCLUSTERNAME.azurehdinsight.net.
+1. Откройте веб-интерфейс Ambari для вашего кластера. Введите URL-адрес https://YOURCLUSTERNAME.azurehdinsight.net.
 
     В ответ на запрос войдите на сайт с помощью имени учетной записи HTTP (по умолчанию — admin) и пароля для вашего кластера.
 

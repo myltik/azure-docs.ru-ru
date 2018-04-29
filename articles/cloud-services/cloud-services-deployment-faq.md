@@ -1,11 +1,11 @@
 ---
-title: "Вопросы и ответы по проблемам развертывания для облачных служб Microsoft Azure | Документы Майкрософт"
-description: "В этой статье приведены часто задаваемые вопросы по развертыванию для облачных служб Microsoft Azure."
+title: Вопросы и ответы по проблемам развертывания для облачных служб Microsoft Azure | Документы Майкрософт
+description: В этой статье приведены часто задаваемые вопросы по развертыванию для облачных служб Microsoft Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Проблемы развертывания для облачных служб Azure. Вопросы и ответы (FAQ)
 
@@ -79,4 +79,4 @@ ms.lasthandoff: 12/12/2017
 
 На классическом портале пакет загружался непосредственно в слой службы управления API. Затем в слое API пакет временно помещался во внутреннюю учетную запись хранения.  Такой процесс сопровождается проблемами с производительностью и масштабируемостью, так как слой API не разрабатывался в качестве службы для отправки файлов.  На портале Azure (модель развертывания Resource Manager) мы обошли промежуточный этап передачи в слой API. Это ускорило развертывание и повысило его надежность. 
 
-Что касается затрат, они очень незначительны. Одну и ту же учетную запись хранения можно повторно использовать для всех развертываний. При помощи [калькулятора стоимости хранилища](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) вы можете рассчитать расходы на отправку пакета службы (CSPKG-файл), скачивание CSPKG-файла и удаление CSPKG-файла. 
+Что касается затрат, они очень незначительны. Одну и ту же учетную запись хранения можно повторно использовать для всех развертываний. При помощи [калькулятора стоимости хранилища](https://azure.microsoft.com/pricing/calculator/#storage1) вы можете рассчитать расходы на отправку пакета службы (CSPKG-файл), скачивание CSPKG-файла и удаление CSPKG-файла. 

@@ -1,12 +1,12 @@
 ---
-title: "Интерфейс командной строки Azure Service Fabric : sfctl compose | Документация Майкрософт"
-description: "Описание команд sfctl compose интерфейса командной строки Azure Service Fabric."
+title: 'Интерфейс командной строки Azure Service Fabric : sfctl compose | Документация Майкрософт'
+description: Описание команд sfctl compose интерфейса командной строки Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Создание, удаление развертываний Docker Compose и управление ими.
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                 | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h               | Отображение этого справочного сообщения и выход.|
 | --output -o             | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query                 | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query                 | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose               | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
@@ -79,7 +79,7 @@ ms.lasthandoff: 02/27/2018
 | --debug          | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h        | Отображение этого справочного сообщения и выход.|
 | --output -o      | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query          | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query          | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose        | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                 | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h               | Отображение этого справочного сообщения и выход.|
 | --output -o             | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query                 | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query                 | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose               | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
@@ -123,7 +123,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                 | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h               | Отображение этого справочного сообщения и выход.|
 | --output -o             | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query                 | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query                 | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose               | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/27/2018
 |   --debug                      | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 |    --help -h                    | Отображение этого справочного сообщения и выход.|
 |   --output -o                  | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv. Значение по умолчанию: json.|
-|   --query                      | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+|   --query                      | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 |   --verbose                    | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="next-steps"></a>Дополнительная информация

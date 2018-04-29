@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>Часто задаваемые вопросы (FAQ)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>Есть ли закрытые предварительные версии для дополнительных функций?
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Доступна ли программа использования закрытых предварительных версий новых функций и возможностей интеграции MSI?
 
-Да. Если вы хотите зарегистрироваться для использования закрытой предварительной версии, [перейдите на страницу регистрации](https://aka.ms/azuremsiprivatepreview).
+Да. Если вы хотите зарегистрироваться для использования закрытых предварительных версий, [перейдите на страницу регистрации](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Работает ли MSI с облачными службами Azure?
 
@@ -42,10 +42,24 @@ ms.lasthandoff: 03/16/2018
 
 Периметром безопасности удостоверения является ресурс, к которому оно подключено. Например, периметром безопасности для MSI виртуальной машины является виртуальная машина. В любом коде, выполняемом на этой виртуальной машине, можно вызвать конечную точку и маркеры запроса MSI. Этот принцип применяется и к другим ресурсам, которые поддерживают MSI.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>Что следует использовать: конечную точку IMDS ВМ MSI или конечную точку расширения ВМ MSI?
+
+При использовании MSI с виртуальными машинами рекомендуется использовать конечную точку MSI IMDS. Служба метаданных экземпляров Azure является конечной точкой REST, доступной всем виртуальным машинам IaaS, созданным с помощью Azure Resource Manager. Ниже приведены некоторые преимущества использования MSI через IMDS.
+
+1. Все операционные системы, поддерживаемые Azure IaaS, могут использовать MSI через IMDS. 
+2. Для включения MSI больше не нужно устанавливать расширение на виртуальную машину. 
+3. Сертификаты, используемые MSI, больше не хранятся на виртуальной машине. 
+4. Конечная точка IMDS представляет собой известный IP-адрес без поддержки маршрутизации, к которому можно получить доступ только в пределах виртуальной машины. 
+
+Расширение ВМ MSI по-прежнему можно использовать, однако в дальнейшем в качестве конечной точки по умолчанию будет использоваться IMDS. Расширение ВМ MSI вскоре будет внесено в план вывода из эксплуатации. 
+
+Дополнительные сведения о службе метаданных экземпляров Azure см. в [документации по IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>Какие дистрибутивы Linux поддерживаются?
 
-MSI поддерживает следующие дистрибутивы Linux: 
+Все дистрибутивы Linux, поддерживаемые IaaS Azure, могут использоваться с MSI через конечную точку IMDS. 
 
+Примечание. Расширение ВМ MSI поддерживает только следующие дистрибутивы Linux:
 - CoreOS Stable
 - CentOS 7.1;
 - RedHat 7.2;

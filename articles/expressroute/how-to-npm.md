@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Настройка решения "Монитор производительности сети" для ExpressRoute
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/05/2018
 1. На [портале Azure](https://portal.azure.com) выберите подписку, которая включает виртуальные сети, подключенные с помощью пиринговой связи к каналу ExpressRoute. Затем найдите в списке служб в **Marketplace** решение "Монитор производительности сети". Щелкните возвращенный результат, чтобы открылась страница **Монитор производительности сети**.
 
    >[!NOTE]
-   >Вы можете создать новую рабочую область или использовать имеющуюся.  Если вы выбрали имеющуюся рабочую область, используйте для нее новый язык запросов. [Дополнительные сведения...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Вы можете создать новую рабочую область или использовать имеющуюся.  Если вы выбрали имеющуюся рабочую область, используйте для нее новый язык запросов. [Дополнительные сведения...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![портал](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ ms.lasthandoff: 04/05/2018
   >
   
   >[!NOTE]
-  >Агенты, отправленные SCOM (включает в себя [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)), возможно, не смогут согласованно определить свое расположение, если они размещены в Azure.  Рекомендуется не использовать эти агенты в виртуальных сетях Azure для мониторинга ExpressRoute.
+  >Агенты, отправленные SCOM (включает в себя [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)), возможно, не смогут согласованно определить свое расположение, если они размещены в Azure.  Рекомендуется не использовать эти агенты в виртуальных сетях Azure для мониторинга ExpressRoute.
   >
   >
 

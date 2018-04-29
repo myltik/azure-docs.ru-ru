@@ -12,67 +12,106 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Создание сертификатов PKI для развертывания Azure Stack
-Теперь, когда вы знаете [требования к сертификату PKI](azure-stack-pki-certs.md) для развертываний Azure Stack, вам необходимо получить эти сертификаты из выбранного вами центра сертификации. 
+# <a name="azure-stack-certificates-signing-request-generation"></a>Создание запроса на подпись сертификата Azure Stack
 
-## <a name="request-certificates-using-an-inf-file"></a>Создание запросов на сертификаты с помощью INF-файла
-С помощью INF-файла можно запросить сертификаты из общедоступного или внутреннего центра сертификации. Встроенная программа Windows certreq.exe может с помощью INF-файла указать сведения сертификата для создания файла запроса, как описано в этом разделе. 
+Инструмент проверки готовности Azure Stack, описанный в этой статье, доступен в [коллекции PowerShell](https://aka.ms/AzsReadinessChecker). С его помощью можно создавать запросы на подпись сертификатов, которые подходят для развертывания Azure Stack. Сертификаты необходимо запросить, создать и проверить, а также выделить достаточно времени на их тестирование перед развертыванием. 
 
-### <a name="sample-inf-file"></a>Пример INF-файла 
-Пример INF-файла для запроса на сертификат можно использовать для создания автономного файла запроса для отправки в центр сертификации (внутренний или общедоступный). INF-файл собирает все необходимые конечные точки (в том числе дополнительные службы PaaS) в единый групповой сертификат. 
+Инструмент проверки готовности Azure Stack (AzsReadinessChecker) выполняет следующие запросы сертификатов:
 
-В примере INF-файла предполагается, что регион равен **sea**, а значение внешнего полного доменного имени — **sea.contoso.com**. Замените эти значения значениями своей среды, прежде чем создавать INF-файл для развертывания. 
+ - **Стандартные запросы сертификатов**  
+    В [этой статье](azure-stack-get-pki-certs.md) описано, как выполнять эти запросы. 
+ - **Тип запроса**  
+    Запросите несколько шаблонов SAN-сертификата, сертификаты доменов и единый групповой сертификат.
+ - **Платформа как услуга (PaaS)**  
+    При необходимости запросите сертификаты PaaS, как описано в разделе [Необязательные сертификаты PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## <a name="prerequisites"></a>предварительным требованиям
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+Прежде чем создать запросы на подпись сертификатов PKI для развертывания Azure Stack, необходимо убедиться, что в системе присутствуют приведенные ниже компоненты и установлена нужная ОС.
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Инструмент проверки готовности Microsoft Azure Stack
+ - Атрибуты сертификата:
+    - Имя региона
+    - Внешнее полное доменное имя (FQDN)
+    - Субъект
+ - Windows 10 или Windows Server 2016;
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## <a name="generate-certificate-signing-requests"></a>Создание запроса на подпись сертификата
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+Для подготовки и проверки сертификатов PKI Azure Stack выполните следующие действия: 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  Установите AzsReadinessChecker из командной строки PowerShell (версии 5.1 или более поздней), выполнив следующий командлет:
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## <a name="generate-and-submit-request-to-the-ca"></a>Создание запроса и его отправка в центр сертификации
-Следующий рабочий процесс описывает, как настроить и использовать пример INF-файла, созданный ранее, для создания запроса на сертификат из центра сертификации:
+2.  Объявите **subject** в качестве упорядоченного словаря. Например:  
 
-1. **Изменение и сохранение INF-файла.** Скопируйте пример файла и сохраните его в новом текстовом файле. Замените значения имени субъекта и внешнего доменного имени значениями, которые соответствуют развертыванию, и сохраните файл как INF-файл.
-2. **Создание запроса с помощью программы certreq.** На компьютере Windows откройте командную строку от имени администратора и запустите следующую команду, чтобы создать файл запроса (REQ): `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. **Отправка в центр сертификации.** Отправьте созданный REQ-файл в центр сертификации (внутренний или общедоступный).
-4. **Импорт CER-файла.** Центр сертификации возвращает CER-файл. На том же компьютере Windows, где вы создали файл запроса, импортируйте возвращенный CER-файл в личное хранилище или хранилище компьютера. 
-5. **Экспорт и копирование PFX-файла в папки развертывания.** Экспортируйте сертификат (в том числе закрытый ключ) как PFX-файл и скопируйте этот файл в папки развертывания, описанные в [требованиях к PKI для развертывания Azure Stack](azure-stack-pki-certs.md).
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > Если указано общее имя (CN), оно будет использоваться в качестве первого DNS-имени запроса сертификата.
+
+3.  Объявите имеющийся выходной каталог:
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. Объявите **имя региона** и **внешнее полное доменное имя**, которые предназначены для развертывания Azure Stack.
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > На основе `<regionName>.<externalFQDN>` создаются все внешние DNS-имена в Azure Stack. В этом примере используется портал `portal.east.azurestack.contoso.com`.
+
+5. Чтобы создать единый запрос на сертификат с несколькими альтернативными именами субъекта, в том числе те, которые необходимы для службы PaaS, выполните следующую команду:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. Чтобы создать отдельные запросы на подпись сертификатов для каждого DNS-имени (без необходимых службам PaaS), выполните следующую команду:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    ````
+
+7. Просмотрите выходные данные:
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  Отправьте созданный **REQ-файл** в центр сертификации (внутренний или общедоступный).  В выходном каталоге **Start-AzsReadinessChecker** содержится запрос на подпись сертификатов, который необходимо отправить в центр сертификации.  Он также содержит дочерний каталог, содержащий INF-файлы, которые используются во время создания запроса сертификата. Убедитесь, что сертификаты в центре сертификации создаются с помощью запроса, который соответствует требованиям из статьи [Требования к сертификатам инфраструктуры открытых ключей Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Дополнительная информация
+
 [Подготовка сертификатов PKI Azure Stack](azure-stack-prepare-pki-certs.md)
+

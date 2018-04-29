@@ -1,11 +1,11 @@
 ---
-title: "Обмен данными с любой конечной точкой по протоколу HTTP в Azure Logic Apps | Документация Майкрософт"
-description: "Создание приложений логики, которые обмениваются данными с любой конечной точкой по протоколу HTTP."
+title: Обмен данными с любой конечной точкой по протоколу HTTP в Azure Logic Apps | Документация Майкрософт
+description: Создание приложений логики, которые обмениваются данными с любой конечной точкой по протоколу HTTP.
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Начало работы с действием HTTP
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 01/19/2018
 | --- | --- | --- |
 | Метод* |метод |HTTP-команда для использования |
 | URI* |uri |URI HTTP-запроса |
-| Заголовки |headers |Объект JSON заголовков HTTP, который нужно включить |
+| Заголовки |Заголовки |Объект JSON заголовков HTTP, который нужно включить |
 | Текст |текст |Текст HTTP-запроса |
 | Authentication |authentication |Дополнительные сведения см. в разделе [Аутентификация](#authentication). |
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 01/19/2018
 
 > [!TIP]
 > Если вы хотите использовать пароль, который не удается получить из определения, используйте параметр `securestring` и  
-> [функцию определения рабочего процесса](http://aka.ms/logicappdocs) `@parameters()`.
+> [функцию определения рабочего процесса](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()`.
 
 Например: 
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 01/19/2018
 
 > [!TIP]
 > Чтобы применить параметр, который после сохранения приложения логики будет недоступным для чтения в определении, можно использовать параметр `securestring` и  
-> [функцию определения рабочего процесса](http://aka.ms/logicappdocs) `@parameters()`.
+> [функцию определения рабочего процесса](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()`.
 
 Например: 
 
@@ -198,7 +198,7 @@ ms.lasthandoff: 01/19/2018
 | Секрет* |secret |Секретные данные клиента, запрашивающего маркер |
 
 > [!TIP]
-> Можно использовать параметр `securestring` и [функцию определения рабочего процесса](http://aka.ms/logicappdocs) `@parameters()`, чтобы применить параметр, который после сохранения будет недоступным для чтения в определении.
+> Можно использовать параметр `securestring` и [функцию определения рабочего процесса](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()`, чтобы применить параметр, который после сохранения будет недоступным для чтения в определении.
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Использование ограничения клиентов для управления доступом к облачным приложениям SaaS
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 
 Ограничение клиентов дает организациям возможность указать список клиентов, доступ к которым разрешен пользователям. После этого Azure AD только предоставляет доступ к этим разрешенным клиентам.
 
-В этой статье рассматривается ограничение клиентов для Office 365, но данный компонент должен работать с любым облачным приложением SaaS, использующим современные протоколы аутентификации и Azure AD для единого входа. При использовании приложений SaaS с клиентом Azure AD, отличным от клиента для Office 365, убедитесь, что все необходимые клиенты разрешены. Дополнительные сведения об облачных приложениях SaaS см. на сайте [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+В этой статье рассматривается ограничение клиентов для Office 365, но данный компонент должен работать с любым облачным приложением SaaS, использующим современные протоколы аутентификации и Azure AD для единого входа. При использовании приложений SaaS с клиентом Azure AD, отличным от клиента для Office 365, убедитесь, что все необходимые клиенты разрешены. Дополнительные сведения об облачных приложениях SaaS см. на сайте [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Принцип работы
 

@@ -1,6 +1,6 @@
 ---
-title: "План обработки платежей Azure: требования к данным владельцев карт"
-description: "Требование 3 (стандарт PCI DSS)"
+title: 'План обработки платежей Azure: требования к данным владельцев карт'
+description: Требование 3 (стандарт PCI DSS)
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Требования к данным владельцев карт для сред, соответствующих стандарту PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Требование 3 (стандарт PCI DSS)
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Не применяется |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso шифрует все сохраненные данные и отделяет трафик для предотвращения привилегированного повышения функций DevOps.<br /><br />Поскольку среда обслуживания приложений защищена и заблокирована, необходим механизм, позволяющий разрешать любые выпуски DevOps или изменения, которые могут потребоваться, например возможность отслеживать веб-приложение с помощью Kudu.<br /><br />Виртуальная машина создана как jumpbox (узел-бастион) со следующими конфигурациями:<br /><br /><ul><li>[расширение защиты от вредоносных программ](/azure/security/azure-security-antimalware);</li><li>[расширение мониторинга OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms);</li><li>[расширение системы диагностики виртуальных машин](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template);</li><li>[диск, зашифрованный с помощью BitLocker](/azure/security/azure-security-disk-encryption).</li></ul>Использование Azure Key Vault соответствует требованиям Azure для государственных организаций, PCI DSS и HIPAA.|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso шифрует все сохраненные данные и отделяет трафик для предотвращения привилегированного повышения функций DevOps.<br /><br />Поскольку среда обслуживания приложений защищена и заблокирована, необходим механизм, позволяющий разрешать любые выпуски DevOps или изменения, которые могут потребоваться, например возможность отслеживать веб-приложение с помощью Kudu.<br /><br />Виртуальная машина создана как jumpbox (узел-бастион) со следующими конфигурациями:<br /><br /><ul><li>[расширение защиты от вредоносных программ](/azure/security/azure-security-antimalware);</li><li>[Расширение мониторинга Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[расширение системы диагностики виртуальных машин](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template);</li><li>[диск, зашифрованный с помощью BitLocker](/azure/security/azure-security-disk-encryption).</li></ul>Использование Azure Key Vault соответствует требованиям Azure для государственных организаций, PCI DSS и HIPAA.|
 
 
 
@@ -224,7 +224,7 @@ ms.lasthandoff: 11/16/2017
 > [!NOTE]
 > К хранению открытых ключей такие требования не применяются.
 
-**Обязанности:&nbsp;&nbsp; `Shared`общие**
+**Обязанности:&nbsp;&nbsp; общие**
 
 |||
 |---|---|
@@ -252,7 +252,7 @@ ms.lasthandoff: 11/16/2017
 **3.6**. Полностью документируйте и применяйте все процессы и процедуры управления ключами для криптографических ключей, используемых для шифрования данных владельцев карт, с учетом следующих требований. 
 
 > [!NOTE]
-> Многочисленные отраслевые стандарты для управления ключами доступны из различных ресурсов, включая NIST, которые можно найти по адресу http://csrc.nist.gov.
+> Многочисленные отраслевые стандарты для управления ключами доступны из различных ресурсов, включая стандарты NIST, которые можно найти по адресу http://csrc.nist.gov.
 
 **Обязанности:&nbsp;&nbsp;`Customer Only`**
 

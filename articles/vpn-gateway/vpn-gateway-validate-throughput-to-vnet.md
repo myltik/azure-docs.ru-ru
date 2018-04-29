@@ -1,13 +1,13 @@
 ---
-title: "Проверка пропускной способности VPN для виртуальной сети Microsoft Azure | Документы Майкрософт"
-description: "Этот документ помогает пользователю проверить пропускную способность сети от своих локальных ресурсов до виртуальной машины Azure."
+title: Проверка пропускной способности VPN для виртуальной сети Microsoft Azure | Документы Майкрософт
+description: Этот документ помогает пользователю проверить пропускную способность сети от своих локальных ресурсов до виртуальной машины Azure.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Порядок проверки пропускной способности VPN для виртуальной сети
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="address-slow-file-copy-issues"></a>Решение проблем с низкой скоростью при копировании файлов
 При использовании проводника или перетаскивании объектов во время сеанса RDP может наблюдаться снижение скорости копирования файлов. Обычно эта проблема вызвана одним или обоими следующими факторами:
 
-- Приложения для копирования файлов, такие как проводник и RDP, не используют несколько потоков при копировании. Для повышения производительности используйте многопоточное приложение, например [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), которое копирует файлы с помощью 16 или 32 потоков. Чтобы изменить число используемых потоков в Richcopy, выберите **Action** (Действие) > **Copy options** (Параметры копирования) > **File copy** (Копирование файлов).<br><br>
+- Приложения для копирования файлов, такие как проводник и RDP, не используют несколько потоков при копировании. Для повышения производительности используйте многопоточное приложение, например [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), которое копирует файлы с помощью 16 или 32 потоков. Чтобы изменить число используемых потоков в Richcopy, выберите **Action** (Действие) > **Copy options** (Параметры копирования) > **File copy** (Копирование файлов).<br><br>
 ![Проблемы с низкой скоростью при копировании файлов](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Недостаточная скорость чтения и записи виртуальной машины. Дополнительные сведения см. в статье [Устранение неполадок службы хранилища Azure](../storage/common/storage-e2e-troubleshooting.md).
 

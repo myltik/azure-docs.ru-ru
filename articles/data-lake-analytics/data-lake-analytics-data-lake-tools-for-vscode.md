@@ -1,10 +1,10 @@
 ---
-title: "Средства Azure Data Lake — использование средств Azure Data Lake для Visual Studio Code | Документация Майкрософт"
-description: "Узнайте, как с помощью средств Azure Data Lake для Visual Studio Code создавать, тестировать и выполнять скрипты U-SQL. "
+title: Средства Azure Data Lake — использование средств Azure Data Lake для Visual Studio Code | Документация Майкрософт
+description: 'Узнайте, как с помощью средств Azure Data Lake для Visual Studio Code создавать, тестировать и выполнять скрипты U-SQL. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Использование средств Azure Data Lake для Visual Studio Code
 
@@ -356,13 +356,13 @@ ms.lasthandoff: 02/11/2018
 
 **Интеграция Azure** 
 
-- Прежде чем войти в Azure можно развернуть **обозреватель Data Lake**, а затем щелкнуть **Войти в Azure**. После входа в систему вы увидите, что все подписки в учетной записи Azure будут указаны на левой панели **обозревателя Data Lake**. 
+- Прежде чем войти в Azure можно развернуть **AZURE DATALAKE**, а затем щелкнуть **Войти в Azure**. После входа в систему вы увидите, что все подписки в учетной записи Azure будут указаны на левой панели **AZURE DATALAKE**. 
 
    ![Обозреватель Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![Обозреватель Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Навигация по метаданным ADLA** 
+**Навигация по метаданным ADLA**
 
 - Развернув свою подписку Azure, в узле базы данных U-SQL можно перейти в базу данных U-SQL, просмотреть **схемы**, **учетные данные**, **сборки**, **таблицы**, **индекс** и многое другое.
 
@@ -382,11 +382,31 @@ ms.lasthandoff: 02/11/2018
 
 **Интеграция ADLS** 
 
- - Перейдите в **учетную запись хранения**, где с помощью контекстного меню на узле файла вы сможете выполнить операции **предварительного просмотра**, **загрузки**, **удаления**, **копирования относительного пути** и **копирования полного пути**. Вы можете выполнить операции **обновления**, **передачи**, **передачи папки** и **удаления**, щелкнув контекстное меню в узле папки.
+Переход к **Data Lake Store**
+
+ - В контекстном меню узла папки, вызываемом щелчком правой кнопкой мыши, доступны операции **Обновить**, **Удалить**, **Отправить**, **Загрузить папку**, **Копировать относительный путь** и **Копировать полный путь**.
 
    ![Обозреватель Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - В контекстном меню узла файла, вызываемом щелчком правой кнопкой мыши, доступны операции **Скачать**, **Просмотреть**, **Удалить**, **Копировать относительный путь** и **Копировать полный путь**. 
+
    ![Обозреватель Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**Интеграция WASB**
+
+Переход к **хранилищу BLOB-объектов**
+
+- В контекстном меню узла контейнера больших двоичных объектов, вызываемом щелчком правой кнопкой мыши, доступны операции **Обновить**, **Удалить контейнер BLOB-объектов** и **Передать BLOB-объект**.
+
+    ![Узел контейнера хранилища BLOB-объектов Azure](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- В контекстном меню узла папки, вызываемом щелчком правой кнопкой мыши, доступны операции **Обновить** и **Передать BLOB-объект**.
+
+    ![Узел папки хранилища BLOB-объектов](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- В контекстном меню узла файла, вызываемом щелчком правой кнопкой мыши, доступны операции **Preview/Edit** (Просмотреть или изменить), **Скачать**, **Удалить**, **Копировать относительный путь** и **Копировать полный путь**.
+
+    ![Узел файла хранилища BLOB-объектов](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Открытие обозревателя хранилища ADL на портале
 1. Нажмите клавиши CTRL+SHIFT+P, чтобы открыть палитру команд.

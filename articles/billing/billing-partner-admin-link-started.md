@@ -10,11 +10,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d1f6515c63e789643c285218aa121f1182902e0f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: abab0e63f91ad34d2671c37773d47c31eeeb8339
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Привязка идентификатора партнера к учетной записи Azure 
 Как партнер вы можете отслеживать свое влияние на привлечение клиентов, привязав идентификатор партнера к учетным записям, используемым для управления ресурсами клиента.
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/19/2018
 
 1. Установите модуль PowerShell [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview).
 
-2. Войдите в клиент партнера с помощью учетной записи пользователя или субъекта-службы. Дополнительные сведения см. в статье [Вход с помощью Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Войдите в клиент партнера с помощью учетной записи пользователя или субъекта-службы. Дополнительные сведения см. в статье [Вход с помощью Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 

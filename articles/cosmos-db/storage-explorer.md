@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 8c584ec0c8d89a232d573399cfabe02fc8aa1c87
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Управление Azure DB Cosmos в Обозревателе службы хранилища Azure
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/18/2018
 
 Выполните следующие действия, чтобы подключиться к Azure Cosmos DB с помощью эмулятора. Эта возможность сейчас доступна только для учетной записи SQL.
 
-1. Установите и запустите эмулятор. Инструкции по установке эмулятора см. в статье об [эмуляторе Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+1. Установите и запустите эмулятор. Инструкции по установке эмулятора см. в статье об [эмуляторе Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Найдите элемент **Local and Attached** (Локальные и присоединенные) в дереве слева, щелкните правой кнопкой мыши **Учетные записи Cosmos DB** и выберите **Connect to Cosmos DB Emulator** (Подключиться к эмулятору Cosmos DB).
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 
-[Azure DB Cosmos в Обозревателе службы хранилища Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) является изолированным приложением, которое позволяет подключиться к учетным записям Azure Cosmos DB, размещенным в Azure и национальных облаках, из Windows, macOS или Linux. Оно позволяет управлять сущностями Azure Cosmos DB, работать с данными, обновлять хранимые процедуры и триггеры, а также работать с такими сущностями Azure, как большие двоичные объекты и очереди Azure.
+[Azure DB Cosmos в Обозревателе службы хранилища Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) является изолированным приложением, которое позволяет подключиться к учетным записям Azure Cosmos DB, размещенным в Azure и национальных облаках, из Windows, macOS или Linux. Оно позволяет управлять сущностями Azure Cosmos DB, работать с данными, обновлять хранимые процедуры и триггеры, а также работать с такими сущностями Azure, как большие двоичные объекты и очереди Azure.
 
 Это решения для распространенных проблем, возникающих с Azure Cosmos DB в Обозревателе службы хранилища.
 

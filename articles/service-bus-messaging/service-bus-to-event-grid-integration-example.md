@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Примеры интеграции служебной шины Azure со службой "Сетка событий Azure"
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/16/2018
 
 Перед запуском скрипта создайте по крайней мере небольшую проверочную функцию, которую можно использовать для отладки и наблюдения за потоком событий.
 
-1. На портале Azure создайте приложение службы "Функции Azure". Основные сведения об этой службе см. в [документации по службе "Функции Azure"](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. На портале Azure создайте приложение службы "Функции Azure". Основные сведения об этой службе см. в [документации по службе "Функции Azure"](https://docs.microsoft.com/azure/azure-functions/).
 
 2. В только что созданной функции выберите знак плюса (+), чтобы добавить функцию триггера HTTP.
 

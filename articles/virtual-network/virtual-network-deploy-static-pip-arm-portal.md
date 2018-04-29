@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальной машины со статическим общедоступным IP-адресом с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную машину со статическим общедоступным IP-адресом с помощью портала Azure."
+title: Создание виртуальной машины со статическим общедоступным IP-адресом с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как создать виртуальную машину со статическим общедоступным IP-адресом с помощью портала Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53e9b55a82e7750393dfb6c4818681028c5c4d2f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 50ae4d6e8c275db16f811a2a1a063eda441f150b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью портала Azure
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 02/21/2018
 > * [портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -65,3 +64,10 @@ ms.lasthandoff: 02/21/2018
     
     ![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Настройка IP-адресов в операционной системе
+
+Никогда не следует вручную назначать общедоступный IP-адрес для виртуальной машины Azure в ее операционной системе. Не рекомендуем статически назначать виртуальной машине Azure частный IP-адрес в ее операционной системе за исключением ситуаций, когда это необходимо, например при [назначении нескольких IP-адресов виртуальной машине Windows](virtual-network-multiple-ip-addresses-portal.md). Если вы будете вручную устанавливать частный IP-адрес в операционной системе, убедитесь, что он соответствует частному IP-адресу, назначенному [сетевому интерфейсу](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure. Иначе соединение с виртуальной машиной может быть потеряно. Ознакомьтесь с дополнительными сведениями о параметрах [частных IP-адресов](virtual-network-network-interface-addresses.md#private).
+
+## <a name="next-steps"></a>Дополнительная информация
+
+Виртуальная машина, созданная в этой статье, может принимать и передавать любой сетевой трафик. Вы можете определить правила безопасности, ограничивающие входящий и исходящий трафик в группе безопасности сети для сетевого интерфейса и (или) подсети. Дополнительные сведения о группах безопасности сети см. [в этой статье](security-overview.md).

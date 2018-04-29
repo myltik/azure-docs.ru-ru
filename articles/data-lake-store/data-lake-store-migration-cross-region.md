@@ -1,8 +1,8 @@
 ---
-title: "Перенос Azure Data Lake Store между регионами | Документация Майкрософт"
-description: "Сведения о переносе Azure Data Lake Store между регионами."
+title: Перенос Azure Data Lake Store между регионами | Документация Майкрософт
+description: Сведения о переносе Azure Data Lake Store между регионами.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: swums
 manager: amitkul
 editor: swums
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Перенос Data Lake Store между регионами
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 * **Инструменты**. Для копирования файлов Data Lake Store рекомендуется использовать [действие копирования фабрики данных Azure](../data-factory/connector-azure-data-lake-store.md). Фабрика данных поддерживает надежное и эффективное перемещение данных. Учтите, что фабрика данных копирует только иерархию папок и содержимое файлов. К новой учетной записи необходимо будет вручную применить все списки управления доступом (ACL), используемые в старой учетной записи. Дополнительные сведения, включая целевые показатели производительности для наилучших сценариев, приведены в разделе [Руководство по настройке производительности действия копирования](../data-factory/copy-activity-performance.md). Если нужно скопировать данные быстрее, могут потребоваться дополнительные облачные единицы перемещения данных. Некоторые другие инструменты, например ADLCopy, не поддерживают копирование данных между регионами.  
 
-* **Стоимость пропускной способности**. Потребуется оплачивать [пропускную способность](https://azure.microsoft.com/en-us/pricing/details/bandwidth/), так как данные передаются за пределы региона Azure.
+* **Стоимость пропускной способности**. Потребуется оплачивать [пропускную способность](https://azure.microsoft.com/pricing/details/bandwidth/), так как данные передаются за пределы региона Azure.
 
 * **Списки управления доступом к данным**. Защитите данные в новом регионе, используя списки управления доступом для файлов и папок. Дополнительные сведения см. в статье [Защита данных, хранимых в хранилище озера данных Azure](data-lake-store-secure-data.md). Мы рекомендуем использовать перенос для обновления и настройки списков управления доступом. Возможно, вам потребуется использовать параметры, аналогичные текущим. Можно просмотреть списки управления доступом, которые применяются к любому файлу, с помощью портала Azure, [командлетов PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) или пакетов SDK.  
 

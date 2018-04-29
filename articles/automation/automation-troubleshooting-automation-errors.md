@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: ошибка службы автоматизации, устранение неполадок, проблема
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Устранение распространенных проблем службы автоматизации Azure 
 Эта статья содержит сведения о распространенных ошибках, которые могут возникнуть в службе автоматизации Azure, и возможных решениях по их устранению.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Ошибки, связанные с аутентификацией, при работе с модулями Runbook службы автоматизации Azure
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Сценарий: не удается войти в учетную запись Azure
-**Ошибка:** при работе с командлетами Add-AzureAccount или Login-AzureRmAccount возникает ошибка "Unknown_user_type: неизвестный тип пользователя".
+**Ошибка:** при работе с командлетами Connect-AzureAccount или Login-AzureRmAccount возникает ошибка "Unknown_user_type: неизвестный тип пользователя".
 
 **Причина ошибки**: ошибка возникает, если недопустимы имя ресурса учетных данных или имя пользователя и пароль, которые использовались для настройки ресурса учетных данных службы автоматизации.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Локальный сбой проверки подлинности означает, что учетные данные Azure Active Directory были указаны неправильно. Сведения о том, как правильно настроить учетную запись Azure Active Directory, см. в записи блога об [аутентификации в Azure с помощью Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Сценарий: не удается найти подписку Azure

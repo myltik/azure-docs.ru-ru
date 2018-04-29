@@ -1,26 +1,22 @@
 ---
-title: "Безопасность Hadoop — присоединенные к домену кластеры HDInsight — Azure | Документация Майкрософт"
-description: "Дополнительные сведения"
+title: HDInsight — присоединенные к домену кластеры — Azure
+description: Дополнительные сведения
 services: hdinsight
-documentationcenter: 
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/31/2016
-ms.author: saurinsh
-ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 6225bd824e3bcff24b84c79f39ce209f16caafd8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Основные сведения о безопасности Hadoop в присоединенных к домену кластерах HDInsight
 
@@ -35,7 +31,7 @@ ms.lasthandoff: 12/14/2017
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="benefits"></a>Преимущества
-Безопасность корпоративного уровня разделяется на четыре обширных составляющих — безопасность периметра, проверка подлинности, авторизация и шифрование.
+Безопасность корпоративного уровня разделяется на четыре обширных составляющих — безопасность периметра, аутентификация, авторизация и шифрование.
 
 ![Преимущества, предоставляемые основными составляющими присоединенного к домену кластера HDInsight](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
@@ -56,6 +52,9 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Сведения о настройке присоединенного к домену кластера HDInsight см. в [этой статье](apache-domain-joined-configure.md).
-* Сведения об управлении присоединенными к домену кластерами HDInsight см. в [этой статье](apache-domain-joined-manage.md).
+* Сведения об управлении присоединенным к домену кластером HDInsight см. в [этой статье](apache-domain-joined-manage.md).
 * Сведения о настройке политик Hive и выполнении запросов Hive для присоединенного к домену кластера HDInsight см. [здесь](apache-domain-joined-run-hive.md).
 * Сведения о выполнении запросов Hive с помощью SSH в присоединенных к домену кластерах HDInsight см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Сведения о связывании с присоединенным к домену кластером с помощью VSCode см. в [этом разделе](../hdinsight-for-vscode.md#linkcluster).
+* Сведения о связывании с присоединенным к домену кластером с помощью IntelliJ см. в [этом разделе](../spark/apache-spark-intellij-tool-plugin.md#linkcluster).
+* Сведения о связывании с присоединенным к домену кластером с помощью Eclipse см. в [этом разделе](../spark/apache-spark-eclipse-tool-plugin.md#linkcluster).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac7fa42c93e42e93800c3b26154cdabb85756698
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-1803-update"></a>Обновление 1803 Azure Stack
 
@@ -44,10 +44,11 @@ ms.lasthandoff: 04/06/2018
 
 
 ### <a name="post-update-steps"></a>Действия после обновления
-Когда обновление 1803 установится, установите все применимые исправления. Дополнительные сведения см. в статьях базы знаний по ссылке ниже, а также в статье о нашей [политике обслуживания](azure-stack-servicing-policy.md).
+- Когда обновление 1803 установится, установите все применимые исправления. Дополнительные сведения см. в статьях базы знаний по ссылке ниже, а также в статье о нашей [политике обслуживания](azure-stack-servicing-policy.md).
 
-- Ознакомьтесь со статьей базы знаний [KB 4103348 об аварийном завершении работы службы API сетевого контроллера при попытке установить обновление Azure Stack](https://support.microsoft.com/en-us/help/4103348).
+  - Ознакомьтесь со статьей базы знаний [KB 4103348 об аварийном завершении работы службы API сетевого контроллера при попытке установить обновление Azure Stack](https://support.microsoft.com/en-us/help/4103348).
 
+- После установки этого обновления проверьте конфигурацию брандмауэра, чтобы убедиться, что [необходимые порты](azure-stack-integrate-endpoints.md) открыты. Например, это обновление содержит Azure Monitor, что обуславливает замену журналов аудита журналами действий. Ввиду этого изменения теперь порт 13012 используется и также должен быть открыт.  
 
 ### <a name="new-features"></a>новые функции; 
 Это обновление включает следующие улучшения и исправления для Azure Stack.
@@ -169,7 +170,7 @@ ms.lasthandoff: 04/06/2018
     - *Разрешить:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ ms.lasthandoff: 04/06/2018
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

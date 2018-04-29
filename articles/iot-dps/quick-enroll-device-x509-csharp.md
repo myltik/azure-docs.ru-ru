@@ -12,18 +12,18 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 51fd3e12344fb20056012c00d6b38edf0355b0a4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef00191e524e93d1ed578193d37fb6002c15a0b8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Регистрация устройств X.509 в службе "Подготовка устройств к добавлению в Центр Интернета вещей" пакета SDK для служб C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 
-Здесь описан процесс, позволяющий программными средствами создать группу регистрации сертификатов X.509 промежуточных или корневых центров сертификации с помощью [пакета SDK для службы C#](https://github.com/Azure/azure-iot-sdk-csharp) и примера приложения C# .NET Core. Группа регистрации управляет доступом к службе подготовки устройств, которые совместно используют стандартный сертификат для подписи в цепочке сертификатов. Дополнительные сведения см. в разделе [Управление доступом устройств к службе подготовки с использованием сертификатов X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Дополнительные сведения об использовании инфраструктуры открытых ключей на основе сертификатов X.509 с Центром Интернета вещей и службой подготовки устройств см. в статье [Device Authentication using X.509 CA Certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview) (Проверка подлинности устройств с помощью сертификатов ЦС X.509). В этой статье описаны шаги по работе с компьютером под управлением Windows, но эту процедуру можно применить и к Linux.
+Здесь описан процесс, позволяющий программными средствами создать группу регистрации сертификатов X.509 промежуточных или корневых центров сертификации с помощью [пакета SDK для службы C#](https://github.com/Azure/azure-iot-sdk-csharp) и примера приложения C# .NET Core. Группа регистрации управляет доступом к службе подготовки устройств, которые совместно используют стандартный сертификат для подписи в цепочке сертификатов. Дополнительные сведения см. в разделе [Управление доступом устройств к службе подготовки с использованием сертификатов X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Дополнительные сведения об использовании инфраструктуры открытых ключей на основе сертификатов X.509 с Центром Интернета вещей и службой подготовки устройств см. в статье [Device Authentication using X.509 CA Certificates](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview) (Проверка подлинности устройств с помощью сертификатов ЦС X.509). В этой статье описаны шаги по работе с компьютером под управлением Windows, но эту процедуру можно применить и к Linux.
 
 ## <a name="prepare-the-development-environment"></a>Подготовка среды разработки
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/16/2018
 4. Вам потребуется PEM- или CER-файл, содержащий открытую часть сертификата X.509 промежуточного или корневого центра сертификации, который вы заранее отправили в службу подготовки и проверили в ней. [Пакет SDK для Центра Интернета вещей Azure](https://github.com/Azure/azure-iot-sdk-c) содержит средства, с помощью которых можно создать цепочку сертификатов X.509, передать корневой или промежуточный сертификат из этой цепочки и подтвердить владение сертификатом в службе. Чтобы использовать эти средства, скачайте содержимое папки [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) в рабочую папку своего компьютера и выполните шаги, приведенные в файле [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Помимо средств в **пакете SDK для службы C#** в [примере проверки сертификата группы](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) показано, как подтвердить владение имеющимся промежуточным сертификатом или корневым сертификатом ЦС X.509. 
 
   > [!IMPORTANT]
-  > Сертификаты, созданные с помощью инструментария пакета SDK, можно использовать только в целях разработки. Дополнительные сведения о получении сертификатов, подходящих для рабочего кода, см. в разделе [How to get an X.509 CA certificate](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) (Как получить сертификат ЦС X.509) документации по Центру Интернета вещей Azure.
+  > Сертификаты, созданные с помощью инструментария пакета SDK, можно использовать только в целях разработки. Дополнительные сведения о получении сертификатов, подходящих для рабочего кода, см. в разделе [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) (Как получить сертификат ЦС X.509) документации по Центру Интернета вещей Azure.
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Получение строки подключения к службе подготовки
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="create-the-enrollment-group-sample"></a>Создание примера группы регистрации 
 
-В этом разделе показано, как создать консольное приложение .NET Core, которое добавляет группу регистрации в службу подготовки. С некоторыми изменениями c помощью этих шагов можно также создать консольное приложение [Windows IoT Базовая](https://developer.microsoft.com/en-us/windows/iot), чтобы добавить группу регистрации. Дополнительные сведения о разработке с помощью Windows IoT Базовая см. в этой [документации](https://docs.microsoft.com/en-us/windows/iot-core/).
+В этом разделе показано, как создать консольное приложение .NET Core, которое добавляет группу регистрации в службу подготовки. С некоторыми изменениями c помощью этих шагов можно также создать консольное приложение [Windows IoT Базовая](https://developer.microsoft.com/en-us/windows/iot), чтобы добавить группу регистрации. Дополнительные сведения о разработке с помощью Windows IoT Базовая см. в этой [документации](https://docs.microsoft.com/windows/iot-core/).
 1. В Visual Studio добавьте в новое решение проект консольного приложения Visual C# .NET Core с помощью шаблона проекта **консольного приложения (.NET Core)**. Убедитесь, что указана версия платформы .NET 4.5.1 или более поздняя версия. Назовите проект **CreateEnrollmentGroup**.
 
     ![Новый проект классического приложения Windows на языке Visual C#](media//quick-enroll-device-x509-csharp/create-app.png)

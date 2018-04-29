@@ -1,25 +1,18 @@
 ---
-title: "Управление службами Azure Analysis Services | Документация Майкрософт"
-description: "Узнайте, как управлять сервером служб Analysis Services в Azure."
-services: analysis-services
-documentationcenter: 
+title: Управление службами Azure Analysis Services | Документация Майкрософт
+description: Узнайте, как управлять сервером служб Analysis Services в Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Управление службами Analysis Services
 После создания сервера служб Analysis Services в Azure некоторые задачи управления и администрирования необходимо выполнять сразу же, а некоторые — в дальнейшей работе. Например, запускать обработку для обновления данных, управлять доступом к моделям на сервере или отслеживать работоспособность сервера. Некоторые задачи управления можно выполнять только на портале Azure, другие — только в SQL Server Management Studio (SSMS), а некоторые — и там, и там.
@@ -47,13 +40,18 @@ ms.lasthandoff: 02/21/2018
    
     ![Получение имени сервера в Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. В среде SSMS выберите **Обозреватель объектов** и щелкните **Подключиться** > **Analysis Services**.
-3. В диалоговом окне **Подключение к серверу** вставьте имя сервера, а затем в раскрывающемся списке **Проверка подлинности** выберите один из следующих типов проверки подлинности.
-   
+3. В диалоговом окне **Подключение к серверу** вставьте имя сервера, а затем в раскрывающемся списке **Проверка подлинности** выберите один из следующих типов проверки подлинности.   
+    > [!NOTE]
+    > Рекомендуем использовать тип аутентификации Active Directory — универсальная с поддержкой MFA.
+
+    > [!NOTE]
+    > Если вы входите в систему с учетной записью Майкрософт, Live ID, Yanoo, Gmail, и т. д., оставьте поле пароля пустым. Пароль запрашивается после нажатия кнопки "Подключиться".
+
     **Проверка подлинности Windows** — для входа используются учетные данные Windows (домен\имя_пользователя и пароль).
 
     **Проверка подлинности с помощью пароля Active Directory** — для входа используется учетная запись организации. Например, при подключении с компьютера, не присоединенного к домену.
 
-    **Универсальная проверка подлинности Active Directory** — используется [неинтерактивная или многофакторная проверка подлинности](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory — универсальная с поддержкой MFA** — для входа используется [неинтерактивная или многофакторная проверка подлинности](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Подключение в среде SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

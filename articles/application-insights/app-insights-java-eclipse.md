@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с Azure Application Insights на Java в Eclipse | Документация Майкрософт"
-description: "Используйте подключаемый модуль Eclipse, чтобы добавить в свой веб-сайт Java функцию Application Insights мониторинга производительности и использования."
+title: Приступая к работе с Azure Application Insights на Java в Eclipse | Документация Майкрософт
+description: Используйте подключаемый модуль Eclipse, чтобы добавить в свой веб-сайт Java функцию Application Insights мониторинга производительности и использования.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Приступая к работе с Application Insights на Java в Eclipse
 Пакет SDK Application Insights передает телеметрию из веб-приложения Java, что позволяет вам анализировать параметры использования и производительности. Подключаемый модуль Eclipse для Application Insights автоматически устанавливает пакет SDK в проекте (что позволяет вам получать актуальную телеметрию) и интерфейс API, который можно использовать для написания пользовательских элементов телеметрии.   
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/01/2017
 
 Что вам понадобится:
 
-* Oracle JRE 1.6 или более поздней версии;
+* JRE 1.7 или 1.8;
 * подписка на [Microsoft Azure](https://azure.microsoft.com/).
 * [интегрированная среда разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/), версия Indigo или более поздняя;
 * Windows 7 или более поздней версии либо Windows Server 2008 или более поздней версии.
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/01/2017
 1. В Eclipse щелкните "Help" (Справка), "Install New Software" (Установка нового программного обеспечения).
 
     ![Help, Install New Software](./media/app-insights-java-eclipse/0-plugin.png)
-2. Пакет SDK находится по адресу http://dl.microsoft.com/eclipse в разделе "Azure Toolkit" ("Набор средств Azure).
+2. Пакет SDK находится в http://dl.microsoft.com/eclipse в набор средств Azure.
 3. Снимите флажок **Contact all update sites...**
 
     ![Для установки пакета SDK Application Insights снимите флажок "Contact all update sites..."](./media/app-insights-java-eclipse/1-plugin.png)

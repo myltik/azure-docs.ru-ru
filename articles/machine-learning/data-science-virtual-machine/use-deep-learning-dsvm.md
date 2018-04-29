@@ -5,20 +5,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b517e4c8cc57f833037f4c67deb318f2756e7b24
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Использование виртуальной машины для глубокого обучения
 
@@ -35,9 +35,12 @@ ms.lasthandoff: 03/28/2018
 
 - [Руководство по созданию комплексного решения по обнаружению продуктов на изображениях.](https://github.com/Azure/cortana-intelligence-product-detection-from-images) Обнаружение изображений — это метод, с помощью которого можно находить и классифицировать объекты на изображении. Эта технология может быть очень полезна во многих сферах бизнеса в реальной жизни. Например, розничные продавцы могут использовать этот метод для определения того, какой продукт клиент взял с полки. Эти сведения, в свою очередь, помогают управлять запасами продукции. 
 
+- [Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition). В этом руководстве показано, как извлечь именованные сущности, такие как названия лекарств или болезней, из неструктурированного текста. В нем можно обучить модель представлений на основе совокупности текстов, которая включает около 18 млн аннотаций PubMed, использовать эту модель для создания модели глубинной рекуррентной нейронной сети на основе долгой краткосрочной памяти (LSTM) для извлечения сущностей и показать, что модели, обученные на основе предметно-ориентированных признаков векторного представления слов, превосходят модели, обученные на основе обычных признаков.
+
+- [Hearing AI: Getting Started with Deep Learning for Audio on Azure](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) (ИИ для аудиообучения: начало работы с глубоким обучением для аудиоданных в Azure). В этом руководстве показано, как обучить модель глубокого обучения для обнаружения аудиособытий на основе [набора данных городских звуков](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html), и предоставлены общие сведения о работе с аудиоданными.
+
 - [Классификация текстовых документов.](https://github.com/anargyri/lstm_han) В этом руководстве показано, как создать и обучить две различные архитектуры нейронных сетей: сеть, ориентированную на иерархию, и сеть долгой краткосрочной памяти (LSTM). Эти нейронные сети выполняют классификацию текстовых документов с помощью API Keras для глубокого обучения. Keras — это интерфейс для трех самых популярных платформ машинного обучения: Microsoft Cognitive Toolkit, TensorFlow и Theano.
 
 ## <a name="next-steps"></a>Дополнительная информация
 
 [Страница примеров](dsvm-samples-and-walkthroughs.md) содержит указатели на примеры кода, предварительно загруженные в виртуальную машину для каждой платформы, которые помогут быстро начать работу. 
-

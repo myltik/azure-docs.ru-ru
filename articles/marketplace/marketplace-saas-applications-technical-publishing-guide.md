@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Техническое руководство по публикации SaaS-приложений
 
 Добро пожаловать в техническое руководство по публикации SaaS-приложений в Azure Marketplace! Это руководство предназначено для помощи кандидатам и существующим издателям в публикации своих приложений и служб в Azure Marketplace с использованием предложения "SaaS-приложения".  
-Предложение "SaaS-приложения" можно использовать, если решение будет развернуто в вашей подписке Azure и пользователи будут входить в систему через интерфейс, который вы разработали и которым вы управляете, для тестирования приложения. При этом для тестирования существующей пробной среды используется [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis). Другими словами, это партнерская бесплатная пробная версия, используемая клиентами. Очень важно разместить такое решение, чтобы покупатели облака могли испытать его независимо, без каких-либо затрат и чтобы этот тип предложения предоставлял бесплатную версию, которая соответствует пользовательским запросам на облачные решения.  
+Предложение "SaaS-приложения" можно использовать, если решение будет развернуто в вашей подписке Azure и пользователи будут входить в систему через интерфейс, который вы разработали и которым вы управляете, для тестирования приложения. При этом для тестирования существующей пробной среды используется [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Другими словами, это партнерская бесплатная пробная версия, используемая клиентами. Очень важно разместить такое решение, чтобы покупатели облака могли испытать его независимо, без каких-либо затрат и чтобы этот тип предложения предоставлял бесплатную версию, которая соответствует пользовательским запросам на облачные решения.  
 
 Общие сведения о других предложениях Marketplace см. в статье [Руководство по публикации в Azure Marketplace и AppSource](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 03/17/2018
 Технические требования для приложений SaaS просты. Для публикации приложение издателей только должно быть интегрировано с Azure AD.  Интеграция Azure AD с приложениями описана во многих документах, и корпорация Майкрософт предоставляет множество ресурсов и пакетов SDK для выполнения этой задачи.  
 
 Для начала вам нужна подписка, предназначенная для публикации в Azure Marketplace, чтобы изолировать этот сценарий от других инициатив. Кроме того, в среде разработки необходимо установить следующие компоненты (если вы еще этого не сделали): 
-- [интерфейс командной строки Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Средства для разработчиков Azure (обзор доступных средств)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 03/17/2018
 
 **Документация**
 
-- [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Интеграция с Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Интеграция с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Безопасность и идентификация на странице стратегии развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 

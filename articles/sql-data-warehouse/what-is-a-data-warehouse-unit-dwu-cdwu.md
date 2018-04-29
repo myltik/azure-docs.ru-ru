@@ -1,27 +1,23 @@
 ---
-title: Что такое единицы использования хранилища данных (DWU, cDWU) в хранилище данных SQL Azure? | Документация Майкрософт
-description: Возможности масштабирования производительности в хранилище данных SQL Azure. Вы можете увеличивать масштаб, изменяя объем единиц DWU или cDWU, а также приостанавливать и возобновлять работу вычислительных ресурсов для сокращения затрат.
+title: Единицы использования хранилища данных (DWU, cDWU) в хранилище данных SQL Azure | Документация Майкрософт
+description: Рекомендации по выбору идеального количества единиц использования хранилища данных (DWU, cDWU) для оптимизации затрат и производительности, а также по изменению количества единиц.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Единицы использования хранилища данных (DWU) и вычислительные единицы использования хранилища данных (cDWU)
-В этой статье описываются единицы использования хранилища данных (DWU) и вычислительные единицы использования хранилища данных (cDWU) для хранилища данных SQL Azure. Вы также узнаете, как выбрать и изменить оптимальное количество единиц использования хранилища данных. 
+Рекомендации по выбору идеального количества единиц использования хранилища данных (DWU, cDWU) для оптимизации затрат и производительности, а также по изменению количества единиц. 
 
 ## <a name="what-are-data-warehouse-units"></a>Что такое единицы использования хранилища данных?
 Ресурсы ЦП хранилища данных SQL, памяти и операции ввода-вывода объединяются в единицы вычисления, которые называются единицами использования хранилища данных (DWU). Единица DWU представляет собой абстрактный, нормализованный объем вычислительных ресурсов и производительности. Изменяя уровень службы, вы можете изменить число единиц DWU, выделенных для системы, что в свою очередь влияет на производительность и стоимость использования системы. 
@@ -32,12 +28,33 @@ ms.lasthandoff: 03/17/2018
 
 - Насколько быстро стандартным запросом хранения данных сканируется большое количество строк и выполняется их сложная статистическая обработка? Это требует интенсивного использования операций ввода-вывода и ресурсов ЦП.
 - Насколько быстро хранилище данных может принять данные из BLOB-объектов хранилища Azure или Azure Data Lake? Это сетевая операция, которая требует интенсивного использования ресурсов ЦП. 
-- Насколько быстро с помощью команды T-SQL [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) можно скопировать таблицу? Эта операция предусматривает чтение данных из хранилища, их распространение в различные узлы устройства и повторную запись в хранилище. Эта операция выполняется ЦП и требует интенсивного использования операций ввода-вывода и сетевых ресурсов.
+- Насколько быстро с помощью команды T-SQL [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) можно скопировать таблицу? Эта операция предусматривает чтение данных из хранилища, их распространение в различные узлы устройства и повторную запись в хранилище. Эта операция выполняется ЦП и требует интенсивного использования операций ввода-вывода и сетевых ресурсов.
 
 При увеличении единиц DWU происходит следующее:
 - линейное изменение производительности системы для операций сканирования, агрегирования и инструкций CTAS;
 - увеличение количества модулей чтения и записи при загрузке с помощью PolyBase;
 - увеличение максимального количества параллельных запросов и слотов выдачи.
+
+## <a name="service-level-objective"></a>Целевой уровень обслуживания
+Цель уровня обслуживания (SLO) — это параметр масштабируемости, который определяет уровень затрат и производительности хранилища данных. Уровни обслуживания для масштабирования уровней производительности, оптимизированных для вычислений, измеряются в вычислительных единицах хранилища данных (cDWU), например DW2000c. Уровни обслуживания, оптимизированные для эластичности, измеряются в DWU, например DW2000. 
+
+В T-SQL параметр SERVICE_OBJECTIVE определяет уровень обслуживания и уровень производительности хранилища данных.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>Уровни производительности и единицы использования хранилища данных
 
@@ -68,11 +85,11 @@ ms.lasthandoff: 03/17/2018
 
 > [!NOTE]
 >
-> Высокий уровень параллелизма только увеличивает производительность обработки запросов, если нагрузку можно разделить между вычислительными узлами. Если обнаружится, что масштабирование не влияет на производительность, вам может потребоваться настроить конструктор таблиц или запросы. Руководство по настройке запросов см. в статье [Мониторинг запросов пользователей в хранилище данных SQL Azure](sql-data-warehouse-overview-manage-user-queries.md). 
+> Высокий уровень параллелизма только увеличивает производительность обработки запросов, если нагрузку можно разделить между вычислительными узлами. Если обнаружится, что масштабирование не влияет на производительность, вам может потребоваться настроить конструктор таблиц или запросы. Инструкции по настройке запросов см. в статье [Памятка для хранилища данных SQL Azure](sql-data-warehouse-overview-manage-user-queries.md). 
 
 ## <a name="permissions"></a>Разрешения
 
-Чтобы изменить единицы использования хранилища данных, требуются разрешения, описанные в статье об [инструкции ALTER DATABASE][ALTER DATABASE]. 
+Чтобы изменить единицы использования хранилища данных, требуются разрешения, описанные в статье об [инструкции ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
 ## <a name="view-current-dwu-settings"></a>для просмотра текущих параметров DWU;
 
@@ -103,11 +120,13 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 3. Выберите команду **Сохранить**. Появится сообщение с подтверждением. Щелкните **Да** для подтверждения или **Нет** для отмены.
 
 ### <a name="powershell"></a>PowerShell
-Чтобы изменить число единиц DWU или cDWU, используйте командлет PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]. В приведенном ниже примере для базы данных MySQLDW, размещенной на сервере MyServer, устанавливается цель уровня обслуживания DW1000.
+Чтобы изменить число единиц DWU или cDWU, используйте командлет PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). В приведенном ниже примере для базы данных MySQLDW, размещенной на сервере MyServer, устанавливается цель уровня обслуживания DW1000.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
+
+Дополнительные сведения см. в статье [Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL](sql-data-warehouse-reference-powershell-cmdlets.md).
 
 ### <a name="t-sql"></a>T-SQL
 С помощью команды T-SQL можно просмотреть текущие параметры DWU или cDWU, изменить их и сравнить разницу. 
@@ -115,7 +134,7 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 Чтобы изменить параметры DWU или cDWU, сделайте следующее:
 
 1. Подключитесь к базе данных master, связанной с логическим сервером базы данных SQL.
-2. Используйте оператор TSQL [ALTER DATABASE][ALTER DATABASE]. В приведенном ниже примере для базы данных MySQLDW устанавливается цель уровня обслуживания DW1000. 
+2. Используйте оператор TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). В приведенном ниже примере для базы данных MySQLDW устанавливается цель уровня обслуживания DW1000. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -125,7 +144,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>Интерфейсы API REST
 
-Чтобы изменить число единиц DWU, используйте REST API [создания или обновления базы данных][Create or Update Database]. В приведенном ниже примере для базы данных MySQLDW, размещенной на сервере MyServer, устанавливается цель уровня обслуживания DW1000. Сервер находится в группе ресурсов Azure с именем ResourceGroup1.
+Чтобы изменить число DWU, используйте REST API [создания или обновления базы данных](/rest/api/sql/databases/createorupdate). В приведенном ниже примере для базы данных MySQLDW, размещенной на сервере MyServer, устанавливается цель уровня обслуживания DW1000. Сервер находится в группе ресурсов Azure с именем ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -138,6 +157,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
+Дополнительные примеры REST API см. в статье [REST API для хранилища данных Azure SQL](sql-data-warehouse-manage-compute-rest-api.md).
 
 ## <a name="check-status-of-dwu-changes"></a>Проверка состояния изменений единиц DWU
 
@@ -179,40 +199,7 @@ AND       major_resource_id = 'MySQLDW'
 - Чтобы уменьшить масштаб, неиспользуемые узлы в хранилище отключаются, и выполняется повторное подключение к оставшимся узлам.
 
 ## <a name="next-steps"></a>Дополнительная информация
-Приведенные ниже статьи помогут вам разобраться с некоторыми дополнительными ключевыми понятиями, связанными с производительностью:
-
-* [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][Workload and concurrency management]
-* [Общие сведения о таблицах в хранилище данных SQL][Table design overview]
-* [Распределение таблиц в хранилище данных SQL][Table distribution]
-* [Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)][Table indexing]
-* [Секционирование таблиц в хранилище данных SQL][Table partitioning]
-* [Управление статистикой таблиц в хранилище данных SQL][Table statistics]
-* [Рекомендации по использованию хранилища данных SQL Azure][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+Дополнительные сведения об управлении производительностью см. в статьях [Классы ресурсов для управления рабочими нагрузками](resource-classes-for-workload-management.md) и [Memory and concurrency limits for Azure SQL Data Warehouse](memory-and-concurrency-limits.md) (Ограничения памяти и параллелизма для хранилища данных SQL Azure).
 
 
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./resource-classes-for-workload-management.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/

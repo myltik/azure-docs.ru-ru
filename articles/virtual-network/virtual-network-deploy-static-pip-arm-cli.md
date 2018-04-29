@@ -1,11 +1,11 @@
 ---
-title: "Создание виртуальной машины со статическим общедоступным IP-адресом (Azure CLI) | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную машину со статическим общедоступным IP-адресом с помощью интерфейса командной строки (CLI) Azure."
+title: Создание виртуальной машины со статическим общедоступным IP-адресом (Azure CLI) | Документация Майкрософт
+description: Узнайте, как создать виртуальную машину со статическим общедоступным IP-адресом с помощью интерфейса командной строки (CLI) Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью Azure CLI
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/21/2017
 > * [портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -145,7 +144,11 @@ az vm create \
 1. Выполните команду `az resource list --resource-group IaaSStory`, чтобы просмотреть ресурсы в группе ресурсов.
 2. Убедитесь, что в ней содержатся только ресурсы, созданные с помощью сценария в этой статье. 
 3. Чтобы удалить все ресурсы, созданные во время этого упражнения, выполните команду `az group delete -n IaaSStory`. Эта команда удаляет группу ресурсов и все содержащиеся в ней ресурсы.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Настройка IP-адресов в операционной системе
+
+Никогда не следует вручную назначать общедоступный IP-адрес для виртуальной машины Azure в ее операционной системе. Не рекомендуем статически назначать виртуальной машине Azure частный IP-адрес в ее операционной системе за исключением ситуаций, когда это необходимо, например при [назначении нескольких IP-адресов виртуальной машине Windows](virtual-network-multiple-ip-addresses-cli.md). Если вы будете вручную устанавливать частный IP-адрес в операционной системе, убедитесь, что он соответствует частному IP-адресу, назначенному [сетевому интерфейсу](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure. Иначе соединение с виртуальной машиной может быть потеряно. Ознакомьтесь с дополнительными сведениями о параметрах [частных IP-адресов](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Виртуальная машина, созданная в этой статье, может принимать и передавать любой сетевой трафик. Вы можете определить правила, ограничивающие входящий и исходящий трафик в группе безопасности сети для сетевого интерфейса, подсети или для того и другого. Дополнительные сведения о группах безопасности сети см. в [этой статье](virtual-networks-nsg.md).
+Виртуальная машина, созданная в этой статье, может принимать и передавать любой сетевой трафик. Вы можете определить правила безопасности, ограничивающие входящий и исходящий трафик в группе безопасности сети для сетевого интерфейса и (или) подсети. Дополнительные сведения о группах безопасности сети см. [в этой статье](security-overview.md).

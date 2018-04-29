@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Управление ресурсами Azure Data Lake Store с помощью Обозревателя службы хранилища
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) представляет собой службу для хранения больших объемов неструктурированных данных, например текстовых или двоичных. Вы можете получить доступ к данным из любого места через протоколы HTTP или HTTPS. Через Data Lake Store в Обозревателе службы хранилища Azure вы можете получать доступ к данным и ресурсам Data Lake Store и другим сущностям Azure, например большим двоичным объектам и очередям, а также управлять ими. Теперь это средство можно использовать для управления всеми объектами Azure в одном месте.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) представляет собой службу для хранения больших объемов неструктурированных данных, например текстовых или двоичных. Вы можете получить доступ к данным из любого места через протоколы HTTP или HTTPS. Через Data Lake Store в Обозревателе службы хранилища Azure вы можете получать доступ к данным и ресурсам Data Lake Store и другим сущностям Azure, например большим двоичным объектам и очередям, а также управлять ими. Теперь это средство можно использовать для управления всеми объектами Azure в одном месте.
 
 Другое преимущество заключается в том, что вам не нужно разрешение в подписке для управления данными Data Lake Store. В Обозревателе службы хранилища вы можете добавить путь Data Lake Store к узлу **Local and Attached** (Локальные и присоединенные), пока действует соответствующее разрешение.
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/16/2018
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 *   Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Учетная запись Azure Data Lake Store. Инструкции по созданию учетной записи см. в статье, посвященной [началу работы с Azure Data Lake Store с помощью портала Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Учетная запись Azure Data Lake Store. Инструкции по созданию учетной записи см. в статье, посвященной [началу работы с Azure Data Lake Store с помощью портала Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Установка Обозревателя службы хранилища
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Последние заметки о выпуске Обозревателя службы хранилищ и связанные с ним видео см. [здесь](http://www.storageexplorer.com).
-* Сведения об управлении Azure DB Cosmos в Обозревателе службы хранилища Azure см. в [этой статье](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Приступая к работе с обозревателем службы хранилища (предварительная версия)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Обзор хранилища озера данных Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Сведения об управлении Azure DB Cosmos в Обозревателе службы хранилища Azure см. в [этой статье](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Приступая к работе с обозревателем службы хранилища (предварительная версия)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Обзор хранилища озера данных Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Просмотрите видео на сайте [YouTube](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be), чтобы узнать, как использовать Azure Cosmos DB в Обозревателе службы хранилища Azure.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Метрики службы хранилища Azure в Azure Monitor (предварительная версия)
 
@@ -28,9 +28,9 @@ Azure Monitor предоставляет унифицированный поль
 
 ## <a name="access-metrics"></a>Доступ к метрикам
 
-Azure Monitor предоставляет несколько способов доступа к метрикам. Для такого доступа вы можете использовать [портал Azure](https://portal.azure.com), API-интерфейсы Azure Monitor (REST и .NET), а также решения для анализа, например Log Analytics и концентратор событий. Дополнительные сведения см. в статье [Обзор метрик в Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor предоставляет несколько способов доступа к метрикам. Для такого доступа вы можете использовать [портал Azure](https://portal.azure.com), API-интерфейсы Azure Monitor (REST и .NET), а также решения для анализа, например Operation Management Suite и концентраторы событий. Дополнительные сведения см. в статье [Обзор метрик в Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Метрики включены по умолчанию, и вы можете получить доступ к данным за последние 30 дней. Если необходимо хранить данные метрик в течение длительного периода времени, вы можете архивировать их в учетную запись хранения Azure. Для настройки используйте [параметры диагностики](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) в Azure Monitor.
+Метрики включены по умолчанию, и вы можете получить доступ к данным за последние 30 дней. Если необходимо хранить данные метрик в течение длительного периода времени, вы можете архивировать их в учетную запись хранения Azure. Для настройки используйте [параметры диагностики](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) в Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Доступ к метрикам на портале Azure
 
@@ -139,9 +139,151 @@ Azure Monitor предоставляет [интерфейсы REST API](/rest/a
 
 ```
 
-## <a name="billing-for-metrics"></a>Выставление счетов за метрики
+### <a name="access-metrics-with-the-net-sdk"></a>Доступ к метрикам с помощью пакета SDK для .NET
 
-Использование метрик в Azure Monitor пока бесплатно. Тем не менее, если вы используете дополнительные решения для приема данных метрик, за использование этих решений может взиматься плата. Например, при архивации данных метрик в учетную запись хранения Azure плата будет взиматься службой хранилища Azure, а при потоковой передаче данных метрик в Log Analytics для расширенного анализа плата будет взиматься за использование Log Analytics.
+Azure Monitor предоставляет [пакет SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) для считывания определения и значений метрик. [Пример кода](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) демонстрирует использование пакета SDK с различными параметрами. Необходимо использовать `0.18.0-preview` или более поздней версии для метрик хранилища. Идентификатор ресурса используется в пакете SDK для .NET Дополнительные сведения см. в статье, посвященной [обзору идентификатора ресурса для служб в службе хранилища](#understanding-resource-id-for-services-in-storage).
+
+В примере ниже показано, как использовать пакет SDK для .NET Azure Monitor для считывания метрик хранилища.
+
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Получение списка определений метрик на уровне учетной записи с помощью пакета SDK для .NET
+
+В примере ниже показано, как получить список определений метрик на уровне учетной записи.
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+Если вы хотите получить список определений метрик для большого двоичного объекта, таблицы, файла или очереди, вам необходимо указать разные идентификаторы ресурсов для каждой службы с помощью REST API.
+
+#### <a name="read-metric-values-with-the-net-sdk"></a>Считывание значений метрик с помощью пакета SDK для .NET
+
+В примере ниже показано, как считать данные `UsedCapacity` на уровне учетной записи.
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+Если вы хотите считать значения метрик для большого двоичного объекта, таблицы, файла или очереди, вам необходимо указать разные идентификаторы ресурсов для каждой службы с помощью REST API (см. пример выше).
+
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Считывание значений многомерных метрик с помощью пакета SDK для .NET
+
+Для многомерных метрик необходимо определить фильтр по метаданным, если требуется считать данные метрик для конкретного значения измерения.
+
+В примере ниже показано, как считать данные метрики в метрике, поддерживающей многомерные значения.
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Обзор идентификатора ресурса для служб в службе хранилища Azure
 
@@ -187,8 +329,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## <a name="capacity-metrics"></a>Метрики емкости
-
-Значения метрик емкости отправляются в Azure Monitor каждый час. Эти значения обновляются каждый день. Интервал времени определяет интервал, за который представлены значения метрик. Поддерживаемый интервал времени для всех метрик емкости — один час (PT1H).
+Значения метрик емкости отправляются в Azure Monitor каждый час. Значения обновляются каждый день. Интервал времени определяет интервал, за который представлены значения метрик. Поддерживаемый интервал времени для всех метрик емкости — один час (PT1H).
 
 Служба хранилища Azure предоставляет следующие метрики емкости в Azure Monitor.
 
@@ -196,7 +337,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 
 | Имя метрики | ОПИСАНИЕ |
 | ------------------- | ----------------- |
-| UsedCapacity | Объем хранилища, используемый учетной записью хранения. Для стандартных учетных записей хранения это общая емкость, используемая большим двоичным объектом, таблицей, файлом или очередью. Для учетных записей хранения уровня "Премиум" и учетных записей хранения BLOB-объектов эта емкость сопоставима с емкостью метрики BlobCapacity. <br/><br/> Единица измерения: байт <br/> Тип агрегирования: средний <br/> Пример значения: 1024 |
+| UsedCapacity | Объем хранилища, используемый учетной записью хранения. Для стандартных учетных записей хранения это общая емкость, используемая большим двоичным объектом, таблицей, файлом или очередью. Для учетных записей хранения уровня "Премиум" и учетных записей хранения больших двоичных объектов эта емкость сопоставима с емкостью метрики BlobCapacity. <br/><br/> Единица измерения: байт <br/> Тип агрегирования: средний <br/> Пример значения: 1024 |
 
 ### <a name="blob-storage"></a>Хранилище BLOB-объектов
 
@@ -252,7 +393,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 | Название измерения | ОПИСАНИЕ |
 | ------------------- | ----------------- |
 | BlobType | Тип большого двоичного объекта только для метрик больших двоичных объектов. Поддерживаемые значения: **BlockBlob** и **PageBlob**. Расширенный большой двоичный объект включен в BlockBlob. |
-| ResponseType | Тип ответа транзакции. Доступные значения: <br/><br/> <li>ServerOtherError: все остальные ошибки на стороне сервера, за исключением описанных </li> <li> ServerBusyError: запрос с проверкой подлинности, который вернул код состояния HTTP 503. (Еще не поддерживается.) </li> <li> ServerTimeoutError: запрос с проверкой подлинности (время ожидания которого истекло), который вернул код состояния HTTP 500. Время ожидания истекло из-за ошибки на стороне сервера. </li> <li> ThrottlingError: сумма ошибок регулирования на стороне сервера и клиента (ошибка будет устранена при доступности поддержки значений ServerBusyError и ClientThrottlingError) </li> <li> AuthorizationError: запрос с проверкой подлинности, завершившийся сбоем из-за несанкционированного доступа к данным или сбоя авторизации. </li> <li> NetworkError: запрос с проверкой подлинности, завершившийся сбоем из-за ошибок сети. Чаще всего происходит, когда клиент преждевременно закрывает подключение до истечения времени ожидания. </li> <li>  ClientThrottlingError: ошибка регулирования на стороне клиента (еще не поддерживается) </li> <li> ClientTimeoutError: запрос с проверкой подлинности (время ожидания которого истекло), который вернул код состояния HTTP 500. Если для времени ожидания сети клиента или времени ожидания запроса задано меньшее значение, чем ожидалось службой хранения, то это ожидаемое время ожидания. В противном случае оно будет отмечено как ServerTimeoutError. </li> <li> ClientOtherError: все остальные ошибки на стороне клиента, за исключением описанных. </li> <li> Успешно: успешный запрос|
+| ResponseType | Тип ответа транзакции. Доступные значения: <br/><br/> <li>ServerOtherError: все остальные ошибки на стороне сервера, за исключением описанных </li> <li> ServerBusyError: запрос с проверкой подлинности, который вернул код состояния HTTP 503. </li> <li> ServerTimeoutError: запрос с проверкой подлинности (время ожидания которого истекло), который вернул код состояния HTTP 500. Время ожидания истекло из-за ошибки на стороне сервера. </li> <li> AuthorizationError: запрос с проверкой подлинности, завершившийся сбоем из-за несанкционированного доступа к данным или сбоя авторизации. </li> <li> NetworkError: запрос с проверкой подлинности, завершившийся сбоем из-за ошибок сети. Чаще всего происходит, когда клиент преждевременно закрывает подключение до истечения времени ожидания. </li> <li>    ClientThrottlingError. Ошибка регулирования на стороне клиента. </li> <li> ClientTimeoutError: запрос с проверкой подлинности (время ожидания которого истекло), который вернул код состояния HTTP 500. Если для времени ожидания сети клиента или времени ожидания запроса задано меньшее значение, чем ожидалось службой хранения, то это ожидаемое время ожидания. В противном случае оно будет отмечено как ServerTimeoutError. </li> <li> ClientOtherError: все остальные ошибки на стороне клиента, за исключением описанных. </li> <li> Успешно: успешный запрос|
 | GeoType | Транзакции из основного или дополнительного кластера. Допустимые значения: Primary и Secondary. Применимо к геоизбыточному хранилищу с доступом только для чтения (RA-GRS) при считывании объектов из дополнительного клиента. |
 | ApiName | Имя операции. Например:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Для всех имен операций. Дополнительные сведения см. в этой [статье](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
@@ -260,8 +401,8 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Непрерывная работа службы метрик прежних версий
 
-Устаревшие метрики доступны параллельно с управляемыми метриками Azure Monitor. Предусмотрена та же поддержка, пока в службе хранилища Azure обслуживаются устаревшие метрики. После выпуска управляемых метрик Azure Monitor устаревшие метрики поддерживаться не будут.
+Устаревшие метрики доступны параллельно с управляемыми метриками Azure Monitor. Предусмотрена та же поддержка, пока в службе хранилища Azure обслуживаются устаревшие метрики.
 
-## <a name="see-also"></a>См. также
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)

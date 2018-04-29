@@ -6,14 +6,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Импорт BACPAC-файла в новую базу данных SQL Azure
 
@@ -31,6 +31,9 @@ ms.lasthandoff: 03/16/2018
    ![Импорт базы данных](./media/sql-database-import/import.png)
 
 Чтобы отслеживать ход выполнения операции импорта, откройте страницу логического сервера, содержащего импортируемую базу данных. Прокрутите ее вниз до раздела **Операции** и щелкните журнал **Импорт и экспорт**.
+
+> [!NOTE]
+> [Управляемый экземпляр Базы данных SQL Azure](sql-database-managed-instance.md) поддерживает импорт из файла BACPAC и с помощью других методов, указанных в этой статье. Миграция с помощью портала Azure сейчас не поддерживается.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>Отслеживание операции импорта
 
@@ -98,6 +101,13 @@ $importStatus
 
 > [!TIP]
 Еще один пример сценария приведен в разделе [Импорт базы данных из BACPAC-файла](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="import-using-other-methods"></a>Импорт с использованием других методов
+
+Импорт также можно выполнить с помощью следующих мастеров:
+
+- [мастер импорта приложения уровня данных в SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard);
+- [мастер импорта и экспорта SQL Server](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Чтобы научиться подключаться к импортированной базе данных SQL и отправлять к ней запросы, ознакомьтесь со статьей [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).

@@ -1,6 +1,6 @@
 ---
-title: "Репликация виртуальных машин Hyper-V с помощью PowerShell и Azure Resource Manager | Документация Майкрософт"
-description: "Автоматизируйте репликацию виртуальных машин Hyper-V в Azure с помощью Azure Site Recovery, используя PowerShell и Azure Resource Manager."
+title: Репликация виртуальных машин Hyper-V с помощью PowerShell и Azure Resource Manager | Документация Майкрософт
+description: Автоматизируйте репликацию виртуальных машин Hyper-V в Azure с помощью Azure Site Recovery, используя PowerShell и Azure Resource Manager.
 services: site-recovery
 author: bsiva
 manager: abhiag
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Настройка аварийного восстановления виртуальных машин Hyper-V в Azure с помощью PowerShell и Azure Resource Manager
 
@@ -45,9 +45,9 @@ Azure PowerShell предоставляет командлеты для упра
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Шаг 1. Вход в учетную запись Azure
 
-1. Откройте консоль PowerShell и выполните следующую команду, чтобы войти в учетную запись Azure. Командлет открывает веб-станицу, на которой пользователю предлагается ввести данные для входа в учетную запись: **Login-AzureRmAccount**.
-    - Кроме того, учетные данные можно добавить в качестве параметра в командлет **Login-AzureRmAccount**, используя параметр **-Credential**.
-    - Если вы — партнер-поставщик облачных услуг, работающий от имени клиента, вам потребуется указать заказчика в качестве клиента. Для этого нужно ввести идентификатор или основное доменное имя клиента. Например: **Login-AzureRmAccount -Tenant "fabrikam.com"**.
+1. Откройте консоль PowerShell и выполните следующую команду, чтобы войти в учетную запись Azure. Командлет открывает веб-станицу, на которой пользователю предлагается ввести данные для входа в учетную запись: **Connect-AzureRmAccount**.
+    - Кроме того, учетные данные можно добавить в качестве параметра в командлет **Connect-AzureRmAccount**, используя параметр **-Credential**.
+    - Если вы — партнер-поставщик облачных услуг, работающий от имени клиента, вам потребуется указать заказчика в качестве клиента. Для этого нужно ввести идентификатор или основное доменное имя клиента. Например: **Connect-AzureRmAccount -Tenant "fabrikam.com"**.
 2. Свяжите подписку, которую вы собираетесь использовать, с учетной записью, которая может иметь несколько подписок:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`

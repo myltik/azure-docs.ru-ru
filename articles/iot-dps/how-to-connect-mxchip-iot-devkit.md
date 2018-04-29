@@ -1,26 +1,26 @@
 ---
-title: Как использовать MXChip IoT DevKit для подключения к службе "Подготовка устройств к добавлению в Центр Интернета вещей Azure" | Документация Майкрософт
-description: Использование MXChip IoT DevKit для подключения к службе "Подготовка устройств к добавлению в Центр Интернета вещей Azure"
+title: Порядок использования автоподготовки в службе подготовки устройств к добавлению в Центр Интернета вещей для регистрации MXChip IoT DevKit в Центре Интернета вещей | Документация Майкрософт
+description: Порядок использования автоподготовки в службе подготовки устройств к добавлению в Центр Интернета вещей для регистрации MXChip IoT DevKit в Центре Интернета вещей.
 services: iot-dps
 keywords: ''
 author: liydu
 ms.author: liydu
-ms.date: 02/20/2018
+ms.date: 04/04/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 502f22a39622e9a8341e1daca8c9899fd8b7d7d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="connect-the-mxchip-iot-devkit-to-the-azure-iot-hub-device-provisioning-service"></a>Подключение MXChip IoT DevKit к службе "Подготовка устройств к добавлению в Центр Интернета вещей Azure"
+# <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Использование автоподготовки в службе подготовки устройств к добавлению в Центр Интернета вещей Azure для регистрации MXChip IoT DevKit в Центре Интернета вещей
 
-Эта статья содержит сведения о настройке MXChip IoT DevKit для автоматической регистрации в Центре Интернета вещей Azure с помощью службы "Подготовка устройств к добавлению в Центр Интернета вещей Azure". Из этого руководства вы узнаете, как выполнять такие задачи:
+В этой статье описывается порядок использования [автоподготовки](concepts-auto-provisioning.md) в службе подготовки устройств к добавлению в Центр Интернета вещей Azure для регистрации MXChip IoT DevKit в Центре Интернета вещей. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 * настройка глобальной конечной точки службы подготовки устройств на устройстве;
 * создание сертификата X.509 с помощью уникального секрета устройства (UDS);
@@ -33,11 +33,11 @@ ms.lasthandoff: 03/28/2018
 
 Для работы с этим руководством сначала следует выполнить следующие задачи:
 
-* Подготовьте DevKit по инструкциям из статьи [Подключение платы IoT DevKit AZ3166 к Центру Интернета вещей Azure в облаке](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Подготовьте DevKit по инструкциям из статьи [Подключение платы IoT DevKit AZ3166 к Центру Интернета вещей Azure в облаке](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Обновите новейшее встроенное ПО до версии 1.3.0 или более новой, воспользовавшись руководством по [обновлению встроенного ПО DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Создайте и свяжите центр Интернета вещей с экземпляром службы подготовки устройств, следуя шагам из руководства [Настройка службы подготовки устройств для Центра Интернета вещей на портале Azure](https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision).
+* Создайте и свяжите центр Интернета вещей с экземпляром службы подготовки устройств, следуя шагам из руководства [Настройка службы подготовки устройств для Центра Интернета вещей на портале Azure](/azure/iot-dps/quick-setup-auto-provision).
 
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>Настройка конфигурации службы подготовки устройств на устройстве
+## <a name="build-and-deploy-auto-provisioning-registration-software-to-the-device"></a>Компиляция и развертывание программного обеспечения для регистрации с автоматической подготовкой на устройстве
 
 Чтобы подключить DevKit к созданному экземпляру службы подготовки устройств, сделайте следующее:
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 03/28/2018
   git clone https://github.com/DevKitExamples/DevKitDPS.git
   ```
 
-4. Откройте Visual Studio Code, подключите DevKit к компьютеру, а затем откройте папку с клонированным кодом.
+4. Откройте Visual Studio Code, подключите DevKit к вашему компьютеру, а затем откройте папку с клонированным кодом.
 
 5. Откройте файл **DevKitDPS.ino**. Найдите и замените значения `[Global Device Endpoint]` и `[ID Scope]` значениями, которые вы только что записали.
-  ![Конечная точка DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) Вы можете оставить строку **registrationId** пустой. Приложение создаст ее на основе MAC-адреса и версии встроенного ПО. Если вы хотите настроить идентификатор регистрации, необходимо использовать только цифры, буквы нижнего регистра и дефисы (максимум 128 символов). Дополнительные сведения см. в статье [Как управлять регистрацией устройств с помощью портала Azure](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  ![Конечная точка DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) Вы можете оставить строку **registrationId** пустой. Приложение создаст ее на основе MAC-адреса и версии встроенного ПО. Если вы хотите настроить идентификатор регистрации, необходимо использовать только цифры, буквы нижнего регистра и дефисы (максимум 128 символов). Дополнительные сведения см. в статье [Как управлять регистрацией устройств с помощью портала Azure](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. Чтобы создать и передать код в DevKit, откройте Quick Open в VS Code (Windows — `Ctrl+P`, macOS — `Cmd+P`) и введите *task device-upload*.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="save-a-unique-device-secret-on-an-stsafe-security-chip"></a>Сохранение уникального секрета устройства в микросхеме безопасности STSAFE
 
-Службу подготовки устройств можно настроить на устройстве в соответствии с ее [аппаратным модулем безопасности](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). MXChip IoT DevKit использует [обработчик композиций для удостоверения устройств](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) от [организации TCG](https://trustedcomputinggroup.org). С помощью *уникального секрета устройства*, сохраненного в микросхеме безопасности STSAFE в DevKit, можно создать уникальный сертификат [X.509](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-device#select-a-hardware-security-module) устройства. Сертификат можно использовать позже при регистрации в службе подготовки устройств.
+Автоматическая подготовка может быть настроена на устройстве с учетом предусмотренного на нем [механизма аттестации](concepts-security.md#attestation-mechanism). MXChip IoT DevKit использует [обработчик композиций для удостоверения устройств](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) от [организации TCG](https://trustedcomputinggroup.org). *Уникальный секрет устройства*, хранимый в микросхеме обеспечения безопасности STSAFE в DevKit, используется для генерации уникального сертификата устройства [X.509](concepts-security.md#x509-certificates). Сертификат используется далее при регистрации в службе подготовки устройств, а также для регистрации в среде выполнения.
 
 Как указано в следующем примере, типичным уникальным секретом устройства является 64-символьная строка.
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 03/28/2018
 
 4. В окне Serial Monitor введите *set_dps_uds [ваше_значение_уникального_секрета_устройства]* и нажмите клавишу ВВОД.
   > [!NOTE]
-  > Например, если вы задали уникальный идентификатор устройства, изменив последние два символа на `f`, необходимо ввести следующую команду: set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff.
+  > Например, при настройке вашего собственного UDS посредством изменения двух последних знаков на `f` нужно ввести команду наподобие `set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff`.
 
 5. Не закрывая окно Serial Monitor, нажмите кнопку **Сброс** на DevKit.
 
@@ -107,16 +107,17 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Создание записи регистрации устройства в службе подготовки устройств
 
-1. Перейдите в службу подготовки на портале Azure. Последовательно выберите вкладки **Управление регистрациями** и **Индивидуальные регистрации**. ![Индивидуальные регистрации](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
+1. На портале Azure перейдите к своему экземпляру службы подготовки устройств. Последовательно выберите вкладки **Управление регистрациями** и **Индивидуальные регистрации**. ![Индивидуальные регистрации](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
 2. Выберите **Добавить**.
 
-3. В поле **Механизм** выберите **X.509**.
-  ![Отправка сертификата](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+3. На панели "Add enrollment" (Добавление регистрации):
+   - Выберите **X.509** под элементом **Механизм**.
+   - Щелкните "Select a file" (Выберите файл) под **Primary Certificate .pem or .cer file** (Файл PEM или CER основного сертификата).
+   - В диалоговом окне "Открытие файла" перейдите к только что созданному сертификату **PEM** и передайте его.
+   - Значения остальных параметров оставьте без изменений и нажмите кнопку **Сохранить**.
 
-4. В поле **Certificate .pem or .cer file** (PEM-файл или CER-файл сертификата) передайте **PEM-файл** сертификата, который вы только что создали.
-
-5. Оставьте без изменений значения остальных параметров и выберите **Сохранить**.
+   ![Передача сертификата](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
 ## <a name="start-the-devkit"></a>Запуск DevKit
 

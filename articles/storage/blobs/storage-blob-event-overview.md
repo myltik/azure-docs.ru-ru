@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Реагирование на события хранилища BLOB-объектов
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/05/2018
 
 ![Модель Сетки событий](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## <a name="blob-storage-accounts"></a>Учетные записи хранилища BLOB-объектов
+## <a name="blob-storage-accounts"></a>Учетные записи хранения BLOB-объектов
 События хранилища BLOB-объектов доступны в [учетных записях хранения BLOB-объектов](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) и [учетных записях хранения общего назначения версии 2](../common/storage-account-options.md#general-purpose-v2). Учетные записи **общего назначения версии 2 (GPv2)** являются учетными записями хранения, которые поддерживают все функции для всех служб хранилища, включая большие двоичные объекты, файлы, очереди и таблицы. **Учетные записи хранения BLOB-объектов** — это специализированные учетные записи хранения таких неструктурированных данных, как большие двоичные объекты, в службе хранилища Azure. Учетные записи хранилища BLOB-объектов похожи на учетные записи хранения общего назначения и обладают такими же функциями обеспечения устойчивости, надежности, масштабируемости и производительности, которые вы уже используете, а также отличаются полной согласованностью API в плане блочных BLOB-объектов и добавления больших двоичных объектов. Для приложений, требующих только блокировки или добавления больших двоичных объектов, рекомендуется использовать учетные записи хранения больших двоичных объектов. 
 
 ## <a name="available-blob-storage-events"></a>Доступные события хранилища BLOB-объектов
@@ -92,7 +92,7 @@ ms.lasthandoff: 04/05/2018
 
 Тема событий хранилища BLOB-объектов использует следующий формат:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ ms.lasthandoff: 04/05/2018
 
 Чтобы сопоставить события из больших двоичных объектов, созданных в наборе контейнеров с общим префиксом, используйте фильтр `subjectBeginsWith`, подобный этому:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Чтобы сопоставить события из больших двоичных объектов, созданных в конкретном контейнере, используйте фильтр `subjectBeginsWith`, подобный этому:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Чтобы сопоставить события из больших двоичных объектов, созданных в конкретном контейнере с общим префиксом имени большого двоичного объекта, используйте фильтр `subjectBeginsWith`, подобный этому:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

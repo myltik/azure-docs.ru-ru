@@ -1,24 +1,24 @@
 ---
-title: "Технические обзоры по обеспечению безопасности в Azure | Документация Майкрософт"
-description: "В этой статье приводятся проверенные списки технических обзоров по обеспечению безопасности в Azure для разных ресурсов Azure."
+title: Технические обзоры по обеспечению безопасности в Azure | Документация Майкрософт
+description: В этой статье приводятся проверенные списки технических обзоров по обеспечению безопасности в Azure для разных ресурсов Azure.
 services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: 
-ms.openlocfilehash: dcf1734237677402b14d760f59098b41dc271a05
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: ''
+ms.openlocfilehash: eb311f4443d213325ab153b45f27a49246db1286
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-overviews"></a>Технические обзоры обеспечения безопасности Azure
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 02/22/2018
 * [Общие сведения о безопасности Azure Service Fabric](azure-service-fabric-security-overview.md)
 * [Общие сведения о безопасности при использовании службы хранилища Azure](security-storage-overview.md)
 * [Общие сведения о безопасности при использовании виртуальных машин Azure](security-virtual-machines-overview.md)
-* [Безопасность в IoT](https://docs.microsoft.com/en-us/azure/iot-suite/iot-security-architecture#security-in-iot) 
+* [Безопасность в IoT](https://docs.microsoft.com/azure/iot-suite/iot-security-architecture#security-in-iot) 
 * [Введение в систему безопасности Azure](azure-security.md)
 * [Введение в службу интеграции журналов Azure](security-azure-log-integration-overview.md)
 * [Общие сведения по обеспечению безопасности в "Интернете вещей"](security-internet-of-things-overview.md)
 * [Защита развернутых приложений PaaS](security-paas-deployments.md)
-* [Что такое центр безопасности Azure?](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro?toc=%2fazure%2fsecurity%2ftoc.json) 
+* [Что такое центр безопасности Azure?](https://docs.microsoft.com/azure/security-center/security-center-intro?toc=%2fazure%2fsecurity%2ftoc.json) 

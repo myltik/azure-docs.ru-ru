@@ -92,7 +92,7 @@
 #### [Часто задаваемые вопросы о развертывании](cloud-services-deployment-faq.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [Схема XML (CSDEF-файл)](schema-csdef-file.md)
 ### [Схема LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
 ### [Схема WebRole](schema-csdef-webrole.md)

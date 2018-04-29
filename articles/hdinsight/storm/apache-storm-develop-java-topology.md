@@ -1,27 +1,25 @@
 ---
-title: "Пример топологии Java для Apache Storm в Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как создать топологии Apache Storm на языке Java с помощью создания примера топологии подсчета слов."
+title: Пример топологии Java для Apache Storm в Azure HDInsight | Документация Майкрософт
+description: Узнайте, как создать топологии Apache Storm на языке Java с помощью создания примера топологии подсчета слов.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "apache storm, пример apache storm, storm java, пример топологии storm"
+keywords: apache storm, пример apache storm, storm java, пример топологии storm
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Создание топологии Apache Storm на языке Java
 
@@ -30,13 +28,13 @@ ms.lasthandoff: 02/22/2018
 После выполнения действий, описанных в этом документе, вы сможете развернуть топологию в Apache Storm в HDInsight.
 
 > [!NOTE]
-> Полная версия примеров топологий Storm, созданных в рамках этого руководства, доступна здесь: [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> Полная версия примеров топологии Storm, созданных в этом документе, доступна по адресу [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
 * [Java Developer Kit (JDK) версии 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): система сборки проектов для Java.
+* [Maven(https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi) — система сборки проектов Java.
 
 * Текстовый редактор или интегрированная среда разработки.
 
@@ -598,10 +596,10 @@ Flux — это новая платформа, доступная в Storm 0.10.
 
 Файл YAML определяет компоненты для топологии и поток данных между ними. Файл YAML можно добавить как часть JAR-файла или можно использовать внешний файл YAML.
 
-Дополнительные сведения о платформе Flux см. в статье, посвященной [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Дополнительные сведения о платформе Flux см. [здесь (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Из-за [ошибки (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) в Storm 1.0.1 может потребоваться установить [среду разработки Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) для локального запуска топологий Flux.
+> Из-за [ошибки (https://issues.apache.org/jira/browse/STORM-2055)](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) в Storm 1.0.1 может потребоваться установить ](https://issues.apache.org/jira/browse/STORM-2055)среду разработки Storm[ для локального запуска топологий Flux.
 
 1. Удалите файл `WordCountTopology.java` из проекта. Ранее он определял топологию, но с платформой Flux он больше не нужен.
 

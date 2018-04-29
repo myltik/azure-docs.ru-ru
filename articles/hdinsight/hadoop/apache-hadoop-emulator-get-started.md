@@ -1,27 +1,25 @@
 ---
-title: "Сведения об использовании эмулятора песочницы Hadoop в Azure HDInsight | Документация Майкрософт"
-description: "Чтобы начать ознакомление с экосистемой Hadoop, можно настроить на виртуальной машине Azure песочницу Hadoop с платформы Hortonworks. "
-keywords: "эмулятор hadoop,песочница hadoop"
+title: Сведения об использовании эмулятора песочницы Hadoop в Azure HDInsight | Документация Майкрософт
+description: 'Чтобы начать ознакомление с экосистемой Hadoop, можно настроить на виртуальной машине Azure песочницу Hadoop с платформы Hortonworks. '
+keywords: эмулятор hadoop,песочница hadoop
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d7df18a80470beb8dc25cf6add6b7a61f45dcfe7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Начало работы с песочницей Hadoop, эмулятором на виртуальной машине
 
@@ -52,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 1. Выберете песочницу Hortonworks, щелкните **Start** (Запустить) > **Normal Start** (Обычный запуск). После завершения процесса загрузки в виртуальной машине отобразятся инструкции для входа.
    
     ![Normal Start](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Откройте веб-браузер и перейдите по отображаемому URL-адресу (как правило, http://127.0.0.1:8888).
+2. Откройте веб-браузер и перейдите по отображаемому URL-адресу (как правило, это http://127.0.0.1:8888).
 
 ## <a name="set-sandbox-passwords"></a>Задание паролей для песочницы
 

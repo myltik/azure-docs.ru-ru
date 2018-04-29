@@ -1,6 +1,6 @@
 ---
-title: "План обработки платежей Azure: требования к брандмауэру"
-description: "Требование 1 (стандарт PCI DSS)"
+title: 'План обработки платежей Azure: требования к брандмауэру'
+description: Требование 1 (стандарт PCI DSS)
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Требования к брандмауэру для сред, соответствующих стандарту PCI DSS 
 ## <a name="pci-dss-requirement-1"></a>Требование 1 (стандарт PCI DSS)
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Не применяется |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Экземпляр интернет-магазина Contoso устанавливает модель DevOps для процесса непрерывной интеграции и доставки, чтобы обеспечить надлежащее управление всеми изменениями. [Operations Management Suite (OMS)](/azure/operations-management-suite/) предоставляет подробные журналы изменений. Здесь можно просмотреть все изменения и проверить их правильность. Дополнительные инструкции см. в разделе руководства PCI, который посвящен [ведению журналов и аудиту](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Центр безопасности Azure](https://azure.microsoft.com/services/security-center/) предоставляет полное представление о состоянии безопасности всех своих ресурсов в Azure. Вы можете убедиться, что все необходимые настройки заданы правильно, а также найти ресурсы, которым нужно уделить внимание.|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Экземпляр интернет-магазина Contoso устанавливает модель DevOps для процесса непрерывной интеграции и доставки, чтобы обеспечить надлежащее управление всеми изменениями. Log Analytics предоставляет журнал с подробными сведениями об изменениях. Здесь можно просмотреть все изменения и проверить их правильность. Дополнительные инструкции см. в разделе руководства PCI, который посвящен [ведению журналов и аудиту](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Центр безопасности Azure](https://azure.microsoft.com/services/security-center/) предоставляет полное представление о состоянии безопасности всех своих ресурсов в Azure. Вы можете убедиться, что все необходимые настройки заданы правильно, а также найти ресурсы, которым нужно уделить внимание.|
 
 
 
@@ -104,12 +104,12 @@ ms.lasthandoff: 11/16/2017
 
 **1.1.5**. Описание групп, ролей и обязанностей для управления сетевыми компонентами.
 
-**Обязанности:&nbsp;&nbsp; `Customer Only`только клиент**
+**Обязанности:&nbsp;&nbsp; только клиент**
 
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Не применяется |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Для изоляции пользовательских ролей в интернет-магазине Contoso используется [управление доступом на основе ролей (RBAC) в Azure](/azure/active-directory/role-based-access-control-configure). Управление доступом на основе ролей (RBAC) обеспечивает точное управление доступом для Azure. Для доступа к подписке и к Azure Key Vault существуют конкретные конфигурации.|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Для изоляции пользовательских ролей в интернет-магазине Contoso используется [управление доступом на основе ролей (RBAC) в Azure](/azure/role-based-access-control/role-assignments-portal). Управление доступом на основе ролей (RBAC) обеспечивает точное управление доступом для Azure. Для доступа к подписке и к Azure Key Vault существуют конкретные конфигурации.|
 
 
 

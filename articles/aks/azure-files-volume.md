@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>Тома с файлами Azure
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>Подключение файлового ресурса в качестве тома
 
-Можно подключить общий ресурс службы файлов Azure к pod, настроив том в его спецификации. Создайте файл `azure-files-pod.yaml` со следующим содержимым. Измените `aksshare`, указав имя, присвоенное общему ресурсу службы файлов Azure.
+Подключите общий ресурс службы файлов Azure к pod, настроив том в его спецификации. Создайте файл `azure-files-pod.yaml` со следующим содержимым. Измените `aksshare`, указав имя, присвоенное общему ресурсу службы файлов Azure.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ spec:
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Теперь у вас есть работающий контейнер с общим ресурсом службы файлов Azure, подключенным к каталогу `/mnt/azure`. Подключенный том можно увидеть, изучив pod с помощью команды `kubectl describe pod azure-files-pod`.
+Теперь у вас есть работающий контейнер с общим ресурсом службы файлов Azure, подключенным к каталогу `/mnt/azure`.  Подключенный том можно увидеть, изучив pod с помощью команды `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

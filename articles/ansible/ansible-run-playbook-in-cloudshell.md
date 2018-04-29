@@ -1,18 +1,18 @@
 ---
-title: "Запуск Ansible с помощью Bash в Azure Cloud Shell"
-description: "Узнайте, как выполнять разные задачи Ansible с использованием Bash в Azure Cloud Shell."
+title: Запуск Ansible с помощью Bash в Azure Cloud Shell
+description: Узнайте, как выполнять разные задачи Ansible с использованием Bash в Azure Cloud Shell.
 ms.service: ansible
-keywords: "ansible, azure, devops, bash, cloudshell, сборник тренировочных заданий, bash"
+keywords: ansible, azure, devops, bash, cloudshell, сборник тренировочных заданий, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Запуск Ansible с помощью Bash в Azure Cloud Shell
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/08/2018
 
 - **Учетные данные Azure.** - [ См. сведения о создании учетных данных Azure и настройке Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials).
 
-- **Настройте Azure Cloud Shell.** Если вы еще не работали с Azure Cloud Shell, в статье [Краткое руководство по Bash в Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) объясняется, как запустить и настроить Cloud Shell. Запустите выделенный веб-сайт для Cloud Shell:
+- **Настройте Azure Cloud Shell.** Если вы еще не работали с Azure Cloud Shell, в статье [Краткое руководство по Bash в Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) объясняется, как запустить и настроить Cloud Shell. Запустите выделенный веб-сайт для Cloud Shell:
 
 [![Запуск Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 

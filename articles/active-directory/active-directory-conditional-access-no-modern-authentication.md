@@ -1,25 +1,25 @@
 ---
-title: "Настройка SharePoint Online и Exchange Online для условного доступа Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить SharePoint Online и Exchange Online для условного доступа Azure Active Directory."
+title: Настройка SharePoint Online и Exchange Online для условного доступа Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить SharePoint Online и Exchange Online для условного доступа Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c527d4511ab2dd3bb349c10c1defb24723fef59a
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: aff37c4b440fe545ba69a409b9dcd83deabf7660
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Настройка SharePoint Online и Exchange Online для условного доступа Azure Active Directory 
 
@@ -181,6 +181,10 @@ ms.lasthandoff: 01/16/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения см. в разделе [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+См. инструкции по [настройке правил утверждений](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
+
+
 
 
 

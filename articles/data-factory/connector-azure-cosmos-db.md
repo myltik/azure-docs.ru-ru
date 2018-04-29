@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 01de1020cd485b3cf91e5d5bc2e175df2bcad111
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Копирование данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure
 
@@ -168,7 +168,6 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | Тип | Свойство type приемника действия копирования должно иметь значение **DocumentDbCollectionSink**. |Yes |
 | nestingSeparator |Такой специальный символ в имени исходного столбца, который указывает, что нужен вложенный документ. <br/><br/>Например, `Name.First` в выходной структуре набора данных создает следующую структуру JSON в документе Cosmos DB: `"Name": {"First": "[value maps to this column from source]"}`, в которой nestedSeparator является точкой. |Нет (значение по умолчанию — точка `.`) |
-| writeBatchTimeout |Время ожидания до выполнения операции, пока не завершится срок ее действия.<br/><br/>Допустимые значения: промежуток времени. Пример: 00:30:00 (30 минут). |Нет  |
 
 **Пример.**
 

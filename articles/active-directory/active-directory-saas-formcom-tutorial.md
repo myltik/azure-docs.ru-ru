@@ -1,10 +1,10 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Form.com | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Form.com."
+title: Руководство по интеграции Azure Active Directory с Form.com | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Form.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Руководство по интеграции Azure Active Directory с Form.com
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/11/2017
     ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Form.com** выполните следующие действия.
@@ -118,46 +118,26 @@ ms.lasthandoff: 12/11/2017
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Эти значения приведены в качестве примера. Укажите вместо них фактические значения URL-адреса для входа, URL-адреса ответа и идентификатора. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Form.com](https://form.com/about/company/contact-us/). 
- 
-4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+    > [!NOTE]
+    > Эти значения приведены в качестве примера. Укажите вместо них фактические значения URL-адреса для входа, URL-адреса ответа и идентификатора. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Form.com](https://form.com/about/company/contact-us/).
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
+4. В разделе **Сертификат подписи SAML** выполните следующее.
     
-    ![Настройка регистрации приложения](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка конечных точек](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Настройка единого входа](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка конечной точки](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, а затем вставьте его в Блокнот.
+
+    Б. Щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
      
-    d. Теперь перейдите на страницу свойств **Form.com** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка идентификатора приложения](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-6. Нажмите кнопку **Сохранить** .
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. В разделе **Конфигурация Form.com** щелкните **Настроить Form.com**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+6. В разделе **Конфигурация Form.com** щелкните **Настроить Form.com**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Конфигурация Form.com](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Чтобы настроить единый вход на стороне **Form.com**, нужно отправить скачанный **сертификат (Base64)** и **URL-адрес метаданных** и **URL-адрес службы единого входа SAML** [группе поддержки Form.com](https://form.com/about/company/contact-us/). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+7. Чтобы настроить единый вход на стороне **Form.com**, нужно отправить скачанный **сертификат (Base64)**, **URL-адрес метаданных федерации приложения** и **URL-адрес службы единого входа SAML** [группе поддержки Form.com](https://form.com/about/company/contact-us/). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

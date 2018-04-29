@@ -1,11 +1,11 @@
 ---
-title: "Отправка файлов в учетную запись служб мультимедиа Azure с помощью Aspera | Документация Майкрософт"
-description: "Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранилища, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure."
+title: Отправка файлов в учетную запись служб мультимедиа Azure с помощью Aspera | Документация Майкрософт
+description: Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранилища, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Отправка файлов в учетную запись служб мультимедиа с помощью службы Aspera Server On Demand в Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 **Aspera** — это программное обеспечение для высокоскоростной передачи файлов. **Aspera Server On Demand** для Azure позволяет быстро отправлять большие файлы непосредственно в хранилище BLOB-объектов Azure и скачивать их из него. Дополнительные сведения о службе **Aspera On Demand** см. на сайте [Aspera Cloud](http://cloud.asperasoft.com/). 
   
-**Aspera Server On Demand** для Azure можно приобрести в [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Чтобы купить **Aspera Server On Demand**, войдите в Azure Marketplace с помощью учетной записи Windows Live ID.
+**Aspera Server On Demand** для Azure можно приобрести в [Azure Marketplace](https://azure.microsoft.com/marketplace/). Чтобы купить **Aspera Server On Demand**, войдите в Azure Marketplace с помощью учетной записи Windows Live ID.
 
 Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранения, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure. 
 

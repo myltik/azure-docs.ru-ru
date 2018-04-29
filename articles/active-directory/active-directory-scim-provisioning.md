@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Использование SCIM для автоматической подготовки пользователей и групп Azure Active Directory для приложений
 
@@ -114,7 +114,7 @@ Azure Active Directory (Azure AD) может выполнять автомати
 
 **Создание конечной точки SCIM из этого примера:**
 
-1. Загрузите пакет кода, расположенный по адресу [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. Скачайте пакет с примером кода со страницы [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Распакуйте пакет и поместите его в любую удобную папку на компьютере Windows, например C:\AzureAD-BYOA-Provisioning-Samples.
 3. Запустите в Visual Studio решение FileProvisioningAgent из этой папки.
 4. Выберите **Инструменты > Library Package Manager (Диспетчер пакетов библиотеки) > Консоль диспетчера пакетов** и выполните приведенные ниже команды, чтобы разрешить ссылки на решения в проекте FileProvisioningAgent.
@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) может выполнять автомати
 2. [Обработчики ExpressRoute](http://expressjs.com/guide/routing.html) используются для анализа объектов запроса Node.js, которые представляют собой вызовы (как определено в спецификации SCIM), направленные к веб-службе Node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Создание пользовательской конечной точки SCIM
-Используя библиотеки CLI, разработчики могут размещать свои службы в любой исполняемой сборке Common Language Infrastructure или в службах IIS. Ниже приведен пример кода для размещения службы в исполняемой сборке по адресу http://localhost:9000. 
+Используя библиотеки CLI, разработчики могут размещать свои службы в любой исполняемой сборке Common Language Infrastructure или в службах IIS. Ниже приведен пример кода для размещения службы в исполняемой сборке по адресу http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Azure Active Directory (Azure AD) может выполнять автомати
     }
 
 ### <a name="handling-endpoint-authentication"></a>Обработка аутентификации на конечной точке
-Запросы от Azure Active Directory содержат токен носителя OAuth 2.0.   Любая веб-служба, которая получит запрос, должна убедиться, что токен выдала служба Azure Active Directory от имени клиента Azure Active Directory для доступа к веб-службе Azure Active Directory Graph.  В токене издатель обозначается утверждением iss, которое имеет следующий вид: iss:https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/.  В этом примере базовый адрес утверждения со значением https://sts.windows.net подтверждает, что издателем является Azure Active Directory. Относительный адрес сегмента (cbb1a5ac-f33b-45fa-9bf5-f37db0fed422) — это уникальный идентификатор клиента Azure Active Directory, от имени которого выдан маркер.  Если токен выпущен для доступа к веб-службе Azure Active Directory Graph, то утверждение aud такого токена должно иметь значение 00000002-0000-0000-c000-000000000000, то есть значение идентификатора этой веб-службы.  
+Запросы от Azure Active Directory содержат токен носителя OAuth 2.0.   Любая веб-служба, которая получит запрос, должна убедиться, что токен выдала служба Azure Active Directory от имени клиента Azure Active Directory для доступа к веб-службе Azure Active Directory Graph.  В токене издатель идентифицируется с помощью утверждения iss, например "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  В этом примере базовый адрес утверждения со значением https://sts.windows.net подтверждает, что издателем является Azure Active Directory. Сегмент относительного адреса (cbb1a5ac-f33b-45fa-9bf5-f37db0fed422) — это уникальный идентификатор клиента Azure Active Directory, от имени которого выдан токен.  Если токен выпущен для доступа к веб-службе Azure Active Directory Graph, то утверждение aud такого токена должно иметь значение 00000002-0000-0000-c000-000000000000, то есть значение идентификатора этой веб-службы.  
 
 Разработчики, которые используют для создания службы SCIM предоставленные корпорацией Майкрософт библиотеки CLA, могут аутентифицировать запросы от Azure Active Directory с помощью пакета Microsoft.Owin.Security.ActiveDirectory. Для этого нужно выполнить следующие действия. 
 
@@ -347,9 +347,9 @@ Azure Active Directory (Azure AD) может выполнять автомати
 ## <a name="user-and-group-schema"></a>Схема пользователей и групп
 Azure Active Directory может предоставлять веб-службе SCIM ресурсы двух типов.  Этими типами являются пользователи и группы.  
 
-Ресурс пользователя имеет идентификатор схемы urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, который включен в данную спецификацию протокола: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Ниже в таблице 1 приводится используемое по умолчанию сопоставление атрибутов пользователей в Azure Active Directory и атрибутов ресурсов типа urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.  
+Ресурсы пользователя определяются с помощью идентификатора схемы urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, который включен в эту спецификацию протокола: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Ниже в таблице 1 приводится используемое по умолчанию сопоставление атрибутов пользователей в Azure Active Directory и атрибутов ресурсов типа urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.  
 
-Ресурсы группы определяются по идентификатору схемы, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Ниже в таблице 2 приводится используемое по умолчанию сопоставление атрибутов групп в Azure Active Directory и атрибутов ресурсов http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+Ресурсы группы определяются с помощью идентификатора схемы http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Ниже в таблице 2 показано используемое по умолчанию сопоставление атрибутов групп в Azure Active Directory и атрибутов ресурсов http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Таблица 1. Сопоставление атрибутов пользователя по умолчанию
 | Пользователь Azure Active Directory | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |

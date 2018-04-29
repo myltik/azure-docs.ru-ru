@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Использование службы "Импорт и экспорт Microsoft Azure" для передачи данных в службу хранилища Azure
 В этой статье предоставляются пошаговые инструкции по использованию службы "Импорт и экспорт Azure" для безопасного переноса больших объемов данных в хранилище BLOB Azure и файлов Azure при отправке дисков в центр обработки данных Azure. Кроме того, эту службу можно использовать, чтобы переносить данные из службы хранилища Azure на жесткие диски и передавать на локальные сайты. Данные с одного внутреннего диска SATA можно импортировать в хранилище BLOB-объектов Azure или хранилище файлов Azure. 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/23/2018
 2.  В зависимости от общего объема данных приобретите необходимое количество 2,5-дюймовых твердотельных накопителей или 2,5-дюймовых (3,5-дюймовых) жестких дисков SATA II или III.
 3.  Подключите жесткие диски напрямую с помощью SATA или с помощью внешних адаптеров USB на компьютере с Windows.
 1.  Создайте один том NTFS на каждом жестком диске и присвойте ему букву диска. Точки подключения не используются.
-2.  Чтобы включить шифрование на компьютере Windows, включите шифрование BitLocker на томе NTFS. Используйте инструкции отсюда: https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Чтобы включить шифрование на компьютере Windows, включите шифрование BitLocker на томе NTFS. Используйте инструкции отсюда: https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Полностью скопируйте данные на эти зашифрованные отдельные тома NTFS на дисках, используя копирование и вставку, перетаскивание, Robocopy или любое другое подобное средство.
 7.  Скачайте WAImportExport V1 отсюда: https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Распакуйте содержимое в папку waimportexportv1 по умолчанию. Например, C:\WaImportExportV1.  
@@ -560,7 +560,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Служба "Импорт и экспорт Azure" по умолчанию шифрует данные с помощью шифрования Bitlocker AES 128, однако уровень шифрования можно повысить до AES 256 путем шифрования данных вручную с помощью Bitlocker, перед тем как скопировать их. 
 
-Ниже приведен пример команды при использовании средства [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)
+Ниже приведен пример команды при использовании средства [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

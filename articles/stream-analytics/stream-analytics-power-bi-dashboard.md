@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2017
-ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics и Power BI. Панель мониторинга для анализа потоковой передачи данных
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Руководство. Stream Analytics и Power BI. Панель мониторинга для анализа потоковой передачи данных
 Azure Stream Analytics позволяет воспользоваться одним из лучших инструментов для бизнес-аналитики, [Microsoft Power BI](https://powerbi.com/). В этой статье вы узнаете, как создавать средства бизнес-аналитики, отображая в Power BI выходные данные заданий Azure Stream Analytics. Вы также узнаете, как создавать информационные панели и использовать их в режиме реального времени.
 
 Эта статья является продолжением руководства Stream Analytics по [выявлению мошенничества в реальном времени](stream-analytics-real-time-fraud-detection.md). Она создана на основе рабочего процесса, изложенного в этом руководстве. Кроме того, в ней добавлены выходные данные Power BI для визуализации мошеннических телефонных вызовов, обнаруженных заданием Stream Analytics. 

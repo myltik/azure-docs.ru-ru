@@ -1,8 +1,8 @@
 ---
-title: "Операции Azure Active Directory Connect Health"
-description: "В этой статье описаны дополнительные операции, которые можно выполнить после развертывания Azure AD Connect Health."
+title: Операции Azure Active Directory Connect Health
+description: В этой статье описаны дополнительные операции, которые можно выполнить после развертывания Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Операции Azure Active Directory Connect Health
 В этой статье описаны различные операции, которые можно выполнить с помощью Azure Active Directory (Azure AD) Connect Health.
@@ -91,9 +91,9 @@ Azure AD Connect Health для доменных служб Azure Active Director
 4. Нажмите кнопку **Delete**(Удалить).
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (Начало раздела RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Использование управления доступом на основе ролей
-[Управление доступом на основе ролей (RBAC)](../role-based-access-control-configure.md) для Azure AD Connect Health предоставляет доступ к пользователям и группам (не глобальным администраторам) за счет назначения им соответствующих ролей. Такой подход предоставляет механизм ограничения числа глобальных администраторов в каталоге.
+[Управление доступом на основе ролей (RBAC)](../../role-based-access-control/role-assignments-portal.md) для Azure AD Connect Health предоставляет доступ к пользователям и группам (не глобальным администраторам) за счет назначения им соответствующих ролей. Такой подход предоставляет механизм ограничения числа глобальных администраторов в каталоге.
 
 ### <a name="roles"></a>Роли
 Azure AD Connect Health поддерживает следующие встроенные роли:
@@ -153,7 +153,7 @@ Azure AD Connect Health поддерживает управление досту
 Вы можете удалить пользователя или группу, добавленных в компонент управления доступом на основе ролей Azure AD Connect Health. Для этого просто щелкните пользователя или группу правой кнопкой мыши и выберите команду **Удалить**.<br>
 ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health с выделенной командой "Удалить"](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (Конец раздела RBAC)
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

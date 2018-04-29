@@ -1,26 +1,24 @@
 ---
-title: "Создание высокодоступных заданий потоковой передачи Spark в YARN в Azure HDInsight | Документация Майкрософт"
-description: "Как настроить потоковую передачу Spark для сценария с высокой доступностью."
+title: Создание высокодоступных заданий потоковой передачи Spark в YARN в Azure HDInsight | Документация Майкрософт
+description: Как настроить потоковую передачу Spark для сценария с высокой доступностью.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Создание высокодоступных заданий потоковой передачи Spark в YARN
 

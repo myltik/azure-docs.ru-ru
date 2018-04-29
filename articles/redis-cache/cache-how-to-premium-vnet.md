@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум
 Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша, включая функции уровня "Премиум", такие как кластеризация, постоянное хранение данных и поддержка виртуальной сети. Виртуальная сеть — это частная сеть в облаке. В случае настройки экземпляра кэша Redis для Azure в виртуальной сети он не является общедоступным, а доступен только для виртуальных машин и приложений в этой виртуальной сети. В этой статье описана настройка поддержки виртуальной сети для экземпляра кэша Redis для Azure уровня "Премиум".
@@ -84,12 +84,13 @@ ms.lasthandoff: 03/09/2018
 
 * [Каковы распространенные ошибки конфигурации кэша Redis для Azure и виртуальных сетей?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 * [Как проверить, что кэш работает в виртуальной сети?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [Почему при попытке подключения к моему кэшу Redis в виртуальной сети происходит ошибка и появляется сообщение о том, что удаленный сертификат недействителен?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Можно ли использовать виртуальные сети в кэше уровня "Стандартный" или "Базовый"?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [Почему в одних подсетях не удается создать кэш Redis, а в других удается?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [Каковы требования к адресному пространству подсети?](#what-are-the-subnet-address-space-requirements)
 * [Do all cache features work when hosting a cache in a VNET? (Все ли функции кэша работают, когда он размещен в виртуальной сети?)](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Каковы распространенные ошибки конфигурации кэша Redis для Azure и виртуальных сетей?
+### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Каковы распространенные ошибки конфигурации кэша Redis для Azure и виртуальных сетей?
 При размещении кэша Redis для Azure в виртуальной сети используются порты, указанные в следующих таблицах. 
 
 >[!IMPORTANT]
@@ -100,7 +101,7 @@ ms.lasthandoff: 03/09/2018
 - [Обязательные порты для исходящего трафика](#outbound-port-requirements)
 - [Обязательные порты для входящего трафика](#inbound-port-requirements)
 
-### <a name="outbound-port-requirements"></a>Обязательные порты для исходящего трафика
+#### <a name="outbound-port-requirements"></a>Обязательные порты для исходящего трафика
 
 Существует семь обязательных портов для исходящего трафика.
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 03/09/2018
 | 6379-6380 |Исходящие |TCP |Внутренний обмен данными для Redis | (Подсеть Redis) |(Подсеть Redis) |
 
 
-### <a name="inbound-port-requirements"></a>Обязательные порты для входящего трафика
+#### <a name="inbound-port-requirements"></a>Обязательные порты для входящего трафика
 
 Существует восемь обязательных диапазонов портов для входящего трафика. Входящие запросы в этих диапазонах исходят от других служб, размещенных в той же виртуальной сети, или являются результатом внутреннего обмена данными в подсети Redis.
 
@@ -135,7 +136,7 @@ ms.lasthandoff: 03/09/2018
 | 16001 |Входящий трафик |TCP/UDP |Балансировка нагрузки Azure | (Подсеть Redis) |Azure Load Balancer |
 | 20226 |Входящий трафик |TCP |Внутренний обмен данными для Redis | (Подсеть Redis) |(Подсеть Redis) |
 
-### <a name="additional-vnet-network-connectivity-requirements"></a>Дополнительные требования к подключению к виртуальной сети
+#### <a name="additional-vnet-network-connectivity-requirements"></a>Дополнительные требования к подключению к виртуальной сети
 
 Существуют требования к сетевому подключению кэша Redis для Azure, которым виртуальная сеть изначально может не соответствовать. Для правильной работы кэша Redis для Azure в виртуальной сети нужно выполнить все требования, перечисленные ниже.
 
@@ -164,6 +165,24 @@ ms.lasthandoff: 03/09/2018
   - Другой способ проверки — создать тестовый клиент кэша (это может быть простое консольное приложение, использующее StackExchange.Redis), который подключается к кэшу и добавляет какие-то элементы в кэш или извлекает их из него. Установите пример клиентского приложения на виртуальную машину, которая находится с кэшем в одной виртуальной сети, и запустите его, чтобы проверить подключение к кэшу.
 
 
+### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>Почему при попытке подключения к моему кэшу Redis в виртуальной сети происходит ошибка и появляется сообщение о том, что удаленный сертификат недействителен?
+
+При попытке подключения к кэшу Redis в виртуальной сети появляется такое сообщение об ошибке проверки сертификатов:
+
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
+
+Причина может заключаться в том, что вы подключаетесь к узлу по IP-адресу. Мы рекомендуем использовать имя узла. Другими словами, используйте следующее:     
+
+`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+Не используйте IP-адрес, похожий на следующую строку подключения:
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+Если не удается разрешить имя DNS, некоторые клиентские библиотеки содержат параметры конфигурации, например `sslHost`, которые предоставляет клиент StackExchange.Redis. Это позволяет переопределить имя узла, используемое для проверки сертификата. Например: 
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
+
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>Можно ли использовать виртуальные сети в кэше уровня "Стандартный" или "Базовый"?
 Виртуальные сети доступны только для кэшей уровня "Премиум".
 
@@ -182,7 +201,9 @@ Azure резервирует некоторые IP-адреса в каждой 
 
 * Консоль Redis. Так как консоль Redis работает в локальном браузере вне виртуальной сети, она не может подключиться к кэшу.
 
+
 ## <a name="use-expressroute-with-azure-redis-cache"></a>Использование ExpressRoute с кэшем Redis для Azure
+
 Клиенты могут подключить канал [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) к своей инфраструктуре виртуальной сети, расширяя таким образом свою локальную сеть в Azure. 
 
 По умолчанию только что созданный канал ExpressRoute не выполняет принудительное туннелирование (объявление маршрута по умолчанию, 0.0.0.0/0) в виртуальной сети. В результате исходящие подключения к Интернету выполняются напрямую из виртуальной сети, а клиентские приложения могут подключаться к другим конечным точкам Azure, включая кэш Redis для Azure.

@@ -12,21 +12,21 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8fc014efab898bf0ab3d8cd5eaa83dce53ee275b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Настройка службы "Подготовка устройств к добавлению в Центр Интернета вещей" c помощью шаблона Azure Resource Manager
 
-[Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) можно использовать, чтобы программно настраивать облачные ресурсы Azure, необходимые для подготовки устройств. В этих шагах показано, как создать Центр Интернета вещей, службу "Подготовка устройств к добавлению в Центр Интернета вещей" и связать обе службы с помощью шаблона Azure Resource Manager. В этом кратком руководстве для выполнения программных шагов, необходимых для создания группы ресурсов и развертывания шаблона, используется [Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli). Однако для развертывания шаблона также можно использовать [портал Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby или другие языки программирования. 
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) можно использовать, чтобы программно настраивать облачные ресурсы Azure, необходимые для подготовки устройств. В этих шагах показано, как создать Центр Интернета вещей, службу "Подготовка устройств к добавлению в Центр Интернета вещей" и связать обе службы с помощью шаблона Azure Resource Manager. В этом кратком руководстве для выполнения программных шагов, необходимых для создания группы ресурсов и развертывания шаблона, используется [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli). Однако для развертывания шаблона также можно использовать [портал Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby или другие языки программирования. 
 
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
 - Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
-- Для этого краткого руководства требуется запустить Azure CLI локально. Требуется Azure CLI версии 2.0 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо установить или обновить CLI, ознакомьтесь со статьей [Установка Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Для этого краткого руководства требуется запустить Azure CLI локально. Требуется Azure CLI версии 2.0 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо установить или обновить CLI, ознакомьтесь со статьей [Установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Вход в Azure и создание группы ресурсов
@@ -116,7 +116,7 @@ ms.lasthandoff: 04/16/2018
 
    ```
 
-4. Чтобы создать Центр Интернета вещей, добавьте следующие строки в коллекцию **resources**. JSON определяет минимальные свойства, необходимые для создания Центра Интернета вещей. Свойства **name** и **location** передаются в качестве параметров. Дополнительные сведения о свойствах, которые можно указать для Центра Интернета вещей в шаблоне, см. в статье [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothubs) (Справочник по шаблону Microsoft.Devices/IotHubs).
+4. Чтобы создать Центр Интернета вещей, добавьте следующие строки в коллекцию **resources**. JSON определяет минимальные свойства, необходимые для создания Центра Интернета вещей. Свойства **name** и **location** передаются в качестве параметров. Дополнительные сведения о свойствах, которые можно указать для Центра Интернета вещей в шаблоне, см. в статье [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs) (Справочник по шаблону Microsoft.Devices/IotHubs).
 
    ```json
         {
@@ -136,9 +136,9 @@ ms.lasthandoff: 04/16/2018
 
    ``` 
 
-5. Чтобы создать службу подготовки, добавьте следующие строки после указания Центра Интернета вещей в коллекции **resources**. **Имя** и **расположения** службы подготовки передаются в параметры. Укажите Центры Интернета вещей, которые будут связаны со службой подготовки, в коллекции **iotHubs**. Как минимум необходимо указать свойства **connectionString** и **location** для всех связанных Центров Интернета вещей. Кроме того, можно задать свойства **allocWeight** и **applyAllocationPolicy** в каждом Центре Интернета вещей, а также свойства **allocPolicy** и **authorizationPolicies** в самой службе подготовки. Дополнительные сведения см. в статье [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices) (Справка по шаблону Microsoft.Devices/provisioningServices).
+5. Чтобы создать службу подготовки, добавьте следующие строки после указания Центра Интернета вещей в коллекции **resources**. **Имя** и **расположения** службы подготовки передаются в параметры. Укажите Центры Интернета вещей, которые будут связаны со службой подготовки, в коллекции **iotHubs**. Как минимум необходимо указать свойства **connectionString** и **location** для всех связанных Центров Интернета вещей. Кроме того, можно задать свойства **allocWeight** и **applyAllocationPolicy** в каждом Центре Интернета вещей, а также свойства **allocPolicy** и **authorizationPolicies** в самой службе подготовки. Дополнительные сведения см. в статье [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Справка по шаблону Microsoft.Devices/provisioningServices).
 
-   Свойство **dependsOn** используется, чтобы убедиться, что диспетчер ресурсов создает Центр Интернета вещей до службы подготовки. Для шаблона требуется указать строку подключения к Центру Интернета вещей, чтобы задать его связь со службой подготовки устройств, а также чтобы сначала создавались центр и его ключи. Шаблон использует такие функции, как **concat** и **listKeys**, чтобы создать строку подключения. Дополнительные сведения см. в статье [Функции шаблона Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions).
+   Свойство **dependsOn** используется, чтобы убедиться, что диспетчер ресурсов создает Центр Интернета вещей до службы подготовки. Для шаблона требуется указать строку подключения к Центру Интернета вещей, чтобы задать его связь со службой подготовки устройств, а также чтобы сначала создавались центр и его ключи. Шаблон использует такие функции, как **concat** и **listKeys**, чтобы создать строку подключения. Дополнительные сведения см. в статье [Функции шаблона Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -301,7 +301,7 @@ ms.lasthandoff: 04/16/2018
 
 Используйте следующие команды Azure CLI для развертывания шаблонов и подтверждения развертывания.
 
-1. Чтобы [начать развертывание](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) шаблона, выполните следующую команду:
+1. Чтобы [начать развертывание](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) шаблона, выполните следующую команду:
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ ms.lasthandoff: 04/16/2018
    ![Выходные данные подготовки](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Чтобы проверить развертывание, выполните следующую [команду для перечисления ресурсов](https://docs.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest#az_resource_list), после чего найдите новую службу подготовки и Центр Интернета вещей в выходных данных:
+2. Чтобы проверить развертывание, выполните следующую [команду для перечисления ресурсов](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list), после чего найдите новую службу подготовки и Центр Интернета вещей в выходных данных:
 
     ```azurecli
      az resource list -g {your resource group name}

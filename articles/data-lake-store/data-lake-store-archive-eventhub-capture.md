@@ -1,8 +1,8 @@
 ---
-title: "Запись данных из концентраторов событий в Azure Data Lake Store | Документация Майкрософт"
-description: "Запись данных из концентраторов событий с помощью Azure Data Lake Store."
+title: Запись данных из концентраторов событий в Azure Data Lake Store | Документация Майкрософт
+description: Запись данных из концентраторов событий с помощью Azure Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Запись данных из концентраторов событий с помощью Azure Data Lake Store
 
@@ -58,9 +58,12 @@ ms.lasthandoff: 02/23/2018
 
     c. В разделе **Назначение разрешений** выберите **Выбор разрешений**. Задайте для параметра **Разрешения** значение **Выполнить**. Задайте для параметра **Добавить к** значение **К этой папке и всем вложенным элементам**. Задайте для параметра **Add as** (Добавить как) значение **Запись разрешений доступа и запись разрешений по умолчанию**.
 
-    ![Назначение разрешений корневой папке Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+> [!IMPORTANT]
+> Это простой способ обеспечения доступа к целевой папке при создании новой иерархии папок для записи данных, поступающих в концентраторы событий Azure.  Однако добавление разрешений для всех дочерних элементов папки верхнего уровня с многочисленными дочерними файлами и папками может занять много времени.  Если корневая папка содержит большое число файлов и папок, возможно, быстрее будет добавить разрешения на **выполнение** для `Microsoft.EventHubs` по отдельности в каждую папку в пути к конечной целевой папке. 
 
-    Последовательно выберите **ОК**.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Назначьте разрешения папке в учетной записи Data Lake Store, в которой необходимо сохранить данные.
 

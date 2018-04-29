@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Выполнение анализа тональности с помощью Azure Stream Analytics и Машинного обучения Azure
 В этой статье описывается, как быстро настроить простое задание Azure Stream Analytics, интегрированное с Машинным обучением Azure. Вы используете модель машинного обучения для анализа тональности из коллекции Cortana Intelligence для анализа потока текстовых данных, а также определения оценки тональности в реальном времени. С помощью Cortana Intelligence Suite вы сможете выполнить эту задачу, не вникая в особенности создания модели анализа тональности.
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/06/2018
 
    |Поле  |Значение  |
    |---------|---------|
-   |**Псевдоним выходных данных** | Используйте имя `datainput` и выберите **Select blob storage from your subscription** (Выбрать хранилище BLOB-объектов из своей подписки).       |
+   |**Псевдоним выходных данных** | Используйте имя `datamloutput` и выберите **Select blob storage from your subscription** (Выбрать хранилище BLOB-объектов из своей подписки).       |
    |**Учетная запись хранения**  |  выберите учетную запись хранения, созданную ранее.  |
    |**Контейнер**  | Выберите созданный ранее контейнер (`azuresamldemoblob`).        |
    |**Формат сериализации событий**  |  Выберите **CSV**.       |
@@ -168,7 +168,7 @@ ms.lasthandoff: 04/06/2018
 
 
 ### <a name="add-the-machine-learning-function"></a>Добавление функции машинного обучения 
-Ранее вы опубликовали модель машинного обучения в веб-службе. В нашем сценарии выполняемое задание Stream Analytics отправляет каждый образец твита из входных данных в веб-службу для анализа тональности. Веб-служба машинного обучения возвращает тональность (`positive`, `neutral` или `negative`) и вероятность того, что твит положительный. 
+Ранее вы опубликовали модель машинного обучения в веб-службе. В нашем сценарии выполняемое задание Stream Analytics отправляет каждый пример твита из входных данных в веб-службу для анализа тональности. Веб-служба машинного обучения возвращает тональность (`positive`, `neutral` или `negative`) и вероятность того, что твит положительный. 
 
 В этом разделе руководства вы определите функцию в задании Stream Analytics. Эту функцию можно вызывать для отправки твита в веб-службу и получения ответа. 
 
@@ -200,12 +200,13 @@ Stream Analytics использует декларативный запрос н
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     Запрос вызывает созданную ранее функцию (`sentiment`) для выполнения анализа тональности каждого твита во входных данных. 

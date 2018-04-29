@@ -1,12 +1,12 @@
 ---
-title: "Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия)"
-description: "Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия)."
+title: Заметки о выпуске Обозревателя службы хранилища Microsoft Azure
+description: Заметки о выпуске Обозревателя службы хранилища Microsoft Azure.
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия)
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Заметки о выпуске Обозревателя службы хранилища Microsoft Azure
 
 Эта статья содержит заметки о выпуске обозревателя службы хранилища Azure 0.9.6 (предварительная версия), а также заметки о выпусках предыдущих версий.
 
-[Microsoft Azure Storage Explorer (предварительная версия)](./vs-azure-tools-storage-manage-with-storage-explorer.md) — это изолированное приложение, позволяющее легко работать с данными из службы хранилища Azure на платформе Windows, macOS и Linux.
+[Обозреватель службы хранилища Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) — это изолированное приложение, которое упрощает работу с данными из службы хранилища Azure на платформе Windows, macOS и Linux.
 
 ## <a name="version-096"></a>Версия 0.9.6
 28.02.2018

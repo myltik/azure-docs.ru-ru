@@ -19,8 +19,8 @@
 
 1. Откройте Центр Интернета вещей на [портале Azure](https://portal.azure.com/).
 
-2. Щелкните **Обозреватель устройств**.
-3. На панели обозревателя устройства щелкните **Добавить** для добавления устройства в Центр Интернета вещей. После этого выполните описанные ниже действия.
+2. Щелкните **Устройства IoT**.
+3. В области "Устройства IoT" щелкните **Добавить** для добавления устройства в Центр Интернета вещей. После этого выполните описанные ниже действия.
 
    **Идентификатор устройства.** Введите идентификатор нового устройства. Идентификаторы устройств чувствительны к регистру.
 
@@ -30,12 +30,15 @@
 
    **Подключите устройство к центру IoT**. Щелкните **Включить**.
 
-   ![Добавление устройства в Device Explorer Центра Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Добавление устройства в области "Устройства IoT" Центра Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Выберите команду **Сохранить**.
-5. Создав устройство, откройте его в области **Обозреватель устройств**.
+5. Создав устройство, откройте его в области **Устройства IoT**.
+
+   ![Список устройств IoT в Центре Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Запишите первичный ключ строки подключения.
 
-   ![Получение строки подключения устройства](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Получение строки подключения устройства](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

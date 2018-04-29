@@ -1,8 +1,8 @@
 ---
-title: "Архивация приложения в Azure"
-description: "Узнайте, как создавать резервные копии приложений в службе приложений Azure."
+title: Архивация приложения в Azure
+description: Узнайте, как создавать резервные копии приложений в службе приложений Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Архивация приложения в Azure
 Функция архивации и восстановления в [службе приложений Azure](app-service-web-overview.md) позволяет легко создавать резервные копии приложений вручную или по расписанию. Вы можете восстановить приложение до моментального снимка предыдущего состояния, перезаписав существующее приложение или восстановив другое. 
@@ -35,9 +35,9 @@ ms.lasthandoff: 11/18/2017
 * база данных, подключенная к приложению.
 
 Функция архивации поддерживается для следующих решений базы данных: 
-   - [База данных SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [база данных Azure для MySQL (предварительная версия)](https://azure.microsoft.com/en-us/services/mysql);
-   - [база данных Azure для PostgreSQL (предварительная версия)](https://azure.microsoft.com/en-us/services/postgres);
+   - [База данных SQL](https://azure.microsoft.com/services/sql-database/)
+   - [база данных Azure для MySQL (предварительная версия)](https://azure.microsoft.com/services/mysql);
+   - [база данных Azure для PostgreSQL (предварительная версия)](https://azure.microsoft.com/services/postgres);
    - [MySQL в приложении](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app).
  
 

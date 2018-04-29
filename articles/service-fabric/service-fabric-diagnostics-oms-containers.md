@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 7a775b6d23c144c81650bb3608ee6a117475a9ba
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1de7e58eecc80e306920ab17884290dfddf8efa8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Мониторинг контейнеров с помощью Log Analytics
  
-В этой статье рассматриваются шаги, необходимые для настройки мониторинга контейнера в кластере. Дополнительные сведения см. в разделе [Отслеживание контейнеров](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers). Пошаговое руководство см. в статье [Мониторинг контейнера Windows в Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+В этой статье описано, как настроить решение мониторинга контейнера OMS Log Analytics для просмотра событий контейнера. См. дополнительные сведения о [настройке кластера для сбора событий контейнера](service-fabric-tutorial-monitoring-wincontainers.md).
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Настройка решения мониторинга контейнера
 
@@ -35,9 +35,22 @@ ms.lasthandoff: 04/06/2018
 
     ![Добавление решения "Контейнеры"](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Создайте решение внутри рабочей области, созданной для кластера. При таком изменении агент автоматически активируется для запуска сбора данных Docker в контейнеры. Приблизительно через 15 минут в решении появятся входящие журналы и статистика.
+3. Создайте решение внутри рабочей области, созданной для кластера. При таком изменении агент автоматически активируется для запуска сбора данных Docker в контейнеры. Приблизительно через 15 минут в решении появятся входящие журналы и статистика, как показано на рисунке ниже.
+
+    ![Основная панель мониторинга OMS](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+
+Агент обеспечивает сбор нескольких журналов, относящихся к контейнерам, которые могут запрашиваться в OMS или использоваться для визуализации показателей эффективности. Собираются следующие типы журналов.
+
+* ContainerInventory — отображает информацию о местонахождении контейнера, имени и образах.
+* ContainerImageInventory — информация о развернутых образах, в том числе их идентификаторы или размеры.
+* ContainerLog — журналы конкретных ошибок, журналы Docker (StdOut и т. д.) и другие записи.
+* ContainerServiceLog — выполнявшиеся команды управляющей программы Docker.
+* Perf — счетчики производительности контейнера, в том числе ЦП, память, сетевой трафик, операции ввода и вывода на диске и пользовательские метрики с компьютеров узла.
+
+
 
 ## <a name="next-steps"></a>Дополнительная информация
+* См. дополнительные сведения о ](../log-analytics/log-analytics-containers.md)решении OMS "Контейнеры"[.
 * Дополнительные сведения об оркестрации контейнера в Service Fabric см. в статье [Service Fabric и контейнеры](service-fabric-containers-overview.md)
 * Ознакомьтесь с функциями [поиска по журналам и запросов к журналам](../log-analytics/log-analytics-log-searches.md), которые являются частью решения Log Analytics.
 * Настройте в Log Analytics [правила автоматической генерации оповещений](../log-analytics/log-analytics-alerts.md), которые помогают выполнять обнаружение и диагностику.

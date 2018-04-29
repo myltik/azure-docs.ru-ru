@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Матрицы поддержки для репликации из одного региона Azure в другой
 
@@ -168,6 +168,8 @@ Azure Government    | Виргиния (для обслуживания госу
 Шифрование дисков Azure | Не поддерживается |
 "Горячее" добавление или удаление диска | Не поддерживается | При добавлении или удалении диска данных его с виртуальной машины, вам необходимо сначала отключить репликацию, а затем включить ее снова.
 Исключение диска | Не поддерживается|   Временный диск исключается по умолчанию.
+Локальные дисковые пространства  | Не поддерживается|
+Масштабируемый файловый сервер  | Не поддерживается|
 LRS | Поддерживаются |
 GRS | Поддерживаются |
 RA-GRS | Поддерживаются |

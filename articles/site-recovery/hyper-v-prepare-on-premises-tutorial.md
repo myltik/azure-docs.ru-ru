@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Подготовка локальных серверов Hyper-V для аварийного восстановления в Azure
 
@@ -58,14 +58,13 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="verify-internet-access"></a>Проверка доступа к Интернету
 
-1. В этом руководстве рассматривается простейшая конфигурация — прямой доступ к Интернету для узлов Hyper-V и сервера VMM (если это применимо) без использования прокси-сервера. 
+1. В этом руководстве рассматривается простейшая конфигурация — прямой доступ к Интернету для узлов Hyper-V и сервера VMM без использования прокси-сервера. 
 2. Убедитесь, что узлы Hyper-V (а также сервер VMM, если это применимо), имеют доступ к следующим URL-адресам: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Убедитесь в следующем:
-    - При использовании правил брандмауэра на основе IP-адресов убедитесь, что эти правила разрешают обмен данными с Azure.
-    - Разрешите доступ для [диапазонов IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) и использование порта HTTPS (443).
+3. Если осуществляется контроль доступом по IP-адресу, убедитесь, что:
+    - Правила брандмауэра на основе IP-адресов могут подключиться к [диапазонам IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) и порту HTTPS (443).
     - Необходимо разрешить доступ для диапазонов IP-адресов региона Azure, в котором располагается ваша подписка, и региона "Западная часть США" (используется для контроля доступа и управления удостоверениями).
 
 

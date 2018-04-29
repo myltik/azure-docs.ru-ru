@@ -1,12 +1,12 @@
 ---
-title: "Развертывание в службе приложений Azure с помощью подключаемого модуля Jenkins | Документация Майкрософт"
-description: "Узнайте, как развернуть веб-приложение Java в Azure в Jenkins с использованием подключаемого модуля Jenkins службы приложений Azure."
+title: Развертывание в службе приложений Azure с помощью подключаемого модуля Jenkins | Документация Майкрософт
+description: Узнайте, как развернуть веб-приложение Java в Azure в Jenkins с использованием подключаемого модуля Jenkins службы приложений Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Развертывание в службе приложений Azure с помощью подключаемого модуля Jenkins 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/01/2018
 * [подключаемый модуль Jenkins клиента Git](https://plugins.jenkins.io/git-client) версии 2.4.6; 
 * [подключаемый модуль Docker Commons](https://plugins.jenkins.io/docker-commons) версии 1.4.0;
 * [учетные данные Azure](https://plugins.jenkins.io/azure-credentials) версии 1.2;
-* [службу приложений Azure](https://plugins.jenkins.io/azure-app-server) версии 0.1.
+* [службу приложений Azure](https://plugins.jenkins.io/azure-app-service) версии 0.1.
 
 Подключаемый модуль Jenkins можно использовать для развертывания веб-приложений на всех языках, поддерживаемых веб-приложениями, например C#, PHP, Java и Node.js. В этом руководстве мы используем [простое веб-приложение Java для Azure](https://github.com/azure-devops/javawebappsample). Чтобы создать разветвление репозитория для своей учетной записи GitHub, нажмите кнопку **Fork** (Разветвление) в правом верхнем углу интерфейса GitHub.  
 > [!NOTE]

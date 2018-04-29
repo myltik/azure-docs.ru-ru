@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da1289b7b86f6f8016920c28890189db8ccb2511
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 643db63b077d243617b8a54c6835aa560007d51b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Высокий уровень доступности SAP NetWeaver на виртуальных машинах Azure
 
@@ -1052,7 +1052,7 @@ Azure Load Balancer имеет внутренний балансировщик �
 | Имя переменной |`KeepAliveTime` |
 | Тип переменной |REG_DWORD (десятичное) |
 | Значение |120000 |
-| Ссылка на документацию |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Ссылка на документацию |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Таблица 3.** Изменение первого параметра TCP/IP_
 
@@ -1063,7 +1063,7 @@ _**Таблица 3.** Изменение первого параметра TCP/
 | Имя переменной |`KeepAliveInterval` |
 | Тип переменной |REG_DWORD (десятичное) |
 | Значение |120000 |
-| Ссылка на документацию |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Ссылка на документацию |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Таблица 4.** Изменение второго параметра TCP/IP_
 

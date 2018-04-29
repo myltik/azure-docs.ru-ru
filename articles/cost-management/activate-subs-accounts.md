@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Активация подписок и учетных записей Azure с помощью службы "Управление затратами Azure"
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 04/16/2018
 Вот как можно исправить ошибки:
 
 1. Торговый посредник должен включить _исправления_ для вашей учетной записи. Инструкции см. в [руководстве по непрямому переносу клиентов в облачную среду](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Создайте ключ соглашения Azure Enterprise для использования со службой "Управление затратами Azure". Инструкции см. в статье [Регистрация соглашения Azure Enterprise и просмотр данных о затратах](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+2. Создайте ключ соглашения Azure Enterprise для использования со службой "Управление затратами Azure". Инструкции см. в статье [Регистрация соглашения Azure Enterprise и просмотр данных о затратах](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
 Только администратор служб Azure может включить службу "Управление затратами". Разрешений соадминистратора недостаточно.
 

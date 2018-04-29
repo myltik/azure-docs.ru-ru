@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e5ad805bbb25d2431944e2ede1f22630956356
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c986810f3d994b956d4c81fd80b38d9dfee4f50
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Руководство по интеграции Azure Active Directory с ContractWorks
 
@@ -51,9 +51,9 @@ ms.lasthandoff: 03/17/2018
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление ContractWorks из коллекции.
-2. Настройка и проверка единого входа в Azure AD.
+2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-contractworks-from-the-gallery"></a>Добавление ContractWorks из коллекции
+## <a name="adding-contractworks-from-the-gallery"></a>Добавление ContractWorks из коллекции.
 Чтобы настроить интеграцию ContractWorks с Azure AD, необходимо добавить ContractWorks из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить ContractWorks из коллекции, выполните следующие действия.**
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/17/2018
     ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_samlbase.png)
 
 3. Если вы хотите настроить приложение в режиме, инициированном **поставщиком удостоверений**, в разделе **Домены и URL-адреса приложения ContractWorks** сделайте следующее:
@@ -121,7 +121,7 @@ ms.lasthandoff: 03/17/2018
 6. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке выше, и выполните следующие действия:
     
     | Имя атрибута | Значение атрибута |
-    | ---------------| --------------- |    
+    | ---------------| --------------- |
     | mail | user.mail |
     | displayName | user.displayname |
 
@@ -139,34 +139,15 @@ ms.lasthandoff: 03/17/2018
     
     d. Нажмите кнопку **ОК**.
 
-7. Нажмите кнопку **Сохранить** .
+7. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, и вставьте его в Блокнот.
+    
+    ![Настройка единого входа](./media/active-directory-saas-contractworks-tutorial/tutorial_metadataurl.png)
+     
+8. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
 
-8. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **ContractWorks** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-9. Для настройки единого входа на стороне **ContractWorks** необходимо отправить созданный **URL-адрес метаданных** в [службу технической поддержки ContractWorks](mailto:support@contractworks.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+9. Для настройки единого входа на стороне **ContractWorks** необходимо отправить созданный **URL-адрес метаданных федерации приложения** [группе поддержки ContractWorks](mailto:support@contractworks.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

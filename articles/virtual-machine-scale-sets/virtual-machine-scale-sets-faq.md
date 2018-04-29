@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Часто задаваемые вопросы о масштабируемых наборах виртуальных машин Azure
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 04/03/2018
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Значение параметра extensionName находится в строке `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Существует ли пример шаблона масштабируемого набора виртуальных машин, который интегрируется с Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Существует ли пример шаблона масштабируемого набора виртуальных машин, который интегрируется с Log Analytics?
 
-Пример шаблона масштабируемого набора виртуальных машин, который интегрируется с Operations Management Suite, см. во втором примере статьи о [развертывании кластера Azure Service Fabric и включении мониторинга с помощью Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Шаблон масштабируемого набора виртуальных машин, который интегрируется с Log Analytics, приведен во втором примере статьи о [развертывании кластера Azure Service Fabric и включении мониторинга с помощью Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Похоже, что расширения выполняются в масштабируемых наборах виртуальных машин одновременно. В результате этого выполнение операции настраиваемого расширения скриптов завершается сбоем. Как это исправить?
 
@@ -693,9 +693,9 @@ IP-адреса выбираются из указанной подсети.
 
 Дополнительные сведения см. в статье об [управлении всеми виртуальными машинами в масштабируемом наборе](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Существует возможность интегрировать масштабируемые наборы с Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Существует возможность интегрировать масштабируемые наборы с Azure Log Analytics?
 
-Да, это можно сделать, установив расширение OMS на виртуальных машинах масштабируемого набора. Ниже приведен пример для Azure CLI.
+Да, это можно сделать, установив расширение Log Analytics на виртуальных машинах масштабируемого набора. Ниже приведен пример для Azure CLI.
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

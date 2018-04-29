@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Руководство по публикации Cortana Intelligence в AppSource
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 AppSource — это единственная площадка, где лица, принимающие коммерческие решения, могут находить и легко испытывать бизнес-решения и приложения, которые созданы партнерами и оценены корпорацией Майкрософт. Просмотрите [этот видеоролик](https://youtu.be/hpq_Y9LuIB8), чтобы узнать, как работает AppSource. 
 
 Как партнер Майкрософт вы можете получить преимущество от публикации на AppSource, если:
-- вы создали интеллектуальное решение или приложение, используя [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable);
+- вы создали интеллектуальное решение или приложение, используя [Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable);
 - ваше решение или приложение предназначено для решения определенной бизнес-проблемы;
 - вы создали модули или интеллектуальную собственность, которую клиенты могут повторно использовать предсказуемым образом в сравнительно краткие строки.
 

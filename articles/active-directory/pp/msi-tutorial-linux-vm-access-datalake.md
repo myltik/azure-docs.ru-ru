@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Linux
 
@@ -187,7 +187,7 @@ MSI на виртуальной машине позволяет получить
 ## <a name="related-content"></a>Связанная информация
 
 - Общие сведения об MSI см. в разделе [Управляемое удостоверение службы (MSI) для Azure Active Directory](msi-overview.md).
-- Для операций управления Data Lake Store использует Azure Resource Manager.  Дополнительные сведения об использовании удостоверения MSI виртуальной машины для аутентификации в Resource Manager см. в разделе [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-arm.md).
+- Для операций управления Data Lake Store использует Azure Resource Manager.  Дополнительные сведения об использовании удостоверения MSI виртуальной машины для аутентификации в Resource Manager см. в разделе [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Узнайте больше об [аутентификации пользователей в Data Lake Store с помощью Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Узнайте больше об [операциях файловой системы в Azure Data Lake Store с использованием REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) или [интерфейсах API файловой системы WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
 - Узнайте больше о [контроле доступа в Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

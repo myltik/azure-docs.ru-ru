@@ -1,11 +1,11 @@
 ---
-title: "Политики ограничения доступа в службе управления API Azure | Документация Майкрософт"
-description: "Сведения о политиках ограничения, доступных для использования в службе управления API Azure."
+title: Политики ограничения доступа в службе управления API Azure | Документация Майкрософт
+description: Сведения о политиках ограничения, доступных для использования в службе управления API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Политики ограничения доступа в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -88,8 +88,8 @@ ms.lasthandoff: 02/21/2018
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ ms.lasthandoff: 02/21/2018
 |ИМЯ|ОПИСАНИЕ|Обязательно|  
 |----------|-----------------|--------------|  
 |set-limit|Корневой элемент.|Yes|  
-|api|Добавьте один или несколько таких элементов, чтобы установить ограничение частоты вызовов для интерфейсов API в пределах продукта. Ограничения частоты вызовов продукта и API применяются раздельно.|Нет |  
-|операция|Добавьте один или несколько таких элементов, чтобы установить ограничение частоты вызовов для операций в API. Ограничения частоты вызовов продукта, API и операции применяются раздельно.|Нет |  
+|api|Добавьте один или несколько таких элементов, чтобы установить ограничение частоты вызовов для интерфейсов API в пределах продукта. Ограничения частоты вызовов продукта и API применяются раздельно. Ссылаться на API можно с помощью `name` или `id`. Если указаны оба атрибута, `id` будет использоваться, а `name` — игнорироваться.|Нет |  
+|операция|Добавьте один или несколько таких элементов, чтобы установить ограничение частоты вызовов для операций в API. Ограничения частоты вызовов продукта, API и операции применяются раздельно. Ссылаться на операцию можно с помощью `name` или `id`. Если указаны оба атрибута, `id` будет использоваться, а `name` — игнорироваться.|Нет |  
   
 ### <a name="attributes"></a>Атрибуты  
   
@@ -243,8 +243,8 @@ ms.lasthandoff: 02/21/2018
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ ms.lasthandoff: 02/21/2018
 |ИМЯ|ОПИСАНИЕ|Обязательно|  
 |----------|-----------------|--------------|  
 |quota|Корневой элемент.|Yes|  
-|api|Добавьте один или несколько таких элементов, чтобы установить квоту для интерфейсов API в пределах продукта. Квоты продукта и API применяются раздельно.|Нет |  
-|операция|Добавьте один или несколько таких элементов, чтобы установить квоту для операций в API. Квоты продукта, API и операции применяются раздельно.|Нет |  
+|api|Добавьте один или несколько таких элементов, чтобы установить квоту на вызовы интерфейсов API в пределах продукта. Квоты для продукта и вызовов API применяются раздельно. Ссылаться на API можно с помощью `name` или `id`. Если указаны оба атрибута, `id` будет использоваться, а `name` — игнорироваться.|Нет |  
+|операция|Добавьте один или несколько таких элементов, чтобы установить квоту на вызовы для операций в API. Квоты для продукта, API и вызовов операций применяются раздельно. Ссылаться на операцию можно с помощью `name` или `id`. Если указаны оба атрибута, `id` будет использоваться, а `name` — игнорироваться.|Нет |  
   
 ### <a name="attributes"></a>Атрибуты  
   

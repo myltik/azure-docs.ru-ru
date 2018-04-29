@@ -1,12 +1,12 @@
 ---
-title: "Интерфейс командной строки Azure Service Fabric : sfctl choas | Документация Майкрософт"
-description: "Описание команд sfctl chaos интерфейса командной строки Azure Service Fabric."
+title: 'Интерфейс командной строки Azure Service Fabric : sfctl choas | Документация Майкрософт'
+description: Описание команд sfctl chaos интерфейса командной строки Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e4d47b1de509c2053996d9d1078733d7055447
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Запуск и остановка службы хаотического тестирования, а также вывод отчета о ее работе.
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/27/2018
 | --debug          | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h        | Отображение этого справочного сообщения и выход.|
 | --output -o      | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query          | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query          | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose        | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
@@ -86,7 +86,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                    | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h                  | Отображение этого справочного сообщения и выход.|
 | --output -o                | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.           Значение по умолчанию: json.|
-| --query                    | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query                    | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose                  | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
@@ -107,7 +107,7 @@ ms.lasthandoff: 02/27/2018
 | --debug  | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h| Отображение этого справочного сообщения и выход.|
 | --output -o | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query  | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query  | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose| Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="next-steps"></a>Дополнительная информация

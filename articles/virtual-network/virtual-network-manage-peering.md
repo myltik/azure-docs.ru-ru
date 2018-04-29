@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: ac9c762327dd8d2eb9e4dd9a79fc2bfa87241f14
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Создание, изменение и удаление пиринга в виртуальной сети
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/03/2018
 
 - Если у вас нет учетной записи Azure, зарегистрируйтесь для получения [бесплатной пробной учетной записи](https://azure.microsoft.com/free).
 - Если вы используете портала, откройте https://portal.azure.com и войдите с учетной записью, имеющей [необходимые разрешения](#permissions) для работы с пирингами.
-- При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell 5.5.0 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если PowerShell выполняются локально, необходимо также выполнить `Login-AzureRmAccount` под учетной записью, имеющей [необходимые разрешения](#permissions) для работы с пирингом, чтобы создать подключение к Azure.
+- При использовании команд PowerShell для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/powershell) или в PowerShell на своем компьютере. Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Для работы с этим руководством требуется модуль Azure PowerShell 5.5.0 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если PowerShell выполняются локально, необходимо также выполнить `Connect-AzureRmAccount` под учетной записью, имеющей [необходимые разрешения](#permissions) для работы с пирингом, чтобы создать подключение к Azure.
 - При использовании команд интерфейса командной строки Azure (CLI) для работы с этой статьей выполняйте их в [Azure Cloud Shell](https://shell.azure.com/bash) или в интерфейсе командной строки на своем компьютере. Для этого руководства требуется Azure CLI 2.0.29 или более поздней версии. Выполните командлет `az --version`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). Если Azure CLI выполняются локально, необходимо также выполнить `az login` под учетной записью, имеющей [необходимые разрешения](#permissions) для работы с пирингом, чтобы создать подключение к Azure.
 
 ## <a name="create-a-peering"></a>Создание пиринга
@@ -129,8 +129,8 @@ ms.lasthandoff: 04/03/2018
 - Подписки обеих виртуальных сетей для пиринга должны быть связаны с одним клиентом Azure Active Directory. Если у вас еще нет клиента AD, можно быстро [создать его](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). С помощью [VPN-шлюза](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) можно подключить две виртуальные сети, которые находятся в разных подписках, связанных с разными клиентами Active Directory.
 - Можно создать пиринг между виртуальными сетями и установить между ними подключение через шлюз виртуальной сети Azure. Если виртуальные сети подключены при помощи пиринга и шлюза, трафик между ними проходит через конфигурацию пиринга, а не через шлюз.
 - За входящий и исходящий трафик по пиринговой связи между виртуальными сетями взимается номинальная плата. Дополнительные сведения см. на [странице с расценками](https://azure.microsoft.com/pricing/details/virtual-network).
-* <a name="cross-region"></a>Пиринг можно создать между виртуальными сетями в одном или в разных регионах. Ниже приведены ограничения, которые не применяются, если обе виртуальные сети находятся в *одном* регионе, но применяются, если виртуальные сети размещены в *разных* регионах. 
-    - Виртуальные сети могут быть размещены в следующих регионах: Южная Корея, южная часть Соединенного Королевства, западная часть Соединенного Королевства, южная Индия, центральная Индия, западная Индия, центрально-западная часть США, Центральная Канада и западная часть США 2.
+* <a name="cross-region"></a>Пиринг можно создать между виртуальными сетями в одном или в разных регионах. Ниже приведены ограничения, которые не применяются, если обе виртуальные сети находятся в *одном* регионе, но применяются, если для виртуальных сетей создается глобальный пиринг. 
+    - Виртуальные сети могут существовать только в следующих регионах: "Западно-центральная часть США" (Вайоминг), "Западная часть США 2" (Вашингтон), "Центральная часть США" (Айова), "Восточная часть США 2" (Вирджиния), "Центральная Канада" (Торонто), "Восточная Канада" (г. Квебек), "Юго-Восточная Азия" (Сингапур), "Южная Корея" (Пусан), "Южная Индия" (Мадрас), "Центральная Индия" (Пуна), "Западная Индия" (Бомбей), "Южная часть Соединенного Королевства" (Лондон), "Западная часть Соединенного Королевства" (Кардифф), "Западная Европа" (Нидерланды).
     - Ресурсы в одной виртуальной сети не могут взаимодействовать с IP-адресом внутренней подсистемы балансировки нагрузки Azure в пиринговой виртуальной сети. Подсистема балансировки нагрузки и ресурсы, которые обмениваются с ней данными, должны находиться в одной виртуальной сети.
     - Невозможно использовать удаленные шлюзы или разрешить транзит шлюзов. Чтобы можно было использовать удаленные шлюзы или разрешить транзит шлюзов, обе виртуальные сети в пиринге должны существовать в одном регионе. 
 
@@ -140,12 +140,12 @@ ms.lasthandoff: 04/03/2018
     
 |Виртуальная сеть|Модель развертывания|Роль|Разрешения|
 |---|---|---|---|
-|myVnetA|Диспетчер ресурсов|[Участник сети](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Классический|[Участник классической сети](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Недоступно|
-|myVnetB|Диспетчер ресурсов|[Участник сети](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Классический|[Участник классической сети](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|myVnetA|Диспетчер ресурсов|[Участник сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Классический|[Участник классической сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Недоступно|
+|myVnetB|Диспетчер ресурсов|[Участник сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Классический|[Участник классической сети](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-Подробнее о [встроенных ролях](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) и присвоении разрешений, определенных для [настраиваемых ролей](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (только для Resource Manager).
+Подробнее о [встроенных ролях](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) и присвоении разрешений, определенных для [настраиваемых ролей](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (только для Resource Manager).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -1,11 +1,11 @@
 ---
-title: "Удаление кластера Azure и его ресурсов | Документация Майкрософт"
-description: "Сведения о том, как полностью удалить кластер Service Fabric путем удаления содержащей кластер группы ресурсов или выборочного удаления отдельных ресурсов."
+title: Удаление кластера Azure и его ресурсов | Документация Майкрософт
+description: Сведения о том, как полностью удалить кластер Service Fabric путем удаления содержащей кластер группы ресурсов или выборочного удаления отдельных ресурсов.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Удаление кластера Service Fabric в Azure и используемых им ресурсов
 Кластер Service Fabric состоит из многих других ресурсов Azure помимо собственно ресурса кластера. Чтобы полностью удалить кластер Service Fabric, необходимо также удалить все ресурсы, из которых он состоит.
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 Откройте PowerShell и выполните следующие командлеты PowerShell:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -60,7 +60,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 Если кластер развернут с помощью портала или с помощью одного из шаблонов Resource Manager для Service Fabric из коллекции шаблонов, то все ресурсы, используемые кластером, помечены следующими двумя тегами. С их помощью можно определить, какие ресурсы требуется удалить.
 
-***Тег 1:*** ключ = clusterName, значение = "имя кластера".
+***Тег 1:*** ключ = clusterName, значение = "имя_кластера".
 
 ***Тег 2:*** ключ = resourceName, значение = ServiceFabric.
 
@@ -82,15 +82,15 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 Откройте PowerShell и выполните следующие командлеты PowerShell:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
-Для каждого ресурса, который требуется удалить, выполните следующую команду:
+Для каждого ресурса, который требуется удалить, выполните следующий скрипт:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Чтобы удалить ресурс кластера, выполните следующую команду:
+Чтобы удалить ресурс кластера, выполните следующий скрипт:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

@@ -1,28 +1,27 @@
 ---
-title: "Параметры предложения GROUP BY в хранилище данных SQL | Документация Майкрософт"
-description: "Советы по реализации параметров предложения Group By в хранилище данных SQL Azure для разработки решений."
+title: Варианты использования предложения GROUP BY в хранилище данных SQL Azure | Документация Майкрософт
+description: Советы по реализации параметров предложения Group By в хранилище данных SQL Azure для разработки решений.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 0548983df23b158385783ac777b23268b5ac7d01
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Группировка по параметрам в хранилище данных SQL
-Предложение [GROUP BY][GROUP BY] используется для объединения данных в сводный набор строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
+Советы по реализации параметров предложения Group By в хранилище данных SQL Azure для разработки решений.
+
+## <a name="what-does-group-by-do"></a>Предназначение предложения GROUP BY
+
+Предложение T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) используется для объединения данных в сводный набор строк. С GROUP BY можно использовать некоторые параметры, которые не поддерживаются хранилищем данных SQL. Этим параметрам можно найти альтернативу.
 
 Доступны следующие параметры:
 
@@ -31,10 +30,9 @@ ms.lasthandoff: 10/11/2017
 * GROUP BY с CUBE.
 
 ## <a name="rollup-and-grouping-sets-options"></a>Параметры Rollup и Grouping Sets
-Самый простой вариант — это выполнить свертку с помощью оператора `UNION ALL` , не используя отдельный синтаксис. Результат будет точно таким же.
+Самый простой вариант — это выполнить свертку с помощью оператора UNION ALL, не используя отдельный синтаксис. Результат будет точно таким же.
 
-Ниже приведен пример применения оператора Group By с параметром `ROLLUP` :
-
+Пример использования инструкции GROUP BY с оператором ROLLUP.
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -48,13 +46,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-С помощью параметра ROLLUP мы запросили следующие агрегаты.
+Используя ROLLUP, приведенный выше пример запрашивает следующие объединения.
 
 * Страна и регион
 * Страна
 * Общий итог
 
-Вместо этого можно использовать оператор `UNION ALL`, указав, какие группы данных необходимо получить. Результат будет точно такой же.
+Чтобы получить те же результаты без ROLLUP, можно использовать оператор UNION ALL и явным образом указать требуемые объединения.
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,10 +79,10 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Для применения параметра GROUPING SETS используется тот же код, но разделы с оператором UNION ALL создаются только для нужных уровней группирования.
+Для замены GROUPING SETS применяется тот же принцип. Достаточно создать разделы с UNION ALL для требуемых уровней объединения.
 
 ## <a name="cube-options"></a>Параметры Cube
-Предложение GROUP BY с параметром CUBE можно составить, используя оператор UNION ALL. Проблема в том, что в этом случае код может быстро разрастись и стать слишком громоздким. Чтобы этого не случилось, можно прибегнуть к более современному методу.
+Предложение GROUP BY с параметром CUBE можно составить, используя оператор UNION ALL. Проблема в том, что в этом случае код может быстро разрастись и стать слишком громоздким. В этом случае можно прибегнуть к более современному методу.
 
 Возьмем приведенный выше пример.
 
@@ -119,9 +117,9 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Результат применения CTAS см. ниже:
+Ниже приведены результаты применения CTAS.
 
-![][1]
+![GROUP BY с CUBE](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 Второй шаг — указать целевую таблицу для сохранения промежуточных результатов:
 
@@ -170,7 +168,7 @@ BEGIN
 END
 ```
 
-В конечном итоге результаты можно извлечь, прочитав данные из временной таблицы #Results.
+И наконец, результаты можно извлечь, прочитав данные из временной таблицы #Results.
 
 ```sql
 SELECT *
@@ -182,16 +180,5 @@ ORDER BY 1,2,3
 Если разбить этот код на разделы и создать циклическую конструкцию, он станет более управляем и удобен в обслуживании.
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-
-<!--Other Web references-->

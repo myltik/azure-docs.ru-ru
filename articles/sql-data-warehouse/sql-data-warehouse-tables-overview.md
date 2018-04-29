@@ -1,30 +1,26 @@
 ---
-title: "Общие сведения о проектировании таблиц в хранилище данных SQL Azure | Документация Майкрософт"
-description: "Общие сведения о проектировании таблиц в хранилище данных SQL Azure."
+title: Проектирование таблиц — хранилище данных SQL Azure | Документация Майкрософт
+description: Общие сведения о проектировании таблиц в хранилище данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Общие сведения о проектировании таблиц в хранилище данных SQL Azure
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>Проектирование таблиц в хранилище данных SQL Azure
 
 Ознакомьтесь с ключевыми понятиями о проектировании таблиц в хранилище данных SQL Azure. 
 
-## <a name="determining-table-category"></a>Определение категории таблицы 
+## <a name="determine-table-category"></a>Определение категории таблицы 
 
 При [схеме типа "звезда"](https://en.wikipedia.org/wiki/Star_schema) данные упорядочиваются в таблицы фактов и измерений. Некоторые таблицы используются для интеграции или хранения данных до того, как они перейдут в таблицу фактов или измерений. При конструировании таблицы решите, к какой таблице относятся данные: фактов, измерений или интеграции. Это решение влияет на соответствующую структуру и распределение таблицы. 
 
@@ -46,7 +42,7 @@ CREATE SCHEMA wwi;
 Чтобы показать организацию таблиц в хранилище данных SQL, можно использовать в качестве префиксов имен таблиц значения fact, dim и int. В следующей таблице показаны некоторые имена схем и таблиц для WideWorldImportersDW. В ней сравниваются имена в SQL Server и хранилище данных SQL. 
 
 | Таблица WideWorldImportersDW  | Тип таблицы | SQL Server; | Хранилище данных SQL. |
-|:-----|:-----|:------|
+|:-----|:-----|:------|:-----|
 | City | Измерение | Dimension.City | wwi.DimCity |
 | Порядок | Факты | Fact.Order | wwi.FactOrder |
 
@@ -70,7 +66,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 Внешняя таблица указывает на данные, расположенные в большом двоичном объекте службы хранилища Azure или Azure Data Lake Store. При использовании в сочетании с инструкцией CREATE TABLE AS SELECT данные, выбранные из внешней таблицы, импортируются в хранилище данных SQL. Таким образом внешние таблицы можно использовать для загрузки данных. Руководство по загрузке см. в статье [Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure с помощью PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Типы данных
-Хранилище данных SQL поддерживает самые распространенные типы данных. Список поддерживаемых типов данных представлен в [справочнике по типах данных в инструкции CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes). Минимизация размера типов данных помогает улучшить производительность запросов. Рекомендации по использованию типов данных см. в статье [Руководство по определению типов данных для таблиц в хранилище данных SQL](sql-data-warehouse-tables-data-types.md).
+Хранилище данных SQL поддерживает самые распространенные типы данных. Список поддерживаемых типов данных представлен в [справочнике по типах данных в инструкции CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes). Минимизация размера типов данных помогает улучшить производительность запросов. Рекомендации по использованию типов данных см. в статье [Руководство по определению типов данных для таблиц в хранилище данных SQL](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Распределенные таблицы
 Основополагающая функция хранилища данных SQL — это хранение и обработка таблиц с помощью 60 [распределений](massively-parallel-processing-mpp-architecture.md#distributions).  Таблицы распределяются методом циклического перебора, хэш-распределения или репликации.
@@ -106,7 +102,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ## <a name="columnstore-indexes"></a>Индексы columnstore
 По умолчанию в хранилище данных SQL таблицы хранятся в виде кластеризованных индексов columnstore. Такая форма хранения данных обеспечивает высокое сжатие данных и производительность запросов в больших таблицах.  Кластеризованный индекс columnstore обычно является лучшим выбором, но в некоторых случаях подходящей структурой хранения являются кластеризованный индекс или куча.
 
-Список функций индексов columnstore см. в статье [Новые возможности индексов columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Сведения о повышении производительности индекса columnstore см. в статье [Максимальное повышение качества группы строк для индекса columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Список функций индексов columnstore см. в статье [Новые возможности индексов columnstore](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Сведения о повышении производительности индекса columnstore см. в статье [Максимальное повышение качества группы строк для индекса columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Статистика
 Оптимизатор запросов использует статистику уровня столбца при создании плана выполнения запроса. Чтобы повысить производительность запросов, важно создать статистику по отдельным столбцам, особенно столбцам, используемым в объединениях запросов. Создание и обновление статистики не происходит автоматически. [Создайте статистику](/sql/t-sql/statements/create-statistics-transact-sql) после создания таблицы. Обновите статистику после добавления или изменения значительного числа строк. Например, обновите статистику после загрузки. Дополнительные сведения см. в статье [Управление статистикой таблиц в хранилище данных SQL](sql-data-warehouse-tables-statistics.md).
@@ -143,7 +139,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 - [Пользовательские типы](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Запросы размера таблицы
-Простой способ определения пространства и строк, используемых таблицей в каждом из 60 распределений, — с помощью команды [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+Простой способ определить пространство и строки, используемые таблицей в каждом из 60 распределений, — применить инструкцию [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -342,4 +338,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
-После создания таблицы для хранилища данных загрузите данные в таблицу.  Руководство по загрузке см. в статье [Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure с помощью PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
+После создания таблицы для хранилища данных загрузите данные в таблицу.  Инструкции см. в статье о [загрузке данных в хранилище данных SQL](load-data-wideworldimportersdw.md).

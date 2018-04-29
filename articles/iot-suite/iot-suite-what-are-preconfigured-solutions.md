@@ -1,12 +1,12 @@
 ---
-title: "Обзор предварительно настроенных решений Azure IoT Suite | Документация Майкрософт"
-description: "Описание предварительно настроенных решений Azure IoT Suite и их архитектуры со ссылками на дополнительные ресурсы."
-services: 
+title: Обзор предварительно настроенных решений Azure IoT Suite | Документация Майкрософт
+description: Описание предварительно настроенных решений Azure IoT Suite и их архитектуры со ссылками на дополнительные ресурсы.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Что такое Azure IoT Suite?
 
@@ -97,7 +97,7 @@ Azure IoT Suite представляет собой набор *предвари
 * [Аналитика временных рядов Azure](../time-series-insights/index.yml). Предварительно настроенные решения используют эту службу для анализа и отображения данных телеметрии с устройств.
 * [Служба контейнеров Azure](../container-service/index.yml). С помощью этой службы в предварительно настроенных решениях выполняется размещение микрослужб и управление ими.
 * [Azure Cosmos DB](../cosmos-db/index.yml) и [служба хранилища Azure](../storage/index.yml) для хранения данных.
-* [Azure Stream Analytics](../stream-analytics/index.md). Предварительно настроенное решение для прогнозного обслуживания использует эту службу для обработки входящих данных телеметрии, агрегирования и обнаружения событий. Это решение также использует Stream Analytics для обработки информационных сообщений, содержащих, например, метаданные или ответы на команды от устройств.
+* [Azure Stream Analytics](../stream-analytics/index.yml). Предварительно настроенное решение для прогнозного обслуживания использует эту службу для обработки входящих данных телеметрии, агрегирования и обнаружения событий. Это решение также использует Stream Analytics для обработки информационных сообщений, содержащих, например, метаданные или ответы на команды от устройств.
 * [Веб-приложения Azure](../app-service/index.yml) для размещения настраиваемого кода приложения в предварительно настроенных решениях.
 
 Обзор архитектуры стандартного решения Интернета вещей см. в статье [Azure и "Интернет вещей"](iot-suite-what-is-azure-iot.md).

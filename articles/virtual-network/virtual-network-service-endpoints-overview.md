@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Конечные точки службы виртуальной сети
 
@@ -124,5 +124,5 @@ ms.lasthandoff: 04/16/2018
 - Узнайте, как [защитить учетную запись хранения Azure с помощью виртуальной сети](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Узнайте, как [защитить базу данных SQL Azure с помощью виртуальной сети](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Узнайте об [интеграции служб Azure в виртуальных сетях](virtual-network-for-azure-services.md).
--  Краткое руководство: [шаблон Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) для настройки конечной точки службы в подсети виртуальной сети и защиты учетной записи службы хранилища Azure в этой подсети.
+-  Краткое руководство: [шаблон Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) для настройки конечной точки службы в подсети виртуальной сети и защиты учетной записи службы хранилища Azure в этой подсети.
 

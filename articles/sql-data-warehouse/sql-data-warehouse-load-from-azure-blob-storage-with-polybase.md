@@ -1,36 +1,24 @@
 ---
-title: "Загрузка данных из большого двоичного объекта Azure в хранилище данных Azure | Документация Майкрософт"
-description: "Сведения об использовании технологии PolyBase для загрузки данных из хранилища больших двоичных объектов Azure в хранилище данных SQL. Описание загрузки нескольких таблиц из общедоступных данных в схему хранилища данных Contoso Retail."
+title: Загрузка данных Contoso Retail в хранилище данных SQL Azure | Документация Майкрософт
+description: Загрузите две таблицы из данных Contoso Retail в хранилище данных SQL Azure с помощью команд T-SQL и PolyBase.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: barbkess
-editor: 
-ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 10/31/2016
-ms.author: barbkess
-ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 8a1c10755d6f0273b05660e39f3c59b37352d427
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)
-> [!div class="op_single_selector"]
-> * [Фабрика данных](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-> * [PolyBase;](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-> 
-> 
+# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Загрузка данных Contoso Retail в хранилище данных SQL Azure
 
-Загрузка данных из хранилища больших двоичных объектов Azure в хранилище данных SQL Azure с помощью команд PolyBase и T-SQL. 
-
-Для простоты в этом учебнике выполняется загрузка двух таблиц из общедоступного хранилища BLOB-объектов Azure в схему хранилища данных Contoso Retail. Чтобы загрузить полный набор данных, запустите пример [загрузки полного хранилища данных Contoso Retail][Load the full Contoso Retail Data Warehouse] из репозитория примеров Microsoft SQL Server.
+Загрузите две таблицы из данных Contoso Retail в хранилище данных SQL Azure с помощью команд T-SQL и PolyBase. Чтобы загрузить полный набор данных, запустите пример [загрузки полного хранилища данных Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) из репозитория примеров Microsoft SQL Server.
 
 Изучив данный учебник, вы научитесь:
 

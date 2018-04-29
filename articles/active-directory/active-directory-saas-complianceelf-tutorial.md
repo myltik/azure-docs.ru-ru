@@ -1,10 +1,10 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Compliance ELF | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Compliance ELF."
+title: Руководство по интеграции Azure Active Directory с Compliance ELF | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Compliance ELF.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 32cb676393558079baad9bb0fc26d2c4daaa3519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Руководство по интеграции Azure Active Directory с Compliance ELF
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/11/2017
     ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. Чтобы настроить приложение в режиме, инициированном **IDP**, в разделе **Compliance ELF Domain and URLs** (Домен и URL-адреса приложения Compliance ELF) сделайте следующее:
@@ -119,34 +119,15 @@ ms.lasthandoff: 12/11/2017
     > [!NOTE] 
     > Это значение приведено для справки. Замените эти значения фактическим URL-адресом для входа. Для получения этого значения обратитесь в [службу поддержки Compliance ELF](mailto:support@complianceelf.com).
 
-5. Нажмите кнопку **Сохранить** .
+5. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, и вставьте его в Блокнот.
+    
+    ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. Для создания URL-адреса **метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **Compliance ELF** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-7. Чтобы настроить единый вход на стороне **Compliance ELF**, отправьте [группе поддержки Compliance ELF](mailto:support@complianceelf.com) **URL-адрес метаданных**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+7. Чтобы настроить единый вход на стороне **Compliance ELF**, отправьте [группе поддержки Compliance ELF](mailto:support@complianceelf.com) **URL-адрес метаданных федерации приложения**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

@@ -1,18 +1,18 @@
 ---
-title: "Выполнение задач, объединенных в контейнеры, в службе \"Экземпляры контейнеров Azure\""
-description: "Узнайте, как использовать Экземпляры контейнеров Azure для задач, выполняемых до завершения, включая сборку, тестирование или преобразование изображений."
+title: Выполнение задач, объединенных в контейнеры, в службе "Экземпляры контейнеров Azure"
+description: Узнайте, как использовать Экземпляры контейнеров Azure для задач, выполняемых до завершения, включая сборку, тестирование или преобразование изображений.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Выполнение задачи-контейнера в службе "Экземпляры контейнеров Azure"
 

@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Версии API поставщика ресурсов, поддерживаемые профилями в Azure Stack
 
@@ -55,7 +53,7 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute;
 
-API-интерфейсы службы вычислений Azure обеспечивают программный доступ к виртуальным машинам и их вспомогательным ресурсам. Дополнительные сведения см. в статье о [службе вычислений Azure](https://docs.microsoft.com/en-us/rest/api/compute/).
+API-интерфейсы службы вычислений Azure обеспечивают программный доступ к виртуальным машинам и их вспомогательным ресурсам. Дополнительные сведения см. в статье о [службе вычислений Azure](https://docs.microsoft.com/rest/api/compute/).
 
 | Тип ресурса | Версия API |
 |---------------------------------------------------------------|-------------|

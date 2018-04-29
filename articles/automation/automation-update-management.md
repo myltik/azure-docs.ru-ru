@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Решение для управления обновлениями в Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/06/2018
 |Операционная система  |Заметки  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Поддерживает только оценки обновлений.         |
-|Windows Server 2008 R2 с пакетом обновления 1 и более поздней версии     |Для этой операционной системы требуется .NET Framework версии 4.5 и WMF версии 5.0 или более поздней версии.        |
+|Windows Server 2008 R2 с пакетом обновления 1 и более поздней версии     |Требуется Windows PowerShell 4.0 или более поздней версии ([скачать WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Для повышения надежности рекомендуем использовать Windows PowerShell 5.1 ([скачать WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).         |
 |CentOS 6 (x86 или x64) и 7 (x64)      | У агентов Linux должен быть доступ к репозиторию обновлений.        |
 |Red Hat Enterprise 6 (x86 или x64) и 7 (x64)     | У агентов Linux должен быть доступ к репозиторию обновлений.        |
 |SUSE Linux Enterprise Server 11 (x86 или x64) и 12 (x64)     | У агентов Linux должен быть доступ к репозиторию обновлений.        |
@@ -252,7 +252,7 @@ Heartbeat
 | Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>System.Net.Http.HttpRequestException: произошла ошибка при отправке запроса. ---><br>System.Net.WebException: базовое соединение<br>закрыто. Непредвиденная ошибка<br>при приеме. ---> System.ComponentModel.Win32Exception:<br>взаимодействие клиента и сервера невозможно,<br>т. к. у них разный алгоритм работы. | Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|
 | Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>Newtonsoft.Json.JsonReaderException: ошибка при анализе положительного значения бесконечности. | Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|
 | Сертификат, представленный службой <wsid>.oms.opinsights.azure.com,<br>не был выдан центром сертификации<br>для служб Майкрософт. Контакт<br>работает ли прокси, перехватывающий взаимодействие по протоколам TLS и SSL,<br>обратитесь к администратору сети. |Связь блокируется прокси-сервером, шлюзом или брандмауэром | [Ознакомьтесь с требованиями к сети](automation-offering-get-started.md#network-planning)|
-| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>не удалось создать самозаверяющий сертификат. ---><br>System.UnauthorizedAccessException: в доступе отказано. | Сбой создания самозаверяющего сертификата | У системной учетной записи должен быть<br>доступ на чтение к папке:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Не удалось зарегистрировать компьютер для управления обновлениями.<br>Сбой регистрации с исключением<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>не удалось создать самозаверяющий сертификат. ---><br>System.UnauthorizedAccessException: в доступе отказано. | Сбой создания самозаверяющего сертификата | У системной учетной записи должен быть<br>доступ на чтение к папке:<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Дополнительная информация
 

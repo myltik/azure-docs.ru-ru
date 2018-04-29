@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Элементы Azure Marketplace, доступные для Azure Stack
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 04/16/2018
 |  | Имя элемента. | ОПИСАНИЕ | ИЗДАТЕЛЬ | тип ОС; |
 | --- | --- | --- | --- | --- |
 |![Расширение IaaS для SQL](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение IaaS для SQL ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Скачайте это расширение, чтобы развернуть любой экземпляр SQL Server в элементе Windows Marketplace. Это обязательное расширение.</b> | Microsoft | Windows |
-|![Расширение пользовательских сценариев](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение пользовательских скриптов ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Скачайте это обновление для встроенной версии расширения пользовательских скриптов для Windows.</b> | Microsoft | Windows |
+|![Расширение пользовательских сценариев](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение пользовательских скриптов ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Скачайте это обновление для встроенной версии расширения пользовательских скриптов для Windows.</b> | Microsoft | Windows |
 |![Расширение PowerShell DSC](media/azure-stack-marketplace-azure-items/dsc.png) | [ Расширение PowerShell DSC ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Скачайте это обновление для встроенной версии расширения PowerShell DSC. В последнем обновлении поддерживается TLS версии 1.2.</b> | Microsoft | Windows |
-| ![Расширение антивредоносного ПО Майкрософт](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение защиты от вредоносных программ ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Антивредоносное ПО для Azure — это единый агент для приложений и клиентских сред, работающий в фоновом режиме без стороннего вмешательства. | Microsoft | Windows |
-|![Расширение пользовательских сценариев](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение пользовательских скриптов ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Скачайте это обновление для встроенной версии расширения пользовательских скриптов для Linux. Существует несколько версий этого расширения, и вам нужны одновременно версии 1.5.2.1 и 2.0.x.</b> | Microsoft | Linux |
+| ![Расширение антивредоносного ПО Майкрософт](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение защиты от вредоносных программ ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Антивредоносное ПО для Azure — это единый агент для приложений и клиентских сред, работающий в фоновом режиме без стороннего вмешательства. | Microsoft | Windows |
+|![Расширение пользовательских сценариев](media/azure-stack-marketplace-azure-items/cse.png) | [ Расширение пользовательских скриптов ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Скачайте это обновление для встроенной версии расширения пользовательских скриптов для Linux. Существует несколько версий этого расширения, и вам нужны одновременно версии 1.5.2.1 и 2.0.x.</b> | Microsoft | Linux |
 | ![Расширение Docker](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Расширение Docker для виртуальных машин Linux. | Microsoft | Linux |
 | ![VM Access для Linux](media/azure-stack-marketplace-azure-items/cse.png) | [VMAccess для Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Скачайте это обновление для встроенной версии расширения VMAccess для Linux. Это обновление важно, если вы планируете использовать виртуальные машины Debian Linux.</b> | Microsoft | Linux |
 | ![Расширение Acronis Backup для Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Расширение Acronis Backup для Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Расширение Acronis Backup для Microsoft Azure входит в семейство продуктов Acronis Backup для защиты данных. | Acronis International GmbH. | Linux |

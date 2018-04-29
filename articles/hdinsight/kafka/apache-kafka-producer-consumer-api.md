@@ -1,8 +1,8 @@
 ---
-title: "Использование API производителя и потребителя Apache Kafka (Azure HDInsight) | Документация Майкрософт"
-description: "Узнайте, как использовать API производителя и потребителя Apache Kafka для Kafka в HDInsight. Эти API-интерфейсы позволяют разрабатывать приложения, в которых используется Apache Kafka для чтения и записи сообщений."
+title: Использование API производителя и потребителя Apache Kafka (Azure HDInsight) | Документация Майкрософт
+description: Узнайте, как использовать API производителя и потребителя Apache Kafka для Kafka в HDInsight. Эти API-интерфейсы позволяют разрабатывать приложения, в которых используется Apache Kafka для чтения и записи сообщений.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>Интерфейсы API производителя и потребителя Apache Kafka
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/20/2018
 
 ## <a name="build-and-deploy-the-example"></a>Создание и развертывание примера
 
-1. Скачайте примеры на странице [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Скачайте примеры по адресу [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Откройте каталог `Producer-Consumer` и выполните следующую команду.
 

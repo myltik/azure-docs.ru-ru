@@ -1,13 +1,13 @@
 ---
-title: "Виртуальная машина с несколькими IP-адресами (Azure CLI) | Документация Майкрософт"
-description: "Узнайте, как назначить виртуальной машине несколько IP-адресов с помощью интерфейса командной строки Azure."
+title: Виртуальная машина с несколькими IP-адресами (Azure CLI) | Документация Майкрософт
+description: Узнайте, как назначить виртуальной машине несколько IP-адресов с помощью интерфейса командной строки Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Назначение виртуальной машине нескольких IP-адресов с помощью Azure CLI
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/17/2017
 
 В этой статье описывается создание виртуальной машины с помощью модели развертывания Azure Resource Manager с использованием Azure CLI. Для ресурсов, созданных с помощью классической модели развертывания, нельзя назначить несколько IP-адресов. Дополнительные сведения о моделях развертывания Azure см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
 
@@ -167,7 +167,7 @@ az vm create \
 
 ## <a name="add"></a>Добавление IP-адресов в виртуальную машину
 
-Выполнив следующие шаги, вы сможете назначить дополнительные частные или общедоступные IP-адреса существующим сетевым адаптерам. Примеры созданы на основе [сценария](#Scenario), описанного в этой статье.
+Выполнив следующие шаги, вы сможете назначить дополнительные частные или общедоступные IP-адреса существующему сетевому интерфейсу Azure. Примеры созданы на основе [сценария](#Scenario), описанного в этой статье.
 
 1. Откройте командную оболочку и в рамках одного сеанса командной строки выполните все действия, описанные в этом разделе. Если Azure CLI еще не установлен и не настроен, выполните инструкции из статьи по [установке Azure CLI 2.0](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json), а затем войдите в учетную запись Azure, выполнив команду `az-login`.
 

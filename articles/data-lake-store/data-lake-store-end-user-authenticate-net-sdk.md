@@ -1,8 +1,8 @@
 ---
-title: "Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory и пакета SDK для .NET | Документация Майкрософт"
-description: "Узнайте, как реализовать аутентификацию пользователей в Data Lake Store с помощью Azure Active Directory и пакета SDK для .NET"
+title: Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory и пакета SDK для .NET | Документация Майкрософт
+description: Узнайте, как реализовать аутентификацию пользователей в Data Lake Store с помощью Azure Active Directory и пакета SDK для .NET
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Аутентификация пользователей в Data Lake Store с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 
 В этой статье описывается, как использовать пакет SDK для .NET для аутентификации пользователей с помощью Azure Data Lake Store. См. дополнительные сведения [аутентификации между службами с помощью Data Lake Store и пакета SDK для .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 * **Visual Studio 2013, 2015 или 2017**. В инструкциях ниже используется Visual Studio 2017.
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).

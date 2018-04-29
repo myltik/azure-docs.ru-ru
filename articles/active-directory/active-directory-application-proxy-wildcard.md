@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Приложения с подстановочным знаком в прокси приложения Azure Active Directory 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/17/2018
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Чтобы убедиться, что запись CNAME правильно настроена, можно использовать [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) на одной из целевых конечных точек, например `expenses.adventure-works.com`.  Полученный ответ должен содержать упомянутый выше псевдоним (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Чтобы убедиться, что запись CNAME правильно настроена, можно использовать [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) на одной из целевых конечных точек, например `expenses.adventure-works.com`.  Полученный ответ должен содержать упомянутый выше псевдоним (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Рекомендации

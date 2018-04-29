@@ -1,25 +1,25 @@
 ---
-title: "API таблиц Azure Cosmos DB на Python | Документация Майкрософт"
-description: "Сведения об API таблиц Azure Cosmos DB, в том числе даты выпуска и даты вывода из эксплуатации, а также изменения, внесенные в каждую версию."
+title: API таблиц Azure Cosmos DB на Python | Документация Майкрософт
+description: Сведения об API таблиц Azure Cosmos DB, в том числе даты выпуска и даты вывода из эксплуатации, а также изменения, внесенные в каждую версию.
 services: cosmos-db
 documentationcenter: python
-author: mimig
-manager: jhubbard
-editor: 
-ms.assetid: 
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.custom: 
-ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: sngun
+ms.custom: ''
+ms.openlocfilehash: 760f79bf50ea3e6e76beb26d2cd8419a8404a3ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Пакет SDK для API таблиц Azure Cosmos DB на Python: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 |**Документация по API**|[Справочная документация по API Python](https://azure.github.io/azure-cosmosdb-python/)|
 |**Инструкции по установке пакета SDK**|[Инструкции по установке пакета SDK для Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Участие в разработке пакета SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Текущая поддерживаемая платформа**|[Python 2.7](https://www.python.org/downloads/) или [Python 3.3, 3.4, 3.5 или 3.6] (https://www.python.org/downloads/)|
+|**Текущая поддерживаемая платформа**|[Python 2.7](https://www.python.org/downloads/) либо [Python 3.3, 3.4, 3.5 или 3.6] (https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Если вы создали учетную запись API таблиц на этапе работы с предварительной версией, для работы с общедоступными пакетами SDK для API таблиц создайте [новую учетную запись](create-table-dotnet.md#create-a-database-account).

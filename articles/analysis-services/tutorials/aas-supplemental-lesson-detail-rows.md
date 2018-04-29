@@ -1,25 +1,18 @@
 ---
-title: "Дополнительное занятие для учебника по службам Azure Analysis Services: \"Строки детализации\" | Документы Майкрософт"
-description: "Описывает, как создать выражение строк детализации в учебном проекте служб Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Дополнительное занятие для учебника по службам Azure Analysis Services: "Строки детализации" | Документы Майкрософт'
+description: Описывает, как создать выражение строк детализации в учебном проекте служб Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Дополнительное занятие. Строки детализации
 
@@ -39,7 +32,7 @@ ms.lasthandoff: 01/09/2018
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. В сводной таблице дважды щелкните агрегированное значение для года и имени региона. Здесь мы выбрали значение для Австралии за 2014 год. Открывается новый лист с данными, но это не те данные, которые нам требуются.
+3. В сводной таблице дважды щелкните агрегированное значение для года и имени региона. Здесь мы выбрали значение для Австралии за 2014 год. Открывается новый лист с данными, но это не те данные, которые нам требуются.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
@@ -80,6 +73,8 @@ ms.lasthandoff: 01/09/2018
 
   
 ## <a name="see-also"></a>См. также  
-[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
-[Дополнительное занятие. Динамическая безопасность](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Дополнительное занятие. Неоднородные иерархии](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+
+[Функция SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Дополнительное занятие. Динамическая безопасность](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Дополнительное занятие. Неоднородные иерархии](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

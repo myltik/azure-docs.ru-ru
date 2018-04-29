@@ -1,11 +1,11 @@
 ---
-title: "Введение в микрослужбы в Azure | Документация Майкрософт"
-description: "Общие сведения о том, почему создание облачных приложений с использованием микрослужб важно для разработки современных приложений и как платформа Azure Service Fabric позволяет достичь этой цели."
+title: Введение в микрослужбы в Azure | Документация Майкрософт
+description: Общие сведения о том, почему создание облачных приложений с использованием микрослужб важно для разработки современных приложений и как платформа Azure Service Fabric позволяет достичь этой цели.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Разработка приложений с использованием микрослужб
 Разработчики программного обеспечения до сих пор считают необходимым разбивать приложения на составные части. Это основная парадигма объектного ориентирования, абстракций программного обеспечения и компонентизации. Сейчас такое разделение принимает форму классов и интерфейсов между общими библиотеками и уровнями технологий. Как правило, многоуровневый подход предполагает наличие серверного хранилища, бизнес-логики среднего уровня и внешнего пользовательского интерфейса. За последние несколько лет *изменилось* только то, что разработчики стали создавать распределенные приложения для облака, управляемые организацией.
@@ -181,7 +181,7 @@ Service Fabric предоставляет три масштабных решен
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Общие сведения о терминологии Service Fabric](service-fabric-technical-overview.md)
-* [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

@@ -1,24 +1,18 @@
 ---
-title: "Горизонтальное масштабирование служб Azure Analysis Services | Документация Майкрософт"
-description: "Репликация серверов Azure Analysis Services с помощью горизонтального масштабирования."
-services: analysis-services
-documentationcenter: 
+title: Горизонтальное масштабирование служб Azure Analysis Services | Документация Майкрософт
+description: Репликация серверов Azure Analysis Services с помощью горизонтального масштабирования.
 author: minewiskan
-manager: erikre
-editor: 
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/16/2018
 ms.author: owend
-ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Горизонтальное масштабирование служб Azure Analysis Services
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 02/21/2018
 
 В обычном развертывании сервера один сервер выступает в роли сервера обработки и сервера запросов. Если количество клиентских запросов к моделям на сервере превышает число единиц обработки запросов (QPU) в плане сервера или обработка модели производится во время выполнения рабочей нагрузки с большим числом запросов, это может привести к снижению производительности. 
 
-Благодаря функции горизонтального масштабирования вы можете создать пул запросов, который содержит до семи дополнительных реплик запросов (всего восемь, включая сервер). Можно масштабировать число реплик запросов, чтобы удовлетворять требования к QPU в критические моменты времени, и в любое время можно отделить сервер обработки от пула запросов. 
+Благодаря функции горизонтального масштабирования вы можете создать пул запросов, который содержит до семи дополнительных реплик запросов (всего восемь, включая сервер). Можно масштабировать число реплик запросов, чтобы удовлетворять требования к QPU в критические моменты времени, и в любое время можно отделить сервер обработки от пула запросов. Все реплики запроса создаются в том же регионе, что и сервер.
 
 Независимо от числа реплик запросов, имеющихся в пуле запросов, обработка рабочих нагрузок не распределяется между репликами запросов. Один сервер выступает в качестве сервера обработки. Реплики запросов обслуживают только запросы к моделям, синхронизируемым между всеми репликами в пуле запросов. 
 
@@ -79,11 +73,17 @@ ms.lasthandoff: 02/21/2018
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Чтобы запустить синхронизацию из PowerShell, [обновите модуль AzureRM до версии](https://github.com/Azure/azure-powershell/releases) 5.01 или более поздней версии. Используйте командлет [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Перед использованием PowerShell [установите модуль AzureRM или обновите его до последней версии](https://github.com/Azure/azure-powershell/releases). 
+
+Чтобы задать число реплик запросов, используйте [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Укажите необязательный параметр `-ReadonlyReplicaCount`.
+
+Чтобы запустить синхронизацию, используйте командлет [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>Подключения
 
-На странице "Обзор" вашего сервера указаны два имени сервера. Если вы еще не настроили горизонтальное масштабирование для сервера, оба его имени работают одинаково. После настройки горизонтального масштабирования для сервера потребуется указывать соответствующее имя сервера в зависимости от типа подключения. 
+На странице "Обзор" вашего сервера указаны два имени сервера. Если вы еще не настроили горизонтальное масштабирование для сервера, оба его имени работают одинаково. После настройки горизонтального масштабирования для сервера нужно указать соответствующее имя сервера в зависимости от типа подключения. 
 
 Для таких клиентских подключений пользователей, как Power BI Desktop, Excel и настраиваемые приложения, используйте **имя сервера**. 
 

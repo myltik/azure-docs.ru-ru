@@ -1,11 +1,11 @@
 ---
-title: "Изменение параметров кластера Azure Service Fabric | Документация Майкрософт"
-description: "В этой статье описываются параметры структуры и политики обновления структур, которые можно настраивать."
+title: Изменение параметров кластера Azure Service Fabric | Документация Майкрософт
+description: В этой статье описываются параметры структуры и политики обновления структур, которые можно настраивать.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Настройка параметров кластера Service Fabric и политики обновления структур
 В этом документе описывается, как настроить различные параметры структуры и политику обновления структур для кластера Service Fabric. Их можно настроить на [портале Azure](https://portal.azure.com) или с помощью шаблона Azure Resource Manager.
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Настройка параметров кластера с помощью шаблонов Resource Manager
 Ниже приведены шаги, с помощью которых можно добавить новый параметр *MaxDiskQuotaInMB* в раздел *Diagnostics*.
 
-1. Откройте страницу https://resources.azure.com.
+1. Перейдите на сайт https://resources.azure.com.
 2. Перейдите к подписке, развернув **subscriptions** -> **\<Ваша подписка>** -> **resourceGroups** -> **\<Ваша группа ресурсов >** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Имя вашего кластера>**
 3. В правом верхнем углу выберите пункт **Чтение и запись**.
 4. Выберите **Изменить** и обновите элемент JSON `fabricSettings`, а затем добавьте новый элемент.
@@ -302,7 +302,7 @@ ms.lasthandoff: 03/02/2018
 |RemoveServiceResponseHeaders|Строка, по умолчанию — L"Date; Server"|Статическое|Разделенный запятой или точкой с запятой список заголовков ответов, которые будут исключены из ответа службы перед непосредственным перенаправлением клиенту. Если для этого параметра задана пустая строка, передайте все заголовки, возвращенные службой, как есть. Например, Не перезаписывайте значения даты и сервера. |
 |ApplicationCertificateValidationPolicy|Строка, по умолчанию — L"None"|Статическое| ApplicationCertificateValidationPolicy. При заданном значении none проверка сертификата сервера отсутствует, выполнение запроса завершается успешно. ServiceCertificateThumbprints. Используйте параметр ServiceCertificateThumbprints, чтобы получить разделенный запятыми список отпечатков удаленных сертификатов, которым обратный прокси-сервер может доверять. ServiceCommonNameAndIssuer. Используйте параметр ServiceCommonNameAndIssuer, чтобы получить имя субъекта и отпечаток издателя удаленных сертификатов, которым обратный прокси-сервер может доверять. |
 |ServiceCertificateThumbprints|Строка, значение по умолчанию — L""|Динамический| |
-|CrlCheckingFlag|Целое число без знака, по умолчанию — 0x40000000 |Динамический| Флаги для проверки цепочки сертификатов приложения или службы. Например, проверки 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY для списка отзыва сертификатов. Значение 0 задается, чтобы отключить проверку полного списка поддерживаемых значений, записываемых с помощью значения dwFlags параметра CertGetCertificateChain, в списке отзыва сертификатов. Подробные сведения см. здесь: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|Целое число без знака, по умолчанию — 0x40000000 |Динамический| Флаги для проверки цепочки сертификатов приложения или службы. Например, проверки 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY для списка отзыва сертификатов. Значение 0 задается, чтобы отключить проверку полного списка поддерживаемых значений, записываемых с помощью значения dwFlags параметра CertGetCertificateChain, в списке отзыва сертификатов. Подробные сведения см. здесь: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx.  |
 |IgnoreCrlOfflineError|Логическое значение, по умолчанию — true|Динамический|Указывает, следует ли игнорировать автономные ошибки списка отзыва сертификатов при проверке сертификата службы или приложения. |
 |SecureOnlyMode|Логическое значение, по умолчанию — false|Динамический| SecureOnlyMode. При заданном значении true переадресация обратным прокси-сервером выполняется на службы, которые публикуют безопасные конечные точки. При заданном значении false обратный прокси-сервер может переадресовывать запросы к защищенным и незащищенным конечным точкам.  |
 |ForwardClientCertificate|Логическое значение, по умолчанию — false|Динамический| |
@@ -451,7 +451,7 @@ ms.lasthandoff: 03/02/2018
 |ServerCertThumbprints|Строка, значение по умолчанию — L""|Динамический|Отпечатки сертификатов сервера, используемые кластером, чтобы связываться с клиентами. Клиенты используют этот параметр для аутентификации кластера. Представляет собой список имен, разделенных запятыми. |
 |ClientCertThumbprints|Строка, значение по умолчанию — L""|Динамический|Отпечатки сертификатов, используемые клиентами, чтобы подключиться к кластеру. Кластер использует этот параметр для аутентификации входящего подключения. Представляет собой список имен, разделенных запятыми. |
 |AdminClientCertThumbprints|Строка, значение по умолчанию — L""|Динамический|Отпечатки сертификатов, используемые клиентами с ролью администратора. Представляет собой список имен, разделенных запятыми. |
-|CrlCheckingFlag|Целое число без знака, по умолчанию — 0x40000000|Динамический|Флаг для проверки цепочки сертификатов по умолчанию. Его можно переопределить с помощью флага для определенного компонента. Например, Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Значение 0 задается, чтобы отключить проверку полного списка поддерживаемых значений, записываемых с помощью значения dwFlags параметра CertGetCertificateChain, в списке отзыва сертификатов. Подробные сведения см. здесь: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|CrlCheckingFlag|Целое число без знака, по умолчанию — 0x40000000|Динамический|Флаг для проверки цепочки сертификатов по умолчанию. Его можно переопределить с помощью флага для определенного компонента. Например, Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Значение 0 задается, чтобы отключить проверку полного списка поддерживаемых значений, записываемых с помощью значения dwFlags параметра CertGetCertificateChain, в списке отзыва сертификатов. Подробные сведения см. здесь: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx. |
 |IgnoreCrlOfflineError|Логическое значение, по умолчанию — false|Динамический|Указывает, следует ли игнорировать автономные ошибки списка отзыва сертификатов при проверке со стороны сервера входящих сертификатов клиентов. |
 |IgnoreSvrCrlOfflineError|Логическое значение, по умолчанию — true|Динамический|Указывает, следует ли игнорировать автономные ошибки списка отзыва сертификатов при проверке со стороны клиента входящих сертификатов сервера. Значение по умолчанию — true. Атаки с помощью отозванных сертификатов сервера совершить сложнее, чем с помощью отозванных сертификатов клиентов, так как для таких атак требуются компрометация DNS. |
 |CrlDisablePeriod|Интервал времени, по умолчанию — Common::TimeSpan::FromMinutes(15)|Динамический|Временной диапазон в секундах. При возможности игнорирования автономной ошибки списка отзыва сертификатов указывает длительность отключения проверки списка отзыва сертификатов для определенного сертификата после получения автономной ошибки. |

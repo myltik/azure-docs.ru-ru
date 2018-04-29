@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Размеры виртуальных машин Windows в Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/06/2018
 
 
 
-## <a name="rest-api"></a>Rest API
+## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 
 Сведения об использовании Rest API, чтобы получить сведения о размерах виртуальных машин, см. в следующих статьях:
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
 
+## <a name="benchmark-scores"></a>Результаты теста производительности
+
+Узнайте больше о вычислительной мощности виртуальных машин Windows с помощью [результатов теста производительности CoreMark](compute-benchmark-scores.md).
+
 ## <a name="next-steps"></a>Дополнительная информация
 
 Узнайте больше о различных доступных размерах виртуальных машин.
@@ -66,6 +70,7 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 - [Оптимизированные для хранилища](../virtual-machines-windows-sizes-storage.md)
 - [Оптимизированные для GPU](sizes-gpu.md)
 - [Для высокопроизводительных вычислений](sizes-hpc.md)
+
 
 
 

@@ -8,11 +8,11 @@ ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: b1731a16dd2389f19d25a2594fe25a97b6ddd9f1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Руководство. Предоставление доступа к веб-API ASP.NET Core из одностраничного приложения с помощью Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/18/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Изучите [руководство по проверке подлинности пользователей с помощью Azure Active Directory B2C в одностраничном приложении](active-directory-b2c-tutorials-spa.md).
 * Установите [Visual Studio 2017](https://www.visualstudio.com/downloads/) с рабочей нагрузкой **ASP.NET и веб-разработка**.
@@ -138,7 +138,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### <a name="enable-cors"></a>Включение CORS
 
-Чтобы разрешить одностраничному приложению вызывать веб-API ASP.NET Core, необходимо включить [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors).
+Чтобы разрешить одностраничному приложению вызывать веб-API ASP.NET Core, необходимо включить [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
 
 1. В файле **Startup.cs** добавьте CORS в метод `ConfigureServices()`.
 

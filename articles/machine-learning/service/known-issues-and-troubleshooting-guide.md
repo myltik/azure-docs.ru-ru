@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем 
 С помощью сведений в этой статье можно найти и исправить ошибки или сбои, обнаруженные при использовании приложения Azure Machine Learning Workbench. 
@@ -137,7 +137,7 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 При использовании Windows 10 Fall Creators Update, если проект создан в локальной папке, сопоставленной с OneDrive, может сложиться ситуация, когда ни один файл не удается открыть в приложении Workbench. Причина в ошибке, которая появилась в обновлении Fall Creators Update и вызывает сбой кода node.js в папке OneDrive. Эта ошибка будет скоро исправлена в обновлении Windows, но до этого момента не следует создавать проекты в папке OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Имя файла слишком длинное для Windows
-Если используется Workbench для Windows, вы можете столкнуться с используемым по умолчанию ограничением длины имени файла в 260 символов. Признаком этого может быть сообщение об ошибке "Системе не удается найти указанный путь". Можно изменить параметр раздела реестра, чтобы разрешить гораздо более длинные пути к файлам. Прочитайте [эту статью](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath), чтобы узнать больше о том, как настроить раздел реестра _MAX_PATH_.
+Если используется Workbench для Windows, вы можете столкнуться с используемым по умолчанию ограничением длины имени файла в 260 символов. Признаком этого может быть сообщение об ошибке "Системе не удается найти указанный путь". Можно изменить параметр раздела реестра, чтобы разрешить гораздо более длинные пути к файлам. Прочитайте [эту статью](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath), чтобы узнать больше о том, как настроить раздел реестра _MAX_PATH_.
 
 ## <a name="interrupt-cli-execution-output"></a>Прерывание вывода при выполнении CLI
 Если вы запускаете эксперимент, используя `az ml experiment submit` или `az ml notebook start`, и необходимо прервать вывод: 
