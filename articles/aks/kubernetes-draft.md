@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Использование Draft со Службой контейнеров Azure (AKS)
 
@@ -33,10 +33,10 @@ Draft — это инструмент с открытым кодом, помог
 
 ## <a name="install-draft"></a>Установка Draft
 
-CLI Draft — это клиент, который выполняется в системе разработки и позволяет быстро развертывать код в кластер Kubernetes. 
+CLI Draft — это клиент, который выполняется в системе разработки и позволяет быстро развертывать код в кластер Kubernetes.
 
-> [!NOTE] 
-> При установке Draft до версии 0.12 следует сначала удалить Draft из кластера с помощью `helm delete --purge draft`, а затем удалить локальную конфигурацию, выполнив `rm -rf ~/.draft`. В MacOS можно выполнить `brew upgrade draft`.
+> [!NOTE]
+> При установке Draft до версии 0.12 следует сначала удалить Draft из кластера с помощью `helm delete --purge draft`, а затем удалить локальную конфигурацию, выполнив `rm -rf ~/.draft`. В MacOS выполните `brew upgrade draft`.
 
 Чтобы установить интерфейс командной строки Draft на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки см. в [руководстве по установке Draft][install-draft].
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Теперь, когда установлено отношение доверия между AKS и ACR, можно выполнить приведенные ниже действия, чтобы можно было использовать ACR из кластера AKS.
 1. Задайте значение параметра Draft `registry`, выполнив `draft config set registry <registry name>.azurecr.io`, где _&lt;registry name&lt;_ — имя реестра ACR.
-2. Войдите в реестр ACR, выполнив команду `az acr login -n <registry name>`. 
+2. Войдите в реестр ACR, выполнив команду `az acr login -n <registry name>`.
 
-Так как вы вошли в ACR локально и создали отношение доверия между AKS и ACR, то для отправки в ACR или получения из ACR в AKS не требуются пароли или секреты. Аутентификация выполняется на уровне Azure Resource Manager с помощью Azure Active Directory. 
+Так как вы вошли в ACR локально и создали отношение доверия между AKS и ACR, то для отправки в ACR или получения из ACR в AKS не требуются пароли или секреты. Аутентификация выполняется на уровне Azure Resource Manager с помощью Azure Active Directory.
 
 ## <a name="run-an-application"></a>Запуск приложения
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Теперь приложение можно протестировать, перейдя по адресу http://localhost:46143 (порт для предыдущего примера может отличаться). После завершения тестирования приложения используйте команду `Control+C` для остановки прокси-подключения.
+Теперь протестируйте приложение. Для этого перейдите по адресу http://localhost:46143 (порт для предыдущего примера может быть другим). После завершения тестирования приложения используйте команду `Control+C` для остановки прокси-подключения.
 
 > [!NOTE]
 > Можно также использовать команду `draft up --auto-connect`, чтобы создать и развернуть приложение и немедленно подключиться к первому запущенному контейнеру, чтобы еще больше ускорить цикл итераций.

@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/08/2018
 Да. Вы можете отправить электронное сообщение для сброса пароля, с помощью которого пользователь сможет сбросить пароль в JIT-клиенте.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Предоставляет ли Microsoft Dynamics 365 поддержку через Интернет для пользователей службы совместной работы Azure AD B2B?
-Да, Dynamics 365 (Интернет) обеспечивает поддержку службы совместной работы Azure AD B2B. Дополнительные сведения см. в статье о Dynamics 365 [Приглашение пользователей с помощью службы совместной работы Azure Active Directory B2B](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Да, Dynamics 365 (Интернет) обеспечивает поддержку службы совместной работы Azure AD B2B. Дополнительные сведения см. в статье о Dynamics 365 [Приглашение пользователей с помощью службы совместной работы Azure Active Directory B2B](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Какой срок действия у начального пароля для нового пользователя службы совместной работы B2B?
 Azure AD имеет единые требования в отношении фиксированного набора знаков, надежности пароля и правил блокировки учетной записи, которые одинаково применяются ко всем облачным учетным записям Azure AD. Облачные учетные записи — это учетные записи, которые не входят в федерацию с другими поставщиками удостоверений, такими как: 

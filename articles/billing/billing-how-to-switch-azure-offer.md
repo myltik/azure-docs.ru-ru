@@ -1,11 +1,11 @@
 ---
-title: "Изменение предложения подписки Azure | Документация Майкрософт"
-description: "Узнайте, как изменить подписку Azure и переключиться на другое предложение с помощью Центра управления учетной записью Azure."
-services: 
-documentationcenter: 
+title: Изменение предложения подписки Azure | Документация Майкрософт
+description: Узнайте, как изменить подписку Azure и переключиться на другое предложение с помощью Центра управления учетной записью Azure.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Переход с подписки с оплатой по мере использования на другое предложение
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Могу ли я переключить свою подписку с тарифного плата с оплатой по мере использования на [поставщик облачных решений](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) или [Соглашение Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Как перейти на CSP см. в статье [Migrate Azure subscriptions from pay-as-you-go to Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Перенос подписки Azure из подписки с оплатой по мере использования в Azure CSP).
+* Инструкции по переходу на CSP см. в статье [Migrate Azure subscriptions from pay-as-you-go to Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Перенос подписки Azure из подписки с оплатой по мере использования в Azure CSP).
 * Чтобы перейти к предложению "Соглашение Enterprise", попросите своего администратора регистрации добавить вашу учетную запись в соглашение Enterprise. Следуйте инструкциям в электронном сообщении с приглашением, чтобы перевести подписки на регистрацию в соглашении Enterprise. Дополнительные сведения см. в статье [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Связывание имеющейся учетной записи) на портале EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Можно ли перенести данные и службы в новую подписку?

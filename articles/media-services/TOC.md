@@ -229,7 +229,7 @@
 ### [Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)

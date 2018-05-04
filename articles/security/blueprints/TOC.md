@@ -6,7 +6,7 @@
 ## [Включение функций операционной безопасности](../azure-operational-security.md)
 ## [Управление в Azure](../governance-in-azure.md)
 ## [Изоляция в облаке Azure](../azure-isolation.md)
-## [Архитектура защищенной гибридной сети](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Архитектура защищенной гибридной сети](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Технические возможности обеспечения безопасности](../azure-security-technical-capabilities.md)
 
 # [Шифрование и обеспечение безопасности данных](../security-azure-encryption-overview.md)

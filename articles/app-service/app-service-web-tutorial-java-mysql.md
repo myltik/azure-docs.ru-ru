@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31951b609f7d819b532e6fa8cb02c702e9457253
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0f88ca7c0353c4ab63bf4f6ca5509b0e4504929f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Руководство. Создание веб-приложения Java в Azure с подключением к базе данных MySQL
 
@@ -137,25 +137,50 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>Создание сервера MySQL
 
-В Cloud Shell создайте сервер в службе "База данных Azure для MySQL", выполнив команду [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). В приведенной команде замените заполнитель `<mysql_server_name>` уникальным именем сервера MySQL. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.mysql.database.azure.com`), поэтому оно должно быть глобально уникальным. Кроме того, замените `<admin_user>` и `<admin_password>` собственными значениями.
+В Cloud Shell создайте сервер в службе "База данных Azure для MySQL", выполнив команду [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+
+В следующей команде замените заполнитель *\<mysql_name>* уникальным именем сервера, заполнитель *\<admin_user>* — именем пользователя, а заполнитель *\<admin_password>* — паролем. Это имя используется как часть конечной точки PostgreSQL (`https://<mysql_name>.mysql.database.azure.com`), поэтому оно должно быть уникальным на всех серверах в Azure.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
+az mysql server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
+
+> [!NOTE]
+> Так как в этом руководстве рассматриваются несколько учетных данных, чтобы избежать путаницы для `--admin-user` и `--admin-password` задаются фиктивные значения. В рабочей среде выберите имя пользователя и пароль для сервера MySQL в Azure, следуя рекомендациям по безопасности.
+>
+>
 
 После создания сервера MySQL в Azure CLI отображаются следующие сведения.
 
 ```json
 {
-  "administratorLogin": "admin_user",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mysql_server_name.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
-  "location": "northeurope",
-  "name": "mysql_server_name",
-  "resourceGroup": "mysqlJavaResourceGroup",
-  ...
-  < Output has been truncated for readability >
+  "additionalProperties": {},
+  "administratorLogin": "<admin_user>",
+  "earliestRestoreDate": "2018-04-19T22:56:40.990000+00:00",
+  "fullyQualifiedDomainName": "<mysql_name>.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "location": "westeurope",
+  "name": "<mysql_server_name>",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforMySQL/servers",
+  "userVisibleState": "Ready",
+  "version": "5.7"
 }
 ```
 
@@ -167,9 +192,13 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> Вы можете применять еще более строгие ограничения в правиле брандмауэра, [разрешая только исходящие IP-адреса, используемые приложением](app-service-ip-addresses.md#find-outbound-ips).
+>
+
 ## <a name="configure-the-azure-mysql-database"></a>Настройка базы данных MySQL в Azure
 
-В окне терминала на локальном компьютере подключитесь к серверу MySQL в Azure. Используйте значение, указанное ранее для `<admin_user>` и `<mysql_server_name>`.
+В окне терминала на локальном компьютере подключитесь к серверу MySQL в Azure. Используйте значение, указанное ранее для заполнителя _&lt;mysql_server_name>_. При появлении запроса на ввод пароля используйте пароль, указанный во время создания базы данных в Azure.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p

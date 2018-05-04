@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 17707cc2fcc177333f5c7903e91012bb3f13d0d9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 957a0e1561b384468ab22ccdb0a71aea7cbcf1c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Создание и подготовка имитированного устройства X.509 с помощью пакета SDK для устройства Node.js для службы подготовки устройств к добавлению в Центр Интернета вещей
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -56,7 +56,7 @@ ms.lasthandoff: 04/16/2018
     npm install
     ```
 
-3. Создайте _конечный_ сертификат X.509. Для этого выполните скрипт, указав _нужное имя сертификата_. Обратите внимание, что общее имя конечного сертификата становится [идентификатором регистрации](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id), поэтому обязательно используйте строчные буквенные символы и дефисы.
+3. Создайте _конечный_ сертификат X.509. Для этого выполните скрипт, указав _нужное имя сертификата_. Обратите внимание, что общее имя конечного сертификата становится [идентификатором регистрации](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id), поэтому обязательно используйте строчные буквенные символы и дефисы.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -81,7 +81,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="simulate-the-device"></a>Имитация устройства
 
-С помощью [пакета SDK для устройств Node.js для Центра Интернета вещей Azure](https://github.com/Azure/azure-iot-sdk-node) можно легко сымитировать устройство. Дополнительные сведения см. в статье [Понятия устройства в контексте подготовки устройств в Центре Интернета вещей](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+С помощью [пакета SDK для устройств Node.js для Центра Интернета вещей Azure](https://github.com/Azure/azure-iot-sdk-node) можно легко сымитировать устройство. Дополнительные сведения см. в статье [Понятия устройства в контексте подготовки устройств в Центре Интернета вещей](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 1. На портале Azure выберите колонку **Обзор** службы подготовки устройств и запишите значения для **_глобальной конечной точки устройства_** и **_области идентификатора_**.
 

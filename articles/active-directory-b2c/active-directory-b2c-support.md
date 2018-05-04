@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: регистрация запросов в службу поддержки
 Вы можете регистрировать запросы в службу поддержки для Azure Active Directory (AD) B2C на портале Azure следующим образом.
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/23/2018
    * **Тип проблемы** — **Техническая проблема**.
    * Выберите соответствующую **подписку**.
    * **Служба** — **Active Directory**.
-   * Выберите соответствующий **план поддержки**. Если у вас его нет, его можно зарегистрировать [здесь](https://azure.microsoft.com/en-us/support/plans/).
+   * Выберите соответствующий **план поддержки**. Если у вас его нет, его можно зарегистрировать [здесь](https://azure.microsoft.com/support/plans/).
      
      ![Поддержка. Основная информация](./media/active-directory-b2c-support/support-basics.png)
 6. В колонке **Проблема** укажите эти сведения и нажмите кнопку **Далее**.

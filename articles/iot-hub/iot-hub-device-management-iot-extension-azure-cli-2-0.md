@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Управление устройствами Центра Интернета вещей Azure с помощью расширения Интернета вещей для Azure CLI 2.0
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Расширение Центра Интернета вещей для Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) является новым расширением Центра Интернета вещей с открытым кодом, увеличивающим возможности [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 содержит команды для взаимодействия с Azure Resource Manager и конечными точками управления. Например, Azure CLI 2.0 можно использовать для создания Центра Интернета вещей или виртуальной машины Azure. Расширение CLI включает службу Azure для ускорения работы Azure CLI, за счет чего вы получаете доступ к дополнительным определенным функциям службы. Расширение Интернета вещей обеспечивает для разработчиков решений Интернета вещей доступ ко всем возможностям Центра Интернета вещей, IoT Edge и службе "Подготовка устройств к добавлению в Центр Интернета вещей" из командной строки.
+[Расширение Центра Интернета вещей для Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) является новым расширением Центра Интернета вещей с открытым кодом, увеличивающим возможности [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 содержит команды для взаимодействия с Azure Resource Manager и конечными точками управления. Например, Azure CLI 2.0 можно использовать для создания Центра Интернета вещей или виртуальной машины Azure. Расширение CLI включает службу Azure для ускорения работы Azure CLI, за счет чего вы получаете доступ к дополнительным определенным функциям службы. Расширение Интернета вещей обеспечивает для разработчиков решений Интернета вещей доступ ко всем возможностям Центра Интернета вещей, IoT Edge и службе "Подготовка устройств к добавлению в Центр Интернета вещей" из командной строки.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/03/2018
 
 - [Python 2.7x или Python 3.x](https://www.python.org/downloads/)
 
-- Установите Azure CLI 2.0 Простой способ установки в Windows — скачать и установить [MSI](https://aka.ms/InstallAzureCliWindows). Вы можете также выполнить инструкции по установке в [документации Майкрософт](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), чтобы настроить Azure CLI 2.0 в своей среде. Вам понадобится как минимум Azure CLI 2.0 версии 2.0.24 или более поздней. Для проверки используйте `az –version`. 
+- Установите Azure CLI 2.0 Простой способ установки в Windows — скачать и установить [MSI](https://aka.ms/InstallAzureCliWindows). Вы можете также выполнить инструкции по установке в [документации Майкрософт](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), чтобы настроить Azure CLI 2.0 в своей среде. Вам понадобится как минимум Azure CLI 2.0 версии 2.0.24 или более поздней. Для проверки используйте `az –version`. 
 
 - Установите расширение Интернета вещей. Проще всего запустить `az extension add --name azure-cli-iot-ext`. В [файле сведений расширения Интернета вещей](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) описывается несколько способов установки расширения.
 

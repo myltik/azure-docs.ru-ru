@@ -1,27 +1,26 @@
 ---
-title: "Определяемые пользователем схемы в хранилище данных SQL | Документация Майкрософт"
-description: "Советы по использованию схем Transact-SQL в хранилище данных SQL Azure для разработки решений."
+title: Использование определяемых пользователем схем в хранилище данных SQL | Документация Майкрософт
+description: Советы по использованию определяемых пользователем схем T-SQL в хранилище данных SQL Azure для разработки решений.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: dfb58956ad6637cf0f50b4c052ab98fb7c26139d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="user-defined-schemas-in-sql-data-warehouse"></a>Определяемые пользователем схемы в хранилище данных SQL
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Использование определяемых пользователем схем в хранилище данных SQL
+Советы по использованию определяемых пользователем схем T-SQL в хранилище данных SQL Azure для разработки решений.
+
+## <a name="schemas-for-application-boundaries"></a>Схемы для границ приложений
+
 В традиционных хранилищах данных часто используются отдельные базы данных, чтобы создать границы приложений на основе рабочей нагрузки, домену или безопасности. Например, традиционное хранилище данных SQL Server может включать в себя промежуточную базу данных, базу данных хранилища данных и базы данных киоска данных. В этой топологии каждая база данных работает как рабочая нагрузка и граница безопасности в архитектуре.
 
 Напротив, хранилище данных SQL выполняет всю рабочую нагрузку хранилища данных в одной базе данных. Кроссплатформенные соединения баз данных не допускаются. Поэтому хранилище данных SQL ожидает, что все таблицы, используемые в хранилище, должны храниться в одной базе данных.
@@ -121,13 +120,5 @@ FROM    [edw].customer
 > 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
+Дополнительные советы см. в [общих сведениях о разработке](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

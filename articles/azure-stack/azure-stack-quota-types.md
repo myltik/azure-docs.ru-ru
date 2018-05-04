@@ -1,25 +1,25 @@
 ---
-title: "Типы квот в Azure Stack | Документация Майкрософт"
-description: "Ознакомьтесь с разными типами квот, доступными для служб и ресурсов в Azure Stack."
+title: Типы квот в Azure Stack | Документация Майкрософт
+description: Ознакомьтесь с разными типами квот, доступными для служб и ресурсов в Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Типы квот в Azure Stack
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | Максимальное число групп доступности | 10 | Максимальное количество групп доступности, которые могут быть созданы в этом расположении. |
 | Максимальное число масштабируемых наборов виртуальных машин | 20 | Максимальное количество масштабируемых наборов виртуальных машин, которые могут быть созданы в этом расположении. |
 
-> [!NOTE]
-> Квоты вычислений в этой технической предварительной версии не применяются.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Типы квот хранилища
 | **Элемент** | **Значение по умолчанию** | **Описание** |
 | --- | --- | --- |
 | Максимальная емкость (ГБ) |500 |Общая емкость хранилища, которая может быть использована в рамках подписки в этом расположении. |
 | Общее количество учетных записей хранения |20 |Максимальное число учетных записей хранения, которые могут быть созданы с помощью подписки в этом расположении. |
+
+> [!NOTE]  
+> Принудительное применение новой квоты хранилища может занять до двух часов. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Типы квот сети
 | **Элемент** | **Значение по умолчанию** | **Описание** |

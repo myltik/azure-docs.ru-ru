@@ -1,8 +1,8 @@
 ---
-title: "Публикация собственных клиентских приложений — Azure AD | Документация Майкрософт"
-description: "В этой статье описано, как включить собственные клиентские приложения для взаимодействия с соединителем прокси приложений Azure AD, чтобы обеспечить безопасный удаленный доступ к локальным приложениям."
+title: Публикация собственных клиентских приложений — Azure AD | Документация Майкрософт
+description: В этой статье описано, как включить собственные клиентские приложения для взаимодействия с соединителем прокси приложений Azure AD, чтобы обеспечить безопасный удаленный доступ к локальным приложениям.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0753db5c5accf67411a9968f56aa9ad2158bad89
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 823939e76bcf982d37b58595795dca84c1830e19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Включение собственных клиентских приложений для взаимодействия с приложениями прокси
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/01/2018
 ```
 // Acquire Access Token from AAD for Proxy Application
 AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
-AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
+AuthenticationResult result = await authContext.AcquireTokenAsync("< External Url of Proxy App >",
         "<App ID of the Native app>",
         new Uri("<Redirect Uri of the Native App>"),
         PromptBehavior.Never);

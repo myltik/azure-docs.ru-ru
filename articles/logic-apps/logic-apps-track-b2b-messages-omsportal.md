@@ -1,11 +1,11 @@
 ---
-title: "Отслеживание сообщений B2B с помощью Operations Management Suite в Azure Logic Apps | Документы Майкрософт"
-description: "Отслеживание взаимодействия B2B для учетной записи интеграции и приложений логики в Operations Management Suite (OMS) с помощью Azure Log Analytics"
+title: Отслеживание сообщений B2B с помощью Azure Log Analytics в Azure Logic Apps | Документация Майкрософт
+description: Отслеживание взаимодействия B2B для учетной записи интеграции и приложений логики с помощью Azure Log Analytics
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Отслеживание взаимодействия B2B в Microsoft Operations Management Suite (OMS)
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>Отслеживание взаимодействия B2B с помощью Azure Log Analytics
 
-После настройки взаимодействия B2B между двумя выполняющимися бизнес-процессами или приложениями с помощью учетной записи интеграции эти сущности могут обмениваться сообщениями друг с другом. Для проверки того, обрабатываются ли эти сообщения должным образом, можно организовать отслеживание сообщений AS2, X12 и EDIFACT с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md) в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Например, для отслеживания сообщений можно использовать следующие функции:
+После настройки взаимодействия B2B между двумя выполняющимися бизнес-процессами или приложениями с помощью учетной записи интеграции эти сущности могут обмениваться сообщениями друг с другом. Для проверки корректности обработки сообщений можно организовать отслеживание сообщений AS2, X12 и EDIFACT с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Например, для отслеживания сообщений можно использовать следующие функции:
 
 * число и состояние сообщений;
 * состояние подтверждений;
@@ -36,30 +36,30 @@ ms.lasthandoff: 02/21/2018
 
 * Учетная запись интеграции, настроенная для мониторинга и ведения журнала. Узнайте подробнее о [создании учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) и [настройке мониторинга и ведения журнала для этой учетной записи](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Если это еще не сделано, [опубликуйте диагностические данные в службе Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) в OMS.
+* Если это еще не сделано, [опубликуйте диагностические данные в службе Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Помимо соблюдения всех указанных выше требований, у вас должна иметься рабочая область в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Для отслеживания взаимодействия B2B в OMS следует использовать одну и ту же рабочую область OMS. 
+> Кроме этого, у вас должна быть рабочая область в Log Analytics. Для отслеживания взаимодействия B2B используйте ту же рабочую область Log Analytics. 
 >  
-> Если у вас нет рабочей области OMS, узнайте о том, [как ее создать](../log-analytics/log-analytics-get-started.md).
+> См. дополнительные сведения о [создании рабочей области Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>Добавление решения B2B Logic Apps в Operations Management Suite (OMS)
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Добавление решения Logic Apps B2B в Log Analytics
 
-Чтобы организовать отслеживание сообщений B2B для приложения логики с помощью OMS, необходимо добавить решение **Logic Apps B2B** на портал OMS. Узнайте подробнее о [добавлении решений в OMS](../log-analytics/log-analytics-get-started.md).
+Чтобы организовать отслеживание сообщений B2B для приложения логики, необходимо добавить решение **Logic Apps B2B** на портал OMS. Узнайте подробнее о [добавлении решений в Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. На [портале Azure](https://portal.azure.com) выберите **Все службы**. Введите в поле поиска "log analytics" и выберите **Log Analytics**, как показано ниже.
 
    ![Поиск Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. В разделе **Log Analytics** найдите и выберите рабочую область OMS. 
+2. В разделе **Log Analytics** найдите и выберите рабочую область Log Analytics. 
 
-   ![Выбор рабочей области OMS](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Выбор рабочей области Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. В разделе **Управление** выберите **Портал OMS**.
 
    ![Выбор портала OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. После открытия домашней страницы OMS выберите **Коллекция решений**.    
+4. После открытия домашней страницы выберите **Коллекция решений**.    
 
    ![Выбор коллекции решений](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ ms.lasthandoff: 02/21/2018
 
    ![Кнопка "Добавить"](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   На домашней странице OMS появится плитка **Logic Apps B2B Messages** (Сообщения Logic Apps B2B). 
+   На домашней странице появится плитка **Сообщения B2B приложений логики**. 
    На ней отображается количество обработанных сообщений B2B.
 
-   ![Домашняя страница OMS, плитка Logic Apps B2B Messages (Сообщения B2B для Logic Apps)](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Домашняя страница, вкладка "Сообщения B2B приложений логики"](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Отслеживание состояния сообщения и данных на портале Operations Management Suite
+## <a name="track-message-status-and-details-in-log-analytics"></a>Отслеживание состояния и подробностей сообщения в Log Analytics
 
-1. После обработки сообщений B2B отображаются сведения об их состоянии и подробные данные о них. На домашней странице OMS выберите плитку **Logic Apps B2B Messages** (Сообщения B2B для Logic Apps).
+1. После обработки сообщений B2B отображаются сведения об их состоянии и подробные данные о них. На домашней странице выберите вкладку **Сообщения B2B приложений логики**.
 
    ![Обновленное количество сообщений](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > По умолчанию на плитке **Logic Apps B2B Messages** (Сообщения B2B для Logic Apps) отображаются данные за один день. Чтобы указать другой интервал, выберите элемент управления областью данных в верхней части страницы OMS.
+   > По умолчанию на плитке **Logic Apps B2B Messages** (Сообщения B2B для Logic Apps) отображаются данные за один день. Чтобы указать другой интервал выборки данных, выберите элемент управления размером выборки данных в верхней части страницы.
    > 
    > ![Изменение области данных](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -240,7 +240,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* [Создание запросов на отслеживание сообщений B2B на портале Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Запрос сообщений AS2, X 12 и EDIFACT в Microsoft Operations Management Suite (OMS)](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Схемы отслеживания AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Схемы отслеживания X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Настраиваемые схемы отслеживания](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

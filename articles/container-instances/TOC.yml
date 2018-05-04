@@ -45,6 +45,8 @@
       href: container-instances-troubleshooting.md
     - name: Агенты сборки Jenkins в ACI
       href: container-instances-jenkins.md
+    - name: Мониторинг использования ЦП и памяти
+      href: container-instances-monitor.md
     - name: Конфигурирование томов данных
       items:
         - name: Файлы Azure

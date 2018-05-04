@@ -5,6 +5,7 @@
     - name: Сведения о виртуальной сети
       href: virtual-networks-overview.md
 - name: Быстрое начало работы
+  expanded: true
   items:
     - name: Создание виртуальной сети — портал
       href: quick-create-portal.md

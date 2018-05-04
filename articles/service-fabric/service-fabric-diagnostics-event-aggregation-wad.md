@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/03/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: 65e5e45300e66cd8c3acc44a91335de45a919eb5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2682054dd132e33897602b60f0799b7cc10ea5f1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure
 > [!div class="op_single_selector"]
@@ -32,44 +32,46 @@ ms.lasthandoff: 04/06/2018
 Один из способов отправки и сбора журналов заключается в использовании расширения системы диагностики Microsoft Azure (WAD), которое отправляет журналы в службу хранилища Azure, а также может отправлять журналы в Azure Application Insights или концентраторы событий Azure. Вы также можете использовать внешний процесс, чтобы считывать события из хранилища и помещать их на платформу обработки, например в [Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов.
 
 ## <a name="prerequisites"></a>предварительным требованиям
-Эти инструменты используются для некоторых операций в данном документе:
+В этом руководстве используются инструменты, представленные ниже.
 
-* [Система диагностики Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (статья посвящена облачным службам Azure, но содержит нужную информацию и примеры)
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Клиент Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Шаблон Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="log-and-event-sources"></a>Источники журналов и событий
-
-### <a name="service-fabric-platform-events"></a>События платформы Service Fabric
-Как упоминалось в [этой статье](service-fabric-diagnostics-event-generation-infra.md), Service Fabric настраивает несколько стандартных каналов ведения журнала. Следующие каналы легко настраиваются с помощью WAD для отправки данных мониторинга и диагностики в таблицу хранилища или в другое место:
-  * Рабочие события: операции более высокого уровня, выполняемые платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении. Они передаются в рамках журнала трассировки событий для Windows (ETW).
+## <a name="service-fabric-platform-events"></a>События платформы Service Fabric
+Service Fabric настраивает несколько [стандартных каналов ведения журнала](service-fabric-diagnostics-event-generation-infra.md), и для нескольких из них расширение предварительно настраивает отправку данных мониторинга и диагностики в таблицу хранилища или в другое расположение.
+  * [Рабочие события](service-fabric-diagnostics-event-generation-operational.md): операции высокого уровня, выполняемые платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении. Они передаются в рамках журнала трассировки событий для Windows (ETW).
   * [События модели программирования на основе Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
   * [События модели программирования на основе Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
-### <a name="application-events"></a>События приложения
- События, которые генерируются кодом служб и приложений и записываются с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов EventSource из приложения см. в статье [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
-## <a name="deploy-the-diagnostics-extension"></a>Развертывание расширения системы диагностики
-Первым шагом при сборе журналов является развертывание расширения системы диагностики на каждой виртуальной машине в кластере Service Fabric. Расширение системы диагностики собирает журналы на каждой виртуальной машине и отправляет их в указанную учетную запись хранения. Действия могут немного отличаться в зависимости от того, что вы используете — портал Azure или Azure Resource Manager. Кроме того, они зависят о того, как выполняется развертывание — в ходе создания кластера или для уже существующего кластера. Рассмотрим действия для каждого сценария.
+## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Развертывание расширения системы диагностики с помощью портала
+Для сбора журналов прежде всего нужно развернуть расширение системы диагностики на каждом узле масштабируемого набора виртуальных машин в кластере Service Fabric. Расширение системы диагностики собирает журналы на каждой виртуальной машине и отправляет их в указанную учетную запись хранения. Ниже описано, как настроить это для новых и существующих кластеров с помощью портала Azure и шаблонов Azure Resource Manager.
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Развертывание расширения системы диагностики в ходе создания кластера с помощью портала Azure
-Для развертывания расширения системы диагностики на виртуальных машинах в кластере во время его создания используется панель "Параметры диагностики", показанная на рисунке ниже. Убедитесь, что для параметра "Диагностика" установлено значение **ВКЛ** (параметр по умолчанию). После создания кластера эти параметры нельзя изменить на портале.
+При создании кластера, на этапе конфигурации кластера, разверните дополнительные параметры и убедитесь, что здесь **включен** параметр диагностики (это значение по умолчанию).
 
-![Параметры системы диагностики Azure на портале для создания кластера](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
+![Параметры системы диагностики Azure на портале для создания кластера](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-При создании кластера с помощью портала настоятельно рекомендуется скачать шаблон перед тем, как нажать кнопку **ОК** для создания кластера. Дополнительную информацию см. в статье [Создание кластера Service Fabric с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Шаблон вам понадобится позже для внесения изменений, так как не все изменения можно выполнять с помощью портала.
+Мы настоятельно рекомендуем скачать шаблон **прежде, чем вы щелкнете "Создать"** на последнем шаге. Дополнительную информацию см. в статье [Создание кластера Service Fabric с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Этот шаблон потребуется для настройки каналов (перечисленных выше), из которых вы намерены собирать данные.
 
-### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Развертывание расширения системы диагностики в ходе создания кластера с помощью диспетчера ресурсов Azure
-Чтобы создать кластер с помощью диспетчера ресурсов, добавьте JSON-файл конфигурации системы диагностики в полный шаблон Resource Manager ресурсов кластера перед созданием кластера. Мы предоставляем пример шаблона диспетчера ресурсов для кластера из пяти виртуальных машин с конфигурацией системы диагностики (эта конфигурация входит в примеры шаблонов диспетчера ресурсов). Этот шаблон можно найти в коллекции примеров Azure. См. статью [Пример шаблона Resource Manager — кластер из пяти узлов с системой диагностики](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+![Шаблон кластера](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
+
+Итак, вы настроили сбор данных о событиях в хранилище Azure. Теперь следует [настроить Log Analytics](service-fabric-diagnostics-oms-setup.md) для анализа данных и запроса информации с помощью портала Log Analytics.
+
+>[!NOTE]
+>Сейчас не поддерживается возможность фильтрации или очистки событий, которые отправляются в таблицы. Если вы не реализуете метод для удаления событий из таблицы, она будет постоянно расти. По умолчанию действует ограничение в 50 ГБ. Вы можете изменить это ограничение, используя [инструкции, приведенные ниже в этой статье](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Кроме того, там есть пример службы для очистки данных, выполняющийся в [примере модуля наблюдения](https://github.com/Azure-Samples/service-fabric-watchdog-service). Мы рекомендуем создать свою службу, если у вас нет веских причин хранить журналы дольше 30 или 90 дней.
+
+## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Развертывание расширения системы диагностики с помощью Azure Resource Manager
+
+### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Создание кластера с расширением системы диагностики
+Чтобы создать кластер с помощью Resource Manager, добавьте код JSON с конфигурацией системы диагностики в полный шаблон Resource Manager перед созданием кластера. Мы предоставляем пример шаблона диспетчера ресурсов для кластера из пяти виртуальных машин с конфигурацией системы диагностики (эта конфигурация входит в примеры шаблонов диспетчера ресурсов). Этот шаблон можно найти в коллекции примеров Azure. См. статью [Пример шаблона Resource Manager — кластер из пяти узлов с системой диагностики](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Чтобы просмотреть параметр системы диагностики в шаблоне Resource Manager, откройте файл azuredeploy.json и выполните поиск **IaaSDiagnostics**. Чтобы создать кластер с помощью этого шаблона, нажмите кнопку **Развернуть в Azure**, которая доступна по ссылке выше.
 
 Также можно скачать пример шаблона Resource Manager, внести в него изменения и создать кластер на основе измененного шаблона с помощью команды `New-AzureRmResourceGroupDeployment` в окне Azure PowerShell. Параметры, передаваемые в команду, приведены в коде ниже. Дополнительные инструкции по развертыванию группы ресурсов с помощью PowerShell см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
-### <a name="deploy-the-diagnostics-extension-to-an-existing-cluster"></a>Развертывание расширения системы диагностики в существующем кластере
-Если у вас есть кластер, в котором не развернута система диагностики, или вы хотите изменить существующую конфигурацию, систему диагностики можно добавить или обновить. Измените шаблон Resource Manager, который используется для создания существующего кластера, или скачайте шаблон на портале, как описано выше. Измените файл template.json, выполнив следующие действия.
+### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Добавление расширения системы диагностики к существующему кластеру
+Если у вас есть кластер, в котором еще не развернута система диагностики, вы можете добавить или обновить систему диагностики с помощью шаблона кластера. Измените шаблон Resource Manager, который используется для создания существующего кластера, или скачайте шаблон на портале, как описано выше. Измените файл template.json, выполнив следующие действия.
 
 Добавьте новый ресурс хранилища в шаблон, внеся изменения в раздел resources.
 
@@ -79,7 +81,7 @@ ms.lasthandoff: 04/06/2018
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
   "location": "[parameters('computeLocation')]",
-  "properties": {
+  "sku": {
     "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
   },
   "tags": {
@@ -89,7 +91,7 @@ ms.lasthandoff: 04/06/2018
 },
 ```
 
- Затем добавьте этот ресурс в раздел parameters сразу после определений учетной записи хранения между `supportLogStorageAccountName` и `vmNodeType0Name`. Замените текст заполнителя *storage account name goes here* именем нужной учетной записи хранения.
+ Затем добавьте этот ресурс в раздел parameters сразу после определений учетной записи хранения между `supportLogStorageAccountName`. Замените текст заполнителя *storage account name goes here* именем учетной записи хранения, которую вы намерены использовать.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -105,7 +107,7 @@ ms.lasthandoff: 04/06/2018
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
-      "defaultValue": "storage account name goes here",
+      "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
       "metadata": {
         "description": "Name for the storage account that contains application diagnostics data from the cluster"
       }
@@ -181,6 +183,14 @@ ms.lasthandoff: 04/06/2018
 >    }
 >},
 >```
+
+### <a name="update-storage-quota"></a>Изменение квоты хранилища
+
+Это расширение постоянно увеличивает размер заполняемых таблиц, пока не будет достигнута квота хранилища. Возможно, вы захотите уменьшить эту квоту. По умолчанию квота имеет значение 50 ГБ, а изменить ее можно в шаблоне, в поле `overallQuotainMB` раздела `DiagnosticMonitorConfiguration`.
+
+```json
+"overallQuotaInMB": "50000",
+```
 
 ## <a name="log-collection-configurations"></a>Настройка сбора журналов
 Для сбора доступны журналы из нескольких дополнительных каналов, и здесь мы опишем несколько распространенных конфигураций, которые можно применить в шаблоне для кластеров, работающих в Azure.
@@ -281,7 +291,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="send-logs-to-application-insights"></a>Отправка журналов в Application Insights
 
-Отправку данных мониторинга и диагностики в Application Insights можно выполнить в ходе настройки WAD. Дополнительные сведения об использовании Application Insights для анализа событий и визуализации, а также установке приемника Application Insights как части WadCfg см. в [этой статье](service-fabric-diagnostics-event-analysis-appinsights.md).
+Отправку данных мониторинга и диагностики в Application Insights можно выполнить в ходе настройки WAD. Дополнительные сведения об использовании Application Insights для анализа событий и визуализации см. в [этом разделе](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

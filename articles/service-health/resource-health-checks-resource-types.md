@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Типы ресурсов и проверки работоспособности в службе работоспособности ресурсов Azure
 Ниже приведен полный список проверок, выполняемых в системе работоспособности ресурсов для разных типов ресурсов.
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Выполняемые проверки|
 |---|
-|<ul><li>Сервер узла запущен и работает?</li><li>Работает ли служба Internet Information Services?</li><li>Работает ли подсистема балансировки нагрузки?</li><li>Доступен ли план веб-службы из центра обработки данных?</li><li>Доступна ли учетная запись хранилища, в которой размещается содержимое узлов для фермы серверов?</li></ul>|
+|<ul><li>Сервер узла запущен и работает?</li><li>Работает ли служба Internet Information Services?</li><li>Работает ли подсистема балансировки нагрузки?</li><li>Доступен ли план службы приложений из центра обработки данных?</li><li>Доступна ли учетная запись хранилища, в которой размещается содержимое узлов для фермы серверов?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Выполняемые проверки|

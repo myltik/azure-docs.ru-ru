@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 88a9f5988d1fe3f4de4fe10da23a5f713e3f3370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5520781c9f687e5e32ad1d8c38922a456bb5e3ce
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Настройка утверждения роли в Azure Active Directory, выдаваемого в токене SAML для корпоративных приложений
 
@@ -56,9 +56,9 @@ ms.lasthandoff: 03/23/2018
 
     ![Страница "Свойства"](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. В другом окне откройте [песочницу Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
+6. В другом окне откройте [обозреватель Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
 
-    a. Войдите на сайт песочницы Graph с учетными данными глобального администратора или соадминистратора вашего клиента.
+    a. Войдите на сайт обозревателя Graph с учетными данными глобального администратора или соадминистратора вашего клиента.
 
     Б. Выберите **бета-версию** и получите из клиента список субъектов-служб с помощью следующего запроса:
     
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/23/2018
         
     Если вы используете несколько каталогов, следует применить такую модель: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
     
     c. В полученном списке субъектов-служб найдите ту, в которую нужно внести изменения. Также для поиска приложений в списке субъектов-служб можно использовать сочетание клавиш CTRL+F. Найдите **идентификатор объекта**, который вы скопировали со страницы свойств, и используйте следующий запрос для получения соответствующего субъекта-службы.
     
@@ -74,26 +74,26 @@ ms.lasthandoff: 03/23/2018
 
     d. Извлеките свойство appRoles из объекта субъекта-службы.
 
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
 
-    д. Теперь вам следует создать новые роли для приложения. Вы можете скачать генератор ролей Azure AD на [этой странице](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
+    д. Теперь вам следует создать роли для приложения. Вы можете скачать генератор ролей Azure AD на [этой странице](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
 
     f. Откройте генератор Azure AD и выполните следующие действия.
 
     ![Генератор Azure AD](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
     
-    Введите **имя роли**, **описание роли** и **Значение роли**. Чтобы добавить роль, щелкните **Добавить**.
+    Введите **имя роли**, **описание роли** и **значение роли**. Чтобы добавить роль, щелкните **Добавить**.
     
     Добавив все необходимые роли, щелкните **Создать**.
     
-    Скопируйте содержимое, нажав кнопку **Копировать содержимое**.
+    Скопируйте содержимое, нажав кнопку **Copy Content** (Копировать содержимое).
 
     > [!NOTE] 
     > Убедитесь, что роль пользователя **msiam_access** создана и ее идентификатор правильно указан в созданной роли.
 
-    ж. Вернитесь в песочницу Graph. Измените метод **GET** на **PATCH**. Примените к объекту субъекта-службы нужные роли, включив скопированные значения в свойство appRoles. Щелкните **Выполнить запрос**.
+    ж. Вернитесь в обозреватель Graph. Измените метод **GET** на **PATCH**. Примените к объекту субъекта-службы нужные роли, включив скопированные значения в свойство appRoles. Щелкните **Выполнить запрос**.
 
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
 
     > [!NOTE]
     > Ниже приведен пример объекта appRoles. 
@@ -136,7 +136,7 @@ ms.lasthandoff: 03/23/2018
 
     ![Добавление атрибута для настройки единого входа](./media/active-directory-enterprise-app-role-management/userandgroups.png)
 
-    Б. Это действие открывает всплывающее окно, где вы сможете выбрать роль из числа тех, которые определены для соответствующего субъекта-службы.
+    Б. После этого открывается всплывающее окно, где вы сможете выбрать роль из числа тех, которые определены для соответствующего субъекта-службы.
 
     c. Выберите нужную роль и щелкните "Отправить".
 
@@ -166,11 +166,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="update-existing-role"></a>Обновление существующей роли
 
-1. Чтобы обновить существующую роль, выполните следующие действия.
+1. Чтобы обновить имеющуюся роль, выполните следующие действия.
 
-    a. В другом окне откройте [песочницу Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
+    a. В другом окне откройте [обозреватель Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
 
-    Б. Войдите на сайт песочницы Graph с учетными данными глобального администратора или соадминистратора вашего клиента.
+    Б. Войдите на сайт обозревателя Graph с учетными данными глобального администратора или соадминистратора вашего клиента.
     
     c. Выберите **бета-версию** и получите из клиента список субъектов-служб с помощью следующего запроса:
     
@@ -178,7 +178,7 @@ ms.lasthandoff: 03/23/2018
         
     Если вы используете несколько каталогов, следует применить такую модель: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
     
     d. В полученном списке субъектов-служб найдите ту, в которую нужно внести изменения. Также для поиска приложений в списке субъектов-служб можно использовать сочетание клавиш CTRL+F. Найдите **идентификатор объекта**, который вы скопировали со страницы свойств, и используйте следующий запрос для получения соответствующего субъекта-службы.
     
@@ -186,17 +186,17 @@ ms.lasthandoff: 03/23/2018
     
     д. Извлеките свойство appRoles из объекта субъекта-службы.
     
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
     
-    f. Чтобы обновить существующую роль, выполните следующие действия.
+    f. Чтобы обновить имеющуюся роль, выполните следующие действия.
 
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
     * Измените метод **GET** на **PATCH**.
 
-    * Скопируйте существующие роли из приложения и вставьте их в **текст запроса**.
+    * Скопируйте имеющиеся роли из приложения и вставьте их в **текст запроса**.
     
-    * Обновите значение роли, указав новые значения **описания роли**, **значения роли** и **отображаемого имени роли** в соответствии с требованиями вашей организации.
+    * Обновите значение роли, указав новые значения **описания роли**, **значения роли** и **отображаемого имени роли** в соответствии с требованиями своей организации.
     
     * Обновив все необходимые роли, щелкните **Выполнить запрос**.
         
@@ -204,9 +204,9 @@ ms.lasthandoff: 03/23/2018
 
 1. Чтобы удалить существующую роль, выполните следующие действия.
 
-    a. В другом окне откройте [песочницу Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
+    a. В другом окне откройте [обозреватель Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
 
-    Б. Войдите на сайт песочницы Graph с учетными данными глобального администратора или соадминистратора вашего клиента.
+    Б. Войдите на сайт обозревателя Graph с учетными данными глобального администратора или соадминистратора вашего клиента.
 
     c. Выберите **бета-версию** и получите из клиента список субъектов-служб с помощью следующего запроса:
     
@@ -214,7 +214,7 @@ ms.lasthandoff: 03/23/2018
     
     Если вы используете несколько каталогов, следует применить такую модель: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
     
     d. В полученном списке субъектов-служб найдите ту, в которую нужно внести изменения. Также для поиска приложений в списке субъектов-служб можно использовать сочетание клавиш CTRL+F. Найдите **идентификатор объекта**, который вы скопировали со страницы свойств, и используйте следующий запрос для получения соответствующего субъекта-службы.
      
@@ -222,11 +222,11 @@ ms.lasthandoff: 03/23/2018
     
     д. Извлеките свойство appRoles из объекта субъекта-службы.
     
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
 
-    f. Чтобы удалить существующую роль, выполните следующие действия.
+    f. Чтобы удалить имеющуюся роль, выполните следующие действия.
 
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
 
     Измените метод **GET** на **PATCH**.
 
@@ -241,7 +241,7 @@ ms.lasthandoff: 03/23/2018
     
     ж. Выполнив описанный выше процесс, сохраните выбранный метод **PATCH**, вставьте остальное содержимое роли в поле **Текст запроса** и щелкните **Выполнить запрос**.
     
-    ![Диалоговое окно песочницы Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
+    ![Диалоговое окно обозревателя Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
 
     h. Роль будет удалена после выполнения запроса.
     
@@ -250,7 +250,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные инструкции см. в [документации по приложениям](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
+Дополнительные инструкции см. в [документации по приложениям](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 <!--Image references-->
 <!--Image references-->

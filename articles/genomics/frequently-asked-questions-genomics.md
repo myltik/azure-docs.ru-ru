@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Genomics: часто задаваемые вопросы | Документация Майкрософт"
+title: 'Microsoft Genomics: часто задаваемые вопросы | Документация Майкрософт'
 titleSuffix: Azure
-description: "Ответы на часто задаваемые клиентами вопросы о Microsoft Genomics."
+description: Ответы на часто задаваемые клиентами вопросы о Microsoft Genomics.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: часто задаваемые вопросы
 
-В этой статье перечислены самые популярные вопросы, связанные с Microsoft Genomics. Дополнительные сведения о Microsoft Genomics см. в [этой статье](overview-what-is-genomics.md). 
+В этой статье перечислены самые популярные вопросы, связанные с Microsoft Genomics. Дополнительные сведения о службе Microsoft Genomics см. в [этой статье](overview-what-is-genomics.md). Дополнительные сведения об устранении неполадок см. в [этом руководстве](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Что такое Соглашение об уровне обслуживания для Microsoft Genomics?
@@ -82,5 +82,5 @@ msgen распознает файлы конфигурации в следующ
 
 Используйте следующие ресурсы, чтобы приступить к работе с Microsoft Genomics:
 - Приступите к работе, запустив первый рабочий процесс с помощью службы Microsoft Genomics. [Краткое руководство: запуск рабочего процесса в службе Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
-- Отправьте свои данные для обработки в службе Microsoft Genomics. Дополнительные сведения см. в статьях [Отправка рабочего процесса с помощью входных FASTQ-файлов](quickstart-input-pair-FASTQ.md) | [Отправка рабочего процесса с помощью входного BAM-файла](quickstart-input-BAM.md) | [Отправка рабочего процесса с помощью нескольких входных данных из одного примера](quickstart-input-multiple.md) 
+- Отправить свои данные для обработки в службу Microsoft Genomics. Дополнительные сведения см. в статьях [Отправка рабочего процесса с помощью входных FASTQ-файлов](quickstart-input-pair-FASTQ.md) | [Отправка рабочего процесса с помощью входного BAM-файла](quickstart-input-BAM.md) | [Отправка рабочего процесса с помощью нескольких входных данных из одного примера](quickstart-input-multiple.md) 
 

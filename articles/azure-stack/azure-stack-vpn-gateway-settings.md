@@ -1,11 +1,11 @@
 ---
-title: "Параметры VPN-шлюза для Azure Stack | Документация Майкрософт"
-description: "Сведения о параметрах для VPN-шлюзов, используемых с Azure Stack."
+title: Параметры VPN-шлюза для Azure Stack | Документация Майкрософт
+description: Сведения о параметрах для VPN-шлюзов, используемых с Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Параметры конфигурации VPN-шлюза для Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 VPN-шлюз — это разновидность шлюза виртуальной сети, который передает зашифрованный трафик между виртуальной сетью в Azure Stack и удаленным VPN-шлюзом. Удаленный VPN-шлюз может быть шлюзом Azure, устройством в центре обработки данных или устройством в другом расположении.  Если есть возможность сетевого подключения между двумя конечными точками, вы можете установить между двумя сетями VPN-подключение "сеть — сеть".
 
@@ -160,7 +160,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 |Версия IKE |IKEv2 |
 |Алгоритмы шифрования и хэширования (шифрование)     | GCMAES256|
 |Алгоритмы шифрования и хэширования (аутентификация) | GCMAES256|
-|Срок действия SA (время)  | 14 400 с |
+|Срок действия SA (время)  | 27 700 секунд |
 |Срок действия SA (байты) | 819 200       |
 |Полная безопасность пересылки (PFS) |PFS2048 |
 |Обнаружение неиспользуемых одноранговых узлов | Поддерживаются|  

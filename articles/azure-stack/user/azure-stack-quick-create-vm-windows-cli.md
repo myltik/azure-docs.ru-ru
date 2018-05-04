@@ -12,28 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/19/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5665af14b9b0d0705b68c8a27c593b19c31b053e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Создание виртуальной машины Windows в Azure Stack с помощью Azure CLI
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-stack-using-azure-cli"></a>Краткое руководство. Создание виртуальной машины Windows в Azure Stack с помощью Azure CLI
 
-Azure CLI используется для создания ресурсов Azure Stack и управления ими из командной строки. В этом руководстве объясняется, как с помощью Azure CLI создать виртуальную машину под управлением Windows Server 2016 в Azure Stack. После создания виртуальной машины вы сможете подключиться к удаленному рабочему столу, установить IIS и увидеть веб-сайт по умолчанию. 
+Azure CLI используется для создания ресурсов Azure Stack и управления ими из командной строки. В этом руководстве объясняется, как с помощью Azure CLI создать виртуальную машину Windows Server 2016 и получить к ней доступ в Azure Stack.
 
-## <a name="prerequisites"></a>предварительным требованиям 
+## <a name="prerequisites"></a>предварительным требованиям
 
-* Убедитесь, что оператор Azure Stack добавил образ Windows Server 2016 в Azure Stack Marketplace.  
+* Убедитесь, что оператор Azure Stack добавил образ Windows Server 2016 в Azure Stack Marketplace.
 
 * Для создания ресурсов и управления ими в Azure CLI требуется определенная версия Azure Stack. Если вы еще не настроили Azure CLI для Azure Stack, выполните действия по [установке и настройке](azure-stack-version-profiles-azurecli2.md) Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Группа ресурсов — это логический контейнер, в котором выполняется развертывание и администрирование ресурсов Azure Stack. Из пакета средств разработки или интегрированной системы Azure Stack выполните команду [az group create](/cli/azure/group#az_group_create), чтобы создать группу ресурсов. В этом документе мы присвоили значения всем переменным. Вы можете использовать их как есть или присвоить другое значение. В следующем примере создается группа ресурсов с именем myResourceGroup в локальном расположении.
+Группа ресурсов — это логический контейнер, в котором выполняется развертывание и администрирование ресурсов Azure Stack. Из пакета средств разработки или интегрированной системы Azure Stack выполните команду [az group create](/cli/azure/group#az_group_create), чтобы создать группу ресурсов. В этом документе мы присвоили значения всем переменным. Вы можете использовать эти значения или присвоить другие. В следующем примере создается группа ресурсов с именем myResourceGroup в локальном расположении.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -54,8 +54,8 @@ az vm create \
   --location local
 ```
 
-Когда виртуальная машина будет создана, запишите параметр *PublicIPAddress*, который отображается в выходных данных. Вы будете использовать его для доступа к виртуальной машине.
- 
+После создания виртуальной машины в выходных данных отобразится параметр *publicIpAddress*. Запишите этот адрес, так как он требуется для доступа к виртуальной машине.
+
 ## <a name="open-port-80-for-web-traffic"></a>Открытие порта 80 для веб-трафика
 
 По умолчанию виртуальные машины Windows, развернутые в Azure Stack, поддерживают только RDP-подключения. Если эта виртуальная машина будет использоваться в качестве веб-сервера, необходимо открыть порт 80 через Интернет. Выполните команду [az vm open-port](/cli/azure/vm#open-port), чтобы открыть нужный порт.
@@ -74,7 +74,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Установка IIS с помощью PowerShell
 
-После входа на виртуальную машину Azure вы можете установить IIS и включить локальное правило брандмауэра, разрешающее веб-трафик, с помощью одной строки кода PowerShell. Откройте командную строку PowerShell и выполните следующую команду:
+Войдя на виртуальную машину Azure, вы можете установить IIS и включить локальное правило брандмауэра, разрешающее веб-трафик, с помощью одной строки кода PowerShell. Откройте командную строку PowerShell и выполните следующую команду:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -82,9 +82,9 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Просмотр страницы приветствия IIS
 
-Установив IIS и открыв через Интернет порт 80 на виртуальной машине, вы можете просмотреть страницу приветствия IIS по умолчанию в любом браузере. Чтобы перейти на страницу по умолчанию, используйте общедоступный IP-адрес, записанный ранее. 
+Страницу приветствия IIS по умолчанию можно просмотреть в любом веб-браузере. Чтобы перейти на страницу по умолчанию, используйте IP-адрес, записанный в предыдущем разделе.
 
-![Сайт IIS по умолчанию](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![Сайт IIS по умолчанию](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 

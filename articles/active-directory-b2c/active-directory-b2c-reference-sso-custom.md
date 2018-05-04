@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: управление сеансами единого входа
 
@@ -47,6 +47,9 @@ Azure AD B2C позволяет администратору управлять 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Этот поставщик можно использовать для хранения утверждений в сеансе. Как правило, этот поставщик указывается в техническом профиле, используемом для управления локальными учетными записями. 
+
+> [!NOTE]
+> При использовании DefaultSSOSessionProvider для хранения утверждений в рамках сеанса необходимо убедиться в следующем. Все утверждения, которые будут возвращены в приложение или использоваться в соответствии с предварительными условиями в последующих шагах, должны храниться в сеансе или считываться из из профиля пользователя в каталоге. Это убережет вас от сбоя аутентификации из-за отсутствующих утверждений.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

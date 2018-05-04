@@ -1,11 +1,11 @@
 ---
-title: "Обновление приложения мобильных служб до службы приложений Azure — Node.js"
-description: "Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений."
+title: Обновление приложения мобильных служб до службы приложений Azure — Node.js
+description: Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Обновление существующего приложения мобильной службы Azure Node.js до службы приложений
 Мобильное приложение службы приложений — это новый способ сборки мобильных приложений с помощью Microsoft Azure. Дополнительные сведения см. в статье [Общие сведения о мобильных приложениях].
@@ -67,7 +67,7 @@ ms.lasthandoff: 01/04/2018
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="obtain-ams-scripts"></a> Получение скриптов мобильных служб Azure
-* Войдите на [портал Azure].
+* Войдите на [портале Azure].
 * Чтобы найти сайт мобильных служб, щелкните **Все ресурсы** или **Службы приложений**.
 * Чтобы перейти на сайт Kudu, на сайте щелкните **Средства** -> **Kudu** -> **Перейти**.
 * Чтобы открыть консоль отладки, щелкните **Консоль отладки** -> **PowerShell**.
@@ -86,14 +86,14 @@ ms.lasthandoff: 01/04/2018
 ## <a name="deploy-ama-app"></a> Развертывание серверной части мобильных приложений Azure
 Во время развертывания необходимо сделать следующее:
 
-1. Создайте мобильное приложение на [портал Azure].
+1. Создайте мобильное приложение на [портале Azure].
 2. Выполните скрипт `createViews.sql` в подключенной базе данных.
 3. Свяжите базу данных, привязанную к вашей мобильной службе, с новой службой приложений.
 4. Свяжите все ресурсы (например, Центры уведомлений) с новой службой приложений.
 5. Разверните созданный код на новом сайте.
 
 ### <a name="create-a-new-mobile-app"></a>Создание нового мобильного приложения.
-1. Войдите на [портал Azure].
+1. Войдите на [портале Azure].
 2. Щелкните **+Создать** > **Интернет+мобильные устройства** > **Мобильное приложение**, а затем введите имя серверной части мобильного приложения.
 3. В поле **Группа ресурсов**выберите существующую группу ресурсов или создайте новую (с тем же именем, что и у приложения).
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 01/04/2018
 ### <a name="link-the-database-to-your-app-service"></a>Связывание базы данных со службой приложений
 Чтобы связать имеющуюся базу данных со службой приложений, сделайте следующее:
 
-* Откройте службу приложений на [портал Azure].
+* Откройте службу приложений на [портале Azure].
 * Выберите **Все параметры** -> **Подключения к данным**.
 * Щелкните **+ Add**(+ Добавить).
 * В раскрывающемся списке выберите **База данных SQL**
@@ -146,7 +146,7 @@ ms.lasthandoff: 01/04/2018
 
 <!-- URLs. -->
 
-[портала Azure]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
 [Общие сведения о мобильных приложениях]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
@@ -159,12 +159,12 @@ ms.lasthandoff: 01/04/2018
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[ценами службы приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[ценами службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [методам]: ../app-service/app-service-authentication-overview.md
 [быстрому запуску проверки подлинности]: app-service-mobile-auth.md
 
-[портал Azure]: https://portal.azure.com/
+[портале Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

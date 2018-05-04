@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Средство оценки решений Cortana Intelligence
 ## <a name="overview"></a>Обзор
@@ -195,7 +195,7 @@ Azure SQL и хранилище данных SQL Azure поддерживают 
 Дополнительные сведения об автоматизации процесса обучения модели с помощью фабрики данных Azure см. в статье [Обновление моделей машинного обучения Azure с помощью действия "Обновить ресурс"](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Имеющаяся документация
-[Сертификация Microsoft Azure](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Сертификация Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Сертификация Microsoft Azure: Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Сертификация Microsoft Azure: Cortana Intelligence](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

@@ -1,23 +1,23 @@
 ---
-title: "Субъект-служба для кластера Azure Kubernetes"
-description: "Сведения о настройке субъекта-службы Azure Active Directory для кластера Kubernetes и управлении им в AKS."
+title: Субъект-служба для кластера Azure Kubernetes
+description: Сведения о настройке субъекта-службы Azure Active Directory для кластера Kubernetes и управлении им в AKS.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Субъекты-службы со Службой контейнеров Azure (AKS)
 
-Для взаимодействия с API-интерфейсами Azure кластеру Службы контейнеров Azure требуется [субъект-служба Azure Active Directory][aad-service-principal]. Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами][user-defined-routes] и [Azure Load Balancer уровня 4][azure-load-balancer-overview].
+Для взаимодействия с API-интерфейсами Azure кластеру Службы контейнеров Azure требуется [субъект-служба Azure Active Directory][aad-service-principal]. Субъект-служба используется для динамического создания и администрирования ресурсов, например [Azure Load Balancer][azure-load-balancer-overview].
 
 В этой статье показано, как настроить субъект-службу для кластера Kubernetes в AKS.
 
@@ -80,10 +80,10 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --service-pri
 
 * Субъект-служба для Kubernetes входит в конфигурацию кластера. Тем не менее не используйте идентификатор для развертывания кластера.
 * Все субъекты-службы связаны с определенными приложениями Azure AD. Субъект-служба для кластера Kubernetes может быть связан с любым допустимым именем приложения Azure AD, например `https://www.contoso.org/example`. URL-адрес приложения не обязательно должен быть реальной конечной точкой.
-* Указывая **идентификатор клиента** субъекта-службы, вы можете использовать значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы, например `https://www.contoso.org/example`.
+* Указывая **идентификатор клиента** субъекта-службы, используйте значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы, например `https://www.contoso.org/example`.
 * На главной виртуальной машине и виртуальной машине узла в кластере Kubernetes учетные данные субъекта-службы хранятся в файле `/etc/kubernetes/azure.json`.
-* Если вы используете команду `az aks create`, чтобы автоматически создать субъект-службу, учетные данные субъекта-службы записываются в файл `~/.azure/acsServicePrincipal.json` на компьютере, с которого выполняется команда.
-* При удалении кластера Службы контейнеров Azure, который был создан с помощью команды `az aks create`, автоматически созданный субъект-служба не удаляется. Его можно удалить с помощью команды `az ad sp delete --id $clientID`.
+* Если вы используете команду `az aks create`, чтобы автоматически создать субъект-службу, учетные данные субъекта-службы записываются в файл `~/.azure/aksServicePrincipal.json` на компьютере, с которого выполняется команда.
+* При удалении кластера Службы контейнеров Azure, который был создан с помощью команды `az aks create`, автоматически созданный субъект-служба не удаляется. Удалите его с помощью команды `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

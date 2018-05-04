@@ -97,6 +97,8 @@
           href: durable-functions-bindings.md
         - name: Контрольные точки и воспроизведение
           href: durable-functions-checkpointing-and-replay.md
+        - name: Настраиваемое значение состояния оркестрации
+          href: durable-functions-custom-orchestration-status.md
         - name: Управление экземплярами
           href: durable-functions-instance-management.md
         - name: API HTTP
@@ -181,6 +183,8 @@
           href: durable-functions-phone-verification.md
         - name: Модульное тестирование
           href: durable-functions-unit-testing.md
+        - name: Публикация событий
+          href: durable-functions-event-publishing.md
 - name: Справочные материалы
   items:
     - name: Привязки

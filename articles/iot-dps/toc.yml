@@ -1,3 +1,5 @@
+- name: Принципы работы Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Документация по службе подготовки устройств для Центра Интернета вещей Azure
   href: index.yml
 - name: Обзор
@@ -87,6 +89,8 @@
       href: concepts-security.md
     - name: Service
       href: concepts-service.md
+    - name: Аттестация доверенного платформенного модуля
+      href: concepts-tpm-attestation.md
 - name: Практические руководства
   items:
     - name: Подключение MXChip IoT DevKit к Центру Интернета вещей
@@ -117,6 +121,32 @@
   items:
     - name: REST
       href: /rest/api/iot-dps
+- name: Сопутствующие материалы
+  items:
+    - name: Решения
+      items:
+        - name: Предварительно настроенные решения Azure IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Службы платформы
+      items:
+        - name: Центр Интернета вещей
+          href: /azure/iot-hub
+        - name: Служба подготовки устройств для Центра Интернета вещей
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Пакеты SDK службы
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Пакеты SDK для устройств IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ресурсы
   items:
     - name: Центр Интернета вещей Azure

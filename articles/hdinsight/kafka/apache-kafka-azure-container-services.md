@@ -1,24 +1,24 @@
 ---
-title: "Использование Службы контейнеров Azure с Kafka HDInsight | Документация Майкрософт"
-description: "Дополнительные сведения об использовании Kafka HDInsight из образов контейнера, размещенных в Службе контейнеров Azure (AKS)."
+title: Использование Службы контейнеров Azure с Kafka HDInsight | Документация Майкрософт
+description: Дополнительные сведения об использовании Kafka HDInsight из образов контейнера, размещенных в Службе контейнеров Azure (AKS).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Использование Службы контейнеров Azure с Kafka в HDInsight
 
@@ -108,7 +108,7 @@ HDInsight и AKS используют виртуальную сеть Azure в �
 
 Чтобы настроить объявление IP-адресов в Kafka вместо доменных имен, сделайте следующее:
 
-1. С помощью веб-браузера перейдите по адресу: https://CLUSTERNAME.azurehdinsight.net. Замените __CLUSTERNAME__ именем кластера Kafka HDInsight.
+1. Откройте веб-браузер и перейдите по адресу https://CLUSTERNAME.azurehdinsight.net. Замените __CLUSTERNAME__ именем кластера Kafka HDInsight.
 
     При появлении запроса введите имя пользователя и пароль HTTPS для кластера. Отобразится веб-интерфейс Ambari для кластера.
 
@@ -158,7 +158,7 @@ HDInsight и AKS используют виртуальную сеть Azure в �
 
 1. Создайте раздел Kafka, используемый примером приложения. Дополнительные сведения о создании разделов Kafka см. в статье [Приступая к работе с Apache Kafka в HDInsight](apache-kafka-get-started.md).
 
-2. Скачайте пример приложения из репозитория [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Скачайте пример приложения из [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
 
 3. Измените файл `index.js`, добавив следующие строки:
 

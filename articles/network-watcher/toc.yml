@@ -1,0 +1,196 @@
+- name: Документация по Наблюдателю за сетями
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Сведения о Наблюдателе за сетями
+      href: network-watcher-monitoring-overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Диагностика проблем с фильтрацией трафика виртуальной машины с помощью портала
+      href: diagnose-vm-network-traffic-filtering-problem.md
+    - name: Диагностика проблем с фильтрацией трафика виртуальной машины с помощью PowerShell
+      href: diagnose-vm-network-traffic-filtering-problem-powershell.md
+    - name: Диагностика проблем с фильтрацией трафика виртуальной машины с помощью Azure CLI
+      href: diagnose-vm-network-traffic-filtering-problem-cli.md
+- name: Учебники
+  items:
+    - name: Диагностика проблем с маршрутизацией трафика виртуальной машины
+      href: diagnose-vm-network-routing-problem.md
+- name: Основные понятия
+  items:
+    - name: Диагностика проблем с фильтрацией трафика виртуальной машины
+      href: network-watcher-ip-flow-verify-overview.md
+    - name: Диагностика проблем с маршрутизацией трафика виртуальной машины
+      href: network-watcher-next-hop-overview.md
+    - name: Диагностика проблем с исходящими подключениями виртуальной машины
+      href: network-watcher-connectivity-overview.md
+    - name: Устранение неполадок с VPN-подключениями
+      href: network-watcher-troubleshoot-overview.md
+    - name: Запись пакетов переменных
+      href: network-watcher-packet-capture-overview.md
+    - name: Ведение журнала последовательностей для группы безопасности сети
+      href: network-watcher-nsg-flow-logging-overview.md
+    - name: Представление группы безопасности сети
+      href: network-watcher-security-group-view-overview.md
+    - name: Просмотр топологии сети
+      href: network-watcher-topology-overview.md
+- name: Практические руководства
+  items:
+    - name: Настройка Наблюдателя за сетями
+      href: network-watcher-create.md
+    - name: Диагностика проблем с сетью виртуальных машин
+      items:
+        - name: Установка расширения виртуальной машины
+          items:
+            - name: Windows
+              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+            - name: Linux
+              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+        - name: Диагностика проблем с маршрутизацией
+          items:
+            - name: Azure PowerShell
+              href: diagnose-vm-network-routing-problem-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: diagnose-vm-network-routing-problem-cli.md
+        - name: Диагностика проблем с исходящими подключениями
+          items:
+            - name: Портал Azure
+              href: network-watcher-connectivity-portal.md
+            - name: Azure PowerShell
+              href: network-watcher-connectivity-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: network-watcher-connectivity-cli.md
+            - name: REST
+              href: network-watcher-connectivity-rest.md
+        - name: Сбор и анализ пакетов
+          items:
+            - name: Управление сбором пакетов
+              items:
+                - name: Портал Azure
+                  href: network-watcher-packet-capture-manage-portal.md
+                - name: Azure PowerShell
+                  href: network-watcher-packet-capture-manage-powershell.md
+                - name: Инфраструктура CLI Azure
+                  href: network-watcher-packet-capture-manage-cli.md
+                - name: Azure CLI 1.0
+                  href: network-watcher-packet-capture-manage-cli-nodejs.md
+                - name: REST
+                  href: network-watcher-packet-capture-manage-rest.md
+            - name: Анализ сбора пакетов
+              items:
+                - name: Поиск аномалий
+                  href: network-watcher-deep-packet-inspection.md
+                - name: Упреждающий мониторинг сети с помощью Функций Azure
+                  href: network-watcher-alert-triggered-packet-capture.md
+                - name: Обнаружение атак с помощью средств с открытым кодом
+                  href: network-watcher-intrusion-detection-open-source-tools.md
+                - name: Визуализация моделей сетевого трафика с помощью средств с открытым кодом
+                  href: network-watcher-using-open-source-tools.md
+    - name: Мониторинг сетевых подключений
+      href: connection-monitor.md
+    - name: Работа с группами безопасности сети
+      items:
+        - name: Настройка журналов потоков для NSG
+          items:
+            - name: Портал Azure
+              href: network-watcher-nsg-flow-logging-portal.md
+            - name: Azure PowerShell
+              href: network-watcher-nsg-flow-logging-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: network-watcher-nsg-flow-logging-cli.md
+            - name: Azure CLI 1.0
+              href: network-watcher-nsg-flow-logging-cli-nodejs.md
+            - name: REST
+              href: network-watcher-nsg-flow-logging-rest.md
+        - name: Анализ журналов потоков NSG
+          items:
+            - name: Чтение журналов последовательностей NSG
+              href: network-watcher-read-nsg-flow-logs.md
+            - name: Использование аналитики трафика
+              href: traffic-analytics.md
+              items:
+                - name: Часто задаваемые вопросы
+                  href: traffic-analytics-faq.md
+            - name: С помощью Power BI
+              href: network-watcher-visualize-nsg-flow-logs-power-bi.md
+            - name: Использование Elastic Stack
+              href: network-watcher-visualize-nsg-flow-logs-open-source-tools.md
+            - name: Использование Grafana
+              href: network-watcher-nsg-grafana.md
+            - name: Использование Graylog
+              href: network-watcher-analyze-nsg-flow-logs-graylog.md
+        - name: Просмотр групп безопасности сети
+          items:
+            - name: Azure PowerShell
+              href: network-watcher-security-group-view-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: network-watcher-security-group-view-cli.md
+            - name: Azure CLI 1.0
+              href: network-watcher-security-group-view-cli-nodejs.md
+            - name: REST
+              href: network-watcher-security-group-view-rest.md
+        - name: Выполнение аудита и проверки соответствия требованиям в сети
+          href: network-watcher-nsg-auditing-powershell.md
+    - name: Диагностика VPN-шлюза и подключений
+      items:
+        - name: Устранение неполадок
+          items:
+            - name: Портал Azure
+              href: network-watcher-troubleshoot-manage-portal.md
+            - name: Azure PowerShell
+              href: network-watcher-troubleshoot-manage-powershell.md
+            - name: Инфраструктура CLI Azure
+              href: network-watcher-troubleshoot-manage-cli.md
+            - name: Azure CLI 1.0
+              href: network-watcher-troubleshoot-manage-cli-nodejs.md
+            - name: REST
+              href: network-watcher-troubleshoot-manage-rest.md
+        - name: Мониторинг VPN-шлюза с помощью службы автоматизации Azure
+          href: network-watcher-monitor-with-azure-automation.md
+        - name: Диагностика локальных подключений через VPN-шлюзы
+          href: network-watcher-diagnose-on-premises-connectivity.md
+    - name: Просмотр топологии сети
+      items:
+        - name: Azure PowerShell
+          href: network-watcher-topology-powershell.md
+        - name: Инфраструктура CLI Azure
+          href: network-watcher-topology-cli.md
+        - name: Azure CLI 1.0
+          href: network-watcher-topology-cli-nodejs.md
+        - name: REST
+          href: network-watcher-topology-rest.md
+    - name: Определение относительной задержки между конкретным расположением и регионом Azure
+      href: view-relative-latencies.md
+- name: Справочные материалы
+  items:
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/network/watcher
+    - name: Azure PowerShell
+      href: '/powershell/module/azurerm.network/#network_watcher'
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.network
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher'
+    - name: Python
+      href: /python/api/overview/azure/network
+    - name: .NET
+      href: /dotnet/api/overview/azure/virtual-network
+    - name: Node.js
+      href: /javascript/api/azure-arm-network
+    - name: REST
+      href: /rest/api/network-watcher/
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=network-watcher'
+    - name: Соглашение об уровне обслуживания
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/network-watcher'

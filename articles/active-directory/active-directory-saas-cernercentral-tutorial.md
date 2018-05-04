@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Cerner Central | Документы Майкрософт"
-description: "Сведения о настройке единого входа между Azure Active Directory и Cerner Central."
+title: Руководство по интеграции Azure Active Directory с Cerner Central | Документы Майкрософт
+description: Сведения о настройке единого входа между Azure Active Directory и Cerner Central.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 391994b8df73657dc75e8c9790356f443341159d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6481a96956fe82d47c3c0bb2f7f69a0df8d5b993
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Руководство. Интеграция Azure Active Directory с Cerner Central
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 12/11/2017
     ![Настройка единого входа][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Cerner Central** сделайте следующее.
@@ -115,46 +115,24 @@ ms.lasthandoff: 12/11/2017
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-
-    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: 
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
     
-
-    > [!NOTE] 
+    > [!NOTE]
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations).
- 
-4. Нажмите кнопку **Сохранить** .
+
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, и вставьте его в Блокнот.
+    
+    ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_metadataurl.png)
+     
+5. Нажмите кнопку **Сохранить** .
 
     ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-5. Для создания URL-адреса **метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpoint.png)
-     
-    d. Теперь перейдите к странице свойств **Cerner Central** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-6. Для настройки единого входа на стороне **Cerner Central** необходимо отправить **URL-адрес метаданных** в [службу поддержки Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Специалисты службы поддержки настроят единый вход на стороне приложения для завершения интеграции.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+6. Для настройки единого входа на стороне **Cerner Central** необходимо отправить **URL-адрес метаданных федерации приложения** в [службу поддержки Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Специалисты службы поддержки настроят единый вход на стороне приложения для завершения интеграции.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon. 
@@ -247,4 +225,3 @@ ms.lasthandoff: 12/11/2017
 [201]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_203.png
-

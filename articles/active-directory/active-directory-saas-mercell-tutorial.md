@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d009e8bdf513b10198aac826236ff44376ed630
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 60432e18c9496ff6fc5431fcd7b73aa5f4c9696c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Руководство. Интеграция Azure Active Directory с Mercell
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/23/2018
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. добавление Mercell из коллекции;
 2. настройка и проверка единого входа в Azure AD.
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/23/2018
     ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Mercell** выполните следующие действия.
@@ -107,36 +107,16 @@ ms.lasthandoff: 03/23/2018
     ![Сведения о домене и URL-адресах единого входа приложения Mercell](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_url.png)
 
     В текстовом поле **Идентификатор** введите URL-адрес `https://my.mercell.com/`.
- 
-4. Нажмите кнопку **Сохранить** .
+
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
+    
+    ![Настройка единого входа](./media/active-directory-saas-mercell-tutorial/tutorial_metadataurl.png)
+     
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-mercell-tutorial/tutorial_general_400.png)
 
-5. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **Mercell**, скопируйте **идентификатор приложения** с помощью кнопки **Копировать** и вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-6. Для настройки единого входа на стороне **Mercell** необходимо отправить созданный **URL-адрес метаданных** в [службу технической поддержки Mercell](mailto:webmaster@mercell.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+6. Для настройки единого входа на стороне **Mercell** необходимо отправить созданный **URL-адрес метаданных федерации приложений** в [службу технической поддержки Mercell](mailto:webmaster@mercell.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

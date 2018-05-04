@@ -1,6 +1,6 @@
 ---
-title: "План обработки платежей Azure Blueprint — требования к тестированию"
-description: "Стандарт PCI DSS: требование 11"
+title: План обработки платежей Azure Blueprint — требования к тестированию
+description: 'Стандарт PCI DSS: требование 11'
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>Требования к тестированию для сред, соответствующих стандарту PCI DSS 
 ## <a name="pci-dss-requirement-11"></a>Стандарт PCI DSS: требование 11
@@ -252,7 +252,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Microsoft Azure уведомляет клиентов о потенциальных изменениях и событиях, которые могут повлиять на безопасность или доступность служб, через подключенную панель мониторинга службы. Изменения в обязательствах в отношении безопасности клиентов Microsoft Azure своевременно предоставляются на веб-сайте Microsoft Azure.<br /><br />Установка или изменение программного обеспечения в рабочей среде Microsoft Azure доступна только авторизованному административному персоналу и выполняется в соответствии с процедурами управления изменениями. |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Демоверсия интернет-магазина Contoso — это служба PaaS, в которой обнаружение изменений было реализовано с помощью OMS. Дополнительные сведения см. в разделе [Решения OMS](payment-processing-blueprint.md#oms-solutions) руководства по PCI.<br /><br />|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Демоверсия интернет-магазина Contoso — это служба PaaS, в которой обнаружение изменений реализовано с помощью Log Analytics. Дополнительные сведения см. в разделе о [решениях по управлению](payment-processing-blueprint.md#management-solutions) руководства по PCI.<br /><br />|
 
 
 
@@ -265,7 +265,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Правила событий мониторинга Azure обеспечивают повышенный уровень мониторинга для операций и ресурсов с высоким уровнем риска. Выполняется мониторинг сетевых устройств, управляемых Azure, на соответствия установленным стандартам безопасности. |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Оповещения об изменениях в интернет-магазине Contoso предоставляются с помощью реализации OMS. Дополнительные сведения см. в разделе [Решения OMS](payment-processing-blueprint.md#oms-solutions) руководства по PCI.<br /><br /><br /><br />|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Оповещения об изменениях в интернет-магазине Contoso предоставляются с помощью реализации Log Analytics. Дополнительные сведения см. в разделе о [решениях по управлению](payment-processing-blueprint.md#management-solutions) руководства по PCI.<br /><br /><br /><br />|
 
 
 
@@ -278,7 +278,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Не применяется |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Оповещения об изменениях в интернет-магазине Contoso предоставляются с помощью реализации OMS. Дополнительные сведения см. в разделе [Решения OMS](payment-processing-blueprint.md#oms-solutions) руководства по PCI.<br /><br /><br /><br />|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Оповещения об изменениях в интернет-магазине Contoso предоставляются с помощью реализации Log Analytics. Дополнительные сведения см. в разделе о [решениях по управлению](payment-processing-blueprint.md#management-solutions) руководства по PCI.<br /><br /><br /><br />|
 
 
 

@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: Действия веб-перехватчика для оповещений журнала
           href: monitor-alerts-unified-log-webhook.md
+        - name: Создание более новых оповещений метрик с помощью шаблона Resource Manager
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: Создание классического оповещения метрики с помощью шаблона Resource Manager
           href: monitoring-enable-alerts-using-template.md
         - name: Копирование оповещений с портала OMS на портал Azure

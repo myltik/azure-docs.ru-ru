@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 0b216b334f07a59f7c159bc804116f2190f3bf6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 758da9ceb86e26d373f71e4f89a47d67d1cefe2d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Копирование данных из Hive с помощью фабрики данных Azure 
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Hive**. | Yes |
 | host | IP-адрес или имя узла сервера Hive, разделенные ";" для нескольких узлов (только при включенном режиме serviceDiscoveryMode).  | Yes |
-| порт | TCP-порт, используемый сервером Hive для прослушивания клиентских подключений.  | Нет  |
+| порт | TCP-порт, используемый сервером Hive для прослушивания клиентских подключений. При подключении к Azure HDInsights укажите порт 443. | Yes |
 | serverType | Тип сервера Hive. <br/>Допустимые значения: **HiveServer1**, **HiveServer2**, **HiveThriftServer**. | Нет  |
 | thriftTransportProtocol | Транспортный протокол для использования в слое Thrift. <br/>Допустимые значения: **Binary**, **SASL**, **HTTP** | Нет  |
 | authenticationType | Метод проверки подлинности, используемый для доступа к серверу Hive. <br/>Допустимые значения: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. | Yes |
@@ -78,8 +78,7 @@ ms.lasthandoff: 03/23/2018
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

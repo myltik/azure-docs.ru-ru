@@ -1,8 +1,8 @@
 ---
-title: "Сбор оповещений Nagios и Zabbix в OMS Log Analytics | Документы Майкрософт"
-description: "Nagios и Zabbix — средства мониторинга с открытым исходным кодом. Оповещения от этих средств мониторинга можно собирать в Log Analytics для анализа вместе с оповещениями из других источников.  В этой статье описано, как настроить сбор оповещений из этих средств в агенте OMS для Linux."
+title: Сбор оповещений Nagios и Zabbix в OMS Log Analytics | Документы Майкрософт
+description: Nagios и Zabbix — средства мониторинга с открытым исходным кодом. Оповещения от этих средств мониторинга можно собирать в Log Analytics для анализа вместе с оповещениями из других источников.  В этой статье описано, как настроить сбор оповещений из этих средств в агенте OMS для Linux.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Сбор оповещений Nagios и Zabbix из агента OMS для Linux в Log Analytics 
-[Nagios](https://www.nagios.org/) и [Zabbix](http://www.zabbix.com/) — средства мониторинга с открытым исходным кодом.  Оповещения от этих средств мониторинга можно собирать в Log Analytics для анализа вместе с [оповещениями из других источников](log-analytics-alerts.md).  В этой статье описано, как настроить сбор оповещений из этих средств в агенте OMS для Linux.
+[Nagios](https://www.nagios.org/) и [Zabbix](http://www.zabbix.com/) — средства мониторинга с открытым исходным кодом. Оповещения от этих средств мониторинга можно собирать в Log Analytics для анализа вместе с [оповещениями из других источников](log-analytics-alerts.md).  В этой статье описано, как настроить сбор оповещений из этих средств в агенте OMS для Linux.
  
+## <a name="prerequisites"></a>предварительным требованиям
+Агент OMS для Linux поддерживает сбор оповещений из Nagios до версии 4.2.x и Zabbix до версии 2.x.
+
 ## <a name="configure-alert-collection"></a>Настройка сбора оповещений
 
 ### <a name="configuring-nagios-alert-collection"></a>Настройка сбора оповещений Nagios
-Для настройки сбора оповещений на сервере Nagios выполните следующие действия.
+Для сбора оповещений выполните следующие действия на сервере Nagios.
 
-1. Предоставьте пользователю **omsagent** разрешение на чтение для файла журнала Nagios (`/var/log/nagios/nagios.log`). Если файл nagios.log принадлежит группе `nagios`, можно добавить пользователя **omsagent** в группу **nagios**. 
+1. Предоставьте пользователю **omsagent** разрешение на чтение для файла журнала Nagios `/var/log/nagios/nagios.log`. Если файл nagios.log принадлежит группе `nagios`, можно добавить пользователя **omsagent** в группу **nagios**. 
 
     sudo usermod -a -G nagios omsagent
 
-2.  Измените файл конфигурации (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Для этого введите следующие записи в незакомментированном виде:  
+2.  Измените файл конфигурации на `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Для этого введите следующие записи в незакомментированном виде:  
 
         <source>  
           type tail  
@@ -53,11 +56,11 @@ ms.lasthandoff: 10/11/2017
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Настройка сбора оповещений Zabbix
-Для сбора оповещений сервера Zabbix необходимо указать имя пользователя и пароль в формате *открытого текста*. Это не идеальное решение, но мы рекомендуем создать отдельного пользователя и предоставить ему разрешения только для мониторинга.
+Для сбора оповещений сервера Zabbix необходимо указать имя пользователя и пароль в формате *открытого текста*.  Это не идеальное решение, но мы рекомендуем создать отдельного пользователя и предоставить ему разрешения только для мониторинга.
 
-Для настройки сбора оповещений на сервере Nagios выполните следующие действия.
+Для сбора оповещений выполните следующие действия на сервере Nagios.
 
-1. Измените файл конфигурации (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Убедитесь, что в файле есть следующие параметры и что они не закомментированы.  Измените имя пользователя и пароль на соответствующие значения для вашей среды Zabbix.
+1. Измените файл конфигурации на `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Убедитесь, что в файле есть следующие параметры и что они не закомментированы.  Измените имя пользователя и пароль на соответствующие значения для вашей среды Zabbix.
 
         <source>
          type zabbix_alerts

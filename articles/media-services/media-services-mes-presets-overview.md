@@ -1,11 +1,11 @@
 ---
-title: "Предустановки задач для Media Encoder Standard | Документация Майкрософт"
-description: "Эта статья содержит обзор определенных службой примеров предустановок задач Media Encoder Standard (MES)."
+title: Предустановки задач для Media Encoder Standard | Документация Майкрософт
+description: Эта статья содержит обзор определенных службой примеров предустановок задач Media Encoder Standard (MES).
 author: Juliako
 manager: cfow
 editor: johndeu
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
 ms.author: juliako
-ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Предустановки задач для Media Encoder Standard (MES)
 
@@ -85,4 +85,4 @@ ms.lasthandoff: 10/11/2017
   
  [H264 Single Bitrate Low Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md). Данная предустановка создает отдельный MP4-файл со скоростью 56 Кбит/с и стереофоническим звуком в формате AAC.  
   
- Дополнительные сведения о кодировщиках служб мультимедиа см. в разделе [Обзор и сравнение кодировщиков мультимедиа Azure по запросу](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
+ Дополнительные сведения о кодировщиках служб мультимедиа см. в разделе [Обзор и сравнение кодировщиков мультимедиа Azure по запросу](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).

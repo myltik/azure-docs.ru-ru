@@ -1,19 +1,19 @@
 ---
-title: "Подключение тома службы файлов Azure в службе \"Экземпляры контейнеров Azure\""
-description: "Узнайте, как подключить том файлов Azure для сохранения состояния с помощью Экземпляров контейнеров Azure"
+title: Подключение тома службы файлов Azure в службе "Экземпляры контейнеров Azure"
+description: Узнайте, как подключить том файлов Azure для сохранения состояния с помощью Экземпляров контейнеров Azure
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 239150c1e752ce6a4f2a19fa1192cd1a910ebea9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Подключение общего файлового ресурса Azure с помощью службы "Экземпляры контейнеров Azure"
 

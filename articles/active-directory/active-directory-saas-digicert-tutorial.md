@@ -1,23 +1,23 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с DigiCert | Документы Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и DigiCert."
+title: Учебник. Интеграция Azure Active Directory с DigiCert | Документы Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и DigiCert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f291b69f084913808f4494c7379a0f753254e3f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Учебник. Интеграция Azure Active Directory с DigiCert
 
@@ -106,9 +106,11 @@ ms.lasthandoff: 12/11/2017
  
     ![Настройка единого входа](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. В разделе **Домен и URL-адреса единого входа в DigiCert** не нужно выполнять никаких действий, поскольку приложение уже предварительно интегрировано с Azure.
+3. В разделе **Домен и URL-адреса единого входа в DigiCert** выполните следующие действия:
 
     ![Настройка единого входа](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    В текстовом поле **Идентификатор** введите URL-адрес `https://www.digicert.com/sso`.
 
 4. Для приложения DigiCert требуется утверждение SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример конфигурации. 
 
@@ -145,9 +147,6 @@ ms.lasthandoff: 12/11/2017
     ![Настройка единого входа](./media/active-directory-saas-digicert-tutorial/tutorial_general_400.png)
 
 8. Чтобы настроить единый вход на стороне **DigiCert**, отправьте скачанный **XML-файл метаданных** в [службу поддержки DigiCert](mailto:support@digicert.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.

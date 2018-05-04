@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 947e26aadd06e1420e95a6d25ff96e631265db3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Использование управляемого удостоверения службы (MSI) виртуальной машины Azure для получения маркера 
 
@@ -59,18 +59,18 @@ ms.lasthandoff: 04/18/2018
 Пример запроса с использованием конечной точки службы метаданных экземпляров (IMDS) MSI *(рекомендуется)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
 ```
 
 | Элемент | ОПИСАНИЕ |
 | ------- | ----------- |
 | `GET` | HTTP-команда, указывающая, что необходимо извлечь данные из конечной точки. В этом случае используется маркер доступа OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Конечная точка MSI для службы метаданных экземпляров. |
-| `api-version`  | Параметр строки запроса, указывающий версию API для конечной точки IMDS.  |
+| `api-version`  | Параметр строки запроса, указывающий версию API для конечной точки IMDS. Используйте версию API `2018-02-01` или выше. |
 | `resource` | Параметр строки запроса, указывающий URI идентификатора приложения целевого ресурса. Он также отображается в утверждении (аудитории) `aud` выданного маркера. В этом примере запрашивается маркер для доступа к Azure Resource Manager, который имеет универсальный код ресурса (URI) идентификатора приложения https://management.azure.com/. |
 | `Metadata` | Поле заголовка HTTP-запроса, требуемое MSI с целью устранения рисков от атак с подделкой запроса со стороны сервера (SSRF). Должно быть присвоено значение true (все в нижнем регистре).
 
-Пример запроса с использованием конечной точки расширения MSI для виртуальной машины *(по плану эта конечная точка будет объявлена устаревшей)*:
+Пример запроса с использованием конечной точки расширения MSI для виртуальной машины (*эта конечная точка будет объявлена устаревшей*):
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -230,6 +230,11 @@ func main() {
 2. Использование маркера доступа для вызова REST API Azure Resource Manager и получения информации о виртуальной машине. Не забудьте указать свой идентификатор подписки, имя группы ресурсов и имя виртуальной машины для `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>` и `<VM-NAME>` соответственно.
 
 ```azurepowershell
+Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
+```
+
+Пример анализа маркера доступа, полученного из ответа:
+```azurepowershell
 # Get an access token for the MSI
 $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
                               -Headers @{Metadata="true"}
@@ -247,7 +252,14 @@ echo $vmInfoRest
 ## <a name="get-a-token-using-curl"></a>Получение маркера с использованием CURL
 
 ```bash
-response=$(curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true -s)
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s
+```
+
+
+Пример анализа маркера доступа, полученного из ответа:
+
+```bash
+response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```

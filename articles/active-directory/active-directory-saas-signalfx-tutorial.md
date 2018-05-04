@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Руководство по интеграции Azure Active Directory с SignalFx
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/12/2018
 1. Добавление SignalFx из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-signalfx-from-the-gallery"></a>Добавление SignalFx из коллекции
+## <a name="adding-signalfx-from-the-gallery"></a>Добавление SignalFx из коллекции.
 Чтобы настроить интеграцию SignalFx с Azure AD, необходимо добавить SignalFx из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить SignalFx из коллекции, выполните следующие действия.**
@@ -140,49 +140,33 @@ ms.lasthandoff: 03/12/2018
     
     д. Нажмите кнопку **ОК**.
  
-6. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+6. В разделе **Сертификат подписи SAML** сделайте следующее: 
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложения**, а затем вставьте его в Блокнот.
+
+    Б. Щелкните **Сертификат (Base64)** и сохраните файл сертификата на компьютере.
 
 7. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **SignalFx** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-9. В разделе **Настройка SignalFx** щелкните **Настроить SignalFx**, чтобы открыть окно **Настройка единого входа**. Скопируйте значение **SAML Entity ID** (Идентификатор сущности SAML) из раздела **Краткий справочник**.
+8. В разделе **Настройка SignalFx** щелкните **Настроить SignalFx**, чтобы открыть окно **Настройка единого входа**. Скопируйте значение **SAML Entity ID** (Идентификатор сущности SAML) из раздела **Краткий справочник**.
 
     ![Конфигурация SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Войдите на сайт компании SignalFx от имени администратора.
+9. Войдите на сайт компании SignalFx от имени администратора.
 
-11. В верхней части сайта щелкните **Integrations** (Интеграция), чтобы открыть соответствующую страницу.
+10. В верхней части сайта щелкните **Integrations** (Интеграция), чтобы открыть соответствующую страницу.
 
     ![Интеграция SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Щелкните плитку **Azure Active Directory** в разделе **Login Services** (Службы входа).
+11. Щелкните плитку **Azure Active Directory** в разделе **Login Services** (Службы входа).
  
     ![SAML SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Щелкните **NEW INTEGRATION** (Новая интеграция) и на вкладке **INSTALL** (Установка) выполните следующие действия:
+12. Щелкните **NEW INTEGRATION** (Новая интеграция) и на вкладке **INSTALL** (Установка) выполните следующие действия:
  
     ![Страница samlintgpage SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ ms.lasthandoff: 03/12/2018
 
     d. В текстовое поле **Issuer URL** (URL-адрес издателя) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure.
 
-    д. В текстовое поле **Metadata URL** (URL-адрес метаданных) вставьте шаблон **URL-адреса метаданных**, созданный на портале Azure.
+    д. В текстовое поле **URL-адрес метаданных** вставьте **URL-адрес метаданных федерации приложения**, скопированный на портале Azure.
 
     f. Выберите команду **Сохранить**.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

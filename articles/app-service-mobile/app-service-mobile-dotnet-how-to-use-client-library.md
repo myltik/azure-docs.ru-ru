@@ -1,11 +1,11 @@
 ---
-title: "Работа с управляемой клиентской библиотекой мобильных приложений службы приложений (Windows) | Документация Майкрософт"
-description: "Узнайте, как использовать клиент .NET для мобильных приложений службы приложений Azure с приложениями Windows и Xamarin."
+title: Работа с управляемой клиентской библиотекой мобильных приложений службы приложений (Windows) | Документация Майкрософт
+description: Узнайте, как использовать клиент .NET для мобильных приложений службы приложений Azure с приложениями Windows и Xamarin.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: c80265432f4ee3120e3125b45712dc0e7a434708
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 2b7620611c4587d00612f98c86b5792984ff548b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Использование управляемого клиента для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -651,10 +651,10 @@ InvokeApiAsync можно использовать для вызова любо�
 2. Откройте проект в Visual Studio или Xamarin Studio и добавьте ссылку на пакет NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Включите в диапазон поиска предварительные версии.
 3. Добавьте в приложение код, соответствующий используемой платформе, который приведен ниже. В каждом коде выполните следующие замены.
 
-   * Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Формат должен быть следующим: https://login.microsoftonline.com/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в разделе Azure Active Directory на [портале Azure].
+   * Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Его необходимо указать в формате https://login.microsoftonline.com/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в разделе Azure Active Directory на [портале Azure].
    * Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Идентификатор клиента можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
    * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
-   * Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта */.auth/login/done* , используя схему HTTPS. Это значение должно быть похоже на *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта */.auth/login/done* , используя схему HTTPS. Это значение должно быть аналогично *https://contoso.azurewebsites.net/.auth/login/done*.
 
      Ниже приведены колы для каждой платформы.
 
@@ -1082,7 +1082,7 @@ public class MyHandler : DelegatingHandler
 [1]: app-service-mobile-windows-store-dotnet-get-started.md
 [2]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [3]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[4]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
+[4]: https://msdn.microsoft.com/library/azure/mt419521(v=azure.10).aspx
 [5]: https://github.com/Azure-Samples
 [6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
 [7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
@@ -1090,7 +1090,7 @@ public class MyHandler : DelegatingHandler
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
 [10]: http://www.symbolsource.org/
 [11]: http://www.symbolsource.org/Public/Wiki/Using
-[12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
+[12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Добавление проверки подлинности в приложение]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Автономная синхронизация данных в мобильных приложениях Azure]: app-service-mobile-offline-data-sync.md
@@ -1099,35 +1099,35 @@ public class MyHandler : DelegatingHandler
 [Настройка приложения службы приложений для использования службы входа Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
-[MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
+[MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
+[MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/library/azure/dn268408(v=azure.10).aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
-[GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275(v=azure.10).aspx
-[создает ссылку на нетипизированную таблицу]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
-[DeleteAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296407(v=azure.10).aspx
-[IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560(v=azure.10).aspx
-[InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400(v=azure.10).aspx
-[InvokeApiAsync]: https://msdn.microsoft.com/en-us/library/azure/dn268343(v=azure.10).aspx
-[LoginAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296411(v=azure.10).aspx
-[LookupAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871654(v=azure.10).aspx
-[OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
-[OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
-[ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
-[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
-[Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
-[UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
+[GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
+[создает ссылку на нетипизированную таблицу]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
+[IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
+[InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
+[InvokeApiAsync]: https://msdn.microsoft.com/library/azure/dn268343(v=azure.10).aspx
+[LoginAsync]: https://msdn.microsoft.com/library/azure/dn296411(v=azure.10).aspx
+[LookupAsync]: https://msdn.microsoft.com/library/azure/jj871654(v=azure.10).aspx
+[OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
+[OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
+[ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Select]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
+[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [портале Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
-[Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
+[Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Центр разработки для Windows]: https://dev.windows.com/en-us/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[пакету SDK для Windows Live]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
+[пакету SDK для Windows Live]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [справочниками по API]: https://msdn.microsoft.com/library/azure/dn495101.aspx

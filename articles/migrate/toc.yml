@@ -24,6 +24,8 @@
           href: migrate-scenarios-overview.md
         - name: Сценарий 1. Оценка готовности локальных компьютеров к переносу в Azure
           href: migrate-scenarios-assessment.md
+        - name: Сценарий 2. Миграция в Azure по методике lift-аnd-shift
+          href: migrate-scenarios-lift-and-shift.md
     - name: Обнаружение и оценка крупной среды
       href: how-to-scale-assessment.md
     - name: Группирование компьютеров

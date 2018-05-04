@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Настройка утверждения роли в Azure Active Directory, выдаваемого в токене SAML для корпоративных приложений
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/18/2018
 
 5. Добавив приложение, перейдите к странице **Свойства** и скопируйте **идентификатор объекта**.
 
-    ![Страница "Свойства"](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Страница "Свойства"](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. В другом окне откройте [обозреватель Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
 
@@ -253,7 +253,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные инструкции см. в [документации по приложениям](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
+Дополнительные инструкции см. в [документации по приложениям](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 <!--Image references-->
 <!--Image references-->

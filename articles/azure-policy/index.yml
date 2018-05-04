@@ -1,36 +1,36 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по службе \"Политика Azure\""
+title: Документация по службе "Политика Azure"
 metadata:
-  title: "Документация по службе \"Политика Azure\". Руководства и справочник по API | Документация Майкрософт"
-  description: "Служба \"Политика Azure\" позволяет управлять ИТ-задачами и предотвращать проблемы с помощью определений политик, которые применяют правила и действия к ресурсам. Использование службы \"Политика Azure\" обеспечивает соответствие ресурсов корпоративным стандартам и соглашениям об уровне обслуживания. Узнайте, как создавать и назначать определения политик и управлять ими, используя наши краткие инструкции, примеры и руководства."
+  title: Документация по службе "Политика Azure". Руководства и справочник по API | Документация Майкрософт
+  description: Служба "Политика Azure" позволяет управлять ИТ-задачами и предотвращать проблемы с помощью определений политик, которые применяют правила и действия к ресурсам. Использование службы "Политика Azure" обеспечивает соответствие ресурсов корпоративным стандартам и соглашениям об уровне обслуживания. Узнайте, как создавать и назначать определения политик и управлять ими, используя наши краткие инструкции, примеры и руководства.
   services: azure-policy
-  author: czeumault
-  manager: carolz
+  author: DCtheGeek
+  manager: carmonm
   ms.service: azure-policy
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: 6082601b46ab4b420575fbc4d04b176c96225f72
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.author: dacoulte
+  ms.openlocfilehash: 0ca9efe0c1c1871265da127acfd76e90126b59ad
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
-  description: "Служба \"Политика Azure\" позволяет управлять ИТ-задачами и предотвращать проблемы с помощью определений политик, которые применяют правила и действия к ресурсам. Использование службы \"Политика Azure\" обеспечивает соответствие ресурсов корпоративным стандартам и соглашениям об уровне обслуживания. Узнайте, как создавать и назначать определения политик и управлять ими, используя наши краткие инструкции, примеры и руководства."
+  description: Служба "Политика Azure" позволяет управлять ИТ-задачами и предотвращать проблемы с помощью определений политик, которые применяют правила и действия к ресурсам. Использование службы "Политика Azure" обеспечивает соответствие ресурсов корпоративным стандартам и соглашениям об уровне обслуживания. Узнайте, как создавать и назначать определения политик и управлять ими, используя наши краткие инструкции, примеры и руководства.
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: "Узнайте, как создавать и назначать определения политик и управлять ими в Azure."
+    text: Узнайте, как создавать и назначать определения политик и управлять ими в Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: "Портал Azure"
+      text: Портал Azure
       href: /azure/azure-policy/assign-policy-definition
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
@@ -38,32 +38,32 @@ sections:
       href: /azure/azure-policy/assign-policy-definition-ps
     - image:
         src: https://docs.microsoft.com/media/common/cli.svg
-      text: "Инфраструктура CLI Azure"
+      text: Инфраструктура CLI Azure
       href: /azure/azure-policy/assign-policy-definition-cli
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
-    text: "Узнайте, как создавать и назначать определения политик и управлять ими в Azure."
+    text: Узнайте, как создавать и назначать определения политик и управлять ими в Azure.
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/azure-policy/create-manage-policy\">Создание политики Azure и управление ею</a>"
-- title: "Примеры"
+    - html: <a href="/azure/azure-policy/create-manage-policy">Создание политики Azure и управление ею</a>
+- title: Примеры
   items:
   - type: paragraph
-    text: "Используйте приведенные ниже примеры JSON для создания определений политики в Azure."
+    text: Используйте приведенные ниже примеры JSON для создания определений политики в Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
-- title: "Ссылка"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
-      html: "<p><a href=\"https://docs.microsoft.com/cli/azure/policy\">интерфейс командной строки Azure</a></p>"
+    - title: Командная строка
+      html: <p><a href="https://docs.microsoft.com/cli/azure/policy">интерфейс командной строки Azure</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

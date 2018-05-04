@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Развертывание кластера пакета HPC 2016 в Azure
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Передача сертификата в хранилище ключей Azure
 
-Перед развертыванием кластера HPC передайте PFX-файл сертификата в [хранилище ключей Azure](../../key-vault/index.md) как секрет и запишите указанные ниже данные, чтобы использовать их при развертывании: **имя хранилища**, **группа ресурсов хранилища**, **URL-адрес сертификата** и **отпечаток сертификата**.
+Перед развертыванием кластера HPC передайте PFX-файл сертификата в [хранилище ключей Azure](../../key-vault/index.yml) как секрет и запишите указанные ниже данные, чтобы использовать их при развертывании: **имя хранилища**, **группа ресурсов хранилища**, **URL-адрес сертификата** и **отпечаток сертификата**.
 
 Ниже приведен пример скрипта PowerShell для передачи сертификата, создания хранилища ключей и необходимых данных. Дополнительную информацию о передаче сертификата в хранилище ключей Azure см. в статье [Приступая к работе с хранилищем ключей Azure](../../key-vault/key-vault-get-started.md).
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Пример использования. Непрерывное развертывание на виртуальных машинах с помощью Automation DSC и Chocolatey
 В среде DevOps существует множество средств, которые упрощают различные аспекты процесса непрерывной интеграции.  Платформа для настройки требуемого состояния службы автоматизации Azure (далее — Automation DSC Azure) — это долгожданная новая функция, которую могут использовать команды разработчиков DevOps.  В этой статье показана настройка непрерывного развертывания для компьютера Windows.  Применение этого метода можно легко расширить, включив любое количество компьютеров Windows, необходимое для роли (например, веб-сайта), а также дополнительные роли.
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/23/2018
 Начинать работу с шаблона ARM не обязательно.  Существуют командлеты PowerShell, которые помогут вам зарегистрировать виртуальные машины на опрашивающем сервере и выполнить все остальные действия. Дополнительные сведения см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md).
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Шаг 1. Настройка опрашивающего сервера и учетной записи службы автоматизации
-В командной строке PowerShell с аутентификацией (Add-AzureRmAccount) выполните следующую команду (настройка опрашивающего сервера может занять несколько минут):
+В командной строке PowerShell с аутентификацией (Connect-AzureRmAccount) выполните следующую команду (настройка опрашивающего сервера может занять несколько минут).
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

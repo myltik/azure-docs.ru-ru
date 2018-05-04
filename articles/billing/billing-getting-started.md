@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db81baa5df13c8c5ca38e0e1ab2dffda1e31370a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 
 - Если ваша подписка используется в режиме бесплатной пробной версии, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure с открытой лицензией (AIO) или BizSpark, такая подписка будет автоматически деактивирована, когда будут израсходованы кредиты. Во избежание неожиданной деактивации подписки вам следует знать свою [предельную сумму расходов](#spending-limit).
 
-- Если вы вошли в систему с [бесплатной учетной записью Azure](https://azure.microsoft.com/en-us/free/), [вы можете бесплатно работать с некоторыми широко используемыми службами Azure в течение 12 месяцев](billing-create-free-services-included-free-account.md). Помимо приведенных ниже рекомендаций, ознакомьтесь со статьей о [Avoid getting charged for your Azure free account](billing-avoid-charges-free-account.md) (Как избежать выставления счетов для бесплатной учетной записи Azure).
+- Если вы вошли в систему с [бесплатной учетной записью Azure](https://azure.microsoft.com/free/), [вы можете бесплатно работать с некоторыми широко используемыми службами Azure в течение 12 месяцев](billing-create-free-services-included-free-account.md). Помимо приведенных ниже рекомендаций, ознакомьтесь со статьей о [Avoid getting charged for your Azure free account](billing-avoid-charges-free-account.md) (Как избежать выставления счетов для бесплатной учетной записи Azure).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Перед добавлением служб Azure узнайте их расчетную стоимость
 

@@ -51,7 +51,7 @@
 ### [Руководство по устранению неполадок](dns-troubleshoot.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [интерфейс командной строки Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: df2e25bca907e90c12d18ea76f9c6a94c38a4ece
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API
 В службе управления API группы используются для управления видимостью продуктов для разработчиков. Продукты сначала делаются видимыми для групп, а затем разработчики в таких группах могут просматривать и подписываться на продукты, которые связаны с группами. 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/16/2018
 
 В этом руководстве показано, как администраторы экземпляра службы управления API могут добавлять новые группы и связывать их с продуктами и разработчиками.
 
-Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) REST API интерфейса API управления.
+Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) REST API интерфейса API управления.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="next-steps"> </a>Дальнейшие действия
 
 * После добавления  в группу разработчик может просматривать связанные с данной группой продукты и подписываться на них. Дополнительные сведения см. в статье [Создание и публикация продукта в службе управления API Azure][How create and publish a product in Azure API Management].
-* Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) REST API интерфейса API управления.
+* Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) REST API интерфейса API управления.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

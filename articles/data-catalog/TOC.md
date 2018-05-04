@@ -26,7 +26,7 @@
 ## [Просмотр связанных ресурсов данных](data-catalog-how-to-view-related-data-assets.md) 
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Справочник по синтаксису поиска](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Понятия, используемые разработчиками](data-catalog-developer-concepts.md)

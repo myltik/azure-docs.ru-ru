@@ -21,6 +21,14 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Создание образов контейнеров (предварительная версия)
+      items:
+        - name: 1. Создание образов в Azure
+          href: container-registry-tutorial-quick-build.md
+        - name: 2. Автоматизация создания образов
+          href: container-registry-tutorial-build-task.md
+        - name: 3. Создание обновлений базовых образов
+          href: container-registry-tutorial-base-image-update.md
     - name: Георепликация (предварительная версия)
       items:
         - name: 1. Подготовка реестра контейнеров

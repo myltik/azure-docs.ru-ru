@@ -1,11 +1,11 @@
 ---
-title: "Начало работы с проверкой подлинности для мобильных приложений в Xamarin iOS"
-description: "Использование мобильных приложений для проверки подлинности пользователей приложения Xamarin iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
+title: Начало работы с проверкой подлинности для мобильных приложений в Xamarin iOS
+description: Использование мобильных приложений для проверки подлинности пользователей приложения Xamarin iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Добавление проверки подлинности в приложение Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/04/2018
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Откройте файл **Info.plist** и перейдите к записи **Типы URL-адресов** в разделе **Дополнительно**. Теперь настройте **идентификатор** и **схемы URL-адресов** для типов URL-адресов, а затем щелкните **Добавить тип URL-адресов**. **Схемы URL-адресов** должны совпадать с {url_scheme_of_your_app}.
-7. В среде Visual Studio или Xamarin Studio, подключенной к узлу сборки Xamarin на компьютере Macintosh, запустите клиентский проект, указав устройство или эмулятор. Убедитесь, что в приложении не отображаются данные.
+7. В среде Visual Studio, подключенной к узлу Mac или Visual Studio для Mac, запустите клиентский проект, указав устройство или эмулятор. Убедитесь, что в приложении не отображаются данные.
    
     Обновите, потянув вниз список элементов, чтобы появился экран входа. После успешного ввода допустимых учетных данных в приложении отобразится список элементов задач и вы сможете внести изменения в данные.
 

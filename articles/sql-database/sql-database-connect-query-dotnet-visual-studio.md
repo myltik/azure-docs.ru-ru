@@ -10,15 +10,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: adc2436bfe74fed343ac2796dec51ae90619312d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d785436f157fb694ccf4447db91f28b25c9f2a3a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Использование .NET (C#) с Visual Studio для подключения и создания запросов к базе данных SQL Azure
 
-В этом кратком руководстве показано, как использовать платформу [.NET Framework](https://www.microsoft.com/net/) для создания программы C# с помощью Visual Studio для подключения к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
+В этом кратком руководстве показано, как использовать [.NET Framework](https://www.microsoft.com/net/) для создания программы C# с помощью Visual Studio, которая подключается к Базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

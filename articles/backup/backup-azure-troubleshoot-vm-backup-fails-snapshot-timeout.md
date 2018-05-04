@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Устранение неполадок службы Azure Backup. Проблемы с агентом или расширением
 
@@ -99,6 +99,8 @@ ms.lasthandoff: 04/19/2018
 Для разрешения подключений к хранилищу из определенного региона можно использовать [теги службы](../virtual-network/security-overview.md#service-tags). Убедитесь, что правило, которое позволяет получить доступ к учетной записи хранения, имеет более высокий приоритет, чем правило, которое блокирует доступ к Интернету. 
 
 ![Группа безопасности сети с тегами хранилища для региона](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Пошаговые инструкции по настройке тегов службы см. в [этом видео](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > Теги службы хранилища находятся на этапе предварительной версии. Они доступны только в определенных регионах. Список регионов см. в разделе [Теги служб](../virtual-network/security-overview.md#service-tags).

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Архивация виртуальных машин с помощью командлетов AzureRM.RecoveryServices.Backup
 
@@ -79,9 +79,9 @@ ms.lasthandoff: 04/03/2018
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Чтобы войти в учетную запись Azure, используйте командлет **Login-AzureRmAccount**. Откроется веб-станица, на которой пользователю предлагается ввести данные для входа в учетную запись: 
-    - Кроме того, учетные данные можно добавить в качестве параметра в командлет **Login-AzureRmAccount**, используя параметр **-Credential**.
-    - Если вы — партнер-поставщик облачных услуг, работающий от имени клиента, вам потребуется указать заказчика в качестве клиента. Для этого нужно ввести идентификатор или основное доменное имя клиента. Например: **Login-AzureRmAccount -Tenant "fabrikam.com"**.
+3. Чтобы войти в учетную запись Azure, используйте командлет **Connect-AzureRmAccount**. Откроется веб-станица, на которой пользователю предлагается ввести данные для входа в учетную запись: 
+    - Кроме того, учетные данные можно добавить в качестве параметра в командлет **Connect-AzureRmAccount**, используя параметр **-Credential**.
+    - Если вы — партнер-поставщик облачных услуг, работающий от имени клиента, вам потребуется указать заказчика в качестве клиента. Для этого нужно ввести идентификатор или основное доменное имя клиента. Например: **Connect-AzureRmAccount -Tenant "fabrikam.com"**.
 4. Свяжите подписку, которую собираетесь использовать, с учетной записью, так как последняя может иметь несколько подписок:
 
     ```PS
@@ -362,7 +362,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 После восстановления дисков создайте и настройте виртуальную машину с диска, выполнив описанные ниже действия.
 
 > [!NOTE]
-> При создании зашифрованных виртуальных машин с помощью восстановленных дисков у роли Azure должно быть разрешение на выполнение действия **Microsoft.KeyVault/vaults/deploy/action**. Если у роли нет этого разрешения, создайте пользовательскую роль с этим действием. Дополнительные сведения см. в разделе [Пользовательские роли в Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> При создании зашифрованных виртуальных машин с помощью восстановленных дисков у роли Azure должно быть разрешение на выполнение действия **Microsoft.KeyVault/vaults/deploy/action**. Если у роли нет этого разрешения, создайте пользовательскую роль с этим действием. Дополнительные сведения см. в разделе [Пользовательские роли в Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
-ms.author: sethm;clemensv
-ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/30/2018
+ms.author: sethm
+ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Обзор проверки подлинности концентраторов событий и модели безопасности
 
@@ -94,9 +94,9 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 Когда клиент отправляет данные в концентратор событий, к запросу на отправку прикрепляется специальный маркер. Во избежание перехвата и кражи маркера злоумышленником связь между клиентом и концентратором событий должна выполняться по зашифрованному каналу.
 
-### <a name="blacklisting-clients"></a>Добавление клиентов в список блокировок
+### <a name="blacklisting-clients"></a>Добавление клиентов в черный список
 
-Если маркер украден злоумышленником, злоумышленник может действовать от имени клиента, маркер которого был украден. Добавление клиента в список блокировок означает, что этот клиент не сможет работать, пока не получит новый маркер, использующий другой издатель.
+Если маркер украден злоумышленником, злоумышленник может действовать от имени клиента, маркер которого был украден. Добавление клиента в черный список означает, что этот клиент не сможет работать, пока не получит новый маркер, использующий другой издатель.
 
 ## <a name="authentication-of-back-end-applications"></a>Проверка подлинности серверных приложений
 

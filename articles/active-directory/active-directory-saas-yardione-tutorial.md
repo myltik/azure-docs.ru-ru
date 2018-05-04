@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 252763c6112026b7af697783034555e8d96ca6a4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d7df167bd5988c297f4ff338bfecf49bdc941797
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Руководство. Интеграция Azure Active Directory с YardiOne
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/12/2018
 1. Добавление YardiOne из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-yardione-from-the-gallery"></a>Добавление YardiOne из коллекции
+## <a name="adding-yardione-from-the-gallery"></a>Добавление YardiOne из коллекции.
 Чтобы настроить интеграцию приложения YardiOne с Azure AD, необходимо добавить это приложение из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить YardiOne из коллекции, выполните следующие действия:**
@@ -111,37 +111,17 @@ ms.lasthandoff: 03/12/2018
     Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу технической поддержки YardiOne](https://clientcentral.yardi.com). 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу технической поддержки YardiOne](https://clientcentral.yardi.com).
+     
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот. 
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_certificate.png) 
  
-4. Нажмите кнопку **Сохранить** .
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-yardione-tutorial/tutorial_general_400.png)
 
-5. Для создания **URL-адреса метаданных** выполните следующие действия:
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_endpoint.png)
-     
-    d. Теперь перейдите к странице свойств **YardiOne** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-6. Для настройки единого входа на стороне **YardiOne** необходимо отправить созданный **URL-адрес метаданных** в [службу технической поддержки YardiOne](https://clientcentral.yardi.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+6. Для настройки единого входа на стороне **YardiOne** необходимо отправить созданный **URL-адрес метаданных федерации приложений** в [службу технической поддержки YardiOne](https://clientcentral.yardi.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

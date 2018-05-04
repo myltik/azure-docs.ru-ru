@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Принципы работы Azure IoT
+metadata:
+  title: Принципы работы Azure IoT
+  description: Azure IoT — это коллекция управляемых корпорацией Майкрософт облачных служб, которые позволяют подключать миллиарды ресурсов Интернета вещей, отслеживать их состояние и управлять ими.
+  services: iot
+  author: BryanLa
+  manager: timlt
+  ms.service: iot
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/20/2018
+  ms.author: bryanla
+  ms.openlocfilehash: a86827616c96dd877a88fdd89cb5b0205c2cface
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 04/28/2018
+abstract:
+  description: Добро пожаловать в Microsoft Azure и "Интернет вещей" (IoT). Azure IoT предлагает самые разные службы и решения, которые помогут вам создавать приложения IoT с нуля. Azure IoT предоставляет самые разные параметры и средства, соответствующие вашим отраслевым потребностям, а также навыкам и ресурсам, включая полностью размещенное и управляемое решения SaaS (программное обеспечение как услуга), разные специализированные решения PaaS (платформа как услуги) и технологии для создания интеллектуальных пограничных устройств.
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: Краткие руководства для быстрого изучения возможностей Azure IoT
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-central/quick-deploy-iot-central">Сведения о создании приложения Azure IoT Central</a>
+    - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Сведения о создании Центра Интернета вещей и подключении первого имитированного устройства к Azure (Node.js)</a>
+    - html: <a href="/azure/iot-edge/quickstart-linux">Развертывание первого модуля IoT Edge и обработка данных на имитированном устройстве Windows, Linux или Mac</a>
+    - html: <a href="/azure/location-based-services/quick-demo-map-app">Запуск приложения поиска на картах с помощью Azure Location Based Services (предварительная версия)</a>
+    - html: <a href="/azure/time-series-insights/time-series-quickstart">Знакомство со службой "Аналитика временных рядов"</a>
+- title: Технологии и решения
+  items:
+  - type: paragraph
+    text: Начало работы с предварительно настроенными решениями и предложениями SaaS
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-suite">IoT Suite</a>
+    - html: <a href="/azure/iot-central">IoT Central</a>
+  - type: paragraph
+    text: Создание решений на платформе PaaS (платформа как услуга)
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-hub">Центр Интернета вещей</a>
+    - html: <a href="/azure/iot-dps">Службы подготовки устройств к добавлению в Центр Интернета вещей</a>
+    - html: <a href="/azure/location-based-services">Azure Location Based Services</a>
+    - html: <a href="/azure/time-series-insights">Аналитика временных рядов Azure</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">Пакеты SDK для службы IoT</a>
+  - type: paragraph
+    text: Создание пограничной зоны с интеллектуальными устройствами
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-edge">IoT Edge</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">Пакеты SDK для устройств IoT</a>
+- title: Примеры
+  items:
+  - type: paragraph
+    text: Поиск примеров распространенных языков и устройств
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0">Все примеры</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=C">Примеры C</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=dotnet">Примеры для .NET</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=python">Примеры для Python</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=nodejs">Примеры для Node.js</a>
+- title: Видеоролики
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
+      html: <p>Цифровое преобразование системы отопления, вентиляции и кондиционирования Contoso с помощью решений Интернета вещей</p>
+      image:
+        src: media/index/i_video.png
+      title: Введение
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      html: <p>Создание решений Azure IoT без написания кода с помощью Azure IoT Central</p>
+      image:
+        src: media/index/i_video.png
+      title: Демонстрация
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Командная строка
+      html: <p><a href="/cli/azure/iot">интерфейс командной строки Azure</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Расширение Azure IoT CLI</a></p>
+    - title: Языки
+      html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Пакеты SDK Azure IoT для .Net, C, Java, Node.js, Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/iothub">Центр Интернета вещей</a></p><p><a href="/rest/api/iot-dps">Служба подготовки устройств для Центра Интернета вещей</a></p><p><a href="/rest/api/location-based-services-management/">Управление службами Location Based Services</a></p><p><a href="/rest/api/location-based-services/">Принципы работы служб Location Based Services</a></p><p><a href="/rest/api/time-series-insights-management/">Управление Аналитикой временных рядов</a></p><p><a href="/rest/api/time-series-insights/">Аналитика временных рядов</a></p>

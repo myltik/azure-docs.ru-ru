@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Как создать резервную копию сервера в службе "База данных Azure для MySQL" и восстановить его с помощью портала Azure
 
@@ -68,14 +68,14 @@ az extension update --name rdbms
 
 При создании сервера с помощью команды `az mysql server create` параметр `--geo-redundant-backup` определяет тип избыточности для резервного копирования. Если установлено значение `Enabled`, выполняется геоизбыточное резервное копирование. Если установлено значение `Disabled`, выполняется локальное избыточное резервное копирование. 
 
-Период хранения резервных копий устанавливается с помощью параметра `--backup-retention-days`. 
+Период хранения резервных копий устанавливается с помощью параметра `--backup-retention`. 
 
 Дополнительные сведения о настройке этих значений при создании см. в кратком руководстве [Создание сервера базы данных Azure для MySQL с помощью Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Вот как можно изменить срок хранения резервной копии сервера.
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 В указанном выше примере период хранения резервных копий mydemoserver изменен на 10 дней.
@@ -113,6 +113,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 Если вы настроили сервер для геоизбыточного резервного копирования, из резервной копии можно создать новый сервер. Его можно создать в любом регионе, где доступна служба "База данных Azure для MySQL".  
 
 Чтобы создать сервер с помощью геоизбыточного резервного копирования, выполните команду Azure CLI `az mysql server georestore`.
+
+> [!NOTE]
+> Сразу после создания сервер может быть еще не готов к географическому восстановлению. Заполнение метаданных может занять несколько часов.
+>
 
 Для геовосстановления сервера в командной строке Azure CLI введите следующую команду.
 

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Atlassian Cloud | Документация Майкрософт"
-description: "Сведения о настройке единого входа Azure Active Directory в приложении Atlassian Cloud."
+title: Руководство по интеграции Azure Active Directory с Atlassian Cloud | Документация Майкрософт
+description: Сведения о настройке единого входа Azure Active Directory в приложении Atlassian Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: db9e9c7ae8380612bac9d0aeaaaf6df78cba523f
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a43d0a165d9da6267c6f9733420244ebf913e930
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Руководство по интеграции Azure Active Directory с Atlassian Cloud
 
@@ -48,7 +48,8 @@ ms.lasthandoff: 12/13/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух основных стандартных блоков.
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
+Сценарий, описанный в этом руководстве, состоит из двух основных стандартных блоков.
 
 * Добавление Atlassian Cloud из коллекции
 * настройка и проверка единого входа в Azure AD.
@@ -56,7 +57,7 @@ ms.lasthandoff: 12/13/2017
 ## <a name="add-atlassian-cloud-from-the-gallery"></a>Добавление Atlassian Cloud из коллекции
 Чтобы настроить интеграцию Atlassian Cloud с Azure AD, добавьте Atlassian Cloud из коллекции в список управляемых приложений SaaS, выполнив следующее:
 
-1. На [портале Azure](https://portal.azure.com) в области слева нажмите кнопку **Azure Active Directory**. 
+1. На [портале Azure](https://portal.azure.com) в области слева нажмите кнопку **Azure Active Directory**.
 
     ![Кнопка "Azure Active Directory"][1]
 
@@ -93,7 +94,7 @@ ms.lasthandoff: 12/13/2017
     ![Ссылка "Настройка единого входа"][4]
 
 2. В окне **Единый вход** в поле **Режим единого входа** выберите **Вход на основе SAML**.
- 
+
     ![Окно единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
 3. Чтобы настроить приложение в режиме, инициированном поставщиком удостоверений, в разделе **Домены и URL-адреса приложения Atlassian Cloud** выполните следующее.
@@ -110,92 +111,38 @@ ms.lasthandoff: 12/13/2017
 
     ![Сведения о домене и URL-адресах единого входа приложения Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Приведенные выше значения используются только для примера. Замените их на фактические значения идентификатора, URL-адреса ответа и URL-адреса входа. Реальные значения можно получить на экране настройки SAML для Atlassian Cloud. Позже в данном руководстве мы рассмотрим эти значения.
 
 5. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)** и сохраните файл сертификата на компьютере.
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png)
 
 6. Приложение Atlassian Cloud ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию атрибутов токена SAML. 
 
     По умолчанию значение **Идентификатор пользователя** совпадает с атрибутом user.userprincipalname. Измените его на атрибут user.mail. Кроме того, можно выбрать другое значение в соответствии с настройками в вашей организации, но в большинстве случаев необходима электронная почта.
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_attribute.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_attribute.png)
 
 7. Щелкните **Сохранить**.
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
-8. Чтобы открыть окно **Настройка единого входа**, в разделе **Настройка Atlassian Cloud** выберите **Настроить Atlassian Cloud**. 
+8. Чтобы открыть окно **Настройка единого входа**, в разделе **Настройка Atlassian Cloud** выберите **Настроить Atlassian Cloud**.
 
-9. Скопируйте **идентификатор сущности SAML** и **URL-адрес службы единого входа SAML** из раздела **Quick Reference** (Краткий справочник). 
+9. Скопируйте **идентификатор сущности SAML** и **URL-адрес службы единого входа SAML** из раздела **Quick Reference** (Краткий справочник).
 
-    ![Настройка Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png) 
+    ![Настройка Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
 
 10. Чтобы настроить единый вход для вашего приложения, войдите на портал Atlassian с помощью учетных данных администратора.
 
-11. На веб-сайте Atlassian выберите **Administration** (Администрирование) > **Organizations & Security** (Организации и безопасность). Если у вас нет организации, создайте и назовите ее, а затем в левой области выберите **Domains** (Домены).
+11. Перед настройкой единого входа необходимо проверить домен. Дополнительные сведения см. в документе по [проверке домена Atlassian](https://confluence.atlassian.com/cloud/domain-verification-873871234.html).
 
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
-
-12. Выберите в качестве способа проверки домена **DNS** или **HTTPS**.
-
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_17.png)
-
-13. Для проверки DNS в окне **доменов** выберите вкладку **DNS**, а затем выполните следующее.
-
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_18.png)
-
-    a. Чтобы скопировать значение для записи текста (запись типа TXT), выберите **Copy** (Копировать).
-
-    Б. Чтобы добавить запись, перейдите на страницу параметров в DNS.
-
-    c. Выберите параметр для добавления новой записи и вставьте значение, скопированное на странице **Domains** (Домены) в поле **Value** (Значение). Запись DNS также может ссылаться на него в качестве **ответа** или **описания**.
-
-    d. Запись DNS также может включать в себя следующие поля:
-    
-    * В поле **Record type** (Тип записи) введите **TXT**.
-    * В поле **Name/Host/Alias** (Узел/имя/псевдоним) оставьте значение по умолчанию (@ или пустое).
-    * В поле **Time to live (TTL)** (Срок жизни (TTL)) введите **86400**.
-    
-    д.  Сохраните запись.
-
-14. Вернитесь к окну **доменов** в разделе администрирования организации и нажмите кнопку **Verify domain** (Проверить домен). В поле **Domain** (Домен) введите доменное имя, а затем выберите **Verify domain** (Проверить домен).
-
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_19.png)  
-
-    > [!NOTE]
-    > До того как изменения записей типа TXT вступят в силу, может пройти приблизительно 72 часа (вы не сразу узнаете, прошла ли проверка вашего домена). Чтобы просмотреть состояние проверки, проверьте окно **Domains** (Домены) вскоре после завершения этой процедуры. Состояние изменится на *Verified* (Проверено), как показано ниже.
-    > 
-    > ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_20.png)
-    > 
-    > 
-
-15. Чтобы проверить HTTPS, в окне **доменов** выберите **HTTPS**, а затем выполните следующее.
-
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_21.png)
-
-    a. Чтобы загрузить HTML-файл, выберите **Download file** (Загрузить файл).
-
-    Б. Отправьте HTML-файл в корневой каталог домена.
-
-16. Вернитесь на **страницу доменов** в разделе администрирования организации и нажмите кнопку **Verify domain** (Проверить домен). В окне **Verify domain** (Проверка домена) в поле **Domain** (Домен) введите ваше **доменное имя**, а затем выберите **Verify domain** (Проверить домен).
-
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_22.png)
-
-17. Если в процессе проверки удалось найти файл, загруженный в корневой каталог, состояние домена обновляется до значения *Verified* (Проверено), как показано ниже.
-
-    ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_23.png)
-
-    > [!NOTE]
-    > Дополнительные сведения см. в статье [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) (Проверка домена Atlassian).
-
-18. В левой области выберите **SAML single sign-on** (Единый вход SAML). Подпишитесь на Atlassian Identity Manager.
+12. В левой области выберите **SAML single sign-on** (Единый вход SAML). Подпишитесь на Atlassian Identity Manager.
 
     ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-19. В окне**Add SAML configuration** (Добавление конфигурации SAML) выполните следующее.
+13. В окне**Add SAML configuration** (Добавление конфигурации SAML) выполните следующее.
 
     ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
@@ -207,24 +154,20 @@ ms.lasthandoff: 12/13/2017
     
     d. Выберите **Save Configuration** (Сохранить конфигурацию).
      
-20. Чтобы убедиться, что вы настроили правильные URL-адреса, обновите параметры Azure AD, выполнив следующее.
-  
+14. Чтобы убедиться, что вы настроили правильные URL-адреса, обновите параметры Azure AD, выполнив следующее.
+
     ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
     a. В окне SAML скопируйте **идентификатор удостоверения поставщика услуг** и вставьте его в поле **Идентификатор** на портале Azure в разделе **Домены и URL-адреса приложения Atlassian Cloud**.
     
-    Б. В окне SAML скопируйте **URL-адрес поставщика службы обработчика утверждений поставщика услуг** и вставьте его в поле **URL-адрес ответа** на портале Azure в разделе **Домены и URL-адреса приложения Atlassian Cloud**.  
-        URL-адрес для входа является URL-адресом клиента приложения Atlassian Cloud. 
+    Б. В окне SAML скопируйте **URL-адрес поставщика службы обработчика утверждений поставщика услуг** и вставьте его в поле **URL-адрес ответа** на портале Azure в разделе **Домены и URL-адреса приложения Atlassian Cloud**. URL-адрес для входа является URL-адресом клиента приложения Atlassian Cloud.
 
     > [!NOTE]
-    > Если вы уже давно являетесь клиентом, после обновления значений **идентификатора удостоверений поставщика услуг** и **URL-адреса службы обработчика утверждений** на портале Azure выберите **Yes, update configuration** (Да, обновить конфигурацию). Если вы — новый клиент, этот шаг можно пропустить. 
+    > Если вы уже давно являетесь клиентом, после обновления значений **идентификатора удостоверений поставщика услуг** и **URL-адреса службы обработчика утверждений** на портале Azure выберите **Yes, update configuration** (Да, обновить конфигурацию). Если вы — новый клиент, этот шаг можно пропустить.
     
-21. На портале Azure выберите **Сохранить**.
+15. На портале Azure выберите **Сохранить**.
 
     ![Настройка единого входа](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
-
-> [!TIP]
-> Настроив приложение, вы можете прочитать краткую версию предыдущих инструкций на [портале Azure](https://portal.azure.com). После добавления этого приложения из раздела **Active Directory** > **Корпоративные приложения** выберите вкладку **Единый вход**, а затем откройте встроенную документацию через раздел **Настройка** в нижней части окна. Чтобы узнать больше, ознакомьтесь со [встроенной документацией по Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
@@ -255,42 +198,41 @@ ms.lasthandoff: 12/13/2017
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
     d. Нажмите кнопку **Создать**.
-  
+
 ### <a name="create-an-atlassian-cloud-test-user"></a>Создание тестового пользователя в Atlassian Cloud
 
 Чтобы настроить вход в Atlassian Cloud для пользователей Azure AD, подготовьте учетные записи пользователей вручную в Atlassian Cloud, выполнив следующее.
 
 1. В области **администрирования** выберите **Users** (Пользователи).
 
-    ![Ссылка на пункт Users (Пользователи) в Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png) 
+    ![Ссылка на пункт Users (Пользователи) в Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png)
 
 2. Чтобы создать пользователя в Atlassian Cloud, выберите **Invite user** (Пригласить пользователя).
 
-    ![Создание пользователя Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png) 
+    ![Создание пользователя Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png)
 
-3. В поле **Email address** (Адрес электронной почты) введите адрес, а затем назначьте доступ к приложению. 
+3. В поле **Email address** (Адрес электронной почты) введите адрес, а затем назначьте доступ к приложению.
 
     ![Создание пользователя Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
- 
-4. Чтобы отправить приглашение для пользователя по электронной почте, выберите **Invite users** (Пригласить пользователей).  
-    Приглашение по электронной почте отправляется пользователю, и после его принятия пользователь получит доступ к системе. 
 
->[!NOTE] 
+4. Чтобы отправить приглашение для пользователя по электронной почте, выберите **Invite users** (Пригласить пользователей). Приглашение по электронной почте отправляется пользователю, и после его принятия пользователь получит доступ к системе.
+
+>[!NOTE]
 >Вы также можете создать несколько пользователей, нажав кнопку **Bulk Create** (Массовое создание) в разделе **Users** (Пользователи).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Atlassian Cloud. Для этого выполните следующее.
 
-![Назначение роли пользователя][200] 
+![Назначение роли пользователя][200]
 
 1. На портале Azure откройте представление **Приложения**, перейдите к представлению "Каталог" и выберите **Корпоративные приложения** > **Все приложения**.
 
-    ![Назначение пользователя][201] 
+    ![Назначение пользователя][201]
 
 2. В списке **приложений** выберите **Atlassian Cloud**.
 
-    ![Ссылка на Atlassian Cloud в списке приложений](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)  
+    ![Ссылка на Atlassian Cloud в списке приложений](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
 
 3. В области слева выберите **Пользователи и группы**.
 
@@ -318,8 +260,6 @@ ms.lasthandoff: 12/13/2017
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_01.png
@@ -333,4 +273,3 @@ ms.lasthandoff: 12/13/2017
 [201]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_203.png
-

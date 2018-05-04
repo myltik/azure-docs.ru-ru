@@ -1,5 +1,5 @@
 ---
-title: Вычисление результатов теста производительности для виртуальных машин Windows | Документация Майкрософт
+title: Вычисление результатов теста производительности для виртуальных машин Windows в Azure | Документация Майкрософт
 description: Сравнение результатов теста производительности SPECint для виртуальных машин Azure под управлением Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-ms.author: cynthn
-ms.openlocfilehash: 0b3e717ef9bf8af98650e78ce4a89eb9bf3eb83c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.author: cynthn;davberg
+ms.openlocfilehash: 2831f177bbcd02be02124812de144bd7a6867aa4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Вычисление результатов теста производительности для виртуальных машин Windows
 Ниже приведены результаты теста производительности SPECInt линейки высокопроизводительных виртуальных машин Azure под управлением Windows Server. Вы можете также ознакомиться с результатами теста производительности для [виртуальных машин Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+
 > [!NOTE]
 > Показатели для Linux были недавно обновлены и содержат более широкий набор виртуальных машин.
 

@@ -3,16 +3,17 @@ title: Работа с REST API в Fiddler или Postman (REST службы "П
 description: Как использовать Fiddler или Postman для отправки HTTP-запросов и вызовов REST API в службу "Поиск Azure".
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: 8a2e423d635c12f5d08395c03e4bc57ac71156ef
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Работа с REST API службы "Поиск Azure" с помощью Fiddler или Postman
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/18/2018
 
 Следующие инструменты широко используются в веб-разработке, но если вы знакомы с другим инструментом, инструкции в этой статье по-прежнему будут полезны.
 
-+ [Postman (надстройка Google Chrome)](https://www.getpostman.com/)
++ [Классическое приложение Postman](https://www.getpostman.com/)
 + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
 ## <a name="get-the-api-key-and-endpoint"></a>Получение ключа API и конечной точки

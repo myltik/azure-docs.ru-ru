@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Копирование данных из Dynamics 365 (Common Data Service) или Dynamics CRM и в эти решения с помощью фабрики данных Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Dynamics**. | Yes |
 | deploymentType | Тип развертывания для экземпляра Dynamics. Должен иметь значение **Online** для Dynamics Online. | Yes |
-| оrganizationName | Имя организации экземпляра Dynamics. | Нет, следует указывать при наличии нескольких экземпляров Dynamics, связанных с пользователем. |
+| serviceUri | URL-адрес вашего экземпляра службы Dynamics, например `https://adfdynamics.crm.dynamics.com`. | Yes |
 | authenticationType | Тип проверки подлинности для подключения к серверу Dynamics. Укажите **Office365** для Dynamics Online. | Yes |
 | Имя пользователя | Укажите имя пользователя для подключения к Dynamics. | Yes |
 | password | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -71,6 +71,9 @@ ms.lasthandoff: 03/23/2018
 
 >[!IMPORTANT]
 >При копировании данных в Dynamics среду выполнения интеграции Azure по умолчанию нельзя использовать для копирования. Другими словами, если связанная служба источника не имеет указанной среды выполнения интеграции, явным образом создайте [IR Azure](create-azure-integration-runtime.md#create-azure-ir) в расположении вблизи экземпляра Dynamics. Как показано в следующем примере, ассоциируйте ее в связанной службе Dynamics.
+
+>[!NOTE]
+>Соединитель Dynamics, используемый для необязательного свойства organizationName, чтобы идентифицировать экземпляр Dynamics CRM или 365 Online. Во время работы соединителя вам предлагается вместо этого указать новое свойство serviceUri, чтобы повысить производительность обнаружения экземпляра.
 
 **Пример. Dynamics Online с использованием проверки подлинности Office 365**
 
@@ -82,7 +85,7 @@ ms.lasthandoff: 03/23/2018
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -207,7 +210,7 @@ ms.lasthandoff: 03/23/2018
 | Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **DynamicsSource**. | Yes |
-| query | FetchXML — это защищаемый язык запросов, используемый в Dynamics (Online и локальная версия). См. указанный ниже пример. Дополнительные сведения см. в разделе о [создании запросов на языке FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | "Нет" (если для набора данных задано свойство entityName) |
+| query | FetchXML — это защищаемый язык запросов, используемый в Dynamics (Online и локальная версия). См. указанный ниже пример. Дополнительные сведения см. в разделе о [создании запросов на языке FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | "Нет" (если для набора данных задано свойство entityName) |
 
 **Пример.**
 

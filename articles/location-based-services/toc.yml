@@ -1,3 +1,5 @@
+- name: Принципы работы Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Документация по Azure Location Based Services
   href: index.yml
 - name: Обзор
@@ -47,6 +49,32 @@
       href: 'https://docs.microsoft.com/rest/api/location-based-services-management/'
     - name: "API элементов управления картой\_— Javascript"
       href: 'https://docs.microsoft.com/javascript/api/location-based-services-javascript/'
+- name: Сопутствующие материалы
+  items:
+    - name: Решения
+      items:
+        - name: Предварительно настроенные решения Azure IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Службы платформы
+      items:
+        - name: Центр Интернета вещей
+          href: /azure/iot-hub
+        - name: Служба подготовки устройств для Центра Интернета вещей
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Пакеты SDK службы
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Пакеты SDK для устройств IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ресурсы
   items:
     - name: Центр разработчика IoT Azure

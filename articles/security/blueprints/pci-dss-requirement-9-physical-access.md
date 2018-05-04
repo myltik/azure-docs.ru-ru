@@ -1,6 +1,6 @@
 ---
-title: "План обработки платежей Azure: требования к физическому доступу"
-description: "Требование 9 (стандарт PCI DSS)"
+title: 'План обработки платежей Azure: требования к физическому доступу'
+description: Требование 9 (стандарт PCI DSS)
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Требования к физическому доступу для сред, соответствующих стандарту PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Требование 9 (стандарт PCI DSS)
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/16/2017
 
 Например, сетевые разъемы, расположенные в общественных местах и ​​в зонах, доступных для посетителей, могут быть отключены и включаться только при явном разрешении доступа к сети. В качестве альтернативы могут быть реализованы процессы постоянного сопровождения посетителей в зонах с активными сетевыми разъемами.
 
-**Обязанности:&nbsp;&nbsp; `Microsoft Azure Only`только Microsoft Azure**
+**Обязанности:&nbsp;&nbsp; только Microsoft Azure**
 
 |||
 |---|---|
@@ -342,7 +342,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Не применяется |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | В интернет-магазине Contoso используется OMS для регистрации всех системных изменений.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) предоставляет подробные журналы изменений. Здесь можно просмотреть все изменения и проверить их правильность. Дополнительные инструкции см. в разделе руководства PCI, который посвящен [ведению журналов и аудиту](payment-processing-blueprint.md#logging-and-auditing).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | В интернет-магазине Contoso для регистрации всех системных изменений используется Azure.<br /><br />Log Analytics предоставляет журнал с подробными сведениями об изменениях. Здесь можно просмотреть все изменения и проверить их правильность. Дополнительные инструкции см. в разделе руководства PCI, который посвящен [ведению журналов и аудиту](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 

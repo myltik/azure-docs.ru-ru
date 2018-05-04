@@ -1,8 +1,8 @@
 ---
-title: "Использование Hadoop Hive в консоли запросов в HDInsight — Azure | Документы Майкрософт"
-description: "Узнайте, как выполнять запросы Hive в кластере HDInsight Hadoop из браузера с помощью консоли запросов HDInsight для Интернета."
+title: Использование Hadoop Hive в консоли запросов в HDInsight — Azure | Документы Майкрософт
+description: Узнайте, как выполнять запросы Hive в кластере HDInsight Hadoop из браузера с помощью консоли запросов HDInsight для Интернета.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d6032b8a1e3d338b046c958804102aeb9efcf4ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Выполнение запросов Hive с помощью консоли запросов
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -39,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 * Современный браузер
 
 ## <a id="run"></a> Выполнение запросов Hive с помощью консоли запросов
-1. Откройте в браузере страницу с адресом **https://CLUSTERNAME.azurehdinsight.net**, где **CLUSTERNAME** — имя кластера HDInsight. При появлении соответствующего запроса введите имя пользователя и пароль, использованные при создании кластера.
+1. Откройте веб-браузер и перейдите на страницу с адресом **https://CLUSTERNAME.azurehdinsight.net**, где **CLUSTERNAME** — имя кластера HDInsight. При появлении соответствующего запроса введите имя пользователя и пароль, использованные при создании кластера.
 2. Среди ссылок в верхней части страницы выберите **Редактор Hive**. Откроется форма, которую можно использовать для ввода операторов HiveQL, которые будут выполняться в кластере HDInsight.
 
     ![Редактор Hive](./media/apache-hadoop-use-hive-query-console/queryconsole.png)
@@ -67,7 +65,7 @@ ms.lasthandoff: 11/03/2017
    * **ROW FORMAT**: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
    * **STORED AS TEXTFILE LOCATION**: информация для Hive о расположении хранения данных (каталог example/data) и об их формате (текстовый).
    * **SELECT**: подсчет количества строк, в которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3** , так как данное значение содержат три строки.
-   * **INPUT__FILE__NAME LIKE '%.log'** — указывает Hive, что вернуть нужно только данные из файлов с расширением LOG. Это ограничивает поиск файлом sample.log, в котором содержатся данные, и предотвращает возврат данных из других примеров файлов данных, не соответствующих определенной нами схеме.
+   * **INPUT__FILE__NAME LIKE '%.log'**  — указывает Hive, что вернуть нужно только данные из файлов с расширением LOG. Это ограничивает поиск файлом sample.log, в котором содержатся данные, и предотвращает возврат данных из других примеров файлов данных, не соответствующих определенной нами схеме.
 3. Нажмите кнопку **Submit**(Отправить). В поле **Сеанс задания** в нижней части страницы должна отображаться подробная информация о задании.
 4. После изменения значения поля **Состояние** на **Завершено** выберите **Просмотреть подробности** для задания. На странице сведений **выходные данные задания** будут содержать `[ERROR]    3`. Чтобы скачать файл, содержащий выходные данные задания, можно нажать кнопку **Скачать** под этим полем.
 

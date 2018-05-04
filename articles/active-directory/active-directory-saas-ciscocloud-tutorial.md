@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f41d8f508bb6ee5b50b7f304c703c4d9bed75d8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f3d97e26b71c2e17753943f7004d7eb7ee19e44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Руководство по интеграции Azure Active Directory с Cisco Cloud
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/05/2018
 1. Добавление Cisco Cloud из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-cisco-cloud-from-the-gallery"></a>Добавление Cisco Cloud из коллекции
+## <a name="adding-cisco-cloud-from-the-gallery"></a>Добавление Cisco Cloud из коллекции.
 Чтобы настроить интеграцию Cisco Cloud с Azure AD, необходимо добавить Cisco Cloud из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Cisco Cloud из коллекции, выполните следующие действия.**
@@ -117,33 +117,17 @@ ms.lasthandoff: 04/05/2018
     В текстовом поле **URL-адрес для входа** введите URL-адрес в формате `https://<subdomain>.cloudapps.cisco.com`.
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адресов ответа и входа. Чтобы получить их, обратитесь в [службу поддержки клиентов Cisco Cloud](mailto:cpr-ops@cisco.com). 
+    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адресов ответа и входа. Чтобы получить их, обратитесь в [службу поддержки клиентов Cisco Cloud](mailto:cpr-ops@cisco.com).
 
-5. Нажмите кнопку **Сохранить** .
+5. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **Cisco Cloud** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-7. Чтобы настроить единый вход на стороне **Cisco Cloud**, отправьте скачанный **URL-адрес метаданных** [группе поддержки Cisco Cloud](mailto:cpr-ops@cisco.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+7. Чтобы настроить единый вход на стороне **Cisco Cloud**, отправьте скачанный **URL-адрес метаданных федерации приложений** в [группу поддержки Cisco Cloud](mailto:cpr-ops@cisco.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

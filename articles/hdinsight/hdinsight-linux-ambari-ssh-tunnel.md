@@ -1,8 +1,8 @@
 ---
-title: "Использование туннелирования SSH для доступа к Azure HDInsight | Документация Майкрософт"
-description: "Узнайте, как безопасно просматривать веб-ресурсы, размещенные на узлах HDInsight под управлением Linux, с помощью туннеля SSH."
+title: Использование туннелирования SSH для доступа к Azure HDInsight | Документация Майкрософт
+description: Узнайте, как безопасно просматривать веб-ресурсы, размещенные на узлах HDInsight под управлением Linux, с помощью туннеля SSH.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Использование туннелирования SSH для доступа к пользовательскому веб-интерфейсу Ambari, JobHistory, NameNode, Oozie и другим пользовательским веб-интерфейсам
 
@@ -75,7 +73,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 * **2** — принудительная попытка использовать только протокол SSH версии 2;
 * **q** — тихий режим;
 * **T** — отключение распределения псевдотелетайпа, так как выполняется только перенаправление порта;
-* **n** — предотвращение считывания с STDIN, так как выполняется только перенаправление порта;
+* **n** — запрет считывания с STDIN, так как выполняется только перенаправление порта;
 * **N** — запрет на выполнение удаленной команды, так как выполняется только перенаправление порта;
 * **f** — выполнение в фоновом режиме.
 
@@ -121,10 +119,10 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
 После настройки кластера выполните следующие действия, чтобы удостовериться, что веб-интерфейсы служб доступны из веб-интерфейса Ambari.
 
-1. В браузере перейдите по адресу: http://headnodehost:8080. Адрес `headnodehost` отправляется через туннель в кластер и преобразовывается в головной узел, на котором выполняется Ambari. При появлении запроса введите имя пользователя (admin) и пароль учетной записи администратора кластера. Веб-интерфейс Ambari может потребовать повторного ввода имени пользователя и пароля. В этом случае повторно введите имя пользователя и пароль.
+1. В браузере перейдите по адресу http://headnodehost:8080. Адрес `headnodehost` отправляется через туннель в кластер и преобразовывается в головной узел, на котором выполняется Ambari. При появлении запроса введите имя пользователя (admin) и пароль учетной записи администратора кластера. Веб-интерфейс Ambari может потребовать повторного ввода имени пользователя и пароля. В этом случае повторно введите имя пользователя и пароль.
 
    > [!NOTE]
-   > При использовании адреса http://headnodehost:8080 для подключения к кластеру вы подключаетесь через туннель. Безопасность обмена данными обеспечивает туннель SSH, а не протокол HTTPS. Для подключения через Интернет по протоколу HTTPS используйте https://CLUSTERNAME.azurehdinsight.net, где **имя_кластера** — имя кластера.
+   > При использовании адреса http://headnodehost:8080 для подключения к кластеру вы подключаетесь через туннель. Безопасность обмена данными обеспечивает туннель SSH, а не протокол HTTPS. Для подключения через Интернет по протоколу HTTPS используйте https://CLUSTERNAME.azurehdinsight.net, где **CLUSTERNAME** — это имя кластера.
 
 2. В веб-интерфейсе Ambari выберите HDFS в списке в левой части страницы.
 
@@ -144,7 +142,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ![Изображение пользовательского интерфейса NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > Обратите внимание на URL-адрес этой страницы. Он должен иметь вид **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Этот URI использует полное внутреннее доменное имя узла (FQDN), и он доступен только при использовании туннеля SSH.
+   > URL-адрес для этой страницы должен быть в таком формате: **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Этот URI использует полное внутреннее доменное имя узла (FQDN), и он доступен только при использовании туннеля SSH.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

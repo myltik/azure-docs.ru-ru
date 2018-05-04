@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-description: Узнайте, как синхронизировать локальные каталоги и включить единый вход. Документация, в которой показано, как интегрировать все доступные средства для управления удостоверениями.
 title: Документация по Azure Active Directory. Руководства и справочник по API | Документация Майкрософт
+description: Azure Active Directory (Azure AD) — это мультитенантный облачный каталог и служба управления удостоверениями корпорации Майкрософт, которая объединяет базовые службы каталогов, функции управления доступом к приложениям и защиты идентификации в одно решение.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -10,122 +10,31 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: 39226c7ada2bf3672cb62b6a0def4191bee342c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 30019a733bd4869d22c060d0793423b71b0df166
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Документация Azure Active Directory
 
-Узнайте, как синхронизировать локальные каталоги и включить единый вход с использованием Azure Active Directory (Azure AD). Руководства, справочники по API и другая документация, в которой показано, как интегрировать средства для управления удостоверениями, включая многофакторную идентификацию, регистрацию устройств, управление доступом на основе ролей, а также мониторинг и оповещения системы безопасности.
+Azure Active Directory (Azure AD) — это мультитенантный облачный каталог и служба управления удостоверениями.
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/active-directory/active-directory-whatis">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/active-directory.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Информация об Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Видеотека материалов по Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-howto-tenant">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Начало работы с Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-get-started-premium">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Начало работы с Azure Active Directory Premium</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-       <li>
-        <a href="/azure/active-directory/develop/active-directory-developers-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Разработка приложений с помощью Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li> 
-</ul>
-
----
-
-<h2>Справочные материалы</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Командная строка</h3>
-                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
+                        <h3>Основы</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-whatis">Что такое Azure AD?</a><br/>
+                        <a href="/azure/active-directory/understand-azure-identity-solutions">Решения для управления удостоверениями</a><br/>
+                        <a href="/azure/active-directory/get-started-azure-ad">Начало работы</a><br/>
+                        <a href="/azure/active-directory/whats-new">Новые возможности</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -136,10 +45,15 @@ ms.lasthandoff: 04/05/2018
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Языки</h3>
-                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                   </div>
+                        <h3>Пользователи Enterprise</h3>
+                        <p>
+                        <a href="/azure/active-directory/add-users-azure-active-directory">Пользователи</a><br/>
+                        <a href="/azure/active-directory/active-directory-manage-groups">Группы</a><br/>
+                        <a href="/azure/active-directory/license-users-groups">Лицензии</a><br/>
+                        <a href="/azure/active-directory/active-directory-administer">Управление каталогом</a><br/>
+                        <a href="/azure/active-directory/active-directory-assign-admin-roles-azure-portal">Роли администратора</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,8 +63,159 @@ ms.lasthandoff: 04/05/2018
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Другие</h3>
-                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Ограничения службы</a></p>
+                        <h3>Внешние пользователи</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Категория "бизнес-бизнес" (B2B)</a><br/>
+                        <a href="/azure/active-directory-b2c/">Категория "бизнес-потребитель" (B2C)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Authentication</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-passwords-overview">Пароли</a><br/>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Многофакторная проверка подлинности</a><br/>
+                        <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
+                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Аутентификация на основе сертификата</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Защита</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-identityprotection">Защита идентификации</a><br/>
+                        <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Условный доступ</a><br/>
+                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Управление привилегированными пользователями</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Устройства</h3>
+                        <p>
+                        <a href="/azure/active-directory/device-management-introduction">Управление устройствами</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Устройства Windows 10</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Присоединенные устройства</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Приложения</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-enable-sso-scenario">Управление приложениями</a><br/>
+                        <a href="/azure/active-directory/cloudappdiscovery-get-started">Обнаружение приложений</a><br/>
+                        <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Корпоративные приложения</a><br/>
+                        <a href="/azure/active-directory/active-directory-managing-access-to-apps">Доступ к приложениям</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Аутентификация для разработчиков</h3>
+                        <p>
+                        <a href="/azure/active-directory/develop/active-directory-authentication-scenarios">Основные сведения об аутентификации</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-integrating-applications">Интеграция приложений</a><br/>
+                        <a href="/azure/active-directory/managed-service-identity/overview">Управляемое удостоверение</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-code-samples">Примеры кода</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Справочные материалы</h3>
+                        <p>
+                        <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
+                        <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>
+                        <a href="/cli/azure/ad">интерфейс командной строки Azure</a><br/>
+                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
+                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
+                        <a href="/java/api/overview/azure/activedirectory">Java</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Гибридные организации</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">Гибридное решение для идентификации</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect">Локальная интеграция с каталогами</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect-azure-adfs">Службы федерации</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Соответствие требованиям и отчеты</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview">Проверки доступа</a><br/>
+                        <a href="/azure/active-directory/active-directory-tou">Условия использования</a><br/>
+                        <a href="/azure/active-directory/active-directory-reporting-azure-portal">Отчеты</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Домены</h3>
+                        <p>
+                        <a href="/azure/active-directory-domain-services/">Доменные службы</a>
+                        </p>
                     </div>
                 </div>
             </div>

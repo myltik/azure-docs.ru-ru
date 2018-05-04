@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Руководство по интеграции Azure Active Directory с Fluxx Labs
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Fluxx Labs из коллекции.
+1. Добавление Fluxx Labs из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-fluxx-labs-from-the-gallery"></a>Добавление Fluxx Labs из коллекции
@@ -114,16 +114,14 @@ ms.lasthandoff: 04/03/2018
     |-------------|------------|
     | Производство | `https://<subdomain>.fluxx.io` |
     | Предварительный этап | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | Промежуточная    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
 
     | Среда | Шаблон URL-адреса|
     |-------------|------------|
     | Производство | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Предварительный этап | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | Промежуточная    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь к [группе поддержки Fluxx Labs](mailto:travis@fluxxlabs.com).
 
@@ -141,11 +139,11 @@ ms.lasthandoff: 04/03/2018
 
 7. В другом окне веб-браузера войдите на веб-сайт Fluxx Labs компании в качестве администратора.
 
-8. В правом верхнем углу страницы щелкните значок **Settings** (Параметры) и выберите **Admin** (Администрирование).
+8. Выберите **Admin** (Администратор) в разделе **Settings** (Параметры).
 
     ![Конфигурация Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. На панели администратора выберите **Plug-ins** (Подключаемые модули)  > **Integrations** (Интеграция), а затем выберите **SAML SSO-(Enabled)** (Единый вход SAML (включен)).
+9. На панели администрирования выберите **Plug-ins** > **Integrations** и **SAML SSO-(Disabled)** (Подключаемые модули > Интеграция > Единый вход SAML (отключен)).
 
     ![Конфигурация Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ ms.lasthandoff: 04/03/2018
 
     c. В текстовом поле **Callback Path** (Путь обратного вызова) введите **/auth/saml/callback**.
 
-    d. В текстовом поле **Assertion Consumer Service Url** (URL-адрес службы обработчика утверждений) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
+    d. В текстовое поле **Assertion Consumer Service Url (Single Sign-On URL)** (URL-адрес службы обработчика утверждений (URL-адрес службы единого входа)) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
 
-    д. В текстовое поле **Issuer** (Издатель) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
+    д. В текстовое поле **Audience (SP Entity ID)** (Аудитория (идентификатор сущности SP)) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
 
-    f. Откройте сертификат в кодировке Base64 с помощью блокнота, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **IDP Cert** (Сертификат IdP).
+    f. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат поставщика удостоверений**.
 
-    ж.  В текстовое поле **Name identifier Format** (Формат идентификатора имени) введите значение `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    ж. В текстовое поле **Name identifier Format** (Формат идентификатора имени) введите значение `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
     h. Выберите команду **Сохранить**.
 
@@ -212,23 +210,21 @@ ms.lasthandoff: 04/03/2018
 
 1. Выполните вход на веб-сайт компании Fluxx Labs в качестве администратора.
 
-2. На панели мониторинга щелкните показанный ниже значок, чтобы открыть карту **New PERSON** (Новый пользователь).
+2. Щелкните показанный ниже **значок**.
+
+    ![Конфигурация Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. На панели мониторинга щелкните показанный ниже значок, чтобы открыть карту **New PEOPLE** (Новые пользователи).
 
     ![Конфигурация Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. В разделе **NEW PERSON** (Новый пользователь) выполните следующие действия.
+4. В разделе **NEW PEOPLE** (Новые пользователи) выполните следующие действия:
     
     ![Конфигурация Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. В текстовом поле **Login** (Имя для входа) введите адрес электронной почты пользователя, например Azure_Admin.
+    a. Во Fluxx Labs в качестве уникального идентификатора для единого входа используется адрес электронной почты. Укажите в поле **SSO UID** (ИД пользователя для единого входа) адрес электронной почты пользователя, который используется в качестве имени для входа для единого входа.
 
-    Б. В текстовом поле **Password** (Пароль) введите пароль учетной записи Azure_Admin.
-
-    c. В текстовом поле **Confirm Password** (Подтверждение пароля) также введите пароль учетной записи Azure_Admin.
-
-    d. Во Fluxx Labs в качестве уникального идентификатора для единого входа используется адрес электронной почты. Укажите в поле **SSO UID** (ИД пользователя для единого входа) адрес электронной почты пользователя, который используется в качестве имени для входа для единого входа.
-
-    д. Щелкните **Create Person** (Создать пользователя).
+    Б. Выберите команду **Сохранить**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
@@ -285,4 +281,3 @@ ms.lasthandoff: 04/03/2018
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

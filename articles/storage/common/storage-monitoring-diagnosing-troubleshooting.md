@@ -1,8 +1,8 @@
 ---
-title: "Мониторинг, диагностика и устранение неполадок в работе службы хранилища Azure | Документация Майкрософт"
-description: "Воспользуйтесь такими функциями, как аналитика хранилища, вход на стороне клиента, и другими сторонними инструментами для выявления, диагностики и устранения проблем, связанных со службой хранилища Azure."
+title: Мониторинг, диагностика и устранение неполадок в работе службы хранилища Azure | Документация Майкрософт
+description: Воспользуйтесь такими функциями, как аналитика хранилища, вход на стороне клиента, и другими сторонними инструментами для выявления, диагностики и устранения проблем, связанных со службой хранилища Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: fhryo-msft
 manager: jahogg
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Мониторинг, диагностика и устранение неисправностей службы хранилища Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -474,7 +474,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Источник | Уровень детализации | Уровень детализации | Идентификатор запроса клиента | Operation Text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начинается выполнение операции с расположением «Основное» в режиме расположения PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начало синхронного запроса к https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Отправка синхронного запроса к https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Waiting for response (Ожидание ответа). |
 | Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |При ожидании ответа возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Response received. Код состояния = 403; идентификатор запроса = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d; Content-MD5 = ; ETag = . |
@@ -519,24 +519,24 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 | Request ID (ИД запроса) | Operation Text |
 | --- | --- |
-| 07b26a5d-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer . |
+| 07b26a5d-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response (Ожидание ответа). |
 | 07b26a5d-... |Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции). |
 | 07b26a5d-... |Downloading response body (Загружается тело ответа). |
 | 07b26a5d-... |Operation completed successfully (Операция выполнена успешно). |
-| 07b26a5d-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer . |
+| 07b26a5d-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response (Ожидание ответа). |
 | 07b26a5d-... |Response received. Status code = 202, Request ID = eeead849-...Content-MD5 = , ETag = . (Ответ получен. Код состояния = 202, ИД запроса = eeead849-...Content-MD5 = , ETag = .) |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции). |
 | 07b26a5d-... |Downloading response body (Загружается тело ответа). |
 | 07b26a5d-... |Operation completed successfully (Операция выполнена успешно). |
-| e2d06d78-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer .</td> |
+| e2d06d78-... |Отправка асинхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response (Ожидание ответа). |
-| de8b1c3c-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt |
+| de8b1c3c-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparing to write request data (Подготовка к записи данных запроса). |
 | e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (404) Not Found. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (404) — не найдено.) |
@@ -544,7 +544,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | e2d06d78-... |Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции). |
 | e2d06d78-... |Downloading response body (Загружается тело ответа). |
 | e2d06d78-... |Operation completed successfully (Операция выполнена успешно). |
-| e2d06d78-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer . |
+| e2d06d78-... |Отправка асинхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response (Ожидание ответа). |
 | de8b1c3c-... |Writing request data (Запись данных запроса). |

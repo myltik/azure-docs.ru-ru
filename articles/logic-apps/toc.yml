@@ -299,10 +299,12 @@
     - name: Схема языка для определения рабочего процесса
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: Действия и триггеры рабочего процесса
+          href: logic-apps-workflow-actions-triggers.md
+        - name: Функции языка для определения рабочего процесса
+          href: workflow-definition-language-functions-reference.md
         - name: Общедоступная версия журнала схем
           href: logic-apps-schema-2016-04-01.md
-    - name: Действия и триггеры рабочего процесса
-      href: logic-apps-workflow-actions-triggers.md
     - name: Схемы отслеживания
       items:
         - name: Схема отслеживания AS2

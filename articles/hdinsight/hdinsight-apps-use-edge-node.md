@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Использование пустых граничных узлов в кластерах Hadoop в HDInsight
 
@@ -69,6 +69,9 @@ ms.lasthandoff: 04/16/2018
 >
 > При использовании технологии Apache можно получить помощь на соответствующих сайтах для проектов Apache, например [Hadoop](http://hadoop.apache.org/) на сайте [http://apache.org](http://apache.org).
 
+> [!NOTE]
+> Граничные узлы, как и кластеры, также поддерживают установку исправлений.  Дополнительные сведения см. в статье [Обновление путем частичной замены ОС для кластеров HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Добавление граничного узла в имеющийся кластер
 В этом разделе описано, как использовать шаблон Resource Manager, чтобы добавить граничный узел в имеющийся кластер HDInsight.  Шаблон Resource Manager можно найти в [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Шаблон диспетчера ресурсов вызывает действие скрипта, расположенное по адресу https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Этот скрипт не выполняет никаких действий.  Он необходим для демонстрации вызова действия скрипта с помощью шаблона Resource Manager.
 
@@ -115,6 +118,10 @@ ms.lasthandoff: 04/16/2018
      
      Некоторые свойства жестко запрограммированы в шаблоне: "Тип кластера", Cluster worker node count (Количество рабочих узлов кластера), Edge node size (Размер граничного узла) и Edge node name (Имя граничного узла).
 4. Установите флажок **Я принимаю указанные выше условия** и нажмите кнопку **Приобрести**, чтобы создать кластер с граничным узлом.
+
+## <a name="add-multiple-edge-nodes"></a>Добавление нескольких граничных узлов
+
+В кластер HDInsight можно добавить несколько граничных узлов.  Настроить конфигурацию нескольких граничных узлов можно только с помощью шаблонов Azure Resource Manager.  Пример шаблона приведен в начале этой статьи.  Для параметра **targetInstanceCount** необходимо задать значение, соответствующее количеству создаваемых граничных узлов.
 
 ## <a name="access-an-edge-node"></a>Доступ к граничному узлу
 Конечная точка SSH граничного узла указывается в формате &lt;имя_граничного узла>.&lt;имя_кластера>-ssh.azurehdinsight.net:22.  Например, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

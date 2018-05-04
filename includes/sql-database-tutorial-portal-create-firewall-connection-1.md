@@ -4,7 +4,7 @@
 
 ## <a name="create-a-blank-sql-database"></a>Создание пустой базы данных SQL
 
-База данных Azure SQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](../articles/sql-database/sql-database-service-tiers.md). База данных создается в пределах [группы ресурсов Azure](../articles/azure-resource-manager/resource-group-overview.md) и [логического сервера базы данных SQL Azure](../articles/sql-database/sql-database-features.md). 
+База данных Azure SQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](../articles/sql-database/sql-database-service-tiers-dtu.md). База данных создается в пределах [группы ресурсов Azure](../articles/azure-resource-manager/resource-group-overview.md) и [логического сервера базы данных SQL Azure](../articles/sql-database/sql-database-features.md). 
 
 Чтобы создать пустую базу данных SQL, выполните приведенные ниже действия. 
 

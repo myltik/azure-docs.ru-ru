@@ -16,6 +16,8 @@
       href: cdn-map-content-to-custom-domain.md
     - name: Настройка HTTPS в личном домене
       href: cdn-custom-ssl.md
+    - name: Настройка правил кэширования
+      href: cdn-caching-rules-tutorial.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -156,6 +158,8 @@
           href: cdn-pop-locations.md
         - name: Расположения POP по аббревиатуре
           href: cdn-pop-abbreviations.md
+    - name: Общие сведения о выставлении счетов в Azure CDN
+      href: cdn-billing.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Форум MSDN

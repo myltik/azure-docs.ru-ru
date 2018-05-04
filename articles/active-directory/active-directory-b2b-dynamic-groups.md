@@ -1,13 +1,13 @@
 ---
-title: "Динамические группы и служба совместной работы Azure Active Directory B2B | Документация Майкрософт"
-description: "Использование службы совместной работы Azure Active Directory B2B с динамическими группами Azure AD."
+title: Динамические группы и служба совместной работы Azure Active Directory B2B | Документация Майкрософт
+description: Использование службы совместной работы Azure Active Directory B2B с динамическими группами Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Динамические группы и служба совместной работы Azure Active Directory B2B
 
@@ -55,7 +55,4 @@ ms.lasthandoff: 03/02/2018
 * [Делегирование приглашений для службы совместной работы Azure Active Directory B2B](active-directory-b2b-delegate-invitations.md)
 * [Примеры кода и команд PowerShell для службы совместной работы Azure Active Directory B2B](active-directory-b2b-code-samples.md)
 * [Настройка приложений SaaS для службы совместной работы B2B](active-directory-b2b-configure-saas-apps.md)
-* [Основные сведения о токенах пользователей в службе совместной работы Azure Active Directory B2B](active-directory-b2b-user-token.md)
-* [Сопоставление утверждений пользователя службы совместной работы B2B в Azure Active Directory](active-directory-b2b-claims-mapping.md)
-* [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
-* [Текущие ограничения службы совместной работы Azure Active Directory B2B](active-directory-b2b-current-limitations.md)
+

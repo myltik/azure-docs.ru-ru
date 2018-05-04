@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Перемещение ресурсов в новую группу ресурсов или подписку
 
@@ -121,7 +121,6 @@ ms.lasthandoff: 04/16/2018
 * Cognitive Services
 * Content Moderator
 * Каталог данных
-* Фабрика данных
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -163,11 +162,14 @@ ms.lasthandoff: 04/16/2018
 * доменные службы Active Directory;
 * служба работоспособности гибридного AD;
 * Шлюз приложений
+* База данных Azure для MySQL
 * Службы BizTalk
+* Сертификаты. Сертификаты службы приложений можно перемещать, но для переданных сертификатов действуют [ограничения](#app-service-limitations).
 * Служба контейнеров
-* ExpressRoute
+* Фабрика данных
 * DevTest Labs — переход на новую группу ресурсов в одной подписке включен, но перемещение между подписками не доступно.
 * Dynamics LCS.
+* ExpressRoute
 * Подсистемы балансировки нагрузки — см. [ограничения подсистемы балансировки нагрузки](#lb-limitations)
 * Управляемые приложения.
 * Управляемые диски — см. сведения об [ограничениях для виртуальных машин](#virtual-machines-limitations).

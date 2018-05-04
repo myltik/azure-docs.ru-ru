@@ -1,26 +1,24 @@
 ---
-title: "Масштабирование размеров кластера в Azure HDInsight | Документация Майкрософт"
-description: "Масштабируйте кластер HDInsight для адаптации к рабочей нагрузке."
+title: Масштабирование размеров кластера в Azure HDInsight | Документация Майкрософт
+description: Масштабируйте кластер HDInsight для адаптации к рабочей нагрузке.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 7e9ee660c07d6265e55e94cf79ed13334fcb3d16
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-hdinsight-clusters"></a>Масштабирование кластеров HDInsight
 
@@ -329,6 +327,6 @@ hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     
 ## <a name="next-steps"></a>Дополнительная информация
 
-* [Общие сведения об Azure HDInsight и стеке технологий Hadoop и Spark](hadoop/apache-hadoop-introduction.md)
+* [Введение в Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Масштабирование кластеров](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md)

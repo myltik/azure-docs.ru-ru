@@ -1,11 +1,11 @@
 ---
-title: "Установка исправлений для ОС и среды выполнения в Службе приложений Azure | Документация Майкрософт"
-description: "В этой статьей объясняется, как Служба приложений Azure обновляет операционную систему и среды выполнения и как вы можете получать новости об обновлениях."
+title: Установка исправлений для ОС и среды выполнения в Службе приложений Azure | Документация Майкрософт
+description: В этой статьей объясняется, как Служба приложений Azure обновляет операционную систему и среды выполнения и как вы можете получать новости об обновлениях.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 869bd0e3f684ff4a2291e189cf247daedfb74922
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Установка исправлений для ОС и среды выполнения в Службе приложений Azure
 
@@ -93,7 +93,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | Версия Python | Откройте `https://<appname>.scm.azurewebsites.net/DebugConsole` и выполните следующую команду в командной строке: <br> `python --version` |
 
 > [!NOTE]
-> Доступ к расположению реестра `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, где хранятся сведения об [исправлениях (номер в базе знаний)]((https://technet.microsoft.com/security/bulletins.aspx)), заблокирован.
+> Доступ к расположению реестра `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, где хранятся сведения об [исправлениях (номер в базе знаний)]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)), заблокирован.
 >
 >
 

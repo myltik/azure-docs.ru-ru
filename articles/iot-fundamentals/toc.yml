@@ -1,0 +1,32 @@
+- name: Принципы работы Azure IoT
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Введение
+      href: iot-introduction.md
+    - name: Службы и технологии безопасности служб Azure IoT
+      href: iot-services-and-technologies.md
+- name: Решения
+  items:
+    - name: Предварительно настроенные решения Azure IoT Suite
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: 'https://docs.microsoft.com/microsoft-iot-central/'
+- name: Службы платформы
+  items:
+    - name: Центр Интернета вещей
+      href: /azure/iot-hub
+    - name: Служба подготовки устройств для Центра Интернета вещей
+      href: /azure/iot-dps
+    - name: Location Based Services
+      href: /azure/location-based-services
+    - name: Пакеты SDK службы
+      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+- name: Edge
+  items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: Пакеты SDK для устройств IoT
+      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

@@ -1,8 +1,8 @@
 ---
-title: "Использование Hadoop Pig с помощью PowerShell в HDInsight — Azure | Документы Майкрософт"
-description: "Узнайте, как отправлять задания Pig в кластер Hadoop в HDInsight с помощью Azure PowerShell."
+title: Использование Hadoop Pig с помощью PowerShell в HDInsight — Azure | Документы Майкрософт
+description: Узнайте, как отправлять задания Pig в кластер Hadoop в HDInsight с помощью Azure PowerShell.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7fa50e206c86b307f7e2a90ff0938571b64f41bb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0c06289625ab18dad134c235fc28fd5c775955eb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Использование Azure PowerShell для выполнения заданий Pig в HDInsight
 
@@ -46,7 +44,7 @@ Azure PowerShell предоставляет *командлеты* , позво�
 
 При выполнении заданий Pig на удаленном кластере HDInsight используются следующие командлеты:
 
-* **Login-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
+* **Connect-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
 * **New-AzureRmHDInsightPigJobDefinition** — создает *определение задания* с использованием заданных операторов Pig Latin.
 * **Start-AzureRmHDInsightJob** — отправляет определение задания в HDInsight и запускает задание. Будет возвращен объект *задания*.
 * **Wait-AzureRmHDInsightJob**— использует объект-задание для проверки состояния задания. Он ждет завершения задания или превышения времени ожидания.

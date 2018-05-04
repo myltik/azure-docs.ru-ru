@@ -1,7 +1,7 @@
+# [Принципы работы Azure IoT](../iot-fundamentals/index.yml)
 # [Документация по Центру Интернета вещей](index.md)
 
 # Обзор
-## [Azure и Интернет вещей](iot-hub-what-is-azure-iot.md)
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
@@ -169,7 +169,7 @@
 ##### [Создание сертификатов с помощью PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [интерфейс командной строки Azure](/cli/azure/iot)
 ## [.NET (служба)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +186,18 @@
 ## [REST (задания)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Сопутствующие материалы
-## [Набор Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Служба подготовки устройств для Центра Интернета вещей Azure](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Концентраторы событий Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Машинное обучение](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Решения 
+### [Предварительно настроенные решения Azure IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Службы платформы 
+### [Центр Интернета вещей](/azure/iot-hub) 
+### [Служба подготовки устройств для Центра Интернета вещей](/azure/iot-dps)
+### [Пакеты SDK для службы IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services) 
+### [Аналитика временных рядов](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [Пакеты SDK для устройств IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Ресурсы
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)

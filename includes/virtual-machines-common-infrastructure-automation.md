@@ -62,7 +62,7 @@
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) — это платформа управления, которая позволяет определить конфигурацию целевых виртуальных машин. DSC также можно использовать в Linux через [сервер Open Management Infrastructure](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/overview) — это платформа управления, которая позволяет определить конфигурацию целевых виртуальных машин. DSC также можно использовать в Linux через [сервер Open Management Infrastructure](https://collaboration.opengroup.org/omi/).
 
 Конфигурации DSC определяют компоненты, которые следует установить на виртуальной машине, а также параметры настройки узла. На каждом целевом узле, который обрабатывает запрашиваемые действия на основе отправленных конфигураций, выполняется модуль локального диспетчера конфигураций (LCM). Опрашивающий сервер — это веб-служба, запущенная на центральном узле lkz хранения конфигурации DSC и связанных ресурсов. Этот сервер взаимодействует с модулем LCM на каждом целевом узле и тем самым предоставляет требуемую конфигурацию и отчеты о соответствии.
 

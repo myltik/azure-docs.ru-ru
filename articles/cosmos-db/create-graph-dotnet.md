@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: dd2ff95c23b149cd8d5becf086c021060b0ec5a8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB. Создание приложения .NET Framework или Core с помощью API Graph
 
@@ -68,10 +68,11 @@ Azure Cosmos DB — это глобально распределенная мн
 
 5. Восстановите пакеты NuGet в проекте, в том числе драйвер Gremlin.Net и пакет Newtonsoft.Json.
 
-6. Вы также можете установить драйвер Gremlin.Net (версии 3.2.7) вручную, используя диспетчер пакетов Nuget или [служебную программу командной строки NuGet](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools). 
+
+6. Вы также можете установить драйвер Gremlin.Net вручную, используя диспетчер пакетов NuGet или [служебную программу командной строки NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools). 
 
     ```bash
-    nuget install Gremlin.Net -Version 3.2.7
+    nuget install Gremlin.Net
     ```
 
 ## <a name="review-the-code"></a>Просмотр кода

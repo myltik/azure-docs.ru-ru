@@ -1,3 +1,5 @@
+- name: Принципы работы Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Документация по Azure IoT Edge
   href: index.yml
 - name: Обзор
@@ -51,6 +53,8 @@
           href: how-to-vscode-debug-csharp-module.md
         - name: Отладка решения "Функции Azure"
           href: how-to-vscode-debug-azure-function.md
+    - name: Непрерывная интеграция и непрерывная поставка в VSTS
+      href: how-to-ci-cd.md
     - name: Хранение данных в граничной системе
       href: sql-storage.md
     - name: Устранение неполадок
@@ -76,6 +80,32 @@
       href: security.md
     - name: Глоссарий IoT Edge
       href: iot-edge-glossary.md
+- name: Сопутствующие материалы
+  items:
+    - name: Решения
+      items:
+        - name: Предварительно настроенные решения Azure IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Службы платформы
+      items:
+        - name: Центр Интернета вещей
+          href: /azure/iot-hub
+        - name: Служба подготовки устройств для Центра Интернета вещей
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Пакеты SDK службы
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Пакеты SDK для устройств IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ресурсы
   items:
     - name: 'Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT'

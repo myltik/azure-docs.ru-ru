@@ -1,43 +1,30 @@
 ---
-title: Управление статистикой таблиц в хранилище данных SQL | Документация Майкрософт
-description: Начало работы со статистикой таблиц в хранилище данных SQL Azure.
+title: Создание и обновление статистики в хранилище данных SQL Azure | Документация Майкрософт
+description: Рекомендации и примеры для создания и обновления статистики оптимизации запросов для таблиц в хранилище данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Управление статистикой таблиц в хранилище данных SQL
-> [!div class="op_single_selector"]
-> * [Обзор][Overview]
-> * [Типы данных][Data Types]
-> * [Распределение][Distribute]
-> * [Индекс][Index]
-> * [Секция][Partition]
-> * [Статистика][Statistics]
-> * [Временные таблицы][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Создание и обновление статистики таблиц в хранилище данных SQL Azure
+Рекомендации и примеры для создания и обновления статистики оптимизации запросов для таблиц в хранилище данных SQL Azure.
 
+## <a name="why-use-statistics"></a>Для чего используется статистика?
 Чем больше хранилищу данных SQL Azure известно о данных, тем быстрее оно выполняет запросы, связанные с ними. Сбор статистики данных и ее загрузка в хранилище данных SQL — один из самых важных факторов, позволяющих оптимизировать запросы. Это связано с тем, что оптимизатор запросов хранилища данных SQL основан на стоимости. Он сравнивает стоимость разных планов запросов, а затем выбирает план с наименьшей стоимостью, который в большинстве случаев является самым быстро выполнимым. Например, если по оценке оптимизатора при использовании одной даты, заданной для фильтрации в запросе, вернется одна строка, а второй — 1 миллион строк, то оптимизатор может выбрать разные планы.
 
 В настоящее время процесс создания и обновления статистики выполняется вручную. Тем не менее он простой.  Скоро можно будет автоматически создавать и обновлять статистику по отдельным столбцам и индексам.  С помощью приведенных ниже сведений можно значительно автоматизировать управление статистикой данных. 
 
-## <a name="getting-started-with-statistics"></a>Начало работы со статистикой
+## <a name="scenarios"></a>Сценарии
 Проще всего приступить к работе со статистикой, создав статистику для каждого столбца. Устаревшая статистика приводит к неоптимальной производительности запросов. Однако по мере роста данных обновление статистики по всем столбцам может потреблять память. 
 
 Ниже приведены рекомендации для различных сценариев.
@@ -94,7 +81,7 @@ WHERE
 
 Например, для **столбцов дат** в хранилище данных обычно требуется часто обновлять статистику. При каждой загрузке строк в хранилище данных добавляются новые даты загрузки или даты транзакций. Это изменяет распределение данных и делает статистику устаревшей.  И наоборот, статистика по столбцу пола в таблице клиентов может никогда не обновляться. Если предположить, что распределение между клиентами постоянно, добавление новых строк в вариант таблицы не изменит распределение данных. Тем не менее, если хранилище данных содержит сведения только о клиентах одного пола, а новые требования предписывают гендерные различия, вам надо обновить статистику по столбцу пола.
 
-Подробные пояснения см. в статье, посвященной [управлению статистикой][Statistics], на сайте MSDN.
+Дополнительные сведения можно получить в общем руководстве по [статистике](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>Реализация управления статистикой
 Часто рекомендуется расширить процесс загрузки данных, чтобы обеспечить обновление статистики в конце загрузки. Загрузка данных происходит, когда таблицы часто меняют свой размер и (или) распределение значений. Поэтому логично реализовать некоторые процессы управления.
@@ -107,7 +94,7 @@ WHERE
 * Рекомендуется реже обновлять столбцы со статическим распределением.
 * Помните, что каждый объект статистики обновляется последовательно. Просто реализовать `UPDATE STATISTICS <TABLE_NAME>` может быть не идеальным решением, особенно для обширных таблиц с большим количеством объектов статистики.
 
-Подробные пояснения см. в статье [Оценка количества элементов (SQL Server)][Cardinality Estimation] на сайте MSDN.
+Дополнительные сведения см. в разделе об [оценке кратности](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="examples-create-statistics"></a>Примеры: создание статистики
 Эти примеры показывают, как использовать различные параметры для создания статистики. Параметры, которые можно использовать для каждого столбца, зависят от характеристик данных и того, как столбец будет использован в запросах.
@@ -172,7 +159,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Полные справочные сведения см. в статье [CREATE STATISTICS (Transact-SQL)][CREATE STATISTICS] на сайте MSDN.
+Полные справочные сведения см. в статье [CREATE STATISTICS (Transact-SQL)](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Создание многостолбцовой статистики
 Для создания объекта статистики с несколькими столбцами просто используйте предыдущие примеры, но укажите больше столбцов.
@@ -362,9 +349,9 @@ UPDATE STATISTICS dbo.table1;
 > 
 > 
 
-Реализацию процедуры `UPDATE STATISTICS` см. в статье [Temporary tables in SQL Data Warehouse][Temporary] (Временные таблицы в хранилище данных SQL). Метод реализации слегка отличается от процедуры `CREATE STATISTICS`, описанной выше, но результат одинаков.
+Реализация процедуры `UPDATE STATISTICS` приведена в разделе о [временных таблицах](sql-data-warehouse-tables-temporary.md). Метод реализации слегка отличается от процедуры `CREATE STATISTICS`, описанной выше, но результат одинаков.
 
-Полный синтаксис см. в статье [UPDATE STATISTICS (Transact-SQL)][Update Statistics] на сайте MSDN.
+Полный синтаксис приведен в разделе об [обновлении статистики](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="statistics-metadata"></a>Метаданные статистики
 Существует несколько системных представлений и функций, которые можно использовать для поиска информации о статистике. Например, можно узнать, устарел ли объект статистики, воспользовавшись функцией stats-date, чтобы посмотреть, когда статистика была в последний раз создана или обновлена.
@@ -374,21 +361,21 @@ UPDATE STATISTICS dbo.table1;
 
 | Представления каталога | ОПИСАНИЕ |
 |:--- |:--- |
-| [sys.columns][sys.columns] |Одна строка для каждого столбца. |
-| [sys.objects][sys.objects] |Одна строка для каждого объекта в базе данных. |
-| [sys.schemas][sys.schemas] |Одна строка для каждой схемы в базе данных. |
-| [sys.stats][sys.stats] |Одна строка для каждого объекта статистики. |
-| [sys.stats_columns][sys.stats_columns] |Одна строка для каждого столбца в объекте статистики. Ссылается на sys.columns. |
-| [sys.tables][sys.tables] |Одна строка для каждой таблицы (включая внешние таблицы). |
-| [sys.table_types][sys.table_types] |Одна строка для каждого типа данных. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Одна строка для каждого столбца. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Одна строка для каждого объекта в базе данных. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Одна строка для каждой схемы в базе данных. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Одна строка для каждого объекта статистики. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Одна строка для каждого столбца в объекте статистики. Ссылается на sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Одна строка для каждой таблицы (включая внешние таблицы). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Одна строка для каждого типа данных. |
 
 ### <a name="system-functions-for-statistics"></a>Системные функции для статистики
 Эти системные функции полезны для работы со статистикой:
 
 | Системная функция | ОПИСАНИЕ |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Дата последнего обновления объекта статистики. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Сводная и подробная информация о распределении значений согласно объекту статистики. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Дата последнего обновления объекта статистики. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Сводная и подробная информация о распределении значений согласно объекту статистики. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Сочетание столбцов и функций статистики в одном представлении
 Это представление содержит столбцы, относящиеся к статистике, и результаты функции STATS_DATE().
@@ -476,37 +463,5 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 - Пользовательская ошибка 2767 не поддерживается.
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения см. в статье [Инструкция DBCC SHOW_STATISTICS (Transact-SQL)][DBCC SHOW_STATISTICS] на сайте MSDN.
+Для дальнейшего повышения производительности запросов ознакомьтесь с разделом [Мониторинг рабочей нагрузки с помощью динамических административных представлений](sql-data-warehouse-manage-monitor.md).
 
-  Дополнительные сведения см. в статьях, посвященных [общим сведениям о таблицах][Overview], [типам данных таблиц][Data Types], [распределению][Distribute], [индексированию][Index] и [секционированию таблицы][Partition], а также [временным таблицам][Temporary].
-  
-   Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

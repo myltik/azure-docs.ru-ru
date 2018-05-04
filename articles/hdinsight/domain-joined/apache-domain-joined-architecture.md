@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: omidm
-ms.openlocfilehash: e366a9b73ee678c78063240838b399c88ae633cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 20d6dbad6fa1914c8b12f47bb48f6efba3895887
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Планирование архитектуры присоединенных к домену кластеров Hadoop в Azure HDInsight
 
@@ -49,8 +49,6 @@ ms.lasthandoff: 04/19/2018
 
 - **Доменные службы Azure Active Directory.** Эта служба предоставляет управляемый домен Active Directory, который полностью совместим с Windows Server Active Directory. Корпорация Майкрософт управляет доменом AD, применяет исправления к домену и осуществляет мониторинг домена. Вы можете развернуть свой кластер, не беспокоясь о поддержке контроллеров домена. Пользователи, группы и пароли синхронизируются из Azure Active Directory. Это позволяет пользователям входить в кластер с обычными корпоративными учетными данными. Дополнительные сведения см. в статье [Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory](./apache-domain-joined-configure-using-azure-adds.md).
 
-> [!NOTE]
-> Active Directory больше не поддерживается на виртуальных машинах Azure IaaS.
 
 ## <a name="next-steps"></a>Дополнительная информация
 * Сведения об управлении присоединенными к домену кластерами HDInsight см. в [этой статье](apache-domain-joined-manage.md).

@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b4e123475679cf1afce09630c157377ee67b5202
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Краткое руководство. Масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью T-SQL
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 04/18/2018
 ## <a name="before-you-begin"></a>Перед началом работы
 
 Скачайте и установите последнюю версию [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
-
-В этой статье предполагается, что вы ознакомились с [кратким руководством по созданию и подключению хранилища с помощью портала](create-data-warehouse-portal.md). Завершив работу с кратким руководством, вы узнаете, как подключиться к созданному хранилищу данных **mySampleDataWarehouse** и созданному правилу брандмауэра, которое разрешает нашему клиенту получить доступ к установленному серверу.
  
 ## <a name="create-a-data-warehouse"></a>Создание хранилища данных
 
@@ -91,11 +89,42 @@ ms.lasthandoff: 04/18/2018
 1. Щелкните правой кнопкой мыши **master** и выберите **Создать запрос**.
 2. Чтобы изменить целевой уровень обслуживания, используйте инструкцию T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database). Выполните следующий запрос, чтобы изменить значение целевого уровня обслуживания на DW300. 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
+
+## <a name="monitor-scale-change-request"></a>Мониторинг запроса на изменение масштаба
+Чтобы просмотреть ход выполнения предыдущего запроса на изменение, можно использовать синтаксис T-SQL `WAITFORDELAY` для опроса динамического административного представления sys.dm_operation_status.
+
+Чтобы опросить состояние изменений объекта службы, сделайте следующее
+
+1. Щелкните правой кнопкой мыши **master** и выберите **Создать запрос**.
+2. Выполните следующий запрос, чтобы опросить динамическое административное представление sys.dm_operation_status.
+
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'MySampleDataWarehouse'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. Результат показывает журнал опроса состояния.
+
+    ![Состояние операции](media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## <a name="check-data-warehouse-state"></a>Проверка состояния хранилища данных
 
@@ -103,7 +132,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 
 ## <a name="check-operation-status"></a>Проверка состояния операции
 
-Чтобы получить сведения о разных операциях управления, выполняемых в хранилище данных SQL, отправьте следующий запрос в динамическом административном представлении [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Это представление возвращает сведения о разных операциях и их состояние, которое будет иметь значение IN_PROGRESS или COMPLETED.
+Чтобы получить сведения о разных операциях управления, выполняемых в хранилище данных SQL, отправьте следующий запрос в динамическом административном представлении [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Например, это представление возвращает сведения о разных операциях, а также их состояние со значением IN_PROGRESS или COMPLETED.
 
 ```sql
 SELECT *
@@ -112,7 +141,7 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySQLDW'
+    major_resource_id = 'MySampleDataWarehouse'
 ```
 
 

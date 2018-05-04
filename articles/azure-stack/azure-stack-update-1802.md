@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 3bbfb4e9725b51aa5435f143045c33cbc8f2d1c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Обновление 1802 Azure Stack
 
@@ -56,9 +56,10 @@ ms.lasthandoff: 04/19/2018
 
 
 ### <a name="post-update-steps"></a>Действия после обновления
-После установки 1802 установите все применимые исправления. Дополнительные сведения см. в статьях базы знаний по ссылке ниже, а также в статье о нашей [политике обслуживания](azure-stack-servicing-policy.md).  
-- Ознакомьтесь со статьей базы знаний [KB 4103348 об аварийном завершении работы службы API сетевого контроллера при попытке установить обновление Azure Stack](https://support.microsoft.com/help/4103348).
+После установки 1802 установите все применимые исправления. Дополнительные сведения см. в статьях базы знаний по ссылке ниже, а также в статье о нашей [политике обслуживания](azure-stack-servicing-policy.md). 
+- Исправление Azure Stack **1.0.180302.4**. [Статья базы знаний KB 4131152 о непригодности к использованию существующих масштабируемых наборов виртуальных машин]( https://support.microsoft.com/help/4131152). 
 
+  Кроме того, это исправление позволяет устранить проблемы, описанные в статьей базы знаний [KB 4103348 об аварийном завершении работы службы API сетевого контроллера при попытке установить обновление Azure Stack](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Новые функции и исправления
@@ -193,7 +194,7 @@ ms.lasthandoff: 04/19/2018
     - *Разрешить:*
  
       ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -223,7 +224,7 @@ ms.lasthandoff: 04/19/2018
 
         ```powershell
         
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

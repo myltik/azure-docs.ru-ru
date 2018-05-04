@@ -1,32 +1,30 @@
 ---
-title: "Использование R в HDInsight для настройки кластеров — Azure | Документы Майкрософт"
-description: "Сведения об установке R с помощью действия сценария и использовании R в кластерах HDInsight."
+title: Использование R в HDInsight для настройки кластеров — Azure | Документы Майкрософт
+description: Сведения об установке R с помощью действия сценария и использовании R в кластерах HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: be851270-afa5-4af0-a69e-2d343a4deeb7
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c5fb38de8b1023a05709d07ba17b0c776c87957e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Установка и использование R на кластерах HDInsight Hadoop
 
 Научитесь настраивать кластер HDInsight на основе Windows с R с помощью сценария действия и использовать R в кластерах HDInsight. В состав предложения [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) входит R Server. Это позволяет сценариям R использовать MapReduce и Spark для выполнения распределенных вычислений. Дополнительные сведения см. в статье [Приступая к работе с R Server в HDInsight](r-server/r-server-get-started.md). Сведения об использовании R с кластером под управлением Linux см. в статье [Install and use R on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-r-scripts-linux.md) (Установка и использование R в кластерах HDInsight Hadoop (Linux)).
 
-R можно установить в кластере любого типа (Hadoop, Storm, HBase, Spark) в HDInsight в Azure, воспользовавшись *Действием сценария*. Пример скрипта для установки R на кластере HDInsight доступен в большом двоичном объекте хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+R можно установить в кластере любого типа (Hadoop, Storm, HBase, Spark) в HDInsight в Azure, воспользовавшись *Действием сценария*. Пример сценария для установки R в кластере HDInsight доступен в большом двоичном объекте хранилища Azure только для чтения по адресу [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 **Связанные статьи**
 
@@ -58,7 +56,7 @@ R совместим с хранилищем больших двоичных о�
         <tr><td>ИМЯ</td>
             <td>Укажите имя для действия скрипта, например <b>Установить R</b>.</td></tr>
         <tr><td>URI-адрес сценария</td>
-            <td>Укажите универсальный код ресурса для скрипта, вызываемого для настройки кластера, например <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i>.</td></tr>
+            <td>Укажите URI для сценария, который вызывается для настройки кластера, например <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i>.</td></tr>
         <tr><td>Тип узла</td>
             <td>Укажите узлы, на которых выполняется сценарий настройки. Вы можете выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Worker nodes only</b> (Только рабочие узлы).
         <tr><td>Параметры</td>
@@ -95,10 +93,10 @@ R совместим с хранилищем больших двоичных о�
 
 
 ## <a name="install-r-using-aure-powershell"></a>Установка R с помощью Azure PowerShell
-См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  В этом примере показано, как установить Spark с помощью Azure PowerShell. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  В этом примере показано, как установить Spark с помощью Azure PowerShell. Нужно настроить скрипт для использования [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 ## <a name="install-r-using-net-sdk"></a>Установка R с помощью пакета SDK для .NET
-См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
+См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Нужно настроить скрипт для использования [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 ## <a name="see-also"></a>См. также
 * [Установка и использование R на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md)

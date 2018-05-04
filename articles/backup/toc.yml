@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Защита рабочих нагрузок
           items:
-            - name: Резервное копирование сервера VMware с помощью Azure Backup Server
+            - name: Сервер VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Резервное копирование Exchange Server с помощью Azure Backup Server
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Резервное копирование фермы SharePoint с помощью Azure Backup Server
+            - name: Ферма SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Резервное копирование данных SQL с помощью Azure Backup Server
+            - name: SQL Server;
               href: backup-azure-sql-mabs.md
             - name: Защита состояния системы и восстановление исходного состояния системы
               href: backup-mabs-system-state-and-bmr.md
+            - name: Файлы и приложения в Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Восстановление данных с сервера Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
     - name: Общие папки Azure

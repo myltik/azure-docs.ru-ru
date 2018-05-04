@@ -1,6 +1,6 @@
 ---
-title: "Схема безопасности и соответствия требованиям Azure. Автоматизация веб-приложений для FedRAMP"
-description: "Схема безопасности и соответствия требованиям Azure. Автоматизация веб-приложений для FedRAMP"
+title: Схема безопасности и соответствия требованиям Azure. Автоматизация веб-приложений для FedRAMP
+description: Схема безопасности и соответствия требованиям Azure. Автоматизация веб-приложений для FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Схема безопасности и соответствия требованиям Azure. Автоматизация веб-приложений для FedRAMP
 
@@ -76,10 +76,9 @@ ms.lasthandoff: 02/11/2018
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics**.
+    - (1) Рабочая область Log Analytics.
 * **Служба автоматизации Azure**
     - (1) Учетная запись службы автоматизации.
-* **Operations Management Suite**
-    - (1) Рабочая область OMS.
 
 ## <a name="deployment-architecture"></a>Архитектура развертывания
 
@@ -136,7 +135,7 @@ ms.lasthandoff: 02/11/2018
 
 ### <a name="logging-and-auditing"></a>Ведение журналов и аудит
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) обеспечивает детальную запись системных и пользовательских действий, а также системной работоспособности. 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) обеспечивает детальную запись системных и пользовательских действий, а также системной работоспособности. 
 
 - **Журналы действий.** [Журналы действий](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) содержат информацию об операциях, которые выполнялись с ресурсами в подписке.
 - **Журналы диагностики.** [Журналы диагностики](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) — это все журналы, создаваемые ресурсом. К этим журналам относятся системные журналы событий Windows, журналы службы хранилища Azure, журналы аудита Key Vault, а также журналы брандмауэра и доступа шлюза приложений.
@@ -154,7 +153,7 @@ ms.lasthandoff: 02/11/2018
 Следующие технологии обеспечивают возможности управления удостоверениями в среде Azure.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) — это мультитенантный облачный каталог и служба управления удостоверениями корпорации Майкрософт.
 - Аутентификация развернутого пользователем веб-приложения может выполняться с помощью Azure Active Directory. Дополнительные сведения см. в статье [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Контроль доступа на основе ролей (RBAC) Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) обеспечивает точное управление доступом для Azure. Доступ к подписке ограничен администратором подписки, а доступ к ресурсам можно ограничить с учетом роли пользователя.
+- [Контроль доступа на основе ролей (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) обеспечивает точное управление доступом для Azure. Доступ к подписке ограничен администратором подписки, а доступ к ресурсам можно ограничить с учетом роли пользователя.
 - Развернутый экземпляр IaaS Active Directory обеспечивает управление удостоверениями на уровне операционной системы для развернутых виртуальных машин IaaS.
    
 ### <a name="compute-resources"></a>Вычислительные ресурсы
@@ -182,17 +181,17 @@ ms.lasthandoff: 02/11/2018
 
 ### <a name="patch-management"></a>Управление исправлениями
 
-Виртуальные машины Windows, развернутые этим решением автоматизации схемы безопасности и соответствия требованиям Azure, по умолчанию настроены для получения автоматических обновлений из службы Центра обновления Windows. Это решение также развертывает решение службы автоматизации Azure OMS, с помощью которого можно создать обновления развертываний для развертывания исправлений на серверах Windows, когда это требуется.
+Виртуальные машины Windows, развернутые этим решением автоматизации схемы безопасности и соответствия требованиям Azure, по умолчанию настроены для получения автоматических обновлений из службы Центра обновления Windows. В этом решении также развертывается решение службы автоматизации Azure, с помощью которого при необходимости можно обновить развертывания исправлений на серверах Windows.
 
 ### <a name="operations-management"></a>Operations Management
 
 #### <a name="log-analytics"></a>Служба Log Analytics
 
-Log Analytics — это служба в [Operations Management Suite (OMS)](https://azure.microsoft.com/services/log-analytics/), которая собирает и анализирует данные, создаваемые ресурсами в локальных средах Azure.
+Log Analytics — это служба в [Log Analytics](https://azure.microsoft.com/services/log-analytics/), которая отвечает за сбор и анализ данных, создаваемых ресурсами в локальных средах Azure.
 
-#### <a name="oms-solutions"></a>Решения OMS
+#### <a name="management-solutions"></a>Решения для управления
 
-Следующие решения OMS предварительно установлены как часть этого решения:
+Следующие решения по управлению предварительно установлены как часть этого решения:
 - [Оценка AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Оценка защиты от вредоносных программ](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Служба автоматизации Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

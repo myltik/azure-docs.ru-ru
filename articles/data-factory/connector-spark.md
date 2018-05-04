@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fcdcc4cf948550467257fa6cbe9287cd26d49962
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4089fe636ad25f97fe78f0bd10553b93d768321d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Копирование данных из Spark с помощью фабрики данных Azure 
 
@@ -47,9 +47,9 @@ ms.lasthandoff: 04/05/2018
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Spark** | Yes |
 | host | IP-адрес или имя узла сервера Spark  | Yes |
-| порт | TCP-порт, используемый сервером Spark для прослушивания клиентских подключений.  | Yes |
+| порт | TCP-порт, используемый сервером Spark для прослушивания клиентских подключений. При подключении к Azure HDInsights укажите порт 443. | Yes |
 | serverType | Тип сервера Spark. <br/>Допустимые значения: **SharkServer**, **SharkServer2**, **SparkThriftServer**. | Нет  |
-| thriftTransportProtocol | Транспортный протокол для использования в слое Thrift. <br/>Допустимые значения: **Binary**, **SASL**, **HTTP **. | Нет  |
+| thriftTransportProtocol | Транспортный протокол для использования в слое Thrift. <br/>Допустимые значения: **Binary**, **SASL**, **HTTP** | Нет  |
 | authenticationType | Метод аутентификации, используемый для доступа к серверу Spark. <br/>Допустимые значения: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. | Yes |
 | Имя пользователя | Имя пользователя, которое позволяет получить доступ к серверу Spark.  | Нет  |
 | password | Пароль, соответствующий пользователю. Пометьте это поле как SecureString, чтобы безопасно хранить его в фабрике данных, или [добавьте ссылку на секрет, хранящийся в Azure Key Vault](store-credentials-in-key-vault.md). | Нет  |
@@ -76,8 +76,7 @@ ms.lasthandoff: 04/05/2018
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

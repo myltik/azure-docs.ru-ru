@@ -1,11 +1,11 @@
 ---
-title: "Обновление приложения мобильных служб до службы приложений Azure"
-description: "Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений."
+title: Обновление приложения мобильных служб до службы приложений Azure
+description: Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Обновление существующего приложения мобильной службы Azure .NET до службы приложений
 Мобильное приложение службы приложений — это новый способ сборки мобильных приложений с помощью Microsoft Azure. Дополнительные сведения см. в статье [Общие сведения о мобильных приложениях].
@@ -270,5 +270,5 @@ ms.lasthandoff: 01/04/2018
 [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[ценами службы приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[ценами службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

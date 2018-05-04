@@ -1,25 +1,25 @@
 ---
-title: "Планирование развертывания без подключения к Azure для интегрированных систем Azure Stack | Документация Майкрософт"
-description: "Планирование развертываний для многоузловой инфраструктуры Azure Stack без подключения к Azure."
+title: Планирование развертывания без подключения к Azure для интегрированных систем Azure Stack | Документация Майкрософт
+description: Планирование развертываний для многоузловой инфраструктуры Azure Stack без подключения к Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Планирование развертываний без подключения к Azure для интегрированных систем Azure Stack
 Когда вы решите, [как интегрировать Azure Stack с гибридной облачной средой](azure-stack-connection-models.md), вы сможете спланировать развертывание Azure Stack.
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/09/2018
 |Развертывание виртуальной машины с расширением Docker для выполнения команд Docker.|Ограничено. Docker ищет в Интернете последнюю версию, и этот поиск завершается ошибкой.|
 |Ссылки на документацию на портале Azure Stack.|Недоступно. Такие ссылки, как "Отправить отзыв", "Справка", "Краткое руководство" и т. д., которые используют URL-адреса, не будут работать.|
 |Устранение рисков и исправление оповещений, которое ссылается на онлайн-руководство по исправлению.|Недоступно. Все ссылки на исправление оповещений, которые используют URL-адреса, не будут работать.|
-|Синдикация Marketplace — возможность выбора и добавления пакетов коллекции непосредственно из Azure Marketplace.|Недоступно. Для работы этого компонента требуется возможность подключения к Azure и учетной записи Azure Active Directory.|
+|Синдикация Marketplace — возможность выбора и добавления пакетов коллекции непосредственно из Azure Marketplace.|Ограничено. При развертывании Azure Stack в отключенном режиме (без подключения к Интернету) вы не сможете скачать элементы Marketplace с помощью портала Azure Stack. Но можно воспользоваться средством синдикации Marketplace, чтобы скачать элементы Marketplace на компьютер с подключением к Интернету, а затем передать их в среду Azure Stack.|
 |Использование учетных записей федерации Azure Active Directory для управления развертыванием Azure Stack.|Недоступно. Для работы этого компонента требуется возможность подключения к Azure. Вместо этого компонента следует использовать службы федерации Active Directory (AD FS) с локальным экземпляром Active Directory.|
 |Поставщики ресурсов, например WebApps и SQL|Недоступно. Поставщикам ресурсов, например WebApps и SQL, требуется подключение к Интернету для доступа к содержимому.|
 |Интерфейс командной строки|Ограничено. Возможности интерфейса командной строки ограничены в контексте аутентификации и подготовки субъектов-служб.|

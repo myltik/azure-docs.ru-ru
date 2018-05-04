@@ -1,10 +1,10 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с XaitPorter | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в XaitPorter."
+title: Руководство по интеграции Azure Active Directory с XaitPorter | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в XaitPorter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Руководство по интеграции Azure Active Directory с XaitPorter
 
@@ -113,33 +113,17 @@ ms.lasthandoff: 12/11/2017
     Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов XaitPorter](https://www.xait.com/support/). 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов XaitPorter](https://www.xait.com/support/).
+     
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот. 
 
-4. Нажмите кнопку **Сохранить** .
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. Для создания URL-адреса **метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **XaitPorter** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-6. Предоставьте **IP-адрес** или **URL-адрес метаданных** [группе поддержки SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), чтобы она могла проверить, доступен ли этот IP-адрес вашему экземпляру XaitPorter, настроив список разрешений на своей стороне. 
+6. Предоставьте **IP-адрес** или **URL-адрес метаданных федерации приложений** [группе поддержки SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), чтобы она могла проверить, доступен ли этот IP-адрес вашему экземпляру XaitPorter, настроив список разрешений на своей стороне. 
 
 7. В другом окне веб-браузера войдите на корпоративный веб-сайт XaitPorter в качестве администратора.
 
@@ -157,15 +141,11 @@ ms.lasthandoff: 12/11/2017
 
     a. Выберите **Enable Single Sign-On Authentication** (Включить аутентификацию с помощью единого входа).
 
-    Б. В текстовое поле **Identity Provider Settings** (Параметры поставщика удостоверений) вставьте **URL-адрес метаданных**, скопированный на портале Azure, и нажмите кнопку **Fetch** (Получить).
+    Б. В текстовое поле **Параметры поставщика удостоверений** вставьте **URL-адрес метаданных федерации приложений**, скопированный на портале Azure, и нажмите кнопку **Fetch** (Получить).
 
     c. Выберите **Enable Autocreation of Users** (Включить автоматическое создание пользователей).
 
     d. Последовательно выберите **ОК**.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

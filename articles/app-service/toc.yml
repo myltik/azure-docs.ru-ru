@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: Разработка веб-заданий с помощью VS
           href: websites-dotnet-deploy-webjobs.md
+        - name: Начало работы с пакетом SDK для веб-заданий
+          href: webjobs-sdk-get-started.md
+        - name: Использование пакета SDK для веб-заданий
+          href: webjobs-sdk-how-to.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
@@ -253,6 +257,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: Устранение проблем с производительностью
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Устранение неполадок с доменом и сертификатом
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: Часто задаваемые вопросы
           items:
             - name: 'Часто задаваемые вопросы о доступности, производительности и приложениях'

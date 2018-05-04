@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Управляемый экземпляр
       href: sql-database-managed-instance.md
-    - name: Уровни службы
-      href: sql-database-service-tiers.md
+    - name: Уровни служб на основе числа DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Уровни служб на основе числа виртуальных ядер
+      href: sql-database-service-tiers-vcore.md
     - name: Горизонтальное масштабирование для чтения
       href: sql-database-read-scale-out.md
     - name: Ограничения ресурсов на основе DTU
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Отчеты по всем клиентам
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: 'Извлечение, преобразование и загрузка для анализа'
-              href: saas-tenancy-tenant-analytics.md
+            - name: Аналитика клиента
+              items:
+                - name: Использование базы данных SQL
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Использование хранилища данных SQL
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Аварийное восстановление с использованием георепликации
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Аварийное восстановление с использованием георепликации базы данных

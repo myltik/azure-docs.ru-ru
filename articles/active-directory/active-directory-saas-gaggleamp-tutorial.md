@@ -1,6 +1,6 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с GaggleAMP | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении GaggleAMP."
+title: Учебник. Интеграция Azure Active Directory с GaggleAMP | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении GaggleAMP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Руководство. Интеграция Azure Active Directory с GaggleAMP
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/11/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
@@ -106,44 +106,48 @@ ms.lasthandoff: 12/11/2017
  
     ![Настройка единого входа](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. В разделе **Домены и URL-адреса GaggleAMP** сделайте следующее:
+3. Если вы хотите настроить приложение в режиме, инициированном поставщиком удостоверений, в разделе**Домены и URL-адреса приложения GaggleAMP** выполните следующие действия:
 
     ![Настройка единого входа](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.gaggleamp.com`
+     В текстовом поле **Идентификатор** введите URL-адрес `https://accounts.gaggleamp.com/auth/saml/callback`.
 
-    > [!NOTE] 
-    > Это значение приведено для примера. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов GaggleAMP](mailto:sales@gaggleamp.com). 
+4. Установите флажок **Показать дополнительные параметры URL-адресов**, и выполните следующее действие, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
+
+    ![Настройка единого входа](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://gaggleamp.com/i/<customerid>`
+
+    > [!NOTE]
+    > Значение URL-адреса входа приведено для примера. Вместо него необходимо указать фактический URL-адрес для входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов GaggleAMP](mailto:sales@gaggleamp.com).
  
-4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+5. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. Нажмите кнопку **Сохранить** .
+6. Нажмите кнопку **Сохранить** .
 
     ![Настройка единого входа](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. В разделе **Настройка GaggleAMP** щелкните **Настроить GaggleAMP**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+7. В разделе **Настройка GaggleAMP** щелкните **Настроить GaggleAMP**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Настройка единого входа](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. В другом окне браузера перейдите на страницу единого входа SAML, созданную для вас группой поддержки Gaggle (например, *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+8. В другом окне браузера перейдите на страницу единого входа SAML, созданную для вас группой поддержки Gaggle (например, *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-8. На странице **Единый вход SAML** выполните следующие действия.  
+9. На странице **Единый вход SAML** выполните следующие действия.  
    
-    ![Единый вход в GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. В текстовое поле **Издатель поставщика удостоверений** вставьте значение **URL-адреса издателя**, скопированное на портале Azure. 
- 
-    Б. В текстовое поле **URL-адрес единого входа поставщика удостоверений** вставьте значение **URL-адреса службы единого входа**, скопированное на портале Azure. 
+    ![Единый вход в GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. Нажмите кнопку **Сохранить**      
-
-    d. Отправьте **Сертификат (в кодировке Base64)** в [службу поддержки GaggleAMP](mailto:sales@gaggleamp.com).
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+    a. Выберите **Other** (Другое) из раскрывающегося списка **SAML Identity Provider** (Поставщик удостоверений SAML).
+    
+    Б. В текстовое поле **Издатель поставщика удостоверений** вставьте значение **URL-адреса издателя**, скопированное на портале Azure.
+    
+    c. В текстовое поле **URL-адрес единого входа поставщика удостоверений** вставьте значение **URL-адреса службы единого входа**, скопированное на портале Azure.
+    
+    d. Откройте скачанный файл **сертификата в кодировке Base64** в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Certificate X.509** (Сертификат X.509).
+    
+    д. Выберите команду **Сохранить**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
@@ -223,8 +227,6 @@ ms.lasthandoff: 12/11/2017
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_01.png
@@ -238,4 +240,3 @@ ms.lasthandoff: 12/11/2017
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

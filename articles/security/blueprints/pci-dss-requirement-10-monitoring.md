@@ -1,6 +1,6 @@
 ---
-title: "План обработки платежей Azure: требования к мониторингу"
-description: "Требование 10 (стандарт PCI DSS)"
+title: 'План обработки платежей Azure: требования к мониторингу'
+description: Требование 10 (стандарт PCI DSS)
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Требования к мониторингу для сред, соответствующих PCI DSS 
 ## <a name="pci-dss-requirement-10"></a>Требование 10 (стандарт PCI DSS)
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | Средства FIM и IDS реализованы в среде Microsoft Azure. Microsoft Azure использует EWS для поддержки анализа событий в режиме реального времени в пределах операционной среды. MA и AIMS почти в реальном времени генерируют оповещения о событиях, которые могут скомпрометировать систему. <br /><br />Ведение журнала событий службы, пользователей и безопасности (журналы веб-сервера, журналы сервера FTP и т. д.) включено, и данные сохраняются централизованно. Azure предоставляет доступ к журналам аудита уполномоченным сотрудникам в зависимости от должностных обязанностей. Журналы событий архивируются в безопасной архивной инфраструктуре Azure и хранятся в течение 180 дней. |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в OMS. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в Azure. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | См. раздел для Microsoft Azure в описании [требования 10.5](#pci-dss-requirement-10-5). |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в OMS. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в Azure. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | См. раздел для Microsoft Azure в описании [требования 10.5](#pci-dss-requirement-10-5). |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в OMS. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в Azure. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -184,7 +184,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | См. раздел для Microsoft Azure в описании [требования 10.5](#pci-dss-requirement-10-5). |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в OMS. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в Azure. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | См. раздел для Microsoft Azure в описании [требования 10.5](#pci-dss-requirement-10-5). |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в OMS. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в Azure. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Поставщик<br />(Microsoft&nbsp;Azure)** | См. раздел для Microsoft Azure в описании [требования 10.5](#pci-dss-requirement-10-5). |
-| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в OMS. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Клиент<br />(план PCI-DSS&nbsp;)** | Интернет-магазин Contoso предоставляет сведения об аудите всех элементов в Azure. Резервное копирование во внешний источник можно выполнить с помощью службы [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 

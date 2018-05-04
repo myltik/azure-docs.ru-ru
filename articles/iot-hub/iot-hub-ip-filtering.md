@@ -1,11 +1,11 @@
 ---
-title: "Фильтрация подключений по протоколу IP в Центре Интернета вещей Azure | Документация Майкрософт"
-description: "Сведения об использовании фильтрации IP-адресов для блокирования подключений к Центру Интернета вещей Azure с определенных IP-адресов. Вы можете блокировать подключения с отдельных IP-адресов или их диапазонов."
+title: Фильтрация подключений по протоколу IP в Центре Интернета вещей Azure | Документация Майкрософт
+description: Сведения об использовании фильтрации IP-адресов для блокирования подключений к Центру Интернета вещей Azure с определенных IP-адресов. Вы можете блокировать подключения с отдельных IP-адресов или их диапазонов.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: boltean
-ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0229b8b16de1fa04d953c90895b29e4fbad60ec3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-ip-filters"></a>Использование фильтрации IP-адресов
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 <!-- Links -->
 
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Azure Express Route]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
+[Azure Express Route]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md

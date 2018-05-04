@@ -1,0 +1,85 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Наблюдатель за сетями
+metadata:
+  document_id: 
+  title: Наблюдатель за сетями
+  meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+  services: network-watcher
+  author: jdial
+  manager: jeconnoc
+  ms.service: virtual-network
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/24/2018
+  ms.author: jdial
+  ms.openlocfilehash: d8f4996aedec1083ccdb3e05e17bf068bdeffe22
+  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/01/2018
+abstract:
+  description: Сведения об использовании Наблюдателя за сетями Azure В руководствах, примерах и документации показано, как выполнять мониторинг подключений и получать сведения о виртуальной сети Azure с помощью таких средств, как захват пакетов и журналы последовательностей NSG, для диагностики проблем с фильтрацией трафика и маршрутизацией.
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: Сведения о диагностике проблем с фильтрацией входящего и исходящего трафика виртуальной машины.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/portal.svg
+      text: Портал Azure
+      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem
+    - image:
+        src: ./media/index/powershell.svg
+      text: Azure PowerShell
+      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
+    - image:
+        src: ./media/index/cli.svg
+      text: Инфраструктура CLI Azure
+      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: Сведения о диагностике неполадок в виртуальной сети.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Диагностика проблем с маршрутизацией сети виртуальной машины</a>
+    - html: <a href="/azure/network-watcher/connection-monitor">Мониторинг сетевого взаимодействия между виртуальной машиной и конечной точкой</a>
+- title: Бесплатные видеоуроки PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Реализация сети Microsoft Azure
+      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Планирование и разработка сетевых решений Microsoft Azure
+      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+    - title: Администрирование Microsoft Azure для администраторов AWS
+      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Командная строка
+      html: <p><a href="/powershell/module/azurerm.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">интерфейс командной строки Azure</a></p>
+    - title: Языки
+      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/network-watcher/">справочник по API REST</a></p>

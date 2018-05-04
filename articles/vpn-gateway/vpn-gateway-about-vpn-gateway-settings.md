@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Сведения о параметрах конфигурации VPN-шлюза
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Сравнение изменения размера с изменением номера SKU
+###  <a name="resizechange"></a>Изменение размера номера SKU или переход на другой номер SKU
 
-Изменить размер шлюза с определенным номером SKU довольно просто. Простой при изменении размера шлюза очень незначителен. Но для изменения размера есть определенные правила:
+Если у вас есть VPN-шлюз и вы хотите использовать другой номер SKU шлюза, можно либо изменить размер SKU шлюза, или перейти на другой номер SKU. При переходе на другой номер SKU шлюза существующий шлюз полностью удаляется и создается новый. Это может занять до 45 минут. Для сравнения: при изменении размера SKU шлюза простой очень незначителен, так как удалять и заново создавать шлюз не требуется. Если у вас есть возможность изменить размер SKU шлюза, а не перейти на другой номер SKU, выберите именно этот вариант. Но для изменения размера есть определенные правила:
 
 1. Размер SKU можно изменять, выбирая между следующими вариантами: VpnGw1, VpnGw2 и VpnGw3.
 2. Для номеров SKU предыдущих версий можно изменять размер, выбирая между следующими вариантами: Basic, Standard и HighPerformance.

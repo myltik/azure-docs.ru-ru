@@ -1,23 +1,23 @@
 ---
-title: "Руководство по интеграции Azure Active Directory c IQNavigator VMS | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в IQNavigator VMS."
+title: Руководство по интеграции Azure Active Directory c IQNavigator VMS | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в IQNavigator VMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 82c91ba8fa340fb2b179d61200a69e94ab85b6d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddb2883c0b90aaffa82bbc701cdc20de1feb7e19
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Руководство по интеграции Azure Active Directory c IQNavigator VMS
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 12/11/2017
     ![Настройка единого входа][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения IQNavigator VMS** сделайте следующее.
@@ -120,46 +120,26 @@ ms.lasthandoff: 12/11/2017
 
     В текстовое поле **Состояние ретранслятора** введите URL-адрес в следующем формате: `https://<subdomain>.iqnavigator.com`.
 
-    > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическими URL-адресом ответа и значением состояния ретранслятора. Чтобы получить эти значения, обратитесь к [группе поддержки IQNavigator VMS](https://www.beeline.com/iqn-product-support/). 
+    > [!NOTE]
+    > Эти значения приведены в качестве примера. Замените эти значения фактическими URL-адресом ответа и значением состояния ретранслятора. Чтобы получить эти значения, обратитесь к [группе поддержки IQNavigator VMS](https://www.beeline.com/iqn-product-support/).
 
-5. Нажмите кнопку **Сохранить** .
-
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
-
-6. Для создания URL-адреса **метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
+5. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
     
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
+    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
-     
-    d. Теперь перейдите к странице свойств **IQNavigator VMS** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-7. Приложение IQNavigator ожидает в утверждении идентификатора имени значение уникального идентификатора пользователя. Клиент может сопоставить правильное значение для утверждения идентификатора имени. В данном случае для примера мы сопоставили user.UserPrincipalName. Однако вам нужно сопоставить правильное значение, соответствующее параметрам вашей организации.   
+6. Приложение IQNavigator ожидает в утверждении идентификатора имени значение уникального идентификатора пользователя. Клиент может сопоставить правильное значение для утверждения идентификатора имени. В данном случае для примера мы сопоставили user.UserPrincipalName. Однако вам нужно сопоставить правильное значение, соответствующее параметрам вашей организации.
 
     ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
+7. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
+
 8. В разделе **Конфигурация IQNavigator VMS** щелкните **Настроить IQNavigator VMS**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png) 
+    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-9. Чтобы настроить единый вход на стороне **IQNavigator VMS**, нужно отправить **XML-файл метаданных**, **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** [группе поддержки IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+9. Чтобы настроить единый вход на стороне **IQNavigator VMS**, нужно отправить **URL-адрес метаданных федерации приложений**, **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** в [группу поддержки IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
@@ -174,11 +154,11 @@ ms.lasthandoff: 12/11/2017
 
 2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
     
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png)
 
 3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png) 
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png)
 
 4. На странице диалогового окна **Пользователь** выполните следующие действия.
  
@@ -191,7 +171,7 @@ ms.lasthandoff: 12/11/2017
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
     d. Нажмите кнопку **Создать**.
- 
+
 ### <a name="creating-a-iqnavigator-vms-test-user"></a>Создание тестового пользователя IQNavigator VMS
 
 Цель этого раздела — создать пользователя с именем Britta Simon в IQNavigator VMS. Обратитесь к [группе поддержки IQNavigator VMS](https://www.beeline.com/iqn-product-support/), чтобы добавить пользователей в учетную запись IQNavigator VMS.
@@ -200,21 +180,21 @@ ms.lasthandoff: 12/11/2017
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к IQNavigator VMS.
 
-![Назначение пользователя][200] 
+![Назначение пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon в IQNavigator VMS, сделайте следующее.**
 
 1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
-    ![Назначение пользователя][201] 
+    ![Назначение пользователя][201]
 
 2. Из списка приложений выберите **IQNavigator VMS**.
 
-    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png) 
+    ![Настройка единого входа](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Назначение пользователя][202]
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
@@ -237,8 +217,6 @@ ms.lasthandoff: 12/11/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

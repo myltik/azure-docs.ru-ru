@@ -1,8 +1,8 @@
 ---
-title: "Настройка источников данных в Azure Log Analytics | Документация Майкрософт"
-description: "Источники данных определяют, какие данные Log Analytics будет собирать из агентов и других подключенных источников.  В этой статье описывается, каким образом служба Log Analytics использует источники данных, и рассказывается, как их настраивать, а также приводятся общие сведения о различных доступных источниках данных."
+title: Настройка источников данных в Azure Log Analytics | Документация Майкрософт
+description: Источники данных определяют, какие данные Log Analytics будет собирать из агентов и других подключенных источников.  В этой статье описывается, каким образом служба Log Analytics использует источники данных, и рассказывается, как их настраивать, а также приводятся общие сведения о различных доступных источниках данных.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Источники данных в Log Analytics
 Служба Log Analytics собирает данные из подключенных источников и сохраняет их в рабочей области Log Analytics.  Собираемые данные зависят от заданного вами источника данных.  Данные в Log Analytics хранятся как набор записей.  Каждый источник данных создает записи определенного типа, а каждый тип обладает собственным набором свойств.
@@ -29,16 +29,19 @@ ms.lasthandoff: 12/20/2017
 
 
 ## <a name="summary-of-data-sources"></a>Сводка источников данных
-Источники данных, доступные в службе Log Analytics на данный момент, перечислены в следующей таблице.  Для каждого дается ссылка на отдельную статью, содержащую сведения об этом источнике данных.
+В приведенной ниже таблице перечислены источники данных, доступные сейчас в службе Log Analytics.  Для каждого дается ссылка на отдельную статью, содержащую сведения об этом источнике данных.   Также вы здесь найдете сведения о методах и частоте сбора данных в Log Analytics.  Сведения в этой статье помогут вам оценить доступные решения и изучить потоки данных и требования к подключению для разных решений по управлению. Описания столбцов см. в статье о [сборе данных для решений по управлению в Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| источник данных | Тип события | ОПИСАНИЕ |
-|:--- |:--- |:--- |
-| [Пользовательские журналы](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Текстовые файлы на агентах Windows или Linux, содержащие сведения о журналах. |
-| [Журналы событий Windows](log-analytics-data-sources-windows-events.md) |Событие |События, сведения о которых собраны из журналов событий на компьютерах с Windows. |
-| [Счетчики производительности Windows](log-analytics-data-sources-performance-counters.md) |Perf |Счетчики производительности, сведения о которых собраны на компьютерах с ОС Windows. |
-| [Счетчики производительности Linux](log-analytics-data-sources-performance-counters.md) |Perf |Счетчики производительности, сведения о которых собраны на компьютерах с ОС Linux. |
-| [Журналы IIS](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Журналы служб IIS в формате W3C. |
-| [Системный журнал](log-analytics-data-sources-syslog.md) |syslog |События системного журнала на компьютерах с ОС Windows или Linux. |
+
+| Источник данных | платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Пользовательские журналы](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | При получении |
+| [Пользовательские журналы](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | При получении |
+| [Журналы IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 мин |
+| [Счетчики производительности](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |по расписанию, не менее 10 секунд |
+| [Счетчики производительности](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |по расписанию, не менее 10 секунд |
+| [Системный журнал](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Из хранилища Azure — 10 минут, из агента — при получении |
+| [Журналы событий Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | При получении |
+
 
 ## <a name="configuring-data-sources"></a>Настройка источников данных
 В Log Analytics источники данных можно настроить в меню **Данные** в разделе **Дополнительные параметры**.  Конфигурация передается на все подключенные источники в рабочей области.  В настоящее время исключать агенты из этой конфигурации нельзя.

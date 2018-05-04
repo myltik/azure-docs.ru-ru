@@ -10,15 +10,15 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 483fe0fe4478de5edaf19f18626ada07d5a049ad
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 238bd98ee4b2c39a30508602384828526c866172
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Использование PHP для создания запросов к базе данных SQL Azure
 
-В этом кратком руководстве показано, как использовать [PHP](http://php.net/manual/en/intro-whatis.php) для создания программы, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
+В этом кратком руководстве показано, как использовать [PHP](http://php.net/manual/en/intro-whatis.php) для создания программы, которая подключается к Базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

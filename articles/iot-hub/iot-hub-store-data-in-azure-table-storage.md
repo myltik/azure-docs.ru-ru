@@ -1,25 +1,25 @@
 ---
-title: "Сохранение сообщений Центра Интернета вещей в хранилище данных Azure | Документация Майкрософт"
-description: "Используйте маршрутизацию сообщений Центра Интернета вещей для их сохранения в хранилище BLOB-объектов Azure. Сообщения Центра Интернета вещей содержат такие сведения, как данные датчиков, отправленные из устройства Интернета вещей."
+title: Сохранение сообщений Центра Интернета вещей в хранилище данных Azure | Документация Майкрософт
+description: Используйте маршрутизацию сообщений Центра Интернета вещей для их сохранения в хранилище BLOB-объектов Azure. Сообщения Центра Интернета вещей содержат такие сведения, как данные датчиков, отправленные из устройства Интернета вещей.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "хранилище данных Центра Интернета вещей, хранилище для данных датчиков Центра Интернета вещей"
+tags: ''
+keywords: хранилище данных Центра Интернета вещей, хранилище для данных датчиков Центра Интернета вещей
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Сохранение сообщений Центра Интернета вещей, которые содержат данные датчиков, в хранилище BLOB-объектов Azure
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Подготовка Центра Интернета вещей для маршрутизации сообщений в хранилище
 
-Центр Интернета вещей изначально поддерживает маршрутизацию сообщений в хранилище Azure в качестве больших двоичных объектов.
+Центр Интернета вещей изначально поддерживает маршрутизацию сообщений в хранилище Azure в качестве больших двоичных объектов. Дополнительные сведения о пользовательских конечных точках Центра Интернета вещей см. в [списке встроенных конечных точек Центра Интернета вещей](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints).
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>Добавление хранилища в качестве пользовательской конечной точки
 

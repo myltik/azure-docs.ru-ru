@@ -110,6 +110,10 @@
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: GO
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
+                - name: Python
+                  href: azure-stack-version-profiles-python.md
                 - name: 'API поставщика ресурсов, поддерживаемые в профилях'
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Использование модуля политики

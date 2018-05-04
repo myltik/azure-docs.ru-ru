@@ -1,25 +1,22 @@
 ---
-title: Изменения, вносимые в проект WebAPI при подключении к Azure AD | Документация Майкрософт
+title: Изменения, вносимые в проект WebAPI при подключении к Azure AD
 description: В этой статье описывается, что происходит с проектом WebAPI при подключении к Azure AD с помощью Visual Studio.
 services: active-directory
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: fc6506ccb7b4c9b7fa43a378df47094de92c73b6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b8303ccf6fc96e8d0708c9e414fdf511e0cf2fdf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
 

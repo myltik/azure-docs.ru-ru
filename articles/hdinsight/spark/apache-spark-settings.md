@@ -1,26 +1,24 @@
 ---
-title: "Настройка параметров Spark для Azure HDInsight | Документация Майкрософт"
-description: "Сведения о настройке Spark для кластера HDInsight."
+title: Настройка параметров Spark для Azure HDInsight | Документация Майкрософт
+description: Сведения о настройке Spark для кластера HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Настройка параметров Spark
 
@@ -34,9 +32,13 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="spark-versions"></a>Версии Spark
 
-Вам также следует выбрать лучшую версию Spark для своего кластера.  Spark 2.x может работать намного лучше, чем Spark 1.x. Spark 2.x имеет ряд оптимизаций производительности, таких как Tungsten, Catalyst Query Optimization и другие.  Служба HDInsight включает в себя несколько версий Spark и HDInsight.  Каждая версия Spark содержит набор стандартных параметров кластера.  Ниже приведены текущие версии Spark. Вы можете выбрать одну из них для создания кластера.
+Используйте наиболее подходящую версию Spark для кластера.  Служба HDInsight включает в себя несколько версий Spark и HDInsight.  Каждая версия Spark содержит набор стандартных параметров кластера.  
+
+Ниже приведены текущие версии Spark. Вы можете выбрать одну из них для создания кластера.
 
 ![Версии Spark](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x может работать намного лучше, чем Spark 1.x. Spark 2.x имеет ряд оптимизаций производительности, таких как Tungsten, Catalyst Query Optimization и другие.  
 
 > [!NOTE]
 > Версия по умолчанию Apache Spark в службе HDInsight может измениться без предварительного уведомления. Если используется зависимость версии, корпорация Майкрософт рекомендует указать конкретную версию при создании кластеров с использованием пакета SDK для .NET, Azure PowerShell и Azure CLI.
@@ -47,7 +49,7 @@ ms.lasthandoff: 02/01/2018
 * Переменные среды можно использовать для установки параметров (например, IP-адреса) отдельного компьютера на каждом узле с помощью скрипта `conf/spark-env.sh`.
 * Ведение журнала можно настроить с помощью `log4j.properties`.
 
-Кластер Spark любой версии содержит параметры конфигурации по умолчанию.  Вы можете изменить их, предоставив настраиваемый файл конфигурации Spark.  Ниже приведен пример такого файла.
+Кластер Spark любой версии содержит параметры конфигурации по умолчанию.  Вы можете изменить их, используя настраиваемый файл конфигурации Spark.  Ниже приведен пример такого файла.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec

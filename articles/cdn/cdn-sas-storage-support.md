@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 44c28f45b7be8fbaa47a16d8ab07892ab146c39e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Использование Azure CDN с SAS
 
@@ -83,7 +83,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    
    Назначение:   
    ```
-   $1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
 
    ![Правило переопределения URL-адресов CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
@@ -93,7 +93,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    Например:    
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   Обратите внимание на то, что доступ к файлам на конечной точке CDN можно получить независимо от использования маркера SAS. 
+   Обратите внимание, что доступ к файлам на конечной точке CDN можно получить независимо от использования маркера SAS. 
 
 3. Точная настройка длительности кэширования выполняется либо с помощью правил кеширования, либо путем добавления заголовков `Cache-Control` на сервер-источник. Так как Azure CDN рассматривает маркер SAS как обычную строку запроса, необходимо настроить длительность кэширования, которая истекает при истечении срока действия SAS или раньше. В противном случае, если файл кэшируется дольше, чем активен SAS, файл может остаться доступным с сервера-источника Azure CDN по истечении срока действия SAS. В этом случае, если вы хотите сделать кэшированный файл недоступным, выполните операцию очистки кэша в файле. Сведения о настройке длительности кэширования для Azure CDN см. в статье [Управление поведением кэширования сети доставки содержимого Azure с помощью правил кэширования](cdn-caching-rules.md).
 

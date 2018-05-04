@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/27/2018
+ms.date: 04/27/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 Фабрика данных — это мультитенантная служба со следующими ограничениями по умолчанию, которые гарантируют, что подписки клиентов защищены от рабочих нагрузок друг друга. Многие ограничения для подписки можно легко увеличить до максимального значения, обратившись в службу поддержки.
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 04/05/2018
 | Число триггеров в фабрике данных. | 2500 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Число связанных служб в фабрике данных. | 2500 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Интеграция среды выполнения в пределах фабрики данных. <sup>4</sup> | 2500 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Общее количество ядер ЦП для сред выполнения интеграции Azure-SSIS в рамках одной подписки. | 100 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Число параллельных запусков на конвейер. | 20 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Максимальное число действий на конвейер. | 20 | 30 |
 | Максимальное число параметров на конвейер. | 20 | 30 |
 | Число байтов на объект конвейера. <sup>1</sup> | 200 КБ | 200 КБ |
 | Число байтов на объект набора данных или связанной службы. <sup>1</sup> | 100 КБ | 2000 KB |
-| Облачные единицы перемещения данных. <sup>3</sup> | 256 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Число облачных единиц перемещения данных для одного выполнения действия <sup>3</sup> | 256 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Число повторных попыток выполнить действие конвейера  | 1 день (время ожидания) | 1 день (время ожидания) |
 | Количество вызовов API записи | 2500 в час<br/><br/> Это ограничение накладывается Azure Resource Manager, а не фабрикой данных Azure. | [Обратитесь в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Количество вызовов API чтения | 12 500 в час<br/><br/> Это ограничение накладывается Azure Resource Manager, а не фабрикой данных Azure. | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/05/2018
 | Число байтов на объект конвейера. <sup>1</sup> |200 КБ |200 КБ |
 | Число байтов на объект набора данных или связанной службы. <sup>1</sup> |100 КБ |2000 KB |
 | Число ядер кластера HDInsight по запросу в подписке<sup>2</sup> |60 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Облачные единицы перемещения данных. <sup>3</sup> |32 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Число облачных единиц перемещения данных для одного выполнения действия <sup>3</sup> |32 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Число повторных попыток выполнить действие конвейера  |1000 |MaxInt (32 разряда) |
 
 <sup>1</sup> Объекты конвейера, набора данных и связанной службы представляют логическую группировку вашей рабочей нагрузки. Ограничения для этих объектов не связаны с объемом данных, которые вы можете перемещать и обрабатывать в службе фабрики данных Azure. Фабрика данных предназначена для масштабирования, позволяющего обрабатывать петабайты данных.

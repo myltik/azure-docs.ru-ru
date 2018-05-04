@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-top"></a>Перенос существующей мобильной службы Azure в службу приложений Azure
 Благодаря [общей доступности службы приложений Azure]сайты мобильных служб Azure можно легко переносить на месте, что позволяет пользоваться преимуществами всех компонентов службы приложений Azure.  В этом документе объясняется, что происходит во время переноса сайта из мобильных служб Azure в службу приложений Azure.
@@ -372,16 +372,16 @@ ms.lasthandoff: 04/20/2018
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Цены службы приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Цены службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Автоматическое масштабирование]: ../app-service/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-web-overview.md
 [классическом портале Azure]: https://manage.windowsazure.com
 [портале Azure]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [планы планировщика Azure]: ../scheduler/scheduler-plans-billing.md
 [непрерывно развертывать]: ../app-service/app-service-continuous-deployment.md
-[преобразовать смешанные пространства имен]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[преобразовать смешанные пространства имен]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [пользовательские доменные имена]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler

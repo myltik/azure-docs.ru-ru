@@ -1,26 +1,26 @@
 ---
-title: "Условия в условном доступе Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как используются назначения в условном доступе Azure Active Directory для активации политики."
+title: Условия в условном доступе Azure Active Directory | Документация Майкрософт
+description: Узнайте, как используются назначения в условном доступе Azure Active Directory для активации политики.
 services: active-directory
-keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
-documentationcenter: 
+keywords: условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Условия в условном доступе Azure Active Directory 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/13/2018
 
 Можно выбрать:
 
-- Параметр **Все облачные приложения**, чтобы базовая политика применялась ко всей организации. Распространенным вариантом использования этого параметра является политика, которая требует прохождения многофакторной проверки подлинности, если обнаружен риск при входе для любого облачного приложения.
+- Параметр **Все облачные приложения**, чтобы базовая политика применялась ко всей организации. Распространенным вариантом использования этого параметра является политика, которая требует прохождения многофакторной проверки подлинности, если обнаружен риск при входе для любого облачного приложения. Политика, применяемая ко **всем облачным приложениям**, распространяется на доступ ко всем веб-сайтам и службам. Этот параметр не ограничивается облачными приложениями, которые отображаются в списке **выбора облачных приложений**.
 
 - Отдельные облачные приложения для нацеливания политики на определенные службы. Например, можно требовать наличия у пользователей [соответствующего требованиям устройства](active-directory-conditional-access-policy-connected-applications.md) для доступа к SharePoint Online. Эта политика также применяется к другим службам (например, к Microsoft Teams), когда они обращаются к содержимому SharePoint. 
 

@@ -1,3 +1,5 @@
+- name: Принципы работы Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Документация по Azure Time Series Insights
   href: index.yml
 - name: Обзор
@@ -57,16 +59,36 @@
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
     - name: Синтаксис запросов
       href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Сопутствующие материалы
+  items:
+    - name: Решения
+      items:
+        - name: Предварительно настроенные решения Azure IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Службы платформы
+      items:
+        - name: Центр Интернета вещей
+          href: /azure/iot-hub
+        - name: Служба подготовки устройств для Центра Интернета вещей
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Пакеты SDK службы
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Пакеты SDK для устройств IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Azure Stream Analytics
+      href: /azure/stream-analytics/
 - name: Ресурсы
   items:
-    - name: Связанные службы
-      items:
-        - name: Набор Azure IoT Suite
-          href: /azure/iot-suite/
-        - name: Концентраторы событий Azure
-          href: /azure/event-hubs/
-        - name: Azure Stream Analytics
-          href: /azure/stream-analytics/
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Цены

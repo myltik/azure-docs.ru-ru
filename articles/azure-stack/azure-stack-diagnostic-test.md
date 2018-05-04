@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Запуск проверочного теста в Azure Stack
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 03/08/2018
 2. Обратитесь в службу поддержки пользователей Майкрософт.
 3. Выполните командлет **AzureStack теста** из привилегированной конечной точки.
     1. Получите доступ к привилегированной конечной точке. См. инструкции по [использованию привилегированной конечной точки в Azure Stack](azure-stack-privileged-endpoint.md). 
-    2. Войдите на узел управления как **AzureStack\CloudAdmin**.
+    2. В ASDK войдите в узел управления как **AzureStack\CloudAdmin**.  
+    В интегрированной системе потребуется использовать IP-адрес привилегированной конечной точки для управления, предоставленной вашим изготовителем оборудования.
     3. Откройте PowerShell от имени администратора.
     4. Выполните команду `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Выполните команду `Test-AzureStack`

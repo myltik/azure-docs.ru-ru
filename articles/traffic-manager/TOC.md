@@ -34,7 +34,7 @@
 ### [Устранение неполадок, связанных с состоянием сниженной функциональности диспетчера трафика Azure](traffic-manager-troubleshooting-degraded.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [интерфейс командной строки Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)

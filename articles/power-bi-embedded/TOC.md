@@ -28,7 +28,7 @@
 # Справочные материалы
 ## Интерфейсы API
 ### [REST API управления ресурсами Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [Интерфейсы API REST Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### [Интерфейсы API REST Power BI](https://msdn.microsoft.com/library/mt147898.aspx)
 
 # Ресурсы
 ## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)

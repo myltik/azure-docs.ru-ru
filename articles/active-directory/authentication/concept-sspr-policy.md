@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 9f75ba47dd0e076041c7c9c69ef6cfb29178fdd3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b8079c5dffd4d426d62267e77f226d2dda183665
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Политики и ограничения для паролей в Azure Active Directory
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 04/19/2018
 | Свойство | Требования |
 | --- | --- |
 | Допустимые символы |<ul><li>A–Z</li><li>a–z</li><li>0–9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Недопустимые символы |<ul><li>Знаки Юникода.</li><li>Пробелы.</li><li> Только надежные пароли: не могут содержать знак точки "." непосредственно перед знаком \@\".</li></ul> |
+| Недопустимые символы |<ul><li>Знаки Юникода.</li><li>Пробелы.</li><li> Используйте только надежные пароли</li></ul> |
 | Ограничения для пароля |<ul><li>От 8 до 16 знаков.</li><li>Только надежные пароли: необходимо выполнить 3 из 4 следующих условий:<ul><li>строчные буквы;</li><li>прописные буквы;</li><li>числа (0–9);</li><li>символы (см. ограничения для пароля выше).</li></ul></li></ul> |
 | Длительность срока действия пароля |<ul><li>Значение по умолчанию: **90** дней.</li><li>Значение можно изменить с помощью командлета `Set-MsolPasswordPolicy` из модуля Azure Active Directory для Windows PowerShell.</li></ul> |
 | Уведомление об окончании срока действия пароля |<ul><li>Значение по умолчанию: **14** дней (до истечения срока действия пароля).</li><li>Это значение можно настроить с помощью командлета `Set-MsolPasswordPolicy`.</li></ul> |
@@ -156,7 +156,7 @@ ms.lasthandoff: 04/19/2018
 * [Требования к лицензированию самостоятельного сброса пароля в Azure AD](concept-sspr-licensing.md)
 * [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](howto-sspr-authenticationdata.md)
 * [Доступные пользователям методы проверки подлинности](concept-sspr-howitworks.md#authentication-methods).
-* [Обзор обратной записи паролей](../active-directory-passwords-writeback.md).
+* [Обзор обратной записи паролей](howto-sspr-writeback.md).
 * [Как сообщать о действиях в SSPR](howto-sspr-reporting.md)
 * [Обзор всех параметров SSPR и их значение](concept-sspr-howitworks.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)

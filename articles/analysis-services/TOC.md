@@ -1,18 +1,22 @@
 # [Документация по службам Analysis Services](index.md)
 
 # Обзор
-## [Сведения о службах Analysis Services](analysis-services-overview.md)
-## [Поддерживаемые источники данных](analysis-services-datasource.md)
-## [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)
-## [Подключение к локальным источникам данных](analysis-services-gateway.md)
-## [Уровень совместимости](analysis-services-compat-level.md)
-## [Высокая доступность](analysis-services-bcdr.md)
+## [Что такое службы Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Начало работы
 ## [Создание сервера на портале Azure](analysis-services-create-server.md)
 ## [Создание сервера с помощью Azure PowerShell](analysis-services-create-powershell.md)
 ## [Развертывание модели из Visual Studio](analysis-services-deploy.md)
 ## [Создание модели на портале Azure (предварительная версия)](analysis-services-create-model-portal.md)
+
+# Основные понятия
+## [Поддерживаемые источники данных](analysis-services-datasource.md)
+## [Подключение к локальным источникам данных](analysis-services-gateway.md)
+## [Подключение к серверам](analysis-services-connect.md)
+## [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)
+## [Уровень совместимости](analysis-services-compat-level.md)
+## [Высокая доступность](analysis-services-bcdr.md)
 
 # Инструкции 
 ## [Установка и настройка локального шлюза данных](analysis-services-gateway-install.md)

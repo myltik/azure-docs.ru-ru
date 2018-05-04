@@ -1,8 +1,8 @@
 ---
-title: "Использование MapReduce и PowerShell с Hadoop в Azure HDInsight | Документы Майкрософт"
-description: "Информация об использовании PowerShell для удаленного выполнения заданий MapReduce с помощью Hadoop в HDInsight."
+title: Использование MapReduce и PowerShell с Hadoop в Azure HDInsight | Документы Майкрософт
+description: Информация об использовании PowerShell для удаленного выполнения заданий MapReduce с помощью Hadoop в HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 01dd31c1dfd9a91483c0ac9eaca1c80410463731
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Выполнение заданий MapReduce с помощью PowerShell с использованием Hadoop в HDInsight
 
@@ -43,7 +41,7 @@ Azure PowerShell предоставляет *командлеты* , позво�
 
 При выполнении заданий MapReduce в удаленном кластере HDInsight используются следующие командлеты:
 
-* **Login-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
+* **Connect-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
 
 * **New-AzureRmHDInsightMapReduceJobDefinition** — создает *определение задания*, используя заданную информацию MapReduce.
 

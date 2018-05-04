@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с LearnUpon | Документы Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в LearnUpon."
+title: Руководство по интеграции Azure Active Directory с LearnUpon | Документы Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в LearnUpon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 40e6df0db7651488642e774512f55fbd6805809a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2796f280b2f95504be5f9691098bff07fdd93393
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Руководство. Интеграция Azure Active Directory с LearnUpon
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/11/2017
 
 
 
-4. В разделе **Сертификат подписи SAML** щелкните **Certificate (Raw)** (Сертификат (необработанный)), а затем сохраните файл сертификата на компьютере.
+4. В разделе **Сертификат подписи SAML** найдите параметр **Отпечаток**. Он будет добавлен в параметры SAML LearnUpon.
 
     ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
@@ -163,9 +163,9 @@ ms.lasthandoff: 12/11/2017
    
      ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png)  
  
-    a. В текстовом поле **Формат идентификатора имени** введите значение, которое обозначает расположение имени пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    a. В текстовом поле **First Name Identifier Format** (Формат идентификатора имени) введите значение, которое обозначает расположение имени пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
-    Б. В текстовом поле **Формат идентификатора фамилии** введите значение, которое обозначает расположение фамилии пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    Б. В текстовом поле **Last Name Identifier Format** (Формат идентификатора фамилии) введите значение, которое обозначает расположение фамилии пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

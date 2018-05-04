@@ -1,10 +1,10 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением Springer Link | Документы Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Springer Link."
+title: Руководство по интеграции Azure Active Directory с приложением Springer Link | Документы Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Springer Link.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e532659be9b8aef303a20900465d16a7641d8cfe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b004bec7c022662a1c90f54079af4fd25c84fab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Руководство: интеграция Azure Active Directory с Springer Link
 
@@ -115,37 +115,17 @@ ms.lasthandoff: 12/11/2017
 
     ![Сведения о домене и URL-адресах единого входа Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    В текстовом поле **URL-адрес для входа** введите URL-адрес `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`.    
+    В текстовом поле **URL-адрес для входа** введите URL-адрес `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`.
 
-5. Нажмите кнопку **Сохранить** .
+5. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот. 
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_certificate.png)    
+
+6. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-6. Для создания URL-адреса **метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **Springer Link** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-7. Для настройки единого входа на стороне **Springer Link** необходимо отправить созданный **URL-адрес метаданных** в [службу поддержки Springer Link](mailto:identity@springernature.com).
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-
+7. Для настройки единого входа на стороне **Springer Link** необходимо отправить созданный **URL-адрес метаданных федерации приложений** в [службу поддержки Springer Link](mailto:identity@springernature.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

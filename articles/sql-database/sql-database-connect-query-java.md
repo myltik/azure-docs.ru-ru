@@ -10,11 +10,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: andrela
-ms.openlocfilehash: e91c80a3a4e44e2e02b77ed417d6b2d4b629fcf1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2e11b349bb1bc5b92c3876df5c14312efc0805b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Использование Java для создания запросов к базе данных SQL Azure
 

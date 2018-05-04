@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>Кластер MariaDB (MySQL) — руководство по Azure
 > [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager](../../../resource-manager-deployment-model.md) и классическая модель. В этой статье рассматривается классическая модель развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель Azure Resource Manager.
 
 > [!NOTE]
-> Кластер MariaDB Enterprise теперь доступен в Azure Marketplace. Новое предложение автоматически развертывает кластер MariaDB Galera в Azure Resource Manager. Воспользуйтесь новым предложением от [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
+> Кластер MariaDB Enterprise теперь доступен в Azure Marketplace. Новое предложение автоматически развертывает кластер MariaDB Galera в Azure Resource Manager. Воспользуйтесь новым предложением от [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
 >
 >
 

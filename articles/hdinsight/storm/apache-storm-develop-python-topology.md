@@ -1,26 +1,24 @@
 ---
-title: "Apache Storm с компонентами Python. Azure HDInsight | Документация Майкрософт"
-description: "Сведения о создании топологии Apache Storm, использующей компоненты Python."
+title: Apache Storm с компонентами Python. Azure HDInsight | Документация Майкрософт
+description: Сведения о создании топологии Apache Storm, использующей компоненты Python.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 keywords: apache storm python
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Разработка топологий Apache Storm с помощью Python в HDInsight
 
@@ -29,7 +27,7 @@ ms.lasthandoff: 01/23/2018
 > [!IMPORTANT]
 > Сведения в этом документе были проверены с использованием Storm в HDInsight 3.6. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Код для этого проекта доступен здесь: [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+Код для этого проекта можно найти по адресу [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -140,7 +138,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Для просмотра топологии в кластере можно использовать пользовательский интерфейс Storm. Он доступен по адресу https://mycluster.azurehdinsight.net/stormui. Замените `mycluster` именем кластера.
+3. Для просмотра топологии в кластере можно использовать пользовательский интерфейс Storm. Пользовательский интерфейс Storm находится по адресу https://mycluster.azurehdinsight.net/stormui. Замените `mycluster` именем кластера.
 
 > [!NOTE]
 > После запуска топология Storm выполняется до тех пор, пока она не будет остановлена. Чтобы остановить топологию, используйте один из следующих методов:

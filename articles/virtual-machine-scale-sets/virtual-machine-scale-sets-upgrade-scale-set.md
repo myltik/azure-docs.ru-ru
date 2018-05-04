@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Изменение масштабируемого набора виртуальных машин
 На протяжении жизненного цикла приложений может потребоваться изменить или обновить масштабируемый набор виртуальных машин. Это может быть обновление конфигурации масштабируемого набора или изменение конфигурации приложения. В этой статье описывается, как можно изменить существующий масштабируемый набор с помощью интерфейсов REST API, Azure PowerShell или Azure CLI 2.0.
@@ -347,6 +347,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - зоны доступности;
 - издатель ссылки на образ;
 - предложение ссылки на образ.
+- тип учетной записи хранения управляемого диска ОС.
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Свойства, которые можно изменить только на основе текущего значения
 Некоторые свойства можно изменить только в зависимости от текущего значения. Эти свойства включают в себя:

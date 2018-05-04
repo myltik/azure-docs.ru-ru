@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Часто задаваемые вопросы о настройке и управлении для функции "Веб-приложения" в Azure
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/28/2018
 
 Отобразится список исходящих IP-адресов.
 
-Если ваш веб-сайт размещен в среде службы приложений для PowerApps, узнайте, как получить исходящий IP-адрес в разделе [Исходящие сетевые адреса](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Чтобы узнать, как получить исходящий IP-адрес, если ваш веб-сайт размещен в среде службы приложений, изучите раздел [Исходящие сетевые адреса](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Как получить зарезервированный или выделенный входящий IP-адрес для веб-приложения?
 
@@ -185,7 +185,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. Откройте вкладку **Сеть** и нажмите зеленую кнопку **Воспроизвести**.
 4. Выполните действия для воспроизведения проблемы.
 5. Нажмите красную кнопку **Остановить**.
-6. Нажмите кнопку **Сохранить** (значок диска) и сохраните HAR-файл (в Internet Explorer и Microsoft Edge) *или* щелкните правой кнопкой мыши HAR-файл и в браузере Chrome выберите **Save as HAR with content** (Сохранить как HAR-файл с содержимым).
+6. Нажмите кнопку **Сохранить** (значок диска) и сохраните HAR-файл (в Internet Explorer и Edge) *или* щелкните правой кнопкой мыши HAR-файл и в браузере Chrome выберите **Save as HAR with content** (Сохранить как HAR-файл с содержимым).
 
 ### <a name="f12-console-output"></a>Вывод F12 на консоль
 
@@ -268,7 +268,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 Если для сертификата службы приложений через 24 часа по-прежнему отображается это сообщение, запустите сценарий PowerShell ниже. Сценарий напрямую связывается с [поставщиком сертификата](https://www.godaddy.com/) для устранения проблемы.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

@@ -1,11 +1,11 @@
 ---
-title: "Непрерывная интеграция в Visual Studio Team Services с использованием проектов группы ресурсов Azure | Документация Майкрософт"
-description: "Здесь описывается, как настроить непрерывную интеграцию в Visual Studio Team Services с использованием проектов развертывания группы ресурсов Azure в Visual Studio."
+title: Непрерывная интеграция в Visual Studio Team Services с использованием проектов группы ресурсов Azure | Документация Майкрософт
+description: Здесь описывается, как настроить непрерывную интеграцию в Visual Studio Team Services с использованием проектов развертывания группы ресурсов Azure в Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Непрерывная интеграция в Visual Studio Team Services с использованием проектов развертывания группы ресурсов Azure
 Чтобы развернуть шаблон Azure, необходимо выполнить задачи на различных этапах: сборка, тестирование, копирование в Azure (также называется "помещением на промежуточное хранение") и развертывание шаблона. В Visual Studio Team Services (VS Team Services) развертывать шаблоны можно двумя разными способами. Оба метода обеспечивают одинаковые результаты, поэтому выберите самый оптимальный для своего рабочего процесса.
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
    
    | Параметр | ОПИСАНИЕ |
    | --- | --- |
-   | -ResourceGroupLocation |Значение географического расположения, в котором находится группа ресурсов, например **eastus** или **'East US'**. (Добавьте одинарные кавычки, если в имени есть пробел.) Дополнительные сведения см. в статье о [регионах Azure](https://azure.microsoft.com/en-us/regions/). |
+   | -ResourceGroupLocation |Значение географического расположения, в котором находится группа ресурсов, например **eastus** или **'East US'**. (Добавьте одинарные кавычки, если в имени есть пробел.) Дополнительные сведения см. в статье о [регионах Azure](https://azure.microsoft.com/regions/). |
    | -ResourceGroupName |Имя группы ресурсов, используемой для этого развертывания. |
    | -UploadArtifacts |Этот параметр (если он присутствует) указывает, что артефакты следует отправлять в Azure из локальной системы. Этот параметр нужно задать, только если шаблон развертывания требует дополнительных артефактов, которые нужно разместить с помощью сценария PowerShell (например, сценарии настройки или вложенные шаблоны). |
    | -StorageAccountName |Имя учетной записи хранения, используемой для размещения артефактов при этом развертывании. Этот параметр используется только в том случае, если применяется промежуточное хранение артефактов для развертывания. Когда этот параметр передан, то учетная запись хранения создается в том случае, если сценарий не создал ее во время предыдущего развертывания. Если этот параметр указан, то учетная запись хранения должна уже существовать. |

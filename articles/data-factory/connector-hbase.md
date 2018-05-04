@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba2317e588b570acc1a4f24c89e892729f29b54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Копирование данных из HBase с помощью фабрики данных Azure 
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **HBase**. | Yes |
 | host | IP-адрес или имя узла сервера HBase. (Например, 192.168.222.160, [имя_кластера].azurehdinsight.net.)  | Yes |
-| порт | TCP-порт, используемый экземпляром HBase для прослушивания клиентских подключений. По умолчанию используется значение 9090.  | Нет  |
+| порт | TCP-порт, используемый экземпляром HBase для прослушивания клиентских подключений. По умолчанию используется значение 9090. При подключении к Azure HDInsights укажите порт 443. | Нет  |
 | httpPath | Частичный URL-адрес, соответствующий серверу HBase (например, /gateway/sandbox/hbase/version).  | Нет  |
 | authenticationType | Механизм аутентификации, используемый для подключения к серверу HBase. <br/>Допустимые значения — **Anonymous** или **Basic**. | Yes |
 | Имя пользователя | Имя пользователя, используемое для подключения к сущности HBase.  | Нет  |

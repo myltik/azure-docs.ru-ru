@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7065ec97e1e02dfb4ee873993caac584f6a63ba6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Автоматизация ресурсов в центре обработки данных или облаке с помощью гибридной рабочей роли Runbook
 
@@ -148,6 +148,12 @@ Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 1. На портале Azure перейдите к учетной записи службы автоматизации.
 2. В колонке **Параметры** щелкните **Ключи** и запишите значения полей **URL-адрес** и **Первичный ключ доступа**. Эти сведения потребуются для выполнения следующего шага.
 3. Откройте сеанс PowerShell в режиме администратора и выполните команду `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Получить подробный журнал процедуры удаления можно с помощью параметра **-Verbose** .
+
+Чтобы удалить устаревшие машины из группы гибридной рабочей роли, используйте необязательный параметр `machineName`.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
 
 > [!NOTE]
 > Агент мониторинга Майкрософт не удаляется с компьютера, удаляются только функциональные возможности и настройки гибридной рабочей роли Runbook.

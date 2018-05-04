@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Диспетчер трафика Microsoft Azure и Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: ExpressRoute и Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: Часто задаваемые вопросы
       href: site-recovery-faq.md
 - name: Практические руководства
@@ -119,16 +121,20 @@
       items:
         - name: Сеть
           items:
-            - name: Управление сетями для аварийного восстановления виртуальных машин Azure (предварительная версия)
+            - name: Управление сетями для аварийного восстановления виртуальных машин Azure
               href: azure-to-azure-about-networking.md
             - name: Подготовка сетевого сопоставления для аварийного восстановления виртуальных машин Azure
               href: azure-to-azure-network-mapping.md
             - name: Настройка назначения IP-адресов для отработки отказа
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute и аварийное восстановление виртуальных машин Azure
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Аварийное восстановление
           items:
             - name: Аварийное восстановление виртуальных машин Azure после миграции в Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Аварийное восстановление виртуальных машин Azure с помощью PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Репликация, отработка отказа и восстановление размещения'
           items:
             - name: "Включение репликации из Azure\_в Azure"

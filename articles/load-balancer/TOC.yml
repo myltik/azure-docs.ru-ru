@@ -1,0 +1,172 @@
+- name: Документация по подсистеме балансировки нагрузки
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое балансировщик нагрузки?
+      href: load-balancer-overview.md
+- name: Быстрый запуск
+  items:
+    - name: Создание Load Balancer уровня "Базовый" с помощью портала
+      href: quickstart-create-basic-load-balancer-portal.md
+    - name: Создание Load Balancer уровня "Базовый" с помощью Azure CLI
+      href: quickstart-create-basic-load-balancer-cli.md
+    - name: Создание Load Balancer уровня "Стандартный" с помощью портала
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: Создание Load Balancer уровня "Стандартный" с помощью Azure CLI
+      href: quickstart-load-balancer-standard-public-cli.md
+- name: Примеры
+  items:
+    - name: Инфраструктура CLI Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Учебники
+  items:
+    - name: Балансировка нагрузки виртуальных машин в пределах зон доступности
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    - name: Балансировка нагрузки виртуальных машин в пределах определенной зоны доступности
+      href: tutorial-load-balancer-standard-public-zonal-portal.md
+- name: Основные понятия
+  items:
+    - name: Что такое Load Balancer уровня "Стандартный"?
+      href: load-balancer-standard-overview.md
+    - name: Проверки балансировщика нагрузки
+      href: load-balancer-custom-probe-overview.md
+    - name: Порты с высоким уровнем доступности
+      href: load-balancer-ha-ports-overview.md
+    - name: Поддержка протокола IPv6
+      href: load-balancer-ipv6-overview.md
+    - name: Несколько внешних интерфейсов
+      href: load-balancer-multivip-overview.md
+    - name: Исходящие подключения
+      href: load-balancer-outbound-connections.md
+    - name: Azure Load Balancer уровня "Стандартный" и зоны доступности
+      href: load-balancer-standard-availability-zones.md
+    - name: Метрики и диагностика Load Balancer уровня "Стандартный"
+      href: load-balancer-standard-diagnostics.md
+- name: Практическое руководство
+  items:
+    - name: Создание избыточной в пределах зоны общедоступной службы Azure Load Balancer уровня "Стандартный"
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      items:
+        - name: Создание избыточной в пределах зоны общедоступной службы Azure Load Balancer уровня "Стандартный" (PowerShell)
+          href: load-balancer-get-started-internet-az-powershell.md
+        - name: Создание избыточной в пределах зоны общедоступной службы Azure Load Balancer уровня "Стандартный" (CLI)
+          href: load-balancer-get-started-internet-az-cli.md
+    - name: Создание зональной общедоступной службы Azure Load Balancer уровня "Стандартный"
+      href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+      items:
+        - name: Создание зональной общедоступной службы Azure Load Balancer уровня "Стандартный" (PowerShell)
+          href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Создание зональной общедоступной службы Azure Load Balancer уровня "Стандартный" (CLI)
+          href: load-balancer-get-started-internet-availability-zones-zonal-cli.md
+    - name: Балансировка нагрузки виртуальных машин в пределах зон доступности (CLI)
+      href: load-balancer-standard-public-zone-redundant-cli.md
+    - name: Балансировка нагрузки виртуальных машин в пределах зоны (CLI)
+      href: load-balancer-standard-public-zonal-cli.md
+    - name: Создание Load Balancer уровня "Базовый" (шаблон)
+      href: load-balancer-get-started-internet-arm-template.md
+    - name: Создание общедоступной службы Azure Load Balancer с поддержкой IPv6
+      href: load-balancer-ipv6-internet-ps.md
+      items:
+        - name: Создание общедоступной службы Azure Load Balancer с поддержкой IPv6 (CLI)
+          href: load-balancer-ipv6-internet-cli.md
+        - name: Создание общедоступной службы Azure Load Balancer с поддержкой IPv6 (шаблон)
+          href: load-balancer-ipv6-internet-template.md
+    - name: Настройка внутренней службы Azure Load Balancer
+      href: load-balancer-get-started-ilb-arm-portal.md
+      items:
+        - name: Настройка внутренней службы Azure Load Balancer (PowerShell)
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Настройка внутренней службы Azure Load Balancer (CLI)
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Настройка внутренней службы Azure Load Balancer (шаблон)
+          href: load-balancer-get-started-ilb-arm-template.md
+    - name: Настройка времени ожидания простоя TCP для балансировщика нагрузки
+      href: load-balancer-tcp-idle-timeout.md
+    - name: Настройка режима распространения для Load Balancer
+      href: load-balancer-distribution-mode.md
+    - name: Комбинирование служб балансировки нагрузки
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Использование конфигураций с несколькими IP-адресами
+      href: load-balancer-multiple-ip.md
+      items:
+        - name: Использование конфигураций с несколькими IP-адресами (CLI)
+          href: load-balancer-multiple-ip-cli.md
+        - name: Использование конфигураций с несколькими IP-адресами (PowerShell)
+          href: load-balancer-multiple-ip-powershell.md
+    - name: Служба анализа журналов для балансировщика нагрузки Azure
+      href: load-balancer-monitor-log.md
+    - name: Настройка высокодоступных портов для внутренней службы Azure Load Balancer
+      href: load-balancer-configure-ha-ports.md
+    - name: Устранение неполадок
+      items:
+        - name: Устранение неполадок Azure Load Balancer
+          href: load-balancer-troubleshoot.md
+    - name: Статьи о классической модели развертывания
+      items:
+        - name: Исходящие подключения (классическая модель)
+          href: load-balancer-outbound-connections-classic.md
+    - name: Настройка нескольких виртуальных IP-адресов для облачной службы
+      href: load-balancer-multivip.md
+      items:
+        - name: Настройка внутренней службы Azure Load Balancer для облачных служб
+          href: load-balancer-get-started-ilb-classic-cloud.md
+          items:
+            - name: Настройка внутренней службы Azure Load Balancer для облачных служб (PowerShell)
+              href: load-balancer-get-started-ilb-classic-ps.md
+            - name: Настройка внутренней службы Azure Load Balancer для облачных служб (CLI)
+              href: load-balancer-get-started-ilb-classic-cli.md
+        - name: 'Настройка общедоступной службы Azure Load Balancer (классическая модель: PowerShell)'
+          href: load-balancer-get-started-internet-classic-ps.md
+          items:
+            - name: 'Настройка общедоступной службы Azure Load Balancer (классическая модель: облачные службы)'
+              href: load-balancer-get-started-internet-classic-cloud.md
+            - name: 'Настройка общедоступной службы Azure Load Balancer (классическая модель: CLI)'
+              href: load-balancer-get-started-internet-classic-cli.md
+- name: Справочные материалы
+  items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.network
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/network/lb
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.network.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.network
+    - name: Node.js
+      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+- name: Сопутствующие материалы
+  items:
+    - name: Шлюз приложений
+      href: /azure/application-gateway/
+    - name: ExpressRoute
+      href: /azure/expressroute/
+    - name: Виртуальная сеть
+      href: /azure/virtual-network/
+    - name: VPN-шлюз
+      href: /azure/vpn-gateway/
+    - name: Виртуальная машина
+      href: /azure/virtual-machines/
+    - name: Диспетчер трафика
+      href: /azure/traffic-manager/
+    - name: DNS
+      href: /azure/dns/
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=load-balancer'

@@ -14,8 +14,6 @@
 ## [Установка SAP HANA с одним экземпляром](hana-get-started.md)
 ## [Руководство по развертыванию S/4 HANA или BW/4 HANA SAP CAL](cal-s4h.md)
 ## [Руководство по использованию SAP HANA в Azure](hana-vm-operations.md)
-### Практическое руководство
-#### [Ускоритель записи Azure для развертываний SAP](how-to-enable-write-accelerator.md)
 ## Доступность SAP HANA в Виртуальных машинах Azure
 ### [Общие сведения о доступности SAP HANA в Azure](sap-hana-availability-overview.md)
 ### [Доступность SAP HANA в Azure в пределах одного региона Azure](sap-hana-availability-one-region.md)

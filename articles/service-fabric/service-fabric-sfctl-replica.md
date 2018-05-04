@@ -1,12 +1,12 @@
 ---
-title: "Интерфейс командной строки Azure Service Fabric : sfctl replica | Документация Майкрософт"
-description: "Описание команд sfctl replica интерфейса командной строки Azure Service Fabric."
+title: 'Интерфейс командной строки Azure Service Fabric : sfctl replica | Документация Майкрософт'
+description: Описание команд sfctl replica интерфейса командной строки Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Управление репликами, принадлежащими секциям службы.
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/27/2018
 | --debug               | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h             | Отображение этого справочного сообщения и выход.|
 | --output -o           | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose             | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
@@ -82,7 +82,7 @@ ms.lasthandoff: 02/27/2018
 | --debug                  | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h                | Отображение этого справочного сообщения и выход.|
 | --output -o              | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query                  | Строка запроса JMESPath. Дополнительные сведения доступны на сайте http://jmespath.org.|
+| --query                  | Строка запроса JMESPath. Дополнительные сведения можно найти по адресу: http://jmespath.org/.|
 | --verbose                | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/27/2018
 | --debug               | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h             | Отображение этого справочного сообщения и выход.|
 | --output -o           | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query               | Строка запроса JMESPath. Дополнительные сведения доступны на сайте http://jmespath.org.|
+| --query               | Строка запроса JMESPath. Дополнительные сведения можно найти по адресу: http://jmespath.org/.|
 | --verbose             | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
@@ -130,7 +130,7 @@ ms.lasthandoff: 02/27/2018
 | --debug               | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h             | Отображение этого справочного сообщения и выход.|
 | --output -o           | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose             | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
@@ -155,7 +155,7 @@ ms.lasthandoff: 02/27/2018
 | --debug               | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h             | Отображение этого справочного сообщения и выход.|
 | --output -o           | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose             | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
@@ -179,7 +179,7 @@ ms.lasthandoff: 02/27/2018
 | --debug               | Увеличение уровня детализации ведения журнала для отображения всех журналов отладки.|
 | --help -h             | Отображение этого справочного сообщения и выход.|
 | --output -o           | Формат выходных данных.  Допустимые значения: json, jsonc, table, tsv.  Значение по умолчанию: json.|
-| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры доступны на сайте http://jmespath.org.|
+| --query               | Строка запроса JMESPath. Дополнительные сведения и примеры см. на сайте http://jmespath.org/.|
 | --verbose             | Повышение уровня детализации ведения журнала. Используйте параметр --debug, чтобы получить полные журналы отладки.|
 
 ## <a name="next-steps"></a>Дополнительная информация

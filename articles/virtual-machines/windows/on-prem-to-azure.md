@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d9fbfd07de9a5d536cf458dc478aade851d4b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0440eccbdf76fc58fadf46de2508d362c0de6cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Переход из Amazon Web Services (AWS) и других платформ на Управляемые диски Azure
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 04/16/2018
 
 ### <a name="pricing"></a>Цены
 
-Ознакомьтесь с [ценами на Управляемые диски](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Цены на управляемые диски уровня "Премиум" совпадают с ценами на неуправляемые диски уровня "Премиум". При этом цены на управляемые диски уровня "Стандартный" отличаются от цен на неуправляемые диски уровня "Стандартный".
+Ознакомьтесь с [ценами на Управляемые диски](https://azure.microsoft.com/pricing/details/managed-disks/). Цены на управляемые диски уровня "Премиум" совпадают с ценами на неуправляемые диски уровня "Премиум". При этом цены на управляемые диски уровня "Стандартный" отличаются от цен на неуправляемые диски уровня "Стандартный".
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

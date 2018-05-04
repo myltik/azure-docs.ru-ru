@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 456a0c63881f6eb15e8166bee0105e25c951b536
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 20d08fa6aac5a55480d2c11eb6e4f746ff863f78
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira-52"></a>Руководство по интеграции Azure Active Directory с приложением единого входа Microsoft Azure Active Directory для JIRA 5.2
 
@@ -63,7 +63,8 @@ ms.lasthandoff: 03/16/2018
 *   также JIRA поддерживает 6.0 и 7.2.0. Подробнее см. в руководстве по [использованию единого входа Microsoft Azure Active Directory для JIRA](./active-directory-saas-jiramicrosoft-tutorial.md).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
+Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление приложения единого входа Microsoft Azure Active Directory для JIRA 5.2 из коллекции
 2. настройка и проверка единого входа в Azure AD.
@@ -114,7 +115,7 @@ ms.lasthandoff: 03/16/2018
     ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
- 
+
     ![Диалоговое окно "Единый вход"](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения единого входа Microsoft Azure Active Directory для JIRA 5.2** выполните следующие действия.
@@ -127,29 +128,13 @@ ms.lasthandoff: 03/16/2018
 
     c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<domain:port>/plugins/servlet/saml/auth`.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Если это именованный URL-адрес, то порт указывать необязательно. Эти значения предоставляются во время настройки подключаемого модуля JIRA, которая описывается далее в этом руководстве.
- 
-4. Для создания URL-адреса **метаданных** выполните следующие действия.
 
-    a. Щелкните **Регистрация приложений**.
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
     
-    ![Настройка единого входа](.\media\active-directory-saas-msaadssojira5.2-tutorial\appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpoint.png)
+    ![Настройка единого входа](./media/active-directory-saas-msaadssojira5.2-tutorial/tutorial_metadataurl.png)
      
-    d. Теперь перейдите к странице свойств **приложения единого входа Microsoft Azure Active Directory для JIRA 5.2** и скопируйте **код приложения**, используя кнопку **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](.\media\active-directory-saas-msaadssojira5.2-tutorial\appid.png)
-
-    д. Создайте **URL-адрес метаданных** в формате `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` и скопируйте это значение в Блокнот, так как оно будет использовано позже для настройки подключаемого модуля.
-
 5. Нажмите кнопку **Сохранить** .
 
     ![Настройка единого входа](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_400.png)
@@ -178,8 +163,8 @@ ms.lasthandoff: 03/16/2018
 
     > [!TIP]
     > Убедитесь, что с приложением сопоставлен только один сертификат, чтобы при разрешении метаданных не возникла ошибка. Если имеется несколько сертификатов, то при разрешении метаданных администратор увидит сообщение об ошибке.
- 
-    a. В поле **URL-адрес метаданных** вставьте **URL-адрес метаданных**, созданный в Azure AD, и нажмите кнопку **Разрешить**. Будет прочитан URL-адрес метаданных поставщика удостоверений, а также будут заполнены все поля сведений.
+
+    a. В текстовое поле **URL-адрес метаданных** вставьте значение **URL-адреса метаданных федерации приложений**, скопированное на портале Azure, и нажмите кнопку **Разрешить**. Будет прочитан URL-адрес метаданных поставщика удостоверений, а также будут заполнены все поля сведений.
 
     Б. Скопируйте значения **идентификатора, URL-адреса ответа и URL-адреса входа** и вставьте их в **соответствующие поля** в разделе **Домены и URL-адреса приложения единого входа Microsoft Azure Active Directory для JIRA 5.2** на портале Azure.
 
@@ -202,10 +187,6 @@ ms.lasthandoff: 03/16/2018
 
     > [!NOTE]
     > Дополнительные сведения об установке и устранении неполадок см. в [руководстве администратора соединителя единого входа MS JIRA](ms-confluence-jira-plugin-adminguide.md) и в [часто задаваемых вопросах](ms-confluence-jira-plugin-faq.md).
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
@@ -328,4 +309,3 @@ ms.lasthandoff: 03/16/2018
 [201]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_201.png
 [202]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_202.png
 [203]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_203.png
-

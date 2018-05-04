@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 02a34111fbab62884c9ecbfc084a55d21d775182
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Привязки служебной шины Azure для службы "Функции Azure"
 
@@ -236,6 +236,8 @@ module.exports = function(context, myQueueItem) {
 * `byte[]`. Используется для двоичных данных.
 * Пользовательский тип. Если сообщение содержит JSON, то служба "Функции Azure" пытается выполнить десериализацию данных JSON.
 * `BrokeredMessage`. Предоставляет десериализированное сообщение с использованием метода [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
+
+Эти параметры предназначены для решения "Функции Azure" версии 1.x. Если используется версия 2.x, вместо `BrokeredMessage` примените [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message).
 
 В JavaScript доступ к сообщению очереди или раздела осуществляется с помощью `context.bindings.<name from function.json>`. Сообщение служебной шины передается в функцию в качестве строки или объекта JSON.
 
@@ -479,6 +481,8 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 * `ICollector<T>` или `IAsyncCollector<T>`. Используется для создания нескольких сообщений. Сообщение создается при вызове метода `Add` .
 
 В асинхронных функциях используйте возвращаемое значение или `IAsyncCollector` вместо параметра `out`.
+
+Эти параметры предназначены для решения "Функции Azure" версии 1.x. Если используется версия 2.x, вместо `BrokeredMessage` примените [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message).
 
 В JavaScript доступ к очереди или разделу осуществляется с помощью `context.bindings.<name from function.json>`. `context.binding.<name>` можно назначить строку, массив байтов или объект Javascript (десериализируется в JSON).
 

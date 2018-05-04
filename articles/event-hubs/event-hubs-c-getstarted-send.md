@@ -1,12 +1,12 @@
 ---
-title: "Отправка событий в концентраторы событий Azure с помощью C | Документация Майкрософт"
-description: "Отправка событий в концентраторы событий Azure с помощью C"
+title: Отправка событий в концентраторы событий Azure с помощью C | Документация Майкрософт
+description: Отправка событий в концентраторы событий Azure с помощью C
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Отправка событий в концентраторы событий Azure с помощью C
 
 ## <a name="introduction"></a>Введение
 Концентраторы событий — это высокомасштабируемая система, способная принимать миллионы событий в секунду, благодаря которой приложения могут обрабатывать и анализировать большие объемы данных от подключенных устройств и приложений. После сбора данных в концентраторах событий их можно преобразовать и сохранить с помощью любого поставщика аналитики в реальном времени или в кластере хранилища.
 
-Дополнительные сведения см. в [обзоре концентраторов событий][Event Hubs overview].
+Дополнительные сведения см. в разделе [Обзор концентраторов событий](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
 
 Из этого руководства вы узнаете, как отправлять события в концентратор событий с помощью консольного приложения на языке C. Чтобы ознакомиться с особенностями получения событий, выберите соответствующий язык в оглавлении слева.
 

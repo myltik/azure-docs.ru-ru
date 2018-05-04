@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d56b27a040420d049f567ac0de9289b1e72f3ea9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Входящий трафик HTTPS в Службе контейнеров Azure (AKS)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="install-an-ingress-controller"></a>Установка контроллера входящего трафика
 
-Используйте Helm для установки контроллера входящего трафика NGINX. Дополнительные сведения см. в [документации по контроллеру входящего трафика NGINX][nginx-ingress]. 
+Используйте Helm для установки контроллера входящего трафика NGINX. Дополнительные сведения см. в [документации по контроллеру входящего трафика NGINX][nginx-ingress].
 
 Обновите репозиторий с диаграммой.
 
@@ -74,12 +74,6 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 
 # Update public ip address with dns name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
-```
-
-При необходимости запустите следующую команду, чтобы получить полное доменное имя. Укажите значение IP-адреса контроллера входящего трафика.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
 Теперь к контроллеру входящего трафика можно получить доступ по полному доменному имени.
@@ -181,7 +175,7 @@ kubectl apply -f hello-world-ingress.yaml
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Дополнительные сведения о программном обеспечении, рассматриваемом в этом документе: 
+Дополнительные сведения о программном обеспечении, рассматриваемом в этом документе:
 
 - [Интерфейс командной строки Helm][helm-cli]
 - [Контроллер входящего трафика NGINX][nginx-ingress]

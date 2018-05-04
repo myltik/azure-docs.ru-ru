@@ -181,7 +181,7 @@ Azure предлагает различные размеры для виртуа
 * Дополнительные сведения о решениях больших вычислений для [технического моделирования](https://simulation.azure.com/), [рендеринга](https://simulation.azure.com/), [банковских рынков и рынков капитала](https://finance.azure.com/), а также [геномики](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Последние объявления см. в [блоге группы Microsoft HPC и пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Использование управляемых и масштабируемых [пакетных](https://azure.microsoft.com/services/batch/) служб Azure для запуска рабочих нагрузок с ресурсоемкими вычислениями без управления базовой инфраструктурой. См. [дополнительные сведения](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/).
+* Использование управляемых и масштабируемых [пакетных](https://azure.microsoft.com/services/batch/) служб Azure для запуска рабочих нагрузок с ресурсоемкими вычислениями без управления базовой инфраструктурой. См. [дополнительные сведения](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/).
 
 
 

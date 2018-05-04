@@ -112,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (для одного клиента)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: Настраиваемое подключение OpenID
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Настройка самостоятельного сброса пароля
           href: active-directory-b2c-reference-sspr.md
         - name: Настройка пользовательского интерфейса
@@ -159,6 +163,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Поддержка нескольких клиентов
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Настройка поставщиков SAML
               items:
                 - name: ADFS
@@ -195,12 +201,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Включение возможности оставаться в системе
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: Отслеживание поведения пользователя
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Устранение неполадок
               items:
                 - name: Сбор журналов с помощью Application Insights
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: Отслеживание поведения пользователя
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Справочные материалы
           items:
             - name: Заметки о выпуске

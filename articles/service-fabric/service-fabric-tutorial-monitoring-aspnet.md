@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 17b2f1b65463f87f81ffe06bae5ac559a84bcb2a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Руководство. Мониторинг и диагностика приложения ASP.NET Core в Service Fabric
-Это руководство представляет собой четвертую часть цикла. В нем описывается настройка мониторинга и диагностики приложения ASP.NET Core, запущенного в кластере Service Fabric, с помощью Application Insights. Мы будем собирать данные телеметрии из приложения, разработанного в первой части цикла, [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
+Это руководство представляет собой пятую часть цикла. В нем описывается настройка мониторинга и диагностики приложения ASP.NET Core, запущенного в кластере Service Fabric, с помощью Application Insights. Мы будем собирать данные телеметрии из приложения, разработанного в первой части цикла, [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
 
 В четвертом руководстве из цикла вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
@@ -35,6 +35,7 @@ ms.lasthandoff: 04/06/2018
 > [!div class="checklist"]
 > * [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 > * [Развертывание приложения в удаленном кластере](service-fabric-tutorial-deploy-app-to-party-cluster.md).
+> * [Добавление конечной точки HTTPS к интерфейсной службе ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * Настройка мониторинга и диагностики приложения
 
@@ -104,8 +105,7 @@ Application Insights — это платформа для управления �
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
     
-    2. Добавьте `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` во вложенную инструкцию *return* метода *CreateServiceInstanceListeners()* или *CreateServiceReplicaListeners()* в разделе *ConfigureServices* > *services*, между двумя объявленными одноэлементными службами.
-    При этом в данные телеметрии будет добавлен *контекст службы*, что позволит лучше понять источник данных телеметрии в Application Insights. Вложенная инструкция *return* в *VotingWeb.cs* должна выглядеть следующим образом.
+    2. Добавьте `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` во вложенную инструкцию *return* метода *CreateServiceInstanceListeners()* или *CreateServiceReplicaListeners()* в разделе *ConfigureServices* > *services*, между двумя объявленными одноэлементными службами. При этом в данные телеметрии будет добавлен *контекст службы*, что позволит определить источник данных телеметрии в Application Insights. Вложенная инструкция *return* в *VotingWeb.cs* должна выглядеть следующим образом.
     
     ```csharp
     return new WebHostBuilder()

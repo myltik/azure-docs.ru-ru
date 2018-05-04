@@ -1,11 +1,10 @@
 ---
-title: "Запуск сервера приложений Java на классической виртуальной машине Azure | Документация Майкрософт"
-description: "В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания, а также приведены инструкции по созданию виртуальной машины Windows и ее настройке для работы сервера приложений Apache Tomcat."
+title: Запуск сервера приложений Java на классической виртуальной машине Azure
+description: В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания, а также приведены инструкции по созданию виртуальной машины Windows и ее настройке для работы сервера приложений Apache Tomcat.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Использование сервера приложений Java на виртуальной машине, созданной с помощью классической модели развертывания.
 > [!IMPORTANT]
@@ -121,7 +120,7 @@ ms.lasthandoff: 02/21/2018
 10. На экране **Имя** укажите имя для правила, например **HttpIn** (имя правила необязательно должно совпадать с именем конечной точки), а затем нажмите кнопку **Готово**.  
     ![Имя нового правила для входящего подключения][NewRuleName]
 
-С этого момента ваш веб-сайт Tomcat должен быть доступен для просмотра во внешнем браузере. В строке адреса браузера введите URL-адрес в формате **http://*ваше\_DNS-имя\_.*cloudapp.net**, где ***ваше\_DNS-имя\_*** соответствует DNS-имени, указанному при создании виртуальной машины.
+С этого момента ваш веб-сайт Tomcat должен быть доступен для просмотра во внешнем браузере. В строке адреса браузера введите URL-адрес в формате **http://*ваше\_DNS-имя\_.* cloudapp.net**, где ***ваше\_DNS-имя\_*** соответствует DNS-имени, указанному при создании виртуальной машины.
 
 ## <a name="application-lifecycle-considerations"></a>Вопросы, связанные с жизненным циклом приложения
 * Вы можете создать собственный архив веб-приложения (WAR) и добавить его в папку **webapps** . Например, создайте динамический веб-проект базовой страницы службы Java (JSP) и экспортируйте его как WAR-файл. Затем скопируйте WAR-файл в папку Apache Tomcat **webapps** на виртуальной машине и запустите его в браузере.

@@ -1,11 +1,11 @@
 ---
-title: "Сведения о VPN-шлюзе для Azure Stack | Документация Майкрософт"
-description: "Сведения о VPN-шлюзах, используемых с Azure Stack, и их настройке."
+title: Сведения о VPN-шлюзе для Azure Stack | Документация Майкрософт
+description: Сведения о VPN-шлюзах, используемых с Azure Stack, и их настройке.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Сведения о VPN-шлюзе для Azure Stack
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
@@ -87,13 +87,14 @@ Azure Stack не поддерживает номер SKU шлюза UltraPerform
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Расчетная суммарная пропускная способность в зависимости от SKU
 В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью в зависимости от SKU шлюза.
 
-|   | Пропускная способность VPN-шлюза *(1)* |Максимальное количество туннелей IPsec для VPN-шлюза |
+|   | Пропускная способность VPN-шлюза *(1)* | *Максимальное число туннелей IPsec для VPN-шлюза (2)* |
 |-------|-------|-------|
-|**SKU "Базовый"** ***(2)***    | 100 Мбит/с  | 10    |
+|**SKU "Базовый"** ***(3)***    | 100 Мбит/с  | 10    |
 |**SKU "Стандартный"**       | 100 Мбит/с  | 10    |
-|**SKU "Высокопроизводительный"** | 200 Мбит/с    | 30    |
+|**SKU "Высокопроизводительный"** | 200 Мбит/с    | 5 |
 ***(1)*** Пропускная способность VPN-шлюза не гарантируется для подключений между организациями через Интернет. Это максимально возможное значение пропускной способности.  
-***(2)*** SKU "Базовый" не поддерживает BGP.
+***(2)***  Максимальное число туннелей на каждое развертывание Azure Stack для всех подписок.
+***(3)*** SKU "Базовый" не поддерживает BGP.
 
 ## <a name="next-steps"></a>Дополнительная информация
 Подробнее о [параметрах VPN-шлюзов](azure-stack-vpn-gateway-settings.md) для Azure Stack.

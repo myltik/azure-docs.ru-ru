@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b304a198ce1791a14094eea4cad3b6de870c80ce
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: df0b578448e1f943d45233f7d36ebf4b9cb09fad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Руководство: интеграция Azure Active Directory с SafetyNet
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/28/2018
 1. добавление SafetyNet из коллекции;
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-safetynet-from-the-gallery"></a>Добавление SafetyNet из коллекции
+## <a name="adding-safetynet-from-the-gallery"></a>добавление SafetyNet из коллекции;
 Чтобы настроить интеграцию SafetyNet с Azure AD, необходимо добавить SafetyNet из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить SafetyNet из коллекции, выполните следующие действия.**
@@ -117,33 +117,17 @@ ms.lasthandoff: 03/28/2018
     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.predictivesolutions.com`
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов SafetyNet](mailto:dev@predictivesolutions.com). 
+    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов SafetyNet](mailto:dev@predictivesolutions.com).
 
-5. Нажмите кнопку **Сохранить** .
+5. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_certificate.png)
+
+6. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-safetynet-tutorial/tutorial_general_400.png)
 
-6. Для создания **URL-адреса метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **SafetyNet**, скопируйте **идентификатор приложения** с помощью кнопки **Копировать** и вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appid.png)
-
-    д. Создайте **URL-адрес метаданных** следующего формата: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-    
-7. Для настройки единого входа на стороне **SafetyNet** необходимо отправить созданный **URL-адрес метаданных** в [службу технической поддержки SafetyNet](mailto:dev@predictivesolutions.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+7. Для настройки единого входа на стороне **SafetyNet** необходимо отправить созданный **URL-адрес метаданных федерации приложений** в [службу технической поддержки SafetyNet](mailto:dev@predictivesolutions.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

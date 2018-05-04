@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c6d1588aaf069d6c3ae175e9b554c0da6c86290
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Руководство. Интеграция Azure Active Directory с Spacio
 
@@ -117,31 +117,11 @@ ms.lasthandoff: 03/23/2018
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-5. Для создания **URL-адреса метаданных** выполните следующие действия.
+5. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот. 
 
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png)
 
-    c. Нажмите кнопку **Копировать**, чтобы скопировать URL-адрес **ДОКУМЕНТА МЕТАДАННЫХ ФЕДЕРАЦИИ**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **Spacio** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
-
-6. Чтобы настроить единый вход на стороне **Spacio**, отправьте созданный **XML-файл метаданных** в [службу поддержки Spacio](mailto:support@spac.io). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+6. Чтобы настроить единый вход на стороне **Spacio**, отправьте созданный **URL-адрес метаданных федерации приложений** в [службу поддержки Spacio](mailto:support@spac.io). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

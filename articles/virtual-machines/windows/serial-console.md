@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Последовательная консоль виртуальной машины (предварительная версия) 
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 04/16/2018
 
 В этом разделе приведены примеры команд для выполнения общих задач в сценариях, где вам может потребоваться использовать SAC для доступа к виртуальной машине, например, когда вам необходимо устранить ошибки RDP-соединения.
 
-SAC включена во все версии Windows, начиная с Windows Server 2003, но по умолчанию отключена. SAC использует драйвер ядра `sacdrv.sys`, службу `Special Administration Console Helper` (`sacsvr`) и процесс `sacsess.exe`. Дополнительные сведения см. в статье [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Средства и параметры служб аварийного управления).
+SAC включена во все версии Windows, начиная с Windows Server 2003, но по умолчанию отключена. SAC использует драйвер ядра `sacdrv.sys`, службу `Special Administration Console Helper` (`sacsvr`) и процесс `sacsess.exe`. Дополнительные сведения см. в статье [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Средства и параметры служб аварийного управления).
 
 SAC позволяет подключаться к вашей операционной системе через последовательный порт. Когда вы запускаете CMD из SAC, `sacsess.exe` запускает `cmd.exe` в вашей операционной системе. Если вы подключаетесь к виртуальной машине по RDP, в диспетчере задач можно увидеть, что вы одновременно подключаетесь к SAC через функцию последовательной консоли. CMD, к которой вы обращаетесь через SAC, аналогична `cmd.exe`, которую вы используете при подключении через RDP. Доступны все те же команды и средства, в том числе возможность запуска PowerShell из этого экземпляра CMD. Основное различие между SAC и средой восстановления Windows (Windows RE) заключается в том, что SAC позволяет вам управлять вашей операционной системой, в то время как WinRE загружается в другую минимальную сборку ОС. Хотя виртуальные машины Azure не поддерживают возможность доступа к WinRE с помощью функции последовательной консоли, управление виртуальными машинами Azure можно осуществлять с помощью SAC.
 
@@ -266,11 +266,11 @@ SAC позволяет подключаться к вашей операцион
 #### <a name="scan-for-system-file-corruption"></a>Поиск повреждений системного файла
 `sfc /scannow`
 
-См. также сведения в статье [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image) (Исправление образа Windows).
+См. также сведения в статье [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Исправление образа Windows).
 #### <a name="scan-for-system-file-corruption"></a>Поиск повреждений системного файла
 `dism /online /cleanup-image /scanhealth`
 
-См. также сведения в статье [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image) (Исправление образа Windows).
+См. также сведения в статье [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Исправление образа Windows).
 #### <a name="export-file-permissions-to-text-file"></a>Экспорт разрешений для файла в текстовый файл
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Сохранение разрешений для файла в файл ACL
@@ -516,7 +516,7 @@ SAC позволяет подключаться к вашей операцион
 
 Чтобы запросить метаданные экземпляра, требуется подключение к гостевой сети, так как выполняется вызов REST через узел Azure к службе метаданных экземпляра. Поэтому, если вы можете запросить метаданные экземпляра, это говорит о том, что гость может общаться по сети со службой, размещенной в Azure.
 
-Дополнительные сведения см. в статье [Служба метаданных экземпляров Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Дополнительные сведения см. в статье [Служба метаданных экземпляров Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Метаданные экземпляра
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

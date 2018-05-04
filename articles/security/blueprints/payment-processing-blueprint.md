@@ -1,6 +1,6 @@
 ---
-title: "Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS"
-description: "Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS"
+title: Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS
+description: Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Схема безопасности и соответствия требованиям Azure. Среды для обработки платежей, соответствующие стандарту PCI DSS
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/13/2018
 >- Шлюз приложений
 >- Azure Active Directory
 >- Среда службы приложений версии 2
->- OMS Log Analytics.
+>- Служба Log Analytics
 >- Хранилище ключей Azure
 >- группы сетевой безопасности;
 >- База данных Azure SQL
@@ -173,7 +173,7 @@ ms.lasthandoff: 02/13/2018
 
 В каждой группе безопасности сети (NSG) открыты определенные порты и протоколы для безопасной и правильной работы решения. Кроме того, для каждой NSG настроены следующие конфигурации:
 - включенные [журналы диагностики и события](/azure/virtual-network/virtual-network-nsg-manage-log) хранятся в учетной записи хранения; 
-- OMS Log Analytics подключена к [диагностике NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+- служба Log Analytics подключена к [службе диагностики NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 #### <a name="subnets"></a>Подсети
  Убедитесь, что каждая подсеть связана с соответствующей NSG.
@@ -203,12 +203,12 @@ ms.lasthandoff: 02/13/2018
 
 ### <a name="logging-and-auditing"></a>Ведение журналов и аудит
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) может предоставить для интернет-магазина Contoso подробные журналы всех действий системы и пользователя, включая данные владельца карты. Здесь можно просмотреть все изменения и проверить их правильность. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics) может предоставить для интернет-магазина Contoso подробные журналы всех действий системы и пользователя, включая данные владельца карты. Здесь можно просмотреть все изменения и проверить их правильность. 
 
 - **Журналы действий**. [Журналы действий](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) содержат информацию об операциях, которые выполнялись с ресурсами в подписке.
 - **Журналы диагностики**. [Журналы диагностики](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) — это все журналы, создаваемые ресурсом. Эти журналы включают в себя системные журналы событий Windows, хранилища BLOB-объектов, таблиц и очередей.
 - **Журналы брандмауэра**. Шлюз приложений предоставляет все журналы доступа и диагностики. Журналы брандмауэра доступны для ресурсов шлюза приложений с включенным WAF.
-- **Архивация журналов**. Все журналы диагностики настроены для записи в централизованную зашифрованную учетную запись Azure для архивирования на определенный период хранения (2 дня). Затем журналы подключаются к Azure Log Analytics для обработки, хранения и отображения данных на панелях мониторинга. [Log Analytics](https://azure.microsoft.com/services/log-analytics) — это служба OMS, которая помогает собирать и анализировать данные, создаваемые ресурсами в облачных и локальных средах.
+- **Архивация журналов**. Все журналы диагностики настроены для записи в централизованную зашифрованную учетную запись Azure для архивирования на определенный период хранения (2 дня). Затем журналы подключаются к Azure Log Analytics для обработки, хранения и отображения данных на панелях мониторинга. [Log Analytics](https://azure.microsoft.com/services/log-analytics) — это служба, которая помогает собирать и анализировать данные, создаваемые ресурсами в облачных и локальных средах.
 
 ### <a name="encryption-and-secrets-management"></a>Шифрование и управление секретами
 
@@ -224,7 +224,7 @@ ms.lasthandoff: 02/13/2018
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) — это мультитенантный облачный каталог и служба управления удостоверениями корпорации Майкрософт. Все пользователи решения создаются в Azure Active Directory, включая пользователей, обращающихся к базе данных SQL.
 - Аутентификация приложения выполняется с использованием Azure AD. Дополнительные сведения см. в статье [Интеграция приложений с Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Кроме того, при шифровании столбцов базы данных также используется Azure AD для аутентификации приложения в базе данных Azure SQL. Дополнительные сведения см. в статье [Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище ключей Azure](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Защита идентификации Azure Active Directory](/azure/active-directory/active-directory-identityprotection) выявляет потенциальные уязвимости, влияющие на удостоверения вашей организации, настраивает автоматическое реагирование на обнаруженные подозрительные действия, связанные с удостоверениями вашей организации, исследует подозрительные инциденты и предпринимает соответствующие действия для их устранения.
-- [Контроль доступа на основе ролей (RBAC) Azure](/azure/active-directory/role-based-access-control-configure) обеспечивает точное управление доступом для Azure. Доступ к подписке ограничен администратором подписки, а доступ к Azure Key Vault запрещен для всех пользователей.
+- [Контроль доступа на основе ролей (RBAC) Azure](/azure/role-based-access-control/role-assignments-portal) обеспечивает точное управление доступом для Azure. Доступ к подписке ограничен администратором подписки, а доступ к Azure Key Vault запрещен для всех пользователей.
 
 Подробнее об использовании функций безопасности базы данных SQL Azure см. в примере [демонстрационного приложения Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
    
@@ -278,11 +278,11 @@ ms.lasthandoff: 02/13/2018
 
 #### <a name="log-analytics"></a>Служба Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) — это служба в Operations Management Suite (OMS), которая помогает собирать и анализировать данные, создаваемые ресурсами в облачных и локальных средах.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) — это служба в Azure, которая помогает собирать и анализировать данные, формируемые ресурсами в облачных и локальных средах.
 
-#### <a name="oms-solutions"></a>Решения OMS
+#### <a name="management-solutions"></a>Решения для управления
 
-Следует учесть и настроить следующие дополнительные решения OMS:
+Следует учесть и настроить следующие дополнительные решения по управлению:
 - [Анализ журнала действий](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Анализ сетевой активности Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ ms.lasthandoff: 02/13/2018
     
     Инструкции по использованию см. в статье [о развертывании и настройке ресурсов Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Ведение журналов OMS и мониторинг. После развертывания решения можно открыть рабочее пространство [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview), а шаблоны примеров, предоставленные в репозитории решений, можно использовать для иллюстрации того, как можно настроить панель мониторинга. Примеры шаблонов OMS см. в папке [omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Обратите внимание на то, что для правильного развертывания шаблонов должны собираться данные в OMS. Это может занять один час или больше, в зависимости от активности сайта.
+3. Ведение журналов и мониторинг. После развертывания решения можно открыть рабочее пространство Log Analytics. Шаблоны примеров, предоставленные в репозитории решений, можно использовать для иллюстрации того, как можно настроить панель мониторинга. Примеры шаблонов см. в папке [omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Обратите внимание: для правильного развертывания шаблонов данные должны собираться в Log Analytics. Это может занять один час или больше, в зависимости от активности сайта.
  
-    При настройке ведения журналов OMS рассмотрите возможность включения этих ресурсов:
+    При настройке ведения журналов Log Analytics рассмотрите возможность включения этих ресурсов:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

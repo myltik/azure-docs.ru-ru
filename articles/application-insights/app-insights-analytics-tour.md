@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Знакомство с аналитикой в Application Insights
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов Log Analytics.
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/18/2018
 
 ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>Оператор [take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): отображение n строк
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>Оператор [take](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): отображение n строк
 Точки данных, регистрирующие операции пользователя (обычно HTTP-запросы, полученные веб-приложением), хранятся в таблице `requests`. Каждая строка представляет точку данных телеметрии, полученную из пакета SDK Application Insights в приложении.
 
 Начнем с изучения нескольких образцов строк таблицы:
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/18/2018
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>Операторы [top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) и [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>Операторы [top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) и [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` позволяет получить быструю выборку из результата, но отображает строки из таблицы в произвольном порядке. Чтобы упорядочить строки, используйте `top` (для выборки) или `sort` (для всей таблицы).
 
 Показать первые n строк, упорядоченных по одному из столбцов:
@@ -94,7 +94,7 @@ ms.lasthandoff: 04/18/2018
 
 Заголовки столбцов в табличном представлении также можно использовать для сортировки результатов на экране. Но, разумеется, если вы использовали `take` или `top`, чтобы получить только часть таблицы, щелкнув заголовок столбца, можно отсортировать только полученные записи.
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>Оператор [where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): фильтрация по условию
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>Оператор [where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): фильтрация по условию
 
 Давайте отобразим только запросы, вернувшие конкретный код результата.
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 04/18/2018
 [Справочник по значениям даты и времени](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>Оператор [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): выбор, переименование и вычисление столбцов
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>Оператор [Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): выбор, переименование и вычисление столбцов
 С помощью оператора [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) можно выбрать только нужные столбцы.
 
 ```AIQL
@@ -207,7 +207,7 @@ ms.lasthandoff: 04/18/2018
 Выражения могут включать в себя все обычные операторы (`+`, `-` и т. д.) и ряд полезных функций.
 
 ## <a name="extend"></a>Extend
-Для добавления новых столбцов к существующим можно использовать оператор [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html).
+Для добавления новых столбцов к существующим можно использовать оператор [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator).
 
 ```AIQL
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 04/18/2018
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Если вы хотите сохранить все существующие столбцы, можете воспользоваться [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html). Это менее подробный вариант, чем [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html).
+Если вы хотите сохранить все существующие столбцы, можете воспользоваться [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator). Это менее подробный вариант, чем [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator).
 
 ### <a name="convert-to-local-time"></a>Преобразование в местное время
 
@@ -229,8 +229,7 @@ ms.lasthandoff: 04/18/2018
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>Оператор [Summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): агрегирование групп строк
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>Оператор [Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): агрегирование групп строк
 `Summarize` применяет указанную *функцию агрегирования* для групп строк.
 
 Например, время, требуемое веб-приложению для ответа на запрос, указано в поле `duration`. Давайте рассмотрим среднее время ответа для всех запросов:
@@ -268,7 +267,7 @@ ms.lasthandoff: 04/18/2018
 
 Существует также функция агрегирования `count()` (и операция подсчета), используемая, когда действительно нужно подсчитать количество строк в группе.
 
-Существует ряд [статистических функций](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+Существует ряд [статистических функций](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## <a name="charting-the-results"></a>Отображение результатов
 ```AIQL
@@ -409,7 +408,7 @@ ms.lasthandoff: 04/18/2018
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Процентили](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Процентили](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 Какие диапазоны длительности покрывают различные процентные доли сеансов?
 
 Используйте приведенный выше запрос, но вместо последней строки укажите следующую:
@@ -470,7 +469,7 @@ ms.lasthandoff: 04/18/2018
 Рекомендуется использовать `project` только для выбора необходимых столбцов перед выполнением соединения.
 В тех же предложениях мы переименуем столбец timestamp.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>Оператор [let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): присвоение результата переменной
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>Оператор [let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): присвоение результата переменной
 
 С помощью оператора `let` можно разделить части предыдущего выражения. Результаты не изменились:
 
@@ -567,7 +566,7 @@ requests
 
 ### <a name="special-characters"></a>Специальные символы
 
-Для доступа к идентификаторам, имена которых содержат специальные символы или ключевые слова, необходимо использовать `['` и `']` или `["` и `"]`.
+Для доступа к идентификаторам, имена которых содержат специальные символы или ключевые слова языка, необходимо использовать `['` и `']` или `["` и `"]`.
 
 ```AIQL
 

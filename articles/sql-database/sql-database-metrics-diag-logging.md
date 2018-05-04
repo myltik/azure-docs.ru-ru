@@ -10,18 +10,18 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Метрики и журналы диагностики базы данных SQL Azure 
 База данных SQL Azure может выдавать значения метрик и журналы диагностики для упрощения мониторинга. Вы можете настроить базу данных SQL для хранения сведений об использовании ресурсов, о рабочих ролях и сеансах, а также настроить подключение к одному из этих ресурсов Azure:
 
 * **Служба хранилища Azure**. Используется для архивации больших объемов телеметрии по оптимальной стоимости.
 * **Концентраторы событий Azure**. Используются для интеграции телеметрии базы данных SQL с настраиваемым решением для мониторинга или горячими конвейерами.
-* **Azure Log Analytics**. Используется для встроенного решения для мониторинга с возможностями предоставления отчетов, предупреждений и выполнения исправлений.
+* **Azure Log Analytics**. Используется для встроенного решения для мониторинга с возможностями предоставления отчетов, предупреждений и выполнения исправлений. Этот компонент входит в пакет [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md).
 
     ![Архитектура](./media/sql-database-metrics-diag-logging/architecture.png)
 

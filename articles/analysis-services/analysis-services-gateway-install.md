@@ -1,25 +1,18 @@
 ---
 title: Установка локального шлюза данных | Документация Майкрософт
 description: Узнайте, как установить и настроить локальный шлюз данных.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Установка и настройка локального шлюза данных
 Локальный шлюз данных является обязательным, когда один или несколько серверов Azure Analysis Services в том же регионе подключаются к локальным источникам данных. Дополнительные сведения о шлюзе см. в разделе [Установка локального шлюза](analysis-services-gateway.md).
@@ -44,7 +37,7 @@ ms.lasthandoff: 04/05/2018
 * Устанавливайте шлюз на компьютере, который не выключается и не переходит в спящий режим.
 * Не устанавливайте шлюз на компьютере, подключенном к сети с помощью беспроводного соединения. Это может стать причиной снижения производительности.
 * Войдите в Azure с помощью учетной записи в Azure AD для того же [клиента](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant), что и подписка, в которой вы регистрируете шлюз. Учетные записи Azure B2B (гостевые) не поддерживаются при установке и регистрации шлюза.
-* Описанный здесь шлюз (унифицированный) не поддерживается в Azure для государственных организаций (Fairfax). Используйте выделенный локальный шлюз для Azure Analysis Services. Выделенный шлюз не поддерживает дополнительные службы, такие как Power BI и Power Apps. Выделенный шлюз устанавливается с помощью средства "Быстрый запуск" на портале.
+* Описанный здесь шлюз (унифицированный) не поддерживается в Azure для государственных организаций, а также в независимых регионах (Azure для Германии и Azure для Китая). Используйте **выделенный локальный шлюз для Azure Analysis Services**, установленный с помощью шаблона**быстрого запуска** для вашего сервера на портале. 
 
 
 ## <a name="download"></a>Загрузка

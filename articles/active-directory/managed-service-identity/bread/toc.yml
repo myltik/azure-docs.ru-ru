@@ -1,0 +1,23 @@
+- name: Таблицы Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Active Directory
+      tocHref: /azure/active-directory/
+      topicHref: /azure/active-directory/
+      items:
+        - name: Подключение
+          tocHref: /azure/active-directory/connect/
+          topicHref: /azure/active-directory/connect/
+        - name: Connect Health
+          tocHref: /azure/active-directory/connect-health/
+          topicHref: /azure/active-directory/connect-health/
+        - name: Разработка
+          tocHref: /azure/active-directory/develop/
+          topicHref: /azure/active-directory/develop/
+        - name: Управление привилегированными пользователями (PIM)
+          tocHref: /azure/active-directory/privileged-identity-management/
+          topicHref: /azure/active-directory/privileged-identity-management/
+        - name: Удостоверение управляемой службы
+          tocHref: /azure/active-directory/managed-service-identity/
+          topicHref: /azure/active-directory/managed-service-identity/

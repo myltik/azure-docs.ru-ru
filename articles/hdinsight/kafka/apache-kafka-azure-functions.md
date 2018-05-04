@@ -1,24 +1,24 @@
 ---
-title: "Отправка данных в Kafka HDInsight с помощью службы \"Функции Azure\" | Документация Майкрософт"
-description: "Сведения о том, как с помощью службы \"Функции Azure\" записывать данные в Kafka HDInsight."
+title: Отправка данных в Kafka HDInsight с помощью службы "Функции Azure" | Документация Майкрософт
+description: Сведения о том, как с помощью службы "Функции Azure" записывать данные в Kafka HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Использование Kafka HDInsight из приложения-функции Azure
 
@@ -70,7 +70,7 @@ Kafka HDInsight содержится в виртуальной сети Azure. �
 
 По умолчанию Zookeeper возвращает клиентам доменное имя брокеров Kafka. Эта конфигурация не работает в отсутствии DNS-сервера, так как клиенту (службе "Функции Azure") не удается разрешить имена виртуальной сети. Для этой конфигурации выполните следующие действия, чтобы настроить Kafka для объявления IP-адресов вместо доменных имен:
 
-1. С помощью веб-браузера перейдите по адресу: https://CLUSTERNAME.azurehdinsight.net. Замените __CLUSTERNAME__ именем кластера Kafka HDInsight.
+1. Откройте веб-браузер и перейдите по адресу https://CLUSTERNAME.azurehdinsight.net. Замените __CLUSTERNAME__ именем кластера Kafka HDInsight.
 
     При появлении запроса введите имя пользователя и пароль HTTPS для кластера. Отобразится веб-интерфейс Ambari для кластера.
 

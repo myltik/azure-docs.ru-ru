@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Устранение неполадок при развертывании виртуальных машин Windows в Azure
 
@@ -95,10 +95,6 @@ productPesIds="1234, 5678"
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Не удается найти экземпляр графического процессора (GPU) на виртуальной машине серии N
 
 Чтобы воспользоваться преимуществами возможностей GPU виртуальных машин Azure серии N под управлением Windows Server 2016 или Windows Server 2012 R2, необходимо установить графические драйверы NVIDIA на каждую виртуальную машину после развертывания. Сведения об установке драйверов доступны для [виртуальных машин Windows](n-series-driver-setup.md) и [виртуальных машин Linux](../linux/n-series-driver-setup.md).
-
-## <a name="are-client-images-supported-for-n-series"></a>Поддерживаются ли образы клиентов для серии N?
-
-В настоящее время Azure поддерживает образы клиентов только на виртуальных машинах серии N под управлением операционных систем Windows Server и Linux.
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>Доступны ли виртуальные машины серии N в моем регионе?
 

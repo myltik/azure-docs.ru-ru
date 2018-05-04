@@ -1,11 +1,11 @@
 ---
-title: "Настройка MSI на виртуальной машине Azure с помощью Azure CLI"
-description: "Пошаговые инструкции по настройке управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью Azure CLI."
+title: Настройка MSI на виртуальной машине Azure с помощью Azure CLI
+description: Пошаговые инструкции по настройке управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью Azure CLI.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0863d5bec71a79f28017582eaa111f6c4a97c1ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c76d53d32b297ff106c05bdd717a80a9f4b98814
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Настройка управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью Azure CLI
 
@@ -71,10 +71,10 @@ ms.lasthandoff: 03/09/2018
    az login
    ```
 
-2. Выполните команду [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity) с параметром `--assign-identity`, чтобы добавить MSI на имеющуюся виртуальную машину:
+2. Чтобы добавить MSI на существующую виртуальную машину, используйте команду [az vmss identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) с `identity assign`:
 
    ```azurecli-interactive
-   az vm assign-identity -g myResourceGroup -n myVm
+   az vm identity assign -g myResourceGroup -n myVm
    ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Удаление MSI с виртуальной машины Azure

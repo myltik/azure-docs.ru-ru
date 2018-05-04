@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-guest-os"></a>Гостевая ОС Azure
 В следующей таблице приведены обновления Microsoft Security Response Center (MSRC) для гостевой ОС Azure. Выполните поиск по этой статье, чтобы определить, применяется ли какое-либо конкретное обновление к используемой гостевой ОС. Обновления всегда переносятся для того [семейства][family-explain], в котором они были введены.
@@ -581,7 +581,7 @@ ms.lasthandoff: 04/06/2018
 | MS15-014 |[3004361] |Уязвимость в SMB может привести к обходу функции безопасности |4.17, 3.24, 2.36 |Недоступно |
 | MS15-015 |[3031432] |Уязвимость в Microsoft Windows может привести к несанкционированному повышению привилегий |4.17, 3.24, 2.36 |Недоступно |
 | MS15-016 |[3029944] |Уязвимость в графическом компоненте Microsoft может привести к раскрытию информации |4.17, 3.24, 2.36 |Недоступно |
-| Недоступно |[3004375] |Обновление для улучшения аудита командной строки Windows<p/>**Примечание.**Это обновление установлено, но раздел реестра, в котором оно активируется, отключен. |4.17, 3.24, 2.36 |Недоступно |
+| Недоступно |[3004375] |Обновление для улучшения аудита командной строки Windows<p/>**Примечание.** Это обновление установлено, но раздел реестра, в котором оно активируется, отключен. |4.17, 3.24, 2.36 |Недоступно |
 
 ## <a name="january-guest-os"></a>Январская гостевая ОС
 | Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
@@ -790,9 +790,9 @@ ms.lasthandoff: 04/06/2018
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217

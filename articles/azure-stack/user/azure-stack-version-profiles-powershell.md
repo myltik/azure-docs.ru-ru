@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Использование профилей версий API и PowerShell в Azure Stack
 
@@ -34,15 +34,10 @@ ms.lasthandoff: 04/03/2018
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-Модуль AzureRM.Bootstrapper доступен в режиме предварительной версии, поэтому некоторые сведения и функции могут измениться. Чтобы скачать и установить последнюю версию этого модуля из коллекции PowerShell, выполните следующий командлет:
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
 
 ## <a name="install-a-profile"></a>Установка профиля
 
-Чтобы установить модули AzureRM, необходимые для Azure Stack, используйте командлет **Install-AzureRmProfile** с профилем API версии **2017-03-09-profile**. Обратите внимание, что модули оператора Azure Stack не устанавливаются с этим профилем версии API. Их нужно устанавливать отдельно, как указано на шаге 3 статьи [Установка PowerShell для Azure Stack](azure-stack-powershell-install.md).
+Чтобы установить модули AzureRM, необходимые для Azure Stack, используйте командлет **Install-AzureRmProfile** с профилем API версии **2017-03-09-profile**. Модули для оператора Azure Stack не устанавливаются с этим профилем версии API. Их нужно устанавливать отдельно, как указано в шаге 3 статьи [Установка PowerShell для Azure Stack](azure-stack-powershell-install.md).
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile

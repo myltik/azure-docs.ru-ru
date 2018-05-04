@@ -1,3 +1,4 @@
+# [Принципы работы Azure IoT](../iot-fundamentals/index.yml)
 # [Документация по IoT Suite](index.md)
 
 # Обзор
@@ -94,10 +95,20 @@
 ## [Все аспекты безопасности](securing-iot-ground-up.md)
 
 # Сопутствующие материалы
+## Решения 
+### [Предварительно настроенные решения Azure IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Службы платформы 
+### [Центр Интернета вещей](/azure/iot-hub) 
+### [Служба подготовки устройств для Центра Интернета вещей](/azure/iot-dps)
+### [Пакеты SDK для службы IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services) 
+### [Аналитика временных рядов](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [Пакеты SDK для устройств IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Концентраторы событий](/azure/event-hubs/)
-## [Центр Интернета вещей](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Машинное обучение](/azure/machine-learning/)
 
 # Ресурсы
