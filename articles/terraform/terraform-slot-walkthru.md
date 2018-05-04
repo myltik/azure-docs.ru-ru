@@ -1,33 +1,35 @@
 ---
-title: Слот развертывания поставщика Terraform с Azure
-description: Руководство по слотам развертывания поставщика Terraform с Azure
+title: Слоты развертывания поставщика Terraform с Azure
+description: Руководство по использованию слотов развертывания поставщика Terraform с Azure
 keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Использование Terraform для подготовки инфраструктуры со слотами развертывания Azure
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Использование Terraform для подготовки инфраструктуры со слотами развертывания Azure
 
-[Слоты развертывания Azure](/azure/app-service/web-sites-staged-publishing) позволяют переключаться между различными версиями приложения (например, рабочей и промежуточной) для минимизации влияния нарушенных развертываний. В этой статье показан пример использования слотов развертывания. Мы рассмотрим развертывание двух приложений через GitHub и Azure. Одно приложение размещается в "рабочем", а второе в "промежуточном" слоте. (Названия "рабочий" и "промежуточный" произвольны и их можно изменить в зависимости от сценария.) После настройки слотов развертывания при необходимости можно использовать Terraform для переключения между двумя слотами.
+Вы можете использовать [слоты развертывания Azure](/azure/app-service/web-sites-staged-publishing) для переключения между разными версиями приложения. Эту возможность помогает минимизировать влияние неработающих развертываний. 
+
+В этой статье показан пример использования слотов развертывания. Мы рассмотрим развертывание двух приложений через GitHub и Azure. Одно из приложений размещается в рабочем слоте, а второе — в промежуточном. (Названия "рабочий" и "промежуточный" произвольны и их можно изменить в зависимости от сценария.) После настройки слотов развертывания для переключения между двумя слотами можно использовать Terraform.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-- **Подписка Azure.** Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), прежде чем начинать работу.
+- **Подписка Azure**. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), прежде чем начинать работу.
 
 - **Учетная запись GitHub**. Учетная запись [GitHub](http://www.github.com) необходима для разветвления и использования тестового репозитория GitHub.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Создание и применение плана Terraform
 
-1. Войдите на [портал Azure](http://portal.azure.com).
+1. Перейдите на [портал Azure](http://portal.azure.com).
 
-1. Откройте [Azure Cloud Shell](/azure/cloud-shell/overview) и выберите **Bash** в качестве среды (если это еще не сделано).
+1. Откройте [Azure Cloud Shell](/azure/cloud-shell/overview). Если ранее среда не была выбрана, то в качестве среды необходимо выбрать **Bash**.
 
     ![Командная строка Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 04/06/2018
     mkdir swap
     ```
 
-1. Убедитесь, что оба каталога были успешно созданы, используя команду Bash `ls`.
+1. Используйте команду bash `ls`, чтобы проверить, успешно ли созданы оба каталога.
 
     ![Cloud Shell после создания каталогов](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ ms.lasthandoff: 04/06/2018
     cd deploy
     ```
 
-1. С помощью [редактора VI](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html) создайте файл с именем `deploy.tf`, в котором будет содержаться [конфигурация Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. С помощью [редактора VI](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html) создайте файл с именем `deploy.tf`. В этом файле будет храниться [конфигурация Terraform](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Войдите в режим вставки, нажав клавишу `i`.
+1. Нажмите клавишу I, чтобы войти в режим вставки.
 
 1. Скопируйте приведенный ниже код и вставьте его в редактор.
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. Нажмите клавишу **&lt;Esc>**, чтобы выйти из режима вставки.
+1. Нажмите клавишу ESC, чтобы выйти из режима вставки.
 
-1. Сохраните файл и закройте редактор VI. Для этого введите приведенную ниже команду, а затем нажмите клавишу **&lt;ВВОД>**.
+1. Сохраните файл и закройте редактор VI. Для этого введите приведенную ниже команду.
 
     ```bash
     :wq
     ```
 
-1. После создания файла можно проверить его содержимое.
+1. После создания файла проверьте его содержимое.
 
     ```bash
     cat deploy.tf
@@ -140,13 +142,13 @@ ms.lasthandoff: 04/06/2018
 
 1. В главном меню на портале Azure выберите **Группы ресурсов**.
 
-    ![Группы ресурсов на портале Azure](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![Выбор "Группы ресурсов" на портале](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. На вкладке **Группы ресурсов** выберите **slotDemoResourceGroup**.
 
     ![Группа ресурсов, созданная в Terraform.](./media/terraform-slot-walkthru/resource-group.png)
 
-По окончании можно просмотреть все ресурсы, созданные в Terraform.
+Вы должны увидеть все ресурсы, созданные Terraform.
 
 ![Ресурсы, созданные в Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ ms.lasthandoff: 04/06/2018
 
 1. Перейдите к [репозиторию awesome-terraform на GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Выполните разветвление **репозитория awesome-terraform**.
+1. Выполните разветвление репозитория **awesome-terraform**.
 
     ![Разветвление репозитория GitHub awesome-terraform](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -184,7 +186,7 @@ ms.lasthandoff: 04/06/2018
 
 1. На вкладке **Авторизация** выберите **Авторизовать** и укажите учетные данные, необходимые Azure для получения доступа к вашей учетной записи GitHub. 
 
-1. После того как Azure проверит учетные данные GitHub, отобразится сообщение, указывающее, что процесс авторизации завершен. Нажмите кнопку **ОК**, чтобы закрыть вкладку **Авторизация**.
+1. После того как Azure проверит учетные данные GitHub, появится сообщение, указывающее на то, что процесс авторизации завершен. Нажмите кнопку **ОК**, чтобы закрыть вкладку **Авторизация**.
 
 1. Щелкните **Choose your organization** (Выбор организации) и выберите вашу организацию.
 
@@ -206,7 +208,7 @@ ms.lasthandoff: 04/06/2018
 
 - На шаге 3 выберите ресурс **slotAppServiceSlotOne**.
 
-- На шаге 13 выберите "рабочую" ветвь вместо главной.
+- На шаге 13 выберите рабочую ветвь вместо главной.
 
     ![Выбор рабочей ветви](./media/terraform-slot-walkthru/choose-branch-working.png)
 
@@ -239,7 +241,7 @@ ms.lasthandoff: 04/06/2018
 
 Чтобы протестировать переключение между двумя слотами развертывания, сделайте следующее:
  
-1. Перейдите на вкладку браузера, запустив **slotAppService** (приложение с синей страницей). 
+1. Перейдите на вкладку браузера, на которой выполняется **slotAppService** (приложение с синей страницей). 
 
 1. Откройте портал Azure в отдельной вкладке.
 
@@ -257,12 +259,12 @@ ms.lasthandoff: 04/06/2018
     vi swap.tf
     ```
 
-1. Войдите в режим вставки, нажав клавишу `i`.
+1. Нажмите клавишу I, чтобы войти в режим вставки.
 
 1. Скопируйте приведенный ниже код и вставьте его в редактор.
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. Нажмите клавишу **&lt;Esc>**, чтобы выйти из режима вставки.
+1. Нажмите клавишу ESC, чтобы выйти из режима вставки.
 
-1. Сохраните файл и закройте редактор VI. Для этого введите приведенную ниже команду, а затем нажмите клавишу **&lt;ВВОД>**.
+1. Сохраните файл и закройте редактор VI. Для этого введите приведенную ниже команду.
 
     ```bash
     :wq
@@ -305,10 +307,10 @@ ms.lasthandoff: 04/06/2018
 
 ![Слоты развертывания переключены](./media/terraform-slot-walkthru/slots-swapped.png)
 
-Чтобы вернуться к исходной рабочей версии приложения, повторно примените план Terraform, созданный с помощью файла конфигурации `swap.tf`.
+Чтобы вернуться к исходной рабочей версии приложения, повторно примените план Terraform, созданный вами с помощью файла конфигурации `swap.tf`.
 
 ```bash
 terraform apply
 ```
 
-После переключения отобразится исходная конфигурация.
+После переключения приложения отобразится исходная конфигурация.

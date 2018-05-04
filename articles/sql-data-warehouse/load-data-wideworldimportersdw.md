@@ -1,31 +1,24 @@
 ---
 title: Руководство по загрузке данных в хранилище данных SQL Azure | Документация Майкрософт
-description: В руководстве используется портал Azure и SQL Server Management Studio для загрузки хранилища данных WideWorldImportersDW из хранилища BLOB-объектов Azure в хранилище данных SQL Azure.
+description: В руководстве используется портал Azure и SQL Server Management Studio для загрузки хранилища данных WideWorldImportersDW из общедоступного большого двоичного объекта Azure в хранилище данных SQL Azure.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/06/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 7e7d9a299e141ef8fd564e7f97077471264420ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: igorstan
+ms.openlocfilehash: 0e108487bac5154477988ad0b01378af4152836f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Руководство по загрузке данных в хранилище данных SQL Azure
 
-В этом руководстве описана загрузка хранилища данных WideWorldImportersDW из хранилища BLOB-объектов Azure в хранилище данных SQL Azure. В рамках этого руководства [портал Azure](https://portal.azure.com) и [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) используются, чтобы выполнить такие действия: 
+В этом руководстве описана загрузка хранилища данных WideWorldImportersDW из хранилища BLOB-объектов Azure в хранилище данных SQL Azure с помощью PolyBase. В рамках этого руководства [портал Azure](https://portal.azure.com) и [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) используются, чтобы выполнить такие действия: 
 
 > [!div class="checklist"]
 > * создать хранилище данных на портале Azure;
@@ -42,7 +35,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Перед началом работы с этим руководством скачайте и установите последнюю версию [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Перед началом работы с этим руководством скачайте и установите последнюю версию [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
@@ -51,7 +44,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Создание пустого хранилища данных SQL
 
-Хранилище данных SQL Azure создается с определенным набором [вычислительных ресурсов](performance-tiers.md). База данных создается в пределах [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) и [логического сервера SQL Azure](../sql-database/sql-database-features.md). 
+Хранилище данных SQL Azure создается с определенным набором [вычислительных ресурсов](memory-and-concurrency-limits.md). База данных создается в пределах [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) и [логического сервера SQL Azure](../sql-database/sql-database-features.md). 
 
 Чтобы создать пустое хранилище данных SQL, выполните приведенные ниже действия. 
 
@@ -92,7 +85,7 @@ ms.lasthandoff: 03/16/2018
     ![настройка производительности](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. Нажмите кнопку **Применить**.
-9. На странице хранилища данных SQL выберите **Параметры сортировки** для пустой базы данных. В этом руководстве используйте значение по умолчанию. Дополнительные сведения о параметрах сортировки см. в [этой статье](/sql/t-sql/statements/collations.md).
+9. На странице хранилища данных SQL выберите **Параметры сортировки** для пустой базы данных. В этом руководстве используйте значение по умолчанию. Дополнительные сведения о параметрах сортировки см. в [этой статье](/sql/t-sql/statements/collations).
 
 11. Заполнив форму базы данных SQL, нажмите кнопку **Создать**, чтобы подготовить базу данных. Подготовка занимает несколько минут. 
 
@@ -147,7 +140,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Подключение к серверу от имени администратора сервера
 
-В этом разделе для подключения к серверу SQL Azure используется [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+В этом разделе для подключения к серверу SQL Azure используется [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 1. Откройте среду SQL Server Management Studio.
 
@@ -171,7 +164,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="create-a-user-for-loading-data"></a>Создание учетной записи пользователя для загрузки данных
 
-Учетная запись администратора сервера предназначена для операций управления и не подходит для выполнения запросов к пользовательским данным. Загрузка данных — это операция с интенсивным использованием памяти. [Максимальные ограничения памяти](performance-tiers.md#memory-maximums) определяются в соответствии с [уровнем производительности](performance-tiers.md) и [классом ресурсов](resource-classes-for-workload-management.md). 
+Учетная запись администратора сервера предназначена для операций управления и не подходит для выполнения запросов к пользовательским данным. Загрузка данных — это операция с интенсивным использованием памяти. Максимальные ограничения памяти определяются в соответствии с [уровнем производительности](memory-and-concurrency-limits.md#performance-tiers), [единицами хранилища данных](what-is-a-data-warehouse-unit-dwu-cdwu.md) и [классом ресурсов](resource-classes-for-workload-management.md). 
 
 Лучше всего создать имя для входа и имя пользователя, предназначенные для загрузки данных. Затем добавьте пользователя загрузки в [класс ресурсов](resource-classes-for-workload-management.md), позволяющий выполнять соответствующее выделение максимальной памяти.
 
@@ -238,7 +231,7 @@ ms.lasthandoff: 03/16/2018
     CREATE MASTER KEY;
     ```
 
-4. Выполните приведенную ниже инструкцию [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md), чтобы определить расположение большого двоичного объекта Azure. Это и есть расположение внешних данных о такси.  Для выполнения команды, добавленной в окно запроса, выделите команды, которые необходимо выполнить, и нажмите кнопку **Выполнить**.
+4. Выполните приведенную ниже инструкцию [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql), чтобы определить расположение большого двоичного объекта Azure. Это и есть расположение внешних данных о такси.  Для выполнения команды, добавленной в окно запроса, выделите команды, которые необходимо выполнить, и нажмите кнопку **Выполнить**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -249,7 +242,7 @@ ms.lasthandoff: 03/16/2018
     );
     ```
 
-5. Выполните приведенную ниже инструкцию T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md), чтобы указать характеристики и параметры форматирования для внешнего файла данных. Эта инструкция указывает, что внешние данные хранятся в виде текста, а значения разделяются символом вертикальной черты (|).  
+5. Выполните приведенную ниже инструкцию T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql), чтобы указать характеристики и параметры форматирования для внешнего файла данных. Эта инструкция указывает, что внешние данные хранятся в виде текста, а значения разделяются символом вертикальной черты (|).  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +257,7 @@ ms.lasthandoff: 03/16/2018
     );
     ```
 
-6.  Выполните приведенные ниже инструкции [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md), чтобы создать схему форматирования внешних файлов. Эта схема форматирования внешних файлов описывает способ организации внешних таблиц, которые будут созданы. Схема wwi организует стандартные таблицы для хранения данных. 
+6.  Выполните приведенные ниже инструкции [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql), чтобы создать схему форматирования внешних файлов. Эта схема форматирования внешних файлов описывает способ организации внешних таблиц, которые будут созданы. Схема wwi организует стандартные таблицы для хранения данных. 
 
     ```sql
     CREATE SCHEMA ext;
@@ -559,7 +552,7 @@ ms.lasthandoff: 03/16/2018
 > В этом руководстве данные загружаются непосредственно в итоговую таблицу. Как правило, в рабочей среде для загрузки данных в промежуточную таблицу используется команда CREATE TABLE AS SELECT. Если данные расположены в промежуточной таблице, вы можете выполнять все необходимые преобразования. Чтобы добавить данные из промежуточной таблицы в рабочую, используйте выражение INSERT...SELECT. Дополнительные сведения см. в разделе [Вставка данных в рабочую таблицу](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-В сценарии используется инструкция T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md), чтобы загрузить данные из Azure Storage Blob в новые таблицы в хранилище данных. CTAS создает таблицу на основе результатов инструкции Select. В новой таблице содержатся те же столбцы и типы данных, которые были выведены инструкцией Select. Если инструкция Select выбирает из внешней таблицы, то хранилище данных SQL импортирует данные в реляционную таблицу в хранилище данных. 
+В сценарии используется инструкция T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse), чтобы загрузить данные из Azure Storage Blob в новые таблицы в хранилище данных. CTAS создает таблицу на основе результатов инструкции Select. В новой таблице содержатся те же столбцы и типы данных, которые были выведены инструкцией Select. Если инструкция Select выбирает из внешней таблицы, то хранилище данных SQL импортирует данные в реляционную таблицу в хранилище данных. 
 
 Этот скрипт не загружает данные в таблицы wwi.dimension_Date и wwi.fact_Sales. Эти таблицы создаются на следующих этапах для ограничения числа строк в таблицах с допустимыми пределами.
 
@@ -953,12 +946,13 @@ ms.lasthandoff: 03/16/2018
         END;
 
     END;
+    ```
 
-## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+## <a name="generate-millions-of-rows"></a>Создание нескольких миллионов строк
+Используйте созданные хранимые процедуры для создания нескольких миллионов строк в таблице wwi.fact_Sales и соответствующих данных в таблице wwi.dimension_Date. 
 
 
-1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
+1. Запустите эту процедуру, чтобы задать начальное значение [wwi].[seed_Sale] с несколькими строками.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]

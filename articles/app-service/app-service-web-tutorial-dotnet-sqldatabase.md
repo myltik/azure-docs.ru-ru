@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Руководство. Создание приложения ASP.NET в Azure с подключением к базе данных SQL
 
@@ -145,6 +145,9 @@ ms.lasthandoff: 04/06/2018
 Добавьте имя пользователя и пароль администратора. Требования к сложности пароля см. в статье [Политика паролей](/sql/relational-databases/security/password-policy).
 
 Запомните это имя пользователя и пароль. Они потребуются позже для управления экземпляром логического сервера.
+
+> [!IMPORTANT]
+> Хотя пароль в строке подключения скрывается (в Visual Studio и в службе приложений), он все равно где-то сохраняется, что делает приложение уязвимым перед атаками. В таком случае служба приложений может использовать [управляемые удостоверения службы](app-service-managed-service-identity.md), полностью устраняя необходимость хранить секреты в коде или конфигурации приложения. Дополнительные сведения см. в разделе [Дальнейшие действия](#next-steps).
 
 ![Создание экземпляра SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -413,8 +416,6 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
@@ -427,7 +428,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 > * Потоковая передача журналов из Azure в окно терминала.
 > * Управление приложением на портале Azure.
 
-Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
+Переходите к следующему руководству, чтобы узнать, как без усилий обеспечить защиту подключения к Базе данных SQL Azure.
 
 > [!div class="nextstepaction"]
-> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)
+> [Безопасный доступ к Базе данных Azure SQL с использованием управляемого удостоверения службы](app-service-web-tutorial-connect-msi.md)

@@ -3,15 +3,16 @@ title: Индексация на нескольких языках в служб
 description: Служба поиска Azure поддерживает 56 языков — для этого используются языковые анализаторы Lucene и технология Майкрософт для обработки естественных языков.
 author: yahnoosh
 manager: jlembicz
+services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: fc038c288f878d72d29ce35ba983b3d4b6f3633e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Создание индекса для многоязычных документов в поиске Azure
 > [!div class="op_single_selector"]
@@ -61,7 +62,7 @@ ms.lasthandoff: 04/18/2018
 
 Если известен язык агента, отправившего запрос, запрос поиска можно ограничить определенным полем с помощью параметра **searchFields** . Следующий запрос будет применен только к описанию на польском языке:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 Можно запросить индекс с портала, воспользовавшись **проводником поиска**, чтобы вставить запрос, аналогичный приведенному выше. Проводником поиска можно воспользоваться посредством панели команд в колонке службы. Дополнительные сведения см. в статье [Отправка запросов в индекс службы поиска Azure с помощью портала Azure](search-explorer.md).
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 04/18/2018
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 Если вы разработчик .NET, обратите внимание на то, что языковые анализаторы можно настраивать с помощью [SDK .NET службы поиска Azure](http://www.nuget.org/packages/Microsoft.Azure.Search). Последний выпуск включает поддержку языковых анализаторов корпорации Майкрософт.
 

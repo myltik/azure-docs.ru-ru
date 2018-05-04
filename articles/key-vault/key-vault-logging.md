@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Ведение журнала хранилища ключей Azure
 Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [цен на хранилище ключей](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -235,32 +235,32 @@ ms.lasthandoff: 04/19/2018
 | operationName | Команда API REST |
 | --- | --- |
 | Authentication |Через конечную точку Azure Active Directory |
-| VaultGet |[Получение сведений о хранилище ключей](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Создание или обновление хранилища ключей](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Удаление хранилища ключей](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Получение сведений о хранилище ключей](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Создание или обновление хранилища ключей](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Удаление хранилища ключей](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Update a key vault (Создание или обновление хранилища ключей)](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Список всех хранилищ ключей в группе ресурсов](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Создание ключа](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Получение сведений о ключе](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Импорт ключа в хранилище](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Создание резервной копии ключа](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx) |
-| KeyDelete |[Удаление ключа](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Восстановление ключа](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Вход с помощью ключа](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Проверка с помощью ключа](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Перенос ключа](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Развертывание ключа](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Шифрование с помощью ключа](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Расшифровка с помощью ключа](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Обновление ключа](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Перечисление ключей в хранилище](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Перечисление версий ключа](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Создание секрета](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Получение сведений о секрете](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Обновление секрета](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Удаление секрета](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Список секретов в хранилище](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Список версий секрета](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Список всех хранилищ ключей в группе ресурсов](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Создание ключа](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Получение сведений о ключе](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Импорт ключа в хранилище](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Создание резервной копии ключа](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
+| KeyDelete |[Удаление ключа](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Восстановление ключа](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Вход с помощью ключа](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Проверка с помощью ключа](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Перенос ключа](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Развертывание ключа](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Шифрование с помощью ключа](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Расшифровка с помощью ключа](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Обновление ключа](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[Перечисление ключей в хранилище](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[Перечисление версий ключа](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Создание секрета](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Получение сведений о секрете](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Обновление секрета](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Удаление секрета](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Список секретов в хранилище](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Список версий секрета](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Использование Log Analytics
 

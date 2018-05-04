@@ -1,13 +1,13 @@
 ---
-title: "Устранение неполадок службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
-description: "Способы устранения распространенных проблем со службой совместной работы Azure Active Directory B2B."
+title: Устранение неполадок службы совместной работы Azure Active Directory B2B | Документация Майкрософт
+description: Способы устранения распространенных проблем со службой совместной работы Azure Active Directory B2B.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Устранение неполадок службы совместной работы Azure Active Directory B2B
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Как символ "\#", который обычно является недопустимым, синхронизируется с Azure AD?
 
-Знак "\#" зарезервирован для имен участников-пользователей службы совместной работы Azure AD B2B или внешних пользователей (имя учетной записи приглашенного пользователя user@contoso.com преобразуется в user_contoso.com#EXT@fabrikam.onmicrosoft.com). Поэтому при входе на портал Azure не разрешается использовать знак "\#" в именах участников-пользователей из локальной среды. 
+Знак "\#" зарезервирован для имен участников-пользователей службы совместной работы Azure AD B2B или внешних пользователей (имя учетной записи приглашенного пользователя user@contoso.com преобразуется в user_contoso.com#EXT#@fabrikam.onmicrosoft.com). Поэтому при входе на портал Azure не разрешается использовать знак "\#" в именах участников-пользователей из локальной среды. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>При добавлении внешних пользователей в синхронизированную группу появляется сообщение об ошибке
 

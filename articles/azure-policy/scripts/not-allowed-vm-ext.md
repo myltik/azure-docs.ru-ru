@@ -1,25 +1,25 @@
 ---
-title: "Пример политики Azure в формате JSON: запрещенные расширения виртуальной машины | Документация Майкрософт"
-description: "Этот пример политики в формате JSON запрещает использование заданных расширений."
+title: 'Пример политики Azure в формате JSON: запрещенные расширения виртуальной машины | Документация Майкрософт'
+description: Этот пример политики в формате JSON запрещает использование заданных расширений.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 13b3dc50acc02671d14d6b0883cf07be1aad9de2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d5aaa281d68e2f8d8f159bc825eb33fa2735375a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="not-allowed-vm-extensions"></a>Запрет использования определенных расширений виртуальной машины
 

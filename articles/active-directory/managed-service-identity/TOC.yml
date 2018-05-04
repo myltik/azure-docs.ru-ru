@@ -25,6 +25,8 @@
               href: tutorial-windows-vm-access-nonaad.md
             - name: Доступ к Azure Cosmos DB
               href: tutorial-windows-vm-access-cosmos-db.md
+            - name: Получение доступа к Azure Resource Manager с помощью пользовательского удостоверения
+              href: tutorial-windows-vm-ua-arm.md
         - name: Виртуальные машины и масштабируемые наборы виртуальных машин Linux
           items:
             - name: Доступ к Azure Data Lake Store
@@ -37,44 +39,56 @@
               href: tutorial-linux-vm-access-nonaad.md
             - name: Доступ к Azure Cosmos DB
               href: tutorial-linux-vm-access-cosmos-db.md
-    - name: Настройка MSI для виртуальной машины Azure
+            - name: Получение доступа к Azure Resource Manager с помощью пользовательского удостоверения
+              href: msi-tutorial-linux-vm-access-arm.md
+        - name: Azure Service Bus
+          href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
+        - name: Служба приложений Azure и решение "Функции Azure"
+          href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
+        - name: Концентраторы событий Azure
+          href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
+    - name: Практические руководства
       items:
-        - name: Использование портала Azure
-          href: qs-configure-portal-windows-vm.md
-        - name: с использованием PowerShell.
-          href: qs-configure-powershell-windows-vm.md
-        - name: Использование Azure CLI
-          href: qs-configure-cli-windows-vm.md
-        - name: Использование шаблона Azure Resource Manager
-          href: qs-configure-template-windows-vm.md
-        - name: Использование пакета Azure SDK
-          href: qs-configure-sdk-windows-vm.md
-    - name: Настройка MSI для масштабируемого набора виртуальных машин Azure
-      items:
-        - name: Использование портала Azure
-          href: qs-configure-portal-windows-vmss.md
-        - name: Использование Azure CLI
-          href: qs-configure-cli-windows-vmss.md
-        - name: Использование шаблона Azure Resource Manager
-          href: qs-configure-template-windows-vmss.md
-    - name: Предоставление доступа MSI виртуальной машины и масштабируемого набора виртуальных машин к Resource Manager
-      items:
-        - name: Использование портала Azure
-          href: howto-assign-access-portal.md
-        - name: с использованием PowerShell.
-          href: howto-assign-access-powershell.md
-        - name: Использование Azure CLI
-          href: howto-assign-access-cli.md
-    - name: Использование удостоверения управляемой службы для виртуальной машины
-      items:
-        - name: Получение маркера доступа
-          href: how-to-use-vm-token.md
-        - name: Вход в PowerShell и Azure CLI
-          href: how-to-use-vm-sign-in.md
-        - name: Использование с пакетами Azure SDK
-          href: how-to-use-vm-sdk.md
-    - name: Часто задаваемые вопросы и известные проблемы
-      href: known-issues.md
+        - name: Настройка идентификатора для виртуальной машины Azure
+          items:
+            - name: Microsoft Azure
+              href: qs-configure-portal-windows-vm.md
+            - name: Интерфейс командной строки
+              href: qs-configure-cli-windows-vm.md
+            - name: PowerShell
+              href: qs-configure-powershell-windows-vm.md
+            - name: Шаблон Azure Resource Manager
+              href: qs-configure-template-windows-vm.md
+            - name: Пакеты Azure SDK
+              href: qs-configure-sdk-windows-vm.md
+        - name: Настройка идентификатора для масштабируемого набора виртуальных машин Azure
+          items:
+            - name: Microsoft Azure
+              href: qs-configure-portal-windows-vmss.md
+            - name: Интерфейс командной строки
+              href: qs-configure-cli-windows-vmss.md
+            - name: PowerShell
+              href: qs-configure-powershell-windows-vmss.md
+            - name: Шаблон Azure Resource Manager
+              href: qs-configure-template-windows-vmss.md
+        - name: Использование компонента "Управляемое удостоверение службы" виртуальной машины
+          items:
+            - name: Получение маркера доступа
+              href: how-to-use-vm-token.md
+            - name: Вход в Powershell и CLI с помощью управляемого удостоверения
+              href: how-to-use-vm-sign-in.md
+            - name: Использование с пакетами Azure SDK
+              href: how-to-use-vm-sdk.md
+        - name: Управление пользовательскими удостоверениями
+          items:
+            - name: Microsoft Azure
+              href: how-to-manage-ua-identity-portal.md
+            - name: Интерфейс командной строки
+              href: how-to-manage-ua-identity-cli.md
+            - name: PowerShell
+              href: how-to-manage-ua-identity-powershell.md
+            - name: Шаблон Azure Resource Manager
+              href: how-to-manage-ua-identity-arm.md
     - name: Справочные материалы
       items:
         - name: Интерфейс командной строки
@@ -93,3 +107,9 @@
           href: /javascript/api/ms-rest-azure
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi'
+    - name: Ресурсы
+      items:
+        - name: Часто задаваемые вопросы и известные проблемы
+          href: known-issues.md
+        - name: Службы Azure с поддержкой управляемых удостоверений
+          href: services-support-msi.md

@@ -1,28 +1,27 @@
 ---
-title: "Динамический SQL в хранилище данных SQL | Документация Майкрософт"
-description: "Рекомендации по использованию динамического SQL в хранилище данных SQL для разработки решений."
+title: Применение динамического SQL в хранилище данных SQL Azure | Документация Майкрософт
+description: Рекомендации по использованию динамического SQL в хранилище данных SQL для разработки решений.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 604074e0a645918f7033360b79a1b7cad050c9e4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Динамический SQL в хранилище данных SQL
-При разработке кода приложения для хранилища данных SQL может возникнуть потребность в динамическом SQL, позволяющем создавать гибкие, модульные решения универсального характера. На данный момент хранилище данных SQL не поддерживает двоичные типы данных. Это может ограничивать размер строк, поскольку к двоичным относятся типы данных nvarchar(max) и varchar(max). Если вы использовали эти типы в коде приложения при построении очень больших строк, необходимо будет разбить код на фрагменты и вместо этого использовать инструкцию EXEC.
+Рекомендации по использованию динамического SQL в хранилище данных SQL для разработки решений.
+
+## <a name="dynamic-sql-example"></a>Пример динамического SQL
+
+При разработке кода приложения для хранилища данных SQL может возникнуть потребность в динамическом SQL для создания универсальных и гибких модульных решений. На данный момент хранилище данных SQL не поддерживает двоичные типы данных. Это может ограничивать размер строк, так как к двоичным относятся типы данных nvarchar(max) и varchar(max). Если вы использовали эти типы в коде приложения при создании очень больших строк, необходимо будет разбить код на фрагменты и вместо этого использовать инструкцию EXEC.
 
 Вот простой пример:
 
@@ -34,7 +33,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Если строка короткая, то можно использовать [sp_executesql][sp_executesql] как обычно.
+Если строка короткая, то можно использовать [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) как обычно.
 
 > [!NOTE]
 > К инструкциям, выполняемым как динамический код SQL, по-прежнему будут применяться все правила проверки TSQL.
@@ -42,14 +41,5 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 > 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
+См. дополнительные советы по [разработке](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
-
-<!--Other Web references-->

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Мониторинг фабрик данных с помощью Azure Monitor  
 Облачные приложения являются сложными и содержат множество подвижных частей. Мониторинг дает возможность отслеживать данные, чтобы обеспечить работоспособность приложения, а также позволяет предотвратить потенциальные проблемы или устранить неполадки. Кроме того, данные мониторинга можно использовать для получения подробных сведений о приложении. Эти знания могут помочь повысить его производительность и улучшить возможности обслуживания, а также автоматизировать действия, которые в противном случае выполнялись бы вручную.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Подробнее](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Подробнее](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Схема журналов и событий
 

@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Управление сервером конфигурации для аварийного восстановления физических серверов
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/08/2018
 | **Компонент** | **Требование** |
 | --- |---|
 | Ядра ЦП| 8 |
-| ОЗУ | 12 ГБ|
+| ОЗУ | 16 ГБ|
 | Количество дисков | 3 (диск ОС, диск кэша сервера обработки, диск хранения (для восстановления размещения)) |
 | Свободное место на диске (кэш сервера обработки) | 600 ГБ
 | Свободное место на диске (диск хранения) | 600 ГБ|
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/08/2018
 | IIS | — Должен отсутствовать предварительно созданный веб-сайт по умолчанию. <br> — включите [анонимную аутентификацию](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx); <br> — включите параметр [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx);  <br> — Должен отсутствовать предварительно созданный веб-сайт или приложение, ожидающее передачи данных на порте 443.<br>|
 | Тип сетевой карты | VMXNET3 (при развертывании в качестве виртуальной машины VMware) |
 | Тип IP-адреса | Статическое |
-| Доступ к Интернету | Сервер должен иметь доступ к этим URL-адресам: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (не требуется для сервера обработки масштабирования) <br> time.nist.gov <br> time.windows.com |
+| Доступ к Интернету | Сервер должен иметь доступ к этим URL-адресам: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> — https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (не требуется для сервера обработки масштабирования) <br> time.nist.gov <br> time.windows.com |
 | порты; | 443 (оркестрация канала управления)<br>9443 (передача данных)|
 
 ## <a name="download-the-latest-installation-file"></a>Скачивание последней версии файла установки
@@ -266,7 +266,7 @@ ProxyPassword="Password"
 1. [Установите](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) модуль Azure PowerShell.
 2. Войдите в свою учетную запись Azure с помощью следующей команды.
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Выберите подписку, в которой находится хранилище.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

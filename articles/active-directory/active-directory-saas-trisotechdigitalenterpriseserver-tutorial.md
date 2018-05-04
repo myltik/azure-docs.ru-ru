@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82e88b0b2b7f04f2849bf5c3a780df3c8f1c9849
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a70962c63fdf9ab723ce437563a4670d536300aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Руководство по интеграции Azure Active Directory с Trisotech Digital Enterprise Server
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/17/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Trisotech Digital Enterprise Server из коллекции.
+1. Добавление Trisotech Digital Enterprise Server из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-trisotech-digital-enterprise-server-from-the-gallery"></a>Добавление Trisotech Digital Enterprise Server из коллекции
@@ -111,31 +111,15 @@ ms.lasthandoff: 03/17/2018
     Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.trisotech.com`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Обратитесь в [клиентскую службу поддержки Trisotech Digital Enterprise Server](mailto:support@trisotech.com), чтобы получить эти значения. 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Обратитесь в [клиентскую службу поддержки Trisotech Digital Enterprise Server](mailto:support@trisotech.com), чтобы получить эти значения.
 
-4. Нажмите кнопку **Сохранить** .
+4. В разделе **Сертификат подписи SAML** нажмите кнопку "Копировать", чтобы скопировать **URL-адрес метаданных федерации приложений**. Затем вставьте его в Блокнот. 
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
-
-5. Для создания URL-адреса **метаданных** выполните следующие действия.
-
-    a. Щелкните **Регистрация приложений**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
-   
-    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
-    
-    ![Настройка единого входа](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
-
-    c. Нажмите кнопку "Копировать", чтобы скопировать URL-адрес **документа метаданных федерации**, а затем вставьте его в блокнот.
-    
-    ![Настройка единого входа](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
-     
-    d. Теперь перейдите на страницу свойств **Trisotech Digital Enterprise Server** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в блокнот.
- 
-    ![Настройка единого входа](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
-
-    д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
 
 6. В другом окне веб-браузера войдите на сайт компании Trisotech Digital Enterprise Server с правами администратора.
 
@@ -153,7 +137,7 @@ ms.lasthandoff: 03/17/2018
 
     a. В раскрывающемся списке в поле **Authentication Method** (Способ проверки подлинности) выберите **язык разметки заявлений системы безопасности 2 (SAML 2)**.
 
-    Б. В текстовое поле **Metadata URL** (URL-адрес метаданных) вставьте значение **URL-адреса метаданных**, скопированное на портале Azure.
+    Б. В текстовое поле **URL-адрес метаданных** вставьте значение **URL-адреса метаданных федерации приложений**, скопированное на портале Azure.
 
     c. В текстовое поле **Application ID** (Идентификатор приложения) введите URL-адрес в следующем формате: `https://<companyname>.trisotech.com`.
 
@@ -163,11 +147,7 @@ ms.lasthandoff: 03/17/2018
 
     f. Нажмите кнопку **Сохранить**
 
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+ ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 

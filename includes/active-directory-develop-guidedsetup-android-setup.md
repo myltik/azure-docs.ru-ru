@@ -1,7 +1,29 @@
-
+---
+title: включение файла
+description: включение файла
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 0ed42e4ace17db1e681152589cc46d82c26dddff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Настройка проекта
 
-Хотите скачать этот пример проекта Android Studio? [Скачайте проект](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) и перейдите к [настройке](#create-an-application-express), чтобы настроить пример кода перед его выполнением.
+Хотите скачать этот пример проекта Android Studio? [Скачайте проект](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) и перейдите к [настройке](#register-your-application), чтобы настроить пример кода перед его выполнением.
 
 ### <a name="create-a-new-project"></a>Создание нового проекта 
 1.  Откройте Android Studio, а затем выберите **File** > **New** > **New Project** (Файл > Создать > Новый проект).

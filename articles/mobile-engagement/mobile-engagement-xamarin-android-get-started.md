@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4ac6e85a0143fc083c22a92e99503689f463d813
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e8635cb057b579f10575cdaf846af9fa604b7993
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Начало работы со Службами мобильного взаимодействия Azure для приложений Xamarin.Android
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/30/2018
 В этом учебнике описывается простой сценарий вещания с использованием Служб мобильного взаимодействия. В рассматриваемом сценарии создается пустое приложение Xamarin.Android, которое собирает основные данные и получает push-уведомления с помощью службы Google Cloud Messaging (GCM).
 
 > [!NOTE]
-> Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 г. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. на странице [Службы мобильного взаимодействия](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 г. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. на странице [Службы мобильного взаимодействия](https://azure.microsoft.com/services/mobile-engagement/).
 
 Для работы с данным учебником требуется следующее:
 

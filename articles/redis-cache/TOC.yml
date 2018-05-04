@@ -2,23 +2,9 @@
   href: index.md
 - name: Обзор
   items:
-    - name: Зачем использовать кэш Redis
-      href: 'https://azure.microsoft.com/services/cache/'
-    - name: Изучите функции уровня "Премиум"
-      href: cache-premium-tier-intro.md
-    - name: Сценарии
-      items:
-        - name: Доступ к элементам в кэше
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache'
-        - name: Настройка высокой доступности
-          href: 'https://azure.microsoft.com/pricing/details/cache/'
-        - name: Безопасное подключение с помощью SSL
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache'
-        - name: Перенос из управляемой службы кэша
-          href: cache-migrate-to-redis.md
-        - name: Руководство по вариантам и методам кэширования
-          href: ../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json
-- name: Начало работы
+    - name: Сведения о кэше Redis для Azure
+      href: cache-overview.md
+- name: Быстрое начало работы
   items:
     - name: 'ASP.NET:'
       href: cache-web-app-howto.md
@@ -30,9 +16,27 @@
       href: cache-java-get-started.md
     - name: Python
       href: cache-python-get-started.md
-    - name: Кэш Redis для Azure. Вопросы и ответы
-      href: cache-faq.md
-- name: Практическое руководство
+- name: Учебники
+  items:
+    - name: Кэширование списков лидеров
+      href: cache-web-app-cache-aside-leaderboard.md
+- name: Примеры
+  items:
+    - name: Примеры кэша Redis
+      href: cache-redis-samples.md
+    - name: Azure PowerShell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: Инфраструктура CLI Azure
+      href: cli-samples.md
+- name: Основные понятия
+  items:
+    - name: Рекомендации
+      items:
+        - name: Рекомендации по использованию кэша Redis для Azure
+          href: 'https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f'
+        - name: Архитектура Azure. Рекомендации по кэшированию
+          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+- name: Практические руководства
   items:
     - name: План
       items:
@@ -72,6 +76,8 @@
           href: 'cache-administration.md#reboot'
         - name: запланировать обновления
           href: 'cache-administration.md#schedule-updates'
+        - name: Настройка доступа redis cli.exe
+          href: cache-how-to-redis-cli-tool.md
     - name: Мониторинг и устранение неполадок
       items:
         - name: Мониторинг на портале Azure
@@ -114,5 +120,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/cache/'
-    - name: Примеры кэша Redis
-      href: cache-redis-samples.md
+    - name: Кэш Redis для Azure. Вопросы и ответы
+      href: cache-faq.md
+    - name: Видеоролики
+      href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc'

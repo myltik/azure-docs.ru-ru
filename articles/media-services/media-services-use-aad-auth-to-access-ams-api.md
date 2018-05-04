@@ -1,11 +1,11 @@
 ---
-title: "Доступ к API служб мультимедиа Azure с помощью аутентификации Azure Active Directory | Документация Майкрософт"
-description: "Изучите основных понятия и действия, выполняемые для использования Azure Active Directory (Azure AD) для аутентификации доступа к API служб мультимедиа Azure."
+title: Доступ к API служб мультимедиа Azure с помощью аутентификации Azure Active Directory | Документация Майкрософт
+description: Изучите основных понятия и действия, выполняемые для использования Azure Active Directory (Azure AD) для аутентификации доступа к API служб мультимедиа Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD
  
 API служб мультимедиа Azure — это REST API. Его можно использовать для выполнения операций с ресурсами мультимедиа с помощью REST API или доступных клиентских пакетов SDK. Службы мультимедиа Azure предлагают клиентский пакет SDK служб мультимедиа для Microsoft .NET. Чтобы получить разрешение для доступа к ресурсам служб мультимедиа и API служб мультимедиа, вы должны пройти аутентификацию. 
 
-Службы мультимедиа поддерживают [аутентификацию на основе Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md). Служба REST служб мультимедиа Azure требует, чтобы у пользователя или приложения, выполняющего запросы REST API, была роль **участника** или **владельца** для доступа к ресурсам. Дополнительные сведения см. в статье [Начало работы с управлением доступом на основе ролей на портале Azure](../active-directory/role-based-access-control-what-is.md).  
+Службы мультимедиа поддерживают [аутентификацию на основе Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md). Служба REST служб мультимедиа Azure требует, чтобы у пользователя или приложения, выполняющего запросы REST API, была роль **участника** или **владельца** для доступа к ресурсам. Дополнительные сведения см. в статье [Начало работы с управлением доступом на основе ролей на портале Azure](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Службы мультимедиа в настоящее время поддерживают модель аутентификации с помощью службы контроля доступа Azure. Тем не менее авторизация посредством службы контроля доступа будет объявлена устаревшей 1 июня 2018 года. Мы рекомендуем как можно быстрее перейти на использование модели аутентификации Azure AD.
@@ -81,7 +81,7 @@ API служб мультимедиа Azure — это REST API. Его можн
     * Универсальный код ресурса (URI) перенаправления (собственного) приложения служб мультимедиа.
     * Универсальный код ресурса (URI) для ресурса REST служб мультимедиа.
         
-        Этот универсальный код ресурса (URI) представляет конечную точку REST API (например, https://test03.restv2.westus.media.azure.net/api/).
+        URI представляет конечную точку REST API (например, https://test03.restv2.westus.media.azure.net/api/).
 
     Чтобы получить значения этих параметров ознакомьтесь с разделом статьи [Приступая к работе с аутентификацией Azure AD с помощью портала Azure](media-services-portal-get-started-with-aad.md), посвященным аутентификации пользователя.
 
@@ -121,7 +121,7 @@ API служб мультимедиа Azure — это REST API. Его можн
 
     * Универсальный код ресурса (URI) для ресурса REST служб мультимедиа.
 
-        Этот универсальный код ресурса (URI) представляет конечную точку REST API (например, https://test03.restv2.westus.media.azure.net/api/).
+        URI представляет конечную точку REST API (например, https://test03.restv2.westus.media.azure.net/api/).
 
     * Значения приложения Azure AD: идентификатор клиента и секрет клиента.
     
@@ -147,7 +147,7 @@ API служб мультимедиа Azure — это REST API. Его можн
 
 - [Основы проверки подлинности в Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Интеграция приложений с Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
-- [Управление доступом на основе ролей с помощью Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Управление доступом на основе ролей с помощью Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

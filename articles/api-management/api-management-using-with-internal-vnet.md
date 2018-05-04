@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Использование службы управления API Azure совместно с внутренней виртуальной сетью
 Служба управления API Azure в сочетании с виртуальными сетями Azure позволяет работать с интерфейсами API, которые недоступны из Интернета. Подключение можно создать с применением разных технологий VPN. Управление API можно развернуть в виртуальной сети в одном из двух основных режимов:
@@ -115,7 +115,7 @@ ms.lasthandoff: 03/29/2018
 Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 * [Распространенные проблемы конфигурации сети][Common network configuration problems] при настройке управления API Azure с виртуальными сетями
 * [Виртуальная сеть Azure: часто задаваемые вопросы](../virtual-network/virtual-networks-faq.md)
-* Инструкции по [созданию записей DNS типа A](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* Инструкции по [созданию записей DNS типа A](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

@@ -1,12 +1,12 @@
 ---
-title: "Обработка ошибок в устойчивых функциях — Azure"
-description: "Сведения о том, как обрабатывать ошибки в расширении устойчивых функций для Функций Azure."
+title: Обработка ошибок в устойчивых функциях — Azure
+description: Сведения о том, как обрабатывать ошибки в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ee5362d33bb9dadadb4194457cfd7726f4825f56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 108c6020956b398effb8ba9dd4471190362359d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Обработка ошибок в устойчивых функциях (Функции Azure)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="errors-in-activity-functions"></a>Ошибки в функциях действий
 
-Любое исключение, возникающее в функции действия, маршалируется обратно в функцию оркестратора и выдается как `TaskFailedException`. Вы можете написать код для обработки и компенсации ошибок, соответствующий вашим потребностям в функции оркестратора.
+Любое исключение, возникающее в функции действия, маршалируется обратно в функцию оркестратора и выдается как `FunctionFailedException`. Вы можете написать код для обработки и компенсации ошибок, соответствующий вашим потребностям в функции оркестратора.
 
 Например, рассмотрим следующую функцию оркестратора, которая перемещает средства с одного счета на другой:
 
@@ -80,7 +80,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }

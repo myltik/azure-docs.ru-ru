@@ -1,11 +1,11 @@
 ---
-title: "Передача сертификата управления службами Azure | Документация Майкрософт"
-description: "Узнайте, как передать сертификат управления службами на портал Azure."
+title: Передача сертификата управления службами Azure | Документация Майкрософт
+description: Узнайте, как передать сертификат управления службами на портал Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Передача сертификата управления службами Azure
 Сертификаты управления позволяют выполнять аутентификацию с помощью классической модели развертывания Azure. Многие программы и инструменты (например, Visual Studio или пакет SDK Azure) будут использовать эти сертификаты для автоматизации настройки и развертывания разных служб Azure. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 
 Дополнительные сведения о сертификатах Azure (включая сведения о создании самозаверяющего сертификата) см. в разделе [Что такое сертификаты управления](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Для автоматизации проверки подлинности клиентского кода можно также использовать службу [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/).
+Для автоматизации проверки подлинности клиентского кода можно также использовать службу [Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 **Примечание.** Вы должны быть соадминистратором подписки для выполнения любых операций с сертификатами управления. [Узнайте](https://go.microsoft.com/fwlink/?linkid=849300), как добавить или удалить соадминистратора на новом портале Azure. 
 

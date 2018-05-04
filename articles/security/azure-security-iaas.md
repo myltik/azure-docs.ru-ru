@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Рекомендации по безопасности для рабочих нагрузок IaaS в Azure
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 04/23/2018
 
 Security Compliance Manager является бесплатным инструментом. Он позволяет быстро настраивать настольные компьютеры, традиционные центры обработки данных, частные и общедоступные облака, а также управлять ими с помощью групповой политики и System Center Configuration Manager.
 
-Инструмент Security Compliance Manager предоставляет готовые к развертыванию политики и пакеты конфигураций DCM, которые проверяются. В основе этих базовых принципов лежат рекомендации [руководства по безопасности корпорации Майкрософт](https://technet.microsoft.com/en-us/library/cc184906.aspx) и передовые методики отрасли. Они помогут вам управлять различиями в конфигурациях, обеспечить соответствие требованиям и уменьшить вероятность возникновения угроз безопасности.
+Инструмент Security Compliance Manager предоставляет готовые к развертыванию политики и пакеты конфигураций DCM, которые проверяются. В основе этих базовых принципов лежат рекомендации [руководства по безопасности корпорации Майкрософт](https://technet.microsoft.com/library/cc184906.aspx) и передовые методики отрасли. Они помогут вам управлять различиями в конфигурациях, обеспечить соответствие требованиям и уменьшить вероятность возникновения угроз безопасности.
 
 Вы можете использовать Security Compliance Manager, чтобы импортировать текущую конфигурацию компьютеров двумя разными методами. Во-первых, вы можете импортировать групповые политики на основе Active Directory. Во-вторых, вы можете импортировать конфигурацию главного эталонного исходного компьютера, используя [инструмент LocalGPO](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) для архивации локальной групповой политики. Затем вы можете импортировать ее в Security Compliance Manager.
 

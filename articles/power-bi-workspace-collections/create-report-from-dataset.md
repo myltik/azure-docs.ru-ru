@@ -1,26 +1,26 @@
 ---
-title: "Создание отчета из набора данных в коллекциях рабочих областей Power BI | Документация Майкрософт"
-description: "Отчеты коллекций рабочих областей Power BI теперь можно создавать из набора данных в собственном приложении."
+title: Создание отчета из набора данных в коллекциях рабочих областей Power BI | Документация Майкрософт
+description: Отчеты коллекций рабочих областей Power BI теперь можно создавать из набора данных в собственном приложении.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Создание отчета из набора данных в коллекциях рабочих областей Power BI
 
@@ -63,7 +63,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Создание пустого отчета
 
-Чтобы создать отчет, необходимо предоставить конфигурацию создания. В нее входят маркер доступа, embedURL и datasetID, на основе которых требуется создать отчет. Для этого необходимо установить [пакет NuGet для Power BI (JavaScript)](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). Параметр embedUrl будет иметь значение https://embedded.powerbi.com/appTokenReportEmbed.
+Чтобы создать отчет, необходимо предоставить конфигурацию создания. В нее входят маркер доступа, embedURL и datasetID, на основе которых требуется создать отчет. Для этого необходимо установить [пакет NuGet для Power BI (JavaScript)](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). embedUrl станет https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
 > Чтобы протестировать функциональные возможности, можно использовать [пример внедрения отчета JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/). В нем также приводятся примеры кода для различных операций, которые доступны.

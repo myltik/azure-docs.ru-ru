@@ -1,29 +1,29 @@
 ---
-title: "Использование шаблонов Azure Resource Manager для создания и настройки рабочей области Log Analytics | Документация Майкрософт"
-description: "Шаблоны Azure Resource Manager вы можете применить для создания и настройки рабочих областей Log Analytics."
+title: Использование шаблонов Azure Resource Manager для создания и настройки рабочей области Log Analytics | Документация Майкрософт
+description: Шаблоны Azure Resource Manager вы можете применить для создания и настройки рабочих областей Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/16/2018
 ms.author: richrund
-ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0d9848a6477dbf1b93a7f640bc44adf627b40a45
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Управление Log Analytics с помощью шаблонов Azure Resource Manager
 [Шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) можно использовать, чтобы создавать и настраивать рабочие области Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
 
-* Создание рабочей области
+* Создание рабочей области, включая настройку ценовой категории 
 * Добавление решения
 * Создание сохраненных поисковых запросов
 * Создание группы компьютеров
@@ -34,32 +34,108 @@ ms.lasthandoff: 03/08/2018
 * Добавление агента Log Analytics в виртуальную машину Azure
 * Настройка Log Analytics для индексирования данных, собранных системой диагностики Azure
 
-Эта статья содержит примеры кода, иллюстрирующие некоторые конфигурации, которые можно выполнить с помощью шаблонов.
+В статье приведены примеры кода, иллюстрирующие некоторые конфигурации, которые можно выполнить с помощью шаблонов.
 
-## <a name="api-versions"></a>Версии API
-Пример в этой статье приведен для [обновленной рабочей области Log Analytics](log-analytics-log-search-upgrade.md).  Чтобы использовать устаревшую рабочую область, потребуется изменить синтаксис запросов в соответствии с прежними версиями языка и изменить версию API для каждого ресурса.  В следующей таблице перечислены версии API для ресурсов, используемых в этом примере.
+## <a name="create-a-log-analytics-workspace"></a>Создание рабочей области Log Analytics
+В следующем примере создается рабочая область с использованием шаблона на локальном компьютере. Шаблон в формате JSON настроен так, чтобы осталось только указать имя рабочей области и задать значения по умолчанию для других параметров, которые скорее всего будут использоваться в качестве стандартной конфигурации в вашей среде.  
 
-| Ресурс | Тип ресурса | Устаревшая версия API | Обновленная версия API |
-|:---|:---|:---|:---|
-| Рабочая область   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| поиска      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
-| Источник данных | datasources   | 2015-11-01-preview | 2015-11-01-preview |
-| Решение    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+Для следующих параметров задаются значения по умолчанию.
 
+* Location — по умолчанию используется значение East US.
+* SKU — по умолчанию используется новый тарифный план с платой за гигабайт, выпущенный в апреле 2018 года.
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Создание и настройка рабочей области Log Analytics
+>[!WARNING]
+>При создании или настройке рабочей области Log Analytics в подписке, использующей модель ценообразования от апреля 2018 года, доступна только ценовая категория **PerGB2018**. 
+>
+
+### <a name="create-and-deploy-template"></a>Создание и развертывание шаблона
+
+1. Скопируйте и вставьте в него следующий синтаксис JSON:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "String",
+            "allowedValues": [
+              "Standalone",
+              "PerNode",
+              "PerGB2018"
+            ],
+            "defaultValue": "PerGB2018",
+            "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+        }
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Отредактируйте шаблон с учетом ваших требований.  Просмотрите справочник по [шаблону Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) с описанием поддерживаемых свойств и значений. 
+3. Сохраните этот файл как **deploylaworkspacetemplate.json** в локальной папке.
+4. Теперь вы можете развернуть этот шаблон. Для создания рабочей области можно использовать или PowerShell, или командную строку.
+
+   * Для PowerShell используйте следующие команды из папки с шаблоном.
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * Для командной строки используйте следующие команды из папки с шаблоном.
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+Развертывание может занять несколько минут. По завершении выполнения появится сообщение с результатами наподобие приведенного ниже.<br><br> ![Пример результатов по завершении развертывания](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+
+## <a name="configure-a-log-analytics-workspace"></a>Настройка рабочей области Log Analytics
 Этот пример шаблона иллюстрирует следующие задачи.
 
-1. Создание рабочей области, а также настройка хранения данных.
-2. Добавление решений в рабочую область
-3. Создание сохраненных поисковых запросов
-4. Создание группы компьютеров
-5. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
-6. Сбор счетчиков производительности логического диска с компьютеров под управлением Linux ("Процент использования индексных дескрипторов"; "Свободно мегабайт"; "Процент используемого места"; "Количество обращений к диску (в секунду)"; "Количество обращений чтения или записи (в секунду))"
-7. Сбор событий из системного журнала с компьютеров Linux
-8. Сбор событий (ошибок и предупреждений) из журнала событий приложений с компьютеров Windows
-9. Сбор данных счетчика производительности "Доступный объем памяти" (в МБ) с компьютеров Windows
-11. Сбор журналов IIS и журналов событий Windows, которые система диагностики Azure записывает в учетную запись хранилища
+1. Добавление решений в рабочую область
+2. Создание сохраненных поисковых запросов
+3. Создание группы компьютеров
+4. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+5. Сбор счетчиков производительности логического диска с компьютеров под управлением Linux ("Процент использования индексных дескрипторов"; "Свободно мегабайт"; "Процент используемого места"; "Количество обращений к диску (в секунду)"; "Количество обращений чтения или записи (в секунду))"
+6. Сбор событий из системного журнала с компьютеров Linux
+7. Сбор событий (ошибок и предупреждений) из журнала событий приложений с компьютеров Windows
+8. Сбор данных счетчика производительности "Доступный объем памяти" (в МБ) с компьютеров Windows
+9. Сбор журналов IIS и журналов событий Windows, которые система диагностики Azure записывает в учетную запись хранилища
 
 ```json
 {
@@ -77,10 +153,11 @@ ms.lasthandoff: 03/08/2018
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -421,7 +498,6 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
-
 
 ## <a name="example-resource-manager-templates"></a>Примеры шаблонов Resource Manager
 Коллекция шаблонов Azure позволяет быстро начать работу, применяя предложенные шаблоны для Log Analytics, в том числе перечисленные ниже.

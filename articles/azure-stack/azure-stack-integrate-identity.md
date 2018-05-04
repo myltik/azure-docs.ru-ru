@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Интеграция центра обработки данных Azure Stack: идентификация
 Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Сделать выбор следует перед развертыванием Azure Stack. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
@@ -261,7 +261,10 @@ Azure Stack можно развернуть с помощью Azure Active Direc
    > [!IMPORTANT]
    > Чтобы настроить правила авторизации выдачи при использовании AD FS на основе Windows Server 2012 или Windows Server 2012 R2, необходимо использовать оснастку MMC AD FS.
 
-4. При использовании браузера Internet Explorer или Microsoft Edge для доступа к Azure Stack необходимо игнорировать привязки токенов. В противном случае попытка входа завершится сбоем. На экземпляре AD FS или элементе фермы выполните следующую команду.
+4. При использовании браузера Internet Explorer или Edge для доступа к Azure Stack необходимо игнорировать привязки токенов. В противном случае попытка входа завершится сбоем. На экземпляре AD FS или элементе фермы выполните следующую команду.
+
+   > [!note]  
+   > Эта инструкция неприменима при использовании Windows Server 2012 или 2012 R2 AD FS. Можно пропустить эту команду и продолжать интеграцию.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

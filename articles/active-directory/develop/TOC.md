@@ -69,9 +69,9 @@
 ## [Миграция из службы ACS](active-directory-acs-migration.md)
 ## [Рекомендации по обработке ошибок для ADAL](active-directory-devhowto-adal-error-handling.md)
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Библиотеки аутентификации (ADAL)](active-directory-authentication-libraries.md)
-## [Статья с примерами кода](active-directory-code-samples.md)
+## [Примеры кода для сценариев](active-directory-code-samples.md)
 ## [Глоссарий](active-directory-dev-glossary.md)
 ## [Протоколы аутентификации](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +97,8 @@
 ### Классические и мобильные приложения
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (классические приложения Windows)](guidedsetups/active-directory-windesktop.md)
+#### [Платформа .NET для классических приложений Windows](guidedsetups/active-directory-windesktop.md)
+#### [Универсальная платформа Windows](guidedsetups/active-directory-uwp-v2.md)
 ### веб-приложений:
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +110,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Руководства
 ### [Регистрация приложения](active-directory-v2-app-registration.md)
+### [Справка по регистрации приложений](active-directory-v2-registration-portal.md)
 ## Справочные материалы
 ### [Библиотеки аутентификации](active-directory-v2-libraries.md)
+### [Примеры кода версии 2.0 для сценариев](active-directory-v2-code-samples.md)
 ### [Протоколы проверки подлинности v2.0 ](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Предоставление кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

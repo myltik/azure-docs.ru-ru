@@ -1,8 +1,8 @@
 ---
-title: "Управление Azure Data Lake Analytics с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Узнайте, как управлять учетными записями, источниками данных, пользователями и заданиями аналитики озера данных Azure с помощью интерфейса командной строки Azure."
+title: Управление Azure Data Lake Analytics с помощью интерфейса командной строки Azure | Документация Майкрософт
+description: Узнайте, как управлять учетными записями, источниками данных, пользователями и заданиями аналитики озера данных Azure с помощью интерфейса командной строки Azure.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: Kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/29/2018
 ms.author: sngun
-ms.openlocfilehash: edaedaa517a672cd4bad5dc35527f4595ab4a85f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a78a7ea619be28f01372a7b80d3cb4a5d35bd50e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Управление аналитикой озера данных Azure с помощью интерфейса командной строки (CLI) Azure
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/01/2018
 
 * Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Azure CLI. См. статью [Установка и настройка интерфейса командной строки Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Azure CLI. См. статью [Установка и настройка интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
    * Для выполнения этой демонстрации загрузите и установите **предварительный выпуск** [программ CLI Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) .
 

@@ -36,7 +36,7 @@
 ##### [Как это работает?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Часто задаваемые вопросы](active-directory-aadconnect-sso-faq.md)
 ##### [Устранение неполадок](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [Конфиденциальность и простой единый вход Azure AD](active-directory-aadconnect-sso-gdpr.md)
 #### [Сквозная проверка подлинности](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Краткое руководство](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Текущие ограничения](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [Часто задаваемые вопросы](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Устранение неполадок](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Подробный обзор](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [Конфиденциальность и сквозная аутентификация Azure Active Directory](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Поддержка нескольких доменов для федерации](active-directory-aadconnect-multiple-domains.md)
 ### [Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Использование поставщика удостоверений (IdP) SAML 2.0 для единого входа](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## Управление синхронизацией Azure AD Connect
-### [Azure AD Connect и соответствие требованиям GDPR](active-directory-aadconnect-gdpr.md)
+### [Конфиденциальность и Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Предпочтительное расположение данных для ресурсов Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Синхронизации хэша паролей](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Учетная запись службы Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [Восстановление из LocalDB с ограничением в 10 ГБ](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Порты и протоколы, необходимые для гибридной идентификации](active-directory-aadconnect-ports.md)
 ## [Возможности предварительной версии](active-directory-aadconnect-feature-preview.md)

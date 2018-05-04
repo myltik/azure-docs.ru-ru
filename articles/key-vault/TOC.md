@@ -1,4 +1,4 @@
-# [Документация по хранилищу ключей](index.md)
+# [Документация по хранилищу ключей](index.yml)
 
 # Обзор
 ## [Общие сведения о Key Vault](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Создание Key Vault с помощью портала](quick-create-portal.md)
 
 # Учебники
-## [Настройка веб-приложения Azure для считывания секрета из Key Vault](tutorial-web-application-keyvault.md)
-# Примеры
-## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# Основные понятия
+## [Чтение секрета из Key Vault](tutorial-web-application-keyvault.md)
 ## [Начало работыс хранилищем ключей](key-vault-get-started.md)
 ## [Настройка смены ключей и аудита](key-vault-key-rotation-log-monitoring.md)
 ## [Использование хранилища ключей из веб-приложения](key-vault-use-from-web-application.md)
+# Примеры
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Основные понятия
 ## [Системы безопасности](key-vault-ovw-security-worlds.md)
 ## [Обратимое удаление](key-vault-ovw-soft-delete.md)
 ## [Ключи учетной записи хранения](key-vault-ovw-storage-keys.md)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 7532e252638832ab6257d2edc97c98a03eef6316
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1e8ad7a85739f67bf8130011ba18243ad0b4b9d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Руководство 1. Классификация цветков ириса: подготовка данных
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/19/2018
    Имя проекта | myIris |Введите уникальное имя для идентификации учетной записи. Вы можете использовать настоящее имя, название отдела или проекта, которое лучше всего подходит для этого эксперимента. Имя должно содержать от 2 до 32 алфавитно-цифровых символов и дефис (-). 
    каталог проекта; | c:\Temp\ | Укажите каталог, в котором создается проект.
    описание проекта; | _Не указывайте_ | Дополнительное поле, полезное для описания проектов.
-   Visualstudio.com GIT Repository URL (URL-адрес репозитория Git на сайте Visualstudio.com) |_Не указывайте_ | Дополнительное поле. Проект можно связать с репозиторием Git в Visual Studio Team Services для системы управления версиями и совместной работы. [Узнайте, как настроить это](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com GIT Repository URL (URL-адрес репозитория Git на сайте Visualstudio.com) |_Не указывайте_ | Дополнительное поле. Проект можно связать с репозиторием Git в Visual Studio Team Services для системы управления версиями и совместной работы. [Узнайте, как настроить это](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Selected workspace (Выбранная рабочая область) | IrisGarden (если он существует) | Выберите рабочую область, созданную для учетной записи службы "Экспериментирование" на портале Azure. <br/>Если вы следовали краткому руководству, у вас должна быть рабочая область с именем IrisGarden. В противном случае выберите ту, которая была создана при создании учетной записи службы "Экспериментирование", или любую другую, которую вы хотите использовать.
    Шаблон проекта | Classifying Iris (Классификация цветков ириса) | Шаблоны, содержащие скрипты и данные, которые можно использовать для изучения продукта. Этот шаблон содержит скрипты и данные, необходимые для этого краткого руководства и других руководств на этом сайте документации. 
 

@@ -1,8 +1,8 @@
 ---
-title: "Создание кластеров Hadoop по запросу с помощью фабрики данных — Azure HDInsight | Документы Майкрософт"
-description: "Узнайте, как создавать кластеры Hadoop в HDInsight по запросу с помощью фабрики данных Azure."
+title: Создание кластеров Hadoop по запросу с помощью фабрики данных — Azure HDInsight | Документы Майкрософт
+description: Узнайте, как создавать кластеры Hadoop в HDInsight по запросу с помощью фабрики данных Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6344b9a50f182a2b9ab05562c29099c9d6976f0b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop в HDInsight по запросу с помощью фабрики данных Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -90,7 +88,7 @@ adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 5. Скопируйте следующие два файла в контейнер BLOB-объектов:
 
    * Файл входных данных: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
-   * Сценарий HiveQL: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
+   * Скрипт HiveQL: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
 
      Оба файла хранятся в общедоступном контейнере больших двоичных объектов.
 
@@ -117,7 +115,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 ####################################

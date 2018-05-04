@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: 2682054dd132e33897602b60f0799b7cc10ea5f1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3e897ecb4d42fe2165457c34faa4c1178178e4d3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Service Fabric настраивает несколько [стандартных
 ## <a name="log-collection-configurations"></a>Настройка сбора журналов
 Для сбора доступны журналы из нескольких дополнительных каналов, и здесь мы опишем несколько распространенных конфигураций, которые можно применить в шаблоне для кластеров, работающих в Azure.
 
-* Операционный канал — базовые сведения (включен по умолчанию). Содержит события высокоуровневых операций, выполняемых Service Fabric и кластером, таких как открытие узла, развертывание нового приложения, откат обновления и т. д. Список поддерживаемых событий вы найдете [здесь](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Операционный канал — базовые сведения (включен по умолчанию). Содержит события высокоуровневых операций, выполняемых Service Fabric и кластером, таких как открытие узла, развертывание нового приложения, откат обновления и т. д. Список поддерживаемых событий вы найдете [здесь](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"

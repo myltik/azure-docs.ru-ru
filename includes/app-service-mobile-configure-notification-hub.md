@@ -8,4 +8,4 @@
 Теперь центр уведомлений подключен к серверной части проекта вашего мобильного приложения. Позднее вы настроите этот концентратор уведомлений, чтобы подключиться к системе отправки уведомлений платформы (PNS), которая отправляет push-уведомления на устройства.
 
 [портале Azure]: https://portal.azure.com/
-[Центры уведомлений Azure]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Центры уведомлений Azure]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

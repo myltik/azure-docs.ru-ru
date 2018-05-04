@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Устранение неполадок фабрики данных
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 2. Войдите в свою учетную запись Azure с помощью следующей команды:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Выполните следующую команду, чтобы зарегистрировать поставщик фабрики данных Azure:
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Проблема: ошибка авторизации при выполнении командлета фабрики данных
 Скорее всего, для Azure PowerShell используется неправильная учетная запись или подписка Azure. Чтобы выбрать правильную учетную запись и подписку Azure для Azure PowerShell, используйте такие командлеты:
 
-1. Login-AzureRmAccount — ввод имени пользователя и пароля.
+1. Connect-AzureRmAccount — использование правильного идентификатора пользователя и пароля.
 2. Get-AzureRmSubscription — просмотр всех подписок в учетной записи.
 3. Select-AzureRmSubscription &lt;имя_подписки&gt; — выбор нужной подписки. Используйте подписку, которая использовалась для создания фабрики данных на портале Azure.
 

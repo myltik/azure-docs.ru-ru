@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fe5d344eaaecc40f6d1937943603eda0404a1ca9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Статьи в руководстве разработчика Azure AD
 Ниже приведен список всех статей, содержащихся в руководстве разработчика Azure Active Directory.
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/09/2018
 | [Submit Web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard) (Отправка веб-приложений для Office 365 на панель мониторинга продаж)               | Как опубликовать приложение на панели мониторинга продаж O365 |
 | [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)](vs-active-directory-dotnet-getting-started.md)                                               | Как использовать интеграцию Azure AD с проектами MVC в Visual Studio |
 | [Сценарии AD FS для разработчиков](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Интеграция с локальной службой Active Directory с помощью ADFS |
-| [Рекомендации по обработке ошибок для ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Как обеспечить устойчивую обработку ошибок и ведение журнала |
+| [Рекомендации по обработке ошибок для ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Как обеспечить устойчивую обработку ошибок и ведение журнала |
 
 ## <a name="reference"></a>Справочные материалы
 Эти статьи содержат основные справочники по REST и API библиотек проверки подлинности, протоколам, ошибкам, примерам кода и конечным точкам.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a1f163acea4e1965ab90b32e23e502b13f8908be
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Создание групп действий и управление ими на портале Azure
 ## <a name="overview"></a>Обзор ##
@@ -92,8 +92,8 @@ ms.lasthandoff: 04/16/2018
 <dd>Дополнительные сведения см. в статье [Ограничение частоты отправки для голосовых сообщений, SMS-сообщений, сообщений электронной почты, push-уведомлений приложений Azure и записей веб-перехватчиков](./monitoring-alerts-rate-limiting.md).</dd>
 
 <dt>Веб-перехватчик</dt>
-<dd>Можно иметь не более 10 действий веб-перехватчика в группе действий
-<dd>Логика повторных попыток: вызов веб-перехватчика будет повторен (но не более 3 раз), когда будут получены коды состояния HTTP 408, 429, 503, 504.</dd>
+<dd>В группе действий может быть не более 10 действий веб-перехватчика.
+<dd>Логика повторных попыток: повторный вызов веб-перехватчика выполняется не более двух раз, когда возвращаются коды состояния HTTP 408, 429, 503 или 504 либо конечная точка HTTP не отвечает. Первый повторный вызов происходит через 10 секунд, второй (он же последний) — через 100 секунд.</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Управление группами действий ##

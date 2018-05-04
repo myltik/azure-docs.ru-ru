@@ -1,0 +1,37 @@
+- name: Обзор возможностей для управления доступом
+  href: manage-access-to-azure-resources.md
+- name: Доступ к ресурсам в Azure
+  href: rbac-and-directory-admin-roles.md
+- name: Управление доступом на основе ролей (RBAC)
+  href: overview.md
+  items:
+    - name: Управление назначением ролей
+      items:
+        - name: Пользователь
+          href: role-assignments-users.md
+        - name: Ресурс
+          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
+        - name: Инфраструктура CLI Azure
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
+    - name: Встроенные роли
+      href: built-in-roles.md
+    - name: Пользовательские роли
+      href: custom-roles.md
+    - name: Назначение настраиваемых ролей для внутренних и внешних пользователей
+      href: role-assignments-external-users.md
+    - name: Журналы действий
+      href: change-history-report.md
+    - name: Повышение прав доступа администратора клиента
+      href: elevate-access-global-admin.md
+    - name: Устранение неполадок
+      href: troubleshooting.md
+    - name: Операции с поставщиками ресурсов
+      href: resource-provider-operations.md
+- name: Управление привилегированными пользователями (PIM) для RBAC
+  href: pim-azure-resource.md
+- name: Условный доступ для управления Azure
+  href: conditional-access-azure-management.md

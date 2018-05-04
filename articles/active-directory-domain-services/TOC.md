@@ -16,7 +16,7 @@
 ## [Задача 2. Настройка сетевых параметров](active-directory-ds-getting-started-network.md)
 ## [Задача 3. Настройка группы администраторов и включение доменных служб Azure AD](active-directory-ds-getting-started-admingroup.md)
 ## [Задача 4. Обновление параметров DNS для виртуальной сети](active-directory-ds-getting-started-dns.md)
-## [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
+## [Задача 5. Включение синхронизации хэшированных паролей](active-directory-ds-getting-started-password-sync.md)
 
 # Практическое руководство
 ## [Проверка работоспособности управляемого домена](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Сопутствующие материалы
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

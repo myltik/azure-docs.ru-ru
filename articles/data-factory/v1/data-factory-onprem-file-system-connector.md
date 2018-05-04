@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 86bec21afcf954796100fed31bcbfdcf6e5cfe3f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 51ee39608672d21b6e838ff1d617bad1089c3c38
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Копирование данных в локальную файловую систему или из нее с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -85,6 +85,8 @@ ms.lasthandoff: 03/23/2018
 | Локальная папка на компьютере со шлюзом управления данными. <br/><br/>Примеры: "D:\\\\*" или "D:\папка\вложенная_папка\\\*" |"D:\\\\" (для шлюза управления данными 2.0 и более поздних версий) <br/><br/> localhost (для версий, предшествующих версии 2.0 шлюза управления данными) |.\\\\ или "папка\\\\вложенная_папка" (для шлюза управления данными 2.0 и более поздних версий) <br/><br/>"D:\\\\" или "D:\\\\папка\\\\вложенная_папка" (для шлюза версии ниже 2.0) |
 | Удаленная общая папка: <br/><br/>Примеры: "\\\\сервер\\общая_папка\\\*" или "\\\\сервер\\общая_папка\\папка\\вложенная_папка\\*" |\\\\\\\\сервер\\\\общая_папка |.\\\\ или "папка\\\\вложенная_папка" |
 
+>[!NOTE]
+>При создании и настройке с помощью пользовательского интерфейса не нужно вводить две обратные косые черты (`\\`) в качестве escape-символа, как при использовании JSON. Укажите одну обратную косую черту.
 
 ### <a name="example-using-username-and-password-in-plain-text"></a>Пример указания имени пользователя и пароля в виде обычного текста
 

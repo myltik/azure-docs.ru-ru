@@ -11,15 +11,15 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: v-daveng
-ms.openlocfilehash: b10d3e469ffac22a2b0994708f50125d21496fef
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3585a47e0823a765bd59b28f4b399aed7c5fcae3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>Использование Go для создания запросов к базе данных SQL Azure
 
-В этом кратком руководстве показано, как использовать [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) для подключения к базе данных SQL Azure. Также демонстрируется применение инструкций Transact-SQL для запроса и изменения данных.
+Это краткое руководство демонстрирует, как использовать [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) для подключения к базе данных SQL Azure. Также демонстрируется применение инструкций Transact-SQL для запроса и изменения данных.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

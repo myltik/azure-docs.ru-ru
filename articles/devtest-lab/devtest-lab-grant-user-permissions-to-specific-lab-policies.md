@@ -29,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 
 В DevTest Labs политика — это тип ресурса, который включает действие RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Каждая политика лаборатории представляет собой ресурс типа "Политика" и может быть назначена в качестве области действия для роли RBAC.
 
-Например, чтобы предоставить пользователям разрешения на чтение и запись в отношении политики **Allowed VM Sizes** (Допустимые размеры виртуальных машин), необходимо создать пользовательскую роль, работающую с действием **Microsoft.DevTestLab/labs/policySets/policies/***, а затем назначить пользователей этой роли в области **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Например, чтобы предоставить пользователям разрешения на чтение и запись в отношении политики **Allowed VM Sizes** (Допустимые размеры виртуальных машин), необходимо создать пользовательскую роль, работающую с действием **Microsoft.DevTestLab/labs/policySets/policies/** \*, а затем назначить пользователей этой роли в области **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Дополнительные сведения о пользовательских ролях в RBAC см. в статье [Пользовательские роли в Azure RBAC](../role-based-access-control/custom-roles.md).
 

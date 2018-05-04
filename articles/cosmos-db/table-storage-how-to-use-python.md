@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Начало работы с Хранилищем таблиц Azure с помощью Python
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/16/2018
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 или 3.6.
 - [Пакет SDK таблиц Azure Cosmos DB для Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Этот пакет SDK подключается к Хранилищу таблиц Azure и API таблиц Azure Cosmos DB.
-- [Учетная запись хранения Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) или [учетная запись Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/).
+- [Учетная запись хранения Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) или [учетная запись Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/).
 
 ## <a name="create-an-azure-service-account"></a>Создание учетной записи службы Azure
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
@@ -223,11 +223,11 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-* [Разработка с использованием API таблиц (вопросы и ответы)](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
+* [Разработка с использованием API таблиц (вопросы и ответы)](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Azure CosmosDB SDK for Python](https://azure.github.io/azure-cosmosdb-python/) (Справочник по пакету SDK Azure Cosmos DB для Python)
 * [Центр по разработке для Python](https://azure.microsoft.com/develop/python/)
 * [Приступая к работе с обозревателем службы хранилища (предварительная версия)](../vs-azure-tools-storage-manage-with-storage-explorer.md). Обозреватель службы хранилища Microsoft Azure — бесплатное кроссплатформенное приложение для визуализации данных службы хранилища Azure в Windows, macOS и Linux.
-* [Работа с Python в Visual Studio (Windows)](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)
+* [Работа с Python в Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 [py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
 [py_create_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html

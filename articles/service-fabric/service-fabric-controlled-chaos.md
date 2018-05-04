@@ -1,6 +1,6 @@
 ---
-title: "Вызов Chaos в кластерах Service Fabric | Документация Майкрософт"
-description: "Управление Chaos в кластере с помощью интерфейсов API службы внесения ошибок и анализа кластера."
+title: Вызов Chaos в кластерах Service Fabric | Документация Майкрософт
+description: Управление Chaos в кластере с помощью интерфейсов API службы внесения ошибок и анализа кластера.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 40ceb62e544d2aa71296e24da957cb062029da9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Вызов контролируемого хаоса в кластерах Service Fabric
 Крупномасштабные распределенные системы, такие как облачные инфраструктуры, ненадежны по своей сути. Azure Service Fabric позволяет разработчикам создавать надежные распределенные службы на основе ненадежной инфраструктуры. Чтобы писать надежные распределенные службы на основе ненадежной инфраструктуры, разработчики должны иметь возможность проверять стабильность работы своих служб, когда для базовой ненадежной инфраструктуры выполняются сложные переходы состояния из-за ошибок.
@@ -33,7 +33,7 @@ Chaos моделирует в кластере периодические сбо
 > Текущая версия Chaos вызывает только безопасные ошибки, то есть при отсутствии внешних ошибок исключена вероятность потери кворума или данных.
 >
 
-Во время выполнения Chaos создает различные события, которые записывают состояние выполнения в определенный момент времени. Например, ExecutingFaultsEvent содержит все сбои, которые Chaos выполняет в этой итерации. ValidationFailedEvent содержит сведения о сбое проверки (проблемы работоспособности и стабильности), обнаруженном во время проверки кластера. Для получения отчета о выполнении Chaos можно вызывать API GetChaosReportAsync (C#, Powershell или REST). Эти события сохраняются в [надежном словаре](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), для которого настроена политика усечения, диктуемая двумя конфигурациями: **MaxStoredChaosEventCount** (значение по умолчанию — 25 000) и **StoredActionCleanupIntervalInSeconds** (значение по умолчанию — 3600). Каждые *StoredActionCleanupIntervalInSeconds* Chaos выполняет проверку. В результате проверки определенное число последних событий (*MaxStoredChaosEventCount*) удаляется из надежного словаря.
+Во время выполнения Chaos создает различные события, которые записывают состояние выполнения в определенный момент времени. Например, ExecutingFaultsEvent содержит все сбои, которые Chaos выполняет в этой итерации. ValidationFailedEvent содержит сведения о сбое проверки (проблемы работоспособности и стабильности), обнаруженном во время проверки кластера. Для получения отчета о выполнении Chaos можно вызывать API GetChaosReportAsync (C#, Powershell или REST). Эти события сохраняются в [надежном словаре](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), для которого настроена политика усечения, диктуемая двумя конфигурациями: **MaxStoredChaosEventCount** (значение по умолчанию — 25 000) и **StoredActionCleanupIntervalInSeconds** (значение по умолчанию — 3600). Каждые *StoredActionCleanupIntervalInSeconds* Chaos выполняет проверку. В результате проверки определенное число последних событий (*MaxStoredChaosEventCount*) удаляется из надежного словаря.
 
 ## <a name="faults-induced-in-chaos"></a>Ошибки, вызываемые Chaos
 Chaos генерирует сбои во всем кластере Service Fabric и вмещает сбои за месяцы или годы работы всего в несколько часов тестирования. Сочетание ошибок с чередованием с высокой частотой возникновения сбоев позволяет находить проблемы, которые иначе были бы упущены. Это упражнение Chaos обеспечивает значительное улучшение качества кода службы.

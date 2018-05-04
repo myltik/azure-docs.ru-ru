@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Мониторинг состояния, настройка ведения журнала диагностики и включение предупреждений для Azure Logic Apps
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 04/05/2018
    ![Сведения об этапе](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Все сведения о времени выполнения и события шифруются в службе Logic Apps. Они расшифровываются только в том случае, когда пользователь запрашивает просмотр этих данных. Доступ к этим событиям можно также контролировать с помощью [управления доступом на основе ролей Azure (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > Все сведения о времени выполнения и события шифруются в службе Logic Apps. Они расшифровываются только в том случае, когда пользователь запрашивает просмотр этих данных. Доступ к этим событиям можно также контролировать с помощью [управления доступом на основе ролей Azure (RBAC)](../role-based-access-control/overview.md).
 
 6. Чтобы получить сведения об определенном событии триггера, вернитесь к области **Обзор**. В разделе **Журнал триггеров** выберите событие триггера. Теперь можно просмотреть такие сведения, как входные и выходные данные, например:
 

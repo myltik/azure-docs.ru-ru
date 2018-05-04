@@ -1,8 +1,8 @@
 ---
-title: "Подписки управления привилегированными пользователями (PIM) в Azure | Документация Майкрософт"
-description: "Требования к подписке и лицензиям для управления Azure AD Privileged Identity Management и варианты использования этой службы в вашем клиенте"
+title: Подписки управления привилегированными пользователями (PIM) в Azure | Документация Майкрософт
+description: Требования к подписке и лицензиям для управления Azure AD Privileged Identity Management и варианты использования этой службы в вашем клиенте
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Требования к подписке для Azure Active Directory Privileged Identity Management
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 
 Если команда возвращает строку, в которой SkuPartNumber имеет значение AAD_PREMIUM_P2 или EMSPREMIUM, а IsTrial — значение True, это значит, что бесплатная пробная версия Azure AD Premium P2 уже установлена в клиенте.  Если эта подписка имеет статус неактивной, и у вас нет приобретенной подписки Azure AD Premium P2 или EMS E5, чтобы и дальше использовать Azure AD Privileged Identity Management, вам необходимо приобрести подписку Azure AD Premium P2 или EMS E5.
 
-Служба Azure AD Premium P2 предоставляется в рамках [соглашения Microsoft Enterprise](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [программы корпоративного лицензирования Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) или [программы поставщиков облачных решений](https://partner.microsoft.com/en-US/cloud-solution-provider). Подписчики Azure и Office 365 также могут приобрести выпуск Active Directory Premium P2 через Интернет.  Дополнительные сведения о ценах на Azure AD Premium и инструкции по заказу этого продукта см. на странице [Azure Active Directory: цены](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Служба Azure AD Premium P2 предоставляется в рамках [соглашения Microsoft Enterprise](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [программы корпоративного лицензирования Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) или [программы поставщиков облачных решений](https://partner.microsoft.com/en-US/cloud-solution-provider). Подписчики Azure и Office 365 также могут приобрести выпуск Active Directory Premium P2 через Интернет.  Дополнительные сведения о ценах на Azure AD Premium и инструкции по заказу этого продукта см. на странице [Azure Active Directory: цены](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Служба Azure AD Privileged Identity Management недоступна в клиенте
 

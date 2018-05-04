@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 676dff1ae651d4754b96da52a68a9c7a7f35c2b8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f7297e938c5561328a07e22012205cc2ef3ac419
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Регистрация Azure Stack в Azure
 Регистрация [Azure Stack](azure-stack-poc.md) в Azure позволяет скачивать элементы Marketplace из Azure и настраивать передачу коммерческих данных в корпорацию Майкрософт. После регистрации Azure Stack данные об использовании отсылаются в отдел коммерческих предложений Azure и их можно просматривать в подписке, используемой для регистрации. 
@@ -59,10 +59,10 @@ ms.lasthandoff: 04/03/2018
 ### <a name="register-the-azure-stack-resource-provider"></a>Регистрация поставщика ресурсов Azure Stack
 Чтобы зарегистрировать поставщик ресурсов Azure Stack в Azure, запустите интегрированную среду сценариев PowerShell и используйте следующие команды PowerShell с параметром **EnvironmentName**, заданным для соответствующего типа подписки Azure (см. параметры ниже). 
 
-1. Добавьте учетную запись Azure, которая использовалась для регистрации Azure Stack. Чтобы добавить учетную запись, выполните командлет **Add-AzureRmAccount**. Вам будет предложено ввести данные учетной записи глобального администратора Azure. Возможно, потребуется выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.
+1. Добавьте учетную запись Azure, которая использовалась для регистрации Azure Stack. Чтобы добавить учетную запись, выполните командлет **Connect-AzureRmAccount**. Вам будет предложено ввести данные учетной записи глобального администратора Azure. Возможно, потребуется выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.
 
    ```PowerShell
-      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
+      Connect-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
    | Параметр | ОПИСАНИЕ |  
@@ -94,7 +94,7 @@ ms.lasthandoff: 04/03/2018
 2. Затем, в том же сеансе PowerShell, убедитесь, что вы вошли в правильный контекст Azure PowerShell. Это учетная запись Azure, которая использовалась для регистрации указанного выше поставщика ресурсов Azure Stack. Выполните эти команды PowerShell: 
 
   ```powershell 
-  Login-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+  Connect-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
   ``` 
 
 3. В этом же сеансе PowerShell выполните командлет **Set-AzsRegistration**. Выполните эти команды PowerShell:  

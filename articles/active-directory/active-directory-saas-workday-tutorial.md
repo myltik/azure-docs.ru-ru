@@ -1,6 +1,6 @@
 ---
-title: "Руководство. Интеграция Azure Active Directory с Workday | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Workday."
+title: Руководство. Интеграция Azure Active Directory с Workday | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Workday.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Руководство. Интеграция Azure Active Directory с Workday
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/24/2018
     В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://impl.workday.com/<tenant>/login-saml.htmld`.
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их фактическими значениями URL-адреса входа и URL-адреса ответа. URL-адрес ответа должен содержать поддомен (например, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Можно указать адрес вида *http://www.myworkday.com*, но формат *http://myworkday.com* не поддерживается. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html).  
+    > Эти значения приведены в качестве примера. Замените их фактическими значениями URL-адреса входа и URL-адреса ответа. URL-адрес ответа должен содержать поддомен (например, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Например, значение "*http://www.myworkday.com*" допустимо, а значение "*http://myworkday.com*" — нет. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html).  
 
 5. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 01/24/2018
 
     >[!NOTE]
     > Значение атрибута "Среда" привязано к значению URL-адреса клиента.  
-    >Если URL-адрес имени домена клиента Workday начинается с impl (например: *https://impl.workday.com/\<клиент\>/login-saml2.htmld*), атрибуту **Environment** должно быть присвоено значение Implementation.  
+    >Если URL-адрес имени домена клиента Workday начинается с impl (например: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), атрибуту **Environment** нужно присвоить значение Implementation.  
     >Если имя домена начинается с другого значения, следует обратиться к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html), чтобы получить соответствующее значение атрибута **Environment**.
 
 11. В разделе **Настройка SAML** выполните следующие действия.
@@ -172,9 +172,9 @@ ms.lasthandoff: 01/24/2018
    
     Б. На портале Azure в окне **Настройка единого входа** скопируйте значение **SAML Entity ID** (Идентификатор сущности SAML) и вставьте его в текстовое поле **Issuer** (Издатель).
 
-    ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "Поставщики удостоверений SAML")
+    ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "Поставщики удостоверений SAML")
    
-    c. Установите флажок **Enable Workday Initiated Logout** (Включить выход, инициируемый Workday).
+    c. Установите флажок **Enable idp Initiated Logout** (Включить выход, инициируемый IdP).
    
     d. На портале Azure в окне **Настройка единого входа** скопируйте значение **URL-адрес выхода** и вставьте его в текстовое поле **Logout Response URL** (URL-адрес ответа выхода).
 
@@ -215,7 +215,7 @@ ms.lasthandoff: 01/24/2018
    
     ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguratio.png "Настройка единого входа")
    
-    a.  В текстовом поле **Идентификатор поставщика службы** введите **http://www.workday.com**.
+    a.  В текстовом поле **Service Provider ID** (Идентификатор поставщика службы) введите **http://www.workday.com**.
    
     Б. Выберите параметр **Не отклонять запрос проверки подлинности, инициированный поставщиком услуг**.
    
@@ -226,9 +226,6 @@ ms.lasthandoff: 01/24/2018
     d. Последовательно выберите **ОК**. 
    
     ![ОК](./media/active-directory-saas-workday-tutorial/IC782933.png "ОК")
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
@@ -309,7 +306,6 @@ ms.lasthandoff: 01/24/2018
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ ms.lasthandoff: 01/24/2018
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

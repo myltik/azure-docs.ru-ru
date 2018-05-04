@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 1d8f8d903046f1d471f7abbe08a957b81522e391
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4f0d41dbc2438217cb4f382da7c44833379b9637
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Руководство по развертыванию приложения в кластере Service Fabric в Azure
 Это руководство из цикла. В нем показано, как развернуть приложение Azure Service Fabric в новый кластер в Azure непосредственно из Visual Studio.
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/28/2018
 > [!div class="checklist"]
 > * [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 > * Развертывание приложения в удаленном кластере.
+> * [Добавление конечной точки HTTPS к интерфейсной службе ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Настройка мониторинга и диагностики приложения](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -103,4 +104,4 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 Перейдите к следующему руководству:
 > [!div class="nextstepaction"]
-> [Настройка непрерывной интеграции с Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Включение HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)

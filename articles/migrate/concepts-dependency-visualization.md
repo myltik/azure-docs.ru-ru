@@ -1,16 +1,16 @@
 ---
-title: "Визуализация зависимостей в службе \"Миграция Azure\" | Документация Майкрософт"
-description: "Эта статья содержит обзор вычисления оценок в службе \"Миграция Azure\"."
+title: Визуализация зависимостей в службе "Миграция Azure" | Документация Майкрософт
+description: Эта статья содержит обзор вычисления оценок в службе "Миграция Azure".
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dependency-visualization"></a>Визуализация зависимостей
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="how-does-it-work"></a>Как это работает?
 
 Служба "Миграция Azure" использует решение [Сопоставление служб](../operations-management-suite/operations-management-suite-service-map.md) в [Log Analytics](../log-analytics/log-analytics-overview.md) для визуализации зависимостей.
-- При создании проекта службы "Миграция Azure" в вашей подписке создается рабочая область OMS Log Analytics.
+- При создании проекта службы "Миграция Azure" в вашей подписке создается рабочая область Log Analytics.
 - Ей присваивается имя проекта миграции с префиксом **migrate-** и, при необходимости, суффиксом, содержащим номер. 
 - Перейдите в рабочую область Log Analytics из раздела **Основное** на странице **Обзор** проекта.
 - Созданная рабочая область обозначена ключом **MigrateProject** и значением **имя_проекта**. Их можно использовать для поиска на портале Azure.  
