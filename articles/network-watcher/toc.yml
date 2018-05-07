@@ -17,6 +17,12 @@
   items:
     - name: Диагностика проблем с маршрутизацией трафика виртуальной машины
       href: diagnose-vm-network-routing-problem.md
+    - name: Мониторинг сетевого взаимодействия между виртуальными машинами
+      href: connection-monitor.md
+    - name: Диагностика проблем с обменом данными между сетями
+      href: diagnose-communication-problem-between-networks.md
+    - name: Запись сетевого трафика виртуальной машины в журнал
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: Основные понятия
   items:
     - name: Диагностика проблем с фильтрацией трафика виртуальной машины
@@ -87,14 +93,10 @@
                   href: network-watcher-intrusion-detection-open-source-tools.md
                 - name: Визуализация моделей сетевого трафика с помощью средств с открытым кодом
                   href: network-watcher-using-open-source-tools.md
-    - name: Мониторинг сетевых подключений
-      href: connection-monitor.md
     - name: Работа с группами безопасности сети
       items:
         - name: Настройка журналов потоков для NSG
           items:
-            - name: Портал Azure
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Инфраструктура CLI Azure
@@ -136,8 +138,6 @@
       items:
         - name: Устранение неполадок
           items:
-            - name: Портал Azure
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Инфраструктура CLI Azure

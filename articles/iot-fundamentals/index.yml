@@ -13,22 +13,23 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: a86827616c96dd877a88fdd89cb5b0205c2cface
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: d8b144eb52400a76395096a2577fb9ecf28e01c1
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 05/03/2018
 abstract:
   description: Добро пожаловать в Microsoft Azure и "Интернет вещей" (IoT). Azure IoT предлагает самые разные службы и решения, которые помогут вам создавать приложения IoT с нуля. Azure IoT предоставляет самые разные параметры и средства, соответствующие вашим отраслевым потребностям, а также навыкам и ресурсам, включая полностью размещенное и управляемое решения SaaS (программное обеспечение как услуга), разные специализированные решения PaaS (платформа как услуги) и технологии для создания интеллектуальных пограничных устройств.
 sections:
 - title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: Краткие руководства для быстрого изучения возможностей Azure IoT
+    text: Материалы для быстрого изучения возможностей Azure IoT.
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/iot-central/quick-deploy-iot-central">Сведения о создании приложения Azure IoT Central</a>
+    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Сведения о развертывании предварительно настроенного решения для удаленного мониторинга</a>
     - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Сведения о создании Центра Интернета вещей и подключении первого имитированного устройства к Azure (Node.js)</a>
     - html: <a href="/azure/iot-edge/quickstart-linux">Развертывание первого модуля IoT Edge и обработка данных на имитированном устройстве Windows, Linux или Mac</a>
     - html: <a href="/azure/location-based-services/quick-demo-map-app">Запуск приложения поиска на картах с помощью Azure Location Based Services (предварительная версия)</a>
@@ -53,7 +54,7 @@ sections:
     - html: <a href="/azure/time-series-insights">Аналитика временных рядов Azure</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">Пакеты SDK для службы IoT</a>
   - type: paragraph
-    text: Создание пограничной зоны с интеллектуальными устройствами
+    text: Создание решений с использованием устройств IoT и пограничных вычислений.
   - type: list
     style: unordered
     items:

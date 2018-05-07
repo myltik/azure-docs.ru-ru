@@ -108,34 +108,51 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Возможности страничных BLOB-объектов
           href: storage-blob-pageblob-overview.md
-        - name: Хранилище класса Premium
+        - name: Диски Azure
           items:
-            - name: Linux
+            - name: Хранилище класса Premium
               items:
-                - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
-                - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Проектирование для обеспечения высокой производительности
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
-            - name: Windows
+                - name: Linux
+                  items:
+                    - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
+                      href: ../../virtual-machines/linux/premium-storage.md
+                    - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
+                      href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Проектирование для обеспечения высокой производительности
+                      href: ../../virtual-machines/linux/premium-storage-performance.md
+                - name: Windows
+                  items:
+                    - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
+                      href: ../../virtual-machines/windows/premium-storage.md
+                    - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
+                      href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Проектирование для обеспечения высокой производительности
+                      href: ../../virtual-machines/windows/premium-storage-performance.md
+            - name: Стандартное хранилище
               items:
-                - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
-                - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Проектирование для обеспечения высокой производительности
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
-        - name: Стандартное хранилище
-          items:
-            - name: Linux
+                - name: Linux
+                  items:
+                    - name: Хранилище уровня "Стандартный" для дисков виртуальной машины
+                      href: ../../virtual-machines/linux/standard-storage.md
+                - name: Windows
+                  items:
+                    - name: Хранилище уровня "Стандартный" для дисков виртуальной машины
+                      href: ../../virtual-machines/windows/standard-storage.md
+            - name: Устранение неполадок подключенных виртуальных жестких дисков
+              href: storage-troubleshoot-vhds.md
               items:
-                - name: Хранилище уровня "Стандартный" для дисков виртуальной машины
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
-            - name: Windows
-              items:
-                - name: Хранилище уровня "Стандартный" для дисков виртуальной машины
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
+                - name: Linux
+                  items:
+                    - name: Ошибка удаления ресурса службы хранилища
+                      href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+                    - name: Непредвиденные перезагрузки виртуальных машин с подключенными VHD
+                      href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+                - name: Windows
+                  items:
+                    - name: Ошибка удаления ресурса службы хранилища
+                      href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+                    - name: Непредвиденные перезагрузки виртуальных машин с подключенными VHD
+                      href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
     - name: Безопасность
       items:
         - name: Руководство по обеспечению безопасности

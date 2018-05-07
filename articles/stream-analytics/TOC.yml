@@ -76,6 +76,8 @@
           href: stream-analytics-high-frequency-trading.md
         - name: Обработка потоковых данных Интернета вещей
           href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Правила на основе порогов
+          href: stream-analytics-threshold-based-rules.md
     - name: Мониторинг
       items:
         - name: Мониторинг заданий с помощью портала Azure

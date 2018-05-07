@@ -113,7 +113,11 @@
         - name: Включение ускорителя записи
           href: how-to-enable-write-accelerator.md
         - name: Устранение неполадок подключенных виртуальных жестких дисков
-          href: troubleshoot-vhds.md
+          items:
+            - name: Ошибка удаления ресурса службы хранилища
+              href: storage-resource-deletion-errors.md
+            - name: Непредвиденные перезагрузки виртуальных машин с подключенными VHD
+              href: unexpected-reboots-attached-vhds.md
     - name: Сеть
       href: network-overview.md
     - name: Автоматическое масштабирование приложений

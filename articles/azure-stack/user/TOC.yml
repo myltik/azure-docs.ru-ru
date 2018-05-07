@@ -23,6 +23,10 @@
   items:
     - name: Развертывание приложений в Azure и Azure Stack
       href: azure-stack-solution-pipeline.md
+    - name: Настройка удостоверения гибридного облака
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Настройка подключения гибридного облака
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: Практические руководства
   items:
     - name: Использование портала Azure Stack

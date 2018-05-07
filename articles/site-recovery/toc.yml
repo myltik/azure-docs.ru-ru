@@ -145,6 +145,12 @@
           items:
             - name: Устранение неполадок с репликацией Azure — Azure
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Устранение неполадок с расширением Azure Site Recovery
+              href: site-recovery-extension-troubleshoot.md
+        - name: управление
+          items:
+            - name: Автоматическое обновление расширения Mobility Service
+              href: azure-to-azure-autoupdate.md
     - name: "VMware или физический сервер\_— Azure"
       items:
         - name: Сеть

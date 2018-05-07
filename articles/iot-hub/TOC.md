@@ -71,6 +71,7 @@
 #### [Управление удостоверениями устройств](iot-hub-devguide-identity-registry.md)
 #### [Управление доступом к Центру Интернета вещей](iot-hub-devguide-security.md)
 #### [Основные сведения о двойниках устройств](iot-hub-devguide-device-twins.md)
+#### [Основные сведения о двойниках модулей](iot-hub-devguide-module-twins.md)
 #### [Вызов прямых методов на устройстве](iot-hub-devguide-direct-methods.md)
 #### [Планирование заданий на нескольких устройствах](iot-hub-devguide-jobs.md)
 #### [Конечные точки Центра Интернета вещей](iot-hub-devguide-endpoints.md)
@@ -78,6 +79,7 @@
 #### [Квоты и регулирование](iot-hub-devguide-quotas-throttling.md)
 #### [Примеры цен](iot-hub-devguide-pricing.md)
 #### [Пакеты SDK для устройств и служб](iot-hub-devguide-sdks.md)
+#### [Разработка приложений для мобильных устройств](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [Поддержка MQTT](iot-hub-mqtt-support.md)
 #### [Глоссарий](iot-hub-devguide-glossary.md)
 ### [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
@@ -105,6 +107,9 @@
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-twin-getstarted.md)
 #### [Серверная часть и устройство Python](iot-hub-python-twin-getstarted.md)
+### Начало работы с двойниками модулей
+#### [Серверная часть портала и устройство .NET](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Использование прямых методов
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-direct-methods.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-direct-methods.md)

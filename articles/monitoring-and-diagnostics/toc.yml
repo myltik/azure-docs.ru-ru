@@ -73,6 +73,8 @@
           href: monitoring-enable-alerts-using-template.md
         - name: Копирование оповещений с портала OMS на портал Azure
           href: monitoring-alerts-extend-tool.md
+        - name: Оповещения с динамическими порогами
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: Использование групп действий с оповещениями
       items:
         - name: Дополнительные сведения о схеме веб-перехватчика
