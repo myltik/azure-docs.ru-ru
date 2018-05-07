@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: Обращение к подпискам на события
       href: query-event-subscriptions.md
+    - name: Использование схемы CloudEvents
+      href: cloudevents-schema.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: Типы квот
               href: azure-stack-quota-types.md
-        - name: Предложение SQL или MySQL как PaaS
+        - name: Обзор служб PaaS
+          href: azure-stack-tools-paas-services.md
+        - name: Предложение SQL как PaaS
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: Обзор служб PaaS
-              href: azure-stack-tools-paas-services.md
-            - name: Развертывание поставщика ресурсов MySQL
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: Развертывание поставщика ресурсов SQL
+            - name: Развертывание поставщика ресурсов SQL Server.
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Добавление серверов размещения
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Создание баз данных SQL
               href: azure-stack-sql-resource-provider-databases.md
+            - name: Обновление поставщика ресурсов SQL Server
+              href: azure-stack-sql-resource-provider-update.md
+            - name: Поддержка поставщика ресурсов SQL Server
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Удаление поставщика ресурсов SQL Server
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: Предложение MySQL как PaaS
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: Предложение службы приложений как PaaS
           items:
             - name: Обзор службы приложений в Azure Stack

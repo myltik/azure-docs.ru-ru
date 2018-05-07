@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Производительность и масштаб
           href: durable-functions-perf-and-scale.md
+        - name: Аварийное восстановление и географическое распределение
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Практические руководства
   items:
     - name: Разработка

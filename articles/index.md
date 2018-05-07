@@ -6,11 +6,11 @@ description: Узнайте, как создавать мощные прилож
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 8ce6872615c25da7c479d1ad9d1cdb0c48b53112
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cd33973a4786b722ff4eafbf6be53ef9fb509f48
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,8 +109,8 @@ ms.lasthandoff: 04/28/2018
                                                     <li><a class="barLink" href="/azure/security-center/">Центр безопасности Azure</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
-                                                    <li><a class="barLink" href="/azure/backup/">Служба архивации Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Управление затратами Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Миграция Azure</a></li>
                                                     <li><a class="barLink" href="/azure/azure-policy/">Политика Azure</a></li>
@@ -188,23 +188,23 @@ Go</a>
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Управление данными и AI</h3>
+                                                <h3>Управление данными и моделями ИИ</h3>
                                                 <h4>Реляционные базы данных</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">База данных SQL как служба</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">База данных SQL как услуга</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">Хранилище данных SQL Azure как услуга</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">База данных PostgreSQL как служба</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">База данных MySQL как служба</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">База данных PostgreSQL как услуга</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">База данных MySQL как услуга</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">База данных Azure Cosmos</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Хранилище</h4>
+                                                <h4>Служба хранилища</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Хранилище BLOB-объектов</a></li>
                                                 </ul>
-                                                <h4>AI и Cognitive Services</h4>
+                                                <h4>Решения ИИ и Cognitive Services</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Машинное обучение</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
@@ -242,7 +242,7 @@ Azure PowerShell </a>
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Разработка и операции</h3>
+                                                <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
@@ -285,7 +285,7 @@ Terraform </a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
-                                    <h3>Среда выполнения приложений</h3>
+                                    <h3>Службы вычислений</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/virtual-machines/linux/">
@@ -302,7 +302,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Наборы для масштабирования виртуальных машин</p>
+                                                <p>Масштабируемые наборы виртуальных машин Microsoft Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -314,13 +314,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>Служба приложений</p>
+                                                <p>Служба приложений Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Functions</p>
+                                                <p>Функции Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -338,7 +338,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>пакетная служба;</p>
+                                                <p>Пакетная служба Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -377,7 +377,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>Хранилище данных SQL.</p>
+                                                <p>Хранилище данных SQL</p>
                                             </a>
                                         </li>
                                         <li>
@@ -401,7 +401,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>кэш Redis;</p>
+                                                <p>Кэш Redis</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -422,7 +422,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
-                                                <p>реестр контейнеров Azure;</p>
+                                                <p>Реестр контейнеров Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -440,22 +440,22 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>пакетная служба;</p>
+                                                <p>Пакетная служба Azure</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Интеграция Enterprise</h3>
+                                    <h3>Корпоративная интеграция</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>приложения логики;</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Служебная шина</p>
+                                                <p>Служебная шина Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -491,7 +491,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Служба "Сетка событий Azure"</p>
+                                                <p>Сетка событий Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -516,7 +516,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Независимые облака</h3>
+                                    <h3>Национальные облака</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -544,7 +544,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/networking/networking-overview">
                                                 <img src="media/index/networking-overview.svg" alt="" />
-                                                <p>Обзор сети</p>
+                                                <p>Общие сведения о Сети</p>
                                             </a>
                                         </li>
                                         <li>
@@ -556,7 +556,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Подсистема балансировки нагрузки</p>
+                                                <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -625,19 +625,19 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/batch-ai/">
                                                 <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Пакетная служба искусственного интеллекта Azure</p>
+                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
-                                                <p>Служба пользовательских решений</p>
+                                                <p>Пользовательская служба принятия решений</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
-                                                <p>API связывания сущностей</p>
+                                                <p>Связывание сущностей</p>
                                             </a>
                                         </li>
                                         <li>
@@ -655,7 +655,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/API_Know_Academic.svg" alt="" />
-                                                <p>Academic Knowledge API</p>
+                                                <p>Academic Knowledge</p>
                                             </a>
                                         </li>
                                         <li>
@@ -673,7 +673,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/linguisticanalysisapi/home">
                                                 <img src="media/index/API_LinguisticAnalysis.svg" alt="" />
-                                                <p>API лингвистического анализа</p>
+                                                <p>Лингвистический анализ</p>
                                             </a>
                                         </li>
                                         <li>
@@ -703,7 +703,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-news-search/">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
-                                                <p>Новости Bing</p>
+                                                <p>API Bing для поиска новостей</p>
                                             </a>
                                         </li>
                                         <li>
@@ -715,7 +715,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-web-search/">
                                                 <img src="media/index/API_Bing_Web_Search.svg" alt="" />
-                                                <p>API Bing для поиска в сети</p>
+                                                <p>API Bing для поиска в Интернете</p>
                                             </a>
                                         </li>
                                         <li>
@@ -733,7 +733,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-entities-search/">
                                                 <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
-                                                <p>Поиск сущностей Bing</p>
+                                                <p>API Bing для поиска сущностей</p>
                                             </a>
                                         </li>
                                         <li>
@@ -775,7 +775,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/API_Custom_Vision.svg" alt="" />
-                                                <p>Custom Vision Service</p>
+                                                <p>Пользовательская служба визуального распознавания</p>
                                             </a>
                                         </li>
                                         <li>
@@ -801,12 +801,12 @@ Terraform </a>
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Хранилище</h3>
+                                    <h3>Служба хранилища</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Хранилище</p>
+                                                <p>Служба хранилища</p>
                                             </a>
                                         </li>
                                         <li>
@@ -848,7 +848,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Архивация</p>
+                                                <p>Azure Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -858,7 +858,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Аналитика</h3>
+                                    <h3>Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -887,7 +887,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
-                                                <p>службы Analysis Services</p>
+                                                <p>Analysis Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -905,7 +905,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>Хранилище данных SQL.</p>
+                                                <p>Хранилище данных SQL</p>
                                             </a>
                                         </li>
                                         <li>
@@ -933,7 +933,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Инструменты разработчика</h3>
+                                    <h3>Средства для разработчиков</h3>
                                     <ul>
                                         <li>
                                             <a href="/vsts/">
@@ -975,9 +975,9 @@ Terraform </a>
                                     <h3>Интернет вещей</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Центр разработчиков для Интернета вещей</p>
+                                                <p>Принципы работы Интернета вещей</p>
                                             </a>
                                         </li>
                                         <li>
@@ -989,7 +989,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
-                                                <p>Служба подготовки устройств для Центра Интернета вещей</p>
+                                                <p>Служба подготовки устройств к добавлению в Центр Интернета вещей</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1001,7 +1001,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Набор Azure IoT Suite</p>
+                                                <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1037,13 +1037,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Time Series Insights</p>
+                                                <p>Аналитика временных рядов Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Служба "Сетка событий Azure"</p>
+                                                <p>Сетка событий Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1055,13 +1055,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>приложения логики;</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Интернет + мобильные устройства</h3>
+                                    <h3>Интернет и мобильные устройства</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-web/">
@@ -1102,7 +1102,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>поиск Azure;</p>
+                                                <p>Поиск Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1135,7 +1135,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>хранилище ключей;</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1153,7 +1153,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>доменные службы Azure Active Directory</p>
+                                                <p>Доменные службы Azure Active Directory</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1169,7 +1169,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Инструменты управления</h3>
+                                    <h3>Средства управления</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -1180,7 +1180,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cost-management/">
                                                 <img src="media/index/billing.svg" alt="" />
-                                                <p>Azure Cost Management</p>
+                                                <p>Управление затратами Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1198,13 +1198,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/log-analytics/">
                                                 <img src="media/index/OperationsManagementSuite.svg" alt="" />
-                                                <p>Служба Log Analytics</p>
+                                                <p>Log Analytics</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Архивация</p>
+                                                <p>Azure Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1234,25 +1234,25 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/advisor">
                                                 <img src="media/index/advisor.svg" alt="" />
-                                                <p>Azure Advisor</p>
+                                                <p>Помощник по Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/service-health">
                                                 <img src="media/index/resource-health.svg" alt="" />
-                                                <p>Служба работоспособности служб Azure</p>
+                                                <p>Работоспособность служб Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
-                                                <p>Диспетчер ресурсов Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Управляемые приложения.</p>
+                                                <p>Управляемые приложения</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1261,7 +1261,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Среда выполнения приложений</a>
+                        <a data-default="true" href="#Compute">Службы вычислений</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -1294,7 +1294,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Виртуальные машины Windows</h3>
-                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
+                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1312,7 +1312,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Наборы для масштабирования виртуальных машин</h3>
+                                                    <h3>Масштабируемые наборы виртуальных машин Microsoft Azure</h3>
                                                     <p>Увеличение масштаба до тысяч виртуальных машин Linux и Windows и управление ими</p>
                                                 </div>
                                             </div>
@@ -1350,7 +1350,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба приложений</h3>
+                                                    <h3>Служба приложений Azure</h3>
                                                     <p>Ускоренное создание эффективных облачных приложений для веб-клиентов и мобильных клиентов</p>
                                                 </div>
                                             </div>
@@ -1369,7 +1369,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Functions</h3>
+                                                    <h3>Функции Azure</h3>
                                                     <p>Обработка событий без обращения к серверу</p>
                                                 </div>
                                             </div>
@@ -1426,7 +1426,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>пакетная служба;</h3>
+                                                    <h3>Пакетная служба Azure</h3>
                                                     <p>Планирование заданий и управление вычислениями через облако</p>
                                                 </div>
                                             </div>
@@ -1488,7 +1488,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Обзор сети</h3>
+                                                    <h3>Общие сведения о Сети</h3>
                                                     <p>Интегрированное представление сетевых служб в Azure</p>
                                                 </div>
                                             </div>
@@ -1526,7 +1526,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Подсистема балансировки нагрузки</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>Обеспечивайте высокий уровень доступности и производительности ваших приложений в сети.</p>
                                                 </div>
                                             </div>
@@ -1679,7 +1679,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Наблюдатель за сетями</h3>
-                                                    <p>Решение для мониторинга и диагностики производительности сети</p>
+                                                    <p>Решение для диагностики и мониторинга производительности сети</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1689,7 +1689,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Хранилище</a>
+                        <a href="#storage">Служба хранилища</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -1702,7 +1702,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Хранилище</h3>
+                                                    <h3>Служба хранилища</h3>
                                                     <p>Надежное облачное хранилище с высоким уровнем доступности и широким масштабированием.</p>
                                                 </div>
                                             </div>
@@ -1835,7 +1835,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Архивация</h3>
+                                                    <h3>Azure Backup</h3>
                                                     <p>Защита данных благодаря облачному резервному копированию как услуге</p>
                                                 </div>
                                             </div>
@@ -1865,7 +1865,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Интернет + мобильные устройства</a>
+                        <a href="#web">Интернет и мобильные устройства</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-web">
@@ -1992,7 +1992,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>поиск Azure;</h3>
+                                                    <h3>Поиск Azure</h3>
                                                     <p>Полностью управляемая функция поиска как услуга</p>
                                                 </div>
                                             </div>
@@ -2092,7 +2092,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>реестр контейнеров Azure;</h3>
+                                                    <h3>Реестр контейнеров Azure</h3>
                                                     <p>Хранение и администрирование образов контейнеров во всех типах развертываний Azure</p>
                                                 </div>
                                             </div>
@@ -2149,7 +2149,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>пакетная служба;</h3>
+                                                    <h3>Пакетная служба Azure</h3>
                                                     <p>Планирование заданий и управление вычислениями через облако</p>
                                                 </div>
                                             </div>
@@ -2174,7 +2174,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>База данных SQL</h3>
-                                                    <p>Управляемая реляционная база данных SQL как услуга</p>
+                                                    <p>Управляемая реляционная База данных SQL как услуга</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2230,7 +2230,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Хранилище данных SQL.</h3>
+                                                    <h3>Хранилище данных SQL</h3>
                                                     <p>Эластичное хранилище данных как услуга с возможностями корпоративного класса</p>
                                                 </div>
                                             </div>
@@ -2288,7 +2288,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Хранилище таблиц</h3>
-                                                    <p>Хранилище NoSQL для пар "ключ — значение", в котором используются частично структурированные наборы данных</p>
+                                                    <p>Хранилище NoSQL для пар "ключ-значение", в котором используются частично структурированные наборы данных</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2306,7 +2306,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>кэш Redis;</h3>
+                                                    <h3>Кэш Redis</h3>
                                                     <p>Расширение возможностей приложений за счет доступа к данным с высокой пропускной способностью и малой задержкой</p>
                                                 </div>
                                             </div>
@@ -2317,7 +2317,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Аналитика</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2406,7 +2406,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>службы Analysis Services</h3>
+                                                    <h3>Analysis Services</h3>
                                                     <p>Аналитический модуль корпоративного класса как услуга</p>
                                                 </div>
                                             </div>
@@ -2463,7 +2463,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Хранилище данных SQL.</h3>
+                                                    <h3>Хранилище данных SQL</h3>
                                                     <p>Эластичное хранилище данных как услуга с возможностями корпоративного класса</p>
                                                 </div>
                                             </div>
@@ -2604,7 +2604,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Пакетная служба искусственного интеллекта Azure</h3>
+                                                    <h3>Azure Batch AI</h3>
                                                     <p>Простое экспериментирование и использование моделей глубинного обучения и искусственного интеллекта в параллельном режиме и в нужном масштабе</p>
                                                 </div>
                                             </div>
@@ -2637,7 +2637,7 @@ Terraform </a>
                         <a href="#iot">Интернет вещей</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2647,7 +2647,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Центр разработчиков для Интернета вещей</h3>
+                                                    <h3>Принципы работы Интернета вещей</h3>
                                                     <p>Начало работы с подключением устройств</p>
                                                 </div>
                                             </div>
@@ -2667,7 +2667,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Центр Интернета вещей</h3>
-                                                    <p>Подключение, отслеживание и контролирование миллиардов ресурсов Интернета ресурсов</p>
+                                                    <p>Подключение, отслеживание и администрирование миллиардов ресурсов Интернета вещей</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2704,7 +2704,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба подготовки устройств для Центра Интернета вещей</h3>
+                                                    <h3>Служба подготовки устройств к добавлению в Центр Интернета вещей</h3>
                                                     <p>Полностью автоматическая JIT-подготовка для Центра Интернета вещей Azure</p>
                                                 </div>
                                             </div>
@@ -2856,7 +2856,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Time Series Insights</h3>
+                                                    <h3>Аналитика временных рядов Azure</h3>
                                                     <p>Мгновенный просмотр и анализ данных временных рядов</p>
                                                 </div>
                                             </div>
@@ -2875,7 +2875,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба "Сетка событий Azure"</h3>
+                                                    <h3>Сетка событий Azure</h3>
                                                     <p>Надежная крупномасштабная доставка событий</p>
                                                 </div>
                                             </div>
@@ -2913,7 +2913,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>приложения логики;</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Автоматический доступ и использование данных в облаках без написания кода</p>
                                                 </div>
                                             </div>
@@ -2924,7 +2924,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Интеграция Enterprise</a>
+                        <a href="#integration">Корпоративная интеграция</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/logic-apps/">
@@ -2937,7 +2937,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>приложения логики;</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Автоматический доступ и использование данных в облаках без написания кода</p>
                                                 </div>
                                             </div>
@@ -2956,7 +2956,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служебная шина</h3>
+                                                    <h3>Служебная шина Azure</h3>
                                                     <p>Связь между частными и общедоступными облачными средами</p>
                                                 </div>
                                             </div>
@@ -2976,7 +2976,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Управление API</h3>
-                                                    <p>Безопасная публикация интерфейсов API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
+                                                    <p>Безопасная публикация API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3070,7 +3070,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба "Сетка событий Azure"</h3>
+                                                    <h3>Сетка событий Azure</h3>
                                                     <p>Надежная крупномасштабная доставка событий</p>
                                                 </div>
                                             </div>
@@ -3151,8 +3151,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>хранилище ключей;</h3>
-                                                    <p>Защита и поддержка управления ключами и другими секретными данными</p>
+                                                    <h3>Key Vault</h3>
+                                                    <p>Защита и поддержка управления ключами и другими секретами</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3208,7 +3208,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Active Directory для доменных служб</h3>
+                                                    <h3>Доменные службы Azure Active Directory</h3>
                                                     <p>Присоединение виртуальных машин Azure к домену без контроллеров домена</p>
                                                 </div>
                                             </div>
@@ -3257,7 +3257,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Инструменты разработчика</a>
+                        <a href="#devtools">Средства для разработчиков</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="/vsts/">
@@ -3328,7 +3328,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Управление API</h3>
-                                                    <p>Безопасная публикация интерфейсов API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
+                                                    <p>Безопасная публикация API для разработчиков, партнеров и сотрудников с учетом масштаба</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3408,7 +3408,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Cost Management</h3>
+                                                    <h3>Управление затратами Azure</h3>
                                                     <p>Оптимизация затрат в облаке и максимально эффективное использование его потенциала</p>
                                                 </div>
                                             </div>
@@ -3465,7 +3465,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба Log Analytics</h3>
+                                                    <h3>Log Analytics</h3>
                                                     <p>Сбор, поиск и визуализация данных виртуальных машин в локальной среде и в облаке</p>
                                                 </div>
                                             </div>
@@ -3484,7 +3484,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Архивация</h3>
+                                                    <h3>Azure Backup</h3>
                                                     <p>Простое и надежное резервное копирование серверов в облако.</p>
                                                 </div>
                                             </div>
@@ -3523,7 +3523,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Служба автоматизации</h3>
-                                                    <p>Упрощенное управление облаком с процессом автоматизации</p>
+                                                    <p>Упрощенное управление облаком с помощью автоматизации процессов</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3579,7 +3579,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Advisor</h3>
+                                                    <h3>Помощник по Azure</h3>
                                                     <p>Персонализированная система рекомендаций Azure</p>
                                                 </div>
                                             </div>
@@ -3598,7 +3598,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Служба работоспособности служб Azure</h3>
+                                                    <h3>Работоспособность служб Azure</h3>
                                                     <p>Персонализированные инструкции и поддержка при неполадках в работе служб Azure</p>
                                                 </div>
                                             </div>
@@ -3617,7 +3617,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Управляемые приложения.</h3>
+                                                    <h3>Управляемые приложения</h3>
                                                     <p>Оптимизация управления облачными предложениями</p>
                                                 </div>
                                             </div>
@@ -3669,7 +3669,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">Независимые облака</a>
+                        <a href="#other">Национальные облака</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -3733,14 +3733,14 @@ Terraform </a>
                 </ul>
             </li>
              <li>
-                <a href="#sdkstools">Пакеты SDK и средства</a>
+                <a href="#sdkstools">Пакеты SDK и инструменты</a>
                 <ul id="sdkstools">
                     <li>
                         <a href="#sdkstools-all">Все</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>Языки &amp; Платформы</h2>
+                                    <h2>Языки и платформы</h2>
                                 </div>
                             </li>
                             <li>
@@ -3894,12 +3894,12 @@ Azure REST API </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Инфраструктура CLI Azure </h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">Начало работы</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azurereference-index">Справочные материалы</a>
+                                                    <a href="/cli/azure/reference-index">Справочные материалы</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3930,7 +3930,7 @@ Azure REST API </h3>
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Инструменты &amp; Расширения</h2>
+                                    <h2>Инструменты и расширения</h2>
                                 </div>
                             </li>
                             <li>
@@ -3953,7 +3953,7 @@ Azure REST API </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Функции Azure</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Хранилище</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Служба хранилища</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
@@ -4029,7 +4029,7 @@ Docker </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Инструменты Python</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Средства Python</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
@@ -4055,7 +4055,7 @@ Docker </h3>
                                                 <h3>
 Средства SQL </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>ПРЕДВАРИТЕЛЬНАЯ ВЕРСИЯ</sup></a>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>предварительная версия</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
@@ -4081,7 +4081,7 @@ Docker </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Обозреватель хранилищ</a>
+                                                    <a href="http://storageexplorer.com">Обозреватель службы хранилища Azure</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Начало работы</a>
@@ -4111,7 +4111,7 @@ Docker </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Пакет SDK и средства для Service Fabric </h3>
+Пакет SDK и инструменты для Service Fabric </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Загрузки для Windows</a>
                                                 </p>
