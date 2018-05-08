@@ -1,25 +1,23 @@
 ---
-title: "Мастер защиты в расширении для управления привилегированными пользователями Azure AD"
-description: "Когда вы в первый раз запускаете управление привилегированными пользователями Azure Active Directory, открывается мастер защиты. В этой статье описаны этапы работы мастера."
+title: Мастер защиты в расширении для управления привилегированными пользователями Azure AD
+description: Когда вы в первый раз запускаете управление привилегированными пользователями Azure Active Directory, открывается мастер защиты. В этой статье описаны этапы работы мастера.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: a53a3719-8cc7-4fc7-8164-aafca192871b
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 02/27/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 4a45e1bdbce299dce38a01a17a65024dc41a353f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4b3856d74b1109b20a1ff9f93b76ee36b66ee312
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Использование мастера защиты в Azure AD Privileged Identity Management 
 Если вы впервые запускаете компонент управления привилегированными пользователями (PIM) Azure, открывается мастер. Этот мастер поможет вам оценить риски безопасности, связанные с привилегированными пользователями, и понять, как их снизить с помощью компонента PIM. Нет необходимости вносить изменения в существующие назначения ролей в мастере, это можно сделать позже.

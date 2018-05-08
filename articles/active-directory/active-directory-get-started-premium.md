@@ -1,25 +1,23 @@
 ---
-title: "Регистрация для работы с Azure Active Directory Premium | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как зарегистрироваться для работы с выпуском Azure Active Directory Premium."
+title: Регистрация для работы с Azure Active Directory Premium | Документация Майкрософт
+description: Из этой статьи вы узнаете, как зарегистрироваться для работы с выпуском Azure Active Directory Premium.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: e7aa1757ec1720f15ac9d1f00129fd38f86f0668
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4048df1c5e536a4a33af39466e57b1b38c080c06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Краткое руководство: регистрация для работы с Azure Active Directory Premium
 Чтобы начать работу с Azure Active Directory (Azure AD) Premium, вы можете приобрести лицензии и связать их с подпиской Azure. Если вы создаете новую подписку Azure, нужно также активировать план лицензирования и доступ к службе Azure AD в соответствии с инструкциями в следующих разделах. 

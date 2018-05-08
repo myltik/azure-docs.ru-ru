@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configuration-management-cm"></a>Управление конфигурацией (CM)
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-2 (7).A**. Организация выдает [определенные организацией информационные системы, компоненты системы или устройства] с [определенные организацией конфигурации] пользователям, отправляющимся в расположения, рассматриваемые организацией как представляющие серьезную угрозу.
 
-**Обязанности:** Microsoft Azure
+**Обязанности:** `Not Applicable`
 
 |||
 |---|---|

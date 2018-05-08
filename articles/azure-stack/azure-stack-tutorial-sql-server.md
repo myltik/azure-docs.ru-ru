@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Обеспечение доступности баз данных SQL для пользователей Azure Stack
 В качестве администратора облака Azure Stack вы можете создавать предложения, позволяющие пользователям (клиентам) создавать базы данных SQL, которые они смогут использовать с собственными облачными приложениями, веб-сайтами и рабочими нагрузками. Предоставляя пользователям такие настраиваемые облачные базы данных по запросу, вы помогаете им экономить время и ресурсы. Для этого вам потребуется выполнить следующие действия:
@@ -34,8 +34,8 @@ ms.lasthandoff: 04/05/2018
 
 Процесс развертывания подробно описан в статье [Использование баз данных SQL в Microsoft Azure Stack](azure-stack-sql-resource-provider-deploy.md) и состоит из следующих основных шагов.
 
-1. [Развертывание поставщика ресурсов SQL]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Проверка развертывания]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Развертывание поставщика ресурсов SQL](azure-stack-sql-resource-provider-deploy.md).
+2. [Проверка развертывания](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Указание емкости путем подключения к серверу размещения SQL.
 
 ## <a name="create-an-offer"></a>Создание предложения

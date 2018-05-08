@@ -1,11 +1,11 @@
 ---
-title: "Мониторинг идентификации и доступа в центре безопасности Azure | Документация Майкрософт"
-description: "Узнайте, как использовать возможности для управления идентификацией и доступом в центре безопасности Azure, чтобы отслеживать проблемы, связанные с идентификацией и доступом пользователей."
+title: Мониторинг идентификации и доступа в центре безопасности Azure | Документация Майкрософт
+description: Узнайте, как использовать возможности для управления идентификацией и доступом в центре безопасности Azure, чтобы отслеживать проблемы, связанные с идентификацией и доступом пользователей.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
-ms.openlocfilehash: 842045fbcb5b4f661cc006a207f4087370a7b4ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ee263ef8fb0f20049215eda53e0d58a45342b7e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center"></a>Мониторинг идентификации и доступа в центре безопасности Azure
 Из этой статьи вы узнаете, как с помощью центра безопасности Azure отслеживать действия, связанные с идентификацией и доступом пользователей.

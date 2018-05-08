@@ -1,8 +1,8 @@
 ---
-title: "Начало работы с Azure Data Lake Analytics с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "Узнайте, как использовать интерфейс командной строки Azure версии 2.0 для создания учетной записи Data Lake Analytics, создания задания Data Lake Analytics с помощью U-SQL и отправки этого задания. "
+title: Начало работы с Azure Data Lake Analytics с помощью Azure CLI 2.0 | Документация Майкрософт
+description: 'Узнайте, как использовать интерфейс командной строки Azure версии 2.0 для создания учетной записи Data Lake Analytics, создания задания Data Lake Analytics с помощью U-SQL и отправки этого задания. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.openlocfilehash: fbd4f1ae5eeec971a378c41761508629e530887c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Начало работы с Azure Data Lake Analytics при помощи Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -193,26 +193,6 @@ az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Ou
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
-```
-
-## <a name="pipelines-and-recurrences"></a>Конвейеры и повторения
-
-**Получение сведений о конвейерах и повторениях**
-
-Используйте команды `az dla job pipeline`, чтобы получить сведения о конвейерах для ранее отправленных заданий.
-
-```
-az dla job pipeline list --account "<Data Lake Analytics Account Name>"
-
-az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
-```
-
-Используйте команды `az dla job recurrence`, чтобы получить сведения о повторениях для ранее отправленных заданий.
-
-```
-az dla job recurrence list --account "<Data Lake Analytics Account Name>"
-
-az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

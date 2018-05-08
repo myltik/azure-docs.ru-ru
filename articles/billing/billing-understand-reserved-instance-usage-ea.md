@@ -1,24 +1,24 @@
 ---
-title: "Общие сведения об использовании зарезервированных экземпляров Azure с соглашением о регистрации Enterprise | Документация Майкрософт"
-description: "Узнайте, как читать данные об использовании, чтобы понимать применение зарезервированного экземпляра для соглашения о регистрации Enterprise."
+title: Общие сведения об использовании зарезервированных экземпляров Azure с соглашением о регистрации Enterprise | Документация Майкрософт
+description: Узнайте, как читать данные об использовании, чтобы понимать применение зарезервированного экземпляра для соглашения о регистрации Enterprise.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Enterprise
 Научитесь понимать данные об использовании зарезервированного экземпляра с помощью ReservationId со [страницы резервирования](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) и использовать файл с [портала EA](https://ea.azure.com). Вы можете также просмотреть данные об использовании резервирования в разделе сводки на [портале EA](https://ea.azure.com).
@@ -58,12 +58,12 @@ ms.lasthandoff: 02/09/2018
 2. Взимается плата за программное обеспечение Windows, так как преимущество гибридного использования Azure не применяется. 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения о зарезервированных экземплярах виртуальных машин см. в следующих статьях.
+Дополнительные сведения об Azure Reserved Virtual Machine Instances см. в следующих статьях.
 
 - [Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
 - [Сокращение затрат с помощью зарезервированных экземпляров виртуальных машин Azure](billing-save-compute-costs-reservations.md)
-- [Сведения о применении скидки на зарезервированный экземпляр виртуальной машины](billing-understand-vm-reservation-charges.md)
+- [Сведения о применении скидки на использование службы Azure Reserved Virtual Machine Instances](billing-understand-vm-reservation-charges.md)
 - [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](billing-understand-reserved-instance-usage.md)
 - [Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров](billing-reserved-instance-windows-software-costs.md)
 

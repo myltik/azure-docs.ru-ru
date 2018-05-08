@@ -1,0 +1,17 @@
+- name: Пакеты Azure SDK
+  href: index.yml
+  items:
+    - name: ПАКЕТ SDK .NET
+      href: /dotnet/azure/?view=azure-dotnet
+    - name: Пакет SDK для Java
+      href: /java/azure/
+    - name: Пакет SDK для Node
+      href: /javascript/azure/
+    - name: Пакет SDK для Python
+      href: /python/azure/
+    - name: Пакет SDK для Ruby
+      href: 'https://rubygems.org/gems/azure'
+    - name: Пакет SDK для PHP
+      href: /azure/app-service-web/app-service-web-get-started-php
+    - name: Xamarin
+      href: 'https://azure.microsoft.com/features/xamarin'

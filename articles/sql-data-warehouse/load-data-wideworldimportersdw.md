@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0e108487bac5154477988ad0b01378af4152836f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/25/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Руководство по загрузке данных в хранилище данных SQL Azure
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 04/25/2018
 
 ## <a name="create-a-user-for-loading-data"></a>Создание учетной записи пользователя для загрузки данных
 
-Учетная запись администратора сервера предназначена для операций управления и не подходит для выполнения запросов к пользовательским данным. Загрузка данных — это операция с интенсивным использованием памяти. Максимальные ограничения памяти определяются в соответствии с [уровнем производительности](memory-and-concurrency-limits.md#performance-tiers), [единицами хранилища данных](what-is-a-data-warehouse-unit-dwu-cdwu.md) и [классом ресурсов](resource-classes-for-workload-management.md). 
+Учетная запись администратора сервера предназначена для операций управления и не подходит для выполнения запросов к пользовательским данным. Загрузка данных — это операция с интенсивным использованием памяти. Максимальные ограничения памяти определяются в соответствии с поколением используемого хранилища данных SQL, [единицами хранилища данных](what-is-a-data-warehouse-unit-dwu-cdwu.md) и [классом ресурсов](resource-classes-for-workload-management.md). 
 
 Лучше всего создать имя для входа и имя пользователя, предназначенные для загрузки данных. Затем добавьте пользователя загрузки в [класс ресурсов](resource-classes-for-workload-management.md), позволяющий выполнять соответствующее выделение максимальной памяти.
 

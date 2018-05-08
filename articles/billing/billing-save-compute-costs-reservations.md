@@ -1,23 +1,23 @@
 ---
-title: "Сокращение затрат с помощью предварительной оплаты виртуальных машин Azure | Документация Майкрософт"
-description: "Сведения о зарезервированных экземплярах виртуальной машины Azure, которые помогут вам снизить затраты на виртуальные машины."
+title: Сокращение затрат с помощью предварительной оплаты виртуальных машин Azure | Документация Майкрософт
+description: Сведения о зарезервированных экземплярах виртуальной машины Azure, которые помогут вам снизить затраты на виртуальные машины.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Сокращение затрат с помощью зарезервированных экземпляров виртуальных машин Azure 
 Зарезервированные экземпляры виртуальных машин позволяют оплатить использование вычислительной мощности на один или три года вперед, чтобы получить скидку на виртуальные машины. 1-летние и 3-летние контракты с предварительной оплатой позволят сэкономить существенную сумму (до 72 %) по сравнению с оплатой виртуальных машин по мере использования. Зарезервированные экземпляры виртуальных машин просто предоставляют скидку и никак не влияют на состояние среды выполнения этих виртуальных машин.
@@ -61,13 +61,13 @@ ms.lasthandoff: 02/09/2018
 ## <a name="next-steps"></a>Дополнительная информация
 Снижайте расходы на виртуальные машины, приобретая [зарезервированный экземпляр виртуальной машины](https://go.microsoft.com/fwlink/?linkid=861721). 
 
-Дополнительные сведения о зарезервированных экземплярах виртуальных машин см. в следующих статьях.
+Дополнительные сведения об Azure Reserved Virtual Machine Instances см. в следующих статьях.
 
 - [Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
 - [Сведения о применении скидки на зарезервированный экземпляр виртуальной машины](billing-understand-vm-reservation-charges.md)
 - [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](billing-understand-reserved-instance-usage.md)
-- [Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Общие сведения об использовании зарезервированных экземпляров с Соглашением о регистрации Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров](billing-reserved-instance-windows-software-costs.md)
 
 Если вам нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.

@@ -1,9 +1,9 @@
 ---
-title: "Создание шлюза приложений с перенаправлением внешнего трафика с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений, который перенаправляет внутренний веб-трафик в соответствующий пул с помощью Azure CLI."
+title: Создание шлюза приложений с перенаправлением внешнего трафика с помощью Azure CLI | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений, который перенаправляет внутренний веб-трафик в соответствующий пул с помощью Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: fed23c7138516b3af8af170383948b14c49a61a9
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: victorh
+ms.openlocfilehash: 3ded6fc0950c82d0aa36da89fdd5635afef7be0b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Создание шлюза приложений с перенаправлением внешнего трафика с помощью Azure CLI
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 02/03/2018
 В этой статье раскрываются следующие темы:
 
 > [!div class="checklist"]
-> * настройка сети;
+> * Настройка сети
 > * создание прослушивателя и правила перенаправления;
-> * создание шлюза приложений.
+> * Создание шлюза приложений
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -138,9 +138,9 @@ az network application-gateway rule create \
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 
-> * настройка сети;
+> * Настройка сети
 > * создание прослушивателя и правила перенаправления;
-> * создание шлюза приложений.
+> * Создание шлюза приложений
 
 > [!div class="nextstepaction"]
 > [Дополнительные сведения о возможностях шлюза приложений](./application-gateway-introduction.md)

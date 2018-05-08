@@ -1,11 +1,11 @@
 ---
-title: "Настройка Postman для вызовов REST API служб мультимедиа Azure"
-description: "Узнайте, как настроить Postman для вызовов REST API служб мультимедиа Azure"
+title: Настройка Postman для вызовов REST API служб мультимедиа Azure
+description: Узнайте, как настроить Postman для вызовов REST API служб мультимедиа Azure
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
 ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Настройка Postman для вызовов REST API служб мультимедиа
 

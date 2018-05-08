@@ -46,12 +46,14 @@
           href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Контейнеры
       items:
-        - name: Решение "Контейнеры"
+        - name: Обзор мониторинга контейнеров
+          href: monitoring-container-overview.md
+        - name: Производительность контейнеров в AKS
+          href: monitoring-container-health.md
+        - name: Мониторинг контейнеров Docker и Windows
           href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Мониторинг приложений Docker
           href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Приложение профиля
-          href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Базы данных
       items:
         - name: Azure SQL

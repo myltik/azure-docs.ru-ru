@@ -1,27 +1,27 @@
 ---
-title: "Скачивание счета на оплату и данных о ежедневном использовании в Azure | Документация Майкрософт"
-description: "Описывается, как скачать или просмотреть счет на оплату и данные о ежедневном использовании в Azure."
-keywords: "счет на оплату,скачать счет,счет azure,использование azure"
-services: 
-documentationcenter: 
+title: Скачивание счета на оплату и данных о ежедневном использовании в Azure | Документация Майкрософт
+description: Описывается, как скачать или просмотреть счет на оплату и данные о ежедневном использовании в Azure.
+keywords: счет на оплату,скачать счет,счет azure,использование azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 6fa9f9ae4ef2bd39f3c6d3ec7c6d757aa50b2fd1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Скачивание или просмотр счета на оплату и данных о ежедневном использовании в Azure
 Счет можно скачать на [портале Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) или получить по электронной почте. Чтобы скачать данные о ежедневном использовании, перейдите в [Центр управления учетной записью Azure](https://account.azure.com/Subscriptions). Получать сведения о выставлении счетов и использовании разрешено только определенным ролям, например администратору учетной записи. Дополнительные сведения о доступе к сведениям о выставлении счетов см. в статье [Управление доступом для выставления счетов Azure с помощью ролей](billing-manage-access.md).

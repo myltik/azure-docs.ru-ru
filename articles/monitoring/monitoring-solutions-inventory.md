@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: bwren
-ms.openlocfilehash: 2a8313640d2d0bd678d0e10da39c87de8cfce00b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cab92187c6c36dc4670e202b15b35db8ad510239
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Информация о сборе данных для решений по управлению в Azure
 Эта статья содержит список [решений по управлению](monitoring-solutions.md), предлагаемых корпорацией Майкрософт, со ссылками на подробную документацию по ним.  Также вы здесь найдете сведения о методах и частоте сбора данных в Log Analytics.  Сведения в этой статье помогут вам оценить доступные решения и изучить потоки данных и требования к подключению для разных решений по управлению. 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/23/2018
 | [Анализ шлюзов приложений Azure](../log-analytics/log-analytics-azure-networking-analytics.md) | Таблицы Azure |  |  |  |  |  | при уведомлении |
 | **Решение по управлению** | **Платформа** | **Microsoft Monitoring Agent** | **Агент Operations Manager** | **Служба хранилища Azure** | **Нужен ли Operations Manager?** | **Данные агента Operations Manager отправляются через группу управления** | **Частота сбора** |
 | [Анализ групп безопасности сети Azure](../log-analytics/log-analytics-azure-networking-analytics.md) | Таблицы Azure |  |  |  |  |  | при уведомлении |
-| [Службы анализа SQL Azure (предварительная версия)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 10 минут |
+| [Службы анализа SQL Azure (предварительная версия)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 минута |
 | [Архивация](../backup/backup-introduction-to-azure-backup.md) | Таблицы Azure |  |  |  |  |  | Недоступно |
 | [Емкость и производительность (предварительная версия)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |При получении |
 | [Отслеживание изменений](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |Ежечасно |

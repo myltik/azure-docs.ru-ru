@@ -162,44 +162,13 @@
         - name: Защита персональных данных с помощью средств создания отчетов Azure
           href: protection-personal-data-azure-reporting-tools.md
     - name: FEDRAMP
-      href: ./blueprints/fedramp.md
       items:
-        - name: Обзор средств управления безопасностью
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: управление доступом;
-          href: ./blueprints/fedramp-access-controls.md
-        - name: Аудит и система отчетности
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: Повышение осведомленности и обучение
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: Управление конфигурацией
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: Планирование действий на непредвиденные случаи
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: Идентификация и аутентификация
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: реагирование на инциденты.
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: 'Обслуживание, '
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: Защита данных на носителях
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: Безопасность персонала
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: Физическая безопасность и защита от неблагоприятного воздействия окружающей среды
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: Планирование
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: Оценка угроз для безопасности
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: Оценка безопасности и авторизация
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: Защита системы и средств передачи данных
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: Целостность системы и данных
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: Приобретение систем и служб
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: Аналитика данных
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Хранилище данных
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: Веб-приложение IaaS
+          href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:

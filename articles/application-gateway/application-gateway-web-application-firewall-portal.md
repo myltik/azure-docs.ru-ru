@@ -1,21 +1,21 @@
 ---
-title: "Создание шлюза приложений с брандмауэром веб-приложения на портале Azure | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с брандмауэром веб-приложения с помощью портала Azure."
+title: Создание шлюза приложений с брандмауэром веб-приложения на портале Azure | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с брандмауэром веб-приложения с помощью портала Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Создание шлюза приложений с брандмауэром веб-приложения с помощью портала Azure
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/29/2018
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
-Войдите на портал Azure по адресу [http://portal.azure.com](http://portal.azure.com).
+Войдите на портал Azure по адресу [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Создание шлюза приложений
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/29/2018
 2. Щелкните **Сети**, а затем в списке "Рекомендованные" выберите **Шлюз приложений**.
 3. Введите следующие значения для шлюза приложений:
 
-    - *myAppGateway* — имя шлюза приложений.
+    - *myAppGateway* — для имени шлюза приложений.
     - *myResourceGroupAG* — новая группа ресурсов.
     - Выберите значение *WAF* для уровня шлюза приложений.
 
@@ -70,11 +70,11 @@ ms.lasthandoff: 01/29/2018
 
     ![Создание подсети](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-3. Введите значение *myBackendSubnet* для имени подсети, а затем нажмите кнопку **ОК**.
+3. Введите *myBackendSubnet* в качестве имени подсети и нажмите кнопку **ОК**.
 
 ## <a name="create-backend-servers"></a>Создание внутренних серверов
 
-В этом примере вы создадите две виртуальные машины, которые будут использоваться как внутренние серверы для шлюза приложений. Также установите службы IIS на виртуальных машинах, чтобы убедиться, что шлюз приложений создан успешно.
+В этом примере вы создадите две виртуальные машины, которые будут использоваться как внутренние серверы для шлюза приложений. Вы также установите службы IIS на виртуальных машинах, чтобы убедиться, что шлюз приложений успешно создан.
 
 ### <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Создание, изменение и удаление группы безопасности сети
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 04/19/2018
 ### <a name="change-a-network-security-group"></a>Изменение группы безопасности сети
 
 1. В поле поиска в верхней части портала введите *группы безопасности сети*. Когда элемент **Группы безопасности сети** появится в результатах поиска, выберите его.
-2. Выберите группу безопасности сети для изменения. Наиболее распространенные виды изменений — [добавление](#create-a-security-rule) или [удаление](#delete-a-security-rule) правила безопасности и [создание или удаление связи группы безопасности сети с подсетью или сетевым интерфейсом](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Выберите группу безопасности сети для изменения. Наиболее распространенные виды изменений — [добавление](#create-a-security-rule) или [удаление](#delete-a-security-rule) правила безопасности и [создание или удаление связи группы безопасности сети с подсетью или сетевым интерфейсом](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Команды**
 

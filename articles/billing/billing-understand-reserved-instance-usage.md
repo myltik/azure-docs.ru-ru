@@ -1,24 +1,24 @@
 ---
-title: "Использование зарезервированного экземпляра виртуальной машины Azure для подписки с оплатой по мере использования | Документация Майкрософт"
-description: "Узнайте, как оценить данные об использовании, чтобы составить представление о применении зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования"
+title: Использование зарезервированного экземпляра виртуальной машины Azure для подписки с оплатой по мере использования | Документация Майкрософт
+description: Узнайте, как оценить данные об использовании, чтобы составить представление о применении зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 142e172b3f4ab4b88bb3733f70d5e0fb252854ca
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/09/2018
 5. Виртуальная машина Standard_DS1_v2 с одним виртуальным процессором развертывается без преимущества гибридного использования Azure. Таким образом, эта единица измерения включает в себя дополнительную плату за программное обеспечение Windows. Ознакомьтесь с разделом [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md) (Затраты на программное обеспечение Windows в зарезервированных экземплярах виртуальных машин Azure). В ней вы найдете единицу измерения для 1-ядерной виртуальной машины серии D. Если применяется преимущество гибридного использования Azure, эта дополнительная плата не будет взиматься. 
 
 ## <a name="next-steps"></a>Дополнительная информация
-Дополнительные сведения о зарезервированных экземплярах виртуальных машин см. в следующих статьях.
+Дополнительные сведения об Azure Reserved Virtual Machine Instances см. в следующих статьях.
 
 - [Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)

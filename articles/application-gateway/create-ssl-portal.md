@@ -2,20 +2,20 @@
 title: Создание шлюза приложений с завершением SSL-запросов с помощью портала Azure | Документация Майкрософт
 description: Узнайте, как создать шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью портала Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 188632ee75f2fd755ec0601866183a7808f2971c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: victorh
+ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Создание шлюза приложений с завершением SSL-запросов с помощью портала Azure
 

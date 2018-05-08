@@ -1,24 +1,24 @@
 ---
-title: "Создание шлюза приложений с завершением SSL-запросов с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью интерфейса командной строки Azure."
+title: Создание шлюза приложений с завершением SSL-запросов с помощью Azure CLI | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений и добавить сертификат для завершения SSL-запросов с помощью интерфейса командной строки Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
-ms.author: davidmu
-ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: cdc24d0b95e30f762eb202ce08222ccde34424e9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Создание шлюза приложений с завершением SSL-запросов с помощью Azure CLI
 
-С помощью интерфейса командной строки Azure (Azure CLI) можно создать [шлюз приложений](application-gateway-introduction.md) с сертификатом для [завершения SSL-запросов](application-gateway-backend-ssl.md), в котором используется [масштабируемый набор виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для внутренних серверов. В этом примере масштабируемый набор содержит два экземпляра виртуальных машин, которые добавляются во внутренний пул шлюза приложений, используемый по умолчанию.
+С помощью интерфейса командной строки Azure (Azure CLI) можно создать [шлюз приложений](application-gateway-introduction.md) с сертификатом для [завершения SSL-запросов](application-gateway-backend-ssl.md), в котором используется [масштабируемый набор виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для внутренних серверов. В этом примере масштабируемый набор содержит два экземпляра виртуальных машин, которые добавляются в серверный пул шлюза приложений по умолчанию.
 
 В этой статье раскрываются следующие темы:
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 > * Создание самозаверяющего сертификата
 > * настройка сети;
 > * создание шлюза приложений с сертификатом;
-> * создание масштабируемого набора виртуальных машин с внутренним пулом, используемым по умолчанию.
+> * создание масштабируемого набора виртуальных машин с серверным пулом, используемым по умолчанию.
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Создание сетевых ресурсов
 
-Создайте виртуальную сеть с именем *myVNet* и подсеть *myAGSubnet* с помощью команды [az network vnet create](/cli/azure/network/vnet#az_net). Затем можно добавить подсеть с именем *myBackendSubnet*, которая требуется для внутренних серверов, используя команду [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Создайте общедоступный IP-адрес с именем *myAGPublicIPAddress*, используя команду [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Создайте виртуальную сеть с именем *myVNet* и подсеть *myAGSubnet* с помощью команды [az network vnet create](/cli/azure/network/vnet#az_net). Затем добавьте подсеть с именем *myBackendSubnet*, необходимую для внутренних серверов, используя команду [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Создайте общедоступный IP-адрес с именем *myAGPublicIPAddress*, используя команду [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -107,17 +107,17 @@ az network application-gateway create \
 
 ```
 
- Создание шлюза приложений может занять несколько минут. Когда шлюз приложений будет создан, вы увидите такие функции шлюза:
+ Создание шлюза приложений может занять несколько минут. Когда шлюз приложений будет создан, вы увидите такие новые функции шлюза:
 
-- *appGatewayBackendPool* — шлюз приложений должен включать по крайней мере один внутренний пул адресов.
-- *appGatewayBackendHttpSettings* — этот параметр указывает на то, что для обмена данными используются порт 80 и протокол HTTP.
+- *appGatewayBackendPool* — шлюз приложений должен иметь по крайней мере один внутренний пул адресов.
+- *appGatewayBackendHttpSettings* — указывает, что для обмена данными используются порт 80 и протокол HTTP.
 - *appGatewayHttpListener* — прослушиватель по умолчанию, связанный с *appGatewayBackendPool*.
-- *appGatewayFrontendIP* — этот параметр назначает адрес *myAGPublicIPAddress* прослушивателю *appGatewayHttpListener*.
+- *appGatewayFrontendIP* — назначает адрес *myAGPublicIPAddress* для прослушивателя *appGatewayHttpListener*.
 - *rule1* — правило маршрутизации по умолчанию, связанное с прослушивателем *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>создавать масштабируемый набор виртуальных машин;
 
-В этом примере создается масштабируемый набор виртуальных машин, чтобы предоставить серверы для внутреннего пула по умолчанию в шлюзе приложений. Виртуальные машины в масштабируемом наборе связаны с подсетью *myBackendSubnet* и пулом *appGatewayBackendPool*. Масштабируемый набор можно создать с помощью команды [az vmss create](/cli/azure/vmss#az_vmss_create).
+В этом примере создается масштабируемый набор виртуальных машин, чтобы предоставить серверы для внутреннего пула по умолчанию в шлюзе приложений. Виртуальные машины в масштабируемом наборе связаны с подсетью *myBackendSubnet* и пулом *appGatewayBackendPool*. Чтобы создать масштабируемый набор, выполните команду [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -144,7 +144,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -162,7 +162,7 @@ az network public-ip show \
 
 ![Предупреждение системы безопасности](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Чтобы принять предупреждение системы безопасности, если используется самозаверяющий сертификат безопасности, выберите **Сведения**, а затем — **Перейти на веб-страницу**. На экране отобразится защищенный веб-сайт NGINX, как в показано следующем примере:
+Чтобы принять предупреждение системы безопасности, если используется самозаверяющий сертификат безопасности, выберите **Сведения**, а затем нажмите **Перейти на веб-страницу**. На экране отобразится защищенный веб-сайт NGINX, как в показано следующем примере:
 
 ![Тестирование базового URL-адреса в шлюзе приложений](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 
@@ -174,6 +174,6 @@ az network public-ip show \
 > * Создание самозаверяющего сертификата
 > * настройка сети;
 > * создание шлюза приложений с сертификатом;
-> * создание масштабируемого набора виртуальных машин с внутренним пулом, используемым по умолчанию.
+> * создание масштабируемого набора виртуальных машин с серверным пулом, используемым по умолчанию.
 
 Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.
