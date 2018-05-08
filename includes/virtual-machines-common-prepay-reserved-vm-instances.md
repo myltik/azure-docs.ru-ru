@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/03/2018
+---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин
 
 Вы можете воспользоваться предоплатой виртуальных машин и сэкономить при использовании зарезервированных экземпляров виртуальных машин. Дополнительные сведения см. на странице [Зарезервированные экземпляры виртуальных машин Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).

@@ -3,7 +3,7 @@ title: Пошаговое руководство HDInsight Spark с исполь
 description: Примеры процесса обработки и анализа данных группы, которые объясняют, как использовать PySpark и Scala в Azure HDInsight Spark для прогнозной аналитики.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 30204d1859cd72e5fb821d2f027b82c4eacaa5fc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: deguhath
+ms.openlocfilehash: a56968a1a53037c4f327dc8aeae690100ce6dfbf
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Структурированные проекты обработки и анализа данных группы в Azure Machine Learning Workbench
 

@@ -1,9 +1,9 @@
 ---
-title: "Просмотр данных в виртуальной машине SQL Server на платформе Azure | Документация Майкрософт"
-description: "Описание того, как просматривать данные, хранящиеся в виртуальной машине SQL Server на платформе Azure."
+title: Просмотр данных в виртуальной машине SQL Server на платформе Azure | Документация Майкрософт
+description: Описание того, как просматривать данные, хранящиеся в виртуальной машине SQL Server на платформе Azure.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: d5079fc9d9a0ccd89664407fcdba9a7958e1407d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 68c8386917599afcf2819ff97453de77dea90215
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Просмотр данных в виртуальной машине SQL Server на платформе Azure
 В этом документе описано, как просматривать данные, хранящиеся в виртуальной машине SQL Server на платформе Azure. Это можно сделать путем структурирования данных с помощью SQL или с использованием языка программирования, например Python.
