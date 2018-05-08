@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Руководство по началу работы для разработчиков Azure
 
@@ -233,15 +233,16 @@ Azure предоставляет широкий набор функций для
 Помимо интерфейсов REST API, многие другие службы Azure также позволяют программно управлять ресурсами из ваших приложений, используя специализированные пакеты SDK для Azure для различных платформ, в том числе пакеты SDK для следующих платформ разработки:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](https://docs.microsoft.com/java/api/)
+-   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+-   [GO](https://docs.microsoft.com/go/azure)
 
-Такие службы, как [мобильные приложения](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) и [службы мультимедиа Azure](../../media-services/media-services-dotnet-how-to-use.md), предоставляют клиентские пакеты SDK, чтобы обеспечить доступ к этим службам из клиентских веб-приложений и мобильных приложений.
+Такие службы, как [мобильные приложения](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) и [службы мультимедиа Azure](../../media-services/previous/media-services-dotnet-how-to-use.md), предоставляют клиентские пакеты SDK, чтобы обеспечить доступ к этим службам из клиентских веб-приложений и мобильных приложений.
 
-### <a name="azure-resource-manager"></a>Диспетчер ресурсов Azure 
+### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
 Выполнение приложения в Azure скорее всего потребует взаимодействия с несколькими службами Azure, которые обладают одинаковым жизненным циклом и могут рассматриваться как логическая единица. Например, веб-приложение может использовать веб-приложения, Базу данных SQL, службу хранилища, кэш Redis для Azure и службы сети доставки содержимого Azure. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) позволяет работать с ресурсами в приложении как с группой. Вы можете развернуть, обновить или удалить все ресурсы одной скоординированной операцией.
 

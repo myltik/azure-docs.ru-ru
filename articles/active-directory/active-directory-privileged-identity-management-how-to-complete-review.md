@@ -1,25 +1,23 @@
 ---
-title: "Завершение выполнения проверки доступа | Документация Майкрософт"
-description: "После запуска проверки доступа в управлении привилегированными пользователями Azure AD узнайте, как ее завершить и просмотреть результаты."
+title: Завершение выполнения проверки доступа | Документация Майкрософт
+description: После запуска проверки доступа в управлении привилегированными пользователями Azure AD узнайте, как ее завершить и просмотреть результаты.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: abc2d3dd-afd5-42cf-8a17-6c11f5674c35
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: kgremban
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 3866438de8fba7a6c42777bbb57746eadf1158eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1314724d8094f171e4c8468d854a9d4ae0c85d7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Как завершить выполнение проверки доступа в управлении привилегированными пользователями Azure AD
 После [запуска функции проверки безопасности](active-directory-privileged-identity-management-how-to-start-security-review.md)администраторы привилегированных ролей могут проверить привилегированный доступ. Компонент управления привилегированными пользователями (PIM) Azure AD автоматически отправит пользователям электронное письмо с предложением проверить доступ. Если пользователь не получил электронное письмо, ему можно отправить [инструкции по выполнению проверки безопасности](active-directory-privileged-identity-management-how-to-perform-security-review.md).

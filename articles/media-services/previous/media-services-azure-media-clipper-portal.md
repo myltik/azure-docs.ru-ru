@@ -1,6 +1,6 @@
 ---
-title: "Использование Azure Media Clipper на портале | Документация Майкрософт"
-description: "Создание клипов на портале Azure с помощью Azure Media Clipper"
+title: Использование Azure Media Clipper на портале | Документация Майкрософт
+description: Создание клипов на портале Azure с помощью Azure Media Clipper
 services: media-services
 keywords: clip;subclip;encoding;media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Создание клипов на портале с помощью Azure Media Clipper
 С помощью средства Azure Media Clipper вы можете создавать на портале клипы из ресурсов, сохраненных в учетных записях служб мультимедиа. Чтобы начать работу, найдите на портале учетную запись служб мультимедиа. Выберите для нее вкладку **Субклип**.

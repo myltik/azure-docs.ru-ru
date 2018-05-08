@@ -1,6 +1,6 @@
 ---
-title: "Отправка заданий обрезки из Azure Media Clipper | Документация Майкрософт"
-description: "Действия для отправки заданий обрезки из Azure Media Clipper"
+title: Отправка заданий обрезки из Azure Media Clipper | Документация Майкрософт
+description: Действия для отправки заданий обрезки из Azure Media Clipper
 services: media-services
 keywords: clip;subclip;encoding;media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Отправка заданий обрезки из Azure Media Clipper
 Чтобы обрабатывать отправку заданий обрезки, для Azure Media Clipper требуется реализация метода **submitSubclipCallback**. Эта функция служит для реализации отправки методом HTTP POST выходных данных Clipper в веб-службу. Эта веб-служба является местом, куда можно отправить задание кодирования. Выходные данные Clipper представляют собой либо предустановку кодирования Media Encoder Standard для преобразованных для просмотра заданий, либо полезные данные REST API для динамических вызовов фильтров манифестов. Такая модель сквозной передачи необходима, так как данные учетной записи служб мультимедиа не защищены в браузере клиента.

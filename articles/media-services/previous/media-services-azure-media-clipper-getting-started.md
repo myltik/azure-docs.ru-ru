@@ -1,6 +1,6 @@
 ---
-title: "Начало работы c Azure Media Clipper | Документация Майкрософт"
-description: "Начало работы с Azure Media Clipper — инструментом для создания видеоклипов из ресурсов AMS"
+title: Начало работы c Azure Media Clipper | Документация Майкрософт
+description: Начало работы с Azure Media Clipper — инструментом для создания видеоклипов из ресурсов AMS
 services: media-services
 keywords: clip;subclip;encoding;media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Создание клипов с помощью Azure Media Clipper
 В этом разделе приведены основные этапы по началу работы с Azure Media Clipper. В следующих разделах содержатся подробные сведения по настройке Azure Media Clipper.

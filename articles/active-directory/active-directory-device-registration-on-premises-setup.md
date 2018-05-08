@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory
 Когда требуется, чтобы пользователи присоединяли свои личные устройства к рабочей области в службе регистрации устройств Azure Active Directory (Azure AD), эти устройства можно помечать как известные организации. Ниже приведено пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
@@ -86,7 +86,7 @@ ms.lasthandoff: 04/19/2018
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Часть 3. Включение обратной записи устройств в Azure AD
 | Задача | Справочные материалы |
 | --- | --- |
-| Выполните часть 2 включения обратной записи устройств в службе Azure AD Connect. Выполнив это, вернитесь к данному руководству. |[Включение обратной записи устройств в службе Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Выполните часть 2 включения обратной записи устройств в службе Azure AD Connect. Выполнив это, вернитесь к данному руководству. |[Включение обратной записи устройств в службе Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Необязательно.] Часть 4. Включение Многофакторной идентификации
 Мы настоятельно рекомендуем настроить один из нескольких вариантов Многофакторной идентификации. Если вы хотите требовать прохождение многофакторной проверки подлинности, ознакомьтесь с разделом [Выберите для себя решение "Многофакторная идентификация Azure](authentication/concept-mfa-whichversion.md). Она содержит описание каждого решения, а также ссылки, которые помогут вам настроить выбранное решение.

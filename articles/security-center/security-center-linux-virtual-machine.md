@@ -1,11 +1,11 @@
 ---
-title: "Центр безопасности Azure и виртуальные машины Azure c ОС Linux | Документация Майкрософт"
-description: "Этот документ содержит сведения о том, как с помощью центра безопасности Azure можно защитить виртуальные машины Azure."
+title: Центр безопасности Azure и виртуальные машины Azure c ОС Linux | Документация Майкрософт
+description: Этот документ содержит сведения о том, как с помощью центра безопасности Azure можно защитить виртуальные машины Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e08444cbfdb095c79d164de06dda078c6a242b3f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Центр безопасности Azure и виртуальные машины Azure c ОС Linux
 [Центр безопасности Azure](https://azure.microsoft.com/services/security-center/) позволяет предотвращать, обнаруживать угрозы и реагировать на них. Она включает встроенные функции мониторинга безопасности и управления политиками для подписок Azure, помогает выявлять угрозы, которые в противном случае могли бы оказаться незамеченными, и взаимодействует с широким комплексом решений по обеспечению безопасности.
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 * Своевременная установка отсутствующих обновлений системы безопасности и критических обновлений.
 * Рекомендации по защите конечных точек.
 * Проверка шифрования диска.
-* Защита от атак через сеть (доступно только в [стандартной версии](https://azure.microsoft.com/en-us/pricing/details/security-center/)).
+* Защита от атак через сеть (доступно только в [стандартной версии](https://azure.microsoft.com/pricing/details/security-center/)).
 
 Помимо защиты виртуальных машин Azure центр безопасности предоставляет средства мониторинга и управления безопасностью облачных служб, служб приложений, виртуальных сетей, а также многие другие возможности. 
 
