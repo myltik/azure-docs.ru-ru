@@ -1,31 +1,31 @@
 ---
-title: "Создание шлюза приложений с масштабируемым набором виртуальных машин — Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с масштабируемым набором виртуальных машин с помощью Azure CLI."
+title: Создание шлюза приложений с масштабируемым набором виртуальных машин — Azure CLI | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с масштабируемым набором виртуальных машин с помощью Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 9a0119e0db834f008a1a3999ff546580499e73c3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 22eef26750bf4d45d87f222d0d34fbd56ad589df
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Создание шлюза приложений с масштабируемым набором виртуальных машин с помощью Azure CLI
 
-С помощью Azure CLI вы можете создать [шлюз приложений](application-gateway-introduction.md), использующий [масштабируемый набор виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для внутренних серверов. В этом примере масштабируемый набор содержит два экземпляра виртуальных машин, которые добавляются во внутренний пул шлюза приложений по умолчанию.
+С помощью Azure CLI вы можете создать [шлюз приложений](application-gateway-introduction.md), использующий [масштабируемый набор виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для внутренних серверов. В этом примере масштабируемый набор содержит два экземпляра виртуальных машин, которые добавляются в серверный пул шлюза приложений по умолчанию.
 
 В этой статье раскрываются следующие темы:
 
 > [!div class="checklist"]
-> * настройка сети;
-> * создание шлюза приложений;
-> * создание масштабируемого набора виртуальных машин с внутренним пулом по умолчанию.
+> * Настройка сети
+> * Создание шлюза приложений
+> * создание масштабируемого набора виртуальных машин с серверным пулом, используемым по умолчанию.
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -122,7 +122,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Тестирование шлюза приложений
@@ -144,8 +144,8 @@ az network public-ip show \
 Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
-> * настройка сети;
-> * создание шлюза приложений;
-> * создание масштабируемого набора виртуальных машин с внутренним пулом по умолчанию.
+> * Настройка сети
+> * Создание шлюза приложений
+> * создание масштабируемого набора виртуальных машин с серверным пулом, используемым по умолчанию.
 
 Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.

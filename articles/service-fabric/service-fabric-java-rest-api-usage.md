@@ -1,12 +1,12 @@
 ---
-title: "Клиентские API-интерфейсы Java в Azure Service Fabric | Документация Майкрософт"
-description: "Создание и применение клиентских API-интерфейсов Java в Azure Service Fabric с использованием спецификации клиентских REST API в Service Fabric"
+title: Клиентские API-интерфейсы Java в Azure Service Fabric | Документация Майкрософт
+description: Создание и применение клиентских API-интерфейсов Java в Azure Service Fabric с использованием спецификации клиентских REST API в Service Fabric
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 6f9b9d46be36b292fe2c3be92d90d4cf87155210
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9596e55c6c915461ef4d0bff0d7f9583aac18a1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Клиентские API-интерфейсы Java в Azure Service Fabric
 
@@ -133,5 +133,5 @@ ms.lasthandoff: 01/22/2018
     * Этот вариант вызова API можно применять, если необходимо использовать реактивное асинхронное программирование и работать с ответом REST без форматирования.
 
 ## <a name="next-steps"></a>Дополнительная информация
-* Дополнительные сведения см. в статье [REST API Service Fabric](https://docs.microsoft.com/en-us/rest/api/servicefabric/).
+* Дополнительные сведения см. в статье [REST API Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/).
 

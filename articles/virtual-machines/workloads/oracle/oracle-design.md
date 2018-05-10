@@ -1,13 +1,13 @@
 ---
-title: "Разработка базы данных Oracle и ее реализация в Azure | Документация Майкрософт"
-description: "Разработка базы данных Oracle и ее реализация в среду Azure."
+title: Разработка базы данных Oracle и ее реализация в Azure | Документация Майкрософт
+description: Разработка базы данных Oracle и ее реализация в среду Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Разработка базы данных Oracle и ее реализация в Azure
 
@@ -136,7 +136,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ![Снимок экрана пропускной способности SQL*Net](./media/oracle-design/sqlnet_info.png)
 
-С учетом требований к пропускной способности сети можно выбрать разные типы шлюзов. К ним относятся шлюзы категории "Базовый", VpnGw и Azure ExpressRoute. Дополнительные сведения см. на странице с [ценами на VPN-шлюзы](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+С учетом требований к пропускной способности сети можно выбрать разные типы шлюзов. К ним относятся шлюзы категории "Базовый", VpnGw и Azure ExpressRoute. Дополнительные сведения см. на странице с [ценами на VPN-шлюзы](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **рекомендации**;
 

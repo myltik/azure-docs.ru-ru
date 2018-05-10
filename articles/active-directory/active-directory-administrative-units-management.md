@@ -1,26 +1,24 @@
 ---
-title: "Управление административными единицами в Azure Active Directory (предварительная версия)"
-description: "Использование административных единиц для делегирования разрешений в Azure Active Directory на фрагментарном уровне"
+title: Управление административными единицами в Azure Active Directory (предварительная версия)
+description: Использование административных единиц для делегирования разрешений в Azure Active Directory на фрагментарном уровне
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.component: users-groups-roles
 ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 373983413ea83e5924b52fbbcbc666aa1a188d80
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Управление административными единицами в Azure AD (общедоступная предварительная версия)
 В этой статье рассматриваются административные единицы — новые контейнеры ресурсов Azure Active Directory, которые можно использовать для делегирования административных разрешений и применения политик к подмножествам пользователей. Административные единицы Azure Active Directory позволяют администраторам центра делегировать разрешения администраторам периферии или настраивать политики на детальном уровне.

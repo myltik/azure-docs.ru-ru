@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Изменение масштабируемого набора виртуальных машин
 На протяжении жизненного цикла приложений может потребоваться изменить или обновить масштабируемый набор виртуальных машин. Это может быть обновление конфигурации масштабируемого набора или изменение конфигурации приложения. В этой статье описывается, как можно изменить существующий масштабируемый набор с помощью интерфейсов REST API, Azure PowerShell или Azure CLI 2.0.
@@ -373,12 +373,12 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 Приложения также часто развертывают с помощью пользовательского образа. Этот сценарий описан в следующем разделе.
 
 ### <a name="os-updates"></a>обновления ОС;
-При использовании образов платформы Azure их можно обновить, изменив *imageReference* (дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+При использовании образов платформы Azure их можно обновить, изменив *imageReference* (дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Для образов платформы обычно указывается последняя версия в качестве эталонной версии образа. Во время создания, масштабирования и повторного создания образов виртуальные машины создаются на основе последней доступной версии. Тем не менее это **не** означает, что образ ОС будет автоматически обновляться по мере выпуска новых версий. Отдельный компонент, обеспечивающий автоматическое обновление ОС, в настоящий момент находится на этапе предварительной версии. Дополнительные сведения см. в [документации по автоматическому обновлению ОС](virtual-machine-scale-sets-automatic-upgrade.md).
 
-При использовании пользовательских образов их можно обновить, изменив идентификатор *imageReference* (дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+При использовании пользовательских образов их можно обновить, изменив идентификатор *imageReference* (дополнительные сведения см. в [документации по REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Примеры
 

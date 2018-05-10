@@ -1,9 +1,9 @@
 ---
-title: "Программа MVP по обеспечению безопасности в Azure | Документация Майкрософт"
-description: "В статье представлен обзор сведений по обеспечению безопасности в Azure в рамках программы MVP."
+title: Программа MVP по обеспечению безопасности в Azure | Документация Майкрософт
+description: В статье представлен обзор сведений по обеспечению безопасности в Azure в рамках программы MVP.
 services: security
 documentationcenter: na
-author: TomShinder
+author: barclayn
 manager: Mbaldwin
 editor: TomSh
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: db42e80a93f2d0db737b63cab1a55af4f6dd05e4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: ebe6a6ffec094d535ec38d471ff6036b7379fcb8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-mvp-program"></a>Программа специалистов MVP по вопросам обеспечения безопасности в Azure
+
 Microsoft Most Valuable Professionals (MVP) — это самые активные участники технических сообществ, продемонстрировавшие исключительную готовность помогать другим эффективно использовать технологии Майкрософт. Они делятся своей увлеченностью, знаниями и опытом с техническим сообществом и командой Майкрософт.
 
 Теперь представители технического сообщества могут получить специальный статус в сфере безопасности Microsoft Azure. Самые ценные специалисты Microsoft MVP получают статус MVP по Microsoft Azure за свой вклад в усовершенствование решений Azure.

@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Разбивка результатов поиска на страницы в службе поиска Azure.
 В данной статье приводятся рекомендации по использованию API REST службы поиска Azure для реализации стандартных элементов страницы результатов поиска, например, общего подсчета, извлечения документа, порядка сортировки и навигации.
 
-В любом из перечисленных ниже случаев связанные со страницей параметры, добавляющие данные или информацию к странице результатов поиска, задаются в запросах [Поиск документа](http://msdn.microsoft.com/library/azure/dn798927.aspx) , отправляемых службе поиска Azure. Запросы включают команду GET, путь и параметры запроса, уведомляющие службу о том, что запрашивается и как сформировать ответ.
+В любом из перечисленных ниже случаев связанные со страницей параметры, добавляющие данные или информацию к странице результатов поиска, задаются в запросах [Поиск документа](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) , отправляемых службе поиска Azure. Запросы включают команду GET, путь и параметры запроса, уведомляющие службу о том, что запрашивается и как сформировать ответ.
 
 > [!NOTE]
-> Допустимый запрос содержит несколько элементов, например URL-адрес службы и путь, HTTP-команду, `api-version` и т. д. Для краткости в примерах указывается только синтаксис, касающийся разбивки на страницы. Дополнительные сведения о синтаксисе запроса см. в статье [REST API службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx).
+> Допустимый запрос содержит несколько элементов, например URL-адрес службы и путь, HTTP-команду, `api-version` и т. д. Для краткости в примерах указывается только синтаксис, касающийся разбивки на страницы. Дополнительные сведения о синтаксисе запроса см. в статье [REST API службы поиска Azure](https://docs.microsoft.com/rest/api/searchservice).
 > 
 > 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/23/2018
 
 Непосредственный поиск в изображениях и файлах мультимедиа невозможен. Для уменьшения расходов они должны сохраняться на другой платформе хранения, такой как хранилище BLOB-объектов Azure. В индексе и документах определите поле, в котором содержится URL-адрес внешнего контента. Затем можно использовать это поле как ссылку на изображение. URL-адрес изображения должен находиться в документе.
 
-Чтобы получить страницу описания продукта для события **onClick** , используйте [Поиск документа](http://msdn.microsoft.com/library/azure/dn798929.aspx) для передачи ключа документа, который нужно получить. Тип данных ключа — `Edm.String`. В данном примере это *246810*. 
+Чтобы получить страницу описания продукта для события **onClick** , используйте [Поиск документа](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) для передачи ключа документа, который нужно получить. Тип данных ключа — `Edm.String`. В данном примере это *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 04/23/2018
  ![][5]
 
 > [!NOTE]
-> В то время как оценка по умолчанию является достаточной для многих сценариев, рекомендуется, чтобы соответствие основывалось на пользовательском профиле оценки. Пользовательский профиль оценки предоставляет способ повышения приоритета элементов, имеющих большее значение для бизнеса. Дополнительные сведения см. в статье [Add scoring profiles to a search index (Azure Search Service REST API)](http://msdn.microsoft.com/library/azure/dn798928.aspx) (Добавление профилей оценки в индекс поиска (REST API службы поиска Azure)). 
+> В то время как оценка по умолчанию является достаточной для многих сценариев, рекомендуется, чтобы соответствие основывалось на пользовательском профиле оценки. Пользовательский профиль оценки предоставляет способ повышения приоритета элементов, имеющих большее значение для бизнеса. Дополнительные сведения см. в статье [Add scoring profiles to a search index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) (Добавление профилей оценки в индекс поиска (REST API службы поиска Azure)). 
 > 
 > 
 
@@ -95,12 +95,12 @@ ms.lasthandoff: 04/23/2018
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Дополнительные сведения о выражениях `$filter` см. в статье [Search Documents (Azure Search Service REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) (Поиск документов (REST API службы поиска Azure)).
+Дополнительные сведения о выражениях `$filter` см. в статье [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Поиск документов (REST API службы поиска Azure)).
 
 ## <a name="see-also"></a>См. также
-* [REST API службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Операции с индексами](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Операции с документом.](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [REST API службы поиска Azure](https://docs.microsoft.com/rest/api/searchservice)
+* [Операции с индексами](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Операции с документом.](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Поиск Azure: учебники, видеодемонстрации и примеры](search-video-demo-tutorial-list.md)
 * [Фасетная навигация в службе поиска Azure](search-faceted-navigation.md)
 

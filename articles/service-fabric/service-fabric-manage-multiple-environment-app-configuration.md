@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Управление приложениями для использования в нескольких средах
 
@@ -48,8 +48,8 @@ Azure Service Fabric позволяет создавать кластеры, д�
 
 При создании именованных экземпляров приложения в Service Fabric имеется возможность передавать параметры. Способ их передачи зависит от того, как создается экземпляр приложения.
 
-  - В PowerShell командлет [`New-ServiceFabricApplication`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) принимает параметры приложения в виде хэш-таблицы.
-  - При использовании sfctl команда [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) принимает параметры в виде строки JSON. Сценарий install.sh использует sfctl.
+  - В PowerShell командлет [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) принимает параметры приложения в виде хэш-таблицы.
+  - При использовании sfctl команда [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) принимает параметры в виде строки JSON. Сценарий install.sh использует sfctl.
   - Visual Studio предоставляет набор файлов параметров в папке Parameters в проекте приложения. Эти файлы параметров используются при публикации из Visual Studio с помощью Visual Studio Team Service или Team Foundation Server. В Visual Studio файлы параметров передаются в сценарий Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Дополнительная информация

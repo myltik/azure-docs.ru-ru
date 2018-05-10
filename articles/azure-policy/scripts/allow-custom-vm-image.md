@@ -1,25 +1,25 @@
 ---
-title: "Пример политики Azure в формате JSON: разрешение использования пользовательского образа виртуальной машины из группы ресурсов | Документация Майкрософт"
-description: "В примере шаблона JSON политики требуется, чтобы пользовательские образы поступали из утвержденной группы ресурсов."
+title: 'Пример политики Azure в формате JSON: разрешение использования пользовательского образа виртуальной машины из группы ресурсов | Документация Майкрософт'
+description: В примере шаблона JSON политики требуется, чтобы пользовательские образы поступали из утвержденной группы ресурсов.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3da9a459f7e3008fc6a75473cc1a239d9cd5749b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: ca2d25828bc184a783dd065df3cc8200a3af6ee3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>Разрешение использования пользовательского образа виртуальной машины из группы ресурсов
 

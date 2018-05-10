@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7800c2e72b1bfd78f83bf7b90a35e47f6109a014
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Вводные сведения о службе приложений Azure на платформе Linux
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/16/2018
 | Go | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
-Дополнительные сведения см. в статье о [создании веб-приложения Java в службе приложений Azure на платформе Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java).
+Дополнительные сведения см. в статье о [создании веб-приложения Java в службе приложений Azure на платформе Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
 ## <a name="deployments"></a>Развернутые приложения
 

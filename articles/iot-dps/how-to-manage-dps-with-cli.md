@@ -1,26 +1,26 @@
 ---
-title: "Как управлять службами подготовки устройств с помощью Azure CLI 2.0 и расширения Интернета вещей | Документация Майкрософт"
-description: "Узнайте, как управлять службами подготовки устройств с помощью Azure CLI 2.0 и расширения Интернета вещей"
+title: Как управлять службами подготовки устройств с помощью Azure CLI 2.0 и расширения Интернета вещей | Документация Майкрософт
+description: Узнайте, как управлять службами подготовки устройств с помощью Azure CLI 2.0 и расширения Интернета вещей
 services: iot-dps
-keywords: 
+keywords: ''
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e8bbf5808c11709a49f1cb6ebeba410837e5810
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Как управлять службами подготовки устройств с помощью Azure CLI 2.0 и расширения Интернета вещей
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) — это кроссплатформенная программа командной строки с открытым кодом для управления ресурсами Azure (например, IoT Edge). Интерфейс Azure CLI 2.0 доступен для операционных систем Windows, Linux и MacOS. Azure CLI 2.0 позволяет управлять ресурсами Центра Интернета вещей Azure, экземплярами службы подготовки устройств и связанными концентраторами без дополнительной настройки.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) — это кроссплатформенная программа командной строки с открытым кодом для управления ресурсами Azure (например, IoT Edge). Интерфейс Azure CLI 2.0 доступен для операционных систем Windows, Linux и MacOS. Azure CLI 2.0 позволяет управлять ресурсами Центра Интернета вещей Azure, экземплярами службы подготовки устройств и связанными концентраторами без дополнительной настройки.
 
 Расширение Интернета вещей расширяет функции Azure CLI 2.0 (например, функция управления устройствами) и добавляет возможности IoT Edge.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/09/2018
 
 ### <a name="step-2---install-azure-cli-20"></a>Шаг 2. Установка Azure CLI 2.0
 
-Выполните [инструкции по установке](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), чтобы настроить Azure CLI 2.0 в своей среде. Вам понадобится как минимум Azure CLI 2.0 версии 2.0.24 или более поздней. Для проверки используйте `az –version`. Эта версия поддерживает команды расширения az и представляет собой платформу команд Knack. Простой способ установки в Windows — скачать и установить [MSI](https://aka.ms/InstallAzureCliWindows).
+Выполните [инструкции по установке](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), чтобы настроить Azure CLI 2.0 в своей среде. Вам понадобится как минимум Azure CLI 2.0 версии 2.0.24 или более поздней. Для проверки используйте `az –version`. Эта версия поддерживает команды расширения az и представляет собой платформу команд Knack. Простой способ установки в Windows — скачать и установить [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="step-3---install-iot-extension"></a>Шаг 3. Установка расширения Интернета вещей
 

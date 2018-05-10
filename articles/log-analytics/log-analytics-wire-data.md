@@ -1,11 +1,11 @@
 ---
-title: "Решение \"Данные передачи\" в Log Analytics | Документация Майкрософт"
-description: "Данные передачи — это объединенные сетевые данные и данные производительности, передаваемые с компьютеров с установленными агентами OMS, включая агенты Operations Manager и агенты, подключенные к Windows. Сетевые данные вместе с данными журнала помогают коррелировать данные."
+title: Решение "Данные передачи" в Log Analytics | Документация Майкрософт
+description: Данные передачи — это объединенные сетевые данные и данные производительности, передаваемые с компьютеров с установленными агентами OMS, включая агенты Operations Manager и агенты, подключенные к Windows. Сетевые данные вместе с данными журнала помогают коррелировать данные.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Решение Wire Data 2.0 (предварительная версия) в Log Analytics
 
@@ -58,8 +58,8 @@ ms.lasthandoff: 02/13/2018
 
 | **Подключенный источник** | **Поддерживаются** | **Описание** |
 | --- | --- | --- |
-| Агенты Windows | Yes | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Windows. <br><br> Помимо [агента OMS](log-analytics-windows-agent.md) для агентов Windows необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
-| Агенты Linux | Yes | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Linux.<br><br> Помимо [агента OMS](log-analytics-quick-collect-linux-computer.md) для агентов Linux необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
+| Агенты Windows | Yes | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Windows. <br><br> Помимо [агента OMS](log-analytics-windows-agent.md) для агентов Windows необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
+| Агенты Linux | Yes | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Linux.<br><br> Помимо [агента OMS](log-analytics-quick-collect-linux-computer.md) для агентов Linux необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
 | Группа управления System Center Operations Manager | Yes | Решение "Данные передачи" анализирует и собирает данные из агентов Windows и Linux в подключенной [группе управления System Center Operations Manager](log-analytics-om-agents.md). <br><br> Требуется прямое подключение из агента System Center Operations Manager к Log Analytics. Данные пересылаются из группы управления в Log Analytics. |
 | Учетная запись хранения Azure. | Нет  | Решение "Данные передачи" собирает данные из компьютеров агента, поэтому данные из службы хранилища Azure не собираются. |
 

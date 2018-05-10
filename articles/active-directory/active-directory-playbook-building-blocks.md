@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
 
@@ -275,7 +275,7 @@ ms.lasthandoff: 04/23/2018
 | Предварительные требования | Ресурсы |
 | --- | --- |
 | Установленная и настроенная среда Azure AD Connect. | Стандартный блок: [Синхронизация каталога. Синхронизация хэша паролей](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| Соответствующий требованиям экземпляр ADLDS. | [Технический справочник по универсальному соединителю LDAP: общие сведения об универсальном соединителе LDAP](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| Соответствующий требованиям экземпляр ADLDS. | [Технический справочник по универсальному соединителю LDAP: общие сведения об универсальном соединителе LDAP](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | Список рабочих нагрузок, используемых пользователями, а также связанные с этими нагрузками атрибуты. | [Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ ms.lasthandoff: 04/23/2018
 
 | Шаг | Ресурсы |
 | --- | --- |
-| Добавьте универсальный соединитель LDAP. | [Технический справочник по универсальному соединителю LDAP: создание нового соединителя](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| Добавьте универсальный соединитель LDAP. | [Технический справочник по универсальному соединителю LDAP: создание нового соединителя](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | Создайте профили выполнения для созданного соединителя (полный импорт, разностный импорт, полная синхронизация, разностная синхронизация, экспорт). | [Создание профиля выполнения для агента управления](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Использование соединителей с Synchronization Service Manager Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Запустите профиль полного импорта и убедитесь, что в пространстве соединителя есть объекты. | [Поиск объекта пространства соединителя](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Использование соединителей с Synchronization Service Manager Azure AD Connect: пространство поиска соединителя](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Создайте правила синхронизации, чтобы объекты в метавселенной имели подходящие атрибуты для рабочих нагрузок. | [Синхронизация Azure AD Connect. Рекомендации по изменению конфигурации по умолчанию: изменения в правилах синхронизации](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

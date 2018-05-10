@@ -27,11 +27,9 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2. Развертывание приложения
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3. Включение HTTPS
-          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-        - name: 4. Настройка непрерывной интеграции и доставки
+        - name: 3. Настройка непрерывной интеграции и доставки
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 5. Мониторинг и диагностика
+        - name: 4. Мониторинг и диагностика
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Развертывание приложения Java
       items:
@@ -461,7 +459,7 @@
           items:
             - name: Развертывание приложений в локальном кластере
               href: service-fabric-get-started-with-a-local-cluster.md
-            - name: Диспетчер ресурсов Azure
+            - name: Azure Resource Manager
               href: service-fabric-application-arm-resource.md
             - name: Azure PowerShell
               href: service-fabric-deploy-remove-applications.md
@@ -507,7 +505,7 @@
               items:
                 - name: Портал Azure
                   href: service-fabric-cluster-creation-via-portal.md
-                - name: Диспетчер ресурсов Azure
+                - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Использование кластера с общим именем сертификата
                   href: service-fabric-create-cluster-using-cert-cn.md
@@ -563,42 +561,36 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: Мониторинг и диагностика
       items:
-        - name: Мониторинг приложений
+        - name: Анализ с помощью OMS
           items:
-            - name: Анализ с помощью Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Добавление функции ведения журнала в приложение
-              href: service-fabric-how-to-diagnostics-log.md
-            - name: Статистическая обработка событий с помощью EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Мониторинг контейнеров
-              href: service-fabric-diagnostics-oms-containers.md
-        - name: Мониторинг кластеров
-          items:
-            - name: Запрос к API EventStore
-              href: service-fabric-diagnostics-eventstore-query.md
-            - name: Система диагностики Azure (Windows)
-              href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Система диагностики Azure (Linux)
-              href: service-fabric-diagnostics-event-aggregation-lad.md
             - name: Настройка OMS Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
+            - name: Добавление агента OMS
+              href: service-fabric-diagnostics-oms-agent.md
             - name: Мониторинг с помощью OMS
               href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Мониторинг инфраструктуры
+            - name: Мониторинг контейнеров
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Анализ с помощью Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Статистическая обработка событий с помощью EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Статистическая обработка событий с помощью системы диагностики Azure
           items:
-            - name: Мониторинг производительности с помощью WAD
-              href: service-fabric-diagnostics-perf-wad.md
-            - name: Мониторинг производительности с помощью агента OMS
-              href: service-fabric-diagnostics-oms-agent.md
-        - name: Мониторинг работоспособности
-          items:
-            - name: Отчеты и проверка работоспособности
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Просмотр отчетов о работоспособности
-              href: service-fabric-view-entities-aggregated-health.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Мониторинг производительности с помощью WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Отчеты и проверка работоспособности
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Добавление ведения журнала в службу
+          href: service-fabric-how-to-diagnostics-log.md
+        - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Просмотр отчетов о работоспособности
+          href: service-fabric-view-entities-aggregated-health.md
         - name: Устранение неполадок локального кластера
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Справочные материалы

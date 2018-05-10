@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Общие сведения об обработчике расширения Desired State Configuration в Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 Агент виртуальной машины Azure и связанные расширения являются частью служб инфраструктуры Microsoft Azure. Расширения виртуальной машины — это программные компоненты, которые расширяют функциональные возможности виртуальной машины и упрощают различные операции управления ею.
 
-Основной вариант использования расширения Azure Desired State Configuration (DSC) — это начальная загрузка виртуальной машины в [службе Azure Automation DSC](../../automation/automation-dsc-overview.md). [Преимущества](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service) этого включают регулярное управление конфигурацией виртуальной машины и интеграцию с другими рабочими инструментами, например со службой мониторинга Azure.
+Основной вариант использования расширения Azure Desired State Configuration (DSC) — это начальная загрузка виртуальной машины в [службе Azure Automation DSC](../../automation/automation-dsc-overview.md). [Преимущества](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service) этого включают регулярное управление конфигурацией виртуальной машины и интеграцию с другими рабочими инструментами, например со службой мониторинга Azure.
 
 Расширение DSC можно использовать независимо от службы Automation DSC. Однако это отдельное действие, которое выполняется во время развертывания. Регулярная отправка отчетов или управление конфигурацией возможно на виртуальной машине только в локальной среде.
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="architecture"></a>Архитектура
 
-Расширение DSC Azure использует платформу агента Azure, чтобы доставлять и применять конфигурации DSC виртуальных машин Azure, а также сообщать об этих конфигурациях. Расширение DSC принимает документ конфигурации и набор параметров. Если файл не предоставлен, внедряется [скрипт конфигурации по умолчанию](#default-configuration-script) с расширением. Скрипт конфигурации по умолчанию используется только для задания метаданных в [локальном диспетчере конфигураций](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
+Расширение DSC Azure использует платформу агента Azure, чтобы доставлять и применять конфигурации DSC виртуальных машин Azure, а также сообщать об этих конфигурациях. Расширение DSC принимает документ конфигурации и набор параметров. Если файл не предоставлен, внедряется [скрипт конфигурации по умолчанию](#default-configuration-script) с расширением. Скрипт конфигурации по умолчанию используется только для задания метаданных в [локальном диспетчере конфигураций](https://docs.microsoft.com/powershell/dsc/metaconfig).
 
 Когда расширение вызывается впервые, с его помощью устанавливается определенная версия WMF, следуя приведенной ниже логике:
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="default-configuration-script"></a>Скрипт конфигурации по умолчанию
 
-Расширение DSC Azure включает скрипт конфигурации по умолчанию, предназначенный для использования при подключении виртуальной машины к DSC службы автоматизации Azure. Параметры сценария сопоставляются с настраиваемыми свойствами [локального диспетчера конфигураций](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). Параметры скрипта см. в разделе [Скрипт конфигурации по умолчанию](extensions-dsc-template.md#default-configuration-script) статьи [Расширение Desired State Configuration (DSC) с использованием шаблонов Azure Resource Manager](extensions-dsc-template.md). Полный скрипт см. в [шаблоне быстрого запуска Azure на GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+Расширение DSC Azure включает скрипт конфигурации по умолчанию, предназначенный для использования при подключении виртуальной машины к DSC службы автоматизации Azure. Параметры сценария сопоставляются с настраиваемыми свойствами [локального диспетчера конфигураций](https://docs.microsoft.com/powershell/dsc/metaconfig). Параметры скрипта см. в разделе [Скрипт конфигурации по умолчанию](extensions-dsc-template.md#default-configuration-script) статьи [Расширение Desired State Configuration (DSC) с использованием шаблонов Azure Resource Manager](extensions-dsc-template.md). Полный скрипт см. в [шаблоне быстрого запуска Azure на GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Использование расширения DSC в шаблонах Resource Manager
 

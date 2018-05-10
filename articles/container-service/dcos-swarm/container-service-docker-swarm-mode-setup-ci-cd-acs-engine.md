@@ -1,19 +1,19 @@
 ---
-title: "Непрерывная интеграция и непрерывное развертывание с использованием обработчика службы контейнеров Azure и Swarm Mode"
-description: "Используйте обработчик Службы контейнеров Azure с Docker Swarm Mode, реестром контейнеров Azure и Visual Studio Team Services для непрерывной доставки многоконтейнерного приложения .NET Core."
+title: Непрерывная интеграция и непрерывное развертывание с использованием обработчика службы контейнеров Azure и Swarm Mode
+description: Используйте обработчик Службы контейнеров Azure с Docker Swarm Mode, реестром контейнеров Azure и Visual Studio Team Services для непрерывной доставки многоконтейнерного приложения .NET Core.
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Полный конвейер непрерывной интеграции и развертывания многоконтейнерного приложения в Службе контейнеров Azure с обработчиком ACS и Docker Swarm Mode при помощи Visual Studio Team Services
 

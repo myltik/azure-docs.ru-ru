@@ -1,11 +1,11 @@
 ---
-title: "Оптимизация среды Active Directory с помощью Azure Log Analytics | Документация Майкрософт"
-description: "Решение проверки работоспособности Active Directory можно использовать для регулярной оценки риска и состояния среды."
+title: Оптимизация среды Active Directory с помощью Azure Log Analytics | Документация Майкрософт
+description: Решение проверки работоспособности Active Directory можно использовать для регулярной оценки риска и состояния среды.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 016b5bafdf6543ad43e36a875e6aa68572b35f97
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения проверки работоспособности Active Directory в Log Analytics
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/13/2018
 
 1. Установка [агента Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md), если контроллер домена уже не отслеживается с помощью решения System Center 2016 Operations Manager или Operations Manager 2012 R2.
 2. Если сервер отслеживается решением System Center 2016 Operations Manager или Operations Manager 2012 R2, и группа управления не интегрирована со службой Log Analytics, контроллер домена может использоваться как многосетевой. С помощью Log Analytics данные будут собираться и пересылаться в службу, а контроллер домена по-прежнему будет отслеживаться решением Operations Manager.  
-3. Если группа управления Operations Manager интегрирована со службой, после включения решения в рабочей области добавьте контроллеры домена для сбора данных службой. Для этого выполните инструкции по [добавлению компьютеров под управлением агентов](log-analytics-om-agents.md#connecting-operations-manager-to-oms).  
+3. Если группа управления Operations Manager интегрирована со службой, после включения решения в рабочей области добавьте контроллеры домена для сбора данных службой. Для этого выполните инструкции по [добавлению компьютеров под управлением агентов](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics).  
 
 Агент в контроллере домена, который отправляет отчеты в группу управления Operations Manager, собирает данные, перенаправляет их на назначенный сервер управления, а затем отправляет их с сервера управления непосредственно в службу Log Analytics.  Данные не записываются в базы данных Operations Manager.  
 

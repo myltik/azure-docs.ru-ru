@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 77729ad52f101f0d57fe24115525795c6b4f2db2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Руководство. Использование Azure Machine Learning Workbench для расширенной подготовки данных (система совместного использования велосипедов)
 Машинное обучение Azure (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/19/2018
 ## <a name="prerequisites"></a>предварительным требованиям
 
 * Локально установленное приложение Azure Machine Learning Workbench. Дополнительные сведения см. в [кратком руководстве по установке](../service/quickstart-installation.md).
-* Если у вас не установлен Azure CLI, следуйте инструкциям по [установке последней версии Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Если у вас не установлен Azure CLI, следуйте инструкциям по [установке последней версии Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Кластер HDInsight Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal), созданный в Azure.
 * Учетная запись хранения Azure.
 * Навыки создания проектов в Workbench.

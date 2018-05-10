@@ -1,22 +1,22 @@
 ---
-title: "Создание шлюза приложений с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с помощью Azure CLI."
+title: Создание шлюза приложений с помощью Azure CLI | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений с помощью Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Создание шлюза приложений с помощью Azure CLI
 
@@ -182,5 +182,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом кратком руководстве вы создали группу ресурсов, сетевые ресурсы и внутренние серверы. В дальнейшем вы можете использовать эти ресурсы для создания шлюза приложений. Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.
+В этом кратком руководстве вы создали группу ресурсов, сетевые ресурсы и внутренние серверы. Затем с помощью этих ресурсов вы создали шлюз приложения. Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.
 

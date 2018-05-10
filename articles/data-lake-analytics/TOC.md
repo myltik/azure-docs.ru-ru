@@ -13,12 +13,14 @@
 
 ## Управление службой Data Lake Analytics
 ### [портал Azure](data-lake-analytics-manage-use-portal.md)
-### [Интерфейс командной строки Azure](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [ПАКЕТ SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Пакет SDK для Python](data-lake-analytics-manage-use-python-sdk.md)
-### [Пакет SDK для Java](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Команда
+#### [Интерфейс командной строки Azure](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### Пакеты SDK
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Политики](data-lake-analytics-policies.md)
 ### [Доступ к журналам диагностики](data-lake-analytics-diagnostic-logs.md)
 ### [Настройка квот](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [Руководство по программированию](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Установка](data-lake-analytics-data-lake-tools-install.md)
 #### [Обзор и просмотр заданий](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Отладка пользовательского кода C#](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Устранение неполадок в повторяющихся заданиях](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

@@ -1,25 +1,25 @@
 ---
-title: "Пример политики Azure в формате JSON: аудит состояния прозрачного шифрования данных | Документация Майкрософт"
-description: "Этот пример политики в формате JSON проверяет, включено ли прозрачное шифрование данных для базы данных SQL."
+title: 'Пример политики Azure в формате JSON: аудит состояния прозрачного шифрования данных | Документация Майкрософт'
+description: Этот пример политики в формате JSON проверяет, включено ли прозрачное шифрование данных для базы данных SQL.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 6bce3b24a2486d1e0ea0666ca450e7570191dd46
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d8123d3a0bfdeac29b9e11d298a207e567588df4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-transparent-data-encryption-status"></a>Проверка состояния прозрачного шифрования данных
 

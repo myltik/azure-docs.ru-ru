@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Как реализовать фасетную навигацию в службе поиска Azure
 Фасетная навигация представляет собой механизм фильтрации, обеспечивающий самоуправляемую детализированную навигацию в приложениях поиска. Термин "фасетная навигация" может быть неизвестен вам, но вы, вероятно, использовали этот механизм ранее. Как показано в следующем примере, фасетная навигации — это не что иное, как категории, с помощью которых фильтруются результаты.
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/23/2018
 
 ### <a name="query-basics"></a>Основы запросов
 
-В службе поиска Azure запрос указывается с помощью одного или нескольких параметров запроса (описание каждого из них приведено в [статье, посвященной поиску документов](http://msdn.microsoft.com/library/azure/dn798927.aspx) ). Ни один из параметров запроса не является обязательным, но при этом необходимо указать по крайней мере один параметр запроса.
+В службе поиска Azure запрос указывается с помощью одного или нескольких параметров запроса (описание каждого из них приведено в [статье, посвященной поиску документов](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) ). Ни один из параметров запроса не является обязательным, но при этом необходимо указать по крайней мере один параметр запроса.
 
 Точность, которая рассматривается как возможность фильтровать ненужные совпадения, обеспечивается с помощью одного или обоих следующих выражений:
 
@@ -228,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Параметр запроса фасета задается для поля и (в зависимости от типа данных) может дополняться списком параметров, разделенных запятыми, таких как `count:<integer>`, `sort:<>`, `interval:<integer>` и `values:<list>`. Список значений, создаваемый при настройке диапазонов, поддерживает числовые данные. Дополнительные сведения об использовании см. в статье [Поиск документов (API REST службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Параметр запроса фасета задается для поля и (в зависимости от типа данных) может дополняться списком параметров, разделенных запятыми, таких как `count:<integer>`, `sort:<>`, `interval:<integer>` и `values:<list>`. Список значений, создаваемый при настройке диапазонов, поддерживает числовые данные. Дополнительные сведения об использовании см. в статье [Поиск документов (API REST службы поиска Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Создаваемый с помощью приложения запрос должен включать, помимо фасетов, также и соответствующие фильтры, которые позволяют сузить набор документов на основе выбранного значения фасета. Предположим, что вы ищете велосипед в специализированном магазине. С помощью фасетной навигации вы можете узнать об *имеющихся в наличии велосипедах по цвету, производителю и типу*. Используя фильтрацию, вы можете найти, к примеру, *горные велосипеды красного цвета в указанном ценовом диапазоне*. Если вы щелкнете Red, чтобы отобразить только велосипеды красного цвета, отправляемый приложением запрос будет включать фрагмент `$filter=Color eq ‘Red’`.
 
@@ -329,7 +329,7 @@ if (businessTitleFacet != "")
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Фильтрация по диапазону значений
-В приложениях поиска часто используется фасетная навигация на основе диапазонов значений. Поддерживаются диапазоны числовых данных, а также значений даты и времени. Каждый подход подробно описан в [статье, посвященной поиску документов с помощью интерфейса API службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+В приложениях поиска часто используется фасетная навигация на основе диапазонов значений. Поддерживаются диапазоны числовых данных, а также значений даты и времени. Каждый подход подробно описан в [статье, посвященной поиску документов с помощью интерфейса API службы поиска Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Служба поиска Azure упрощает создание диапазонов, обеспечивая два способа их вычисления. В обоих способах служба поиска Azure создает соответствующие диапазоны с учетом данных, которые вы ввели. Например, если указать диапазон значений 10|20|30, будут автоматически созданы диапазоны 0–10, 10–20, 20–30–10, 10–20 и 20–30. Приложение может при необходимости удалить все пустые интервалы. 
 
@@ -362,7 +362,7 @@ if (businessTitleFacet != "")
 * Функция **geo.distance** возвращает расстояние в километрах между двумя точками. Одна точка представляет собой поле, а другая — константу, переданную как часть фильтра. 
 * Функция **geo.distance** возвращает значение true, если заданная точка находится в пределах указанного многоугольника. Точка представляет собой поле, а многоугольник указывается в качестве списка констант координат, переданных как часть фильтра.
 
-Примеры фильтров приведены в статье [Синтаксис выражений OData для поиска Azure](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Примеры фильтров приведены в статье [Синтаксис выражений OData для поиска Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -431,9 +431,9 @@ if (businessTitleFacet != "")
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

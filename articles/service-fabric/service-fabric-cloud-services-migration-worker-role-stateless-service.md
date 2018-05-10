@@ -1,11 +1,11 @@
 ---
-title: "Преобразование приложений облачных служб Azure в микрослужбы | Документация Майкрософт"
-description: "В этом руководстве веб-роли и рабочие роли облачных служб сравниваются со службами без отслеживания состояния Service Fabric в плане переноса из облачных служб на платформу Service Fabric."
+title: Преобразование приложений облачных служб Azure в микрослужбы | Документация Майкрософт
+description: В этом руководстве веб-роли и рабочие роли облачных служб сравниваются со службами без отслеживания состояния Service Fabric в плане переноса из облачных служб на платформу Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Руководство по преобразованию рабочих ролей и веб-ролей в службы без отслеживания состояния Service Fabric
 В этой статье описано, как переносить рабочие роли и веб-роли облачных служб в службы без отслеживания состояния Service Fabric. Это самый простой способ переноса из облачных служб в службы Service Fabric при работе с приложениями, общая архитектура которых почти не изменяется.
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Задачи при запуске
 Задачи при запуске — это действия, выполняемые перед запуском приложения. Обычно такая задача запускает скрипты настройки, используя повышенные права. Эти задачи поддерживаются и облачными службами, и платформой Service Fabric. Основное различие состоит в том, что в облачных службах задача при запуске связана с виртуальной машиной, которая является частью экземпляра роли, тогда как в платформе Service Fabric задача при запуске связана со службой, которая не связана с какой-либо виртуальной машиной.
 
-| Облачные службы | Service Fabric |
+| Service Fabric | Облачные службы |
 | --- | --- | --- |
 | Расположение конфигурации |ServiceDefinition.csdef |
 | Привилегии |Ограниченные или повышенные |

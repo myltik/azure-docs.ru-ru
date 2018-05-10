@@ -179,6 +179,8 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Развертывание шаблона Azure Resource Manager в runbook PowerShell службы автоматизации Azure
           href: automation-deploy-template-runbook.md
+        - name: Интеграция службы автоматизации Azure со службой "Сетка событий Azure" и Microsoft Teams
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
     - name: Мониторинг
       items:
         - name: Пересылка данных задания службы автоматизации Azure в Log Analytics

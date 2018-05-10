@@ -1,6 +1,6 @@
 ---
-title: "Как подключить хранилище BLOB-объектов Azure в качестве файловой системы в Linux | Документация Майкрософт"
-description: "Подключение контейнера хранилища BLOB-объектов Azure с FUSE в Linux"
+title: Как подключить хранилище BLOB-объектов Azure в качестве файловой системы в Linux | Документация Майкрософт
+description: Подключение контейнера хранилища BLOB-объектов Azure с FUSE в Linux
 services: storage
 documentationcenter: linux
 author: seguler
@@ -10,11 +10,11 @@ ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Как подключить хранилище BLOB-объектов в качестве файловой системы с использованием blobfuse (предварительная версия)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 В этом руководстве показано, как использовать blobfuse, подключить контейнер хранилища BLOB-объектов в Linux, а также получить доступ к данным. Дополнительные сведения о blobfuse см. в [репозитории blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> blobfuse не гарантирует полную совместимость с POSIX, он просто преобразовывает запросы в [REST API больших двоичных объектов](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). Например, операции переименования в POSIX являются атомарными, а в blobfuse — нет.
+> blobfuse не гарантирует полную совместимость с POSIX, он просто преобразовывает запросы в [REST API больших двоичных объектов](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Например, операции переименования в POSIX являются атомарными, а в blobfuse — нет.
 > Полный список различий между собственной файловой системой и blobfuse см. в [репозитории исходного кода blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 

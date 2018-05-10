@@ -8,11 +8,11 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: a247f5afbca491dc9c31c74453860961188411c9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a7a08c54fe0c59e1e100e1c46e7a640da0692077
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Обеспечение принудительной многофакторной идентификации (MFA) для администраторов подписок
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/23/2018
 
 Например, настройте принудительное использование Azure MFA для пользователей и телефонный звонок или текстовое сообщение в качестве способа проверки. Таким образом, злоумышленник не сможет выполнить компрометацию учетных данных, так как у него не будет доступа к телефону пользователя. Организации, не использующие дополнительные уровни защиты идентификации, более уязвимы к атакам путем кражи учетных данных, что может привести к компрометации данных.
 
-Для тех организаций, которые предпочитают управлять всей системой аутентификации локально, мы можем предложить [сервер Многофакторной идентификации Azure](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-server) (локальный сервер MFA). Этот метод позволит вам применить Многофакторную идентификацию, используя при этом локальный сервер MFA.
+Для тех организаций, которые предпочитают управлять всей системой аутентификации локально, мы можем предложить [сервер Многофакторной идентификации Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server) (локальный сервер MFA). Этот метод позволит вам применить Многофакторную идентификацию, используя при этом локальный сервер MFA.
 
 Для проверки того, у кого в вашей организации есть права администратора, используйте следующую команду PowerShell Microsoft Azure AD версии 2:
 
@@ -33,7 +33,7 @@ Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } 
 
 ## <a name="enabling-mfa"></a>Включение MFA
 
-Прежде чем продолжить, просмотрите как работает [MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-whats-next).
+Прежде чем продолжить, просмотрите как работает [MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next).
 
 При наличии у пользователей лицензий, которые предусматривают использование многофакторной проверки подлинности в Azure, вам не нужно включать Azure MFA. Для отдельных пользователей можно включить двухфакторную проверку подлинности. Лицензии, которые предусматривают использование Azure MFA:
 
@@ -43,5 +43,5 @@ Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Включение двухфакторной проверки подлинности для пользователей
 
-Используйте одну из процедур, перечисленных в статье [Состояние пользователей в службе "Многофакторная идентификация Microsoft Azure"](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states), для начала работы с Azure MFA. Вы можете применять двухфакторную проверку подлинности для всех входов или создать политики условного доступа, чтобы требовать ее только там, где нужно.
+Используйте одну из процедур, перечисленных в статье [Состояние пользователей в службе "Многофакторная идентификация Microsoft Azure"](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states), для начала работы с Azure MFA. Вы можете применять двухфакторную проверку подлинности для всех входов или создать политики условного доступа, чтобы требовать ее только там, где нужно.
 

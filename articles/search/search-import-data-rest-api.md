@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Отправка данных в службу поиска Azure с помощью REST API
 > [!div class="op_single_selector"]
@@ -60,9 +60,9 @@ ms.lasthandoff: 04/23/2018
 Теперь, когда вы выбрали нужные значения полей для операций индекса, можно приступать к созданию HTTP-запроса и текста запроса JSON для импорта данных.
 
 #### <a name="request-and-request-headers"></a>Запрос и заголовки запроса
-В URL-адресе необходимо указать имя службы, имя индекса (в нашем случае это hotels), а также правильную версию API (текущая версия API на момент публикации этого документа — `2016-09-01` ). Необходимо также определить заголовки запросов `Content-Type` и `api-key`. Для заголовка последнего запроса используйте один из ключей администратора службы.
+В URL-адресе необходимо указать имя службы, имя индекса (в нашем случае это hotels), а также правильную версию API (текущая версия API на момент публикации этого документа — `2017-11-11` ). Необходимо также определить заголовки запросов `Content-Type` и `api-key`. Для заголовка последнего запроса используйте один из ключей администратора службы.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

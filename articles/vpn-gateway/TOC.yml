@@ -1,17 +1,17 @@
 - name: Документация по VPN-шлюзам
-  href: index.md
+  href: index.yml
 - name: Обзор
   items:
     - name: Основные сведения о VPN-шлюзах Azure
       href: vpn-gateway-about-vpngateways.md
-- name: Примеры
-  items:
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Учебники
   items:
     - name: Создание и администрирование VPN-шлюза
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+- name: Примеры
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Основные понятия
   items:
     - name: Планирование и проектирование VPN-шлюза

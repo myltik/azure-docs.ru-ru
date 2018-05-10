@@ -1,11 +1,11 @@
 ---
-title: "Подключение службы \"Защита идентификации Azure Active Directory\" к центру безопасности Azure | Документация Майкрософт"
-description: "Сведения об интеграции центра безопасности Azure со службой \"Защита идентификации Azure Active Directory\"."
+title: Подключение службы "Защита идентификации Azure Active Directory" к центру безопасности Azure | Документация Майкрософт
+description: Сведения об интеграции центра безопасности Azure со службой "Защита идентификации Azure Active Directory".
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7562dd5e1c303a6cb97d25bda5aa080bb5643583
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: b15508acea92c165cba85e39ab907fa524088164
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Подключение службы "Защита идентификации Azure Active Directory" к центру безопасности Azure
 В этом документе объясняется, как настроить интеграцию между службой "Защита идентификации Azure Active Directory" (AD) и центром безопасности Azure.

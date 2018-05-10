@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 554618b055ce5afcc67f95afa0242d36e74fabc0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Создание шлюза приложений с правилами маршрутизации на основе URL-пути при помощи портала Azure | Документация Майкрософт
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 03/28/2018
 2. Чтобы установить службы IIS, выполните на виртуальной машине следующие команды: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -140,8 +140,8 @@ ms.lasthandoff: 03/28/2018
 
 1. Щелкните **Правила** и выберите **На основе пути**.
 2. Введите имя *rule2*.
-3. Введите *Images* в качестве имени первого пути. Введите для пути значение */images/*\*. Выберите для серверного пула значение **imagesBackendPool**.
-4. Введите *Video* в качестве имени второго пути. Введите для пути значение */video/*\*. Выберите для серверного пула значение **videoBackendPool**.
+3. Введите *Images* в качестве имени первого пути. Введите для пути значение */images/**. Выберите для серверного пула значение **imagesBackendPool**.
+4. Введите *Video* в качестве имени второго пути. Введите для пути значение */video/**. Выберите для серверного пула значение **videoBackendPool**.
 
     ![Создание правила на основе пути](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

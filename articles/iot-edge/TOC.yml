@@ -92,13 +92,13 @@
       items:
         - name: Центр Интернета вещей
           href: /azure/iot-hub
-        - name: Служба подготовки устройств для Центра Интернета вещей
+        - name: Служба подготовки устройств к добавлению в Центр Интернета вещей
           href: /azure/iot-dps
-        - name: Location Based Services
-          href: /azure/location-based-services
+        - name: Карты
+          href: /azure/azure-maps
         - name: Пакеты SDK службы
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
+        - name: Аналитика временных рядов Azure
           href: /azure/time-series-insights
     - name: Edge
       items:

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: настройка пользовательского интерфейса Azure AD B2C
 
@@ -332,7 +332,17 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="localizing-your-html-content"></a>Локализация содержимого HTML
 
-Вы можете локализовать содержимое HTML, включив [настройку языка](active-directory-b2c-reference-language-customization.md).  Таким образом, Azure AD B2C сможет переадресовать параметр подключения Open ID Connect, `ui-locales` на конечную точку.  Сервер содержимого может использовать этот параметр для предоставления настроенных страниц HTML на конкретном языке.
+Локализация HTML-содержимого выполняется двумя способами. Одним из способов является включение [настройка языка](active-directory-b2c-reference-language-customization.md). Таким образом, Azure AD B2C сможет переадресовать параметр подключения Open ID Connect, `ui-locales` на конечную точку.  Сервер содержимого может использовать этот параметр для предоставления настроенных страниц HTML на конкретном языке.
+
+Кроме того, можно извлечь содержимое из разных расположений, в зависимости от используемого языкового стандарта. В конечной точке с поддержкой CORS можно настроить структуру папок для размещения содержимого для определенных языков. При использовании шаблона подстановки `{Culture:RFC5646}` запрос будет правильным.  Например, предположим, что это URI вашей настраиваемой страницы.
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+Страницу можно загрузить на `fr`. Когда страница подгружает содержимое HTML и CSS, она запрашивает его из:
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Рекомендации по созданию собственного содержимого
 

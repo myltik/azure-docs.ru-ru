@@ -1,3 +1,20 @@
+---
+title: включение файла
+description: включение файла
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>Просмотр данных о затратах
 
 Служба управления затратами Azure от Cloudyn предоставляет доступ ко всем данным ресурсов в облаке. Среди отчетов на панели мониторинга вы можете увидеть стандартные и настраиваемые отчеты в представлении с вкладками. Ниже приведены примеры распространенных представлений панелей мониторинга и отчетов с актуальными данными о затратах.

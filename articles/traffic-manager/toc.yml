@@ -8,12 +8,6 @@
   items:
     - name: Создание профиля диспетчера трафика
       href: traffic-manager-create-profile.md
-- name: Примеры
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Учебники
   items:
     - name: 'Перенаправление трафика, исходя из географического расположения конечной точки'
@@ -24,6 +18,12 @@
       href: traffic-manager-configure-weighted-routing-method.md
     - name: Перенаправление трафика к приоритетной конечной точке
       href: traffic-manager-configure-priority-routing-method.md
+- name: Примеры
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Основные понятия
   items:
     - name: Методы маршрутизации
@@ -91,7 +91,7 @@
   items:
     - name: Шлюз приложений
       href: /azure/application-gateway/
-    - name: Подсистема балансировки нагрузки
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: Azure DNS
       href: /azure/dns/

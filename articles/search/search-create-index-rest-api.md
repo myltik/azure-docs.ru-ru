@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: e871fa8cd2228067b3a1511b74ff7a425d1dc9fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 86260e1929e8bd5c31682ef7f59cacae19a66020
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Создание индекса службы поиска Azure с помощью REST API
 > [!div class="op_single_selector"]
@@ -83,12 +83,12 @@ ms.lasthandoff: 04/23/2018
 В приведенном выше определении индекса используется языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения об анализаторах языка см. в статье [Language support (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Language-support) (Поддержка языков (REST API службы поиска Azure)), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
 ## <a name="issue-the-http-request"></a>Отправка HTTP-запроса
-1. Используя определение индекса в качестве текста запроса, отправьте HTTP-запрос POST в конечную точку службы поиска Azure по URL-адресу. В URL-адресе в качестве имени узла следует использовать имя службы. Также важно правильно указать `api-version` как параметр строки запроса (текущая версия API на момент публикации этого документа — `2016-09-01`).
+1. Используя определение индекса в качестве текста запроса, отправьте HTTP-запрос POST в конечную точку службы поиска Azure по URL-адресу. В URL-адресе в качестве имени узла следует использовать имя службы. Также важно правильно указать `api-version` как параметр строки запроса (текущая версия API на момент публикации этого документа — `2017-11-11`).
 2. В заголовках запроса укажите `Content-Type` в качестве `application/json`. Необходимо также указать ключ администратора службы, который мы определили в заголовке `api-key` (см. шаг 1).
 
 Вы должны указать собственные имя службы и ключ API, чтобы выполнить приведенный ниже запрос.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [api-key]
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 04/23/2018
 
 Если вы завершили работу с индексом и хотите удалить его, просто отправьте HTTP-запрос DELETE. Например, индекс hotels удаляется так:
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
     api-key: [api-key]
 
 

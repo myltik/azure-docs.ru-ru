@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Руководство. Включение в веб-приложении аутентификации на основе учетных записей с помощью Azure Active Directory B2C
 
@@ -142,7 +142,7 @@ Azure AD B2C использует авторизацию OAuth2 для [клие
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Пример веб-приложения ASP.NET представляет собой простое приложение для создания и обновления списка задач. Приложение использует [компоненты ПО промежуточного слоя Microsoft OWIN](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/), которые позволяют пользователям регистрироваться для использования приложения в клиенте Azure AD B2C. Создав политику Azure AD B2C, пользователи могут использовать учетную запись социальной сети или создать учетную запись для использования в качестве идентификатора для доступа к приложению. 
+Пример веб-приложения ASP.NET представляет собой простое приложение для создания и обновления списка задач. Приложение использует [компоненты ПО промежуточного слоя Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/), которые позволяют пользователям регистрироваться для использования приложения в клиенте Azure AD B2C. Создав политику Azure AD B2C, пользователи могут использовать учетную запись социальной сети или создать учетную запись для использования в качестве идентификатора для доступа к приложению. 
 
 Пример решения состоит из двух проектов.
 

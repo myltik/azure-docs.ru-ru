@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Репликация службы хранилища Azure
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/03/2018
 > Хранилище класса Premium поддерживает только локально избыточное хранилище (LRS). Сведения о хранилище класса "Премиум" см. в статье [Хранилище класса "Премиум": высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Изменение стратегии репликации
-Изменять стратегию репликации учетной записи хранения можно с помощью [портала Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) или одной из [клиентских библиотек Azure](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). При изменении типа репликации для учетной записи хранения простоя не будет.
+Изменять стратегию репликации учетной записи хранения можно с помощью [портала Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) или одной из [клиентских библиотек Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). При изменении типа репликации для учетной записи хранения простоя не будет.
 
    > [!NOTE]
    > В настоящее время нельзя использовать портал или API для преобразования учетной записи в ZRS. Тем не менее, мы планируем поддерживать переход на ZRS с LRS, GRS и RA-GRS после выпуска общедоступной версии хранилища ZRS. Дополнительные сведения см. в статье [Хранилище, избыточное в пределах зоны. Высокодоступные приложения для хранилища Azure](storage-redundancy-zrs.md).

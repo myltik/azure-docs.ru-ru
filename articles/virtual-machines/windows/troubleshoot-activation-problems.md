@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок при активации виртуальных машин Windows в Azure | Документация Майкрософт"
-description: "Приводятся действия по устранению неполадок, возникающих при активации виртуальных машин Windows в Azure."
+title: Устранение неполадок при активации виртуальных машин Windows в Azure | Документация Майкрософт
+description: Приводятся действия по устранению неполадок, возникающих при активации виртуальных машин Windows в Azure.
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Устранение неполадок при активации виртуальных машин Windows в Azure
 
@@ -78,7 +78,7 @@ Azure использует различные конечные точки для
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Шаг 2. Проверка сетевого подключения между виртуальной машиной и службой Azure KMS
 
-1. Скачайте инструмент [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) и извлеките его в локальную папку на виртуальной машине, которую не удается активировать. 
+1. Скачайте инструмент [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) и извлеките его в локальную папку на виртуальной машине, которую не удается активировать. 
 
 2. Перейдите в меню "Пуск", найдите и щелкните правой кнопкой мыши Windows PowerShell, а затем выберите "Запуск от имени администратора".
 
@@ -126,7 +126,7 @@ Azure использует различные конечные точки для
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Что произойдет, если истечет период активации Windows? 
  
-Если льготный период истек, а ОС Windows еще не активирована, то в Windows Server 2008 R2 и более поздних версиях Windows отобразятся дополнительные уведомления об активации. Фоновый рисунок рабочего стола будет оставаться черным, а Центр обновления Windows будет устанавливать только обновления системы безопасности и критические обновления без возможности установить необязательные обновления. Ознакомьтесь с разделом "Notifications" (Уведомления) в нижней части страницы [Licensing Conditions](http://technet.microsoft.com/en-us/library/ff793403.aspx) (Условия лицензирования).   
+Если льготный период истек, а ОС Windows еще не активирована, то в Windows Server 2008 R2 и более поздних версиях Windows отобразятся дополнительные уведомления об активации. Фоновый рисунок рабочего стола будет оставаться черным, а Центр обновления Windows будет устанавливать только обновления системы безопасности и критические обновления без возможности установить необязательные обновления. Ознакомьтесь с разделом "Notifications" (Уведомления) в нижней части страницы [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) (Условия лицензирования).   
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.

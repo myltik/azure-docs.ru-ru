@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Часто задаваемые вопросы об Azure DevTest Labs
 В этой статье содержатся ответы на некоторые самые распространенные вопросы об Azure DevTest Labs.
@@ -128,9 +128,9 @@ DevTest Labs предусматривает два типа ролей для п
 Чтобы использовать образы клиентской ОС Windows (Windows 7 или более поздней версии) для разработки или тестирования в Azure, сделайте следующее:
 
 - [Приобретите подписку MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
-- Если вы заключили соглашение Enterprise, создайте подписку Azure с [предложением Enterprise — разработка и тестирование](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- Если вы заключили соглашение Enterprise, создайте подписку Azure с [предложением Enterprise — разработка и тестирование](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Дополнительные сведения о деньгах на счете в Azure по каждому предложению MSDN см. в статье [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+Дополнительные сведения о деньгах на счете в Azure по каждому предложению MSDN см. в статье [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Как автоматизировать процесс передачи VHD-файлов для создания пользовательских образов?
 Существует два варианта, чтобы автоматизировать процесс передачи VHD-файлов для создания пользовательских образов:

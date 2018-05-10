@@ -1,6 +1,6 @@
 ---
-title: "Создание доступной в Интернете внутренней подсистемы балансировки нагрузки для облачных служб Azure | Документация Майкрософт"
-description: "Сведения о создании балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб"
+title: Создание доступной в Интернете внутренней подсистемы балансировки нагрузки для облачных служб Azure | Документация Майкрософт
+description: Сведения о создании балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: b389d9a01db394b79d07ff9c3d6d1cd94e811472
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6e4c54350d1b76b536648f7eca274e5ee3271417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Приступая к работе по созданию балансировщика нагрузки для Интернета для облачных служб
 
@@ -43,22 +43,22 @@ ms.lasthandoff: 12/18/2017
 Во фрагменте CSDEF-файла, созданного путем облачного развертывания, можно увидеть внешнюю конечную точку, настроенную для использования портов HTTP через порты 10000, 10001 и 10002.
 
 ```xml
-<ServiceDefinition name=“Tenant“>
-    <WorkerRole name=“FERole” vmsize=“Small“>
-<Endpoints>
-    <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
-    <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
-    <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
+<ServiceDefinition name="Tenant">
+    <WorkerRole name="FERole" vmsize="Small">
+        <Endpoints>
+            <InputEndpoint name="FE_External_Http" protocol="http" port="10000" />
+            <InputEndpoint name="FE_External_Tcp"  protocol="tcp"  port="10001" />
+            <InputEndpoint name="FE_External_Udp"  protocol="udp"  port="10002" />
 
-    <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
+            <InputEndpoint name="HTTP_Probe" protocol="http" port="80" loadBalancerProbe="MyProbe" />
 
-    <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
-        <AllocatePublicPortFrom>
-            <FixedPortRange min=“10110” max=“10120“  />
-        </AllocatePublicPortFrom>
-    </InstanceInputEndpoint>
-    <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
-</Endpoints>
+            <InstanceInputEndpoint name="InstanceEP" protocol="tcp" localPort="80">
+                <AllocatePublicPortFrom>
+                    <FixedPortRange min="10110" max="10120"  />
+                </AllocatePublicPortFrom>
+            </InstanceInputEndpoint>
+            <InternalEndpoint name="FE_InternalEP_Tcp" protocol="tcp" />
+        </Endpoints>
     </WorkerRole>
 </ServiceDefinition>
 ```
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/18/2017
 
 ```xml
 <LoadBalancerProbes>
-    <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
+    <LoadBalancerProbe name="MyProbe" protocol="http" path="Probe.aspx" intervalInSeconds="5" timeoutInSeconds="100" />
 </LoadBalancerProbes>
 ```
 

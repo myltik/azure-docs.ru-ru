@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 5eb562901d73974765878024b1107e3b75e9abb5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6303fdce65e460489c9f66e388c28383b9942627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Перемещение локальных приложений AD FS в Azure 
 
@@ -230,7 +230,7 @@ ms.lasthandoff: 03/17/2018
 ![Выбор Azure AD в качестве службы проверки подлинности](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Необязательно. Настройка подготовки пользователей в Azure AD
-Если вы хотите, чтобы в Azure AD напрямую выполнялась обработка подготовки пользователей для приложения SaaS, ознакомьтесь со статьей [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning).
+Если вы хотите, чтобы в Azure AD напрямую выполнялась обработка подготовки пользователей для приложения SaaS, ознакомьтесь со статьей [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
 ## <a name="next-steps"></a>Дополнительная информация
 

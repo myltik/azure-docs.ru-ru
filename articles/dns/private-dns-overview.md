@@ -4,7 +4,7 @@ description: Обзор службы размещения частных DNS в 
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Использование Azure DNS для частных доменов
 Служба доменных имен, или DNS, отвечает за преобразование (или разрешение) имени службы в IP-адрес. Azure DNS является службой размещения для доменов DNS, выполняющей разрешение имен на базе инфраструктуры Microsoft Azure.  Помимо DNS для доменов, доступных в Интернете, теперь Azure DNS в режиме предварительного просмотра поддерживает DNS для частных доменов.  

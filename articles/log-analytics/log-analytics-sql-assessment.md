@@ -1,11 +1,11 @@
 ---
-title: "Оптимизация среды SQL Server с помощью Azure Log Analytics | Документация Майкрософт"
-description: "Решение проверки работоспособности SQL в Azure Log Analytics можно использовать для регулярной оценки риска и состояния среды."
+title: Оптимизация среды SQL Server с помощью Azure Log Analytics | Документация Майкрософт
+description: Решение проверки работоспособности SQL в Azure Log Analytics можно использовать для регулярной оценки риска и состояния среды.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Оптимизация среды SQL Server с помощью решения проверки работоспособности SQL Server в Log Analytics
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/13/2018
 
 1. Установка [агента Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md), если сервер уже не отслеживается с помощью решения System Center 2016 Operations Manager или Operations Manager 2012 R2.
 2. Если сервер отслеживается решением System Center 2016 Operations Manager или Operations Manager 2012 R2 и группа управления не интегрирована со службой Log Analytics, сервер может использоваться как многосетевой. С помощью Log Analytics данные будут собираться и пересылаться в службу, а сервер по-прежнему будет отслеживаться решением Operations Manager.  
-3. Если группа управления Operations Manager интегрирована со службой, после включения решения в рабочей области добавьте контроллеры домена для сбора данных службой. Для этого выполните инструкции по [добавлению компьютеров под управлением агентов](log-analytics-om-agents.md#connecting-operations-manager-to-oms).  
+3. Если группа управления Operations Manager интегрирована со службой, после включения решения в рабочей области добавьте контроллеры домена для сбора данных службой. Для этого выполните инструкции по [добавлению компьютеров под управлением агентов](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics).  
 
 Агент на сервере SQL Server, который отправляет отчеты в группу управления Operations Manager, собирает данные, перенаправляет их на назначенный сервер управления, а затем отправляет их с сервера управления непосредственно в службу Log Analytics.  Данные не записываются в базы данных Operations Manager.  
 

@@ -1,24 +1,24 @@
 ---
-title: "Создание шлюза приложений с несколькими сайтами с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений, на котором размещено несколько сайтов, с помощью портала Azure."
+title: Создание шлюза приложений с несколькими сайтами с помощью портала Azure | Документация Майкрософт
+description: Узнайте, как создать шлюз приложений, на котором размещено несколько сайтов, с помощью портала Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Создание шлюза приложений с несколькими сайтами с помощью портала Azure
 
-Чтобы настроить [размещение нескольких веб-сайтов](application-gateway-multi-site-overview.md) при создании [шлюза приложений](application-gateway-introduction.md), можно использовать портал Azure. В этом руководстве мы создадим внутренние пулы с использованием масштабируемых наборов виртуальных машин. Затем вы настроите прослушиватели и правила на основе собственных доменов, чтобы обеспечить передачу веб-трафика на соответствующие серверы в пуле. В этом руководстве предполагается, что вы владеете несколькими доменами, и для примера используются *www.contoso.com* и *www.fabrikam.com*.
+Чтобы настроить [размещение нескольких веб-сайтов](application-gateway-multi-site-overview.md) при создании [шлюза приложений](application-gateway-introduction.md), можно использовать портал Azure. В этом руководстве мы создадим внутренние пулы с использованием масштабируемых наборов виртуальных машин. Затем вы настроите прослушиватели и правила на основе принадлежащих вам доменов, чтобы обеспечить передачу веб-трафика на соответствующие серверы в пулах. В этом руководстве предполагается, что вам принадлежат несколько доменов. Для примера здесь используются домены *www.contoso.com* и *www.fabrikam.com*.
 
 В этой статье раскрываются следующие темы:
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 02/09/2018
 > * Создание шлюза приложений
 > * создание виртуальных машин для внутренних серверов;
 > * создание серверных пулов с внутренними серверами;
-> * Создание прослушивателей и правил маршрутизации
-> * Создание записи CNAME в домене.
+> * создание прослушивателей и правил маршрутизации;
+> * создание записи CNAME в домене.
 
 ![Пример маршрутизации нескольких сайтов](./media/application-gateway-create-multisite-portal/scenario.png)
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
-Войдите на портал Azure по адресу [http://portal.azure.com](http://portal.azure.com).
+Войдите на портал Azure по адресу [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Создание шлюза приложений
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 02/09/2018
 2. Чтобы установить службы IIS, выполните на виртуальной машине следующие команды: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -156,7 +156,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Создание записи CNAME в домене
 
-После создания шлюза приложений с общедоступным IP-адресом можно получить DNS-адрес и использовать его для создания записи CNAME в своем домене. Использование записей A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска шлюза приложений.
+После создания шлюза приложений с общедоступным IP-адресом можно получить DNS-адрес и использовать его для создания записи CNAME в своем домене. Использовать записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска шлюза приложений.
 
 1. Выберите **Все ресурсы** и щелкните **myAGPublicIPAddress**.
 
@@ -182,8 +182,8 @@ ms.lasthandoff: 02/09/2018
 > * Создание шлюза приложений
 > * создание виртуальных машин для внутренних серверов;
 > * создание серверных пулов с внутренними серверами;
-> * Создание прослушивателей и правил маршрутизации.
-> * Создание записи CNAME в домене.
+> * создание прослушивателей и правил маршрутизации;
+> * создание записи CNAME в домене.
 
 > [!div class="nextstepaction"]
 > [Дополнительные сведения о возможностях шлюза приложений](application-gateway-introduction.md)

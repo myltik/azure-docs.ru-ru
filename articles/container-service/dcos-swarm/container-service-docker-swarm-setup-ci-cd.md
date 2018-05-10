@@ -1,19 +1,19 @@
 ---
-title: "Непрерывная интеграция и непрерывное развертывание со использованием службы контейнеров Azure и Swarm"
-description: "Использование Службы контейнеров Azure с Docker Swarm, реестром контейнеров Azure и Visual Studio Team Services для непрерывной доставки многоконтейнерного приложения .NET Core"
+title: Непрерывная интеграция и непрерывное развертывание со использованием службы контейнеров Azure и Swarm
+description: Использование Службы контейнеров Azure с Docker Swarm, реестром контейнеров Azure и Visual Studio Team Services для непрерывной доставки многоконтейнерного приложения .NET Core
 services: container-service
 author: jcorioland
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 38877afb63e993eeaab723a6ea5f4c40d3c956a5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81a07fdfe1c862bc30fb9d567db9a393c0610990
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Полный конвейер средств непрерывной интеграции и доставки для развертывания многоконтейнерного приложения в Службе контейнеров Azure с Docker Swarm с использованием Visual Studio Team Services
 

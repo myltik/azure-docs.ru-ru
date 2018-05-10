@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок в работе развернутого устройства StorSimple | Документация Майкрософт"
-description: "Описание способов диагностики и устранения ошибок, возникающих в работе развернутого устройства StorSimple."
+title: Устранение неполадок в работе развернутого устройства StorSimple | Документация Майкрософт
+description: Описание способов диагностики и устранения ошибок, возникающих в работе развернутого устройства StorSimple.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
 ms.service: storsimple
 ms.devlang: NA
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cf037f7f1c1384b654a7144485d38f569eb7c167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Устранение неполадок в работающем устройстве StorSimple
 > [!NOTE]
@@ -65,5 +65,5 @@ ms.lasthandoff: 11/07/2017
 ## <a name="next-steps"></a>Дополнительная информация
 Если устранить проблему не удалось, [обратитесь в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md) . 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/%5Clibrary/Dn715782(v=WPS.630).aspx

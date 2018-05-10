@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Общие сведения об интеграции служебной шины Azure со службой "Сетка событий"
 
@@ -47,9 +47,9 @@ ms.lasthandoff: 04/19/2018
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Кроме того, служебная шина использует стандартные механизмы безопасности и [проверки подлинности](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) службы "Сетка событий".
+Кроме того, служебная шина использует стандартные механизмы безопасности и [проверки подлинности](https://docs.microsoft.com/azure/event-grid/security-authentication) службы "Сетка событий".
 
-Дополнительные сведения см. в статье [Схема событий службы "Сетка событий Azure"](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
+Дополнительные сведения см. в статье [Схема событий службы "Сетка событий Azure"](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Событие наличия активных сообщений
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="azure-cli-instructions"></a>Инструкции по работе в Azure CLI
 
-Для начала установите Azure CLI 2.0 или более поздней версии. [Скачайте установщик](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Нажмите клавиши **Windows+X** и откройте новую консоль PowerShell с разрешениями администратора. В качестве альтернативы можно использовать командную оболочку на портале Azure.
+Для начала установите Azure CLI 2.0 или более поздней версии. [Скачайте установщик](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Нажмите клавиши **Windows+X** и откройте новую консоль PowerShell с разрешениями администратора. В качестве альтернативы можно использовать командную оболочку на портале Azure.
 
 Выполните следующий код.
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Инструкции по работе в среде PowerShell
 
-Убедитесь в наличии Azure PowerShell. [Скачайте установщик](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Нажмите клавиши **Windows+X** и откройте новую консоль PowerShell с разрешениями администратора. В качестве альтернативы можно использовать командную оболочку на портале Azure.
+Убедитесь в наличии Azure PowerShell. [Скачайте установщик](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Нажмите клавиши **Windows+X** и откройте новую консоль PowerShell с разрешениями администратора. В качестве альтернативы можно использовать командную оболочку на портале Azure.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 ## <a name="next-steps"></a>Дополнительная информация
 
 * [Примеры](service-bus-to-event-grid-integration-example.md) использования служебной шины со службой "Сетка событий".
-* Дополнительные сведения о [службе "Сетка событий Azure"](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Дополнительные сведения о решении "Функции Azure" см. [здесь](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Дополнительные сведения о [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Дополнительные сведения о [служебной шине](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Дополнительные сведения о [службе "Сетка событий Azure"](https://docs.microsoft.com/azure/azure-functions/).
+* Дополнительные сведения о решении "Функции Azure" см. [здесь](https://docs.microsoft.com/azure/azure-functions/).
+* Дополнительные сведения о [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+* Дополнительные сведения о [служебной шине](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

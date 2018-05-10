@@ -3,8 +3,8 @@ title: Управление наборами записей и записями 
 description: Служба DNS Azure предоставляет возможность управлять наборами записей и записями DNS при размещении домена.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Управление записями и наборами записей DNS с помощью портала Azure
 
 > [!div class="op_single_selector"]
-> * [портале Azure](dns-operations-recordsets-portal.md)
+> * [портал Azure](dns-operations-recordsets-portal.md)
 > * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="modify-soa-records"></a>Изменение записей типа SOA
 
-Вы не можете добавлять или удалять записи в автоматически созданном наборе записей типа SOA на вершине зоны \(имя \= \"\@\"\). Однако вы можете изменить любые параметры в записи типа SOA (за исключением параметра "Узел") и TTL набора записей.
+Вы не можете добавлять или удалять записи в автоматически созданном наборе записей типа SOA на вершине зоны (имя = "@"). Однако вы можете изменить любые параметры в записи типа SOA (за исключением параметра "Узел") и TTL набора записей.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Изменение записей NS типа в вершине зоны
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Удаление наборов записей типа SOA или NS
 
-Вы не можете удалять наборы записей типа SOA и NS на вершине зоны \(имя \= \"\@\"\), которые создаются автоматически вместе с зоной. Они удаляются автоматически при удалении зоны.
+Вы не можете удалять наборы записей типа SOA и NS на вершине зоны (имя = "@"), которые создаются автоматически вместе с зоной. Они удаляются автоматически при удалении зоны.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -18,7 +18,7 @@
 ## Автоматизация
 ### [Обзор службы автоматизации Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
-## Архивация
+## Azure Backup
 ### [Обзор службы архивации](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Обзор Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -32,8 +32,8 @@
 ### [Оценка базовых показателей в Интернете](oms-security-web-baseline-assessment.md)
 
 ## Использование решений
-### [Решения для управления](operations-management-suite-solutions.md)
-### [Целевые решения](operations-management-suite-solution-targeting.md)
+### [Решения для управления](../monitoring/monitoring-solutions.md)
+### [Целевые решения](../monitoring/monitoring-solution-targeting.md)
 ### Информация и аналитика
 #### [Оценка AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Состояние репликации AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Анализ Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Схема услуги
-##### [Пошаговое руководство](operations-management-suite-walkthrough-servicemap.md)
-##### [Использование](operations-management-suite-service-map.md)
-##### [Настройка](operations-management-suite-service-map-configure.md)
-##### [Интеграция с Operations Manager](operations-management-suite-service-map-scom.md)
+##### [Пошаговое руководство](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [Использование](../monitoring/monitoring-service-map.md)
+##### [Настройка](../monitoring/monitoring-service-map-configure.md)
+##### [Интеграция с Operations Manager](../monitoring/monitoring-service-map-scom.md)
 #### [Оценка SQL](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [Оценка защиты от вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Создание решений
-### [Проектирование и сборка](operations-management-suite-solutions-creating.md)
-### [Файл решения](operations-management-suite-solutions-solution-file.md)
-### [Ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md)
-### [Поиск по журналам и оповещения](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Представления](operations-management-suite-solutions-resources-views.md)
-### [Рекомендации по использованию хранилища данных SQL Azure](operations-management-suite-solutions-best-practices.md)
+### [Проектирование и сборка](../monitoring/monitoring-solutions-creating.md)
+### [Файл решения](../monitoring/monitoring-solutions-solution-file.md)
+### [Ресурсы службы автоматизации](../monitoring/monitoring-solutions-resources-automation.md)
+### [Поиск по журналам и оповещения](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [Представления](../monitoring/monitoring-solutions-resources-views.md)
+### [Рекомендации по использованию хранилища данных SQL Azure](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Сценарии управления
 ### [Сбор аналитических данных из модуля runbook](operations-management-suite-runbook-datacollect.md)

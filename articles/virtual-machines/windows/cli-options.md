@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: cynthn
-ms.openlocfilehash: ece7806dd757ee5169a25ac83590aa4a740d6dcc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1d611617b72a1fd5134b83bd3a2de59ba668b11
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Использование Azure CLI в Windows
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/18/2018
 
 |Задача | Указания |
 |---|---|
-| Включение подсистемы Windows для Linux | [Документация по установке подсистемы Windows для Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| Включение подсистемы Windows для Linux | [Документация по установке подсистемы Windows для Linux](https://msdn.microsoft.com/commandline/wsl/install_guide) |
 | Установка Azure CLI |[Install the CLI on WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu) (Установка интерфейса командной строки в подсистеме Windows для Linux или в Ubuntu 14.04)|
 
 ## <a name="powershell"></a>PowerShell

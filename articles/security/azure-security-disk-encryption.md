@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux
 Microsoft Azure обеспечивает конфиденциальность и независимость ваших данных всеми возможными способами. К данным, размещенным в Azure, можно применять целый ряд современных технологий для шифрования данных, контроля ключей шифрования и управления ими, а также контроля и аудита доступа к данным. Благодаря этому клиенты Azure получают гибкость в выборе решения, которое лучше всего соответствует потребностям их компании. В этом документе описывается новое технологическое решение «Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux», которое защитит ваши данные в соответствии с корпоративными критериями безопасности и соответствия. Этот документ содержит подробные инструкции по использованию возможностей дискового шифрования Azure, а также описывает поддерживаемые сценарии и взаимодействие с пользователем.
@@ -141,7 +141,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 > [!NOTE]
 > Для Windows Server 2008 R2 перед включением шифрования в Azure требуется установить .NET Framework 4.5. Для этого установите необязательное обновление Microsoft .NET Framework 4.5.2 для Windows Server 2008 R2 для 64-разрядных систем ([KB2901983](https://support.microsoft.com/kb/2901983)) из Центра обновления Windows.
 
-* Шифрование дисков Azure поддерживается только для определенных дистрибутивов и версий серверов Linux из коллекции Azure.  Список поддерживаемых сейчас версий см. в статье [Шифрование дисков Azure: часто задаваемые вопросы](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* Шифрование дисков Azure поддерживается только для определенных дистрибутивов и версий серверов Linux из коллекции Azure.  Список поддерживаемых сейчас версий см. в статье [Шифрование дисков Azure: часто задаваемые вопросы](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * Для шифрования дисков Azure требуется, чтобы хранилище ключей и виртуальные машины находились в одном регионе и подписке Azure.
 
@@ -783,7 +783,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Предварительные требования для шифрования диска ОС
 
-* Виртуальная машина должна использовать дистрибутив, который совместим с шифрованием диска ОС. Список дистрибутивов приведен в разделе [Какие дистрибутивы Linux поддерживает шифрование дисков Azure?](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
+* Виртуальная машина должна использовать дистрибутив, который совместим с шифрованием диска ОС. Список дистрибутивов приведен в разделе [Какие дистрибутивы Linux поддерживает шифрование дисков Azure?](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * Виртуальная машина должна быть создана из образа Marketplace в Azure Resource Manager.
 * Виртуальная машина Azure по крайней мере с 4 ГБ ОЗУ (рекомендуемый размер — 7 ГБ).
 * (Для RHEL и CentOS.) Отключите SELinux. Чтобы отключить SELinux на виртуальной машине, ознакомьтесь с разделом "4.4.2. Disabling SELinux" (4.4.2. Отключение SELinux) [руководства пользователя и администратора SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux).
