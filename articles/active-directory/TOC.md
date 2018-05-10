@@ -174,10 +174,6 @@
 #### [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
 #### [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Обнаружение на основе агента
-##### [Что такое Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Удаленный доступ к приложениям с помощью прокси приложения](active-directory-application-proxy-get-started.md)
@@ -328,7 +324,7 @@
 #### [Часто задаваемые вопросы](active-directory-identity-protection-faqs.md)
 #### [Глоссарий](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [управление привилегированными пользователями;](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [управление привилегированными пользователями;](active-directory-privileged-identity-management-configure.md)
 
 ## [Интеграция других служб с Azure AD]()
 ### [Включение интеграции с LinkedIn](linkedin-integration.md)

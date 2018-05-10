@@ -208,7 +208,7 @@
         - name: Агент виртуальной машины Azure
           items:
             - name: Обзор
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: Обновление агента
               href: update-agent.md
         - name: Плановое техническое обслуживание
@@ -434,7 +434,7 @@
         - name: Расширение VMAccess
           href: using-vmaccess-extension.md
         - name: Ограничение установки расширения
-          href: extensions-rmpolicy-howto-cli.md
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: Перенос виртуальных машин
       items:
         - name: Миграция AWS и локальных виртуальных машин
