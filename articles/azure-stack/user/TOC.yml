@@ -43,7 +43,7 @@
       items:
         - name: Основные рекомендации
           href: azure-stack-considerations.md
-        - name: Среда выполнения приложений
+        - name: Службы вычислений
           items:
             - name: Обзор
               href: azure-stack-compute-overview.md
@@ -55,7 +55,7 @@
               href: azure-stack-manage-vm-disks.md
             - name: Защита виртуальных машин
               href: azure-stack-manage-vm-protect.md
-        - name: Хранилище
+        - name: Служба хранилища
           items:
             - name: Обзор
               href: azure-stack-storage-overview.md
@@ -77,7 +77,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS в Azure Stack
               href: azure-stack-dns.md
-        - name: хранилище ключей;
+        - name: Key Vault
           items:
             - name: Обзор
               href: azure-stack-kv-intro.md
@@ -91,6 +91,10 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: Пример приложения для Key Vault
               href: azure-stack-kv-sample-app.md
+            - name: Шаблоны решений
+              items:
+                - name: Развертывание кластера Service Fabric
+                  href: azure-stack-solution-template-service-fabric-cluster.md
     - name: Создание приложений
       items:
         - name: Разработка для Azure Stack

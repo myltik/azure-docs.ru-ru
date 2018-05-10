@@ -289,6 +289,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Условия](active-directory-conditional-access-conditions.md)
+#### [Условия расположения](active-directory-conditional-access-locations.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)

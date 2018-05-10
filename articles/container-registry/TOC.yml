@@ -1,4 +1,4 @@
-- name: реестр контейнеров Azure;
+- name: Реестр контейнеров Azure
   href: ./index.yml
 - name: Обзор
   items:
@@ -17,7 +17,7 @@
   items:
     - name: Экземпляры контейнеров Azure
       href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Служба контейнеров Azure (AKS)
+    - name: Служба Azure Kubernetes (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
@@ -29,7 +29,7 @@
           href: container-registry-tutorial-build-task.md
         - name: 3. Создание обновлений базовых образов
           href: container-registry-tutorial-base-image-update.md
-    - name: Георепликация (предварительная версия)
+    - name: Георепликация
       items:
         - name: 1. Подготовка реестра контейнеров
           href: container-registry-tutorial-prepare-registry.md
@@ -43,7 +43,9 @@
       href: container-registry-skus.md
     - name: Хранилище изображений
       href: container-registry-storage.md
-    - name: Георепликация (предварительная версия)
+    - name: Компилирование и применение исправлений с помощью сборки ACR
+      href: container-registry-build-overview.md
+    - name: Георепликация
       href: container-registry-geo-replication.md
     - name: Рекомендации по использованию реестра
       href: container-registry-best-practices.md

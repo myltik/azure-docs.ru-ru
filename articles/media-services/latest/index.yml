@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Службам мультимедиа Azure версии 3 (предварительная версия)
+metadata:
+  document_id: 
+  title: Документация по Службам мультимедиа Azure версии 3. Руководства и справочник по API | Документация Майкрософт
+  meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
+  services: media-services
+  author: Juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03-20-2018
+  ms.author: juliako
+  ms.openlocfilehash: 1ac829c8d9643401cada1f7cd558a39b63da87c2
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Узнайте, как выполнять потоковую передачу видео по запросу, широковещательную трансляцию и анализ видео с помощью Служб мультимедиа. В руководствах, справочниках по API и другой документации показано, как безопасно выполнять потоковую передачу видео- и аудиоматериалов по требованию и осуществлять прямую трансляцию с масштабированием для миллионов пользователей.
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: 'Узнайте, как создать учетную запись Служб мультимедиа, приступить к кодированию видео и воспроизводить их с помощью Azure Media Player:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/media-services.svg
+      text: Потоковая передача видеофайлов
+      href: /azure/media-services/latest/stream-files-dotnet-quickstart
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: Узнайте, как выполнять потоковую передачу файлов и анализировать видео с помощью Служб мультимедиа.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/media-services/latest/stream-files-tutorial-with-api">Отправка, кодирование и потоковая передача видео</a>
+    - html: <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">Анализ видео</a>
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Командная строка
+      html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">интерфейс командной строки Azure</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/media/">REST API</a></p>

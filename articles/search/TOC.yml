@@ -2,11 +2,13 @@
   href: index.yml
 - name: Обзор
   items:
-    - name: Сведения о службе "Поиск Azure"
+    - name: Что такое поиск Azure?
       href: search-what-is-azure-search.md
 - name: Быстрое начало работы
   expanded: true
   items:
+    - name: Попробуйте выполнить поиск с помощью служб Cognitive Services
+      href: cognitive-search-quickstart-blob.md
     - name: создание службы;
       href: search-create-service-portal.md
     - name: Microsoft Azure
@@ -37,13 +39,15 @@
           href: search-fiddler.md
 - name: Учебники
   items:
-    - name: 1. Индексирование Базы данных SQL Azure
+    - name: Индексирование с использованием поиска с помощью служб Cognitive Services
+      href: cognitive-search-tutorial-blob.md
+    - name: Индексирование службы "База данных SQL"
       href: search-indexer-tutorial.md
-    - name: 2. Индексирование больших двоичных объектов Azure
+    - name: Индексирование больших двоичных объектов Azure
       href: search-semi-structured-data.md
-    - name: 3. Добавление синонимов в .NET
+    - name: Добавление синонимов в .NET
       href: search-synonyms-tutorial-sdk.md
-    - name: 4. Работа с индексом на портале
+    - name: Пошаговое руководство по порталу
       href: search-get-started-portal.md
 - name: Примеры
   items:
@@ -53,14 +57,18 @@
       href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Основные понятия
   items:
+    - name: Поиск с помощью служб Cognitive Services (предварительная версия)
+      href: cognitive-search-concept-intro.md
     - name: Полнотекстовый поиск
       href: search-lucene-query-architecture.md
+    - name: Лингвистический анализ
+      href: search-analyzers.md
     - name: Индексация
       href: search-what-is-data-import.md
     - name: Определение индексов
       href: search-what-is-an-index.md
-    - name: Лингвистический анализ
-      href: search-analyzers.md
+    - name: Индексаторы
+      href: search-indexer-overview.md
 - name: Практические руководства
   items:
     - name: планирование и разработка
@@ -123,8 +131,6 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
     - name: Индексирование данных
       items:
-        - name: Общие сведения об индексаторах
-          href: search-indexer-overview.md
         - name: Индексатор хранилища BLOB-объектов Azure
           href: search-howto-indexing-azure-blob-storage.md
         - name: Индексатор хранилища таблиц Azure
@@ -141,7 +147,25 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Сопоставление полей в индексаторах
           href: search-indexer-field-mappings.md
-    - name: поиска
+        - name: Перестроение индекса
+          href: search-howto-reindex.md
+    - name: Поиск с помощью служб Cognitive Services (предварительная версия)
+      items:
+        - name: Определение набора навыков
+          href: cognitive-search-defining-skillset.md
+        - name: Ссылка на заметку
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Сопоставление с полями индекса
+          href: cognitive-search-output-field-mapping.md
+        - name: Извлечение информации из изображений и ее обработка
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Интеграция пользовательских навыков
+          href: cognitive-search-custom-skill-interface.md
+        - name: "Пример\_— пользовательские навыки"
+          href: cognitive-search-create-custom-skill-example.md
+        - name: Советы по устранению неполадок
+          href: cognitive-search-concept-troubleshooting.md
+    - name: Полнотекстовый поиск
       items:
         - name: Создание простых запросов
           href: search-query-overview.md
@@ -165,7 +189,7 @@
           href: search-filters.md
         - name: Фильтры аспекта
           href: search-filters-facets.md
-        - name: Синтаксис выражений OData
+        - name: Синтаксис выражений фильтра
           href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
     - name: Администрирование и аналитика
       items:
@@ -187,10 +211,41 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
     - name: REST
       href: /rest/api/searchservice
+      items:
+        - name: 2016-09-01-Preview
+          href: search-api-2016-09-01-preview.md
     - name: REST (управление)
       href: /rest/api/searchmanagement
-    - name: REST для службы (предварительная версия)
-      href: search-api-2016-09-01-preview.md
+    - name: Поиск с помощью служб Cognitive Services (предварительная версия)
+      items:
+        - name: Предварительная версия 2017-11-11 (REST)
+          href: search-api-2017-11-11-preview.md
+          items:
+            - name: Создание набора навыков (предварительная версия)
+              href: ref-create-skillset.md
+            - name: Создание индексатора (предварительная версия)
+              href: ref-create-indexer.md
+        - name: Предопределенные навыки
+          href: cognitive-search-predefined-skills.md
+          items:
+            - name: Извлечение ключевой фразы
+              href: cognitive-search-skill-keyphrases.md
+            - name: Распознавание языка
+              href: cognitive-search-skill-language-detection.md
+            - name: Распознавание именованных сущностей
+              href: cognitive-search-skill-named-entity-recognition.md
+            - name: Слияние текста
+              href: cognitive-search-skill-textmerger.md
+            - name: Разделение текста
+              href: cognitive-search-skill-textsplit.md
+            - name: Мнение
+              href: cognitive-search-skill-sentiment.md
+            - name: Анализ изображений
+              href: cognitive-search-skill-image-analysis.md
+            - name: OCR
+              href: cognitive-search-skill-ocr.md
+            - name: Формирователь
+              href: cognitive-search-skill-shaper.md
 - name: Ресурсы
   items:
     - name: Вопросы и ответы
@@ -199,6 +254,8 @@
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Обновления службы
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Документация по поиску с помощью служб Cognitive Services
+      href: cognitive-search-resources-documentation.md
     - name: Обучающие программы и учебники
       items:
         - name: Видеоролики и руководства

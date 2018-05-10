@@ -1,0 +1,47 @@
+- name: Документация по проекту Azure DevOps
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что собой представляет проект Azure DevOps
+      href: overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: .NET
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+      maintainContext: true
+    - name: Node.js
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+      maintainContext: true
+    - name: Java
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-java
+      maintainContext: true
+    - name: Python
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-python
+      maintainContext: true
+    - name: PHP
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-php
+      maintainContext: true
+    - name: Ruby
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+      maintainContext: true
+    - name: Go
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-go
+      maintainContext: true
+- name: Учебники
+  items:
+    - name: "1.\_GitHub и проект DevOps."
+      href: /vsts/build-release/actions/azure-devops-project-github
+      maintainContext: true
+    - name: "2.\_Развертывание на виртуальных машинах."
+      href: /vsts/build-release/actions/azure-devops-project-vms
+      maintainContext: true
+    - name: "3.\_Развертывание в базе данных SQL Azure."
+      href: /vsts/build-release/actions/azure-devops-project-sqldb
+      maintainContext: true
+    - name: "4.\_Развертывание в AKS."
+      href: /vsts/build-release/actions/azure-devops-project-aks
+      maintainContext: true
+    - name: "5.\_Развертывание в Azure Service Fabric."
+      href: /vsts/build-release/actions/azure-devops-project-servicefabric
+      maintainContext: true

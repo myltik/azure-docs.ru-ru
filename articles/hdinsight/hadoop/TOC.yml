@@ -1,8 +1,8 @@
 - name: Документация по Azure HDInsight
   href: /azure/hdinsight
-- name: Hadoop в HDInsight
+- name: Обзор
   items:
-    - name: Обзор
+    - name: Сведения о Hadoop в HDInsight
       href: apache-hadoop-introduction.md
     - name: Архитектура Hadoop в HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -10,20 +10,32 @@
     - name: Компоненты Hadoop в HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Начало работы
+- name: Быстрый запуск
   items:
-    - name: Приступая к работе с Hadoop
+    - name: "Создание кластера Hadoop\_— портал"
+      href: apache-hadoop-linux-create-cluster-get-started-portal.md
+    - name: "Создание кластера Hadoop\_— Resource Manager"
       href: apache-hadoop-linux-tutorial-get-started.md
-    - name: Песочница Hadoop
-      href: apache-hadoop-emulator-get-started.md
-    - name: Установка приложений HDInsight
-      href: ../hdinsight-apps-install-applications.md
+- name: Учебники
+  items:
+    - name: Выполнение операций ETL
+      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: Создание кластеров по запросу
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+- name: Основные понятия
+  items:
     - name: Планирование загрузки кластера
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Доступность и надежность
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
 - name: Практическое руководство
   items:
+    - name: Использование песочницы Hadoop
+      href: apache-hadoop-emulator-get-started.md
     - name: Использование системы хранения данных кластера
       items:
         - name: Использование службы хранилища Azure
@@ -144,9 +156,6 @@
         - name: Анализ сохраненных твитов
           href: ../hdinsight-analyze-twitter-data-linux.md
           maintainContext: true
-        - name: Анализ данных о задержке рейсов
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
-          maintainContext: true
         - name: Формирование рекомендаций с помощью Mahout
           href: apache-hadoop-mahout-linux-mac.md
         - name: Анализ журналов веб-сайтов с помощью Hive
@@ -164,6 +173,9 @@
           maintainContext: true
     - name: Расширение кластеров
       items:
+        - name: Установка приложений HDInsight
+          href: ../hdinsight-apps-install-applications.md
+          maintainContext: true
         - name: Настройка кластеров с использованием Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
@@ -260,9 +272,6 @@
             - name: Использование шаблонов диспетчера ресурсов Azure
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: Создание кластеров по запросу
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: Управление кластеров Hadoop
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
@@ -329,9 +338,6 @@
           maintainContext: true
         - name: Перенос в среду средств разработки Resource Manager
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: Доступность и надежность
-          href: ../hdinsight-high-availability-linux.md
           maintainContext: true
         - name: Установка новой версии кластера HDInsight
           href: ../hdinsight-upgrade-cluster.md

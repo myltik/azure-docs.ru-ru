@@ -1,0 +1,120 @@
+- name: Принципы работы Azure IoT
+  href: ../iot-fundamentals/index.yml
+- name: Документация по службе "Карты Azure"
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Использование службы "Карты Azure"
+      href: about-azure-maps.md
+- name: Быстрое начало работы
+  items:
+    - name: Создание приложения карты
+      href: quick-demo-map-app.md
+- name: Учебники
+  items:
+    - name: 1. Поиск достопримечательностей
+      href: tutorial-search-location.md
+    - name: "2.\_Маршрутизация в целевое назначение"
+      href: tutorial-route-location.md
+    - name: 3. Несколько маршрутов по видам транспорта
+      href: tutorial-prioritized-routes.md
+- name: Основные понятия
+  items:
+    - name: Уровни увеличения и параметры сетки
+      href: zoom-levels-and-tile-grid.md
+    - name: Наличие информации о геокодировании
+      href: geocoding-coverage.md
+    - name: Наличие информации о дорожном движении
+      href: traffic-coverage.md
+    - name: Наличие информации об отображении
+      href: render-coverage.md
+    - name: Наличие информации о маршрутизации
+      href: routing-coverage.md
+    - name: Поддерживаемые языки
+      href: supported-languages.md
+- name: Практические руководства
+  items:
+    - name: Управление учетными записями службы "Карты"
+      items:
+        - name: Управление учетными записями и ключами
+          href: how-to-manage-account-keys.md
+    - name: Получение данных карты из REST API
+      items:
+        - name: Поиск адреса
+          href: how-to-search-for-address.md
+    - name: Создание карт JavaScript
+      items:
+        - name: Использование элемента управления картой
+          href: how-to-use-map-control.md
+        - name: Создание карты
+          href: map-create.md
+        - name: Добавление ПИН-кода
+          href: map-add-pin.md
+        - name: Добавление контекстного меню
+          href: map-add-popup.md
+        - name: Добавление фигуры
+          href: map-add-shape.md
+        - name: Добавление пользовательского HTML-кода
+          href: map-add-custom-html.md
+        - name: Показать результаты поиска
+          href: map-search-location.md
+        - name: Получение сведений из координат
+          href: map-get-information-from-coordinate.md
+        - name: Отображение направлений от A до B
+          href: map-route.md
+        - name: Отображение трафика
+          href: map-show-traffic.md
+        - name: Взаимодействие с событиями мыши
+          href: map-events.md
+- name: Справочные материалы
+  items:
+    - name: "API служб\_— REST"
+      href: 'https://docs.microsoft.com/rest/api/maps/'
+    - name: "API элементов управления картой\_— Javascript"
+      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+- name: Сопутствующие материалы
+  items:
+    - name: Решения
+      items:
+        - name: Предварительно настроенные решения Azure IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Службы платформы
+      items:
+        - name: Центр Интернета вещей
+          href: /azure/iot-hub
+        - name: Служба подготовки устройств к добавлению в Центр Интернета вещей
+          href: /azure/iot-dps
+        - name: Карты
+          href: /azure/azure-maps
+        - name: Пакеты SDK службы
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Аналитика временных рядов Azure
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Пакеты SDK для устройств IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Ресурсы
+  items:
+    - name: Центр разработчика IoT Azure
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+    - name: Технические примеры использования
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos'

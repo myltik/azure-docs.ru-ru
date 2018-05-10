@@ -8,8 +8,10 @@
 ## [Создание пространства имен](relay-create-namespace-portal.md)
 ## [Создание гибридных локальные и облачных приложений](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## через гибридные подключения
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [Соединения WebSocket в .NET](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [Соединения WebSocket в Node](relay-hybrid-connections-node-get-started.md)
+### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [Ретранслятор WCF](relay-wcf-dotnet-get-started.md)
 ## [Руководство по ретранслятору WCF](service-bus-relay-tutorial.md)
 ## [Учебник по REST для ретранслятора WCF](service-bus-relay-rest-tutorial.md)

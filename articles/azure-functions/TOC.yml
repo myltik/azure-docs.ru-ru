@@ -35,7 +35,7 @@
           href: functions-create-storage-queue-triggered-function.md
     - name: Интеграция
       items:
-        - name: Хранилище
+        - name: Служба хранилища
           href: functions-integrate-storage-queue-output-binding.md
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -49,6 +49,8 @@
       href: functions-openapi-definition.md
     - name: Изменение размера изображения с помощью службы "Сетка событий"
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: 'Создание бессерверных веб-приложений с использованием решения "Функции", например API'
+      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
     - name: Функции в Linux
       items:
         - name: Пользовательский образ
@@ -83,6 +85,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+    - name: Диагностика
+      href: ../app-service/app-service-diagnostics.md
     - name: Рекомендации по производительности
       href: functions-best-practices.md
     - name: Прокси функций
@@ -187,6 +191,8 @@
           href: durable-functions-unit-testing.md
         - name: Публикация событий
           href: durable-functions-event-publishing.md
+        - name: Использование пакета SDK для веб-заданий
+          href: durable-functions-webjobs-sdk.md
 - name: Справочные материалы
   items:
     - name: Привязки
@@ -195,7 +201,7 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
-        - name: Служба "Сетка событий Azure"
+        - name: Сетка событий Azure
           href: functions-bindings-event-grid.md
         - name: Концентраторы событий
           href: functions-bindings-event-hubs.md
@@ -215,7 +221,7 @@
           href: functions-bindings-storage-queue.md
         - name: SendGrid
           href: functions-bindings-sendgrid.md
-        - name: Служебная шина
+        - name: Служебная шина Azure
           href: functions-bindings-service-bus.md
         - name: Хранилище таблиц
           href: functions-bindings-storage-table.md

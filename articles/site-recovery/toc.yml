@@ -177,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Аварийное восстановление
           items:
-            - name: Аварийное восстановление виртуальных машин VMware с поддержкой нескольких клиентов и CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: Репликация виртуальных машин VMware в Azure с помощью PowerShell
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Аварийное восстановление физических серверов в Azure
@@ -199,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Включение репликации виртуальных машин VMware
               href: vmware-azure-enable-replication.md
+            - name: Мультитенантность с использованием поставщика служб шифрования для виртуальных машин VMWare
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Развертывание службы Mobility Service
           items:
+            - name: Общие сведение о службе мобильности
+              href: vmware-azure-install-mobility-service.md
             - name: Развертывание службы Mobility Service с помощью System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Развертывание службы Mobility Service с помощью Azure Automation DSC
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Отработка отказа и восстановление размещения
           items:
             - name: Выполнение отработки аварийного восстановления в Azure

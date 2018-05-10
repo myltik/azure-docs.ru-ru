@@ -65,8 +65,12 @@
           href: insights-alerts-command-line-interface.md
         - name: Настройка классических оповещений с помощью Azure PowerShell
           href: insights-alerts-powershell.md
+        - name: Вызов веб-перехватчика с помощью классического оповещения метрики
+          href: insights-webhooks-alerts.md
         - name: Действия веб-перехватчика для оповещений журнала
           href: monitor-alerts-unified-log-webhook.md
+        - name: Создание оповещения журнала с помощью шаблона Resource Manager
+          href: monitor-alerts-unified-log-template.md
         - name: Создание более новых оповещений метрик с помощью шаблона Resource Manager
           href: monitoring-create-metric-alerts-with-templates.md
         - name: Создание классического оповещения метрики с помощью шаблона Resource Manager
@@ -85,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: Создание групп действий с помощью Resource Manager
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Реализация действия для приложения логики
+          href: monitoring-action-groups-logic-app.md
     - name: Использование журналов диагностики
       items:
         - name: Архив
@@ -125,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: Использование расширения системы диагностики Azure
       items:
+        - name: Отправка в службу хранилища Azure
+          href: azure-diagnostics-storage.md
         - name: Отправка в Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Отправка в концентраторы событий
@@ -175,6 +183,13 @@
       href: monitoring-activity-log-schema.md
     - name: Схема расширения системы диагностики Azure
       href: azure-diagnostics-schema.md
+      items:
+        - name: "Версия\_1.3 и более поздняя версия"
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

@@ -53,7 +53,7 @@
       href: cli-samples.md
 - name: Основные понятия
   items:
-    - name: Диспетчер ресурсов Azure
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Регионы и доступность
       href: regions-and-availability.md
@@ -206,7 +206,7 @@
         - name: Скачивание шаблона
           href: download-template.md
         - name: Агент виртуальной машины Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Плановое техническое обслуживание
           href: maintenance-notifications.md
         - name: 'Устранение уязвимостей, связанных со спекулятивным выполнением команд'
@@ -235,7 +235,7 @@
           href: download-vhd.md
     - name: Высокая доступность и масштабирование
       items:
-        - name: Наборы для масштабирования виртуальных машин
+        - name: Масштабируемые наборы виртуальных машин Microsoft Azure
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: высокую доступность;
           href: manage-availability.md
@@ -369,7 +369,7 @@
         - name: Агент службы "Наблюдатель за сетями"
           href: extensions-nwa.md
         - name: Ограничение установки расширения
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Перенос виртуальных машин
       items:
         - name: Миграция AWS и локальных виртуальных машин

@@ -1,4 +1,4 @@
-- name: Служба контейнеров Azure (AKS)
+- name: Служба Azure Kubernetes (AKS)
   href: ./index.yml
 - name: Обзор
   items:
@@ -25,9 +25,7 @@
       href: tutorial-kubernetes-scale.md
     - name: 6. Обновление приложения
       href: tutorial-kubernetes-app-update.md
-    - name: 7. Мониторинг с помощью Log Analytics
-      href: tutorial-kubernetes-monitor.md
-    - name: 8. Обновление кластера
+    - name: "7.\_Обновление кластера."
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Основные понятия
   items:
@@ -57,12 +55,16 @@
           href: azure-files-dynamic-pv.md
     - name: Настройка сети
       items:
+        - name: Общие сведения о сети
+          href: networking-overview.md
         - name: Статический IP-адрес
           href: static-ip.md
         - name: внутреннему балансировщику нагрузки;
           href: internal-lb.md
         - name: Входящий трафик с поддержкой TLS
           href: ingress.md
+        - name: Маршрутизация приложений HTTP
+          href: http-application-routing.md
     - name: Безопасность и проверка подлинности
       items:
         - name: Создание субъекта-службы

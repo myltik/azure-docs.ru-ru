@@ -4,17 +4,17 @@
   expanded: true
   items:
     - name: Сведения о Машинном обучении Azure
-      href: ../desktop-workbench/overview-what-is-azure-ml.md
+      href: overview-what-is-azure-ml.md
     - name: Обзор службы "Управление моделями"
       href: ../desktop-workbench/model-management-overview.md
     - name: Другие продукты Машинного обучения
-      href: ../desktop-workbench/overview-more-machine-learning.md
+      href: overview-more-machine-learning.md
     - name: Новые возможности
       href: ../desktop-workbench/azure-machine-learning-release-notes.md
 - name: Быстрое начало работы
   items:
     - name: Установка и запуск
-      href: ../desktop-workbench/quickstart-installation.md
+      href: quickstart-installation.md
 - name: Учебники
   items:
     - name: 1. Подготовка данных
@@ -29,6 +29,8 @@
   items:
     - name: Основные понятия
       href: ../desktop-workbench/overview-general-concepts.md
+    - name: Ускорение FPGA
+      href: concept-accelerate-with-fpgas.md
 - name: Практические руководства
   items:
     - name: Основные задачи CLI
@@ -92,8 +94,10 @@
           href: ../desktop-workbench/how-to-read-write-files.md
         - name: Использование библиотеки MMLSpark
           href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: Ввод модели в эксплуатацию
+    - name: Модели развертывания и потребления
       items:
+        - name: Развертывание моделей в FPGA
+          href: how-to-deploy-fpga-web-service.md
         - name: Настройка службы "Управление моделями"
           href: ../desktop-workbench/deployment-setup-configuration.md
         - name: Масштабирование кластеров и служб
@@ -142,6 +146,31 @@
           href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Справочные материалы
   items:
+    - name: Пакеты Python
+      href: reference-python-package-overview.md
+      items:
+        - name: компьютерное зрение;
+          items:
+            - name: Общие сведения о пакете и установка
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
+            - name: Создание и развертывание моделей классификации изображений
+              href: how-to-build-deploy-image-classification-models.md
+            - name: Точность модели
+              href: how-to-improve-accuracy-for-computer-vision-models.md
+        - name: Прогнозирование
+          items:
+            - name: Общие сведения и установка
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview'
+            - name: Создание и развертывание прогнозных моделей
+              href: how-to-build-deploy-forecast-models.md
+        - name: Ускорение FPGA
+          href: reference-fpga-package-overview.md
+        - name: Текстовая аналитика
+          items:
+            - name: Общие сведения и установка
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics'
+            - name: Создание и развертывание моделей классификации текста
+              href: how-to-build-deploy-text-classification-models.md
     - name: Подготовка данных
       items:
         - name: Расширения Python для подготовки данных
@@ -191,13 +220,13 @@
     - name: Часто задаваемые вопросы
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Устранение неполадок и описание проблем
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+      href: known-issues-and-troubleshooting-guide.md
     - name: Поддержка и обучение
-      href: ../desktop-workbench/support-for-aml-services.md
+      href: support-for-aml-services.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Цены
-      href: ../desktop-workbench/aml-pricing.md
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Регионы доступности
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Процесс обработки и анализа данных группы

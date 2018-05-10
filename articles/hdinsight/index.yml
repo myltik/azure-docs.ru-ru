@@ -1,0 +1,93 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Azure HDInsight
+metadata:
+  title: Документация по Azure HDInsight. Руководства и справочник по API | Документация Майкрософт
+  description: Узнайте о Hadoop в HDInsight. Документация, в которой показано, как использовать Hadoop, Spark, Kafka, HBase и другие службы для обработки и анализа больших данных.
+  services: hdinsight
+  author: nitinme
+  manager: cgronlun
+  ms.service: hdinsight
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: nitinme
+  ms.openlocfilehash: e3a366cd933b8667b39df146d80d07d5548138bc
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Узнайте, как использовать Azure HDInsight для анализа данных потоковой передачи или исторических данных. Руководства и другая документация, в которой показано, как создавать кластеры, обрабатывать и анализировать большие данные, а также разрабатывать решения с помощью таких популярных платформ с открытым кодом, как Hadoop, Spark, Hive, LLAP, Kafka, Storm и R.<p>Azure HDInsight — это полностью управляемая комплексная служба аналитики с открытым исходным кодом, предназначенная для предприятий. HDInsight — это облачная служба, которая обеспечивает простую, быструю и экономичную обработку больших объемов данных. HDInsight также поддерживает различные сценарии, такие как извлечение, преобразование и загрузка (ETL), хранение данных, машинное обучение и Интернет вещей.</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: Apache Kafka в HDInsight (17:19)
+    href: https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/
+    width: 250
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: 'Узнайте, как создать кластер HDInsight и запускать задания:'
+  - type: list
+    style: icon64
+    items:
+    - image:
+        src: media/index/hadoop_r.svg
+      text: Hadoop
+      href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
+    - image:
+        src: media/index/spark_r.svg
+      text: Spark
+      href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
+    - image:
+        src: media/index/kafka_r.svg
+      text: Kafka
+      href: /azure/hdinsight/kafka/apache-kafka-get-started
+    - image:
+        src: media/index/hbase_r.svg
+      text: hbase
+      href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
+    - image:
+        src: media/index/hive_r.svg
+      text: Interactive Query
+      href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+    - image:
+        src: media/index/storm_r.svg
+      text: Storm
+      href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
+    - image:
+        src: media/index/r-server_r.svg
+      text: R Server
+      href: /azure/hdinsight/r-server/r-server-get-started
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: 'Узнайте, как использовать Azure HDInsight в различных сценариях:'
+  - type: list
+    style: unordered
+    items:
+    - html: Hadoop. <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Выполнение операций ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Создание кластеров по требованию</a>.
+    - html: Spark. <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Выполнение интерактивных запросов</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Визуализация данных</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Машинное обучение</a>.
+    - html: Kafka. <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Структурированный поток с использованием Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Использование со Storm в HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Использование API производителя и потребителя Kafka</a>.
+    - html: HBase. <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Создание кластеров HBase в виртуальной сети</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Использование Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Подключение к Spark</a>.
+    - html: Interactive Query. <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Подключение к Power BI с использованием прямого запроса</a>.
+    - html: Storm. <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Создание топологии Storm на Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Развертывание топологий Storm в HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Запись из Storm в Data Lake Store</a>.
+    - html: R Server. <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Использование инструментов R для Visual Studio</a>.
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Командная строка
+      html: <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">Azure PowerShell</a></p>
+    - title: Языки
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p><p><a href="https://archive.codeplex.com/?p=hadoopsdk">.NET (Avro)</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/hdinsight/">REST API</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">REST API (Spark)</a></p>

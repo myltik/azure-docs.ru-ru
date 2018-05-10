@@ -157,7 +157,7 @@
               href: connector-azure-database-for-postgresql.md
             - name: Хранилище файлов Azure
               href: connector-azure-file-storage.md
-            - name: поиск Azure;
+            - name: Поиск Azure
               href: connector-azure-search.md
             - name: Базы данных SQL Azure
               href: connector-azure-sql-database.md
@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: Поток управления
       items:
-        - name: Действие условия If
-          href: control-flow-if-condition-activity.md
-        - name: Действие Until
-          href: control-flow-until-activity.md
-        - name: Веб-действие
-          href: control-flow-web-activity.md
-        - name: Действие поиска
-          href: control-flow-lookup-activity.md
-        - name: Действие получения метаданных
-          href: control-flow-get-metadata-activity.md
         - name: Действие выполнения работы
           href: control-flow-execute-pipeline-activity.md
+        - name: Активность фильтра
+          href: control-flow-filter-activity.md
         - name: Действие For Each
           href: control-flow-for-each-activity.md
+        - name: Действие получения метаданных
+          href: control-flow-get-metadata-activity.md
+        - name: Действие условия If
+          href: control-flow-if-condition-activity.md
+        - name: Действие поиска
+          href: control-flow-lookup-activity.md
+        - name: Действие Until
+          href: control-flow-until-activity.md
         - name: Действие Wait
           href: control-flow-wait-activity.md
+        - name: Веб-действие
+          href: control-flow-web-activity.md
         - name: Язык выражений
           href: control-flow-expression-language-functions.md
         - name: Системные переменные

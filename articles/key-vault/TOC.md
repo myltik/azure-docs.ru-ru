@@ -54,6 +54,12 @@
 ### [Переход на .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### [Сохранение секретов веб-приложения](vs-secure-secret-appsettings.md)
 ### [Проверка подлинности служб с помощью .NET](service-to-service-authentication.md)
+### Работа с Visual Studio
+#### [Использование подключенной службы Key Vault](vs-key-vault-add-connected-service.md)
+#### [Начало работы с проектами ASP.NET](vs-key-vault-aspnet-get-started.md)
+#### [Что произошло с моим проектом ASP.NET?](vs-key-vault-aspnet-what-happened.md)
+#### [Начало работы с проектами ASP.NET Core](vs-key-vault-aspnet-core-get-started.md)
+#### [Что произошло с моим проектом ASP.NET Core?](vs-key-vault-aspnet-core-what-happened.md)
 
 # Ресурсы
 ## [Обзор службы](https://azure.microsoft.com/services/key-vault/)

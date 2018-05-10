@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: Бессерверная база данных
         href: serverless-computing-database.md
+      - name: Общие сведения о BulkExecutor
+        href: bulk-executor-overview.md
       - name: Безопасность
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: Защита доступа к данным
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Варианты использования
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: Практические руководства
             items:
+              - name: "BulkExecutor\_— .NET"
+                href: bulk-executor-dot-net.md
+              - name: "BulkExecutor\_— Java"
+                href: bulk-executor-java.md
               - name: Запрос
                 items:
                   - name: Выполнение запросов SQL
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: "BulkExecutor\_— .NET"
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: "BulkExecutor\_— Java"
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: Поставщик ресурсов REST
@@ -257,8 +265,6 @@ items:
             items:
               - name: Расширение Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: Документ по индексированию без схемы
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL Playground
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: Документация по API MongoDB
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: Поддерживаемые брандмауэры
         href: firewall-support.md
+      - name: Настройка конечной точки службы для виртуальной сети
+        href: vnet-service-endpoint.md
       - name: Метрики
         href: use-metrics.md
       - name: Мониторинг соглашений об уровне обслуживания
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: Объяснение согласованности данных на примере игры в бейсбол
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Технические документы
+        href: whitepapers.md

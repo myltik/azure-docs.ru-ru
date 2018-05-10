@@ -1,0 +1,73 @@
+- name: Документация по службам мультимедиа
+  href: ./index.yml
+- name: Обзор
+  items:
+    - name: Сведения о службах мультимедиа
+      href: media-services-overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Потоковая передача видеофайлов с помощью .NET
+      href: stream-files-dotnet-quickstart.md
+- name: Учебники
+  items:
+    - name: 'Отправка, кодирование и потоковая передача'
+      href: stream-files-tutorial-with-api.md
+    - name: Анализ видео
+      href: analyze-videos-tutorial-with-api.md
+- name: Примеры
+  items:
+    - name: Примеры кода Azure
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: Инфраструктура CLI Azure
+      href: cli-samples.md
+- name: Основные понятия
+  items:
+    - name: Активы
+      href: assets-concept.md
+    - name: Автоматическое создание схемы передачи с переменной скоростью
+      href: autogen-bitrate-ladder.md
+    - name: Мультимедиа-аналитика
+      href: intelligence-concept.md
+    - name: учетные записи хранения;
+      href: storage-account-concept.md
+    - name: Преобразования и задания
+      href: transform-concept.md
+    - name: Реагирование на события
+      href: reacting-to-media-services-events.md
+- name: Практические руководства
+  items:
+    - name: "Создание учетной записи\_— CLI"
+      href: create-account-cli-how-to.md
+    - name: "Доступ к API\_— CLI"
+      href: access-api-cli-how-to.md
+    - name: "События состояния задания\_— CLI"
+      href: job-state-events-cli-how-to.md
+    - name: "Передача содержимого\_— .NET"
+      items:
+        - name: Из HTTP(s)
+          href: job-input-from-http-how-to.md
+        - name: Из локального файла
+          href: job-input-from-local-file-how-to.md
+- name: Справочные материалы
+  items:
+    - name: "Azure CLI\_2.0"
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: Схемы событий
+      href: media-services-event-schemas.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Доступ по регионам
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Заметки о выпуске
+      href: release-notes.md
+    - name: Квоты и ограничения
+      href: limits-quotas-constraints.md

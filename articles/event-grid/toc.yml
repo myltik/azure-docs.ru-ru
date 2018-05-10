@@ -9,24 +9,36 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Маршрутизация событий хранилища BLOB-объектов с помощью Azure CLI
+    - name: "События хранилища BLOB-объектов\_— Azure CLI"
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Маршрутизация событий хранилища BLOB-объектов с помощью Azure PowerShell
+    - name: "События хранилища BLOB-объектов\_— PowerShell"
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Создание пользовательского события с помощью Azure CLI
+    - name: "Пользовательские события\_— Azure CLI"
       href: custom-event-quickstart.md
-    - name: Создание пользовательского события с помощью Azure PowerShell
+    - name: "Пользовательские события\_— PowerShell"
       href: custom-event-quickstart-powershell.md
-    - name: Создание пользовательского события с помощью портала Azure
+    - name: "Пользовательские события\_— портал"
       href: custom-event-quickstart-portal.md
+    - name: Отправка событий в хранилище очередей
+      href: custom-event-to-queue-storage.md
 - name: Учебники
   items:
-    - name: Отслеживание изменений в виртуальных машинах с помощью приложений логики
+    - name: Сообщение электронной почты при изменении виртуальной машины
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Изменение размера переданных изображений
       href: resize-images-on-storage-blob-upload-event.md
     - name: Активация модуля runbook службы автоматизации
       href: ensure-tags-exists-on-new-virtual-machines.md
+    - name: Сообщение электронной почты при добавлении устройства Центра Интернета вещей
+      href: publish-iot-hub-events-to-logic-apps.md
+    - name: Ответ на события службы "Служебная шина"
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Потоковая передача данных из концентраторов событий
+      href: event-grid-event-hubs-integration.md
+    - name: События маршрутизации Служб мультимедиа
+      href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Маршрутизация для гибридного подключения
+      href: custom-event-to-hybrid-connection.md
 - name: Примеры
   items:
     - name: Инфраструктура CLI Azure
@@ -43,22 +55,22 @@
       href: security-authentication.md
     - name: Доставка и повторные попытки доставки
       href: delivery-and-retry.md
+    - name: Источники событий
+      href: event-sources.md
+    - name: Обработчики событий
+      href: event-handlers.md
 - name: Практические руководства
   items:
     - name: Публикация в пользовательском разделе
       href: post-to-custom-topic.md
-    - name: Получение событий через конечную точку HTTP
+    - name: Получение событий в конечной точке HTTP
       href: receive-events.md
-    - name: Потоковая передача данных из концентраторов событий в хранилище данных
-      href: event-grid-event-hubs-integration.md
-    - name: Отправка уведомлений о событиях Центра Интернета вещей
-      href: publish-iot-hub-events-to-logic-apps.md
-    - name: Прослушивание событий служебной шины с помощью Функций Azure и Logic Apps
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Мониторинг доставки событий
       href: monitor-event-delivery.md
     - name: Обращение к подпискам на события
       href: query-event-subscriptions.md
+    - name: Сопоставление настраиваемых полей со схемой
+      href: input-mappings.md
     - name: Использование схемы CloudEvents
       href: cloudevents-schema.md
 - name: Справочные материалы
@@ -84,8 +96,12 @@
           href: event-schema-event-hubs.md
         - name: Центр Интернета вещей
           href: event-schema-iot-hub.md
+        - name: Службы мультимедиа
+          href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Группы ресурсов
           href: event-schema-resource-groups.md
+        - name: Служебная шина Azure
+          href: event-schema-service-bus.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

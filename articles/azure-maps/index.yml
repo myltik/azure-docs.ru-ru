@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по службе "Карты Azure"
+metadata:
+  document_id: 
+  title: Документация по службе "Карты Azure" | Документация Майкрософт
+  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
+  services: azure-maps
+  author: philmea
+  manager: timlt
+  ms.service: azure-maps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: philmea
+  ms.openlocfilehash: 5561f4720a396a90dbffe08e420d3b9ee66ec206
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Служба "Карты Azure" предоставляет разработчикам из всех отраслей мощные геопространственные функции, дополненные актуальными картографическими данными, необходимыми для предоставления географического контекста для веб-приложений и мобильных устройств. Эти службы — совместимый с Azure One API набор интерфейсов REST API в сочетании с веб-элементами управления на основе JavaScript. Это обеспечивает простоту и гибкость разработки, а также возможность переноса на разные носители.
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: Запустите приложение для поиска по карте с помощью службы "Карты Azure".
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: Запуск демоверсии приложения карт
+      href: /azure/azure-maps/quick-demo-map-app
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: Создайте геопространственное веб-приложение для поиска достопримечательностей и построения маршрутов к различным точкам с помощью службы "Карты Azure".
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-maps/tutorial-search-location">Поиск достопримечательностей</a>
+    - html: <a href="/azure/azure-maps/tutorial-route-location">Построение маршрута к достопримечательности</a>
+    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Маршруты по видам транспорта</a>
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: Языки
+      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">API элементов управления картой — Javascript</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/">API функций — REST</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">API управления — REST</a></p>

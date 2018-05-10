@@ -1,27 +1,32 @@
 - name: Документация по Azure HDInsight
   href: /azure/hdinsight
-- name: Spark в HDInsight
+- name: Обзор
   items:
-    - name: Обзор
+    - name: Сведения о Spark в HDInsight
       href: apache-spark-overview.md
     - name: Компоненты Hadoop в HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Начало работы
+- name: Быстрое начало работы
   items:
-    - name: Создание кластера Spark
+    - name: "Создание кластера Spark\_— портал"
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: "Создание кластера Spark\_— PowerShell"
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: "Создание кластера Spark\_— шаблон"
       href: apache-spark-jupyter-spark-sql.md
+- name: Учебники
+  items:
     - name: Выполнение запросов в кластере Spark
       href: apache-spark-load-data-run-query.md
     - name: Анализ данных с помощью средств бизнес-аналитики
       href: apache-spark-use-bi-tools.md
-    - name: Управление кластерными ресурсами
-      href: apache-spark-resource-manager.md
-    - name: Отладка заданий Spark
-      href: apache-spark-job-debugging.md
-    - name: Установка приложений HDInsight
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Запуск задания потоковой передачи
+      href: apache-spark-eventhub-streaming.md
+    - name: Создание приложения машинного обучения
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: Создание приложения Spark с использованием IntelliJ
+      href: apache-spark-create-standalone-application.md
 - name: Практическое руководство
   items:
     - name: Использование системы хранения данных кластера
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: Разработка
       items:
-        - name: Создание автономного приложения
-          href: apache-spark-create-standalone-application.md
         - name: Использование интерактивной оболочки Spark Shell
           href: apache-spark-shell.md
         - name: Работа с удаленными заданиями с помощью Livy
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark и машинное обучение
       items:
-        - name: 'Прогнозирование производительности системы отопления, вентиляции и кондиционирования'
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Прогнозирование результата проверки продуктов
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Анализ журналов веб-сайтов
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: управление
       items:
+        - name: Управление кластерными ресурсами
+          href: apache-spark-resource-manager.md
         - name: Настройка параметров Spark
           href: apache-spark-settings.md
         - name: Оптимизация заданий Spark
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: Устранение неполадок
       items:
+        - name: Отладка заданий Spark
+          href: apache-spark-job-debugging.md
         - name: Устранение задержки работы или сбоя кластера HDInsight
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

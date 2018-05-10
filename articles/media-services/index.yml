@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Службам мультимедиа Azure
+metadata:
+  document_id: 
+  title: Документация по Службам мультимедиа Azure | Документация Майкрософт
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+  ms.openlocfilehash: 6bee2f17db6d1f79dd2ba84a278ff6a82b871a9e
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Службы мультимедиа Azure — это облачная платформа, которая позволяет создавать решения для потоковой передачи видео широковещательного уровня. Она повышает доступность и уровень распространения, дает возможность анализировать содержимое и предоставляет многие другие функции.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/azure/media-services/latest/"> <br><strong>Службы мультимедиа Azure, версия 3 (предварительная версия)</strong></a> <p>Узнайте, как выполнять потоковую передачу по требованию, широковещательную трансляцию и анализ видео с помощью Служб мультимедиа версии 3.</p>
+    - html: <a href="/azure/media-services/previous/"> <br><strong>Службы мультимедиа Azure, версия 2 (общедоступная версия)</strong></a> <p>Узнайте, как выполнять потоковую передачу по требованию, широковещательную трансляцию и анализ видео с помощью Служб мультимедиа версии 2.</p>
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: 'Узнайте, как создать учетную запись Служб мультимедиа, приступить к кодированию видео и воспроизводить их с помощью Azure Media Player:'
+  - type: list
+    style: ordered
+    items:
+    - html: Потоковая передача файлов&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">версия 3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">версия 2</a>.
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: Узнайте, как выполнять потоковую передачу файлов и анализировать видео с помощью Служб мультимедиа.
+  - type: list
+    style: ordered
+    items:
+    - html: Отправка, кодирование и потоковая передача видео&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">версия 3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">версия 2</a>.
+    - html: Анализ видео&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">версия 3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">версия 2</a>.
