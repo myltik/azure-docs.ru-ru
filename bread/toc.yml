@@ -237,6 +237,9 @@
         - name: API языковой модели на основе веб-содержимого
           tocHref: /azure/cognitive-services/web-language-model/
           topicHref: /azure/cognitive-services/web-language-model/home
+        - name: Индивидуальный чат
+          tocHref: /azure/cognitive-services/project-personality-chat/
+          topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: Соединители
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/

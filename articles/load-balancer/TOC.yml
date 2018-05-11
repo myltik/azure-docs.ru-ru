@@ -76,7 +76,6 @@
         - name: Создание общедоступной службы Azure Load Balancer с поддержкой IPv6 (шаблон)
           href: load-balancer-ipv6-internet-template.md
     - name: Настройка внутренней службы Azure Load Balancer
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: Настройка внутренней службы Azure Load Balancer (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

@@ -167,16 +167,16 @@
 #### [Устройства под управлением прежних версий Windows, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Управление приложениями
-### [Обзор](active-directory-enable-sso-scenario.md)
-### [Приступая к работе](active-directory-integrating-applications-getting-started.md)
+### [Обзор](manage-apps/what-is-application-management.md)
+### [Приступая к работе](manage-apps/plan-an-application-integration.md)
 ### [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-### [Обнаружение облачных приложений](cloudappdiscovery-get-started.md)
-#### [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
+### [Обнаружение облачных приложений](manage-apps/cloud-app-discovery.md)
+#### [Создание отчетов о моментальных снимках](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Удаленный доступ к приложениям с помощью прокси приложения](active-directory-application-proxy-get-started.md)
+### [Удаленный доступ к приложениям с помощью прокси приложения](manage-apps/application-proxy.md)
 #### Начало работы
 ##### [Использование прокси приложения](active-directory-application-proxy-enable.md)
 ##### [Публикация приложений](application-proxy-publish-azure-portal.md)

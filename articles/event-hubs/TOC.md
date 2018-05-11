@@ -28,6 +28,11 @@
 ### [Доступность и согласованность](event-hubs-availability-and-consistency.md)
 ### [Автоматическое масштабирование единиц пропускной способности](event-hubs-auto-inflate.md)
 ### [Интеграция Apache Spark с концентраторами событий](event-hubs-spark-connector.md)
+## Концентраторы событий для Kafka
+### [Концентраторы событий для экосистемы Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+### [Создание концентраторов событий с поддержкой Kafka](event-hubs-create-kafka-enabled.md) 
+### [Потоковая передача данных в концентраторы событий Azure для экосистемы Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Использование Kafka MirrorMaker с концентраторами событий Azure для экосистемы Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
 ## Разработка
 ### [Отправка событий с помощью .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Получение событий с помощью .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

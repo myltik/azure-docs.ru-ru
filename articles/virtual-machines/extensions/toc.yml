@@ -1,0 +1,95 @@
+- name: Документация по расширениям виртуальных машин
+  href: ../index.md
+- name: Обзор
+  items:
+    - name: О расширениях Azure
+      href: overview.md
+    - name: Агент виртуальной машины Linux
+      href: agent-linux.md
+    - name: Агент виртуальной машины Windows
+      href: agent-windows.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Использование расширения настраиваемых скриптов
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
+- name: Основные понятия
+  items:
+    - name: Linux
+      href: features-linux.md
+    - name: Windows
+      href: features-windows.md
+- name: Практические руководства
+  items:
+    - name: Расширение пользовательских сценариев
+      items:
+        - name: "Linux\_— версия\_2"
+          href: custom-script-linux.md
+        - name: "Linux\_— версия\_1 (OSTC)"
+          href: custom-script-linuxOstc.md
+        - name: Windows
+          href: custom-script-windows.md
+    - name: Расширение OMS
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: Windows
+          href: oms-windows.md
+    - name: Расширение системы диагностики
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: Windows
+          href: diagnostics-windows.md
+        - name: Использование шаблонов
+          href: diagnostics-template.md
+    - name: Агент службы "Наблюдатель за сетями"
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: Windows
+          href: network-watcher-windows.md
+    - name: Расширение PowerShell DSC
+      href: dsc-overview.md
+      items:
+        - name: DSC и Windows
+          href: dsc-windows.md
+        - name: Обработка учетных данных
+          href: dsc-credentials.md
+        - name: Использование шаблонов
+          href: dsc-template.md
+    - name: Антивредоносное ПО IaaS для Windows
+      href: iaas-antimalware-windows.md
+    - name: Расширение Key Vault
+      href: key-vault-windows.md
+    - name: Расширение моментальных снимков виртуальной машины
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: Windows
+          href: vmsnapshot-windows.md
+    - name: Расширения сторонних разработчиков
+      items:
+        - name: Функция повторного отслеживания от Stackify
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: Устаревшие расширения
+      items:
+        - name: Расширение сборщика журналируемых данных
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+    - name: Ограничение установки расширения
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: Windows
+          href: extensions-rmpolicy-howto-ps.md
+    - name: Обновление агента Linux
+      href: update-linux-agent.md
+    - name: Экспорт расширений
+      href: export-templates.md
+    - name: Устранение неполадок
+      href: troubleshoot.md

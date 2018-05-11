@@ -62,7 +62,7 @@
 ### [Карта обучения StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Вопросы безопасности](storsimple-8000-security.md)
 ### [Регионы доступности](storsimple-regions.md)
-### [Вопросы и ответы: переход на портал Azure](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## Начало работы
 
@@ -189,10 +189,11 @@
 ## Заметки о выпуске
 ### [Обновление 5 (текущая версия)](storsimple-update5-release-notes.md)
 ### [Обновление 4](storsimple-update4-release-notes.md)
-### [Обновление 3](storsimple-update3-release-notes.md)
-### [Обновление 2.2](storsimple-update21-release-notes.md)
+
 
 ### Архив
+#### [Обновление 3](storsimple-update3-release-notes.md)
+#### [Обновление 2.2](storsimple-update21-release-notes.md)
 #### [Обновление 2](storsimple-update2-release-notes.md)
 #### [Обновление 1](storsimple-update1-release-notes.md)
 #### [Обновление 0.3](storsimple-february-2015-release-notes.md)

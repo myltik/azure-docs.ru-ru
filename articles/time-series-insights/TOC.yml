@@ -7,10 +7,13 @@
     - name: Сведения о службе "Аналитика временных рядов"
       href: time-series-insights-overview.md
 - name: Быстрое начало работы
-  expanded: true
   items:
     - name: Знакомство со службой "Аналитика временных рядов"
       href: time-series-quickstart.md
+- name: Учебники
+  items:
+    - name: Обзор клиентской библиотеки TSI JavaScript
+      href: tutorial-explore-js-client-lib.md
 - name: Основные понятия
   items:
     - name: Планирование среды

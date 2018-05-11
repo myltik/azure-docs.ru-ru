@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: гибридный компонент Runbook Worker
       items:
-        - name: Развертывание гибридной рабочей роли Runbook
+        - name: Обзор гибридной рабочей роли Runbook
           href: automation-hybrid-runbook-worker.md
-        - name: Гибридные рабочие роли Runbook службы автоматизации Azure для Windows
+        - name: Развертывание гибридной рабочей роли Runbook для Windows
           href: automation-windows-hrw-install.md
-        - name: Гибридные рабочие роли Runbook службы автоматизации Azure для Linux
+        - name: Развертывание гибридной рабочей роли Runbook для Linux
           href: automation-linux-hrw-install.md
-        - name: Запуск модулей runbook в рабочей роли
+        - name: Запуск модулей Runbook в гибридной рабочей роли Runbook
           href: automation-hrw-run-runbooks.md
-        - name: Удаление гибридных рабочих ролей Runbook в службе автоматизации Azure
-          href: automation-remove-hrw.md
     - name: Развертывание управления конфигурацией (DSC)
       items:
         - name: Общие сведения о платформе Desired State Configuration (DSC)

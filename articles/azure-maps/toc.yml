@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: Наличие информации о маршрутизации
       href: routing-coverage.md
+    - name: Категории поиска
+      href: search-categories.md
     - name: Поддерживаемые языки
       href: supported-languages.md
 - name: Практические руководства

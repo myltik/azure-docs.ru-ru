@@ -406,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Ресурсы
   items:
-    - name: Часто задаваемые вопросы
-      href: frequently-asked-questions.md
-    - name: Стратегия развития Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Цены
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: Форум MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Переполнение стека
+    - name: "Задать вопрос\_— форум MSDN"
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: "Задать вопрос\_— Stack Overflow"
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Запрос функции
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Регионы доступности
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Часто задаваемые вопросы
+      href: frequently-asked-questions.md
+    - name: Стратегия
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Доступность по регионам
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Варианты поддержки
       href: 'https://azure.microsoft.com/support/options/'

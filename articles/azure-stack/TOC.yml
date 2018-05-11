@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: Проверка сертификатов PKI
               href: azure-stack-validate-pki-certs.md
-        - name: Интеграция удостоверений
-          href: azure-stack-integrate-identity.md
+            - name: Исправление сертификатов PKI
+              href: azure-stack-remediate-certs.md
+            - name: Ресурсы развертывания
+              items:
+                - name: Справочник по командлетам Start-AzsReadiness
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: Просмотр отчета о готовности
+                  href: azure-stack-validation-report.md
+            - name: Интеграция удостоверений
+              items:
+                - name: Выбор поставщика удостоверений
+                  href: azure-stack-integrate-identity.md
+                - name: Проверка удостоверения Azure
+                  href: azure-stack-validate-identity.md
+        - name: Проверка регистрации в Azure
+          href: azure-stack-validate-registration.md
         - name: Внешний мониторинг
           href: azure-stack-integrate-monitor.md
         - name: Интеграция решений для обеспечения безопасности
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: Управление емкостью хранилища
               href: azure-stack-manage-storage-shares.md
-            - name: Управление емкостью физического хранилища для Azure Stack
+            - name: Управление объемом физической памяти
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Замена оборудования
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: Развертывание виртуальных машин Linux
               href: azure-stack-linux.md
+            - name: Добавление виртуальной машины Red Hat
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: Предложение кластера Kubernetes
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Потребление и выставление счетов
           items:
             - name: Обзор

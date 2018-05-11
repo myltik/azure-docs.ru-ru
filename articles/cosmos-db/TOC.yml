@@ -379,6 +379,8 @@ items:
                 href: tutorial-query-table.md
               - name: "4.\_Глобальное распространение"
                 href: tutorial-global-distribution-table.md
+              - name: "5.\_Бессерверное приложение\_— Node.js"
+                href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
           - name: Примеры
             items:
               - name: .NET

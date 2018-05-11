@@ -24,23 +24,27 @@
       href: blockchain-workbench-use-API.md
     - name: Устранение неполадок в приложениях
       href: blockchain-workbench-troubleshooting.md
-    - name: Получение сведений о базе данных Workbench
-      href: blockchain-workbench-getdb-details.md
-    - name: Настройка брандмауэра базы данных SQL для Workbench
-      href: blockchain-workbench-database-firewall.md
-    - name: Использование данных Workbench в Excel
-      href: blockchain-workbench-data-excel.md
-    - name: "Использование данных Workbench в Power\_BI"
-      href: blockchain-workbench-data-powerbi.md
-    - name: Использование данных Workbench в SQL Management Studio
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: Использование данных Workbench
+      items:
+        - name: Настройка брандмауэра базы данных
+          href: blockchain-workbench-database-firewall.md
+        - name: Получение сведений о базе данных
+          href: blockchain-workbench-getdb-details.md
+        - name: Использование данных в Excel
+          href: blockchain-workbench-data-excel.md
+        - name: "Использование данных в Power\_BI"
+          href: blockchain-workbench-data-powerbi.md
+        - name: Использование данных в SQL Management Studio
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: Справочные материалы
   items:
+    - name: Примеры кода
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Параметр Configuration
       href: blockchain-workbench-configuration-overview.md
     - name: Представления баз данных
       href: blockchain-workbench-database-views.md
-    - name: ИНТЕРФЕЙС REST API
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: API обмена сообщениями
       href: blockchain-workbench-messages-overview.md
+    - name: ИНТЕРФЕЙС REST API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
