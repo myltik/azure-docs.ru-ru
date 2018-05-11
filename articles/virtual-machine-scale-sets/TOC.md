@@ -29,6 +29,8 @@
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Шаблон](tutorial-autoscale-template.md)
+## Развертывание приложений в масштабируемом наборе виртуальных машин Azure с помощью пользовательского образа Packer
+### [Azure CLI 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Примеры
 ## [Azure CLI 2.0](cli-samples.md)

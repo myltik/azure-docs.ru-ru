@@ -8,6 +8,8 @@
   items:
     - name: Создание и администрирование VPN-шлюза
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+    - name: Создание и администрирование VPN-подключений "сеть — сеть"
+      href: vpn-gateway-tutorial-vpnconnection-powershell.md
 - name: Примеры
   items:
     - name: Azure PowerShell

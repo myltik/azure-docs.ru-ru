@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: Поддерживаемые языки
       href: supported-languages.md
+    - name: Модель потребления
+      href: consumption-model.md
 - name: Практические руководства
   items:
     - name: Управление учетными записями службы "Карты"
@@ -115,7 +117,7 @@
     - name: Обновления службы
       href: 'https://azure.microsoft.com/updates'
     - name: Переполнение стека
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: Технические примеры использования
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Видеоролики
