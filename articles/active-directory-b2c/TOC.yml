@@ -114,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (для одного клиента)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
             - name: Настраиваемое подключение OpenID
               href: active-directory-b2c-setup-oidc-idp.md
         - name: Настройка самостоятельного сброса пароля
