@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: Настройка облачной операционной среды PowerShell
               href: azure-stack-powershell-configure-admin.md
-            - name: Начало работы с PowerShell
-              href: azure-stack-powershell-configure-quickstart.md
         - name: Конечная точка привилегированного доступа
           href: azure-stack-privileged-endpoint.md
         - name: Управление обновлениями

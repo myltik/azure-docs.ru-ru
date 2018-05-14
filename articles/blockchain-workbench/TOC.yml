@@ -14,10 +14,10 @@
   items:
     - name: Развертывание Workbench
       href: blockchain-workbench-deploy.md
-    - name: Управление пользователями Workbench
-      href: blockchain-workbench-manage-users.md
     - name: Создание приложения блокчейна
       href: blockchain-workbench-create-app.md
+    - name: Управление пользователями Workbench
+      href: blockchain-workbench-manage-users.md
     - name: Использование приложения блокчейна
       href: blockchain-workbench-use.md
     - name: Использование API Workbench
