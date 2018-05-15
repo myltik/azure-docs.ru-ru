@@ -16,6 +16,7 @@
 ## [Добавление пользователей в Azure AD](add-users-azure-active-directory.md)
 ## [Назначение лицензий пользователям](license-users-groups.md)
 ## [Настройка самостоятельного сброса пароля](authentication/quickstart-sspr.md)
+## [Добавление конфиденциальных данных организации в Azure Active Directory](active-directory-properties-area.md)
 
 
 # Практическое руководство
@@ -58,6 +59,7 @@
 #### [Политики общего доступа к B2B](active-directory-b2b-delegate-invitations.md)
 #### [Добавление B2B-пользователя к роли](active-directory-b2b-add-guest-to-role.md)
 #### [Динамические группы и B2B-пользователи](active-directory-b2b-dynamic-groups.md)
+#### [Выход из организации](active-directory-b2b-leave-the-organization.md)
 #### [Аудит и отчеты](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B для гибридных организаций](active-directory-b2b-hybrid-organizations.md)
 ##### [Предоставление пользователям B2B доступа к локальным приложениям](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Удаленный доступ к приложениям с помощью прокси приложения](manage-apps/application-proxy.md)
 #### Начало работы
-##### [Использование прокси приложения](active-directory-application-proxy-enable.md)
-##### [Публикация приложений](application-proxy-publish-azure-portal.md)
-##### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
-#### [Единый вход](application-proxy-sso-overview.md)
-##### [Единый вход с применением ограниченного делегирования Kerberos](active-directory-application-proxy-sso-using-kcd.md)
+##### [Использование прокси приложения](manage-apps/application-proxy-enable.md)
+##### [Публикация приложений](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Пользовательские домены](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Единый вход](manage-apps/application-proxy-single-sign-on.md)
+##### [Единый вход с применением ограниченного делегирования Kerberos](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [Единый вход с применением заголовков](application-proxy-ping-access.md)
 ##### [Единый вход с хранением паролей](application-proxy-sso-azure-portal.md)
 #### Основные понятия

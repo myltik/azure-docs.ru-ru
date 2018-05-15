@@ -43,6 +43,7 @@
 ### [Обновление платежной информации](billing-how-to-change-credit-card.md)
 ### [Оплата подписок по счету](billing-how-to-pay-by-invoice.md)
 ### [Привязка идентификатора партнера](billing-partner-admin-link-started.md)
+### [Просмотр учетных записей выставления счетов](billing-view-all-accounts.md)
 ## [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
 ## Устранение неполадок
 ### [Проблемы при регистрации](https://support.microsoft.com/en-us/help/4042959)

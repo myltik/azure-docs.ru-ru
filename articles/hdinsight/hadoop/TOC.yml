@@ -49,6 +49,10 @@
         - name: Использование Hive с Hadoop
           href: hdinsight-use-hive.md
           items:
+            - name: Использование средств HDInsight для Visual Studio Code
+              href: ../hdinsight-for-vscode.md
+            - name: Использование средств HDInsight для Visual Studio
+              href: apache-hadoop-use-hive-visual-studio.md
             - name: Использование представления Hive
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Использование BeeLine
@@ -59,8 +63,6 @@
               href: apache-hadoop-use-hive-powershell.md
             - name: Использование пакета SDK для .NET
               href: apache-hadoop-use-hive-dotnet-sdk.md
-            - name: Использование средств HDInsight для Visual Studio
-              href: apache-hadoop-use-hive-visual-studio.md
             - name: Использование удаленного рабочего стола
               href: apache-hadoop-use-hive-remote-desktop.md
             - name: Использование консоли запросов

@@ -19,6 +19,10 @@
   items:
     - name: Выполнение запросов в кластере Spark
       href: apache-spark-load-data-run-query.md
+    - name: Использование Visual Studio Code для выполнения запросов Spark
+      href: ../hdinsight-for-vscode.md
+    - name: Использование IntelliJ для выполнения запросов Spark
+      href: apache-spark-intellij-tool-plugin.md
     - name: Анализ данных с помощью средств бизнес-аналитики
       href: apache-spark-use-bi-tools.md
     - name: Запуск задания потоковой передачи
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Создание приложений с помощью IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Удаленная отладка заданий Spark с помощью IntelliJ через VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Удаленная отладка заданий Spark с помощью IntelliJ через SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Удаленная отладка заданий Spark с помощью IntelliJ через VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Отладка заданий Spark
           href: apache-spark-job-debugging.md
+        - name: Использование IntelliJ для отладки заданий Spark
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Устранение задержки работы или сбоя кластера HDInsight
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

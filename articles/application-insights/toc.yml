@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: Консоль
           href: application-insights-console.md
+        - name: Панель мониторинга приложений
+          href: app-insights-overview-dashboard.md
     - name: Мониторинг приложений Java
       items:
         - name: 'веб-приложений:'
@@ -208,7 +210,7 @@
               href: app-insights-usage-flows.md
             - name: Workbooks
               href: app-insights-usage-workbooks.md
-        - name: Аналитика
+        - name: Analytics
           items:
             - name: Обзор
               href: app-insights-analytics.md
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Автоматизация с помощью приложения логики Azure
           href: automate-with-logic-apps.md
+        - name: Пользовательские отчеты для отправки по электронной почте
+          href: automate-custom-reports.md
     - name: Разработка
       items:
         - name: API для пользовательских событий и метрик
@@ -276,7 +280,7 @@
           href: app-insights-asp-net-troubleshoot-no-data.md
         - name: Отладчик моментальных снимков
           href: app-insights-troubleshoot-snapshot-debugger.md
-        - name: Аналитика
+        - name: Analytics
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md

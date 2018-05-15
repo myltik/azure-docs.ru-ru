@@ -1,7 +1,7 @@
 # [Документация по хранилищу ключей](index.yml)
 
 # Обзор
-## [Общие сведения о Key Vault](key-vault-overview.md)
+## [Сведения о Key Vault](key-vault-overview.md)
 
 # Быстрое начало работы
 ## [Создание Key Vault с помощью CLI](quick-create-cli.md)
@@ -65,8 +65,8 @@
 ## [Обзор службы](https://azure.microsoft.com/services/key-vault/)
 ## [Сведения о ключах, секретах и сертификатах](about-keys-secrets-and-certificates.md)
 ### [Начало работы с сертификатами](certificate-scenarios.md)
-#### [Способы создания сертификатов](create-certificate.md)
-#### [Мониторинг и администрирование процесса создания сертификатов](create-certificate-scenarios.md)
+### [Способы создания сертификатов](create-certificate.md)
+### [Мониторинг и администрирование процесса создания сертификатов](create-certificate-scenarios.md)
 ## [Аутентификация, запросы и ответы](authentication-requests-and-responses.md)
 ## [Распространенные параметры и заголовки](common-parameters-and-headers.md)
 ## [Версии Key Vault](key-vault-versions.md)

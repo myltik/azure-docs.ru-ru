@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: Перенаправление URL-адресов
       href: redirect-overview.md
+    - name: Мониторинг работоспособности
+      href: application-gateway-probe-overview.md
 - name: Практические руководства
   items:
     - name: Создание шлюза приложений
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: 'Создание шлюза приложений, избыточного в пределах зоны'
       href: create-zone-redundant.md
+    - name: Пользовательские проверки работоспособности
+      items:
+        - name: Microsoft Azure
+          href: application-gateway-create-probe-portal.md
+        - name: Классическая модель и PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: PowerShell для Resource Manager
+          href: application-gateway-create-probe-ps.md
+    - name: Устранение неполадок
+      items:
+        - name: Устранение ошибок "Недопустимый шлюз (502)"
+          href: application-gateway-troubleshooting-502.md
+        - name: Диагностика
+          href: application-gateway-diagnostics.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

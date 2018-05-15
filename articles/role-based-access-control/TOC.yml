@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Журналы действий
       href: change-history-report.md
-    - name: Повышение прав доступа администратора клиента
+    - name: Повышение прав доступа для глобального администратора
       href: elevate-access-global-admin.md
     - name: Устранение неполадок
       href: troubleshooting.md

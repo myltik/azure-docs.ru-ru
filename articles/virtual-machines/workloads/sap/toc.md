@@ -10,6 +10,7 @@
 ## Практическое руководство
 ### [Организация высокой доступности с помощью STONITH](ha-setup-with-stonith.md)
 ### [Резервное копирование ОС для номеров SKU типа II](os-backup-type-ii-skus.md)
+### [Обновление ОС для крупных экземпляров HANA](os-upgrade-hana-large-instance.md)
 # SAP HANA на виртуальных машинах Azure
 ## [Установка SAP HANA с одним экземпляром](hana-get-started.md)
 ## [Руководство по развертыванию S/4 HANA или BW/4 HANA SAP CAL](cal-s4h.md)

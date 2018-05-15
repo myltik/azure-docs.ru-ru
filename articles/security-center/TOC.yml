@@ -153,6 +153,8 @@
           href: security-center-events-dashboard.md
         - name: поиска
           href: security-center-search.md
+        - name: Проверка соответствия требованиям (REST)
+          href: security-center-review-policy-compliance.md
     - name: Сценарии
       items:
         - name: реагирование на инциденты.
