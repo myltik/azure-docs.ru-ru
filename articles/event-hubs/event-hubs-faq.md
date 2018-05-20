@@ -1,11 +1,11 @@
 ---
-title: "Часто задаваемые вопросы о концентраторах событий Azure | Документация Майкрософт"
-description: "Часто задаваемые вопросы о концентраторах событий Azure"
+title: Часто задаваемые вопросы о концентраторах событий Azure | Документация Майкрософт
+description: Часто задаваемые вопросы о концентраторах событий Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Часто задаваемые вопросы о концентраторах событий
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 02/01/2018
 Концентраторы событий поддерживают два типа [журналов диагностики](event-hubs-diagnostic-logs.md) — журналы ошибок записи и операционные журналы. Оба типа представлены в формате JSON и могут быть включены на портале Azure.
 
 ### <a name="support-and-sla"></a>Поддержка и соглашение об уровне обслуживания
-Техническая поддержка для концентраторов событий доступна через [форумы сообщества](https://social.msdn.microsoft.com/forums/azure/home). Поддержка по выставлению счетов и управлению подпиской предоставляется бесплатно.
+Техническая поддержка для концентраторов событий доступна через [форумы сообщества](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Поддержка по выставлению счетов и управлению подпиской предоставляется бесплатно.
 
 Дополнительные сведения о соглашении об уровне обслуживания см. на странице [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 

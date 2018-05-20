@@ -1,21 +1,21 @@
 ---
-title: "Управлением кластером Azure Kubernetes с помощью пользовательского веб-интерфейса"
-description: "Использование панели мониторинга Kubernetes в AKS"
+title: Управлением кластером Azure Kubernetes с помощью пользовательского веб-интерфейса
+description: Использование панели мониторинга Kubernetes в AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Панель мониторинга Kubernetes со Службой контейнеров Azure (AKS)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Панель мониторинга Kubernetes со службой Azure Kubernetes
 
 Для запуска панели мониторинга Kubernetes можно использовать Azure CLI. В этом документе рассматривается запуск панели мониторинга Kubernetes с помощью Azure CLI и также некоторые основные операции с ней. Дополнительные сведения о панели мониторинга Kubernetes см. в статье [Web UI (Dashboard)][kubernetes-dashboard] (Панель мониторинга веб-интерфейса).
 

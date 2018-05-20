@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Прокси приложений и Qlik Sense 
 Совместное использование Azure Active Directory Application Proxy и Qlik Sense упрощает использование прокси приложения для предоставления удаленного доступа к развертыванию Qlik Sense.  
@@ -25,13 +25,13 @@ ms.lasthandoff: 04/05/2018
 В оставшейся части этого сценария предполагается, что вы сделали следующее:
  
 - Настроили [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Установили соединитель прокси приложения.](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [Установили соединитель прокси приложения.](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Публикация приложений в Azure 
 Для публикации QlikSense необходимо опубликовать два приложения в Azure.  
 
 ### <a name="application-1"></a>Приложение № 1 
-Выполните следующие действия, чтобы опубликовать приложение. Более подробное пошаговое руководство по этапам 1–8 приведено в разделе [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md). 
+Выполните следующие действия, чтобы опубликовать приложение. Более подробное пошаговое руководство по этапам 1–8 приведено в разделе [Публикация приложений с помощью прокси приложения Azure AD](manage-apps/application-proxy-publish-azure-portal.md). 
 
 
 1. Войдите на портал Azure как глобальный администратор. 
@@ -58,5 +58,5 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- [Опубликуйте приложения с помощью прокси-сервера приложений.](application-proxy-publish-azure-portal.md)
-- [Работа с соединителями прокси приложения](active-directory-application-proxy-connectors-azure-portal.md).
+- [Опубликуйте приложения с помощью прокси-сервера приложений.](manage-apps/application-proxy-publish-azure-portal.md)
+- [Работа с соединителями прокси приложения](manage-apps/application-proxy-connector-groups.md).

@@ -83,7 +83,8 @@
 
 
 ## Устранение неполадок
-### [Соединение](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Подключение к Azure AD с помощью Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Подключение к SQL](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Ошибки при синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Объект не синхронизирован](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Синхронизация объектов с помощью задачи устранения неполадок](active-directory-aadconnect-troubleshoot-objectsync.md)

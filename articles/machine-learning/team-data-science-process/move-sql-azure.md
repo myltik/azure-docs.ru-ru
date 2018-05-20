@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Перемещение данных в базу данных SQL Azure для машинного обучения Azure
 В этой статье описаны варианты перемещения данных из неструктурированных файлов (в формате CSV или TSV) или с локального сервера SQL Server в базу данных SQL Azure. Эти задачи перемещения данных в облако являются этапом процесса обработки и анализа данных группы.
@@ -33,8 +33,8 @@ ms.lasthandoff: 05/03/2018
 
 | <b>Источник</b> | <b>Назначение: база данных SQL Azure</b> |
 | --- | --- |
-| <b>Неструктурированный файл (в формате CSV или TSV)</b> |<a href="#bulk-insert-sql-query">SQL-запрос на массовую вставку |
-| <b>Локальный сервер SQL Server</b> |1. <a href="#export-flat-file">Экспорт в неструктурированный файл<br> 2. <a href="#insert-tables-bcp">Мастер миграции баз данных SQL<br> 3. <a href="#db-migration">Архивация и восстановление базы данных<br> 4. <a href="#adf"> Фабрика данных Azure |
+| <b>Неструктурированный файл (в формате CSV или TSV)</b> |[SQL-запрос на массовую вставку](#bulk-insert-sql-query) |
+| <b>Локальный сервер SQL Server</b> |1. [Экспорт в неструктурированный файл](#export-flat-file).<br> 2. [Мастер миграции баз данных SQL](#insert-tables-bcp)<br> 3. [Архивация и восстановление базы данных](#db-migration)<br> 4. [Фабрика данных Azure](#adf) |
 
 ## <a name="prereqs"></a>Предварительные требования
 Для выполнения описанных процедур вам необходимы следующие компоненты:

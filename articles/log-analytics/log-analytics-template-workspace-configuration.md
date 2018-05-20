@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: 0d9848a6477dbf1b93a7f640bc44adf627b40a45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Управление Log Analytics с помощью шаблонов Azure Resource Manager
 [Шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) можно использовать, чтобы создавать и настраивать рабочие области Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
@@ -230,7 +230,7 @@ ms.lasthandoff: 04/18/2018
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 * [Развертывание виртуальной машины под управлением Linux с расширением Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Мониторинг Azure Site Recovery с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Мониторинг веб-приложений Azure с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Мониторинг SQL Azure с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Развертывание кластера Service Fabric и его мониторинг с помощью существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Развертывание кластера Service Fabric и создание рабочей области Log Analytics для его мониторинга](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Добавление существующей учетной записи хранения в OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/).
 
 ## <a name="next-steps"></a>Дополнительная информация
-* [Развертывание агентов на виртуальных машинах Azure с помощью шаблонов Resource Manager](log-analytics-azure-vm-extension.md)
+* [Развертывание агента Windows на виртуальных машинах Azure с помощью шаблона Resource Manager](../virtual-machines/windows/extensions-oms.md)
+* [Развертывание агента Linux на виртуальных машинах Azure с помощью шаблона Resource Manager](../virtual-machines/linux/extensions-oms.md)
 

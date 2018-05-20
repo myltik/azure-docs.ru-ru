@@ -1,36 +1,46 @@
 ---
-title: "Приступая к работе с Центрами уведомлений Azure для приложений Kindle | Документация Майкрософт"
-description: "Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Kindle."
+title: Отправка push-уведомлений в приложения Kindle с помощью Центров уведомлений Azure | Документация Майкрософт
+description: Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Kindle.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 346fc8e5-294b-4e4f-9f27-7a82d9626e93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-kindle
 ms.devlang: Java
-ms.topic: hero-article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Приступая к работе с Центрами уведомлений для приложений Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Обзор
-В этом учебнике показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Kindle.
-Вы создаете пустое приложение Kindle, которое получает push-уведомления с помощью Amazon Device Messaging (ADM).
+В этом учебнике показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Kindle. Вы создадите пустое приложение Kindle, которое получает push-уведомления с помощью Amazon Device Messaging (ADM).
+
+В рамках этого руководства создается или обновляется код для выполнения следующих задач: 
+
+> [!div class="checklist"]
+> * Добавление нового приложения на портал разработчика
+> * Создание ключа API
+> * Добавление учетных данных для центра
+> * Настройка приложения
+> * Создание обработчика сообщений ADM
+> * Добавление ключа API в приложение
+> * Запуск приложения
+> * отправка проверочного уведомления. 
 
 ## <a name="prerequisites"></a>предварительным требованиям
-Для работы с данным учебником требуется следующее:
 
-* Скачайте пакет SDK Android (предполагается, что вы будете использовать Eclipse) с <a href="http://go.microsoft.com/fwlink/?LinkId=389797">сайта Android</a>.
+* Скачайте пакет SDK для Android (предполагается, что вы используете Eclipse) с <a href="http://go.microsoft.com/fwlink/?LinkId=389797">сайта Android</a>.
 * Следуйте указаниям, приведенным в статье <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Настройка среды разработки</a>, для настройки среды разработки для Kindle.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Добавление нового приложения на портал разработчика
@@ -46,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 4. Щелкните **Создать новый профиль безопасности**, затем создайте профиль безопасности (например, **Профиль безопасности TestAdm**). Нажмите кнопку **Сохранить**.
    
     ![][3]
-5. Щелкните **Профили безопасности** для просмотра только что созданного профиля. Скопируйте значения **Код клиента** и **Секрет клиента** для последующего использования.
+5. Щелкните **Security Profiles** (Профили безопасности), чтобы просмотреть только что созданный профиль. Скопируйте значения **Код клиента** и **Секрет клиента** для последующего использования.
    
     ![][4]
 
@@ -68,8 +78,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="set-up-your-application"></a>Настройка приложения
 > [!NOTE]
 > При создании приложения используйте API уровня не ниже 17.
-> 
-> 
 
 Добавьте библиотеки ADM в проект Eclipse.
 
@@ -82,10 +90,13 @@ ms.lasthandoff: 10/11/2017
 
 1. Добавьте пространство имен Amazon в корневом элементе манифеста.
 
+    ```xml
         xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+    ```
 
 1. Добавьте разрешения в качестве первого элемента в элементе манифеста. Вместо **[YOUR PACKAGE NAME]** укажите пакет, который вы используете для создания приложения.
    
+    ```xml
         <permission
          android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
          android:protectionLevel="signature" />
@@ -100,8 +111,10 @@ ms.lasthandoff: 10/11/2017
    
         <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
         <uses-permission android:name="android.permission.WAKE_LOCK" />
+    ```
 2. Вставьте приведенный ниже элемент в качестве первого потомка элемента приложения. Не забудьте заменить **[YOUR SERVICE NAME]** именем обработчика сообщений ADM, который будет создан в следующем разделе (включая пакет), а **[YOUR PACKAGE NAME]** именем пакета, с помощью которого создается приложение.
    
+    ```xml
         <amazon:enable-feature
               android:name="com.amazon.device.messaging"
                      android:required="true"/>
@@ -124,6 +137,7 @@ ms.lasthandoff: 10/11/2017
           <category android:name="[YOUR PACKAGE NAME]" />
             </intent-filter>
         </receiver>
+    ```
 
 ## <a name="create-your-adm-message-handler"></a>Создание обработчика сообщений ADM
 1. Создайте новый класс с наследованием от `com.amazon.device.messaging.ADMMessageHandlerBase` и назовите его `MyADMMessageHandler`, как показано на следующем рисунке.
@@ -131,6 +145,7 @@ ms.lasthandoff: 10/11/2017
     ![][6]
 2. Добавьте следующие операторы `import` :
    
+    ```java
         import android.app.NotificationManager;
         import android.app.PendingIntent;
         import android.content.Context;
@@ -138,8 +153,10 @@ ms.lasthandoff: 10/11/2017
         import android.support.v4.app.NotificationCompat;
         import com.amazon.device.messaging.ADMMessageReceiver;
         import com.microsoft.windowsazure.messaging.NotificationHub
+    ```
 3. Добавьте в созданный класс приведенный ниже код. Не забудьте подставить имя центра и строку подключения (listen).
    
+    ```java
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
@@ -184,29 +201,39 @@ ms.lasthandoff: 10/11/2017
              mBuilder.setContentIntent(contentIntent);
              mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
+    ```
 4. Добавьте в метод `OnMessage()` следующий код:
    
+    ```java
         String nhMessage = intent.getExtras().getString("msg");
         sendNotification(nhMessage);
+    ```
 5. Добавьте в метод `OnRegistered` следующий код:
    
-            try {
-        getNotificationHub(getApplicationContext()).register(registrationId);
-            } catch (Exception e) {
-        Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
-            }
+    ```java
+        try {
+            getNotificationHub(getApplicationContext()).register(registrationId);
+        } catch (Exception e) {
+            Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
+        }
+    ```
 6. Добавьте в метод `OnUnregistered` следующий код:
    
+    ```java
          try {
              getNotificationHub(getApplicationContext()).unregister();
          } catch (Exception e) {
              Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
          }
+    ```
 7. Затем в методе `MainActivity` добавьте следующую инструкцию import:
    
+    ```java
         import com.amazon.device.messaging.ADM;
+    ```
 8. В конец метода `OnCreate` добавьте следующий код:
    
+    ```java
         final ADM adm = new ADM(this);
         if (adm.getRegistrationId() == null)
         {
@@ -224,7 +251,8 @@ ms.lasthandoff: 10/11/2017
                  }
                }.execute(null, null, null);
         }
-
+    ```
+    
 ## <a name="add-your-api-key-to-your-app"></a>Добавление ключа API в приложение
 1. В Eclipse создайте новый файл с именем **api_key.txt** в активах каталога проекта.
 2. Откройте файл и скопируйте ключ API, созданный на портале разработчика Amazon.
@@ -237,21 +265,31 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Если возникает проблема, проверьте время эмулятора (или устройства). Значение времени должно быть точным. Для изменения времени эмулятора Kindle выполните следующую команду из каталога средств для платформы Android SDK:
 > 
-> 
 
-        adb shell  date -s "yyyymmdd.hhmmss"
+```
+adb shell  date -s "yyyymmdd.hhmmss"
+```
 
-## <a name="send-a-message"></a>Отправка сообщения
+## <a name="send-a-notification-message"></a>Отправка уведомления
+
 Чтобы отправить сообщение с помощью .NET, используйте следующий код:
 
-        static void Main(string[] args)
-        {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
+```csharp
+static void Main(string[] args)
+{
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-            hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
-        }
+    hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+}
+```
 
 ![][7]
+
+## <a name="next-steps"></a>Дополнительная информация
+В рамках этого руководства вы отправили широковещательные уведомления на все устройства Kindle, зарегистрированные в серверной части. Чтобы научиться отправлять push-уведомления на конкретные устройства Kindle, перейдите к следующему руководству (в следующем руководстве объясняется, как отправлять push-уведомления на конкретные устройства Android, но можно применить ту же логику при отправке push-уведомлений на конкретные устройства Kindle). 
+
+> [!div class="nextstepaction"]
+>[Отправка push-уведомлений на конкретные устройства](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- URLs. -->
 [портале разработчика Amazon]: https://developer.amazon.com/home.html

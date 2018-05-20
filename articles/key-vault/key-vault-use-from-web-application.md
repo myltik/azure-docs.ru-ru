@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 83ce49d9ac368404edcc2d68859493476e74869e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Использование хранилища ключей Azure из веб-приложения
 
@@ -157,7 +157,7 @@ pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Свяжите сертификат с приложением Azure AD
 
-Теперь, когда у вас есть сертификат, необходимо связать его с приложением Azure AD. Сейчас портал Azure не поддерживает этот рабочий процесс. Однако это можно сделать с помощью PowerShell. Чтобы связать сертификат с приложением Azure AD, выполните следующие команды:
+Теперь, когда у вас есть сертификат, необходимо связать его с приложением Azure AD. Сейчас портал Azure не поддерживает этот рабочий процесс. Однако это можно сделать с помощью PowerShell. Чтобы связать сертификат с приложением Azure AD, выполните следующие команды.
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

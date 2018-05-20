@@ -1,12 +1,12 @@
 ---
-title: "Поддержка SSH для службы приложений Azure в Linux | Документация Майкрософт"
-description: "Сведения об использовании SSH для службы приложений Azure на платформе Linux."
-keywords: "служба приложений azure, веб-приложение, linux, oss"
+title: Поддержка SSH для службы приложений Azure в Linux | Документация Майкрософт
+description: Сведения об использовании SSH для службы приложений Azure на платформе Linux.
+keywords: служба приложений azure, веб-приложение, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Поддержка SSH для службы приложений Azure в Linux
 
@@ -30,6 +30,10 @@ ms.lasthandoff: 02/27/2018
 ![Стеки времени выполнения](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 Протокол SSH можно также использовать с помощью пользовательских образов Docker, добавив в них сервер SSH и настроив его, как описано в этой статье.
+
+> [!NOTE] 
+> Можно также подключиться к контейнеру приложения непосредственно с локального компьютера разработки с помощью SSH, SFTP или Visual Studio Code (для динамической отладки приложений Node.js). См. дополнительные сведения об [удаленной отладке и SSH в службе приложений в Linux](https://aka.ms/linux-debug).
+>
 
 ## <a name="making-a-client-connection"></a>Создание подключения клиента
 

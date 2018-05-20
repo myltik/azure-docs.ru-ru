@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: b8df65c969a37eb22589c297ecb9b0d0b840a52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Что такое Azure AD Privileged Identity Management?
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/07/2018
 >- которым назначена роль ресурса Azure с использованием JIT-назначений или прямых назначений (на основе времени);  
 >- которые назначены для проверки доступа.
 >
->Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
+>Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-whatis.md).
 
 Организациям необходимо свести к минимуму число пользователей, имеющих доступ к защищенным сведениям или ресурсам. Это снижает вероятность того, что такой доступ получит злоумышленник или что авторизованный пользователь непреднамеренно повлияет на критический ресурс.  Однако пользователям иногда требуется выполнять привилегированные операции в приложениях Azure AD, Azure, Office 365 или SaaS. Организации могут предоставлять пользователям привилегированный доступ к ресурсам Azure, таким как подписки и Azure AD. Необходимо наблюдать за действиями пользователей с правами доступа администратора. Azure AD Privileged Identity Management помогает снизить риск чрезмерных, ненужных или неправильно используемых прав доступа.
 

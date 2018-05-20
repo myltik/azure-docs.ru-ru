@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 526fdce85df388fec04dd5df35183200c1478570
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01150db589b2210e38ed6fd4e45429c1500d9588
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Отправка сообщений из облака на устройства с помощью Центра Интернета вещей (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -181,7 +181,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="next-steps"></a>Дополнительная информация
 В этом учебнике вы научились отправлять и получать сообщения с облака на устройство. 
 
-Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по Azure IoT Suite].
+Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по акселераторам решений для удаленного мониторинга Интернета вещей Azure].
 
 Дополнительные сведения о разработке решений с помощью Центра Интернета вещей см. в [руководстве разработчика для Центра Интернета вещей].
 
@@ -199,4 +199,4 @@ ms.lasthandoff: 04/03/2018
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [портале Azure]: https://portal.azure.com
-[документации по Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[документации по акселераторам решений для удаленного мониторинга Интернета вещей Azure]: https://azure.microsoft.com/documentation/suites/iot-suite/

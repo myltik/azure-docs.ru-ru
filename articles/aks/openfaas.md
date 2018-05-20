@@ -1,30 +1,30 @@
 ---
-title: Использование OpenFaaS со Службой контейнеров Azure (AKS)
-description: Развертывание и использование OpenFaaS со Службой контейнеров Azure (AKS)
+title: Использование OpenFaaS со Службой Azure Kubernetes (AKS)
+description: Развертывание и использование OpenFaaS со Службой Azure Kubernetes (AKS)
 services: container-service
 author: justindavies
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e26f1c298b05153736edd2b2efd0f1b27162bc3d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Использование OpenFaaS в AKS
 
-[OpenFaaS][open-faas] — это платформа для создания бессерверных функций на основе контейнеров. Как проект с открытым кодом она стала очень популярной в сообществе. В этом документе описано, как установить и использовать OpenFaas в кластере Службы контейнеров Azure (AKS).
+[OpenFaaS][open-faas] — это платформа для создания бессерверных функций на основе контейнеров. Как проект с открытым кодом она стала очень популярной в сообществе. В этом документе описано, как установить и использовать OpenFaas в кластере Службы Azure Kubernetes (AKS).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Базовое представление о Kubernetes.
-* Кластер Службы контейнеров Azure (AKS) и настроенные учетные данные AKS в системе разработки.
+* Кластер Службы Azure Kubernetes (AKS) и настроенные учетные данные AKS в системе разработки.
 * Установленный компонент Azure CLI в системе разработки.
 * Средства командной строки Git, установленные в системе.
 
@@ -39,7 +39,7 @@ git clone https://github.com/openfaas/faas-netes
 Перейдите в каталог клонированного репозитория.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## <a name="deploy-openfaas"></a>Развертывание OpenFaaS
@@ -54,7 +54,7 @@ kubectl create namespace openfaas
 
 Создайте второе пространство имен для функций OpenFaaS.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -64,7 +64,7 @@ kubectl create namespace openfaas-fn
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 Выходные данные:
@@ -95,7 +95,7 @@ To verify that openfaas has started, run:
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Выходные данные. 
+Выходные данные.
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -130,8 +130,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 Выходные данные:
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -140,7 +140,7 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 
 ## <a name="create-second-function"></a>Создание второй функции
 
-Теперь создайте вторую функцию. Этот пример будет развернут с помощью OpenFaaS CLI. Он включает настраиваемый образ контейнера и предусматривает получение данных из Cosmos DB. Перед созданием функции необходимо настроить несколько элементов. 
+Теперь создайте вторую функцию. Этот пример будет развернут с помощью OpenFaaS CLI. Он включает настраиваемый образ контейнера и предусматривает получение данных из Cosmos DB. Перед созданием функции необходимо настроить несколько элементов.
 
 Сначала создайте группу ресурсов для Cosmos DB.
 
@@ -148,13 +148,13 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 az group create --name serverless-backing --location eastus
 ```
 
-Разверните экземпляр CosmosDB вида `MongoDB`. Этому экземпляру требуется уникальное имя. Обновите `openfaas-cosmos` уникальным значением для вашей среды. 
+Разверните экземпляр CosmosDB вида `MongoDB`. Этому экземпляру требуется уникальное имя. Обновите `openfaas-cosmos` уникальным значением для вашей среды.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Получите строку подключения к базе данных Cosmos и сохраните ее в переменной. 
+Получите строку подключения к базе данных Cosmos и сохраните ее в переменной.
 
 Обновите значение аргумента `--resource-group` именем вашей группы ресурсов, а значение аргумента `--name` — именем базы данных Cosmos DB.
 
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
 }
 ```
 
-Используйте средство *mongoimport* для загрузки экземпляра CosmosDB с данными. 
+Используйте средство *mongoimport* для загрузки экземпляра CosmosDB с данными.
 
 При необходимости установите средства MongoDB. В следующем примере эти средства устанавливаются с помощью brew. Другие варианты см. в [документации MongoDB][install-mongo].
 
@@ -232,7 +232,7 @@ curl -s http://52.186.64.52:8080/function/cosmos-query
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Развертывание OpenFaas по умолчанию необходимо заблокировать как для шлюза, так и для функций OpenFaaS. Дополнительные сведения о параметрах защищенной конфигурации см. в [блоге Алекса Эллиса (Alex Ellis)](https://blog.alexellis.io/lock-down-openfaas/). 
+Развертывание OpenFaas по умолчанию необходимо заблокировать как для шлюза, так и для функций OpenFaaS. Дополнительные сведения о параметрах защищенной конфигурации см. в [блоге Алекса Эллиса (Alex Ellis)](https://blog.alexellis.io/lock-down-openfaas/).
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

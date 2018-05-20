@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Настройка репликации кластера HBase в виртуальных сетях Azure
 
@@ -52,51 +52,18 @@ ms.lasthandoff: 04/18/2018
 - два кластера HBase в двух виртуальных сетях в одном регионе;
 - два кластера HBase в двух виртуальных сетях в двух регионах (георепликация).
 
+В этой статье описан сценарий георепликации.
+
 Чтобы помочь вам в настройке сред мы создали некоторые [шаблоны Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Если вы предпочитаете настраивать среды с помощью других методов, см. следующие статьи:
 
 - [Создание кластеров Hadoop в HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Создание кластеров HBase в виртуальной сети Azure](apache-hbase-provision-vnet.md)
 
-### <a name="set-up-one-virtual-network"></a>Настройка одной виртуальной сети
-
-Чтобы создать два кластера HBase в одной виртуальной сети, нажмите расположенную ниже кнопку. Шаблон хранится среди [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### <a name="set-up-two-virtual-networks-in-the-same-region"></a>Настройка двух виртуальных сетей в одном регионе
-
-Чтобы создать две виртуальные сети с пиринговой связью и два кластера HBase в одном регионе, нажмите расположенную ниже кнопку. Шаблон хранится среди [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-В этом случае необходима [пиринговая связь между виртуальными сетями](../../virtual-network/virtual-network-peering-overview.md). Этот шаблон включает пиринговую связь между виртуальными сетями.   
-
-Репликация HBase использует IP-адреса виртуальных машин ZooKeeper. Необходимо настроить статические IP-адреса для узлов назначения ZooKeeper HBase.
-
-**Настройка статических IP-адресов**
-
-1. Войдите на [портале Azure](https://portal.azure.com).
-2. В меню слева выберите **Группы ресурсов**.
-3. Выберите группу ресурсов, содержащую кластер назначения HBase. Это группа ресурсов, указанная при использовании шаблона Resource Manager для создания среды. Для сужения списка можно использовать фильтр. Вы увидите список ресурсов, содержащий две виртуальные сети.
-4. Выберите виртуальную сеть, содержащую кластер назначения HBase. Например, **xxxx-vnet2**. Появится три устройства с именами, которые начинаются с **nic-zookeepermode-**. Это три виртуальные машины ZooKeeper.
-5. Выберите одну из виртуальных машин ZooKeeper.
-6. Щелкните **IP configurations** (Конфигурации IP).
-7. В списке выберите **ipConfig1**.
-8. Выберите **Статический** и скопируйте или запишите фактический IP-адрес. IP-адрес нужен при запуске действия сценария для включения репликации.
-
-  ![Репликация HDInsight HBase, статический IP-адрес узла ZooKeeper](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. Повторите шаг 6, чтобы задать статический IP-адрес для двух остальных узлов ZooKeeper.
-
-Когда вы вызываете действие сценария `hdi_enable_replication.sh` для сценария c виртуальными сетями в разных регионах, необходимо использовать параметр **-ip**.
-
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Настройка двух виртуальных сетей в двух разных регионах
 
-Чтобы создать две виртуальные сети в двух разных регионах и соединить их с помощью VPN-подключение, щелкните расположенное ниже изображение. Шаблон хранится среди [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+Чтобы создать две виртуальные сети в двух разных регионах и соединить их с помощью VPN-подключения, выберите расположенное ниже изображение. Шаблон хранится в [общедоступном хранилище BLOB-объектов] (https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Ниже приведены некоторые жестко заданные значения в шаблоне.
 
@@ -116,11 +83,6 @@ ms.lasthandoff: 04/18/2018
 | Тип VPN шлюза. | RouteBased |
 | Gateway SKU | базовая; |
 | Gateway IP | vnet1gwip |
-| Имя кластера, | &lt;префикс_имени_кластера>1 |
-| Cluster version | 3.6 |
-| Cluster kind | hbase |
-| Cluster worker node count | 2 |
-
 
 **VNet 2**
 
@@ -138,14 +100,176 @@ ms.lasthandoff: 04/18/2018
 | Тип VPN шлюза. | RouteBased |
 | Gateway SKU | базовая; |
 | Gateway IP | vnet1gwip |
-| Имя кластера, | &lt;префикс_имени_кластера>2 |
-| Cluster version | 3.6 |
-| Cluster kind | hbase |
-| Cluster worker node count | 2 |
 
-Репликация HBase использует IP-адреса виртуальных машин ZooKeeper. Необходимо настроить статические IP-адреса для узлов назначения ZooKeeper HBase. Сведения о настройке статического IP-адреса см. в разделе [Настройка двух виртуальных сетей в одном регионе](#set-up-two-virtual-networks-in-the-same-region) в этой статье.
+## <a name="setup-dns"></a>Настройка службы доменных имен (DNS)
 
-Когда вы вызываете действие сценария `hdi_enable_replication.sh` для сценария c виртуальными сетями в разных регионах, необходимо использовать параметр **-ip**.
+В последнем разделе шаблон создает виртуальную машину Ubuntu в каждой виртуальной сети.  В этом разделе вы установите Bind на две виртуальные машины DNS, а затем настроите на них переадресацию DNS.
+
+Чтобы установить Bind, найдите общедоступные IP-адреса двух виртуальных машин DNS.
+
+1. Откройте [портал Azure](https://portal.azure.com).
+2. Откройте виртуальную машину DNS, выбрав **Группы ресурсов > [имя группы ресурсов] > [vnet1DNS]**.  Используйте имя группы ресурсов, созданной в последней процедуре. По умолчанию виртуальные машины DNS называются *vnet1DNS* и *vnet2NDS*.
+3. Выберите **Панель свойств**. Откроется страница свойств виртуальной сети.
+4. Запишите **общедоступный IP-адрес**, а также проверьте **частный IP-адрес**.  Для vnet1DNS должен быть указан IP-адрес **10.1.0.4**, а для vnet2DNS — **10.2.0.4**.  
+
+Чтобы установить Bind, выполните следующую процедуру.
+
+1. Используйте SSH для подключения к __общедоступному IP-адресу__ виртуальной машины. В следующем примере устанавливается подключение к виртуальной машине по адресу 40.68.254.142:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Замените `sshuser` учетной записью пользователя SSH, указанной при создании виртуальной машины DNS.
+
+    > [!NOTE]
+    > Есть несколько способов получить служебную программу `ssh`. В Linux, Unix и macOS она предоставляется как часть операционной системы. Если вы используете Windows, рассмотрите один из следующих вариантов:
+    >
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md);
+    > * [Bash на платформе Ubuntu в Windows 10](https://msdn.microsoft.com/commandline/wsl/about);
+    > * [Git (https://git-scm.com/)](https://git-scm.com/);
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH).
+
+2. Чтобы установить Bind, используйте следующие команды из сеанса SSH:
+
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
+    ```
+
+3. Чтобы настроить Bind на переадресацию запросов разрешения имен на локальный DNS-сервер, в качестве содержимого файла `/etc/bind/named.conf.options` добавьте следующий текст:
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > Замените значения в разделе `goodclients` следующим диапазоном IP-адресов двух виртуальных сетей. Этот раздел определяет адреса, по которым этот DNS-сервер принимает запросы.
+
+    Чтобы изменить этот файл, используйте следующую команду:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    Чтобы сохранить файл, нажмите клавиши __CTRL+X__, затем — __Y__ и __ВВОД__.
+
+4. В сеансе SSH используйте следующую команду:
+
+    ```bash
+    hostname -f
+    ```
+
+    Эта команда возвращает значение следующего вида:
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    Текст `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` — это __DNS-суффикс__ для виртуальной сети. Сохраните это значение, так как оно будет использовано позже.
+
+    Кроме того, необходимо найти на DNS-сервере DNS-суффикс. Он понадобится нам на следующем шаге.
+
+5. Чтобы настроить Bind для разрешения DNS-имен ресурсов в виртуальной сети, в качестве содержимого файла `/etc/bind/named.conf.local` добавьте следующий текст:
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > Замените значение `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` DNS-суффиксом другой виртуальной сети. IP-адрес сервера пересылки представляет собой частный IP-адрес DNS-сервера в другой виртуальной сети.
+
+    Чтобы изменить этот файл, используйте следующую команду:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    Чтобы сохранить файл, нажмите клавиши __CTRL+X__, затем — __Y__ и __ВВОД__.
+
+6. Чтобы запустить Bind, используйте следующую команду:
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. Чтобы убедиться, что привязка может разрешать имена ресурсов в другой виртуальной сети, используйте следующие команды:
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    ```
+
+    > [!IMPORTANT]
+    > Замените значение `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` полным доменным именем (FQDN) виртуальной машины DNS в другой сети.
+    >
+    > Замените `10.2.0.4` __внутренним IP-адресом__ пользовательского DNS-сервера в другой виртуальной сети.
+
+    Ответ будет выглядеть следующим образом:
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    Пока вы не сможете искать IP-адрес из другой сети без указанного IP-адреса DNS-сервера.
+
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Настройка виртуальной сети для использования с пользовательским DNS-сервером
+
+Чтобы настроить виртуальную сеть для использования с пользовательским DNS-сервером вместо рекурсивного сопоставителя Azure, сделайте следующее:
+
+1. На [портале Azure](https://portal.azure.com) выберите виртуальную сеть, а затем — __DNS-серверы__.
+
+2. Выберите __Custom__ (Пользовательский) и введите __внутренний IP-адрес__ пользовательского DNS-сервера. Наконец, щелкните __Сохранить__.
+
+6. Откройте виртуальную машину DNS-сервера в виртуальной сети 1 и щелкните **Перезагрузить**.  Чтобы конфигурация DNS вступила в силу, необходимо перезагрузить все виртуальные машины в виртуальной сети.
+7. Повторите шаги настройки пользовательского DNS-сервера для виртуальной сети 2.
+
+Чтобы проверить конфигурацию DNS, подключитесь к двум виртуальным машинам DNS с помощью SSH и проверьте связь с DNS-сервером другой виртуальной сети с помощью имени узла. Если это не сработает, используйте следующую команду для проверки состояния DNS:
+
+```bash
+sudo service bind9 status
+```
+
+## <a name="create-hbase-clusters"></a>Создание кластеров HBase
+
+В каждой виртуальной сети создайте кластер HBase со следующей конфигурацией:
+
+- **Имя группы ресурсов.** Используйте те же имена групп ресурсов, как при создании виртуальных сетей.
+- **Тип кластера.** HBase.
+- **Версия.** HBase 1.1.2 (HDI 3.6).
+- **Расположение.** Используйте то же расположение, что и у виртуальной сети.  По умолчанию для виртуальной сети 1 указано расположение *западная часть США*, а для виртуальной сети 2 — *восточная часть США*.
+- **Хранилище.** Создайте учетную запись хранения для кластера.
+- **Виртуальная сеть** (из дополнительных параметров на портале). Выберите виртуальную сеть 1, созданную в предыдущей процедуре.
+- **Подсеть.** Имя по умолчанию, используемое в шаблоне, — **subnet1**.
+
+Чтобы убедиться, что среда правильно настроена, проверьте связь FQDN головного узла между двумя кластерами.
 
 ## <a name="load-test-data"></a>Загрузка тестовых данных
 
@@ -195,7 +319,6 @@ ms.lasthandoff: 04/18/2018
 |-du, --dst-ambari-user | Указывает имя пользователя-администратора для Ambari в целевом кластере HBase. Значение по умолчанию — **admin**. |
 |-t, --table-list | Указывает таблицы для репликации. например --table-list="table1;table2;table3". Если не указать таблицы, будут реплицированы все существующие таблицы HBase.|
 |-m, --machine | Указывает головной узел, на котором будет выполняться действие сценария. Значение должно быть **hn1** или **hn0**. Мы рекомендуем использовать **hn1**, так как головной узел **hn0** обычно более загружен. Используйте этот параметр при запуске скрипта $0 как действия сценария из портала HDInsight или Azure PowerShell.|
-|-ip | Этот аргумент является обязательным, если вы включаете репликацию между двумя виртуальными сетями. Этот аргумент действует как переключатель на использование статических IP-адресов узлов ZooKeeper реплицированных кластеров вместо полных доменных имен. Перед включением репликации необходимо предварительно настроить статические IP-адреса. |
 |-cp, -copydata | Включает перенос существующих данных для таблиц, где включена репликация. |
 |-rpm, -replicate-phoenix-meta | Включает репликацию для системных таблиц Phoenix. <br><br>*Используйте этот параметр с осторожностью.* Рекомендуется повторно создать таблицы Phoenix в реплицированных кластерах перед использованием этого скрипта. |
 |-h, --help | Отображает сведения об использовании. |

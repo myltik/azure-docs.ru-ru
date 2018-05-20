@@ -49,7 +49,7 @@
 - name: Практическое руководство
   items:
     - name: Создание избыточной в пределах зоны общедоступной службы Azure Load Balancer уровня "Стандартный"
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: Создание избыточной в пределах зоны общедоступной службы Azure Load Balancer уровня "Стандартный" (PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

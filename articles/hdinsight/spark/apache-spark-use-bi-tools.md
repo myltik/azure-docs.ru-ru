@@ -1,7 +1,6 @@
 ---
-title: Использование средств визуализации данных с помощью Spark BI в Azure HDInsight | Документация Майкрософт
-description: Используйте средства визуализации данных для аналитики с помощью Apache Spark BI в кластерах HDInsight
-keywords: apache spark bi, spark bi, визуализация данных spark, бизнес-аналитика spark
+title: Руководство. Анализ данных Apache Spark с использованием Power BI в Azure HDInsight | Документация Майкрософт
+description: Визуализация хранимых данных Spark в кластерах HDInsight с помощью Microsoft Power BI
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,32 +9,38 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/14/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Использование средств визуализации данных с помощью Apache Spark BI в Azure HDInsight
+# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Руководство. Анализ данных Spark с использованием Power BI в HDInsight 
 
-Узнайте, как использовать [Microsoft Power BI](http://powerbi.microsoft.com) для визуализации данных в кластере Apache Spark в Azure HDInsight.
+Узнайте, как использовать Microsoft Power BI для визуализации данных в кластере Apache Spark в Azure HDInsight.
+
+Из этого руководства вы узнаете, как выполнять такие задачи:
+> [!div class="checklist"]
+> * Визуализация данных Spark с помощью Power BI
+
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* **Выполните инструкции из статьи [Выполнение интерактивных запросов в кластерах Spark в HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Выполните инструкции в [руководстве по загрузке данных и выполнению запросов в кластере Spark в Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Для Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) и [пробная подписка Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (необязательно).
 
 
-## <a name="hivetable"></a>Проверка данных
+## <a name="verify-the-data"></a>Проверка данных
 
 Записная книжка Jupyter, созданная при работе с [предыдущим руководством](apache-spark-load-data-run-query.md), содержит код для создания таблицы `hvac`. Эта таблица базируется на CSV-файле, доступном во всех кластерах HDInsight Spark в **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Ниже описана процедура проверки данных.
 
-1. В записной книжке Jupyter вставьте приведенный ниже пример кода и нажмите клавиши **SHIFT + ВВОД**. Этот код проверяет существование таблиц.
+1. В записной книжке Jupyter вставьте приведенный ниже пример кода и нажмите клавиши **SHIFT + ВВОД**. Этот код предназначен для проверки наличия таблиц.
 
     ```PySpark
     %%sql
@@ -46,8 +51,7 @@ ms.lasthandoff: 04/18/2018
 
     ![Отображение таблиц в Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    Если закрыть записную книжку перед выполнением шага выше, таблица `hvactemptable` будет очищена и не будет включена в выходные данные.
-    С помощью инструментов бизнес-аналитики можно получить доступ только к таблицам Hive, размещенным в хранилище метаданных (для таких таблиц в столбце **isTemporary** задано значение **false**). В этом руководстве вы подключитесь к созданной ранее таблице **hvac**.
+    Если закрыть записную книжку перед выполнением шага выше, таблица `hvactemptable` будет очищена и не будет включена в выходные данные.  С помощью инструментов бизнес-аналитики можно получить доступ только к таблицам Hive, размещенным в хранилище метаданных (для таких таблиц в столбце **isTemporary** задано значение **false**). В этом руководстве вы подключитесь к созданной ранее таблице **hvac**.
 
 2. Вставьте указанный ниже фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT + ВВОД**. Этот код проверяет данные в таблице.
 
@@ -62,21 +66,7 @@ ms.lasthandoff: 04/18/2018
 
 3. В меню **File** (Файл) записной книжки выберите пункт **Close and Halt** (Закрыть и остановить). Завершите работу записной книжки для освобождения ресурсов. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## <a name="powerbi"></a>Использование Power BI
+## <a name="visualize-the-data"></a>Визуализация данных
 
 В этом разделе вы с помощью Power BI создадите визуализации, отчеты и панели мониторинга на основе данных из кластера Spark. 
 
@@ -226,8 +216,11 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Из этой статьи вы узнали, как создать кластер, как создать кадры данных Spark для запроса данных и как получить доступ к этим данным из средств бизнес-аналитики. Теперь вы можете просмотреть инструкции по управлению ресурсами кластера и отладке заданий, запущенных в кластере Spark в HDInsight.
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
-* [Управление ресурсами кластера Apache Spark в Azure HDInsight](apache-spark-resource-manager.md)
-* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](apache-spark-job-debugging.md)
+- Визуализация данных Spark с помощью Power BI.
+
+Теперь переходите к следующей статье, в которой объясняется, как перенести зарегистрированные в Spark данные в средство бизнес-аналитики, например в Power BI. 
+> [!div class="nextstepaction"]
+> [Запуск задания Spark для потоковой передачи](apache-spark-eventhub-streaming.md)
 

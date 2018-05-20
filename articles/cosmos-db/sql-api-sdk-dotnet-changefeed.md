@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Пакет SDK для обработчика канала изменений в .NET: скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/23/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Поставщик ресурсов REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor — .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor — Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,6 +42,8 @@ ms.lasthandoff: 04/23/2018
 |**Текущая поддерживаемая платформа**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="stable-builds"></a>Стабильные сборки
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Исправления в оценке работы в режиме ожидания.
@@ -65,6 +69,23 @@ ms.lasthandoff: 04/23/2018
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Пакет SDK общей доступности.
 * Совместимость с [пакетом SDK для .NET для SQL](sql-api-sdk-dotnet.md) версии 1.14.1 и более ранних версий.
+
+### <a name="pre-release-builds"></a>Сборки в предварительной версии
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Новый API версии 2:
+  * Шаблон построителя для повышения гибкости при создании процессора: класс ChangeFeedProcessorBuilder.
+    * Может принимать любое сочетание параметров.
+    * Может принимать экземпляр DocumentClient для мониторинга и (или) коллекции аренды (недоступно в версии 1).
+  * IChangeFeedObserver.ProcessChangesAsync теперь принимает CancellationToken.
+  * IRemainingWorkEstimator — средство оценки оставшихся трудозатрат можно использовать отдельно от процессора.
+  * Новые точки расширяемости:
+    * IParitionLoadBalancingStrategy — для пользовательской балансировки нагрузки в секциях между экземплярами процессора.
+    * ILease, ILeaseManager — для пользовательского управления арендой.
+    * IPartitionProcessor — для пользовательского обработки изменений в секции.
+* Для ведения журнала используется библиотека [LibLog](https://github.com/damianh/LibLog).
+* Полная обратная совместимость с API версии 1.
+* Совместимость с [пакетом SDK .NET для SQL](sql-api-sdk-dotnet.md) версии 1.21.1 и выше.
 
 ## <a name="release--retirement-dates"></a>Даты выпуска и выбытия
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.

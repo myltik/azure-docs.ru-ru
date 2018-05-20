@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Управление журналами для кластера HDInsight
 
@@ -105,17 +105,6 @@ Apache Ambari упрощает конфигурацию кластера HDInsig
 HDInsight хранит файлы журналов в файловой системе кластера и в хранилище Azure. Файлы журналов в кластере можно проверить, открыв SSH-подключение к кластеру и просмотрев файловую систему, или с помощью портала состояния Hadoop YARN на сервере удаленного головного узла. Файлы журналов можно проверить в хранилище Azure с помощью любых инструментов, которые могут получать доступ к данным из хранилища Azure и скачивать их. Например, AZCopy, CloudXplorer и обозреватель серверов Visual Studio. Кроме того, можно использовать PowerShell и библиотеки клиента хранилища Azure или пакеты SDK .NET Azure для доступа к данным в хранилище BLOB-объектов.
 
 Hadoop выполняет работу заданий в виде *попыток завершения задач* на различных узлах в кластере. HDInsight может инициировать попытки спекулятивных задач, завершая все попытки, не выполненные в первую очередь. Это создает множество операций, которые регистрируются в файлах журнала контроллера, stderr и syslog в режиме реального времени. Кроме того, несколько попыток выполняются одновременно, но файл журнала может отображать результаты только линейно.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>Журналы HDInsight, записываемые в таблицы Azure
-
-Журналы, записываемые в таблицы Azure, позволяют понять, что происходит в кластере HDInsight. При создании кластера HDInsight в хранилище таблиц для кластеров под управлением Linux по умолчанию автоматически создаются 6 таблиц:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Журналы HDInsight, записываемые в хранилище BLOB-объектов Azure
 

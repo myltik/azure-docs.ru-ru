@@ -112,14 +112,6 @@
           href: disk-scalability-targets.md
         - name: Резервное копирование и аварийное восстановление дисков
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Включение ускорителя записи
-          href: how-to-enable-write-accelerator.md
-        - name: Устранение неполадок подключенных виртуальных жестких дисков
-          items:
-            - name: Ошибка удаления ресурса службы хранилища
-              href: storage-resource-deletion-errors.md
-            - name: Непредвиденные перезагрузки виртуальных машин с подключенными VHD
-              href: unexpected-reboots-attached-vhds.md
     - name: Сеть
       href: network-overview.md
     - name: Автоматическое масштабирование приложений
@@ -393,6 +385,8 @@
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Развертывание дисков с помощью шаблона
           href: using-managed-disks-template-deployments.md
+        - name: Включение ускорителя записи
+          href: how-to-enable-write-accelerator.md
         - name: Оптимизация производительности
           href: optimization.md
           items:
@@ -500,6 +494,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Портал Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: Присоединенные VHD
+          items:
+            - name: Ошибка удаления ресурса службы хранилища
+              href: storage-resource-deletion-errors.md
+            - name: Непредвиденные перезагрузки виртуальных машин с подключенными VHD
+              href: unexpected-reboots-attached-vhds.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

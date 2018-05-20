@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac013cf234fdc7249d4d71992435adcc27fcc64e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -90,10 +90,10 @@ ms.lasthandoff: 04/28/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 Вы узнали, как выполнять такие задачи:
-- Подключение устройства MXChip IoT DevKit к Azure IoT Suite.
+- Подключение устройства MXChip IoT DevKit к акселератору решений для удаленного мониторинга Интернета вещей Azure.
 - Определение состояния системы и управление цветом светодиодного индикатора RGB DevKit с помощью функции двойников устройств Интернета вещей Azure.
 
 Ниже приведены предлагаемые дальнейшие действия:
 
-* [Обзор общих сведений об Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Общие сведения об акселераторе решений для удаленного мониторинга Интернета вещей Azure](https://docs.microsoft.com/azure/iot-suite/)
 * [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Подключение устройства MXChip IoT DevKit к приложению Microsoft IoT Central)

@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: Учебники
   items:
-    - name: Индексирование с использованием поиска с помощью служб Cognitive Services
+    - name: Разработка функции поиска с помощью служб Cognitive Services
       href: cognitive-search-tutorial-blob.md
     - name: Индексирование службы "База данных SQL"
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: планирование и разработка
       items:
-        - name: Выбор SKU
+        - name: Выберите уровень.
           href: search-sku-tier.md
         - name: Ограничения служб
           href: search-limits-quotas-capacity.md
-        - name: Масштабируемость службы
+        - name: Выделение секций и реплик
           href: search-capacity-planning.md
         - name: Конструктивные шаблоны для мультитенантности
           href: search-modeling-multitenant-saas-applications.md

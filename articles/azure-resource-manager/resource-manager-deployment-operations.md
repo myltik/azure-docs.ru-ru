@@ -1,32 +1,31 @@
 ---
-title: "Операции развертывания с помощью Azure Resource Manager | Документация Майкрософт"
-description: "Сведения о просмотре операций развертывания Azure Resource Manager с помощью портала, PowerShell, Azure CLI и REST API."
+title: Операции развертывания с помощью Azure Resource Manager | Документация Майкрософт
+description: Сведения о просмотре операций развертывания Azure Resource Manager с помощью портала, PowerShell, Azure CLI и REST API.
 services: azure-resource-manager,virtual-machines
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
+ms.date: 04/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26c2c333a97abff75f6b4caefb1e351dea826081
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Просмотр операций развертывания с помощью Azure Resource Manager
 
-
 Вы можете просматривать операции развертывания на портале Azure. Чаще всего необходимость просмотреть операции возникает, если во время развертывания произошла ошибка. Таким образом, эта статья посвящена просмотру операций, которые завершились с ошибкой. Портал Azure предоставляет интерфейс, который позволяет легко находить ошибки и определять возможные действия по их устранению.
 
-Вы можете устранять неполадки развернутой службы, просматривая журналы аудита или операции развертывания. В этой статье показаны оба способа. Сведения об устранении некоторых ошибок развертывания см. в статье об [устранении распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Вы можете устранять неполадки развернутой службы, просматривая журналы аудита или операции развертывания. В этой статье описаны оба метода. Сведения об устранении некоторых ошибок развертывания см. в статье об [устранении распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Microsoft Azure
 Для просмотра операций развертывания выполните следующие действия:
@@ -136,21 +135,19 @@ ms.lasthandoff: 02/09/2018
 1. Общее состояние развернутой службы можно получить с помощью команды **azure group deployment show** .
 
   ```azurecli
-  azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-  Одно из возвращаемых значений — **correlationId**. Это значение используется для отслеживания связанных событий и может быть полезно при взаимодействии со службой технической поддержки для устранения проблемы развертывания.
+1. Одно из возвращаемых значений — **correlationId**. Это значение используется для отслеживания связанных событий и может быть полезно при взаимодействии со службой технической поддержки для устранения проблемы развертывания.
 
   ```azurecli
-  "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-2. Чтобы просмотреть операции развертывания, используйте следующую команду:
+1. Чтобы просмотреть операции развертывания, используйте следующую команду:
 
   ```azurecli
-  azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment operation list -g ExampleGroup -n ExampleDeployment
   ```
 
 ## <a name="rest"></a>REST

@@ -45,14 +45,14 @@
           href: delete-cluster.md
     - name: Конфигурирование томов данных
       items:
-        - name: Том Kubernetes — диски
-          href: azure-disk-volume.md
-        - name: Том Kubernetes — файлы
-          href: azure-files-volume.md
-        - name: Постоянный том — диски
+        - name: Динамическая подготовка AzureDisk
           href: azure-disks-dynamic-pv.md
-        - name: Постоянный том — файлы
+        - name: Статическая подготовка AzureDisk
+          href: azure-disk-volume.md
+        - name: Динамическая подготовка AzureFile
           href: azure-files-dynamic-pv.md
+        - name: Статическая подготовка AzureFile
+          href: azure-files-volume.md
     - name: Настройка сети
       items:
         - name: Общие сведения о сети

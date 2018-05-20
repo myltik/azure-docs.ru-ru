@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Динамическое ускорение сайтов с помощью Azure CDN
 
@@ -183,9 +183,6 @@ ms.lasthandoff: 04/05/2018
 В качестве альтернативы можно также использовать две конечные точки CDN: одну с DSA для доставки динамических ресурсов, а вторую со статической оптимизацией (например, общая веб-доставка) для доставки кэшируемых ресурсов. Измените URL-адреса веб-страниц для связывания с ресурсами в конечной точке CDN, которую планируется использовать. 
 
 Например, `mydynamic.azureedge.net/index.html` — это динамическая страница, загружаемая из конечной точки DSA.  HTML-страница ссылается на несколько статических ресурсов, таких как библиотеки JavaScript и изображения, загружаемые из статической конечной точки CDN, например `mystatic.azureedge.net/banner.jpg` и `mystatic.azureedge.net/scripts.js`. 
-
-Пример использования контроллера в веб-приложении ASP.NET для доставки содержимого по определенному URL-адресу CDN см. в разделе [Обслуживание содержимого из действий контроллера с помощью Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

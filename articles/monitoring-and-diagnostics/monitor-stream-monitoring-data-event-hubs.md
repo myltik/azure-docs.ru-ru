@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Потоковая передача данных мониторинга Azure в концентратор событий для потребления внешним инструментом
 
@@ -79,7 +79,7 @@ Azure Monitor предоставляет единый конвейер для п
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Потоковая передача данных Linux в концентратор событий
 
-[Агент диагностики Azure для Linux](../virtual-machines/linux/diagnostic-extension.md) можно использовать для отправки данных мониторинга из компьютера Linux в концентратор событий. Для этого добавьте концентратор событий в качестве приемника в защищенных настройках JSON файла конфигурации LAD. Дополнительные сведения см. в [этой статье](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+[Агент диагностики Azure для Linux](../virtual-machines/extensions/diagnostics-linux.md) можно использовать для отправки данных мониторинга из компьютера Linux в концентратор событий. Для этого добавьте концентратор событий в качестве приемника в защищенных настройках JSON файла конфигурации LAD. Дополнительные сведения см. в [этой статье](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Вы не можете настроить потоковую передачу данных мониторинга гостевой ОС в концентратор событий на портале. Вместо этого необходимо вручную изменить файл конфигурации.

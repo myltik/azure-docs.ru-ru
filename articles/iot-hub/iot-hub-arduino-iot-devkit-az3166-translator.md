@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Использование IoT DevKit AZ3166 с решением "Функции Azure" и Cognitive Services для создания переводчика
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/03/2018
 
 Активная подписка Azure. Если у вас еще нет ее, вы можете зарегистрироваться одним из двух способов:
 
-* Вы можете активировать [бесплатную 30-дневную пробную учетную запись Microsoft Azure](https://azure.microsoft.com/en-us/free/).
+* Вы можете активировать [бесплатную 30-дневную пробную учетную запись Microsoft Azure](https://azure.microsoft.com/free/).
 * Запросите [деньги на счете в Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), если у вас есть подписка MSDN или Visual Studio.
 
 ## <a name="step-1-open-the-project-folder"></a>Шаг 1. Открытие папки проекта
@@ -46,17 +46,14 @@ ms.lasthandoff: 04/03/2018
 - Запуск VS Code
 - Подключите DevKit на компьютере.
 
-VS Code автоматически найдет ее и отобразится вводная страница.
-
-![Страница "Введение"](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Открытие папки с примерами Arduino
 
 Справа последовательно выберите **Arduino Examples (Примеры Arduino) > Examples for MXCHIP AZ3166 (Примеры для MXCHIP AZ3166) > AzureIoT** и щелкните **DevKitTranslator**. Откроется новое окно VS Code с папкой проекта DEVKITTRANSLATOR.
 
 ![Примеры IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-Если вы закрыли эту область, вы можете открыть ее снова. Нажмите `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) для вызова палитры команд. Введите **Arduino**, затем найдите и выберите **Arduino: Examples** (Arduino: примеры).
+> [!NOTE]
+> Пример также можно открыть из палитры команд. Нажмите `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) для вызова палитры команд. Введите **Arduino**, затем найдите и выберите **Arduino: Examples** (Arduino: примеры).
 
 ## <a name="step-2-provision-azure-services"></a>Шаг 2. Подготовка служб Azure
 
@@ -143,4 +140,4 @@ VS Code автоматически найдет ее и отобразится �
 Перейдите к следующему руководству:
 
 > [!div class="nextstepaction"]
-> [Подключение IoT DevKit AZ3166 к Azure IoT Suite для удаленного мониторинга](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Подключение IoT DevKit AZ3166 к акселератору решений для удаленного мониторинга Интернета вещей Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

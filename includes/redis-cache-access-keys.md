@@ -1,31 +1,28 @@
-Чтобы подключаться к кэшу Redis для Azure, клиентам кэша нужны имя узла, порты и ключи кэша. Некоторые клиенты могут ссылаться на эти элементы с помощью незначительно различающихся имен. Вы можете получить эти сведения на портале Azure или с помощью программ командной строки, таких как Azure CLI.
-
+---
+title: включение файла
+description: включение файла
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: include file
+ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/28/2018
+---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Получение имени узла, портов и ключей доступа с помощью портала Azure
-Для получения имени узла, портов и ключей доступа с помощью портала Azure [перейдите](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) к сведениям о кэше на [портале Azure](https://portal.azure.com), а затем в меню **ресурсов** щелкните **Ключи доступа** и **Свойства**. 
 
-![Параметры кэша Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
+Чтобы подключаться к экземпляру предложения "Кэш Redis для Azure", клиентам кэша нужны имя узла, сведения о портах и ключ кэша. Некоторые клиенты могут ссылаться на эти элементы с помощью незначительно различающихся имен. Эти данные можно получить на портале Azure.
 
-### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Получение имени узла, портов и ключей доступа с помощью Azure CLI
-Для получения имени узла и портов с помощью Azure CLI 2.0 вы можете вызвать [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), а для получения ключей — [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Следующий скрипт вызывает эти две команды и выводит сведения об имени узла, портах и ключах в консоль.
+Чтобы получить ключи доступа с помощью [портала Azure](https://portal.azure.com), перейдите к своему кэшу и щелкните **Ключи доступа**. 
 
-```azurecli
-#/bin/bash
+![Ключи кэша Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 
-# Retrieve the hostname, ports, and keys for contosoCache located in contosoGroup
+Чтобы получить имя узла и сведения о портах, щелкните **Свойства**.
 
-# Retrieve the hostname and ports for an Azure Redis Cache instance
-redis=($(az redis show --name contosoCache --resource-group contosoGroup --query [hostName,enableNonSslPort,port,sslPort] --output tsv))
+![Свойства кэша Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
-# Retrieve the keys for an Azure Redis Cache instance
-keys=($(az redis list-keys --name contosoCache --resource-group contosoGroup --query [primaryKey,secondaryKey] --output tsv))
-
-# Display the retrieved hostname, keys, and ports
-echo "Hostname:" ${redis[0]}
-echo "Non SSL Port:" ${redis[2]}
-echo "Non SSL Port Enabled:" ${redis[1]}
-echo "SSL Port:" ${redis[3]}
-echo "Primary Key:" ${keys[0]}
-echo "Secondary Key:" ${keys[1]}
-```
-
-Дополнительные сведения об этом скрипте см. в статье [Get the hostname, ports, and keys for Azure Redis Cache](../articles/redis-cache/scripts/cache-keys-ports.md) (Получение имени узла, портов и ключей для кэша Redis Azure). Дополнительные сведения об Azure CLI 2.0 см. в статье [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Установка Azure CLI 2.0) и [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) (Приступая к работе с Azure CLI 2.0).

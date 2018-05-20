@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 4f512d906f9d35efbc602b104d8742bdedba7261
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9ac1696594ab9f7cb67bb0e340c6a80158e67e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/07/2018
 > 
 > 
 
-1. Подключите видеокамеру к компьютеру. Запустите и настройте локальный динамический кодировщик, который может выдавать односкоростной поток по одному из следующих протоколов: RTMP, Smooth Streaming или RTP (MPEG-TS). Дополнительные сведения см. в статье о [поддержке протокола RTMP в службах мультимедиа Azure и о динамических кодировщиках](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Подключите видеокамеру к компьютеру. Запустите и настройте локальный динамический кодировщик, который может выводить односкоростной поток по одному из следующих протоколов: RTMP или Smooth Streaming. Дополнительные сведения см. в статье о [поддержке протокола RTMP в службах мультимедиа Azure и о динамических кодировщиках](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Это действие также можно выполнить после создания канала.
 2. Создайте и запустите канал. 
@@ -95,7 +95,6 @@ ms.lasthandoff: 05/07/2018
       
       * Односкоростной фрагментированный MP4 (Smooth Streaming)
       * односкоростной RTMP;
-      * RTP (MPEG-TS): MPEG-2 TS по RTP.
         
         Подробное описание каждого из протоколов см. в статье [Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с разными скоростями](media-services-manage-live-encoder-enabled-channels.md).
         

@@ -1,8 +1,8 @@
 ---
-title: "Передача данных изображений в облако с помощью службы хранилища Azure | Документация Майкрософт"
-description: "Использование хранилища больших двоичных объектов Azure с веб-приложением для хранения данных приложения"
+title: Передача данных изображений в облако с помощью службы хранилища Azure | Документация Майкрософт
+description: Использование хранилища больших двоичных объектов Azure с веб-приложением для хранения данных приложения
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Передача данных изображений в облако с помощью службы хранилища Azure
 
@@ -72,7 +72,7 @@ az storage account create --name <blob_storage_account> \
 В данном случае `<blob_storage_account>` — это имя созданной учетной записи хранения больших двоичных объектов. Для общего доступа к контейнерам _изображений_ задано значение `off`, а для контейнеров _эскизов_ — `container`. Параметр общего доступа `container` делает эскизы видимыми для пользователей, посещающих веб-страницу.
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 

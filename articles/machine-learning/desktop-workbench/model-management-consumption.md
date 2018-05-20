@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 0976e2dca909781ade76c742cc99746e1123307d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 93df053bf62b5a69f74d816fc05520d040d73bd7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="consuming-web-services"></a>Использование веб-служб
 После развертывания модели в качестве веб-службы в реальном времени вы можете отправлять ее данные и получать прогнозы из различных платформ и приложений. Веб-служба в реальном времени предоставляет REST API для получения прогнозов. Можно отправлять данные в веб-службу в однострочном или многострочном формате, чтобы получить один или несколько прогнозов за один раз.

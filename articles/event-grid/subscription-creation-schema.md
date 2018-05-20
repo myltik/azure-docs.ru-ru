@@ -1,30 +1,30 @@
 ---
-title: "Схема подписки для службы \"Сетка событий Azure\""
-description: "В этой статье описаны свойства для подписки на событие в службе \"Сетка событий Azure\"."
+title: Схема подписки для службы "Сетка событий Azure"
+description: В этой статье описаны свойства для подписки на событие в службе "Сетка событий Azure".
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 888196225ec5998405113842344469d02a2cf5c7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 406eb2c1974958eef5e83915e6b21e385cf7d2c7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Схема подписки для службы "Сетка событий"
 
 Чтобы создать подписку для службы "Сетка событий", отправьте запрос на выполнение операции по созданию подписки на события. Используйте следующий формат:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Например, чтобы создать подписку на события для учетной записи хранения с именем `examplestorage` в группе ресурсов `examplegroup`, используйте следующий формат:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
@@ -51,7 +51,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 | includedEventTypes | array | Выполняет сопоставление, если тип события, указанный в сообщении о событии, полностью соответствует одному из этих типов. Вызывает ошибку, если имя события не соответствует зарегистрированному имени типа для источника события. По умолчанию соответствует всем типам событий. |
 | subjectBeginsWith | строка | Фильтр соответствия префиксу для поля темы в сообщении о событии. Строка по умолчанию или пустая строка соответствует всем типам. | 
 | subjectEndsWith | строка | Фильтр соответствия суффиксу для поля темы в сообщении о событии. Строка по умолчанию или пустая строка соответствует всем типам. |
-| subjectIsCaseSensitive | строка | Управляет сопоставлением с учетом регистра в фильтрах. |
+| isSubjectCaseSensitive | строка | Управляет сопоставлением с учетом регистра в фильтрах. |
 
 
 ## <a name="example-subscription-schema"></a>Пример схемы подписки
@@ -69,7 +69,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
-      "subjectIsCaseSensitive": "true"
+      "isSubjectCaseSensitive ": "true"
     }
   }
 }

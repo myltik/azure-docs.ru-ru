@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dc70fe43c63d6b77d4a122f196f59fe51573b7aa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Управление схемой в приложении SaaS, использующем сегментированные мультитенантные базы данных SQL
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/20/2018
 
 В этом руководстве требуется создать базу данных агента заданий и агент заданий с помощью PowerShell. Подобно тому, как агент SQL использует базу данных MSDB, агент заданий использует базу данных SQL Azure для хранения определений заданий, сведений об их состоянии и журнала. Создав агент заданий, вы можете сразу создавать и отслеживать задания.
 
-1. В среде **PowerShell ISE** выберите*...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
+1. В среде **PowerShell ISE** выберите *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Нажмите клавишу **F5** для запуска скрипта.
 
 Сценарий *Demo-SchemaManagement.ps1* вызовет сценарий *Deploy-SchemaManagement.ps1* для создания базы данных SQL _jobagent_ на сервере каталога. Затем он создает агент заданий, передавая имя базы данных _jobagent_ в качестве параметра.
@@ -172,5 +172,5 @@ ms.lasthandoff: 04/20/2018
 > * Обновление ссылочных данных во всех базах данных клиента.
 > * Создание индекса для таблицы во всех базах данных клиента.
 
-После этого ознакомьтесь с [руководством по созданию отчетов Ad-hoc] (saas-multitenantdb-adhoc-reporting.md), чтобы узнать о выполнении распределенных запросов в клиентских базах данных.
+После этого ознакомьтесь с [руководством по созданию отчетов Ad-hoc](saas-multitenantdb-adhoc-reporting.md), чтобы узнать о выполнении распределенных запросов в клиентских базах данных.
 

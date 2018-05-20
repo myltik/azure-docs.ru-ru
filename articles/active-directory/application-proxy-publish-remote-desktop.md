@@ -1,25 +1,25 @@
 ---
-title: "Публикация удаленного рабочего стола с помощью прокси приложения Azure AD | Документация Майкрософт"
-description: "Основные сведения о соединителях прокси приложения Azure AD."
+title: Публикация удаленного рабочего стола с помощью прокси приложения Azure AD | Документация Майкрософт
+description: Основные сведения о соединителях прокси приложения Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Публикация удаленного рабочего стола с помощью прокси приложения Azure AD
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/05/2018
 
 - Конечные точки веб-сайта удаленных рабочих столов и шлюза удаленных рабочих столов должны располагаться на одном компьютере и в общем корне. Веб-сайт удаленных рабочих столов и шлюз удаленных рабочих столов публикуется как отдельные приложения с помощью прокси приложения, поэтому возможен единый вход в эти два приложения.
 
-- Необходимо, чтобы [были развернуты службы удаленных рабочих столов (RDS)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) и [включен прокси приложения](active-directory-application-proxy-enable.md).
+- Необходимо, чтобы [были развернуты службы удаленных рабочих столов (RDS)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) и [включен прокси приложения](manage-apps/application-proxy-enable.md).
 
 - В этом сценарии предполагается, что пользователи подключаются через Internet Explorer на компьютерах под управлением Windows 7 или Windows 10, которые подключаются через страницу веб-сайта удаленных рабочих столов. Если требуется поддержка других операционных систем, то см. раздел [Поддержка других конфигураций клиента](#support-for-other-client-configurations).
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="publish-the-rd-host-endpoint"></a>Публикация конечной точки узла удаленных рабочих столов
 
-1. [Опубликуйте новое приложение прокси приложения](application-proxy-publish-azure-portal.md) с приведенными ниже значениями.
+1. [Опубликуйте новое приложение прокси приложения](manage-apps/application-proxy-publish-azure-portal.md) с приведенными ниже значениями.
    - Внутренний URL-адрес: https://\<rdhost\>.com/, где \<rdhost\> — общий корень, совместно используемый веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов.
    - Внешний URL-адрес: это поле заполняется автоматически на основе имени приложения, но его можно изменить. Ваши пользователи будут переходить по этому URL-адресу при обращении к RDS.
    - Метод предварительной аутентификации: выберите Azure Active Directory.

@@ -1,6 +1,6 @@
 ---
-title: "Развертывание симулятора устройств в Azure | Документация Майкрософт"
-description: "В этом руководстве показано, как подготовить симулятор устройств на сайте azureiotsuite.com."
+title: Развертывание симулятора устройств в Azure | Документация Майкрософт
+description: В этом руководстве показано, как подготовить симулятор устройств на сайте azureiotsuite.com.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Развертывание симулятора устройств Интернета вещей в Azure
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Наборы данных и связанные службы в фабрике данных Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -193,7 +193,7 @@ typeProperties | Свойства каждого типа отличаются (
 name | Имя столбца. | Yes
 Тип | Тип данных столбца. Фабрика данных поддерживает следующие промежуточные типы данных в качестве допустимых значений: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset и Timespan**. | Нет 
 culture | Язык и региональные параметры на основе .NET, используемые, если указан тип .NET `Datetime` или `Datetimeoffset`. Значение по умолчанию — `en-us`. | Нет 
-свойства | Строка формата будет использоваться, если указан тип .NET `Datetime` или `Datetimeoffset`. Сведения о формате даты и времени см. в статье [Строки настраиваемых форматов даты и времени](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings). | Нет 
+свойства | Строка формата будет использоваться, если указан тип .NET `Datetime` или `Datetimeoffset`. Сведения о формате даты и времени см. в статье [Строки настраиваемых форматов даты и времени](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | Нет 
 
 ### <a name="example"></a>Пример
 В следующем примере предполагается, что исходные данные большого двоичного объекта представлены в формате таблицы CSV, которая содержит три столбца: userid, name и lastlogindate. Они имеют типы Int64, String и Datetime. Данные представлены в пользовательском формате даты и времени (используются французские сокращения дней недели).

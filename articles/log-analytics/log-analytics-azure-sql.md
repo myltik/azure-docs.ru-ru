@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics
 
@@ -136,7 +136,8 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="analyze-data-and-create-alerts"></a>Анализ данных и создание оповещений
 
-Оповещения можно легко создать с помощью данных, поступающих из ресурсов базы данных SQL Azure. Вот несколько полезных запросов для [поиска по журналам](log-analytics-log-searches.md), которые можно использовать для предупреждений:
+[Оповещения можно легко создать](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) с помощью данных, поступающих из ресурсов службы "База данных SQL Azure". Вот несколько полезных запросов [поиска по журналам](log-analytics-log-searches.md), которые можно использовать с оповещениями:
+
 
 
 *Высокий уровень DTU в базе данных SQL Azure*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Используя запросы на основе оповещений, можно создавать предупреждения об определенных пороговых значениях для баз данных и эластичных пулов SQL Azure. Чтобы настроить оповещение для рабочей области Log Analytics, сделайте следующее:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Чтобы настроить оповещение для рабочей области, сделайте следующее.
-
-1. Перейдите на [портал OMS](http://mms.microsoft.com/) и войдите в систему.
-2. Откройте рабочую область, настроенную для решения.
-3. На странице обзора щелкните элемент **Службы анализа SQL Azure (предварительная версия)**.
-4. Выполните один из примеров запросов.
-5. В поиске по журналам щелкните **Оповещение**.  
-![Создание оповещения в поиске](./media/log-analytics-azure-sql/create-alert01.png)
-6. На странице **Добавить правило оповещения** настройте соответствующие свойства и определенные пороговые значения, а затем нажмите кнопку **Сохранить**. 
-![Добавление правила оповещения](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

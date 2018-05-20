@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c01bf353c9617811e14a3d60f91584b57ac0b5e7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Проблемы с входом в приложение из коллекции Azure AD, для которого настроен единый вход по паролю
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/21/2018
 -   Firefox 26.0 и более поздние версии (начиная с Windows XP с пакетом обновления 2 (SP2) и Mac OS X 10.6).
 
 >[!NOTE]
->Расширение для единого входа с использованием пароля будет доступно для браузера Microsoft Edge в Windows 10 после того, как он начнет поддерживать расширения.
+>Расширение для единого входа с использованием пароля будет доступно для браузера Edge в Windows 10 после того, как он начнет поддерживать расширения.
 >
 >
 
@@ -195,5 +195,5 @@ ms.lasthandoff: 02/21/2018
 -   трассировки Fiddler.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
+[Реализация единого входа в приложения с помощью прокси приложения](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

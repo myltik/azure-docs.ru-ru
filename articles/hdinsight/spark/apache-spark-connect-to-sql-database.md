@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Чтение данных из базы данных SQL Azure и запись в нее с использованием кластера HDInsight Spark
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/18/2018
 
     Чтобы выполнить ячейку кода, нажмите клавиши **SHIFT+ВВОД**.  
 
-2. Следующий фрагмент кода создает URL-адрес JDBC, который можно передать в API кадров данных Spark, а также объект `Properties` для хранения параметров. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
+2. С помощью приведенного ниже фрагмента кода создается URL-адрес JDBC, который можно передать в API кадров данных Spark, а также объект `Properties` для хранения параметров. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
 
        import java.util.Properties
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 04/18/2018
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. Следующий фрагмент кода создает кадр данных с данными из таблицы в базе данных SQL Azure. Для этого фрагмента используется таблица **SalesLT.Address**. Она доступна как часть базы данных **AdventureWorksLT**. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
+3. С помощью приведенного ниже фрагмента кода создается кадр данных с данными из таблицы в базе данных SQL Azure. Для этого фрагмента используется таблица **SalesLT.Address**. Она доступна как часть базы данных **AdventureWorksLT**. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 04/18/2018
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. Следующий фрагмент кода извлекает схему данных в HVAC.csv и с ее помощью загружает данные из CSV-файла в кадр данных `readDf`. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
+3. В приведенном ниже фрагменте кода извлекается схема данных в HVAC.csv и с ее помощью данные загружаются из CSV-файла в кадр данных `readDf`. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +165,10 @@ ms.lasthandoff: 04/18/2018
 
     ![Подключение к базе данных SQL с помощью SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Подключение к базе данных SQL с помощью SSMS")
 
+7. Выполните запрос в SSMS для просмотра всех столбцов в таблице.
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>Потоковая передача данных в базу данных SQL Azure
 
 В этом разделе мы выполним потоковую передачу данных в таблицу **hvactable**, которую вы ранее создали в базе данных SQL Azure.
@@ -184,7 +188,7 @@ ms.lasthandoff: 04/18/2018
 3. Мы выполняем потоковую передачу данных из **HVAC.csv** в hvactable. Файл HVAC.csv находится в кластере в папке */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. В следующем фрагменте кода мы сначала получаем схему данных для потоковой передачи. Затем создаем кадр данных потоковой передачи с помощью этой схемы. Вставьте фрагмент кода в ячейку кода и нажмите клавиши **SHIFT+ВВОД**, чтобы выполнить код.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. Выходные данные будут содержать схему файла **HVAC.csv**. В таблице **hvactable** также есть схема. В выходных данных перечислены столбцы в таблице.

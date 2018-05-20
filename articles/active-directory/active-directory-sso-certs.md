@@ -1,24 +1,24 @@
 ---
-title: "Управление сертификатами федерации в Azure AD | Документация Майкрософт"
-description: "Узнайте, как настроить срок действия сертификатов федерации, а также обновлять сертификаты с истекающим сроком действия."
+title: Управление сертификатами федерации в Azure AD | Документация Майкрософт
+description: Узнайте, как настроить срок действия сертификатов федерации, а также обновлять сертификаты с истекающим сроком действия.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Управление сертификатами для федеративного единого входа в Azure Active Directory
 В этой статье рассматриваются распространенные вопросы и предоставляются сведения, связанные с сертификатами, создаваемыми службой Azure Active Directory (Azure AD) для обеспечения федеративного единого входа в приложения SaaS. Эти приложения можно добавить из коллекции приложений Azure AD или с помощью шаблона приложения не из коллекции. Настройте приложение для федеративного единого входа.

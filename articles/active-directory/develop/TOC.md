@@ -41,7 +41,7 @@
 ### [Предоставление кода аутентификации OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Неявное разрешение Oauth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Настройка утверждений ролей](active-directory-enterprise-app-role-management.md)
+### [Настройка утверждений ролей](../active-directory-enterprise-app-role-management.md)
 ### [Настройка утверждений](active-directory-saml-claims-customization.md)
 ### [Отладка единого входа на основе SAML](active-directory-saml-debugging.md)
 ### [Протокол единого входа SAML](active-directory-single-sign-on-protocol-reference.md)

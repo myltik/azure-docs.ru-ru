@@ -1,13 +1,13 @@
 ---
-title: "Пример сценария Azure PowerShell. Создание виртуальной машины Windows с балансировкой нагрузки | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для создания виртуальной машины Windows с балансировкой нагрузки."
+title: Пример сценария Azure PowerShell. Создание виртуальной машины Windows с балансировкой нагрузки | Документация Майкрософт
+description: Пример сценария Azure PowerShell для создания виртуальной машины Windows с балансировкой нагрузки.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -17,10 +17,10 @@ ms.date: 06/05/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 25bcbbcd1615e01a384825d7bd1582a528e91f71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Балансировка нагрузки для трафика между высокодоступными виртуальными машинами
 

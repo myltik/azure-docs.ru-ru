@@ -1,11 +1,11 @@
 ---
-title: "Как настроить единый вход по паролю для приложения из коллекции Azure AD | Документация Майкрософт"
-description: "Как настроить приложение для защищенного единого входа на основе паролей, если оно указано в коллекции приложений Azure AD"
+title: Как настроить единый вход по паролю для приложения из коллекции Azure AD | Документация Майкрософт
+description: Как настроить приложение для защищенного единого входа на основе паролей, если оно указано в коллекции приложений Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aa02bfd22a656024d8638226dc1c5551b63e6d42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8e1d8471d2feb838a6ba3eb08eedc3ca4d30ab07
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка единого входа по паролю для приложения из коллекции Azure AD
 
@@ -179,4 +179,4 @@ ms.lasthandoff: 02/21/2018
 Вскоре выбранные пользователи смогут запускать это приложение через панель доступа.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
+[Реализация единого входа в приложения с помощью прокси приложения](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

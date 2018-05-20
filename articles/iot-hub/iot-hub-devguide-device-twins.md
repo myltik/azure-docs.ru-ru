@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Общие сведения о двойниках устройств и их использование в Центре Интернета вещей
 
@@ -352,6 +352,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы узнали о двойниках устройств, вас могут заинтересовать следующие статьи руководства разработчика для Центра Интернета вещей:
 
+* [Общие сведения о двойниках модулей и их использование в Центре Интернета вещей][lnk-module-twins]
 * [Вызов прямого метода на устройстве (предварительная версия)][lnk-methods]
 * [Schedule jobs on multiple devices][lnk-jobs] (Планирование заданий на нескольких устройствах)
 
@@ -385,5 +386,6 @@ ms.lasthandoff: 04/03/2018
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

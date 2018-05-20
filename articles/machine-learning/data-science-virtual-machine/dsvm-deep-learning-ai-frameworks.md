@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Платформы глубокого обучения и искусственного интеллекта
 [Виртуальная машина для обработки и анализа данных](http://aka.ms/dsvm) (DSVM) и [виртуальная машина для глубокого обучения](http://aka.ms/dsvm/deeplearning) поддерживают несколько платформ глубокого обучения для создания приложений искусственного интеллекта (AI) с прогнозной аналитикой и когнитивными возможностями, например понимание изображений и языка. 
@@ -80,6 +80,7 @@ ms.lasthandoff: 04/20/2018
 | Что это такое?   | Платформа глубокого обучения      |
 | Поддерживаемые выпуски виртуальных машин для обработки и анализа данных (DSVM)      | Ubuntu     |
 | Настройка и установка на DSVM  | Caffe устанавливается в `/opt/caffe`.    |
+| Как перейти на использование Python 2.7 | Запустите `source activate root` |
 | Ссылки на примеры      | Примеры находятся в `/opt/caffe/examples`.      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Запуск и использование  
@@ -88,12 +89,15 @@ ms.lasthandoff: 04/20/2018
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Откроется новое окно браузера с примерами записных книжек.
 
-Двоичные файлы устанавливаются в каталог /opt/caffe/build/install/bin. 
+Двоичные файлы устанавливаются в каталог /opt/caffe/build/install/bin.
+
+Для установленной версии Caffe требуется Python 2.7, и она не будет работать с компонентом Python 3.5, активируемым по умолчанию. Выполните команду `source activate root`, чтобы переключиться на среду Anaconda. 
 
 ## <a name="caffe2"></a>Caffe2
 

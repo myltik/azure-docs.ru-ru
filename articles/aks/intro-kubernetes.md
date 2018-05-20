@@ -1,6 +1,6 @@
 ---
-title: Знакомство со службой контейнеров Azure для Kubernetes
-description: Служба контейнеров Azure для Kubernetes упрощает развертывание и администрирование контейнерных приложений в Azure.
+title: Общие сведения о службе Azure Kubernetes
+description: Служба Azure Kubernetes упрощает развертывание и администрирование контейнерных приложений в Azure.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,20 +9,20 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f418e70c6da46443b95e5fd4056ca26d46d95505
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4936554465fbbed45000f43853a6a77567c3028f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="introduction-to-azure-container-service-aks-preview"></a>Знакомство с предварительной версией Службы контейнеров Azure (AKS)
+# <a name="introduction-to-azure-kubernetes-service-aks-preview"></a>Общие сведения о предварительной версии службы Azure Kubernetes (AKS)
 
-Служба контейнеров Azure (AKS) позволяет упростить создание и настройку кластера виртуальных машин, настроенных для запуска контейнерных приложений, а также управление такими машинами. Это позволяет использовать имеющиеся навыки либо положиться на опыт обширного и постоянно увеличивающегося сообщества при развертывании приложений на основе контейнера в Microsoft Azure и управлении ими.
+Служба Azure Kubernetes (AKS) позволяет упростить создание и настройку кластера виртуальных машин, настроенных для запуска контейнерных приложений, а также управление такими виртуальными машинами. Это позволяет использовать имеющиеся навыки либо положиться на опыт обширного и постоянно увеличивающегося сообщества при развертывании приложений на основе контейнера в Microsoft Azure и управлении ими.
 
 AKS позволяет пользоваться преимуществами функций корпоративного уровня в Azure, сохраняя при этом возможность переноса приложений в Kubernetes и поддержку формата образов Docker.
 
 > [!IMPORTANT]
-> Служба контейнеров Azure (AKS) сейчас доступна в **предварительной версии**. Предварительные версии предоставляются при условии, что вы принимаете [дополнительные условия использования](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Некоторые аспекты этой функции могут быть изменены до выхода общедоступной версии.
+> Служба Azure Kubernetes (AKS) сейчас доступна в **предварительной версии**. Предварительные версии предоставляются при условии, что вы принимаете [дополнительные условия использования](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Некоторые аспекты этой функции могут быть изменены до выхода общедоступной версии.
 >
 
 ## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes в Azure
@@ -37,11 +37,11 @@ AKS снижает сложность управления кластером Ku
 
 Так как за управление узлами в кластере AKS отвечает Azure, многие задачи больше не нужно выполнять вручную (например, обновление кластера). В связи с этим AKS не предоставляет прямой доступ (например, по протоколу SSH) к кластеру.
 
-## <a name="using-azure-container-service-aks"></a>Использование Службы контейнеров Azure (AKS)
+## <a name="using-azure-kubernetes-service-aks"></a>Использование службы Azure Kubernetes (AKS)
 Задача AKS заключается в том, чтобы предоставить клиентам среду для размещения контейнеров с помощью популярных средств и технологий с открытым исходным кодом. Для этого мы предоставляем стандартные конечные точки API Kubernetes. С помощью этих стандартных конечных точек можно использовать любое программное обеспечение, способное взаимодействовать с кластером Kubernetes. Например, можно выбрать [kubectl][kubectl-overview], [Helm][helm] или [Draft][draft].
 
-## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Создание кластера Kubernetes с помощью Службы контейнеров Azure (AKS)
-Чтобы начать использовать AKS, разверните кластер AKS с помощью [Azure CLI][aks-quickstart] или через портал (найдите **службу контейнеров Azure** в Marketplace). Если вы опытный пользователь, которому требуется дополнительный контроль над шаблонами Azure Resource Manager, создайте пользовательский кластер Kubernetes и разверните его с помощью интерфейса командной строки `az`, используя проект с открытым кодом [acs-engine][acs-engine].
+## <a name="creating-a-kubernetes-cluster-using-azure-kubernetes-service-aks"></a>Создание кластера Kubernetes с помощью службы Azure Kubernetes (AKS)
+Чтобы начать использовать AKS, разверните кластер AKS с помощью [Azure CLI][aks-quickstart] или портала (найдите **службу Azure Kubernetes** в Marketplace). Если вы опытный пользователь, которому требуется дополнительный контроль над шаблонами Azure Resource Manager, создайте пользовательский кластер Kubernetes и разверните его с помощью интерфейса командной строки `az`, используя проект с открытым кодом [acs-engine][acs-engine].
 
 ### <a name="using-kubernetes"></a>Использование Kubernetes
 Kubernetes автоматизирует развертывание, масштабирование приложений-контейнеров и управление ими. Это решение предоставляет обширный набор возможностей, в том числе:
@@ -56,7 +56,7 @@ Kubernetes автоматизирует развертывание, масшта
 
 ## <a name="videos"></a>Видеоролики
 
-Служба контейнеров Azure (AKS). "Пятница с Azure", октябрь 2017 г.
+Служба Azure Kubernetes (AKS). "Пятница с Azure", октябрь 2017 г.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ef1387e3c8573a2bfa64c166f08bf47723eca62
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Устранение проблем с маршрутами с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/16/2018
 ### <a name="view-effective-routes-for-a-network-interface"></a>Просмотр эффективных маршрутов сетевого интерфейса
 Для просмотра агрегированных маршрутов, которые применяются к сетевому интерфейсу, выполните описанные ниже действия.
 
-1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Следующая команда возвращает все маршруты, применяемые к сетевому интерфейсу с именем *VM1-NIC1* в группе ресурсов *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

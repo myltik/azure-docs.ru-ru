@@ -2,7 +2,7 @@
 
 В этом разделе содержатся пошаговые инструкции по созданию проекта, который демонстрирует, как интегрировать приложение iOS (Swift) с *входом с учетной записью Майкрософт*. Это позволит приложению выполнять вызовы к веб-API, для которых требуется маркер.
 
-> Хотите скачать этот пример проекта XCode вместо указанного выше проекта? [Скачайте проект](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) и перейдите к [настройке](#create-an-application-express), чтобы настроить пример кода перед выполнением.
+> Хотите скачать этот пример проекта XCode вместо указанного выше проекта? [Скачайте проект](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) и перейдите к [настройке](#register-your-application), чтобы настроить пример кода перед выполнением.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>Установка Carthage для скачивания и сборки MSAL
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>Создание пользовательского интерфейса приложения
 Файл Main.storyboard должен быть создан автоматически, как часть шаблона проекта. Следуйте инструкциям для создания пользовательского интерфейса приложения:
 
-1.  Щелкните, удерживая нажатой `Main.storyboard` для вызова контекстного меню и выберите:`Open As` > `Source Code`
+1.  Щелкните `Main.storyboard`, удерживая клавишу CTRL, чтобы открыть контекстное меню, затем щелкните `Open As` > `Source Code`.
 2.  Замените узел `<scenes>` на следующий код:
 
 ```xml

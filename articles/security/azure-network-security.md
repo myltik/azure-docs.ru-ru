@@ -4,7 +4,7 @@ description: Узнайте об облачных службах вычисле�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-network-security"></a>Сетевая безопасность Azure
 
@@ -469,7 +469,7 @@ WAF шлюза приложений можно запускать в режим�
 
 -   [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
--   Диспетчер ресурсов Azure
+-   Azure Resource Manager
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -508,7 +508,7 @@ Azure предлагает множество инструментов для о
 
 -   Мониторинг уровня сетевого ресурса
 
--   Служба Log Analytics
+-   Log Analytics
 
 ### <a name="network-watcher"></a>Наблюдатель за сетями
 

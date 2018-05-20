@@ -11,6 +11,7 @@
 ## [Создание модели на портале Azure (предварительная версия)](analysis-services-create-model-portal.md)
 
 # Основные понятия
+## [Автоматизация с помощью субъектов-служб](analysis-services-service-principal.md)
 ## [Поддерживаемые источники данных](analysis-services-datasource.md)
 ## [Подключение к локальным источникам данных](analysis-services-gateway.md)
 ## [Подключение к серверам](analysis-services-connect.md)

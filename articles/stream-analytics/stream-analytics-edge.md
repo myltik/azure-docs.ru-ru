@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics в IoT Edge (предварительная версия)
 
@@ -60,11 +60,10 @@ ASA развертывает задания Edge на устройства с п
 
 
 #### <a name="create-an-asa-edge-job"></a>Создание задания Edge ASA
-1. На портале Azure создайте "задание Stream Analytics". [Прямая ссылка для создания задания ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> Можно создавать задания Edge во всех регионах, поддерживаемых ASA, **кроме региона "Западная часть США 2"**.
-> Скоро это ограничение будет снято.
+> Это руководство посвящено созданию задания ASA с помощью портала Azure. Кроме того, [чтобы создать задание ASA Edge, вы можете использовать подключаемый модуль Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs).
+
+1. На портале Azure создайте "задание Stream Analytics". [Прямая ссылка для создания задания ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. В окне создания выберите **Edge** в качестве **среды размещения** (см. следующий рисунок). ![Создание задания](media/stream-analytics-edge/ASAEdge_create.png)
 3. Определение задания
@@ -147,7 +146,6 @@ IoT Edge предоставляет способ декларативно мар
 * Функции машинного обучения Azure.
 * Использование более 14 статических выражений за один шаг.
 * Формат AVRO для входных и выходных данных. На данный момент поддерживаются только форматы CSV и JSON.
-* Сжатие входных данных формата JSON.
 * Следующие операторы SQL:
     * AnomalyDetection;
     * геопространственные операторы:
@@ -210,6 +208,7 @@ ASA в IoT Edge доступна в качестве образов Windows и L
 * [Что такое Azure IoT Edge (предварительная версия)](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Deploy Azure Stream Analytics as an IoT Edge module - preview](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) (Развертывание Azure Stream Analytics в качестве модуля IoT Edge (предварительная версия))
 * [Отправьте отзыв команде с помощью этого опроса](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Разработка заданий Edge Stream Analytics с помощью средств Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

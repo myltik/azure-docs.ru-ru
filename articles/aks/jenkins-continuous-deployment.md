@@ -1,23 +1,23 @@
 ---
-title: Непрерывное развертывание Jenkins c помощью Kubernetes в Службе контейнеров Azure
-description: Автоматизация процесса непрерывного развертывания с помощью Jenkins для развертывания и обновления контейнерного приложения на платформе Kubernetes в Службе контейнеров Azure.
+title: Непрерывное развертывание Jenkins c помощью Kubernetes в Службе Azure Kubernetes
+description: Автоматизация процесса непрерывного развертывания с помощью Jenkins для развертывания и обновления контейнерного приложения на платформе Kubernetes в Службе Azure Kubernetes.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 376d3b916c4e01ea6111e6c1db63e976dd1ea320
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Непрерывное развертывание с помощью Jenkins в Службе контейнеров Azure
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Непрерывное развертывание Jenkins c помощью Kubernetes в Службе Azure Kubernetes
 
-В этом документе показано, как настроить базовый рабочий процесс непрерывного развертывания между Jenkins и кластером Службы контейнеров Azure (AKS).
+В этом документе показано, как настроить базовый рабочий процесс непрерывного развертывания между Jenkins и кластером Службы Azure Kubernetes (AKS).
 
 Пример рабочего процесса включает в себя следующие шаги.
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/19/2018
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 - Базовое представление о Kubernetes, Git, непрерывной интеграции и непрерывном развертывании, а также о реестре контейнеров Azure (ACR).
-- [Кластер Службы контейнеров Azure (AKS)][aks-quickstart] и [настроенные учетные данные AKS][aks-credentials] в системе разработки.
+- [Кластер Службы Azure Kubernetes (AKS)][aks-quickstart] и [настроенные учетные данные AKS][aks-credentials] в системе разработки.
 - [Реестр из реестра контейнеров Azure (ACR)][acr-quickstart], имя сервера входа ACR и [учетные данные ACR][acr-authentication] с доступом для отправки и извлечения.
 - Установленный компонент Azure CLI в системе разработки.
 - Установленный компонент Docker в системе разработки.
@@ -112,10 +112,10 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Затем используйте команду [kubectl create][kubectl-create], чтобы запустить приложение. Эта команда анализирует файл манифеста и создает заданные объекты Kubernetes.
+Затем используйте команду [kubectl apply][kubectl-apply], чтобы запустить приложение. Эта команда анализирует файл манифеста и создает заданные объекты Kubernetes.
 
 ```bash
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Будет создана [служба Kubernetes][kubernetes-service], которая открывает доступ к приложению через Интернет. Это может занять несколько минут.
@@ -297,7 +297,7 @@ SHOWHOST = 'false'
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [git-access-token]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 

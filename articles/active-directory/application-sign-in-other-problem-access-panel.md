@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: f73b7929aea35382f7ca684c866b65e070668d5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5765d64fccba69edd0ebe91a6c34694763e6c539
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Проблемы при входе в приложение из панели доступа
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 02/21/2018
 
 7.  Войдите в панель доступа и посмотрите, можете ли вы **запустить** приложения с единым входом по паролю.
 
-Чтобы скачать расширение для Chrome и Microsotf Edge, воспользуйтесь следующими ссылками:
+Чтобы скачать расширение для Chrome и Edge, воспользуйтесь следующими ссылками:
 
 -   [Расширение "Панель доступа" для Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
@@ -525,5 +525,5 @@ ms.lasthandoff: 02/21/2018
 -   трассировки Fiddler.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
+[Реализация единого входа в приложения с помощью прокси приложения](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

@@ -1,11 +1,11 @@
 ---
-title: "Безопасное подключение к кластеру Azure Service Fabric | Документация Майкрософт"
-description: "Сведения о способах проверки подлинности клиентского доступа к кластеру Service Fabric, а также об обеспечении безопасного обмена данными между клиентами и кластером."
+title: Безопасное подключение к кластеру Azure Service Fabric | Документация Майкрософт
+description: Сведения о способах проверки подлинности клиентского доступа к кластеру Service Fabric, а также об обеспечении безопасного обмена данными между клиентами и кластером.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2ddb72f267fc46d7980007d41c5d512f50eaf47e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Безопасное подключение к кластеру
 
@@ -89,25 +89,32 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Подключение к защищенному кластеру с использованием сертификата клиента
-Чтобы подключиться к защищенному кластеру, использующему сертификаты клиента для проверки подлинности административного доступа, выполните следующую команду PowerShell. Предоставьте отпечаток сертификата кластера, а также отпечаток сертификата клиента с разрешениями на управление кластером. Сведения о сертификате должны соответствовать сертификату на узлах кластера.
+Чтобы подключиться к защищенному кластеру, использующему сертификаты клиента для проверки подлинности административного доступа, выполните следующую команду PowerShell. 
+
+#### <a name="connect-using-certificate-common-name"></a>Подключение с помощью общего имени сертификата
+Предоставьте общее имя сертификата кластера, а также общее имя сертификата клиента с разрешениями на управление кластером. Сведения о сертификате должны соответствовать сертификату на узлах кластера.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
-
-*ServerCertThumbprint* — отпечаток сертификата сервера, установленного на узлах кластера. *FindValue* — отпечаток сертификата клиента администрирования.
-Когда все параметры указаны, команда выглядит так: 
-
+*ServerCommonName* — общее имя сертификата сервера, установленного на узлах кластера. *FindValue* — общее имя сертификата клиента администрирования. Когда все параметры указаны, команда выглядит так:
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Подключение к защищенному кластеру с помощью Windows Active Directory
@@ -312,7 +319,7 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 Полный URL-адрес доступен также на панели основных компонентов кластера портала Azure.
 
-Чтобы подключиться к безопасному кластеру в Windows или OS X с помощью браузера, можно импортировать сертификат клиента. Браузер запросит его, чтобы подключиться к кластеру.  Для компьютеров с Linux необходимо импортировать сертификат с помощью расширенных параметров браузера (у каждого свой механизм), а затем указать его расположение на диске.
+Чтобы подключиться к безопасному кластеру в Windows или OS X с помощью браузера, можно импортировать сертификат клиента. Браузер запросит его, чтобы подключиться к кластеру.  Для компьютеров Linux необходимо импортировать сертификат с помощью расширенных параметров браузера (в каждом браузере используется свой механизм), а затем указать его расположение на диске.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Подключение к защищенному кластеру с помощью Azure Active Directory
 

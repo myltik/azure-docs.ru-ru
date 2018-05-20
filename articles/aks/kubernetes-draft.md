@@ -3,19 +3,19 @@ title: Использование Draft с AKS и реестром контей�
 description: Использование Draft с AKS и реестром контейнеров Azure
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Использование Draft со Службой контейнеров Azure (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Использование Draft со службой Azure Kubernetes (AKS)
 
 Draft — это инструмент с открытым кодом, помогающий создавать и развертывать контейнеры в кластере Kubernetes, что позволяет больше сосредоточиться на цикле разработки, то есть на "внутреннем цикле" усиленной разработки. Draft работает по мере разработки кода, но перед фиксацией в системе управления версиями. С помощью Draft можно быстро повторно развернуть приложение в Kubernetes при изменении кода. Дополнительные сведения о Draft см. в [документации по Draft на сайте GitHub][draft-documentation].
 

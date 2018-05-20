@@ -5,18 +5,18 @@ services: key-vault
 documentationcenter: ''
 author: barclayn
 manager: mbaldwin
-ms.assetid: ''
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4a765b314b9879877bb6ff926e4a6584456b7823
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Руководство по настройке веб-приложения Azure для считывания секрета из Key Vault
 
@@ -68,13 +68,13 @@ az group create --name ContosoResourceGroup --location eastus
 az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
 ```
 
-В выходных данных команды будут показаны свойства созданного Key Vault. Запишите значения двух указанных ниже свойств:
+В выходных данных команды будут показаны свойства созданного Key Vault. Запишите значения двух указанных ниже свойств.
 
 * **Имя хранилища** — в нашем примере это **ContosoKeyVault**. Имя Key Vault будет использоваться во всех командах для этого Key Vault.
 * **URI хранилища** — в нашем примере это https://<YourKeyVaultName>.vault.azure.net/. Необходимо, чтобы приложения, использующие ваше хранилище через REST API, использовали этот URI.
 
 >[!IMPORTANT]
-> Параметр имени должен содержать уникальное значение, состоящее из буквенно-числовых символов, и иметь длину от 3 до 24 символов. В противном случае вы получите такую ошибку: Parameter 'vault_name' must conform to the following pattern: '^[a-zA-Z0-9-]{3,24}$' (Параметр "имя_хранилища" должен соответствовать следующему шаблону: '^[a-zA-Z0-9-]{3,24}$').
+> Параметр имени vault_name должен содержать уникальное значение, состоящее из букв и цифр, и иметь длину от 3 до 24 знаков. В противном случае отобразится сообщение об ошибке: Parameter 'vault_name' must conform to the following pattern: '^[a-zA-Z0-9-]{3,24}$' (Параметр vault_name должен соответствовать следующему шаблону: '^[a-zA-Z0-9-]{3,24}$').
 
 На этом этапе любые операции в этом хранилище ключей может выполнять только учетная запись Azure.
 

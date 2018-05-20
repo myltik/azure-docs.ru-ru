@@ -8,17 +8,17 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5c82659e4dd980b9285d81d51eb17b227ec33035
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Постоянные тома с дисками Azure
 
 Постоянный том — это часть хранилища, которая подготовлена к использованию для модулей pod Kubernetes. Постоянный том может использоваться одним или несколькими модулями pod и может быть подготовлен динамически или статически. Дополнительные сведения о постоянных томах Kubernetes см. в разделе [Kubernetes persistent volumes][kubernetes-volumes] (Постоянные тома Kubernetes).
 
-В этом документе описываются использование постоянных томов с дисками Azure в кластере Службы контейнеров Azure (AKS).
+В этом документе описываются использование постоянных томов с дисками Azure в кластере службы Azure Kubernetes.
 
 > [!NOTE]
 > Диск Azure можно подключить только с в режиме доступа ReadWriteOnce, который предоставляет доступ только к одному узлу AKS. Если вам нужно использовать постоянный том на нескольких узлах, попробуйте использовать [службу файлов Azure][azure-files-pvc].

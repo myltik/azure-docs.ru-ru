@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/29/2018
+ms.date: 05/02/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 1012cdc73e721c65502d749ce27eb6e9cbda6bf4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: afccb78ab1bf632989411992df9149e7dd5542d4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Настройка среды разработки для Windows
 > [!div class="op_single_selector"]
@@ -63,10 +63,10 @@ ms.lasthandoff: 04/19/2018
 * [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
 Текущие версии:
-* пакет SDK и средства версии 3.0.480 для Service Fabric;
-* среда выполнения Service Fabric 6.1.480;
-* средства Service Fabric для Visual Studio 2015 2.0.10124.2;
-* Visual Studio 2017 15.5.6 включает средства Service Fabric для Visual Studio 2.0.20180124.2.  
+* пакет SDK и инструменты для Service Fabric версии 3.1.269;
+* среда выполнения Service Fabric 6.2.269;
+* средства Service Fabric для Visual Studio 2015 2.1.10410.1;
+* Visual Studio 2017 15.5.6, которая включает средства Service Fabric для Visual Studio 2.1.20180406.1.  
 
 Список поддерживаемых версий см. в статье [Azure Service Fabric support options](service-fabric-support.md) (Варианты поддержки Azure Service Fabric).
 
@@ -91,7 +91,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [Сведения о вариантах поддержки Service Fabric](service-fabric-support.md)
 * [Автоматизация установки исправлений ОС в кластере](service-fabric-patch-orchestration-application.md)
 
-[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Страница кампании Service Fabric"
+[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Страница кампании Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ссылка на WebPI VS 2015"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка на WebPI Dev15"

@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Программное создание подписок Azure Enterprise (предварительная версия)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/23/2018
 - у вас одна или несколько подписок EA или EA "Разработка и тестирование", то есть вы вручную выполнили регистрацию по крайней мере один раз;
 - вы выполнили вход в *домашний каталог* владельца учетной записи, в котором по умолчанию создаются подписки.
 
-Если два вышеуказанных условия выполнены, возвращается ресурс `enrollmentAccount` и можно приступить к созданию подписки под этой учетной записью. Все подписки, созданные с учетной записью, оплачиваются в рамках регистрации EA, к которой относится эта учетная запись.
+Если три вышеуказанных условия выполнены, возвращается ресурс `enrollmentAccount` и можно приступить к созданию подписки под этой учетной записью. Все подписки, созданные с учетной записью, оплачиваются в рамках регистрации EA, к которой относится эта учетная запись.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -65,19 +65,19 @@ GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ Get-AzureRmEnrollmentAccount
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[интерфейс командной строки Azure](#tab/azure-cli)
@@ -117,19 +117,19 @@ az billing enrollment-account list
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ az billing enrollment-account list
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Создание подписок с помощью определенной учетной записи регистрации 
 
-В следующем примере создается запрос на создание подписки *Dev Team Subscription* и предложения подписки *MS-AZR-0017P* (обычная подписка EA). Используется учетная запись регистрации `<enrollmentAccountId>`, которая является учетной записью регистрации для MobileOnboardingEng@contoso.com. Этот пример также при необходимости добавляет двух пользователей в качестве владельцев (RBAC) для подписки.
+В следующем примере создается запрос на создание подписки *Dev Team Subscription* и предложения подписки *MS-AZR-0017P* (обычная подписка EA). Используется учетная запись регистрации `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (значение заполнителя, GUID), которая является учетной записью регистрации для SignUpEngineering@contoso.com. Этот пример также при необходимости добавляет двух пользователей в качестве владельцев (RBAC) для подписки.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 Используйте `id` из `enrollmentAccount` в пути запроса для создания подписки.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 Чтобы использовать эту предварительную версию модуля, сначала установите ее с помощью командлета `Install-Module AzureRM.Subscription -AllowPrerelease`. Чтобы убедиться в том, что `-AllowPrerelease` работает, установите последнюю версию PowerShellGet из статьи [Получение модуля PowerShellGet](/powershell/gallery/psget/get_psget_module).
 
-Используйте командлет [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview), указав имя `enrollmentAccount` в качестве параметра `EnrollmentAccountObjectId`, чтобы создать подписку. 
+Используйте командлет [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview), указав идентификатор объекта `enrollmentAccount` в качестве параметра `EnrollmentAccountObjectId`, чтобы создать подписку. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Имя элемента  | Обязательно | type   | ОПИСАНИЕ                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Нет       | Строка | Отображаемое имя подписки. Если не указан, то ему присваивается имя предложения, например "Microsoft Azure Enterprise".                                 |
 | `OfferType`   | Yes      | Строка | Предложение подписки. Доступны два варианта предложения EA: [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (для использования в рабочей среде) и [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (для разработки и тестирования, должен быть [включен с помощью портала EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Yes       | Строка | Идентификатор объекта учетной записи для регистрации, в которой создается подписка и для которой выставляются счета. Это значение GUID, которое вы получили с помощью `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Нет        | Строка | Идентификатор объекта любого пользователя, которого вы хотите добавить в качестве владельца RBAC для подписки при ее создании.  |
 | `OwnerSignInName`    | Нет        | Строка | Адрес электронной почты любого пользователя, которого вы хотите добавить в качестве владельца RBAC для подписки при ее создании. Можно использовать этот параметр вместо `OwnerObjectId`.|
 | `OwnerApplicationId` | Нет        | Строка | Идентификатор приложения любого субъекта-службы, которого вы хотите добавить в качестве владельца RBAC для подписки при ее создании. Можно использовать этот параметр вместо `OwnerObjectId`.| 
@@ -197,16 +198,17 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 
 Чтобы использовать эту предварительную версию расширения, сначала установите ее с помощью команды `az extension add --name subscription`.
 
-Используйте команду [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create), указав имя `enrollmentAccount` в качестве параметра `enrollment_account_name`, чтобы создать подписку.
+Используйте команду [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create), указав идентификатор объекта `enrollmentAccount` в качестве параметра `enrollment-account-object-id`, чтобы создать подписку.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Имя элемента  | Обязательно | type   | ОПИСАНИЕ                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Нет       | Строка | Отображаемое имя подписки. Если не указан, то ему присваивается имя предложения, например "Microsoft Azure Enterprise".                                 |
 | `offer-type`   | Yes      | Строка | Предложение подписки. Доступны два варианта предложения EA: [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (для использования в рабочей среде) и [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (для разработки и тестирования, должен быть [включен с помощью портала EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Yes       | Строка | Идентификатор объекта учетной записи для регистрации, в которой создается подписка и для которой выставляются счета. Это значение GUID, которое вы получили с помощью `az billing enrollment-account list`. |
 | `owner-object-id`      | Нет        | Строка | Идентификатор объекта любого пользователя, которого вы хотите добавить в качестве владельца RBAC для подписки при ее создании.  |
 | `owner-upn`    | Нет        | Строка | Адрес электронной почты любого пользователя, которого вы хотите добавить в качестве владельца RBAC для подписки при ее создании. Можно использовать этот параметр вместо `owner-object-id`.|
 | `owner-spn` | Нет        | Строка | Идентификатор приложения любого субъекта-службы, которого вы хотите добавить в качестве владельца RBAC для подписки при ее создании. Можно использовать этот параметр вместо `owner-object-id`.| 
@@ -217,12 +219,12 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Делегирование доступа к учетной записи регистрации с помощью RBAC
 
-Чтобы предоставить другому пользователю или субъекту-службе возможность создания подписок в рамках определенной учетной записи, [назначьте ему роль владельца RBAC на уровне учетной записи регистрации](../active-directory/role-based-access-control-manage-access-rest.md). Следующий пример дает пользователю в клиенте с `principalId` со значением `<userObjectId>` (для MobileOnboardingEng@contoso.com) роль владельца учетной записи регистрации. 
+Чтобы предоставить другому пользователю или субъекту-службе возможность создания подписок в рамках определенной учетной записи, [назначьте ему роль владельца RBAC на уровне учетной записи регистрации](../active-directory/role-based-access-control-manage-access-rest.md). Следующий пример дает пользователю в клиенте с `principalId` со значением `<userObjectId>` (для SignUpEngineering@contoso.com) роль владельца учетной записи регистрации. 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 Используйте командлет [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md), чтобы предоставить другому пользователю с ролью владельца доступ к вашей учетной записи регистрации.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[интерфейс командной строки Azure](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 Используйте команду [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md), чтобы предоставить другому пользователю с ролью владельца доступ к вашей учетной записи регистрации.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

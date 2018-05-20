@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 02edb06d2d871cffac717358e33a6720c444a9b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: baed8a4c5086a9e3c757a3ecb8a6811c7be6b09e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Маршрутизация сообщений с помощью Центра Интернета вещей (Node)
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 04/05/2018
 
 В статье [Учебник: как отправлять сообщения из облака на устройства с помощью Центра Интернета вещей и .Net][lnk-c2d] описано, как отправлять сообщения на устройства из серверной части решения.
 
-Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по Azure IoT Suite][lnk-suite].
+Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по акселераторам решений для удаленного мониторинга Интернета вещей Azure][lnk-suite].
 
 Дополнительные сведения о разработке решений с помощью Центра Интернета вещей см. в [руководстве разработчика для Центра Интернета вещей].
 

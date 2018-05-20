@@ -73,6 +73,16 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 4. Развертывание службы управления API с помощью Service Fabric
           href: service-fabric-tutorial-deploy-api-management.md
+    - name: Создание изолированного кластера в AWS
+      items:
+        - name: 1. Создание сетевой инфраструктуры в AWS.
+          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 2. Настройка Service Fabric.
+          href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+        - name: 3. Развертывание приложения в кластере.
+          href: service-fabric-tutorial-standalone-install-an-application.md
+        - name: 4. Очистка кластера и удаление инфраструктуры.
+          href: service-fabric-tutorial-standalone-clean-up.md
 - name: Примеры
   items:
     - name: Примеры кода

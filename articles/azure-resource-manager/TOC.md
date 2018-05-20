@@ -102,6 +102,7 @@
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Управление персональными данными](resource-manager-personal-data.md)
 ## [Запросы на регулирование](resource-manager-request-limits.md)
 ## [Отслеживание асинхронных операций](resource-manager-async-operations.md)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

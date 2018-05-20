@@ -40,6 +40,8 @@
   items:
     - name: Включение автоматического создания разделов
       href: apache-kafka-auto-create-topics.md
+    - name: Использование Kafka с Центром Интернета вещей
+      href: apache-kafka-connector-iot-hub.md
     - name: Установка приложений HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

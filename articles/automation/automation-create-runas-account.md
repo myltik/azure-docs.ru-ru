@@ -3,16 +3,17 @@ title: Создание учетных записей запуска от име
 description: В этой статье объясняется, как обновлять учетную запись службы автоматизации и создавать учетные записи запуска от имени с помощью PowerShell или портала.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 239478a9e697d9eed474a9bfcc0d12fb6a05faee
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 03a5cf6fd049e63616155a87bf112636b74be0a1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Обновление проверки подлинности учетных записей службы автоматизации с использованием учетных записей запуска от имени 
 Имеющуюся учетную запись службы автоматизации можно обновлять с помощью портала Azure или PowerShell в следующих случаях:

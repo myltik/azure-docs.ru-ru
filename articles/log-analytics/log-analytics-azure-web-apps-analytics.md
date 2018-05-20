@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Просмотр аналитических данных для метрик ресурсов веб-приложений Azure
 
 ![Символ веб-приложений](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> Решение "Аналитика веб-приложений Azure" больше не поддерживается.  Пользователи, установившие его, могут продолжать работать с ним, но это решение нельзя добавить в новые рабочие области.
+
 Аналитику веб-приложений Azure (предварительная версия) можно использовать для углубленного анализа данных [веб-приложений Azure](../app-service/app-service-web-overview.md) при сборе разных метрик ресурсов веб-приложений Azure. Это решение позволяет анализировать и искать данные метрик ресурсов веб-приложений.
 
 Это решение позволяет просматривать:
@@ -53,7 +57,7 @@ ms.lasthandoff: 03/23/2018
 Выполните следующие действия, чтобы настроить решение "Аналитика веб-приложений Azure" в рабочих областях.
 
 1. Включите решение "Аналитика веб-приложений Azure" из [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) или выполните инструкции по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
-2. [Включите ведение журнала метрик ресурсов Azure для OMS с помощью PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Включите ведение журнала метрик ресурсов Azure в Log Analytics с помощью PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 Решение "Аналитика веб-приложений Azure" собирает два набора метрик из Azure:
 
@@ -73,10 +77,6 @@ ms.lasthandoff: 03/23/2018
   - Процент использования памяти
 
 Метрики плана службы приложения собираются, только если вы используете выделенный план службы. Это не относится к планам службы приложений категории "Бесплатный" или "Общий".
-
-При добавлении решения с помощью портала OMS отображается следующая плитка. Вам нужно [включить ведение журнала метрик ресурсов Azure для OMS с помощью PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Уведомление "Выполнение оценки"](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 После настройки решения данные начнут поступать в рабочую область в течение 15 минут.
 

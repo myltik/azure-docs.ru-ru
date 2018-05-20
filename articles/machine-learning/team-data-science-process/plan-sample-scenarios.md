@@ -1,9 +1,9 @@
 ---
-title: "Определение сценариев углубленной аналитики для Машинного обучения Azure | Документация Майкрософт"
-description: "Выберите оптимальные сценарии использования процесса обработки и анализа данных группы для расширенной прогнозной аналитики."
+title: Определение сценариев углубленной аналитики для Машинного обучения Azure | Документация Майкрософт
+description: Выберите оптимальные сценарии использования процесса обработки и анализа данных группы для расширенной прогнозной аналитики.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Сценарии для расширенной аналитики в Машинном обучении Azure
 В этой статье описаны различные источники примеров данных и типовые сценарии, в которых можно использовать [процесс обработки и анализа данных группы (TDSP)](overview.md). Процесс TDSP предоставляет систематический подход для совместной работы групп над созданием интеллектуальных приложений. В представленных сценариях продемонстрированы варианты рабочих процессов обработки данных на основе характеристик данных, исходных расположений и целевых репозиториев в Azure.
@@ -35,8 +35,8 @@ ms.lasthandoff: 11/13/2017
 > **Для каждого из них вам понадобится:**
 > <br/>
 > 
-> * [создать учетную запись хранения](../../storage/common/storage-create-storage-account.md)
->   ;<br/>
+> * [создать учетную запись хранения;](../../storage/common/storage-create-storage-account.md)
+>   <br/>
 > * [Создание рабочей области машинного обучения Azure](../studio/create-workspace.md)
 > 
 > 

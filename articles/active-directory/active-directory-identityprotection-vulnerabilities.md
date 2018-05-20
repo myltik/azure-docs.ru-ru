@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory
 Уязвимости — это слабые стороны среды, которыми могут воспользоваться злоумышленники. Мы рекомендуем устранить эти уязвимости, чтобы улучшить систему безопасности своей организации и предотвратить использование уязвимостей злоумышленниками.
@@ -47,7 +47,7 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 Мы рекомендуем развернуть в организации Cloud App Discovery, чтобы можно было обнаруживать неуправляемые облачные приложения и управлять ими с помощью Azure Active Directory.
 
-Дополнительные сведения см. в статье [Поиск неуправляемых облачных приложений с помощью Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+Дополнительные сведения см. в статье [Поиск неуправляемых облачных приложений с помощью Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Оповещения системы безопасности в рамках управления привилегированными пользователями
 Эта уязвимость способствует обнаружению и устранению оповещений о привилегированных удостоверениях в организации.  

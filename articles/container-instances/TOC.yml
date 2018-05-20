@@ -21,6 +21,12 @@
       href: container-instances-tutorial-prepare-acr.md
     - name: 3. Развертывание приложения
       href: container-instances-tutorial-deploy-app.md
+- name: Примеры
+  items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+    - name: Шаблоны диспетчера ресурсов
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
 - name: Основные понятия
   items:
     - name: Квоты и региональные ограничения
@@ -31,22 +37,28 @@
       href: container-instances-container-groups.md
 - name: Практические руководства
   items:
-    - name: Развертывание многоконтейнерных групп
-      href: container-instances-multi-container-group.md
-    - name: Развертывание из реестра контейнеров Azure
-      href: container-instances-using-azure-container-registry.md
-    - name: Выполнение команды (exec)
-      href: container-instances-exec.md
-    - name: Выполнение контейнерных задач
-      href: container-instances-restart-policy.md
-    - name: Настройка переменных среды (env)
-      href: container-instances-environment-variables.md
-    - name: Устранение неполадок развертываний
-      href: container-instances-troubleshooting.md
-    - name: Агенты сборки Jenkins в ACI
-      href: container-instances-jenkins.md
-    - name: Мониторинг использования ЦП и памяти
-      href: container-instances-monitor.md
+    - name: Развертывание
+      items:
+        - name: Развертывание многоконтейнерных групп
+          href: container-instances-multi-container-group.md
+        - name: Развертывание из реестра контейнеров Azure
+          href: container-instances-using-azure-container-registry.md
+        - name: Настройка переменных среды (env)
+          href: container-instances-environment-variables.md
+        - name: Устранение неполадок развертываний
+          href: container-instances-troubleshooting.md
+    - name: управление
+      items:
+        - name: Выполнение команды (exec)
+          href: container-instances-exec.md
+        - name: Мониторинг использования ЦП и памяти
+          href: container-instances-monitor.md
+    - name: Выполнение рабочих нагрузок
+      items:
+        - name: Выполнение контейнерных задач
+          href: container-instances-restart-policy.md
+        - name: Агенты сборки Jenkins в ACI
+          href: container-instances-jenkins.md
     - name: Конфигурирование томов данных
       items:
         - name: Файлы Azure

@@ -1,23 +1,37 @@
 ---
-title: Вход через SSH в узлы кластера Службы контейнеров Azure (AKS)
-description: Создание SSH-соединения с узлами кластера Службы контейнеров Azure (AKS)
+title: Вход через SSH в узлы кластера Службы Azure Kubernetes (AKS)
+description: Создание SSH-соединения с узлами кластера Службы Azure Kubernetes (AKS)
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Вход через SSH в узлы кластера Службы контейнеров Azure (AKS)
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Вход через SSH в узлы кластера Службы Azure Kubernetes (AKS)
 
-В некоторых случаях может потребоваться доступ к узлу Службы контейнеров Azure (AKS) для обслуживания, сбора данных журналов или других операций по устранению неполадок. Узлы Службы контейнеров Azure (AKS) не доступны через Интернет. Чтобы создать SSH-соединение с узлом AKS, выполните действия, описанные в этом документе.
+В некоторых случаях может потребоваться получить доступ к узлу Службы Azure Kubernetes (AKS) для обслуживания, сбора данных журналов или других операций по устранению неполадок. Узлы AKS недоступны через Интернет. Чтобы создать SSH-соединение с узлом AKS, выполните действия, описанные в этом документе.
+
+## <a name="reset-ssh-keys"></a>Сброс ключей SSH
+
+Если вы развернули AKS без ключей SSH или не имеете доступа к имеющимся ключам SSH, их можно сбросить с помощью портала Azure.
+
+Перейдите к кластеру AKS, выберите узел AKS (виртуальную машину) и нажмите кнопку **Сброс пароля**, чтобы сбросить открытый ключ SSH.
+
+![Кнопка сброса пароля в виртуальной машине AKS](media/aks-ssh/reset-password.png)
+
+Выберите **Сбросить открытый ключ SSH**, введите имя кластера AKS (по умолчанию **azueruser**) и скопируйте его в открытый ключ SSH. По завершении выберите **Обновить**.
+
+![Кнопка сброса пароля в виртуальной машине на портале AKS](media/aks-ssh/reset-password-2.png)
+
+После сброса ключа SSH вы можете создать SSH-подключение с помощью соответствующего закрытого ключа.
 
 ## <a name="get-aks-node-address"></a>Получение адреса узла AKS
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Скопируйте ключ SSH в группу pod и замените имя pod правильным значением.
+Скопируйте закрытый ключ SSH в группу pod и замените имя pod правильным значением.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

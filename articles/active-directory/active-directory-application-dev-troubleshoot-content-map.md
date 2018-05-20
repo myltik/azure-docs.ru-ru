@@ -1,22 +1,23 @@
 ---
-title: "Устранение неполадок при разработке приложения Azure Active Directory | Документация Майкрософт"
-description: "Решение наиболее распространенных проблем, связанных с разработкой приложений в Azure Active Directory"
+title: Устранение неполадок при разработке приложения Azure Active Directory | Документация Майкрософт
+description: Решение наиболее распространенных проблем, связанных с разработкой приложений в Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 98510670063fbd856cbc438b59613adce84742bd
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 9d23b05f78744f8d5d213d2dabd83ad179c56229
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Устранение неполадок при разработке приложения Azure Active Directory
 По следующим ссылкам вы можете перейти к картам содержимого, которые помогут решить некоторые из наиболее распространенных проблем при разработке приложений с помощью **реестра приложений** в Azure Active Directory.

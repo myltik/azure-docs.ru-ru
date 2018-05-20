@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Устранение неполадок, связанных с группами безопасности сети, с помощью PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ NSG позволяют управлять типом трафика, перед�
 ## <a name="detailed-troubleshooting-steps"></a>Подробные инструкции по устранению неполадок
 Выполните шаги ниже, чтобы устранить проблемы с NSG для виртуальной машины.
 
-1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) . Необходимо назначить вашей учетной записи операцию *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Следующая команда возвращает все правила NSG, применяемые к сетевому интерфейсу с именем *VM1-NIC1* в группе ресурсов *RG1*.
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Заметки о выпуске
       items:
+        - name: Обновление 1804
+          href: azure-stack-update-1804.md
         - name: Обновление 1803
           href: azure-stack-update-1803.md
         - name: Обновление 1802
           href: azure-stack-update-1802.md
         - name: Обновление 1712
           href: azure-stack-update-1712.md
-        - name: Обновление 1711
-          href: azure-stack-update-1711.md
 - name: Быстрое начало работы
   expanded: true
   items:

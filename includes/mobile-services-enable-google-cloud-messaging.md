@@ -1,23 +1,54 @@
-
-1. Перейдите к [консоли Google Cloud](https://console.developers.google.com/project)и войдите в нее с помощью учетной записи Google. 
-2. Щелкните **Create Project** (Создание проекта), введите имя проекта и щелкните **Create** (Создать). Выполните требуемую проверку с помощью SMS и снова щелкните **Create** (Создать).
+---
+title: включение файла
+description: включение файла
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 04/06/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/07/2018
+---
+1. Перейдите к [консоли Google Cloud](https://console.developers.google.com/cloud-resource-manager)и войдите в нее с помощью учетной записи Google. 
+2. Выберите **Создать проект** на панели инструментов. 
    
     ![Создание нового проекта](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
+3. В поле **Project name** (Имя проекта) введите имя проекта и нажмите кнопку **Create** (Создать).
+4. На панели инструментов щелкните значок **оповещений** и выберите проект в списке. Откроется панель мониторинга проекта. Вы также можете перейти непосредственно к панели мониторинга, используя URL-адрес https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+
+    ![Выбор проекта в окне оповещений](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
+5. Запишите **номер проекта**, который отображается на плитке **Project info** (Сведения о проекте) панели мониторинга. 
+
+    ![Идентификатор проекта](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
+6. На плитке **APIs** (API-интерфейсы) панели мониторинга щелкните **Go to APIs overview** (Перейти к обзору API-интерфейсов). 
+
+    ![Ссылка на страницу обзора API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
+7. На странице **API** щелкните **Enable APIs and services** (Включить API-интерфейсы и службы). 
+
+    ![Кнопка "Enable APIs and Services" (Включить API-интерфейсы и службы)](./media/mobile-services-enable-google-cloud-messaging/enable-api-services-button.png)
+8. Найдите и выберите **Google Cloud Messaging**. 
+
+    ![Поиск и выбор Google Cloud Messaging](./media/mobile-services-enable-google-cloud-messaging/search-select-gcm.png)
+9. Чтобы включить Google Cloud Messaging для проекта, нажмите кнопку **Enable** (Включить).
+
+    ![Включение Google Cloud Messaging](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-button.png)
+10. Щелкните **Create credentials** (Создать учетные данные) на панели инструментов. 
+
+    ![Кнопка "Create credentials" (Создать учетные данные)](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
+11. На странице **Add credentials to your project** (Добавление учетных данных в проект) щелкните ссылку на **ключ API**. 
+
+    ![Кнопка "Create credentials" (Создать учетные данные)](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
+12. На странице **API key** (Ключ API) нажмите кнопку **Create** (Создать) или Save (Сохранить). В следующем примере выбран параметр **IP addresses** (IP-адреса) и для разрешенных IP-адресов указан диапазон **0.0.0.0/0**. Задайте соответствующие ограничения ключа API. 
+
+    ![Страница ключа API — кнопка Create (Создать)](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)
+13. Скопируйте **ключ API** в буфер обмена и сохраните его в каком-нибудь расположении. 
+
+    ![Копирование ключа API](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-     В поле **Project name** (Имя проекта) введите новое имя проекта и щелкните **Create project** (Создать проект).
-3. Щелкните **Utilities and More** (Служебные программы и другое) и **Project Information** (Сведения о проекте). Запишите **номер проекта**. В клиенте это значение нужно будет указать как переменную `SenderId` .
-   
-    ![Служебные программы и другое](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
-4. На панели мониторинга проекта в разделе **Mobile APIs** (API мобильных служб) выберите **Google Cloud Messaging**, на следующей странице щелкните **Enable API** (Включить API) и примите условия предоставления услуг. 
-   
-    ![Включение GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
-   
-    ![Включение GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
-5. На панели мониторинга проекта щелкните **Credentials** > **Create Credential** > **API Key** (Учетные данные > Создать учетные данные > Ключ API). 
-   
-    ![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
-6. В окне **Create a new key** (Создание нового ключа) щелкните **Server key** (Ключ сервера), введите имя ключа и щелкните **Create** (Создать).
-7. Запишите значение **API KEY** (Ключ API).
-   
-    Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
+    Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения. Чтобы вернуться на панель мониторинга проекта, используйте URL-адрес https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
 

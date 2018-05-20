@@ -3,22 +3,22 @@ title: Указатель статей по управлению приложе�
 description: Узнайте, как настроить срок действия сертификатов федерации, а также обновлять сертификаты с истекающим сроком действия.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -30,9 +30,9 @@ ms.lasthandoff: 04/28/2018
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Введение в проблемы управления приложениями, решаемые с помощью Azure AD |[Управление приложениями с помощью Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
+| Введение в проблемы управления приложениями, решаемые с помощью Azure AD |[Управление приложениями с помощью Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | Обзор различных функций в Azure AD, связанных с включением единого входа, определением пользователей, у которых есть доступ к приложениям, и способов запуска приложений |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-| Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](active-directory-integrating-applications-getting-started.md)<br /><br />[Включение единого входа для приложений SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
+| Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](manage-apps/plan-an-application-integration.md)<br /><br />[Включение единого входа для приложений SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
 | Технические сведения о представлении приложений в Azure AD |[Как и почему приложения добавляются в Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Статьи по устранению неполадок
@@ -78,10 +78,10 @@ ms.lasthandoff: 04/28/2018
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Общие сведения о прокси приложения Azure AD и принципах его работы |[Предоставление безопасного удаленного доступа к локальному приложению](active-directory-application-proxy-get-started.md) |
-| Руководства по настройке прокси приложения и публикации первого приложения |[Настройка прокси приложения Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Автоматическая установка соединителя прокси приложения](active-directory-application-proxy-silent-installation.md)<br /><br />[Публикация приложений с помощью прокси приложения](active-directory-application-proxy-publish.md)<br /><br />[Работа с пользовательскими доменами в прокси приложения Azure AD](active-directory-application-proxy-custom-domains.md) |
-| Включение единого входа и условного доступа для приложений, опубликованных с помощью прокси приложения |[Единый вход с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Работа с условным доступом](application-proxy-enable-remote-access-sharepoint.md) |
-| Рекомендации по использованию прокси приложения в определенных сценариях |[Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)<br /><br />[Работа с приложениями, поддерживающими утверждения, в прокси приложения](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](active-directory-application-proxy-connectors-azure-portal.md) |
+| Общие сведения о прокси приложения Azure AD и принципах его работы |[Предоставление безопасного удаленного доступа к локальному приложению](manage-apps/application-proxy.md) |
+| Руководства по настройке прокси приложения и публикации первого приложения |[Настройка прокси приложения Azure AD](manage-apps/application-proxy-enable.md)<br /><br />[Автоматическая установка соединителя прокси приложения](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Публикация приложений с помощью прокси приложения](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Работа с пользовательскими доменами в прокси приложения Azure AD](manage-apps/application-proxy-configure-custom-domain.md) |
+| Включение единого входа и условного доступа для приложений, опубликованных с помощью прокси приложения |[Единый вход с помощью прокси приложения](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Работа с условным доступом](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Рекомендации по использованию прокси приложения в определенных сценариях |[Включение собственных клиентских приложений для взаимодействия с приложениями прокси](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Работа с приложениями, поддерживающими утверждения, в прокси приложения](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](manage-apps/application-proxy-connector-groups.md) |
 | Руководство по устранению неполадок прокси приложения |[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
 
 Прокси приложения доступно для всех выпусков Azure AD, и его можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications).
@@ -108,7 +108,7 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 | Путеводитель по статьям |  |
 |:---:| --- |
 | Общие сведения о возможностях условного доступа, предлагаемых в Azure AD, Office 365 и Intune |[Управление рисками с помощью условного доступа](active-directory-conditional-access-azure-portal.md) |
-| Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access-azure-portal.md)<br /><br />[Работа с условным доступом](application-proxy-enable-remote-access-sharepoint.md) |
+| Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access-azure-portal.md)<br /><br />[Работа с условным доступом](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств |[Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Включение автоматической регистрации присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Действия для устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Действия для устройств Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Использование приложения Microsoft Authenticator для двухфакторной проверки подлинности |[Начало работы с приложением Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
@@ -121,7 +121,7 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Общие сведения о принципах работы Cloud App Discovery |[Поиск несанкционированных облачных приложений с Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
+| Общие сведения о принципах работы Cloud App Discovery |[Поиск несанкционированных облачных приложений с Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
 | Подробные сведения о принципах работы Cloud App Discovery и ответы на вопросы о конфиденциальности |[Вопросы безопасности и конфиденциальности Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | Часто задаваемые вопросы |[FAQ for Cloud App Discovery (Часто задаваемые вопросы о Cloud App Discovery)](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | Руководства по развертыванию Cloud App Discovery |[Руководство по развертыванию групповой политики](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Руководство по развертыванию System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Параметры реестра Cloud App Discovery для прокси-служб](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |

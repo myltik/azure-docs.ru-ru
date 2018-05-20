@@ -4,7 +4,7 @@ description: Узнайте об облачных службах вычисле�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="governance-in-azure"></a>Система управления в Azure
 
@@ -410,7 +410,7 @@ Azure Resource Manager анализирует зависимости, чтобы
 
 - решения партнеров, интегрированные в подписку Azure, например брандмауэр веб-приложений на виртуальных машинах и в [среде службы приложений](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="log-analytics"></a>Служба Log Analytics
+### <a name="log-analytics"></a>Log Analytics
 
 [Программа информационной безопасности](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) и стратегического управления группы разработки и обслуживания программного обеспечения Log Analytics отвечает бизнес-требованиям и придерживается правил и нормативных требований, описанных на страницах, касающихся [центра управления безопасностью Microsoft Azure](https://azure.microsoft.com/support/trust-center/) и [центра соответствия требованиям Майкрософт](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Там также описано, как Log Analytics устанавливает требования безопасности, определяет средства управления безопасностью, управляет рисками и отслеживает их. Мы ежегодно пересматриваем политики, стандарты, процедуры и рекомендации.
 

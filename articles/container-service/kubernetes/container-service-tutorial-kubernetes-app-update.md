@@ -3,17 +3,17 @@ title: 'Руководство по службе контейнеров Azure: �
 description: 'Руководство по Службе контейнеров Azure: обновление приложения'
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Обновление приложения в Kubernetes
 

@@ -1,12 +1,12 @@
 ---
-title: "Заметки о выпуске, посвященные обновлению 4 для устройств серии StorSimple 8000 | Документация Майкрософт"
-description: "В статье описываются новые возможности, проблемы и способы их решения для обновления 4, предназначенного для устройств серии StorSimple 8000."
+title: Заметки о выпуске, посвященные обновлению 4 для устройств серии StorSimple 8000 | Документация Майкрософт
+description: В статье описываются новые возможности, проблемы и способы их решения для обновления 4, предназначенного для устройств серии StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f4db5a49b71b0c384da7af2b90bd5426a4f35c72
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Заметки о выпуске, посвященные обновлению 4 для устройств серии StorSimple 8000
-> [!NOTE]
-> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## <a name="overview"></a>Обзор
 

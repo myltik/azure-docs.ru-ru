@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Предоплата виртуальных машин с помощью зарезервированных экземпляров виртуальных машин
 
@@ -13,6 +13,7 @@ ms.lasthandoff: 05/03/2018
 Вы можете приобрести зарезервированный экземпляр виртуальной машины на [портале Azure](https://portal.azure.com). Чтобы купить зарезервированный экземпляр виртуальной машины:
 -   Необходимо быть участником роли "Владелец" по крайней мере для одной подписки с соглашением Enterprise или подписки с оплатой по мере использования.
 -   Для подписок с соглашением Enterprise резервирование покупок следует включить на [портале EA](https://ea.azure.com).
+-   В рамках программы для поставщиков облачных решений (CSP) только агенты администрирования или агенты продаж могут приобрести зарезервированные ресурсы.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Покупка зарезервированного экземпляра виртуальной машины
 1. Войдите на [портал Azure](https://portal.azure.com).
@@ -50,3 +51,4 @@ ms.lasthandoff: 05/03/2018
 - [Использование зарезервированного экземпляра виртуальной машины для подписки с оплатой по мере использования](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Общие сведения об использовании зарезервированных экземпляров с Соглашением о регистрации Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Затраты на программное обеспечение Windows, которые не включены в стоимость зарезервированных экземпляров](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Зарезервированные экземпляры в программе для поставщиков облачных решений (CSP) в Центре партнеров](https://docs.microsoft.com/partner-center/azure-reservations)

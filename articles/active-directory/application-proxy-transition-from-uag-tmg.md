@@ -1,25 +1,25 @@
 ---
-title: "Установка новой версии прокси приложения Azure AD | Документация Майкрософт"
-description: "Выберите, какой прокси-сервер лучше всего подходит для обновления Microsoft Forefront или Unified Access Gateway."
+title: Установка новой версии прокси приложения Azure AD | Документация Майкрософт
+description: Выберите, какой прокси-сервер лучше всего подходит для обновления Microsoft Forefront или Unified Access Gateway.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e6764a0eeb27b8bff24140ff2c12e9e66b06b48b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Сравнение решений для удаленного доступа
 
@@ -62,5 +62,5 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- [Обеспечение безопасного удаленного доступа к локальным приложениям с помощью службы приложений Azure AD](active-directory-application-proxy-get-started.md)
+- [Обеспечение безопасного удаленного доступа к локальным приложениям с помощью службы приложений Azure AD](manage-apps/application-proxy.md)
 - [Переход с Forefront TMG и UAG на прокси-службу приложений](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

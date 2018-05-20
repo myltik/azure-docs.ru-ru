@@ -1,8 +1,7 @@
 ---
-title: Создание задания Stream Analytics с помощью Azure PowerShell | Документация Майкрософт
+title: Создание задания Stream Analytics с помощью Azure PowerShell
 description: В этом кратком руководстве описывается, как с помощью модуля Azure PowerShell развернуть и запустить задание Azure Stream Analytics.
 services: stream-analytics
-keywords: Stream analytics, Cloud jobs, Azure PowerShell, job input, job output, job transformation
 author: SnehaGunda
 ms.author: sngun
 ms.date: 03/16/2018
@@ -10,11 +9,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 8a1036531ea0e7c1426224bc4d42c83e9049cabf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0be8cee9e6c7874282f4e8f43f75fa7f2490c14e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Краткое руководство по созданию задания Stream Analytics с помощью Azure PowerShell
 
@@ -34,9 +33,11 @@ ms.lasthandoff: 04/19/2018
 # Log in to your Azure account
 Connect-AzureRmAccount
 
-# Select the Azure subscription you want to use to create the resource group.
-Get-AzureRmSubscription `
-  -SubscriptionName “<your subscription>” | Select-AzureRmSubscription
+# List all available subscriptions.
+Get-AzureRmSubscription
+
+# Select the Azure subscription you want to use to create the resource group and resources.
+Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
 ```
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
@@ -257,7 +258,7 @@ Start-AzureRMStreamAnalyticsJob `
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Ставшие ненужными группу ресурсов, задание потоковой передачи и все связанные ресурсы можно удалить. При удалении задания будет прекращена тарификация за единицы потоковой передачи, потребляемые заданием. Если вы планируете использовать это задание в будущем, вы можете остановить и перезапустить его позже при необходимости. Если вам больше не нужно это задание, удалите все ресурсы, созданные в ходе работы с этим кратким руководством, выполнив следующий командлет:
+Ставшие ненужными группу ресурсов, задание потоковой передачи и все связанные ресурсы можно удалить. При удалении задания будет прекращена тарификация за единицы потоковой передачи, потребляемые заданием. Если вы планируете использовать это задание в будущем, вы можете остановить и перезапустить его позже. Если вам больше не нужно это задание, удалите все ресурсы, созданные в ходе работы с этим кратким руководством, выполнив следующий командлет:
 
 ```powershell
 Remove-AzureRmResourceGroup `

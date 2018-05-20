@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Сбор данных производительности приложений Linux в Log Analytics 
 В этой статье предоставлены подробные сведения о настройке сбора счетчиков производительности для конкретных приложений для [агента OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).  В статье используются следующие приложения:  
@@ -78,9 +78,9 @@ ms.lasthandoff: 04/05/2018
 
 | Операция | Пример | ОПИСАНИЕ
 |:--|:--|:--|
-| autoupdate *false\|true* | mycimprovauth autoupdate false | Устанавливает, следует ли автоматически обновлять файл проверки подлинности при перезапуске или обновлении. |
+| autoupdate *false or true* | mycimprovauth autoupdate false | Устанавливает, следует ли автоматически обновлять файл проверки подлинности при перезапуске или обновлении. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Задает экземпляр по умолчанию в файле проверки подлинности OMI MySQL.<br>Пароль в поле пароля следует вводить в формате обычного текста, так как в файле проверки подлинности OMI MySQL он будет зашифрован в кодировке Base 64. |
-| delete *default\|port_num* | mycimprovauth 3308 | Удаляет указанный экземпляр по умолчанию или удаляет экземпляр по номеру порта. |
+| delete *default or port_num* | mycimprovauth 3308 | Удаляет указанный экземпляр по умолчанию или удаляет экземпляр по номеру порта. |
 | help | mycimprov help | Выводит список используемых команд. |
 | print | mycimprov print | Выводит содержимое файла проверки подлинности OMI MySQL в удобном формате. |
 | update port_num *bind-address username password* | mycimprov update 3307 127.0.0.1 root pwd | Обновляет указанный экземпляр или добавляет экземпляр, если его не существует. |

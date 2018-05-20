@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Справочник по файлу host.json для Функций Azure
 
@@ -142,6 +142,46 @@ ms.lasthandoff: 04/06/2018
 |isEnabled|Да|Включает или отключает выборку.| 
 |maxTelemetryItemsPerSecond|5|Пороговое значение, при котором начинается выборка.| 
 
+## <a name="durabletask"></a>durableTask
+
+Параметры конфигурации для [устойчивых функций](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Имена центров задач должны начинаться с буквы и содержать только буквы и цифры. Если имя не указано, центру задач в приложении-функции назначается имя по умолчанию **DurableFunctionsHub**. Дополнительные сведения см. в статье о [центрах задач](durable-functions-task-hubs.md).
+
+|Свойство  |значение по умолчанию | ОПИСАНИЕ |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|Альтернативные имена [центра задач](durable-functions-task-hubs.md) позволяют изолировать несколько приложений устойчивых функций друг от друга, даже если они используют один и тот же интерфейс хранилища.|
+|ControlQueueBatchSize|32|Количество сообщений, одновременно извлекаемых из очереди управления.|
+|PartitionCount |4.|Число разделов для очереди управления. Допускается целочисленное значение в диапазоне от 1 до 16.|
+|ControlQueueVisibilityTimeout |5 мин|Время видимости для сообщений, выведенных из очереди управления.|
+|WorkItemQueueVisibilityTimeout |5 мин|Время видимости для сообщений, выведенных из очереди рабочих элементов.|
+|MaxConcurrentActivityFunctions |10× количество процессоров на текущем компьютере|Максимальное число функции действия, которые могут параллельно обрабатываться на одном экземпляре узла.|
+|MaxConcurrentOrchestratorFunctions |10× количество процессоров на текущем компьютере|Максимальное число функции действия, которые могут параллельно обрабатываться на одном экземпляре узла.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Имя параметра приложения, в котором хранится строка подключения к службе хранилища Azure для управления базовыми ресурсами этой службы.|
+|TraceInputsAndOutputs |false|Это значение указывает, нужно ли отслеживать входы и выходы вызовов функций. При трассировке событий выполнения функции по умолчанию для вызовов функций фиксируется количество байтов в сериализованных входных и выходных данных. Это позволяет получить некоторое представление о входах и выходах, не увеличивая размеры журналов и не раскрывая в них конфиденциальные сведения. Если вы присвоите этому свойству значение true, в журналы выполнения функций будет включаться полное содержимое их входов и выходов.|
+|EventGridTopicEndpoint ||URL-адрес конечной точки пользовательского раздела службы "Сетка событий Azure". Если установлен этот параметр, события уведомления о жизненном цикле оркестрации публикуются в указанную конечную точку.|
+|EventGridKeySettingName ||Имя параметра приложения, содержащего ключ для аутентификации в пользовательском разделе службы "Сетка событий Azure" в `EventGridTopicEndpoint`.
+
+Многие из них предназначены для оптимизации производительности. Дополнительные сведения см. в статье [о производительности и масштабируемости](durable-functions-perf-and-scale.md).
+
 ## <a name="eventhub"></a>eventHub
 
 Параметры конфигурации для [триггеров и привязок концентратора событий](functions-bindings-event-hubs.md).
@@ -150,7 +190,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="functions"></a>functions
 
-Список функций, которые будет выполнять узел заданий.  Пустой массив означает выполнение всех функций.  Предназначен для использования только при [локальном выполнении](functions-run-local.md). В приложениях-функциях используйте свойство `disabled` в *function.json*, а не это свойство в *host.json*.
+Список функций, которые будет выполнять узел заданий. Пустой массив означает выполнение всех функций. Предназначен для использования только при [локальном выполнении](functions-run-local.md). В приложениях-функциях используйте свойство `disabled` в *function.json*, а не это свойство в *host.json*.
 
 ```json
 {
@@ -299,21 +339,6 @@ ms.lasthandoff: 04/06/2018
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[Центр задач](durable-functions-task-hubs.md) для [устойчивых функций](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Имена центра задач должны начинаться с буквы и содержать только буквы и цифры. Если имя не указано, центру задач в приложении-функции назначается имя по умолчанию **DurableFunctionsHub**. Дополнительные сведения см. в статье о [центрах задач](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Дополнительная информация
 

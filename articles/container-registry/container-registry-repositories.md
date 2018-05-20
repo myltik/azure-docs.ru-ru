@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 4479c78eb2eb4138dbacfa3619616a3b16d51121
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Просмотр списка репозиториев реестра контейнеров на портале Azure
 
@@ -49,7 +49,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Теперь, когда вы знаете, как просматривать список репозиториев на портале и работать с ними, попробуйте использовать Реестр контейнеров Azure с кластером [Службы контейнеров Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
+Теперь, когда вы знаете, как просматривать список репозиториев на портале и работать с ними, попробуйте использовать Реестр контейнеров Azure с кластером [службы Azure Kubernetes (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

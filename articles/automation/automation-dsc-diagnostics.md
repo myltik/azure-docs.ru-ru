@@ -3,16 +3,17 @@ title: Пересылка данных отчетов Azure Automation DSC в Lo
 description: В этой статье показано, как отправлять данные отчетов Desired State Configuration (DSC) в Log Analytics для получения дополнительных сведений и возможностей управления.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e87420c6f390d607ce6f0f57df4634a134a93d63
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Пересылка данных отчетов Azure Automation DSC в Log Analytics
 

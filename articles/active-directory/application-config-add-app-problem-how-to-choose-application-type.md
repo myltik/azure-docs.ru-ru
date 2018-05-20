@@ -1,11 +1,11 @@
 ---
-title: "Как выбрать нужный тип приложения при добавлении приложения | Документация Майкрософт"
-description: "Сведения о поддерживаемых типах приложений, которые можно интегрировать с Azure AD, и о вариантах их настройки"
+title: Как выбрать нужный тип приложения при добавлении приложения | Документация Майкрософт
+description: Сведения о поддерживаемых типах приложений, которые можно интегрировать с Azure AD, и о вариантах их настройки
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a34c3343b669cb80ad88c1b09fe95b1b1d9b5275
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Как выбрать нужный тип приложения при добавлении приложения
 
@@ -171,4 +171,4 @@ Azure AD поддерживает четыре основных типа при�
 7.  После загрузки приложения щелкните **Подготовка** в меню навигации слева.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Управление приложениями с помощью Azure Active Directory](manage-apps/what-is-application-management.md)

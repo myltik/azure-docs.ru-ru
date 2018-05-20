@@ -1,25 +1,25 @@
 ---
-title: "Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей в прокси приложения Azure AD | Документация Майкрософт"
-description: "Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими."
+title: Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей в прокси приложения Azure AD | Документация Майкрософт
+description: Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ffc453c98f8d21f1cd6f7025387031bdacf073a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/01/2018
 >При наличии большого развертывания прокси приложения не назначайте какие-либо приложения в группу соединителей по умолчанию. Таким образом новые соединители не будут принимать текущий трафик, пока вы не добавите их в активную группу соединителей. Такая конфигурация позволяет переводить соединители в режим простоя, перемещая их в группу по умолчанию, чтобы можно было выполнить обслуживание без ущерба для работы пользователей.
 
 ## <a name="prerequisites"></a>предварительным требованиям
-Чтобы сгруппировать соединители, необходимо убедиться, что вы [установили несколько соединителей](active-directory-application-proxy-enable.md). При установке нового соединителя он автоматически присоединяется к группе соединителей **по умолчанию** .
+Чтобы сгруппировать соединители, необходимо убедиться, что вы [установили несколько соединителей](manage-apps/application-proxy-enable.md). При установке нового соединителя он автоматически присоединяется к группе соединителей **по умолчанию** .
 
 ## <a name="create-connector-groups"></a>Создание групп соединителей
 Используя приведенные ниже инструкции, можно создать любое число групп соединителей. 
@@ -126,6 +126,6 @@ ms.lasthandoff: 02/01/2018
 ## <a name="next-steps"></a>Дополнительная информация
 
 * [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
-* [Включение единого входа](application-proxy-sso-overview.md)
+* [Включение единого входа](manage-apps/application-proxy-single-sign-on.md)
 
 

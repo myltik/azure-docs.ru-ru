@@ -1,6 +1,6 @@
 ---
-title: "Создание кластера Службы контейнеров Azure (AKS)"
-description: "Созадние кластера AKS с помощью интерфейса командной строки или портала Azure."
+title: Создание кластера службы Azure Kubernetes (AKS)
+description: Созадние кластера AKS с помощью интерфейса командной строки или портала Azure.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 46c2f718911f27ad8f51423589c6fdda100a68d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-an-azure-container-service-aks-cluster"></a>Создание кластера Службы контейнеров Azure (AKS)
+# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Создание кластера службы Azure Kubernetes (AKS)
 
-Кластер Службы контейнеров Azure (AKS) может быть создан с помощью портала Azure или Azure CLI.
+Кластер Службы Azure Kubernetes (AKS) можно создать с помощью портала Azure или Azure CLI.
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 
@@ -32,7 +32,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 | Аргумент | ОПИСАНИЕ | Обязательно |
 |---|---|:---:|
 | `--name` `-n` | Имя ресурса для управляемого кластера. | Да |
-| `--resource-group` `-g` | Имя группы ресурсов Службы контейнеров Azure. | Да |
+| `--resource-group` `-g` | Имя группы ресурсов Службы Azure Kubernetes. | Да |
 | `--admin-username` `-u` | Имя пользователя для службы "Виртуальные машины Linux".  По умолчанию: azureuser. | Нет |
 | ` --client-secret` | Секрет, связанный с субъектом-службой. | Нет |
 | `--dns-name-prefix` `-p` | Префикс DNS для общедоступного IP-адреса кластера. | Нет |
@@ -48,7 +48,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="azure-portal"></a>Портал Azure
 
-Инструкции по развертывание кластера AKS с помощью портала Azure см. в [кратком руководстве для портала Azure][aks-portal-quickstart] по Службе контейнеров Azure (AKS). 
+См. дополнительные сведения о [развертывании кластера Службе Azure Kubernetes (AKS) с помощью портала Azure].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create

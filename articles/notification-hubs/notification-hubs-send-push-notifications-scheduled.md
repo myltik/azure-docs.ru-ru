@@ -1,29 +1,29 @@
 ---
-title: "Как отправлять запланированные уведомления | Документация Майкрософт"
-description: "В этом разделе описывается использование запланированных уведомлений с помощью центров уведомлений Azure."
+title: Как отправлять запланированные уведомления | Документация Майкрософт
+description: В этом разделе описывается использование запланированных уведомлений с помощью центров уведомлений Azure.
 services: notification-hubs
 documentationcenter: .net
-keywords: "push-уведомления, push-уведомление, планирование push-уведомлений"
-author: ysxu
-manager: erikre
-editor: 
+keywords: push-уведомления, push-уведомление, планирование push-уведомлений
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 0f4055a11d22604c0936685a7a2be3d56b259a5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Практическое руководство. Отправка запланированных уведомлений
 ## <a name="overview"></a>Обзор
-Предположим, возникла необходимость отправить уведомление в какой-либо момент в будущем, но у вас нет простого способа пробудить внутренней код для отправки уведомления. Центры уведомлений уровня "Стандартный" поддерживает функцию, которая позволяет запланировать уведомления на будущее до 7 дней.
+Предположим, возникла необходимость отправить уведомление в какой-либо момент в будущем, но у вас нет простого способа пробудить внутренней код для отправки уведомления. Центры уведомлений уровня "Стандартный" поддерживают функцию, которая позволяет запланировать уведомления на будущее до 7 дней.
 
 При отправке уведомления просто используйте класс [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) из пакета SDK центров уведомлений, как показано в следующем примере.
 

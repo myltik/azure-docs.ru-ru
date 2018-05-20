@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Диагностика в устойчивых функциях (Функции Azure)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/03/2018
 
 [Application Insights](../application-insights/app-insights-overview.md) является рекомендуемым средством для выполнения диагностики и мониторинга в Функциях Azure. То же относится и к устойчивым функциям. Общие сведения об использовании Application Insights в приложении-функции см. в статье [Мониторинг Функций Azure](functions-monitoring.md).
 
-Расширение устойчивых функций в Функциях Azure также генерирует *события отслеживания*, которые позволяют выполнять трассировку выполнения оркестрации от начала до конца. Их можно найти и запросить с помощью средства [аналитики Application Insights](../application-insights/app-insights-analytics.md) на портале Azure.
+Расширение устойчивых функций в службе "Функции Azure" также генерирует *события отслеживания* для выполнения трассировки на протяжении всего процесса оркестрации. Их можно найти и запросить с помощью средства [аналитики Application Insights](../application-insights/app-insights-analytics.md) на портале Azure.
 
 ### <a name="tracking-data"></a>Данные отслеживания
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/03/2018
 
 По умолчанию передаются все события отслеживания. Объем данных можно уменьшить, задав для `Host.Triggers.DurableTask` значение `"Warning"` или `"Error"`. В этом случае события отслеживания будут передаваться в исключительных ситуациях.
 
-> [!WARNING]
+> [!NOTE]
 > По умолчанию телеметрия Application Insights осуществляется средой выполнения Функций Azure, чтобы избежать частой передачи данных. Это может привести к потере сведений об отслеживании, если много событий жизненного цикла происходят за короткий период времени. Сведения о настройке этого поведения см. в разделе [Настройка выборки](functions-monitoring.md#configure-sampling).
 
 ### <a name="single-instance-query"></a>Одноэкземплярный запрос
@@ -124,6 +124,8 @@ traces
 
 Очень важно помнить о поведении воспроизведения оркестратора при записи журналов непосредственно из функции оркестратора. Например, рассмотрим следующую функцию оркестратора:
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -137,6 +139,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для службы "Функции" версии 2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 Итоговые данные журнала должны выглядеть следующим образом:
@@ -182,6 +200,49 @@ Calling F3.
 Done!
 ```
 
+> [!NOTE]
+> Свойство `IsReplaying` еще не доступно в JavaScript.
+
+## <a name="custom-status"></a>Настраиваемое значение состояния
+
+Эта возможность позволяет задать настраиваемое значение состояния для функции оркестратора. Такое значение состояния можно задать с помощью API HTTP-запросов состояния или API `DurableOrchestrationClient.GetStatusAsync`. Настраиваемое состояние оркестрации предоставляет дополнительные возможности мониторинга для функций оркестратора. Например, в код функции оркестратора можно включить вызовы `DurableOrchestrationContext.SetCustomStatus`, чтобы обновлять ход выполнения длительной операции. Клиент, например веб-страница или другая внешняя система, может периодически отправлять запрос в API HTTP-запросов состояния, чтобы получить расширенные сведения о ходе выполнения. Пример использования `DurableOrchestrationContext.SetCustomStatus` приведен ниже.
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+Когда выполняется оркестрация, внешние клиенты могут получить данные о таком настраиваемом значении состояния:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+Они получат следующий ответ: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  Полезные данные настраиваемого значения состояния не должны превышать 16 КБ JSON-текста в кодировке UTF-16, так как они должны поместиться в столбец хранилища таблиц Azure. Для полезных данных большего размера можно использовать внешнее хранилище.
+
 ## <a name="debugging"></a>Отладка
 
 Функции Azure поддерживают сценарии отладки кода функции напрямую. Та же поддержка реализуется в устойчивых функциях, работающих в Azure или локально. Однако следует помнить о некоторых особенностях поведения при выполнении отладки.
@@ -193,7 +254,7 @@ Done!
 > [!TIP]
 > При установке точек останова, если вы хотите прервать только выполнение без воспроизведения, можно задать условную точку останова, которая прерывается, только когда `IsReplaying` имеет значение `false`.
 
-## <a name="storage"></a>Хранилище
+## <a name="storage"></a>Служба хранилища
 
 По умолчанию устойчивые функции хранят состояние в службе хранилища Azure. Это означает, что вы можете проверить состояние вашей оркестрации с помощью средств, таких как [обозреватель службы хранилища Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

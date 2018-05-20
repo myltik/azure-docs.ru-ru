@@ -1,25 +1,25 @@
 ---
-title: "Доступ к прокси приложения Azure AD App в Microsoft Teams | Документы Майкрософт"
-description: "Используйте прокси приложения Azure AD для доступа к локальным приложениям через Microsoft Teams."
+title: Доступ к прокси приложения Azure AD App в Microsoft Teams | Документы Майкрософт
+description: Используйте прокси приложения Azure AD для доступа к локальным приложениям через Microsoft Teams.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 974c364588d34631c8214352be7821c69e5f7aa7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Доступ к приложениям в локальной среде через Microsoft Teams
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Установка соединителя прокси приложения и публикация приложения
 
-Если вы еще не сделали это, [настройте прокси приложения для своего клиента и установите соединитель](active-directory-application-proxy-enable.md). Затем [опубликуйте свое локальное приложение](application-proxy-publish-azure-portal.md) для удаленного доступа. Во время публикации приложения запишите внешний URL-адрес — он потребуется при добавлении приложения в Teams.
+Если вы еще не сделали это, [настройте прокси приложения для своего клиента и установите соединитель](manage-apps/application-proxy-enable.md). Затем [опубликуйте свое локальное приложение](manage-apps/application-proxy-publish-azure-portal.md) для удаленного доступа. Во время публикации приложения запишите внешний URL-адрес — он потребуется при добавлении приложения в Teams.
 
 Если у вас уже имеются опубликованные приложения, однако вы не помните их внешние URL-адреса, обратитесь к [порталу Azure](https://portal.azure.com). Войдите на портал и выберите **Azure Active Directory** > **Корпоративные приложения** > **Все приложения** > выберите свое приложение > **Прокси приложения**.
 
@@ -54,5 +54,5 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-- Подробнее о [публикации локальных сайтов SharePoint](application-proxy-enable-remote-access-sharepoint.md) с помощью прокси приложения.
-- Настройка приложений для использования [личных доменов](active-directory-application-proxy-custom-domains.md) для их внешних URL-адресов. 
+- Подробнее о [публикации локальных сайтов SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md) с помощью прокси приложения.
+- Настройка приложений для использования [личных доменов](manage-apps/application-proxy-configure-custom-domain.md) для их внешних URL-адресов. 

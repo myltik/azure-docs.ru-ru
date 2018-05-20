@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: 80c88340e31ef6650dee13819dda316b4d9bcb4d
-  ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+  ms.openlocfilehash: 0a5f1d482b0298ddd65746783e3744728b1a5da5
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 05/08/2018
+  ms.lasthandoff: 05/16/2018
 abstract:
   description: Добро пожаловать в Microsoft Azure и "Интернет вещей" (IoT). Azure IoT предлагает самые разные службы и решения, которые помогут вам создавать приложения IoT с нуля. Azure IoT предоставляет самые разные параметры и средства, соответствующие вашим отраслевым потребностям, а также навыкам и ресурсам, включая полностью размещенное и управляемое решения SaaS (программное обеспечение как услуга), разные специализированные решения PaaS (платформа как услуги) и технологии для создания интеллектуальных пограничных устройств.
 sections:
@@ -100,4 +100,4 @@ sections:
     - title: Языки
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Пакеты SDK Azure IoT для .Net, C, Java, Node.js, Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">Центр Интернета вещей</a></p><p><a href="/rest/api/iot-dps">Служба подготовки устройств для Центра Интернета вещей</a></p><p><a href="/rest/api/location-based-services-management/">Управление службой "Карты"</a></p><p><a href="/rest/api/location-based-services/">Функции службы "Карты"</a></p><p><a href="/rest/api/time-series-insights-management/">Управление Аналитикой временных рядов</a></p><p><a href="/rest/api/time-series-insights/">Аналитика временных рядов</a></p>
+      html: <p><a href="/rest/api/iothub">Центр Интернета вещей</a></p><p><a href="/rest/api/iot-dps">Служба подготовки устройств для Центра Интернета вещей</a></p><p><a href="/rest/api/maps-management/">Управление службой "Карты"</a></p><p><a href="/rest/api/maps/">Функции службы "Карты"</a></p><p><a href="/rest/api/time-series-insights-management/">Управление Аналитикой временных рядов</a></p><p><a href="/rest/api/time-series-insights/">Аналитика временных рядов</a></p>

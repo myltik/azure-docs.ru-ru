@@ -2,26 +2,22 @@
 title: Шлюз удаленных рабочих столов (RDG) и сервер Многофакторной идентификации Azure по протоколу RADIUS | Документация Майкрософт
 description: Это страница Многофакторной идентификации Azure, которая будет полезна при развертывании шлюза удаленных рабочих столов (RD) и сервера Многофакторной идентификации Azure с помощью RADIUS.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 5bec531d1d14bf3aaac3950762fc8d2ed545fb4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ef090b51141e8d77f23472058f9c3a8d096ca171
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Шлюз удаленных рабочих столов и сервер Многофакторной идентификации, использующие проверку подлинности RADIUS
+
 Часто шлюз удаленных рабочих столов использует локальные службы политик сети (далее — служба NPS) для аутентификации пользователей. В этой статье объясняется, как перенаправлять RADIUS-запросы из шлюза удаленных рабочих столов (через локальную службу NPS) на сервер Многофакторной идентификации. Сочетание Azure MFA и шлюза удаленных рабочих столов означает, что пользователи могут подключаться к своим рабочим средам из любой точки мира, выполняя строгую аутентификацию. 
 
 Поскольку Server 2012 R2 не поддерживает аутентификацию Windows для служб терминалов, для интеграции с сервером многофакторной идентификации нужно использовать шлюз удаленных рабочих столов и RADIUS. 

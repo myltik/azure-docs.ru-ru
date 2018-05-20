@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB. Разработка с помощью API Graph на .NET
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
@@ -110,7 +110,7 @@ Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { I
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Сериализация вершин и ребер в объекты .NET
@@ -121,7 +121,7 @@ DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync
 Пространство имен `Microsoft.Azure.Graphs.Elements` предоставляет классы `Vertex`, `Edge`, `Property` и `VertexProperty` для десериализации ответов GraphSON в четко определенные объекты .NET.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Запуск Gremlin с помощью CreateGremlinQuery
-Язык Gremlin, как и SQL, поддерживает операции чтения, записи и запроса. Например, в фрагменте ниже показано, как создать вершины, ребра, выполнить некоторые примеры запросов, используя `CreateGremlinQuery<T>`, а также как выполнить асинхронную итерацию по этим результатам с помощью `ExecuteNextAsync` и HasMoreResults.
+Язык Gremlin, как и SQL, поддерживает операции чтения, записи и запроса. Например, в фрагменте ниже показано, как создать вершины, ребра, выполнить некоторые примеры запросов, используя `CreateGremlinQuery<T>`, а также как выполнить асинхронную итерацию по этим результатам с помощью `ExecuteNextAsync` и `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

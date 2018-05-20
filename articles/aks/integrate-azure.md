@@ -3,16 +3,16 @@ title: Интеграция со службами под управлением 
 description: Интеграция со службами под управлением Azure с помощью открытого компонента Service Broker для Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Интеграция со службами под управлением Azure с помощью открытого компонента Service Broker для Azure (OSBA)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/16/2018
 
 * Разрешения для создания субъекта-службы с ролью "Участник" для подписки Azure.
 
-* Имеющийся кластер Службы контейнеров Azure (AKS). Если вам нужен кластер службы контейнеров Azure, выполните действия из краткого руководства по [созданию кластера AKS][create-aks-cluster].
+* Имеющийся кластер службы Azure Kubernetes (AKS). Если вам нужен кластер службы контейнеров Azure, выполните действия из краткого руководства по [созданию кластера AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Установка каталога услуг
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Следуя указаниям в этой статье, вы развернули каталог услуг в кластер Службы контейнеров Azure (AKS). Вы использовали открытый компонент Service Broker для Azure, чтобы развернуть установку WordPress, которая использует службы под управлением Azure (в данном случае — базу данных Azure для MySQL).
+Следуя указаниям в этой статье, вы развернули каталог услуг в кластере службы Azure Kubernetes (AKS). Вы использовали открытый компонент Service Broker для Azure, чтобы развернуть установку WordPress, которая использует службы под управлением Azure (в данном случае — базу данных Azure для MySQL).
 
 Ознакомьтесь с репозиторием [Azure/helm-charts][helm-charts], чтобы получить доступ к другим обновленным чартам Helm на основе OSBA. Если вы заинтересованы в создании собственных чартов, которые работают с OSBA, ознакомьтесь с [этим разделом][helm-create-new-chart].
 

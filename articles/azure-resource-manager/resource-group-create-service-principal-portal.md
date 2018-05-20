@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 04/16/2018
 
    ![Действие "Добавить приложение"](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Укажите имя и URL-адрес для приложения. В качестве типа создаваемого приложения выберите **Веб-приложение или API**. Вы не можете создавать учетные данные для [собственных приложений](../active-directory/active-directory-application-proxy-native-client.md), поэтому этот тип не подходит для автоматизированного приложения. Выбрав нужные значения, нажмите кнопку **Создать**.
+1. Укажите имя и URL-адрес для приложения. В качестве типа создаваемого приложения выберите **Веб-приложение или API**. Вы не можете создавать учетные данные для [собственных приложений](../active-directory/manage-apps/application-proxy-configure-native-client-application.md), поэтому этот тип не подходит для автоматизированного приложения. Выбрав нужные значения, нажмите кнопку **Создать**.
 
    ![указание имени приложения](./media/resource-group-create-service-principal-portal/create-app.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Пример политики службы управления API Azure. Отправка ошибок в Stackify для записи в журнал | Документация Майкрософт"
-description: "Пример политики службы управления API Azure. Добавление политики регистрации ошибок для отправки ошибок в Stackify и их записи в журнал."
+title: Пример политики службы управления API Azure. Отправка ошибок в Stackify для записи в журнал | Документация Майкрософт
+description: Пример политики службы управления API Azure. Добавление политики регистрации ошибок для отправки ошибок в Stackify и их записи в журнал.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 34319e43789d0f2c7d3e48a0277926eb598e88fc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e47a3736e814229e881a314c7cb05054369db1f0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Отправка ошибок Stackify для записи в журнал
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/04/2017
 
 Вставьте код в блок **on-error**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Log errors to Stackify.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/Snippets/Log errors to Stackify.policy.policy.xml)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 

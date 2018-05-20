@@ -1,12 +1,12 @@
 ---
-title: "Центры задач в устойчивых функциях — Azure"
-description: "Сведения о том, что такое центр задач в расширении устойчивых функций для Функций Azure. Сведения о настройке центров задач."
+title: Центры задач в устойчивых функциях — Azure
+description: Сведения о том, что такое центр задач в расширении устойчивых функций для Функций Azure. Сведения о настройке центров задач.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 563667684accf8b434052cd412bf6e93c77ea63a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Центры задач в устойчивых функциях (Функции Azure)
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 10/18/2017
 * Одна или несколько очередей элементов управления.
 * Одна очередь рабочих элементов.
 * Одна таблица журнала.
+* одна таблица экземпляров.
 * Один контейнер хранилища, содержащий один или несколько арендуемых больших двоичных объектов.
 
 Все эти ресурсы создаются автоматически в учетной записи хранилища Azure по умолчанию, когда функции оркестраторов и действий выполняются или запланированы к выполнению. В статье [Производительность и масштабирование в устойчивых функциях (Функции Azure)](durable-functions-perf-and-scale.md) объясняется, как используются эти ресурсы.

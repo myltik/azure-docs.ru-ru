@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/10/2018
+---
 ## <a name="view-device-telemetry"></a>Просмотр телеметрии устройства
 
 Вы можете просмотреть данные телеметрии, отправленные с вашего устройства, на странице **Устройства** в решении.
@@ -24,7 +40,7 @@
 
     ![Выбор физического устройства](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Чтобы отобразить список методов, которые можно вызвать на устройстве, выберите **Schedule** (Расписание). Чтобы запланировать выполнение метода на нескольких устройствах, можно выбрать несколько устройств в списке. На панели **Schedule** (Расписание) отображаются типы метода, который является общим для всех выбранных устройств.
+1. Чтобы отобразить список методов, которые можно вызвать на устройстве, выберите **Jobs** (Задания) > **Run method** (Метод выполнения). Чтобы запланировать выполнение задания на нескольких устройствах, можно выбрать несколько устройств в списке. На панели **Jobs** (Задания) отображаются типы метода, который является общим для всех выбранных устройств.
 
 1. Выберите **FirmwareUpdate** и присвойте заданию имя **UpdatePhysicalChiller**. Для параметра **Версия встроенного ПО** укажите **2.0.0**, для **URI встроенного ПО** — **http://contoso.com/updates/firmware.bin** и нажмите кнопку **Применить**:
 
@@ -41,4 +57,4 @@
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Способы настройки предварительно настроенного решения описаны в статье [Customize the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) (Настройка предварительно настроенного решения для удаленного мониторинга).
+Способы настройки ускорителя решения описаны в статье [Customize the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) (Настройка ускорителя решения для удаленного мониторинга).

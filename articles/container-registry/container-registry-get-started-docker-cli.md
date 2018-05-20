@@ -3,17 +3,17 @@ title: Отправка образа Docker в частный реестр Azure
 description: Отправка образов Docker в частный реестр контейнеров в Azure и их получение с помощью интерфейса командной строки Docker
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Отправка первого образа в частный реестр контейнеров Docker с помощью интерфейса командной строки Docker
 
@@ -125,6 +125,6 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 Теперь, когда вы знаете основы, можно приступать к использованию реестра. Разверните образы контейнера из реестра в следующие службы:
 
-* [Служба контейнеров Azure](../aks/tutorial-kubernetes-prepare-app.md)
+* [Служба Azure Kubernetes (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Экземпляры контейнеров Azure](../container-instances/container-instances-tutorial-prepare-app.md);
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

@@ -104,6 +104,16 @@
       items:
         - name: Обзор
           href: sql-database-security-overview.md
+        - name: Advanced Threat Protection
+          href: sql-advanced-threat-protection.md
+        - name: Обнаружение и классификация данных
+          href: sql-database-data-discovery-and-classification.md
+        - name: Оценка уязвимостей
+          href: sql-vulnerability-assessment.md
+        - name: Обнаружение угроз для Базы данных SQL
+          href: sql-database-threat-detection.md
+        - name: Обнаружение угроз для управляемого экземпляра
+          href: sql-database-managed-instance-threat-detection.md
         - name: Правила файрволла
           href: sql-database-firewall-configure.md
         - name: Правила брандмауэра для виртуальной сети
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Аудит управляемого экземпляра
           href: sql-database-managed-instance-auditing.md
-        - name: Обнаружение угроз для Базы данных SQL
-          href: sql-database-threat-detection.md
-        - name: Обнаружение угроз для управляемого экземпляра
-          href: sql-database-managed-instance-threat-detection.md
         - name: Аудит таблиц и TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Динамическое маскирование данных
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Оценка уязвимостей
-          href: sql-vulnerability-assessment.md
-        - name: Обнаружение и классификация данных
-          href: sql-database-data-discovery-and-classification.md
     - name: Непрерывность бизнес-процессов
       items:
         - name: Обзор

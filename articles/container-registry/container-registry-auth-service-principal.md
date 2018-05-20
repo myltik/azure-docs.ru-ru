@@ -1,18 +1,18 @@
 ---
-title: "Аутентификация в реестре контейнеров Azure с помощью субъектов-служб"
-description: "Узнайте, как с помощью субъекта-службы Azure Active Directory предоставить доступ к образам, размещенным в закрытом реестре контейнеров."
+title: Аутентификация в реестре контейнеров Azure с помощью субъектов-служб
+description: Узнайте, как с помощью субъекта-службы Azure Active Directory предоставить доступ к образам, размещенным в закрытом реестре контейнеров.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 97036ecabceb12b87b76c6ecb7e521157cbef827
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 16af83522dd55744c485f6dd3696481e16da1b22
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Аутентификация в реестре контейнеров Azure с помощью субъектов-служб
 
@@ -38,16 +38,25 @@ ms.lasthandoff: 01/25/2018
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## <a name="sample-scripts"></a>Примеры сценариев
+
+На GitHub можно найти предыдущие примеры сценариев для Azure CLI, а также версии для Azure PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>Дополнительная информация
 
 Создав субъект-службу и предоставив ему доступ в реестр контейнеров, вы сможете применять его учетные данные в приложениях и службах для взаимодействия с реестром.
 
 Настройка использования учетных данных субъекта-службы в отдельных приложениях выходит за рамки данной статьи, но мы готовы предложить вам инструкции для некоторых конкретных служб и платформ.
 
-* [Аутентификация с помощью реестра контейнеров Azure из Службы контейнеров Azure](container-registry-auth-aks.md)
+* [Аутентификация с помощью Реестра контейнеров Azure из службы Azure Kubernetes](container-registry-auth-aks.md)
 * [Authenticate with Azure Container Registry from Azure Container Instances](container-registry-auth-aci.md) (Аутентификация с помощью реестра контейнеров Azure из службы "Экземпляры контейнеров Azure")
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login

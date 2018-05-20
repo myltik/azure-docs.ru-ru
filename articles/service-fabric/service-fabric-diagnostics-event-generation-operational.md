@@ -1,32 +1,216 @@
 ---
-title: "Операционный канал Azure Service Fabric | Документы Майкрософт"
-description: "Полный список журналов, созданных в операционном канале кластеров Azure Service Fabric."
+title: Список событий Azure Service Fabric | Документация Майкрософт
+description: Полный список событий, предоставляемых Azure Service Fabric для мониторинга кластеров.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 712679b8fae9059df602881f28a1b74f7244fca3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d397dcb1ecdc25dbd66ab3d6f2f010bc29f87c6c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="operational-channel"></a>Операционный канал 
+# <a name="list-of-service-fabric-events"></a>Список событий Service Fabric 
 
-Операционный канал состоит из журналов действий высокого уровня, выполняемых Service Fabric на узлах и в кластере. При включении "Диагностики" для кластера агент системы диагностики Azure развертывается в кластере и по умолчанию настраивается для чтения журналов из операционного канала. Дополнительные сведения о настройке агента для изменения конфигурации диагностики кластера с целью выбора дополнительных журналов или счетчиков производительности см. в разделе [Агент системы диагностики Azure](service-fabric-diagnostics-event-aggregation-wad.md). 
+Service Fabric предоставляет основной набор событий кластера, чтобы сообщать о состоянии кластеров в виде [событий Service Fabric](service-fabric-diagnostics-events.md). Они основаны на действиях, выполненных Service Fabric на узлах и в кластерах, или решениях по управлению, принятых владельцем или оператором кластера. Эти события можно получить с помощью запроса к [EventStore](service-fabric-diagnostics-eventstore.md) в кластере или с помощью операционного канала. На компьютерах Windows операционный канал также подключен к журналу событий, поэтому события Service Fabric можно просматривать в средстве "Просмотр событий". 
 
-## <a name="operational-channel-logs"></a>Журналы операционного канала 
+>[!NOTE]
+>Список событий Service Fabric для кластеров в версиях, предшествующих версии 6.2, приведен в следующем разделе. 
 
-Ниже приведен полный список журналов, созданных Service Fabric в операционном канале. 
+Ниже приведен список всех событий, доступных на платформе, отсортированный по сущности, к которой они относятся.
+
+## <a name="cluster-events"></a>События кластера
+
+**События обновления кластера**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 29627 | ClusterUpgradeStartOperational | CM | Информация | 1 |
+| 29628 | ClusterUpgradeCompleteOperational | CM | Информация | 1 |
+| 29629 | ClusterUpgradeRollbackStartOperational | CM | Информация | 1 |
+| 29630 | ClusterUpgradeRollbackCompleteOperational | CM | Информация | 1 |
+| 29631 | ClusterUpgradeDomainCompleteOperational | CM | Информация | 1 |
+
+**События отчета о работоспособности кластера**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 54428 | ProcessClusterReportOperational | HM | Информация | 1 |
+| 54437 | ExpiredClusterEventOperational | HM | Информация | 1 |
+
+**События службы тестирования в условиях хаоса**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 50021 | ChaosStartedEvent | Тестирование | Информация | 1 |
+| 50023 | ChaosStoppedEvent | Тестирование | Информация | 1 |
+
+## <a name="node-events"></a>События узла
+
+**События жизненного цикла узла** 
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 18602 | DeactivateNodeCompletedOperational | FM | Информация | 1 |
+| 18603 | NodeUpOperational | FM | Информация | 1 |
+| 18604 | NodeDownOperational | FM | Информация | 1 |
+| 18605 | NodeAddedOperational | FM | Информация | 1 |
+| 18606 | NodeRemovedOperational | FM | Информация | 1 |
+| 18607 | DeactivateNodeStartOperational | FM | Информация | 1 |
+| 25620 | NodeOpening | FabricNode | Информация | 1 |
+| 25621 | NodeOpenedSuccess | FabricNode | Информация | 1 |
+| 25622 | NodeOpenedFailed | FabricNode | Информация | 1 |
+| 25623 | NodeClosing | FabricNode | Информация | 1 |
+| 25624 | NodeClosed | FabricNode | Информация | 1 |
+| 25625 | NodeAborting | FabricNode | Информация | 1 |
+| 25626 | NodeAborted | FabricNode | Информация | 1 |
+
+**События отчета о работоспособности узла**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 54423 | ProcessNodeReportOperational | HM | Информация | 1 |
+| 54432 | ExpiredNodeEventOperational | HM | Информация | 1 |
+
+**События узла в условиях хаоса**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 50033 | ChaosRestartNodeFaultScheduledEvent | Тестирование | Информация | 1 |
+| 50087 | ChaosRestartNodeFaultCompletedEvent | Тестирование | Информация | 1 |
+
+## <a name="application-events"></a>События приложения
+
+**События жизненного цикла приложения**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 29620 | ApplicationCreatedOperational | CM | Информация | 1 |
+| 29625 | ApplicationDeletedOperational | CM | Информация | 1 |
+| 23083 | ProcessExitedOperational | Hosting | Информация | 1 |
+
+**События обновления приложения**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 29621 | ApplicationUpgradeStartOperational | CM | Информация | 1 |
+| 29622 | ApplicationUpgradeCompleteOperational | CM | Информация | 1 |
+| 29623 | ApplicationUpgradeRollbackStartOperational | CM | Информация | 1 |
+| 29624 | ApplicationUpgradeRollbackCompleteOperational | CM | Информация | 1 |
+| 29626 | ApplicationUpgradeDomainCompleteOperational | CM | Информация | 1 |
+
+**События отчета о работоспособности приложения**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 54425 | ProcessApplicationReportOperational | HM | Информация | 1 |
+| 54426 | ProcessDeployedApplicationReportOperational | HM | Информация | 1 |
+| 54427 | ProcessDeployedServicePackageReportOperational | HM | Информация | 1 |
+| 54434 | ExpiredApplicationEventOperational | HM | Информация | 1 |
+| 54435 | ExpiredDeployedApplicationEventOperational | HM | Информация | 1 |
+| 54436 | ExpiredDeployedServicePackageEventOperational | HM | Информация | 1 |
+
+**События приложения в условиях хаоса**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 50053 | ChaosRestartCodePackageFaultScheduledEvent | Тестирование | Информация | 1 |
+| 50101 | ChaosRestartCodePackageFaultCompletedEvent | Тестирование | Информация | 1 |
+
+## <a name="service-events"></a>События службы
+
+**События жизненного цикла службы**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 18602 | ServiceCreatedOperational | FM | Информация | 1 |
+| 18658 | ServiceDeletedOperational | FM | Информация | 1 |
+
+**События отчета о работоспособности службы**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 54424 | ProcessServiceReportOperational | HM | Информация | 1 |
+| 54433 | ExpiredServiceEventOperational | HM | Информация | 1 |
+
+## <a name="partition-events"></a>События секции
+
+**События перемещения секции**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 18940 | ReconfigurationCompleted | RA | Информация | 1 |
+
+**События отчета о работоспособности секции**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 54422 | ProcessPartitionReportOperational | HM | Информация | 1 |
+| 54431 | ExpiredPartitionEventOperational | HM | Информация | 1 |
+
+**События секции в условиях хаоса**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 50069 | ChaosMovePrimaryFaultScheduledEvent | Тестирование | Информация | 1 |
+| 50077 | ChaosMoveSecondaryFaultScheduledEvent | Тестирование | Информация | 1 |
+
+**События анализа секции**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 65003 | PrimaryMoveAnalysisEvent | Тестирование | Информация | 1 |
+
+## <a name="replica-events"></a>События реплики
+
+**События отчета о работоспособности реплики**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 54429 | ProcessStatefulReplicaReportOperational | HM | Информация | 1 |
+| 54430 | ProcessStatelessInstanceReportOperational | HM | Информация | 1 |
+| 54438 | ExpiredStatefulReplicaEventOperational | HM | Информация | 1 |
+| 54439 | ExpiredStatelessInstanceEventOperational | HM | Информация | 1 |
+
+**События реплики в условиях хаоса**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 50047 | ChaosRestartReplicaFaultScheduledEvent | Тестирование | Информация | 1 |
+| 50051 | ChaosRemoveReplicaFaultScheduledEvent | Тестирование | Информация | 1 |
+| 50093 | ChaosRemoveReplicaFaultCompletedEvent | Тестирование | Информация | 1 |
+
+## <a name="container-events"></a>События контейнера
+
+**События жизненного цикла контейнера** 
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 23074 | ContainerActivatedOperational | Hosting | Информация | 1 |
+| 23075 | ContainerDeactivatedOperational | Hosting | Информация | 1 |
+| 23082 | ContainerExitedOperational | Hosting | Информация | 1 |
+
+## <a name="other-events"></a>Другие события
+
+**События корреляции**
+
+| EventId | ИМЯ | Источник (задача) | Уровень | Version (версия) |
+| --- | --- | --- | --- | --- |
+| 65011 | CorrelationOperational | Тестирование | Информация | 1 |
+
+## <a name="events-prior-to-version-62"></a>События версии ниже 6.2
+
+Ниже приведен полный список событий, предоставляемых Service Fabric до версии 6.2.
 
 | EventId | ИМЯ | Источник (задача) | Уровень |
 | --- | --- | --- | --- |

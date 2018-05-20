@@ -1,0 +1,109 @@
+- name: Принципы работы Azure IoT
+  href: /azure/iot-fundamentals
+- name: Документация по Azure IoT Central
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что собой представляет Azure IoT Central
+      href: overview-iot-central.md
+    - name: Параметры решения для Интернета вещей
+      href: overview-iot-options.md
+    - name: Обзор пользовательского интерфейса
+      href: overview-iot-central-tour.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание приложения
+      href: quick-deploy-iot-central.md
+- name: Учебники
+  items:
+    - name: Конструктор
+      items:
+        - name: 1. Определение нового типа устройства.
+          href: tutorial-define-device-type.md
+        - name: 2. Настройка правил.
+          href: tutorial-configure-rules.md
+        - name: 3. Настройка представления оператора.
+          href: tutorial-customize-operator.md
+    - name: Оператор
+      items:
+        - name: 4. Мониторинг устройств.
+          href: tutorial-monitor-devices.md
+        - name: 5. Добавление устройства.
+          href: tutorial-add-device.md
+- name: Основные понятия
+  items:
+    - name: Архитектура
+      href: concepts-architecture.md
+    - name: Соединение
+      href: concepts-connectivity.md
+- name: Практические руководства
+  items:
+    - name: Администратор
+      items:
+        - name: Создание приложения
+          href: howto-create-application.md
+        - name: Администрирование приложения
+          href: howto-administer.md
+    - name: Конструктор
+      items:
+        - name: Настройка шаблона устройства
+          href: howto-set-up-template.md
+        - name: Создание версии шаблона устройства
+          href: howto-version-devicetemplate.md
+        - name: Создание правила телеметрии
+          href: howto-create-telemetry-rules.md
+        - name: Создание правила события
+          href: howto-create-event-rules.md
+        - name: Подготовка и передача изображений
+          href: howto-prepare-images.md
+    - name: Оператор
+      items:
+        - name: управление устройствами.
+          href: howto-manage-devices.md
+        - name: Использование наборов устройств
+          href: howto-use-device-sets.md
+        - name: Создание настраиваемой функции аналитики
+          href: howto-create-analytics.md
+    - name: Разработчик устройств
+      items:
+        - name: Подготовка и подключение приложения Node.js (универсальное приложение)
+          href: howto-connect-nodejs.md
+        - name: Подготовка и подключение MXChip IoT DevKit
+          href: howto-connect-devkit.md
+        - name: Подготовка и подключение Raspberry Pi (Python)
+          href: howto-connect-raspberry-pi-python.md
+        - name: 'Подготовка и подключение Raspberry Pi (C#)'
+          href: howto-connect-raspberry-pi-csharp.md
+        - name: Подготовка и подключение устройства с Windows IoT Базовая
+          href: howto-connect-windowsiotcore.md
+- name: Сопутствующие материалы
+  items:
+    - name: Решения
+      items:
+        - name: Предварительно настроенные решения Azure IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /microsoft-iot-central
+    - name: Службы платформы
+      items:
+        - name: Центр Интернета вещей
+          href: /azure/iot-hub
+        - name: Служба подготовки устройств к добавлению в Центр Интернета вещей
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Пакеты SDK службы
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Аналитика временных рядов Azure
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Пакеты SDK для устройств IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Ресурсы
+  items:
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-central'

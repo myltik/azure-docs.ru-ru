@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Обеспечение доступности масштабируемых наборов виртуальных машин в Azure Stack
 
@@ -38,14 +36,15 @@ Azure Stack не поддерживает автоматическое масш�
    Установите и настройте PowerShell для Azure Stack и средства Azure Stack. См. статью [Начало работы с PowerShell в Azure Stack](azure-stack-powershell-configure-quickstart.md).
 
    После установки средств Azure Stack не забудьте импортировать следующий модуль PowerShell (путь относительно папки .\ComputeAdmin в папке AzureStack-Tools-master):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Образ операционной системы**
 
    Если образ операционной системы еще не добавлен в Azure Stack Marketplace, см. статью [Добавление образа виртуальной машины Windows Server 2016 в Azure Stack Marketplace](azure-stack-add-default-image.md).
 
-   Для поддержки Linux скачайте Ubuntu Server 16.04 и добавьте его с помощью ```Add-AzsVMImage``` со следующими параметрами: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Для поддержки Linux скачайте Ubuntu Server 16.04 и добавьте его с помощью ```Add-AzsPlatformImage``` со следующими параметрами: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Добавление масштабируемого набора виртуальных машин
@@ -54,7 +53,7 @@ Azure Stack не поддерживает автоматическое масш�
 
 ``$User`` — учетная запись, используемая для подключения портала администрирования. Например, serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Обновление образов в масштабируемом наборе виртуальных машин 
 После создания масштабируемого набора виртуальных машин пользователи смогут обновлять образы в этом наборе, не создавая набор масштабирования заново. Процесс обновления образа будет разным в следующих сценариях.
@@ -83,12 +82,14 @@ Add-AzsVMSSGalleryItem -Location $Location
 
    В следующим примере показан выбор параметра *latest*.  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Чтобы новый образ применялся при увеличении масштаба, его необходимо скачать.  
 
@@ -110,12 +111,12 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 Чтобы удалить из коллекции элемент масштабируемого набора виртуальных машин, выполните следующую команду PowerShell:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > Возможно, элемент коллекции не будет удален сразу же. Возможно, вам потребуется обновить портал несколько раз, прежде чем элемент будет отображаться как удаленный из Marketplace.
 
-
 ## <a name="next-steps"></a>Дополнительная информация
 [Часто задаваемые вопросы об Azure Stack](azure-stack-faq.md)
-

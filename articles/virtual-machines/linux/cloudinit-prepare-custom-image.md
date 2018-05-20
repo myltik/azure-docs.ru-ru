@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Подготовка существующего образа виртуальной машины Azure Linux к использованию с cloud-init
 В этой статье показано, как выбрать и подготовить существующую виртуальную машину Azure к повторному развертыванию и применению cloud-init. Из полученного образа можно развернуть новую виртуальную машину или масштабируемый набор виртуальных машин. И то, и другое вы сможете дополнительно настроить во время развертывания с помощью cloud-init.  Эти скрипты cloud-init выполняются при первой загрузке, если в Azure подготовлены все нужные ресурсы. Дополнительные сведения о встроенной поддержке cloud-init в Azure и поддерживаемых дистрибутивах Linux см. в [обзоре cloud-init](using-cloud-init.md).
@@ -136,7 +136,7 @@ sudo waagent -deprovision+user -force
 sudo waagent -deprovision+user -force
 ```
 
-Дополнительные сведения о командах удаления агента Linux для Azure см. в статье [Агент Linux для Azure](agent-user-guide.md).
+Дополнительные сведения о командах удаления агента Linux для Azure см. в статье [Агент Linux для Azure](../extensions/agent-linux.md).
 
 Завершите сеанс SSH, а затем выполните в оболочке bash следующие команды AzureCLI, которые освободят, обобщат и создадут новый образ виртуальной машины Azure.  Вместо `myResourceGroup` и `sourceVmName` укажите реальную информацию об исходной виртуальной машине.
 

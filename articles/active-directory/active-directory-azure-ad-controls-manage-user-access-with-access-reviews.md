@@ -1,11 +1,11 @@
 ---
-title: "Управление пользовательским доступом с помощью проверок доступа Azure AD | Документация Майкрософт"
-description: "Сведения об управлении доступом пользователей для членства в группе или работы с приложением при помощи проверки доступа Azure Active Directory"
+title: Управление пользовательским доступом с помощью проверок доступа Azure AD | Документация Майкрософт
+description: Сведения об управлении доступом пользователей для членства в группе или работы с приложением при помощи проверки доступа Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 6a4d25b2eb228cafab48419a0d0eda92bba9f1ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b11f0b2032a102501de1da8315e80df88bfd57d5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Управление пользовательским доступом с помощью проверок доступа Azure AD
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="prerequisites"></a>предварительным требованиям 
 
-Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md). Для каждого пользователя, применяющего эту возможность для создания и выполнения проверки доступа или запроса на проверку, требуется лицензия.
+Проверка доступа поддерживается в выпуске Azure AD Premium P2, включенном в Microsoft Enterprise Mobility + Security E5. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-whatis.md). Для каждого пользователя, применяющего эту возможность для создания и выполнения проверки доступа или запроса на проверку, требуется лицензия.
 
 
 ## <a name="create-and-perform-an-access-review"></a>Создание и выполнение проверки доступа

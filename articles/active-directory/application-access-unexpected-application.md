@@ -1,11 +1,11 @@
 ---
-title: "Неожиданные приложения в списке приложений | Документация Майкрософт"
-description: "Сведения о том, как можно увидеть все приложения, представленные в клиенте, и как приложения попадают в список \"Все приложения\" в разделе корпоративных приложений"
+title: Неожиданные приложения в списке приложений | Документация Майкрософт
+description: Сведения о том, как можно увидеть все приложения, представленные в клиенте, и как приложения попадают в список "Все приложения" в разделе корпоративных приложений
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: ef04e557aca69e5a15bb38d816ca9f9b9ffaf502
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 75fb5fcb98605a080efa2c9232d186c9a81acf2b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Неожиданные приложения в списке приложений
 
@@ -122,4 +122,4 @@ ms.lasthandoff: 02/21/2018
 6.  Отключите все будущие операции пользователей по предоставлению согласия, установив переключатель **Пользователи могут разрешать приложениям доступ к своим данным** в положение **Нет** и нажав кнопку **Сохранить**.
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Управление приложениями с помощью Azure Active Directory](manage-apps/what-is-application-management.md)

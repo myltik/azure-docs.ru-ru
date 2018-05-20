@@ -3,7 +3,7 @@ title: Использование mongoimport и mongorestore с API Azure Cosmo
 description: Узнайте, как использовать mongoimport и mongorestore для импорта данных в учетную запись API для MongoDB.
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: импорт данных MongoDB 
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 * Скачайте файл *mongoimport.exe* или *mongorestore.exe* из [центра скачивания MongoDB](https://www.mongodb.com/download-center).
 * Получите [строку подключения API для MongoDB](connect-mongodb-account.md).
 
-Если вы импортируете данные из MongoDB и планируете использовать их с Azure Cosmos DB, то используйте [средство переноса данных](import-data.md) для их импорта.
+Если вы импортируете данные из MongoDB и планируете использовать их с API SQL для Azure Cosmos DB, это можно сделать с помощью [средства переноса данных](import-data.md).
 
 В рамках этого руководства рассматриваются следующие задачи:
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Увеличьте пропускную способность. Продолжительность переноса данных зависит от пропускной способности, настроенной для коллекций. Увеличьте пропускную способность для крупных миграций. После переноса уменьшите пропускную способность для экономии расходов. Дополнительные сведения об увеличении пропускной способности на [портале Azure](https://portal.azure.com) см. в статье [Прекращение использования уровней производительности S1, S2 и S3 в DocumentDB](performance-levels.md).
+* Увеличьте пропускную способность. Продолжительность переноса данных зависит от пропускной способности, настроенной для отдельной коллекции или набора коллекций. Увеличьте пропускную способность для крупных миграций. После переноса уменьшите пропускную способность для экономии расходов. Дополнительные сведения об увеличении пропускной способности на [портале Azure](https://portal.azure.com) см. в статье [Прекращение использования уровней производительности S1, S2 и S3 в DocumentDB](performance-levels.md).
 
 * Включите SSL. В Azure Cosmos DB строгие требования к безопасности и стандарты. Обязательно включите SSL при взаимодействии с учетной записью. Процедуры, описанные в оставшейся части статьи, включают инструкции по включению SSL для mongoimport и mongorestore.
 
@@ -47,10 +47,11 @@ ms.lasthandoff: 04/06/2018
 
 1. В левой панели на [портале Azure](https://portal.azure.com) щелкните запись **Azure Cosmos DB**.
 2. На панели **Подписки** выберите имя своей учетной записи.
-3. В колонке **Строка подключения** щелкните **Строка подключения**.  
-На правой панели содержатся все сведения, необходимые для успешного подключения к учетной записи.
+3. В колонке **Строка подключения** щелкните **Строка подключения**.
 
-    ![Колонка "Строка подключения"](./media/mongodb-migrate/ConnectionStringBlade.png)
+   На правой панели содержатся все сведения, необходимые для успешного подключения к учетной записи.
+
+   ![Колонка "Строка подключения"](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Импорт данных в API для MongoDB с помощью mongoimport
 
@@ -84,6 +85,24 @@ ms.lasthandoff: 04/06/2018
 
     * На [портале Azure](https://portal.azure.com) увеличьте показатели пропускной способности своих коллекций (с 1000 ЕЗ/с для односекционной коллекции и 2500 ЕЗ/с для сегментированной коллекции) только на время выполнения переноса. Более высокая пропускная способность позволяет избежать регулирования и выполнить перенос быстрее. Почасовая модель выставления счетов, применяемая в Azure Cosmos DB, позволяет снизить пропускную способность сразу после переноса для сокращения затрат.
 
+    * Помимо показателей ЕЗ/с на уровне коллекции вы также можете настроить ЕЗ/с для набора коллекций на уровне родительской базы данных. Но перед этим вам потребуется создать базу данных и коллекции, а также определить ключ сегмента для каждой коллекции.
+
+    * Вы можете создать сегментированную коллекцию с помощью привычного средства, драйвера или пакета SDK. В этом примере для создания сегментированной коллекции используется оболочка Mongo:
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Результат:
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
+
 2. Вычислите приблизительную стоимость ЕЗ при записи одного документа:
 
     a. Подключитесь к базе данных MongoDB в Azure Cosmos DB из оболочки MongoDB. Инструкции доступны в статье [Подключение приложения MongoDB к Azure Cosmos DB](connect-mongodb-account.md).
@@ -92,7 +111,7 @@ ms.lasthandoff: 04/06/2018
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Выполните команду ```db.runCommand({getLastRequestStatistics: 1})```, в результате чего будет получен ответ, аналогичный этому:
+    c. Выполните команду ```db.runCommand({getLastRequestStatistics: 1})```. Вы получите примерно такой ответ:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -111,7 +130,7 @@ ms.lasthandoff: 04/06/2018
     
     a. Включите ведение подробного журнала из оболочки MongoDB с помощью команды ```setVerboseShell(true)```.
     
-    Б. Выполните простой запрос к базе данных: ```db.coll.find().limit(1)```. В результате будет получен ответ, аналогичный этому:
+    Б. Выполните простой запрос к базе данных: ```db.coll.find().limit(1)```. Вы получите примерно такой ответ:
 
         ```
         Fetched 1 record(s) in 100(ms)

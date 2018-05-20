@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fe4666f053c7f3bd582ae51dd1694a425bea35dd
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Управление ресурсами Azure через портал
 
 В этой статье показано, как использовать [портал Azure](https://portal.azure.com) и [Azure Resource Manager](resource-group-overview.md) для управления ресурсами Azure. Сведения о развертывании ресурсов через портал см. в статье [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="manage-resource-groups"></a>Управление группами ресурсов
 

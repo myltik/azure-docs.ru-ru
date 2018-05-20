@@ -1,25 +1,27 @@
 ---
-title: "Общие сведения о неявном потоке предоставления OAuth2 в Azure AD | Документация Майкрософт"
-description: "Узнайте о процессе неявного потока предоставления OAuth2 в Azure Active Directory и его совместимости с вашим приложением."
+title: Общие сведения о неявном потоке предоставления OAuth2 в Azure AD | Документация Майкрософт
+description: Узнайте о процессе неявного потока предоставления OAuth2 в Azure Active Directory и его совместимости с вашим приложением.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 263a093d5cf4b48ed1dadd4a288e548065ddf282
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Общие сведения о неявном потоке предоставления OAuth2 в Azure Active Directory (AD)
 В спецификации OAuth2 неявное предоставление OAuth2 известно по наибольшему количеству проблем, связанных с безопасностью. Но именно этот подход, реализуемый с использованием библиотеки аутентификации Active Directory для JavaScript, рекомендуется использовать при написании одностраничных приложений. Что это дает? Все зависит от преимуществ: неявное предоставление лучше всего подходит для приложений, которые используют веб-API через JavaScript в браузере.

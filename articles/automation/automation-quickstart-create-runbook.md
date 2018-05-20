@@ -1,18 +1,19 @@
 ---
-title: "Краткое руководство по Azure. Создание runbook службы автоматизации Azure | Документация Майкрософт"
-description: "Узнайте, как создать runbook службы автоматизации Azure"
+title: Краткое руководство по Azure. Создание runbook службы автоматизации Azure | Документация Майкрософт
+description: Узнайте, как создать runbook службы автоматизации Azure
 services: automation
 author: csand-msft
 ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
+ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4aafff81957943fc19f0f6d2fce8a41f7be58d16
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Создание runbook службы автоматизации Azure
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
-Войдите на портал Azure по адресу https://portal.azure.com.
+Войдите в Azure: https://portal.azure.com
 
 ## <a name="create-runbook"></a>Создание модуля Runbook
 

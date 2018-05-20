@@ -1,290 +1,323 @@
 ---
-title: "Уведомление пользователей Android через центры уведомлений с помощью серверной части .NET"
-description: "Узнайте, как отправлять push-уведомления пользователям в Azure. Примеры кода написаны на Java для Android."
+title: Отправка push-уведомлений определенным пользователям приложений Android с помощью службы "Центры уведомлений Azure" | Документация Майкрософт
+description: Узнайте, как использовать службу "Центры уведомлений Azure" для отправки push-уведомлений определенным пользователям.
 documentationcenter: android
 services: notification-hubs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 418a4b638dfaa3fee33a7a7242433699205c79f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/07/2018
+ms.author: dimazaid
+ms.openlocfilehash: b944aa84a3962e16a153bc1840e43a7f405f8437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a>Уведомление пользователей Android через центры уведомлений с помощью серверной части .NET
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Руководство по отправке push-уведомлений определенным пользователям приложений Android с помощью службы "Центры уведомлений Azure"
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a>Обзор
-Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть ASP.NET WebAPI используется для проверки подлинности клиентов и создания уведомлений, как показано в разделе руководства [Управление регистрацией из серверной части](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Материал этого учебника основан на центре уведомлений, созданном вами при изучении учебника [Приступая к работе с центрами уведомлений (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) .
+В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть ASP.NET WebAPI используется для проверки подлинности клиентов и создания уведомлений, как показано в разделе [Управление регистрацией из серверной части](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). В этом руководстве используется центр уведомлений, который вы создали при работе со статьей [Руководство по отправке push-уведомлений на устройства Android с помощью Центров уведомлений Azure и Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
-> [!NOTE]
-> В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в учебнике [Приступая к работе с центрами уведомлений (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
-> 
-> 
+При работе с этим руководством вы выполните следующие задачи: 
+
+> [!div class="checklist"]
+> * Создание проекта веб-API серверной части, который выполняет проверку подлинности пользователей.  
+> * Обновление приложения Android. 
+> * Тестирование приложения
+
+## <a name="prerequisites"></a>предварительным требованиям
+Прежде чем начинать работу с этим руководством, выполните все действия из статьи [Руководство по отправке push-уведомлений на устройства Android с помощью Центров уведомлений Azure и Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md). 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="create-the-android-project"></a>Создание проекта Android
-Следующий шаг заключается в создании приложения Android.
+Следующим шагом является обновление приложения Android, созданного при работе со статьей [Руководство по отправке push-уведомлений на устройства Android с помощью Центров уведомлений Azure и Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md). 
 
-1. Следуйте инструкциям учебника [Приступая к работе с концентраторами уведомлений (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) , чтобы создать приложение и настроить его на получение push-уведомлений для GCM.
-2. Откройте файл **res/layout/activity_main.xml** и замените его содержимое следующими определениями содержимого:
+1. Откройте файл **res/layout/activity_main.xml** и замените его содержимое следующими определениями содержимого:
    
     Это добавляет новые элементы управления EditText для входа в систему как пользователь. Также добавляется поле для тега имени пользователя, который будет добавляться в отправляемые уведомления:
    
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-            android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-   
-        <EditText
-            android:id="@+id/usernameText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/usernameHint"
-            android:layout_above="@+id/passwordText"
-            android:layout_alignParentEnd="true" />
-        <EditText
-            android:id="@+id/passwordText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/passwordHint"
-            android:inputType="textPassword"
-            android:layout_above="@+id/buttonLogin"
-            android:layout_alignParentEnd="true" />
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loginButton"
-            android:onClick="login"
-            android:layout_above="@+id/toggleButtonGCM"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="WNS on"
-            android:textOff="WNS off"
-            android:id="@+id/toggleButtonWNS"
-            android:layout_toLeftOf="@id/toggleButtonGCM"
-            android:layout_centerVertical="true" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="GCM on"
-            android:textOff="GCM off"
-            android:id="@+id/toggleButtonGCM"
-            android:checked="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="APNS on"
-            android:textOff="APNS off"
-            android:id="@+id/toggleButtonAPNS"
-            android:layout_toRightOf="@id/toggleButtonGCM"
-            android:layout_centerVertical="true" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextNotificationMessageTag"
-            android:layout_below="@id/toggleButtonGCM"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/notification_message_tag_hint" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextNotificationMessage"
-            android:layout_below="@+id/editTextNotificationMessageTag"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/notification_message_hint" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/send_button"
-            android:id="@+id/sendbutton"
-            android:onClick="sendNotificationButtonOnClick"
-            android:layout_below="@+id/editTextNotificationMessage"
-            android:layout_centerHorizontal="true" />
-        </RelativeLayout>
+    ```xml
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/usernameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/usernameHint"
+        android:layout_above="@+id/passwordText"
+        android:layout_alignParentEnd="true" />
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/passwordHint"
+        android:inputType="textPassword"
+        android:layout_above="@+id/buttonLogin"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginButton"
+        android:onClick="login"
+        android:layout_above="@+id/toggleButtonGCM"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="WNS on"
+        android:textOff="WNS off"
+        android:id="@+id/toggleButtonWNS"
+        android:layout_toLeftOf="@id/toggleButtonGCM"
+        android:layout_centerVertical="true" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="GCM on"
+        android:textOff="GCM off"
+        android:id="@+id/toggleButtonGCM"
+        android:checked="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="APNS on"
+        android:textOff="APNS off"
+        android:id="@+id/toggleButtonAPNS"
+        android:layout_toRightOf="@id/toggleButtonGCM"
+        android:layout_centerVertical="true" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNotificationMessageTag"
+        android:layout_below="@id/toggleButtonGCM"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/notification_message_tag_hint" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNotificationMessage"
+        android:layout_below="@+id/editTextNotificationMessageTag"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/notification_message_hint" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_button"
+        android:id="@+id/sendbutton"
+        android:onClick="sendNotificationButtonOnClick"
+        android:layout_below="@+id/editTextNotificationMessage"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:id="@+id/text_hello"
+    />  
+    </RelativeLayout>
+    ```
 3. Откройте файл **res/values/strings.xml** и замените определение `send_button` следующими строками, переопределяющими строку для `send_button`, и добавьте строки для других элементов управления:
    
-        <string name="usernameHint">Username</string>
-        <string name="passwordHint">Password</string>
-        <string name="loginButton">1. Log in</string>
-        <string name="send_button">2. Send Notification</string>
-        <string name="notification_message_tag_hint">
-            Recipient username tag
-        </string>
-   
-    Основная графическая структура main_activity.xml должна выглядеть следующим образом:
+    ```xml
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginButton">1. Log in</string>
+    <string name="send_button">2. Send Notification</string>
+    <string name="notification_message_hint">Notification message</string>
+    <string name="notification_message_tag_hint">Recipient username</string>
+    ```
+
+    Графическая структура файла main_activity.xml должна выглядеть следующим образом:
    
     ![][A1]
 4. Создайте класс **RegisterClient** в том же пакете, в котором создан класс `MainActivity`. Используйте приведенный ниже код для файла нового класса.
-   
-        import java.io.IOException;
-        import java.io.UnsupportedEncodingException;
-        import java.util.Set;
-   
-        import org.apache.http.HttpResponse;
-        import org.apache.http.HttpStatus;
-        import org.apache.http.client.ClientProtocolException;
-        import org.apache.http.client.HttpClient;
-        import org.apache.http.client.methods.HttpPost;
-        import org.apache.http.client.methods.HttpPut;
-        import org.apache.http.client.methods.HttpUriRequest;
-        import org.apache.http.entity.StringEntity;
-        import org.apache.http.impl.client.DefaultHttpClient;
-        import org.apache.http.util.EntityUtils;
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-   
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.util.Log;
-   
-        public class RegisterClient {
-            private static final String PREFS_NAME = "ANHSettings";
-            private static final String REGID_SETTING_NAME = "ANHRegistrationId";
-            private String Backend_Endpoint;
-            SharedPreferences settings;
-            protected HttpClient httpClient;
-            private String authorizationHeader;
-   
-            public RegisterClient(Context context, String backendEnpoint) {
-                super();
-                this.settings = context.getSharedPreferences(PREFS_NAME, 0);
-                httpClient =  new DefaultHttpClient();
-                Backend_Endpoint = backendEnpoint + "/api/register";
-            }
-   
-            public String getAuthorizationHeader() {
-                return authorizationHeader;
-            }
-   
-            public void setAuthorizationHeader(String authorizationHeader) {
-                this.authorizationHeader = authorizationHeader;
-            }
-   
-            public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
-                String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-   
-                JSONObject deviceInfo = new JSONObject();
-                deviceInfo.put("Platform", "gcm");
-                deviceInfo.put("Handle", handle);
-                deviceInfo.put("Tags", new JSONArray(tags));
-   
-                int statusCode = upsertRegistration(registrationId, deviceInfo);
-   
-                if (statusCode == HttpStatus.SC_OK) {
-                    return;
-                } else if (statusCode == HttpStatus.SC_GONE){
-                    settings.edit().remove(REGID_SETTING_NAME).commit();
-                    registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-                    statusCode = upsertRegistration(registrationId, deviceInfo);
-                    if (statusCode != HttpStatus.SC_OK) {
-                        Log.e("RegisterClient", "Error upserting registration: " + statusCode);
-                        throw new RuntimeException("Error upserting registration");
-                    }
-                } else {
+
+    ```java   
+    import java.io.IOException;
+    import java.io.UnsupportedEncodingException;
+    import java.util.Set;
+
+    import org.apache.http.HttpResponse;
+    import org.apache.http.HttpStatus;
+    import org.apache.http.client.ClientProtocolException;
+    import org.apache.http.client.HttpClient;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.client.methods.HttpPut;
+    import org.apache.http.client.methods.HttpUriRequest;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.impl.client.DefaultHttpClient;
+    import org.apache.http.util.EntityUtils;
+    import org.json.JSONArray;
+    import org.json.JSONException;
+    import org.json.JSONObject;
+
+    import android.content.Context;
+    import android.content.SharedPreferences;
+    import android.util.Log;
+
+    public class RegisterClient {
+        private static final String PREFS_NAME = "ANHSettings";
+        private static final String REGID_SETTING_NAME = "ANHRegistrationId";
+        private String Backend_Endpoint;
+        SharedPreferences settings;
+        protected HttpClient httpClient;
+        private String authorizationHeader;
+
+        public RegisterClient(Context context, String backendEnpoint) {
+            super();
+            this.settings = context.getSharedPreferences(PREFS_NAME, 0);
+            httpClient =  new DefaultHttpClient();
+            Backend_Endpoint = backendEnpoint + "/api/register";
+        }
+
+        public String getAuthorizationHeader() {
+            return authorizationHeader;
+        }
+
+        public void setAuthorizationHeader(String authorizationHeader) {
+            this.authorizationHeader = authorizationHeader;
+        }
+
+        public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
+            String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+
+            JSONObject deviceInfo = new JSONObject();
+            deviceInfo.put("Platform", "gcm");
+            deviceInfo.put("Handle", handle);
+            deviceInfo.put("Tags", new JSONArray(tags));
+
+            int statusCode = upsertRegistration(registrationId, deviceInfo);
+
+            if (statusCode == HttpStatus.SC_OK) {
+                return;
+            } else if (statusCode == HttpStatus.SC_GONE){
+                settings.edit().remove(REGID_SETTING_NAME).commit();
+                registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+                statusCode = upsertRegistration(registrationId, deviceInfo);
+                if (statusCode != HttpStatus.SC_OK) {
                     Log.e("RegisterClient", "Error upserting registration: " + statusCode);
                     throw new RuntimeException("Error upserting registration");
                 }
-            }
-   
-            private int upsertRegistration(String registrationId, JSONObject deviceInfo)
-                    throws UnsupportedEncodingException, IOException,
-                    ClientProtocolException {
-                HttpPut request = new HttpPut(Backend_Endpoint+"/"+registrationId);
-                request.setEntity(new StringEntity(deviceInfo.toString()));
-                request.addHeader("Authorization", "Basic "+authorizationHeader);
-                request.addHeader("Content-Type", "application/json");
-                HttpResponse response = httpClient.execute(request);
-                int statusCode = response.getStatusLine().getStatusCode();
-                return statusCode;
-            }
-   
-            private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
-                if (settings.contains(REGID_SETTING_NAME))
-                    return settings.getString(REGID_SETTING_NAME, null);
-   
-                HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
-                request.addHeader("Authorization", "Basic "+authorizationHeader);
-                HttpResponse response = httpClient.execute(request);
-                if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                    Log.e("RegisterClient", "Error creating registrationId: " + response.getStatusLine().getStatusCode());
-                    throw new RuntimeException("Error creating Notification Hubs registrationId");
-                }
-                String registrationId = EntityUtils.toString(response.getEntity());
-                registrationId = registrationId.substring(1, registrationId.length()-1);
-   
-                settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
-   
-                return registrationId;
+            } else {
+                Log.e("RegisterClient", "Error upserting registration: " + statusCode);
+                throw new RuntimeException("Error upserting registration");
             }
         }
-   
-    Этот компонент реализует вызовы REST, необходимые для связи с серверной частью приложения с целью регистрации в службе push-уведомлений. В данном случае также происходит локальное сохранение идентификаторов *registrationId* , созданных концентратором уведомлений в соответствии с описанием в разделе [Регистрация из серверной части приложения](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Обратите внимание, что в данном случае используется токен авторизации, сохраненный в локальном хранилище при нажатии кнопки **Log in** (Войти).
-5. В классе `MainActivity` удалите или преобразуйте в комментарий частное поле для `NotificationHub`, добавьте поле для класса `RegisterClient` и строку для конечной точки серверной части ASP.NET. Обязательно замените `<Enter Your Backend Endpoint>` фактической конечной точкой серверной части, полученной ранее. Например, `http://mybackend.azurewebsites.net`.
 
-        //private NotificationHub hub;
-        private RegisterClient registerClient;
-        private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
+        private int upsertRegistration(String registrationId, JSONObject deviceInfo)
+                throws UnsupportedEncodingException, IOException,
+                ClientProtocolException {
+            HttpPut request = new HttpPut(Backend_Endpoint+"/"+registrationId);
+            request.setEntity(new StringEntity(deviceInfo.toString()));
+            request.addHeader("Authorization", "Basic "+authorizationHeader);
+            request.addHeader("Content-Type", "application/json");
+            HttpResponse response = httpClient.execute(request);
+            int statusCode = response.getStatusLine().getStatusCode();
+            return statusCode;
+        }
 
+        private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
+            if (settings.contains(REGID_SETTING_NAME))
+                return settings.getString(REGID_SETTING_NAME, null);
+
+            HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
+            request.addHeader("Authorization", "Basic "+authorizationHeader);
+            HttpResponse response = httpClient.execute(request);
+            if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+                Log.e("RegisterClient", "Error creating registrationId: " + response.getStatusLine().getStatusCode());
+                throw new RuntimeException("Error creating Notification Hubs registrationId");
+            }
+            String registrationId = EntityUtils.toString(response.getEntity());
+            registrationId = registrationId.substring(1, registrationId.length()-1);
+
+            settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
+
+            return registrationId;
+        }
+    }
+    ```
+       
+    Этот компонент реализует вызовы REST, необходимые для связи с серверной частью приложения с целью регистрации в службе push-уведомлений. В данном случае также происходит локальное сохранение идентификаторов *registrationId* , созданных концентратором уведомлений в соответствии с описанием в разделе [Регистрация из серверной части приложения](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). В данном случае используется токен авторизации, сохраненный в локальном хранилище при нажатии кнопки **Log in** (Войти).
+5. В своем классе удалите или преобразуйте в комментарий частное поле для `NotificationHub`, добавьте поле для класса `RegisterClient` и строку для конечной точки серверной части ASP.NET. Обязательно замените `<Enter Your Backend Endpoint>` фактической конечной точкой серверной части, полученной ранее. Например, `http://mybackend.azurewebsites.net`.
+
+    ```java
+    //private NotificationHub hub;
+    private RegisterClient registerClient;
+    private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
+    ```
 
 1. В классе `MainActivity` в методе `onCreate` удалите или преобразуйте в комментарий инициализацию поля `hub` и вызов метода `registerWithNotificationHubs`. Добавьте код для инициализации нового экземпляра класса `RegisterClient` . Метод должен содержать следующие строки:
    
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-   
-            MyHandler.mainActivity = this;
-            NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
-            gcm = GoogleCloudMessaging.getInstance(this);
-   
-            //hub = new NotificationHub(HubName, HubListenConnectionString, this);
-            //registerWithNotificationHubs();
-   
-            registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
-   
-            setContentView(R.layout.activity_main);
-        }
+    ```java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mainActivity = this;
+        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
+        gcm = GoogleCloudMessaging.getInstance(this);
+
+        //hub = new NotificationHub(HubName, HubListenConnectionString, this);
+        //registerWithNotificationHubs();
+
+        registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
+
+        setContentView(R.layout.activity_main);
+    }
+    ```
 2. В классе `MainActivity` удалите или преобразуйте в комментарий весь метод `registerWithNotificationHubs`. Он не будет использоваться в этом учебнике.
 3. В файл **MainActivity.java** добавьте следующие операторы `import`.
    
-        import android.widget.Button;
-        import java.io.UnsupportedEncodingException;
-        import android.content.Context;
-        import java.util.HashSet;
-        import android.widget.Toast;
-        import org.apache.http.client.ClientProtocolException;
-        import java.io.IOException;
-        import org.apache.http.HttpStatus;
-4. Затем добавьте следующие методы для обработки события нажатия кнопки **Log in** (Войти) и отправки push-уведомлений.
+    ```java
+    import android.util.Base64;
+    import android.view.View;
+    import android.widget.EditText;
+    
+    import android.widget.Button;
+    import android.widget.ToggleButton;
+    import java.io.UnsupportedEncodingException;
+    import android.content.Context;
+    import java.util.HashSet;
+    import android.widget.Toast;
+    import org.apache.http.client.ClientProtocolException;
+    import java.io.IOException;
+    import org.apache.http.HttpStatus;
+    
+    import android.os.AsyncTask;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.impl.client.DefaultHttpClient;
+    
+    import android.app.AlertDialog;
+    import android.content.DialogInterface;
+    ```            
+4. Замените код в методе onStart следующим кодом: 
+
+    ```java
+        super.onStart();
+        Button sendPush = (Button) findViewById(R.id.sendbutton);
+        sendPush.setEnabled(false);
+    ```       
+1. Затем добавьте следующие методы для обработки события нажатия кнопки **Log in** (Войти) и отправки push-уведомлений.
    
-        @Override
-        protected void onStart() {
-            super.onStart();
-            Button sendPush = (Button) findViewById(R.id.sendbutton);
-            sendPush.setEnabled(false);
-        }
-   
+    ```java
         public void login(View view) throws UnsupportedEncodingException {
             this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
    
@@ -293,7 +326,7 @@ ms.lasthandoff: 10/11/2017
                 @Override
                 protected Object doInBackground(Object... params) {
                     try {
-                        String regid = gcm.register(SENDER_ID);
+                        String regid = gcm.register(NotificationSettings.SenderId);
                         registerClient.register(regid, new HashSet<String>());
                     } catch (Exception e) {
                         DialogNotify("MainActivity - Failed to register", e.getMessage());
@@ -362,13 +395,32 @@ ms.lasthandoff: 10/11/2017
                 }
             }.execute(null, null, null);
         }
+    ```
 
-    Обработчик `login` кнопки **Войти** создает маркер обычной проверки подлинности на основании введенного имени пользователя и пароля (обратите внимание, что это относится к любому маркеру, используемому в этой схеме проверки подлинности), затем с помощью `RegisterClient` вызывается серверная часть для регистрации.
+    Обработчик `login` кнопки **Войти** создает маркер обычной проверки подлинности на основании введенного имени пользователя и пароля (это относится к любому маркеру, используемому в этой схеме проверки подлинности), затем с помощью `RegisterClient` вызывается серверная часть для регистрации.
 
     Метод `sendPush` вызывает серверную часть, чтобы инициировать безопасное уведомление пользователя по тегу пользователя. Служба уведомлений платформы, на которую нацеливается `sendPush`, зависит от переданной строки `pns`.
 
+5. Добавьте в класс `MainActivity` метод `DialogNotify`. 
+
+    ```java
+        protected void DialogNotify(String title, String message)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle(title);
+            alertDialog.setMessage(message);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+    ```
 1. В классе `MainActivity` измените метод `sendNotificationButtonOnClick` для вызова метода `sendPush`, указав выбранные пользователем службы уведомлений платформы следующим образом.
    
+    ```java
        /**
         * Send Notification button click handler. This method sends the push notification
         * message to each platform selected.
@@ -399,11 +451,18 @@ ms.lasthandoff: 10/11/2017
                sendPush("apns", nhMessageTag, nhMessage);
            }
        }
+    ```
+7. В файле **build.gradle** добавьте следующую строку в раздел `android` после раздела `buildTypes`. 
 
-## <a name="run-the-application"></a>Запуск приложения
+    ```java
+    useLibrary 'org.apache.http.legacy'
+    ```
+8. Создайте проект. 
+
+## <a name="test-the-app"></a>Тестирование приложения
 1. Запустите приложение на устройстве или в эмуляторе с помощью Android Studio.
 2. В приложении Android введите имя пользователя и пароль. Они должны быть одинаковыми строковыми значениями без пробелов или специальных знаков.
-3. В приложении Android нажмите кнопку **Log in**(Войти). Дождитесь появления всплывающего уведомления **Logged in and registered**(Вход и регистрация выполнены). Это активирует кнопку **Send Notification** (Отправить уведомление).
+3. В приложении Android нажмите кнопку **Log in**(Войти). Дождитесь появления всплывающего уведомления **Logged in and registered**(Вход и регистрация выполнены). Это активирует кнопку **Отправить уведомление**.
    
     ![][A2]
 4. С помощью переключателей включите все платформы, на которых вы запускали приложение и регистрировали пользователя.
@@ -411,5 +470,13 @@ ms.lasthandoff: 10/11/2017
 6. Введите сообщение для пользователя, получающего push-уведомление.
 7. Нажмите кнопку **Send Notification**(Отправить уведомление).  Каждое устройство с регистрацией, соответствующей тегу имени пользователя, получит push-уведомление.
 
+## <a name="next-steps"></a>Дополнительная информация
+В этом руководстве вы узнали, как отправлять push-уведомления определенным пользователям, с регистрацией которых связаны теги. Чтобы узнать, как отправлять push-уведомления на основе расположения, перейдите к следующему руководству: 
+
+> [!div class="nextstepaction"]
+>[Отправка push-уведомлений с определением геозон с помощью Центров уведомлений Azure и Bing Spatial Data](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+
+
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
+

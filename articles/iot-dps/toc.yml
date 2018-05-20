@@ -155,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Центр разработчика IoT Azure
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Запросы данных клиентов
+      href: iot-dps-customer-data-requests.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Обозреватель устройств

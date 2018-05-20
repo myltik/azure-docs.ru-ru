@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2f0d9c42e32f2dd1181eac8d74c324b5ff2b0c53
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Как подготовить виртуальные машины SQL Server с помощью Azure PowerShell
 
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Определение свойств операционной системы для виртуальной машины
-Теперь необходимо задать параметры операционной системы виртуальной машины. Используйте командлет [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), чтобы установить тип операционной системы (например, Windows). Для этого установите [агент виртуальной машины](../agent-user-guide.md). Укажите, что командлет включает автоматическое обновление, и задайте имя виртуальной машины, имя компьютера и учетные данные в переменных, инициализированных ранее.
+Теперь необходимо задать параметры операционной системы виртуальной машины. Используйте командлет [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), чтобы установить тип операционной системы (например, Windows). Для этого установите [агент виртуальной машины](../../extensions/agent-windows.md). Укажите, что командлет включает автоматическое обновление, и задайте имя виртуальной машины, имя компьютера и учетные данные в переменных, инициализированных ранее.
 
 Выполните следующий командлет, чтобы задать свойства операционной системы для виртуальной машины.
 

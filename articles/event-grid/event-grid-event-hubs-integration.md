@@ -1,18 +1,18 @@
 ---
-title: "Интеграция службы \"Сетка событий Azure\" и концентраторов событий"
-description: "Описывается, как перенести данные в хранилище данных SQL с помощью службы \"Сетка событий Azure\" и концентраторов событий"
+title: Интеграция службы "Сетка событий Azure" и концентраторов событий
+description: Описывается, как перенести данные в хранилище данных SQL с помощью службы "Сетка событий Azure" и концентраторов событий
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Потоковая передача больших данных в хранилище данных
 
@@ -118,67 +118,41 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Откройте [пример проекта EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) в Visual Studio 2017 (версии 15.3.2 или более поздней).
 
-2. В обозревателе решений щелкните правой кнопкой мыши **FunctionDWDumper** и выберите **Публиковать**.
+1. В обозревателе решений щелкните правой кнопкой мыши **FunctionEGDWDumper** и выберите **Публиковать**.
 
    ![Публикация приложения-функции](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Выберите **Приложение функции Azure** и **Выбрать существующее**. Нажмите кнопку **ОК**.
+1. Выберите **Приложение функции Azure** и **Выбрать существующее**. Нажмите кнопку **Опубликовать**.
 
    ![Целевое приложение-функция](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Выберите приложение-функцию, развернутое с помощью шаблона. Нажмите кнопку **ОК**.
+1. Выберите приложение-функцию, развернутое с помощью шаблона. Нажмите кнопку **ОК**.
 
    ![Выбор приложения-функции](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. После настройки профиля в Visual Studio выберите **Публиковать**.
+1. После настройки профиля в Visual Studio выберите **Публиковать**.
 
    ![Выбор публикации](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. Опубликовав функцию, перейдите на [портал Azure](https://portal.azure.com/). Выберите группу ресурсов и приложение-функцию.
-
-   ![Просмотр приложения-функции](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Выберите функцию.
-
-   ![Выбор функции](media/event-grid-event-hubs-integration/select-function.png)
-
-8. Получите URL-адрес для функции. Он понадобится при создании подписки на событие.
-
-   ![Получение URL-адреса функции](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Скопируйте значение.
-
-   ![Копирование URL-адреса](media/event-grid-event-hubs-integration/copy-url.png)
+После публикации функции вы можете подписаться на событие.
 
 ## <a name="subscribe-to-the-event"></a>Оформление подписки на событие
 
-Подписку на событие можно оформить с помощью Azure CLI или портала. В этой статье показаны оба подхода.
+1. Перейдите на [портал Azure](https://portal.azure.com/). Выберите группу ресурсов и приложение-функцию.
 
-### <a name="portal"></a>Microsoft Azure
+   ![Просмотр приложения-функции](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. В пространстве имен концентраторов событий выберите **Event Grid** (Сетка событий) слева.
+1. Выберите функцию.
 
-   ![Выбор службы "Сетка событий"](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Выбор функции](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Добавьте подписку на события.
+1. Выберите **Добавление подписки для службы "Сетка событий"**.
 
-   ![Добавление подписки на события](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Добавить подписку](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Укажите значения для подписки на события. Используйте скопированный URL-адрес службы "Функции Azure". Нажмите кнопку **Создать**.
+9. Присвойте имя подписке для службы "Сетка событий". Используйте тип события **Пространства имен концентраторов событий**. Укажите значения для экземпляра пространства имен в службе "Концентраторы событий". Оставьте для конечной точки подписчика указанное значение. Нажмите кнопку **Создать**.
 
-   ![Указание значений подписки](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Инфраструктура CLI Azure
-
-Чтобы подписаться на событие, выполните следующие команды (для этого требуется Azure CLI 2.0.24 или более поздней версии):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Создание подписки](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Запуск приложения для создания данных
 
@@ -198,10 +172,10 @@ az eventgrid event-subscription create \
 
 4. Вернитесь к проекту Visual Studio. В проекте WindTurbineDataGenerator откройте файл **program.cs**.
 
-5. Замените две константы. Использовать скопированное значение **EventHubConnectionString**. Используйте имя концентратора событий для **EventHubName**.
+5. Замените две константы. Использовать скопированное значение **EventHubConnectionString**. Используйте имя концентратора событий **hubdatamigration**.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

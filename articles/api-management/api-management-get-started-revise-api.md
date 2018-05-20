@@ -3,7 +3,7 @@ title: Безопасное внесение некритических изме
 description: Следуйте инструкциям этого руководства, чтобы научиться вносить некритические изменения с помощью редакций в службе управления API.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: b4812ea8d93e4bfb784370e3a3196a5d20e47519
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 864c269da61bcea885249021a44fe0259ca83e90
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Безопасное внесение некритических изменений с помощью редакций
 Когда API готов к работе и его начинают использовать разработчики, как правило, следует осторожно вносить изменения в этот API, чтобы одновременно не нарушить работу вызывающих его сторон. Полезно также сообщать разработчикам о внесенных изменениях. Для этого можно использовать **редакции** в службе управления API Azure. Дополнительные сведения см. в статьях [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Версии и редакции) и [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Управление версиями API с помощью службы управления API Azure).

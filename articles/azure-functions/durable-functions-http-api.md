@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP в устойчивых функциях (Функции Azure)
 
@@ -131,6 +131,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 |-----------------|-----------|-------------|
 | runtimeStatus   | строка    | Состояние среды выполнения экземпляра. Возможные значения: *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | input           | JSON      | Данные JSON, используемые для инициализации экземпляра. |
+| customStatus    | JSON      | Данные JSON, используемые для состояния пользовательской оркестрации. Если поле не заполнено, для него устанавливается значение `null`. |
 | output          | JSON      | Выходные данные JSON экземпляра. Это поле имеет значение `null`, если экземпляр не находится в завершенном состоянии. |
 | createdTime     | строка    | Время, когда был создан экземпляр. Использует расширенную нотацию ISO 8601. |
 | lastUpdatedTime | строка    | Время, когда экземпляр был в последний раз сохранен. Использует расширенную нотацию ISO 8601. |
@@ -180,6 +181,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

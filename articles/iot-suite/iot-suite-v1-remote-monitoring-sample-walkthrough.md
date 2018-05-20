@@ -1,12 +1,12 @@
 ---
-title: "Пошаговое руководство по предварительно настроенному решению удаленного мониторинга | Документация Майкрософт"
-description: "Описание предварительно настроенного решения удаленного мониторинга Azure IoT и его архитектура."
-services: 
+title: Пошаговое руководство по предварительно настроенному решению удаленного мониторинга | Документация Майкрософт
+description: Описание предварительно настроенного решения удаленного мониторинга Azure IoT и его архитектура.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Пошаговое руководство по работе с настроенным решением для удаленного мониторинга
 
@@ -35,7 +35,17 @@ ms.lasthandoff: 11/06/2017
 
 На следующей диаграмме показаны логические компоненты предварительно настроенного решения.
 
-![Логическая архитектура](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Логическая архитектура](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Микрослужбы и контейнеры Docker
+Удаленный мониторинг — это первое из наших предварительно настроенных решений, в котором используется архитектура микрослужб. Решение доступно для [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) и [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Микрослужбы стали наиболее распространенным средством достижения масштабируемости и гибкости (благодаря поддержке индивидуального развертывания контейнеров) без ущерба для скорости разработки.
+Микрослужбы позволяют секционировать код и предоставляют четко структурированные интерфейсы. Это обеспечивает простоту решений делает их менее монолитными. Кроме того, микрослужбы расширяют возможности партнеров, которые стремятся увеличить доступный набор акселераторов решений, чтобы создавать готовые решения, доступные для монетизации.
+
+**Дополнительные сведения о контейнерах Docker**
+* [Установка Docker](https://docs.docker.com/engine/installation/)
+* [Стандартные команды Docker для удаленного мониторинга](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Начало работы с Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Виртуальные устройства
 

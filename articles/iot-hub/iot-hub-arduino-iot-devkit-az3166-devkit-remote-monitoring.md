@@ -1,6 +1,6 @@
 ---
 title: 'IoT DevKit в облаке: подключение MXChip IoT DevKit к Центру Интернета вещей Azure | Документация Майкрософт'
-description: В этом учебнике вы узнаете, как отправлять данные о состоянии датчиков IoT DevKit AZ3166 в Azure IoT Suite для мониторинга и визуализации.
+description: Из этого руководства вы узнаете, как с помощью IoT DevKit AZ3166 отправлять данные о состоянии датчиков в акселератор решений для удаленного мониторинга Интернета вещей Azure.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d59a739e2222aca27993f6ae944a1d3bda567041
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Подключение MXChip IoT DevKit к Azure IoT Suite для удаленного мониторинга
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Подключение MXChip IoT DevKit к акселератору решений для удаленного мониторинга Интернета вещей Azure
 
-В этом учебнике вы узнаете, как запустить пример приложения с помощью своего набора разработки, чтобы обеспечить отправку данных датчиков в Azure IoT Suite.
+Из этого руководства вы узнаете, как запустить на DevKit пример приложения, которое отправляет данные с датчиков в акселератор решений для удаленного мониторинга Интернета вещей Azure.
 
 [MXChip IoT DevKit](https://aka.ms/iot-devkit) — это универсальная совместимая с Arduino плата со множеством периферийных устройств и датчиков. Вы можете выполнить для нее разработку с помощью [расширения Visual Studio Code для Arduino](https://aka.ms/arduino). Она предоставляется с расширяющимся [каталогом проектом](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/), чтобы помочь вам выполнить прототипирование решений Интернета вещей, использующих службы Microsoft Azure.
 
@@ -38,12 +38,12 @@ ms.lasthandoff: 04/28/2018
 * Вы можете активировать [бесплатную 30-дневную пробную учетную запись Microsoft Azure](https://azure.microsoft.com/free/).
 * Запросите [деньги на счете в Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), если у вас есть подписка MSDN или Visual Studio.
 
-## <a name="create-an-azure-iot-suite"></a>Создание Azure IoT Suite
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Настройка акселератора решений для удаленного мониторинга Интернета вещей Azure
 
-1. Перейдите на [сайт Azure IoT Suite](https://www.azureiotsuite.com/) и щелкните консоль **Создать решения**.
-  ![Выбор типа Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+1. Перейдите на [сайт акселераторов решений для Интернета вещей Azure](https://www.azureiotsuite.com/) и щелкните **Создать решение**.
+  ![Выбор типа акселератора решений для Интернета вещей Azure](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
-  > По умолчанию в этом примере создается Центр Интернета вещей S2 после создания IoT Suite S2. Если этот Центр используют немного устройств, рекомендуем перейти с использования S2 на S1 и удалить IoT Suite, чтобы связанный Центр Интернета вещей можно было также удалить, если он больше не будет нужен. 
+  > По умолчанию этот пример сначала создает акселератор решений для удаленного мониторинга Интернета вещей, а затем Центр Интернета вещей S2. Если этот Центр Интернета вещей предназначен для небольшого количества устройств, мы рекомендуем перейти с уровня S2 на S1 и удалить акселератор решений для удаленного мониторинга Интернета вещей, чтобы связанный с ним Центр Интернета вещей тоже можно было удалить, когда потребность в нем отпадет. 
 
 2. Щелкните **Удаленный мониторинг**.
 
@@ -100,13 +100,13 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="test-the-project"></a>Тестирование проекта
 
-При запуске примера приложения DevKit отправляет данные датчиков по сети Wi-Fi в Azure IoT Suite. Чтобы просмотреть результат, сделайте следующее:
+При запуске примера приложения DevKit отправляет данные от датчиков по сети Wi-Fi в акселератор решений для удаленного мониторинга Интернета вещей Azure. Чтобы просмотреть результат, сделайте следующее:
 
-1. Перейдите в Azure IoT Suite и щелкните вкладку **Dashboard** (Панель мониторинга).
+1. Перейдите в акселератор решений для удаленного мониторинга Интернета вещей Azure и щелкните **Панель мониторинга**.
 
-2. В консоли решения Azure IoT Suite будет отображаться состояние датчиков DevKit.
+2. В консоли решения для удаленного мониторинга отображается состояние датчиков DevKit.
 
-![Данные датчиков в Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+![Данные датчиков в акселераторе решений для удаленного мониторинга Интернета вещей Azure](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>Изменение идентификатора устройства
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Теперь, когда вы знаете, как подключить устройство DevKit к Azure IoT Suite и визуализировать данные датчиков, можно выполнить:
+Теперь вы знаете, как подключить устройство DevKit к акселератору решений для удаленного мониторинга Интернета вещей Azure и визуализировать данные датчиков. Мы предлагаем вам следующие шаги для дальнейшего обучения:
 
-* [Обзор общих сведений об Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Обзор акселераторов решений для Интернета вещей Azure](https://docs.microsoft.com/azure/iot-suite/)
 * [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Подключение устройства MXChip IoT DevKit к приложению Microsoft IoT Central)

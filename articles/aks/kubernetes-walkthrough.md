@@ -3,19 +3,19 @@ title: Краткое руководство по работе с кластер
 description: Вы научитесь быстро создавать кластер Kubernetes для контейнеров Linux в AKS при помощи Azure CLI.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 90ac873fd552058e3f7d538560efa46d33ea52a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bcdd4ba935b0fe9fe891503999c907aa1667abd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Краткое руководство. Развертывание кластера Службы контейнеров Azure (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Краткое руководство по развертыванию кластера службы Azure Kubernetes (AKS)
 
 В этом кратком руководстве кластер AKS развертывается с помощью Azure CLI. Затем в кластере будет запущено многоконтейнерное приложение, состоящее из веб-интерфейса и экземпляра Redis. По завершении приложение будет доступно через Интернет.
 
@@ -173,10 +173,10 @@ spec:
     app: azure-vote-front
 ```
 
-Используйте команду [kubectl create][kubectl-create], чтобы запустить приложение.
+Запустите приложение с помощью команды [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Выходные данные:
@@ -241,7 +241,7 @@ az group delete --name myResourceGroup --yes --no-wait
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

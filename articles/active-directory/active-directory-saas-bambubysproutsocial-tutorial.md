@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Bambu by Sprout Social | Документы Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Bambu by Sprout Social."
+title: Руководство по интеграции Azure Active Directory с Bambu by Sprout Social | Документы Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Bambu by Sprout Social.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cc057263f2b2fc5f83201b2edcb519e682b2ffc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fe3c9d3a603ef822a53031d0fda866efc4aaded
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Руководство по интеграции Azure Active Directory с Bambu by Sprout Social
 
@@ -30,14 +30,6 @@ ms.lasthandoff: 12/11/2017
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with Bambu by Sprout Social, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Bambu by Sprout Social.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

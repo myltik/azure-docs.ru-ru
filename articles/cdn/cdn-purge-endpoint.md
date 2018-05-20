@@ -1,11 +1,11 @@
 ---
-title: "Очистка конечной точки Azure CDN | Документация Майкрософт"
-description: "Узнайте, как удалить все кэшированное содержимое из конечной точки Azure CDN."
+title: Очистка конечной точки Azure CDN | Документация Майкрософт
+description: Узнайте, как удалить все кэшированное содержимое из конечной точки Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Очистка конечной точки сети CDN Azure
 ## <a name="overview"></a>Обзор
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/22/2017
     ![Кнопка очистки](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Запросы на очистку для **Azure CDN от Verizon** обрабатываются приблизительно 2–3 минуты (уровня "Стандартный" и "Премиум") и приблизительно 7 минут для **Azure CDN от Akamai**.  Azure CDN может выполнять до 50 одновременных запросов на очистку в любой момент времени на уровне профиля. 
+> Запросы на очистку для **Azure CDN от Verizon** обрабатываются приблизительно 2–3 минуты (уровень "Стандартный" и "Премиум") и приблизительно 7 минут для **Azure CDN от Akamai**.  Azure CDN может выполнять до 50 одновременных запросов на очистку в любой момент времени на уровне профиля. 
 > 
 > 
 

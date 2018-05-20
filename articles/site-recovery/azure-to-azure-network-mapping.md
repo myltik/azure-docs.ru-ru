@@ -1,24 +1,24 @@
 ---
-title: "Сопоставление виртуальных сетей между двумя регионами Azure в Azure Site Recovery | Документация Майкрософт"
-description: "Azure Site Recovery координирует репликацию, отработку отказа и восстановление виртуальных машин и физических серверов. Узнайте о функции отработки отказа в Azure или в дополнительный центр обработки данных."
+title: Сопоставление виртуальных сетей между двумя регионами Azure в Azure Site Recovery | Документация Майкрософт
+description: Azure Site Recovery координирует репликацию, отработку отказа и восстановление виртуальных машин и физических серверов. Узнайте о функции отработки отказа в Azure или в дополнительный центр обработки данных.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9294940785deb0834a419de8320286783635d68e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Сопоставление виртуальных сетей в разных регионах Azure
 

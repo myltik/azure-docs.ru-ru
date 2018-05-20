@@ -3,17 +3,18 @@ title: Отслеживание изменений с помощью служб�
 description: Решение для отслеживания изменений помогает выявлять изменения программного обеспечения и служб Windows в среде.
 services: automation
 ms.service: automation
+ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Отслеживание изменений в среде с помощью решения для отслеживания изменений
 

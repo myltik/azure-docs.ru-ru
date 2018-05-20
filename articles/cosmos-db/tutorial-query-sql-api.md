@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 74ea4753e36da7686ac88d4426391a38dac0b436
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Руководство. Выполнение запросов в Azure Cosmos DB с использованием API SQL
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-В этом руководстве предполагается, что у вас есть учетная запись и коллекция базы данных Azure Cosmos DB. У вас их нет? Завершите [краткое руководство](create-mongodb-nodejs.md) или [руководство разработчика](tutorial-develop-mongodb.md), чтобы создать учетную запись и коллекцию.
+В этом руководстве предполагается, что у вас есть учетная запись и коллекция базы данных Azure Cosmos DB. У вас их нет? Выполните задачи [5-минутного краткого руководства](create-mongodb-nodejs.md).
 
 ## <a name="example-query-1"></a>Пример запроса 1
 

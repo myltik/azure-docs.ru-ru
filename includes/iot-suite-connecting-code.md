@@ -1,3 +1,19 @@
+---
+title: включение файла
+description: включение файла
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/10/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Определение поведения устройства Интернета вещей
 
 Клиентская библиотека сериализатора Центра Интернета вещей использует модель для указания формата сообщений, которыми устройство обменивается с Центром Интернета вещей.
@@ -78,7 +94,7 @@
 
 Теперь добавьте код, который будет реализовывать определенное в модели поведение.
 
-1. Добавьте следующий обработчик обратных вызовов, который выполняется, когда устройство отправило новые значения сообщаемых свойств в предварительно настроенное решение:
+1. Добавьте следующий обработчик обратных вызовов, который выполняется, когда устройство отправляет новые значения сообщаемых свойств в ускоритель решения.
 
     ```c
     /* Callback after sending reported properties */
@@ -124,7 +140,8 @@
       }
       ThreadAPI_Sleep(5000);
 
-      chiller->Firmware = _strdup(chiller->new_firmware_version);
+    #pragma warning(suppress : 4996)
+      chiller->Firmware = strdup(chiller->new_firmware_version);
       chiller->FirmwareUpdateStatus = "waiting";
       /* Send reported properties to IoT Hub */
       if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
@@ -171,8 +188,10 @@
       }
       else
       {
-        chiller->new_firmware_version = _strdup(Firmware);
-        chiller->new_firmware_URI = _strdup(FirmwareUri);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_version = strdup(Firmware);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_URI = strdup(FirmwareUri);
         THREAD_HANDLE thread_apply;
         THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
         if (t_result == THREADAPI_OK)
@@ -221,7 +240,7 @@
     }
     ```
 
-1. Добавьте следующую функцию, которая отправляет сообщение со свойствами в предварительно настроенное решение:
+1. Добавьте следующую функцию, которая отправляет сообщение со свойствами в ускоритель решения.
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +279,7 @@
     }
     ```
 
-1. Добавьте следующую функцию для подключения устройства к предварительно настроенному решению в облаке и для обмена данными. Эта функция выполняет следующие действия:
+1. Добавьте следующую функцию для подключения устройства к ускорителю решения в облаке и для обмена данными. Эта функция выполняет следующие действия:
 
     - инициализирует платформу;
     - регистрирует пространство имен Contoso с помощью библиотеки сериализации;
@@ -396,7 +415,7 @@
     }
     ```
 
-    Для справки ниже приведен пример сообщения **Telemetry**, которое отправляется в предварительно настроенное решение.
+    Для справки ниже приведен пример сообщения **Telemetry**, которое отправляется в ускоритель решения.
 
     ```
     Device: [myCDevice],

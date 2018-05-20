@@ -1,11 +1,11 @@
 ---
-title: "Уведомления отчетов Azure Active Directory"
-description: "Использование уведомлений отчетов Azure Active Directory для определения подозрительных событий во время входа в систему."
+title: Уведомления отчетов Azure Active Directory
+description: Использование уведомлений отчетов Azure Active Directory для определения подозрительных событий во время входа в систему.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Уведомления отчетов Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Какие отчеты создают уведомления по электронной почте
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/05/2018
 Если щелкнуть ссылку, вы перейдете на страницу отчета на портале Azure. Чтобы получить доступ к отчету, необходимо одновременно быть:
 
 * администратором или соадминистратором подписки Azure;
-* глобальным администратором в каталоге с назначенной лицензией Active Directory Premium. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
+* глобальным администратором в каталоге с назначенной лицензией Active Directory Premium. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Можно ли отключить эти сообщения?
 Да, чтобы отключить уведомления об аномальных операциях входа на портале Azure, щелкните **Настройка** и выберите **Отключено** в разделе **Уведомления**.

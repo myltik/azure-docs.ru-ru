@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Устранение неполадок синхронизации объекта с Azure AD
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 03/29/2018
 - каждого леса Active Directory, в котором представлен пользователь (это представление может содержать объекты foreignSecurityPrincipals и Contact);
 - соединителя в Azure AD.
 
-Если у вас нет соединителя для Azure AD, то см. раздел [Атрибуты метавселенной](#MV-attributes), чтобы проверить критерии для подготовки в Azure AD.
+Если у вас нет соединителя для Azure AD, то см. раздел [Атрибуты метавселенной](#mv-attributes), чтобы проверить критерии для подготовки в Azure AD.
 
 С этой вкладки также можно перейти к [объекту пространства соединителя](#connector-space-object-properties). Выберите строку и щелкните **Свойства**.
 

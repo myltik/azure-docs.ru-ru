@@ -1,53 +1,54 @@
 ---
-title: "Передача локализованных экстренных новостей на устройства iOS с помощью центров уведомлений"
-description: "Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений о локализованных экстренных новостях (iOS)."
+title: Отправка локализованных уведомлений на устройства iOS с помощью службы "Центры уведомлений Azure" | Документация Майкрософт
+description: Узнайте, как отправлять локализованные уведомления на устройства iOS с помощью службы "Центры уведомлений Azure".
 services: notification-hubs
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: b3d74086ee233da50138aff00d8da78aa0243a75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Использование концентраторов уведомлений для вещания локализованных экстренных новостей на устройства iOS
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Руководство по отправке локализованных уведомлений на устройства iOS с помощью службы "Центры уведомлений Azure" 
 > [!div class="op_single_selector"]
 > * [C# в Магазине Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 > 
-> 
 
-## <a name="overview"></a>Обзор
-В этом разделе показано, как использовать функцию [шаблонов](notification-hubs-templates-cross-platform-push-messages.md) центров уведомлений Azure для рассылки уведомлений об экстренных новостях, локализованных для языка и устройства. В этом учебнике вы начнете с приложения iOS, созданного в учебнике [Использование концентраторов уведомлений для передачи экстренных новостей]. По завершении вы сможете регистрировать для категорий, которые вас интересуют, указывать язык уведомлений, и получать push-уведомления только для выбранных категорий на этом языке.
+В этом руководстве показано, как использовать функцию [шаблонов](notification-hubs-templates-cross-platform-push-messages.md) службы "Центры уведомлений Azure" для рассылки уведомлений об экстренных новостях, локализованных для языка и устройства. В этом руководстве вы начнете с приложения iOS, созданного в руководстве [Использование концентраторов уведомлений для передачи экстренных новостей]. По завершении вы сможете регистрироваться для категорий, которые вас интересуют, указывать язык уведомлений и получать push-уведомления только для выбранных категорий на этом языке.
 
 Этот сценарий состоит из двух частей:
 
 * приложение iOS позволяет клиентским устройствам указывать язык и подписываться на различные категории экстренных новостей;
-* сервер рассылает уведомления, используя функции **tag** и **template** Центров уведомлений Azure.
+* сервер рассылает уведомления, используя функции **тегов** и **шаблонов** службы "Центры уведомлений Azure".
 
-## <a name="prerequisites"></a>предварительным требованиям
-Вы должны предварительно выполнить учебник [Использование концентраторов уведомлений для передачи экстренных новостей] , чтобы у вас был нужный код, так как этот учебник построен непосредственно на этом коде.
+В этом руководстве вы выполните следующие задачи:
 
-Наличие Visual Studio 2012 или более поздней версии не обязательно.
+> [!div class="checklist"]
+> * обновление пользовательского интерфейса приложения;
+> * сборка приложения iOS;
+> * отправка локализованных шаблонных уведомлений из консольного приложения .NET;
+> * отправка локализованных шаблонных уведомлений с устройства.
 
-## <a name="template-concepts"></a>Основные сведения о шаблонах
-В учебнике [Использование концентраторов уведомлений для передачи экстренных новостей] вы создали приложение, которое использовало **теги** для подписки на уведомления для различных категорий новостей.
-Однако многие приложения ориентированы на несколько рынков и требуют локализации. Это означает, что само содержимое уведомлений должно быть локализовано и доставлено в правильный набор устройств.
-В этом разделе будут продемонстрированы способы использования **шаблонов** центров уведомлений, которые позволяют легко доставлять уведомления о локализованных экстренных новостях.
 
-Примечание. Один из способов отправки локализованных уведомлений — создание нескольких версий каждого тега. Например, для поддержки английского, французского и китайского нам понадобится три разных тега для мировых новостей: "world_en", "world_fr" и "world_ch". Затем необходимо отправить локализованную версию мировых новостей по каждому из этих тегов. В этом разделе мы используем шаблоны во избежание избыточного количества тегов и необходимости отправки нескольких сообщений.
+## <a name="overview"></a>Обзор
+В руководстве [Использование концентраторов уведомлений для передачи экстренных новостей] вы создали приложение, которое использовало **теги** для подписки на уведомления для различных категорий новостей. Однако многие приложения ориентированы на несколько рынков и требуют локализации. Это означает, что само содержимое уведомлений должно быть локализовано и доставлено в правильный набор устройств. В этом руководстве демонстрируются способы использования **шаблонов** службы "Центры уведомлений", которые позволяют легко доставлять локализованные уведомления об экстренных новостях.
 
-В общих чертах, шаблоны представляют собой способ указать, как конкретное устройство должно получать уведомления. Шаблон указывает точный формат полезных данных путем обращения к свойствам, которые являются частью сообщения, отправленного сервером вашего приложение. В нашем случае мы отправим независимое от языка сообщение, которое содержит все поддерживаемые языки:
+> [!NOTE]
+> Один из способов отправки локализованных уведомлений — создание нескольких версий каждого тега. Например, для поддержки английского, французского и китайского языков понадобится три разных тега для мировых новостей: world_en, world_fr и world_ch. Затем необходимо отправить локализованную версию мировых новостей по каждому из этих тегов. В этом разделе мы используем шаблоны во избежание избыточного количества тегов и необходимости отправки нескольких сообщений.
+
+В общих чертах, шаблоны представляют собой способ указать, как конкретное устройство должно получать уведомления. Шаблон указывает точный формат полезных данных путем обращения к свойствам, которые являются частью сообщения, отправленного сервером вашего приложение. В нашем случае отправляется независимое от языка сообщение, которое содержит все поддерживаемые языки.
 
     {
         "News_English": "...",
@@ -55,7 +56,7 @@ ms.lasthandoff: 12/21/2017
         "News_Mandarin": "..."
     }
 
-Затем мы убедимся, что устройство зарегистрировано с шаблоном, который ссылается на нужное свойство. Например, приложение iOS, которое требуется зарегистрировать для французских новостей, зарегистрирует следующее:
+Затем следует убедиться, что устройство зарегистрировано с использованием шаблона, который ссылается на нужное свойство. Например, приложение iOS, которое требуется зарегистрировать для французских новостей, использует следующую синтаксическую конструкцию для регистрации.
 
     {
         aps:{
@@ -63,22 +64,28 @@ ms.lasthandoff: 12/21/2017
         }
     }
 
-Шаблоны — это очень мощная функция, о них можно узнать больше в нашей статье [Шаблоны](notification-hubs-templates-cross-platform-push-messages.md) .
+Дополнительные сведения о шаблонах см. в статье [Шаблоны](notification-hubs-templates-cross-platform-push-messages.md).
 
-## <a name="the-app-user-interface"></a>Пользовательский интерфейс приложения
-Теперь изменим приложение "Экстренные новости", созданное в разделе [Использование концентраторов уведомлений для передачи экстренных новостей] для отправки локализованных экстренных новостей с помощью шаблонов.
+## <a name="prerequisites"></a>предварительным требованиям
 
-В файл MainStoryboard_iPhone.storyboard добавьте Segmented Control для трех поддерживаемых языков: английского, французского и китайского (мандаринский диалект).
+- Выполните задания руководства [Отправка push-уведомлений на определенные устройства iOS с помощью инфраструктуры "Центры уведомлений Azure"](notification-hubs-ios-xplat-segmented-apns-push-notification.md) и подготовьте код, так как он используется в текущем руководстве.
+- Наличие Visual Studio 2012 или более поздней версии не обязательно.
+
+## <a name="update-the-app-user-interface"></a>обновление пользовательского интерфейса приложения;
+В этом разделе вы измените приложение Breaking News, созданное в разделе [Использование концентраторов уведомлений для передачи экстренных новостей] для отправки локализованных экстренных новостей с помощью шаблонов.
+
+В файл MainStoryboard_iPhone.storyboard добавьте Segmented Control для трех языков: английского, французского и китайского (мандаринский диалект).
 
 ![][13]
 
-Затем обязательно добавьте IBOutlet в свой файл ViewController.h, как показано ниже:
+Затем обязательно добавьте IBOutlet в свой файл ViewController.h, как показано на рисунке ниже.
 
 ![][14]
 
-## <a name="building-the-ios-app"></a>Создание приложения iOS
-1. Добавьте в свой файл Notification.h метод *retrieveLocale* и измените методы хранения и подписки, как показано ниже.
+## <a name="build-the-ios-app"></a>Выполнение сборки приложения iOS
+1. Добавьте в файл Notification.h метод *retrieveLocale* и измените методы store и subscribe, как показано в коде ниже.
    
+    ```obj-c
         - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
    
         - (void) subscribeWithLocale:(int) locale categories:(NSSet*) categories completion:(void (^)(NSError *))completion;
@@ -87,8 +94,10 @@ ms.lasthandoff: 12/21/2017
    
         - (int) retrieveLocale;
    
+    ```
     Измените в файле Notification.m метод *storeCategoriesAndSubscribe* , добавив параметр языка и сохранив его в пользовательских параметрах по умолчанию:
    
+    ```obj-c
         - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
@@ -97,9 +106,10 @@ ms.lasthandoff: 12/21/2017
    
             [self subscribeWithLocale: locale categories:categories completion:completion];
         }
-   
+    ````
     Затем измените метод *subscribe* , чтобы включить языковой стандарт:
    
+    ```obj-c
         - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
             SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string>" notificationHubPath:@"<hub name>"];
    
@@ -120,11 +130,12 @@ ms.lasthandoff: 12/21/2017
    
             [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
         }
+       ```
+    You use the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When you register for a template, you have to provide the json template and also a name for the template (as the app might want to register different templates). Make sure to register your categories as tags, as you want to make sure to receive the notifciations for those news.
    
-    Обратите внимание на то, что мы теперь используем метод *registerTemplateWithDeviceToken*, а не *registerNativeWithDeviceToken*. При регистрации шаблона необходимо предоставить шаблон json, а также имя шаблона (поскольку для нашего приложения может возникнуть необходимость зарегистрировать различные шаблоны). Убедитесь, что категории регистрируются как теги, поскольку мы хотим получать уведомления об этих новостях.
+    Add a method to retrieve the locale from the user default settings:
    
-    Добавьте метод для извлечения языкового стандарта из пользовательских параметров по умолчанию.
-   
+    ```obj-c
         - (int) retrieveLocale {
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
    
@@ -132,12 +143,15 @@ ms.lasthandoff: 12/21/2017
    
             return locale < 0?0:locale;
         }
-2. Теперь, когда мы внесли изменения в наш класс уведомлений, необходимо убедиться в том, что наш ViewController использует новый UISegmentControl. Добавьте следующую строку в метод *viewDidLoad* , чтобы убедиться в том, что отображается языковой стандарт, выбранный в данный момент:
+    ```
+2. Теперь, когда вы внесли изменения в класс Notifications, необходимо убедиться в том, что ViewController использует новый UISegmentControl. Добавьте следующую строку в метод *viewDidLoad* , чтобы убедиться в том, что отображается языковой стандарт, выбранный в данный момент:
    
+    ```obj-c
         self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
+     ```  
+    Затем в методе *subscribe* замените свой вызов *storeCategoriesAndSubscribe* следующим кодом.
    
-    Затем в методе *subscribe* замените свой вызов *storeCategoriesAndSubscribe* следующим кодом:
-   
+    ```obj-c
         [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
             if (!error) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
@@ -148,8 +162,10 @@ ms.lasthandoff: 12/21/2017
                 NSLog(@"Error subscribing: %@", error);
             }
         }];
-3. И наконец, необходимо обновить метод *didRegisterForRemoteNotificationsWithDeviceToken* в методе AppDelegate.m, чтобы правильно обновить регистрацию при запуске приложения. Замените вызов метода уведомления *subscribe* следующим кодом:
+    ```
+3. И наконец, необходимо обновить метод *didRegisterForRemoteNotificationsWithDeviceToken* в методе AppDelegate.m, чтобы правильно обновить регистрацию при запуске приложения. Замените вызов метода уведомления *subscribe* следующим кодом.
    
+    ```obj-c
         NSSet* categories = [self.notifications retrieveCategories];
         int locale = [self.notifications retrieveLocale];
         [self.notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
@@ -157,13 +173,15 @@ ms.lasthandoff: 12/21/2017
                 NSLog(@"Error registering for notifications: %@", error);
             }
         }];
+    ```
 
-## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>(Необязательно.) Отправьте локализованные шаблонные уведомления из консольного приложения .NET.
+## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>(Необязательно.) Отправка локализованных шаблонных уведомлений из консольного приложения .NET
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 ## <a name="optional-send-localized-template-notifications-from-the-device"></a>(Необязательно.) Отправка локализованных шаблонных уведомлений с устройства
-Предположим, у вас нет доступа к Visual Studio или вы просто хотите проверить отправку локализованных шаблонных уведомлений непосредственно из приложения на устройстве.  Вы можете просто добавить параметры локализованных шаблонов в метод `SendNotificationRESTAPI` , определенный в предыдущем учебнике.
+Предположим, у вас нет доступа к Visual Studio или вы просто хотите проверить отправку локализованных шаблонных уведомлений непосредственно из приложения на устройстве. Вы можете добавить параметры локализованных шаблонов в метод `SendNotificationRESTAPI`, определенный в предыдущем руководстве.
 
+    ```obj-c
         - (void)SendNotificationRESTAPI:(NSString*)categoryTag
         {
             NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
@@ -226,15 +244,14 @@ ms.lasthandoff: 12/21/2017
 
             [dataTask resume];
         }
+    ```
 
 
+## <a name="next-steps"></a>Дополнительная информация
+В этом руководстве вы отправили локализованные уведомления на устройства iOS. Чтобы узнать, как отправлять push-уведомления конкретным пользователям приложений iOS, перейдите к следующему руководству. 
 
-
-## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения об использовании шаблонов см. по следующим ссылкам:
-
-* [Уведомление пользователей с помощью центров уведомлений: ASP.NET]
-* [Уведомление пользователей с помощью центров уведомлений: мобильные службы]
+> [!div class="nextstepaction"]
+>[Отправка push-уведомлений определенным пользователям](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
 
@@ -250,8 +267,8 @@ ms.lasthandoff: 12/21/2017
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Уведомление пользователей с помощью центров уведомлений: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Уведомление пользователей с помощью центров уведомлений: мобильные службы]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

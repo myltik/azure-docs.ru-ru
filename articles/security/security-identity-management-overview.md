@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Общие сведения о безопасности при управлении удостоверениями в Azure
 Решения Майкрософт по управлению удостоверениями и доступом помогают ИТ-службам защищать доступ к приложениям и ресурсам в корпоративных центрах обработки данных и в облаке. Они предоставляют такие дополнительные уровни проверки, как многофакторная проверка подлинности и политики условного доступа. Наблюдение за подозрительной активностью с использованием расширенных отчетов, аудита и предупреждений помогает смягчить потенциальные риски безопасности. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) предоставляет функцию единого входа для тысяч облачных приложений (SaaS), а также доступ к локальным веб-приложениям.
@@ -64,10 +64,10 @@ Azure AD расширяет локальные среды Active Directory в о
 
 Подробнее.
 
-* [Включение прокси приложения Azure AD](../active-directory/active-directory-application-proxy-enable.md)
+* [Включение прокси приложения Azure AD](../active-directory/manage-apps/application-proxy-enable.md)
 * [Публикация приложений с помощью прокси приложения Azure AD](../active-directory/active-directory-application-proxy-publish.md)
-* [Единый вход с помощью прокси приложения](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Работа с условным доступом](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Единый вход с помощью прокси приложения](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Работа с условным доступом](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Многофакторная Идентификация
 Azure Multi-factor Authentication (MFA) — это метод проверки подлинности, который требует применения более одного метода проверки и добавляет критически важный второй уровень безопасности для операций входа и транзакций пользователя. Эта служба помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Она обеспечивает строгую проверку подлинности разными способами — с помощью телефонного звонка, текстового сообщения, уведомления в мобильном приложении, кода подтверждения или OAuth-маркеров сторонних поставщиков.

@@ -1,5 +1,5 @@
 ---
-title: Обзор устойчивых функций — Azure (предварительная версия)
+title: Обзор устойчивых функций — Azure
 description: Общие сведения о расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>Обзор устойчивых функций (предварительная версия)
+# <a name="durable-functions-overview"></a>Обзор устойчивых функций
 
 *Устойчивые функции* являются расширением [Функций Azure](functions-overview.md) и [веб-заданий Azure](../app-service/web-sites-create-web-jobs.md), которое позволяет писать функции с отслеживанием состояния в безсерверной среде. Расширение автоматически управляет состоянием, создает контрольные точки и перезагружается.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2018
 * Они автоматически создают контрольную точку этапа каждый раз, когда функция ожидает выполнения. Локальное состояние не теряется при перезапуске процесса или при перезагрузке виртуальной машины.
 
 > [!NOTE]
-> Устойчивые функции находятся на этапе предварительной версии. Они представляют собой дополнительное расширение службы "Функции Azure", которое подходит не для всех приложений. В оставшейся части этой статьи предполагается, что вы хорошо знакомы с основными понятиями [Функций Azure](functions-overview.md) и сложностями, связанными с разработкой безсерверных приложений.
+> Устойчивые функции — это дополнительное расширение решения "Функции Azure", которое подходит не для всех приложений. В оставшейся части этой статьи предполагается, что вы хорошо знакомы с основными понятиями [Функций Azure](functions-overview.md) и сложностями, связанными с разработкой безсерверных приложений.
 
 В основном устойчивые функции используются для упрощения координации с отслеживанием состояния в безсерверных приложениях. В следующих разделах описываются типичные шаблоны приложений, в которых можно эффективно использовать устойчивые функции.
 
@@ -42,6 +42,8 @@ ms.lasthandoff: 03/17/2018
 ![Схема цепочки функций](media/durable-functions-overview/function-chaining.png)
 
 Устойчивые функции позволяют реализовать этот шаблон в коде кратко.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 Значения F1, F2, F3 и ​​F4 являются именами других функций в приложении-функции. Поток управления реализуется с помощью обычных принудительных конструкций программирования. То есть код выполняется сверху вниз и может включать в себя существующую семантику языка потока управления, такую ​​как условные обозначения и циклы.  Логика обработки ошибок может быть включена в блоки try/catch/finally.
 
 Параметр `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) предоставляет методы для вызова других функций по имени, передачи параметров и возврата выходных данных функции. Каждый раз, когда код вызывает `await`, платформа устойчивых функций создает *контрольные точки* выполнения текущего экземпляра функции. Если процесс или виртуальная машина перезапускается во время выполнения, экземпляр функции возобновляется из предыдущего вызова `await`. Подробнее об этом поведении перезапуска вы узнаете позже.
@@ -70,7 +85,9 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 
 ![Схема "Развертывание и объединение"](media/durable-functions-overview/fan-out-fan-in.png)
 
-При использовании обычных функций развертывание можно выполнить за счет отправки функцией нескольких сообщений в очередь. Тем не менее войти обратно является намного более сложной задачей. Вам нужно будет написать код для отслеживания, когда функции, активируемые очередью, завершаются и их выходные значения сохраняются. Расширение устойчивых функций обрабатывает этот шаблон с помощью относительно простого кода.
+При использовании обычных функций развертывание можно выполнить за счет отправки функцией нескольких сообщений в очередь. Тем не менее войти обратно является намного более сложной задачей. Вам нужно будет написать код для отслеживания момента, когда функции, активируемые очередью, завершаются и их выходные значения сохраняются. Расширение устойчивых функций обрабатывает этот шаблон с помощью относительно простого кода.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 Процесс развертывания распределяется по нескольким экземплярам функции `F2` и отслеживается с использованием динамического списка задач. Вызывается API .NET `Task.WhenAll` для ожидания завершения всех вызванных функций. Затем выходные данные функции `F2` агрегируются из списка динамических задач и передаются функции `F3`.
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Параметр [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` — это значение из выходных данных `orchestrationClient`, которое является частью расширения устойчивых функций. Он предоставляет методы для запуска, отправки событий, завершения и запросов новых или существующих экземпляров функций оркестратора. В приведенном выше примере функция, активируемая HTTP, принимает значение `functionName` из входящего URL-адреса и передает это значение в [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Затем этот API привязки возвращает ответ, содержащий заголовок `Location` и дополнительные сведения об экземпляре, которые впоследствии могут использоваться для поиска состояния запущенного экземпляра или его завершения.
+Параметр [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` — это значение из выходных данных `orchestrationClient`, которое является частью расширения устойчивых функций. Он предоставляет методы для запуска, отправки событий, завершения и запросов новых или существующих экземпляров функций оркестратора. В предыдущем примере функция, активируемая HTTP, принимает значение `functionName` из входящего URL-адреса и передает это значение в [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Затем этот API привязки возвращает ответ, содержащий заголовок `Location` и дополнительные сведения об экземпляре, которые впоследствии могут использоваться для поиска состояния запущенного экземпляра или его завершения.
 
 ## <a name="pattern-4-monitoring"></a>Шаблон 4. Мониторинг
 
@@ -162,6 +201,8 @@ public static async Task<HttpResponseMessage> Run(
 ![Схема мониторинга](media/durable-functions-overview/monitor.png)
 
 Устойчивые функции позволяют создать несколько мониторов, которые наблюдают за произвольными конечными точками, используя несколько строк кода. Работа мониторов может приостановиться, если выполнено определенное условие, или ее можно завершить с помощью параметра [DurableOrchestrationClient](durable-functions-instance-management.md). Также их интервал ожидания может измениться в зависимости от некоторых условий (например, экспоненциального откладывания). В следующем коде реализуется простой монитор.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 При получении запроса создается экземпляр оркестрации для указанного идентификатора события. Экземпляр выполняет опрос состояния, пока не выполнится условие или не произойдет выход из цикла. Для управления интервалом опроса используется устойчивый таймер. После этого можно перейти к другим задачам или завершить оркестрацию. Когда `ctx.CurrentUtcDateTime` превышает `expiryTime`, монитор останавливается.
 
 ## <a name="pattern-5-human-interaction"></a>Шаблон 5. Участие пользователя
@@ -200,6 +269,8 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ![Схема участия пользователя](media/durable-functions-overview/approval.png)
 
 Этот шаблон может быть реализован с помощью функции оркестратора. Оркестратор будет использовать [устойчивый таймер](durable-functions-timers.md), чтобы запросить одобрение и начать эскалацию в случае истечения времени ожидания. Он будет ждать [внешнее событие](durable-functions-external-events.md) в виде уведомления, созданного в результате какого-либо участия пользователя.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 Устойчивый таймер создается путем вызова `ctx.CreateTimer`. Уведомление получает `ctx.WaitForExternalEvent`. `Task.WhenAny` вызывается для того, чтобы решить, следует ли ускорить процесс (сначала время ожидания истечет) или утвердить процесс (утверждение получено до истечения времени ожидания).
+
+Внешний клиент может доставить уведомление о событии функции оркестратора, находящейся в состоянии ожидания, как через [встроенные API-интерфейсы HTTP](durable-functions-http-api.md#raise-event), так и с помощью API [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) из другой функции:
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>Технология
 
@@ -244,7 +347,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ## <a name="language-support"></a>Поддержка языков
 
-В настоящее время C# является единственным поддерживаемым языком для устойчивых функций, в частности функций оркестратора и функций действий. Со временем мы добавим поддержку всех языков, поддерживаемых Функциями Azure. Просмотрите [список проблем в репозитории GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) для Функций Azure, чтобы увидеть актуальную информацию о поддерживаемых языках.
+Сейчас для устойчивых функций поддерживаются только языки C# (решение "Функции" версии 1 и 2) и JavaScript (только для решения "Функции" версии 2). в частности функций оркестратора и функций действий. Со временем мы добавим поддержку всех языков, поддерживаемых Функциями Azure. Просмотрите [список проблем в репозитории GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) для Функций Azure, чтобы увидеть актуальную информацию о поддерживаемых языках.
 
 ## <a name="monitoring-and-diagnostics"></a>Мониторинг и диагностика.
 
@@ -275,7 +378,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ## <a name="known-issues-and-faq"></a>Известные проблемы и часто задаваемые вопросы
 
-В целом следует отслеживать все известные проблемы в списке [проблем на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Если вы столкнулись с проблемой и не можете найти ее решение на GitHub, откройте новую проблему и укажите ее подробное описание. Даже если вы хотите просто задать вопрос, вы можете открыть проблему GitHub и пометить ее как вопрос.
+Следует отслеживать все известные проблемы в списке [проблем на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Если вы столкнулись с проблемой и не можете найти ее решение на GitHub, откройте новую проблему и укажите ее подробное описание.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

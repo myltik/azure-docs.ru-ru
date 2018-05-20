@@ -4,21 +4,21 @@ description: В этой статье описывается, как созда�
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: doubeby
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Создание панелей мониторинга на портале Azure и предоставление общего доступа к ним
 Можно создать несколько панелей мониторинга и предоставить к ним общий доступ другим пользователям, у которых есть доступ к вашим подпискам Azure.  В этой статье представлены основные сведения о создании, изменении и публикации панелей мониторинга, а также об управлении доступом к ним.

@@ -1,13 +1,13 @@
 ---
-title: "Вопросы и ответы о службе приложений Azure на платформе Linux | Документация Майкрософт"
-description: "Служба приложений Azure на платформе Linux: вопросы и ответы."
-keywords: "служба приложений azure, веб-приложение, вопросы и ответы, linux, oss"
+title: Вопросы и ответы о службе приложений Azure на платформе Linux | Документация Майкрософт
+description: 'Служба приложений Azure на платформе Linux: вопросы и ответы.'
+keywords: служба приложений azure, веб-приложение, вопросы и ответы, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Служба приложений Azure на платформе Linux: вопросы и ответы
 
@@ -46,6 +46,10 @@ ms.lasthandoff: 12/08/2017
 **Можно ли использовать Secure Shell (SSH) для подключения к виртуальной машине контейнера приложения?**
 
 Да, вы можете это сделать при помощи сайта системы управления версиями (SCM).
+
+> [!NOTE] 
+> Можно также подключиться к контейнеру приложения непосредственно с локального компьютера разработки с помощью SSH, SFTP или Visual Studio Code (для динамической отладки приложений Node.js). См. дополнительные сведения об [удаленной отладке и SSH в службе приложений в Linux](https://aka.ms/linux-debug).
+>
 
 **Как создать план службы приложений Linux с помощью пакета SDK или шаблона Azure Resource Manager?**
 

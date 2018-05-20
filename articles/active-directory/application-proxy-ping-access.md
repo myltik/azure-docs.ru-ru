@@ -1,29 +1,29 @@
 ---
-title: "Аутентификация на основе заголовков с использованием PingAccess для прокси приложения Azure AD | Документация Майкрософт"
-description: "Публикация приложений с использованием PingAccess и прокси приложения для реализации аутентификации на основе заголовка."
+title: Аутентификация на основе заголовков с использованием PingAccess для прокси приложения Azure AD | Документация Майкрософт
+description: Публикация приложений с использованием PingAccess и прокси приложения для реализации аутентификации на основе заголовка.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5554260ad2b47cf4c66046c95007c95e44f188bd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Аутентификация на основе заголовка для единого входа с использованием прокси приложения и PingAccess
 
-Прокси приложения Active Directory и Azure PingAccess можно использовать для предоставления пользователям Azure Active Directory доступа к разным приложениям. PingAccess позволяет включить в [существующие предложения прокси приложения](active-directory-application-proxy-get-started.md) возможность доступа с единым входом к приложениям, в которых используется аутентификация на основе заголовков.
+Прокси приложения Active Directory и Azure PingAccess можно использовать для предоставления пользователям Azure Active Directory доступа к разным приложениям. PingAccess позволяет включить в [существующие предложения прокси приложения](manage-apps/application-proxy.md) возможность доступа с единым входом к приложениям, в которых используется аутентификация на основе заголовков.
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>Что такое PingAccess для Azure AD?
 
@@ -50,7 +50,7 @@ PingAccess для Azure Active Directory — предложение PingAccess, 
 
 Если вы уже включили прокси приложения и установили соединитель, то можете пропустить этот раздел и перейти к разделу [Добавление приложения в Azure AD с помощью прокси приложения](#add-your-app-to-azure-ad-with-application-proxy).
 
-Соединитель прокси приложения — это служба Windows Server, которая направляет трафик, поступающий от удаленных сотрудников к опубликованным приложениям. Дополнительные сведения об установке см. в статье [Включение прокси приложения на портале Azure](active-directory-application-proxy-enable.md).
+Соединитель прокси приложения — это служба Windows Server, которая направляет трафик, поступающий от удаленных сотрудников к опубликованным приложениям. Дополнительные сведения об установке см. в статье [Включение прокси приложения на портале Azure](manage-apps/application-proxy-enable.md).
 
 1. Войдите на [портал Azure](https://portal.azure.com) как глобальный администратор.
 2. Выберите **Azure Active Directory** > **Прокси приложения**.
@@ -65,7 +65,7 @@ PingAccess для Azure Active Directory — предложение PingAccess, 
 
 Существуют два действия, которые необходимо выполнить на портале Azure. Во-первых, необходимо опубликовать приложение с помощью прокси приложения. Во-вторых, об этом приложении нужно собрать некоторые сведения, которые можно использовать при работе с PingAccess.
 
-Выполните следующие действия, чтобы опубликовать приложение. Более подробное пошаговое руководство по этапам 1–8 приведено в разделе [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md).
+Выполните следующие действия, чтобы опубликовать приложение. Более подробное пошаговое руководство по этапам 1–8 приведено в разделе [Публикация приложений с помощью прокси приложения Azure AD](manage-apps/application-proxy-publish-azure-portal.md).
 
 1. Войдите на [портал Azure](https://portal.azure.com) как глобальный администратор, если вы не сделали это ранее.
 2. Выберите **Azure Active Directory** > **Корпоративные приложения**.
@@ -181,5 +181,5 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 ## <a name="next-steps"></a>Дополнительная информация
 
 - [Настройка PingAccess для Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Как прокси приложения Azure AD предоставляет единый вход?](application-proxy-sso-overview.md)
+- [Как прокси приложения Azure AD предоставляет единый вход?](manage-apps/application-proxy-single-sign-on.md)
 - [Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md)

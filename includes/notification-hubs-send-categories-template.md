@@ -1,11 +1,20 @@
-
-В этом разделе вы будете отправлять экстренные новости в виде шаблонных уведомлений с тегами из консольного приложения .NET.
-
-Если вы используете компонент "Мобильные приложения" службы приложений Microsoft Azure, см. статью [Добавление push-уведомлений в приложение Windows] (выберите платформу в верхней части страницы).
-
-Если вы хотите использовать Java или PHP, см. руководство по [использованию Центров уведомлений из Java или PHP]. Отправлять уведомления можно из любого серверного компонента с помощью [интерфейса REST Центров уведомлений].
-
-Если вы создали консольное приложение для отправки уведомлений при изучении руководства по [началу работы с Центрами уведомлений], пропустите шаги 1–3.
+---
+title: включение файла
+description: включение файла
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 03/30/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/07/2018
+---
+В этом разделе вы будете отправлять экстренные новости в виде шаблонных уведомлений с тегами из консольного приложения .NET. 
 
 1. Создайте в Visual Studio новое консольное приложение Visual C#.
    
@@ -20,33 +29,34 @@
 
 4. Откройте файл Program.cs и добавьте следующий оператор `using`:
    
-        using Microsoft.Azure.NotificationHubs;
+    ```csharp
+    using Microsoft.Azure.NotificationHubs;
+    ```
 
 5. В класс `Program` добавьте следующий метод или замените его, если он уже существует:
    
-        private static async void SendTemplateNotificationAsync()
+    ```csharp
+    private static async void SendTemplateNotificationAsync()
+    {
+        // Define the notification hub.
+        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+
+        // Create an array of breaking news categories.
+        var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
+
+        // Send the notification as a template notification. All template registrations that contain
+        // "messageParam" and the proper tags will receive the notifications.
+        // This includes APNS, GCM, WNS, and MPNS template registrations.
+
+        Dictionary<string, string> templateParams = new Dictionary<string, string>();
+
+        foreach (var category in categories)
         {
-            // Define the notification hub.
-            NotificationHubClient hub =
-                NotificationHubClient.CreateClientFromConnectionString(
-                    "<connection string with full access>", "<hub name>");
-   
-            // Create an array of breaking news categories.
-            var categories = new string[] { "World", "Politics", "Business",
-                                            "Technology", "Science", "Sports"};
-   
-            // Send the notification as a template notification. All template registrations that contain
-            // "messageParam" and the proper tags will receive the notifications.
-            // This includes APNS, GCM, WNS, and MPNS template registrations.
-   
-            Dictionary<string, string> templateParams = new Dictionary<string, string>();
-   
-            foreach (var category in categories)
-            {
-                templateParams["messageParam"] = "Breaking " + category + " News!";
-                await hub.SendTemplateNotificationAsync(templateParams, category);
-            }
-         }
+            templateParams["messageParam"] = "Breaking " + category + " News!";
+            await hub.SendTemplateNotificationAsync(templateParams, category);
+        }
+    }
+    ```   
    
     Этот код отправляет шаблонное уведомление по каждому из шести тегов в массиве строк. Использование тегов гарантирует, что устройства будут получать уведомления только зарегистрированных категорий.
 
@@ -54,8 +64,10 @@
 
 6. Добавьте следующие строки в метод **Main**:
    
-         SendTemplateNotificationAsync();
-         Console.ReadLine();
+    ```csharp
+    SendTemplateNotificationAsync();
+    Console.ReadLine();
+    ```
 
 7. Выполните сборку консольного приложения.
 
@@ -63,8 +75,8 @@
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[началу работы с Центрами уведомлений]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[интерфейса REST Центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx (REST API Центров уведомлений)
-[Добавление push-уведомлений в приложение Windows]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
-[использованию Центров уведомлений из Java или PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
+[Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [пакета NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/ (Центры уведомлений Microsoft Azure 1.0.7)

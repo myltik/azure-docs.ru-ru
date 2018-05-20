@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 53d34f373dc31befe75072733976b2e4126ff2b0
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Общие сведения о решениях идентификации Azure
 Microsoft Azure Active Directory (Azure AD) — это облачное решение по управлению идентификацией и доступом, предоставляющее службы каталогов, функции контроля удостоверений и управления доступом к приложениям. Azure AD позволяет быстро [выполнять единый вход](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) в 1000 предварительно интегрированных пользовательских и коммерческих приложений в [коллекции приложений Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Вы наверняка уже используете многие из этих приложений, например Office 365, Salesforce.com, Box, ServiceNow и Workday.
@@ -113,10 +113,10 @@ Microsoft Azure предоставляет несколько вариантов
 * [Управление паролями из любой точки мира](active-directory-passwords-update-your-own-password.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Как обеспечить безопасный удаленный доступ к локальным приложениям](active-directory-application-proxy-get-started.md)
+* [Как обеспечить безопасный удаленный доступ к локальным приложениям](manage-apps/application-proxy.md)
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 * [Что такое лицензирование Microsoft Azure Active?](active-directory-licensing-whatis-azure-portal.md)
-* [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md)
+* [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](manage-apps/cloud-app-discovery.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

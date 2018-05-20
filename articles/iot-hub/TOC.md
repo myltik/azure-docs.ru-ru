@@ -292,6 +292,7 @@
 # Ресурсы
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 ## [Центре разработчика для Центра Интернета вещей Azure](https://azure.microsoft.com/develop/iot/)
+## [Запросы данных клиентов](iot-hub-customer-data-requests.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Средство DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Средство iothub-diagnostics (диагностика Центра Интернета вещей)](https://github.com/Azure/iothub-diagnostics)

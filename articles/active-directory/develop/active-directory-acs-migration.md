@@ -3,22 +3,24 @@ title: Перенос из службы контроля доступа Azure | 
 description: Варианты перемещения приложений и служб из службы контроля доступа Azure
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Перенос из службы контроля доступа Azure
 
@@ -252,7 +254,7 @@ Possible nameIdentifiers from Access Control (via AAD or AD FS):
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) — это гибкая облачная служба идентификации, поддерживающая почти все возможности ACS (для нее доступно [общее руководство по переходу для клиентов службы контроля доступа](https://auth0.com/acs)). |
-| ![Проверка связи](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) предлагает два решения, аналогичные возможностям ACS. PingOne — это облачная служба идентификации, которая поддерживает многие из тех же функций, что и служба ACS. PingFederate представляет собой аналогичную службу идентификации в локальной среде, которая обеспечивает большую гибкость. Дополнительные сведения по их использованию см. в [этом руководстве](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html).  |
+| ![Проверка связи](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) предлагает два решения, аналогичные возможностям ACS. PingOne — это облачная служба идентификации, которая поддерживает многие из тех же функций, что и служба ACS. PingFederate представляет собой аналогичную службу идентификации в локальной среде, которая обеспечивает большую гибкость. Дополнительные сведения по их использованию см. в [этом руководстве](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
 
 Мы работаем с Ping Identity и Auth0, чтобы гарантировать, что у всех клиентов службы контроля доступа есть пути переноса своих приложений и служб, которые позволяют уменьшить объем работы, необходимый для перемещения.
 
@@ -277,7 +279,7 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 - Поддержка маркеров следующих форматов: JWT, SAML 1.1, SAML 2.0 и SWT.
 - Простые правила преобразования маркеров.
 
-Удостоверения службы в ACS обычно позволяют реализовать проверку подлинности между серверами.  
+Удостоверения службы в ACS обычно позволяют реализовать проверку подлинности между серверами. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Переход на Azure Active Directory
 
@@ -314,7 +316,7 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) — это гибкая облачная служба идентификации, поддерживающая почти все возможности ACS (для нее доступно [общее руководство по переходу для клиентов службы контроля доступа](https://auth0.com/acs)). |
-| ![Проверка связи](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) предлагает два решения, аналогичные возможностям ACS. PingOne — это облачная служба идентификации, которая поддерживает многие из тех же функций, что и служба ACS. PingFederate представляет собой аналогичную службу идентификации в локальной среде, которая обеспечивает большую гибкость. Дополнительные сведения по их использованию см. в [этом руководстве](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html).  |
+| ![Проверка связи](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) предлагает два решения, аналогичные возможностям ACS. PingOne — это облачная служба идентификации, которая поддерживает многие из тех же функций, что и служба ACS. PingFederate представляет собой аналогичную службу идентификации в локальной среде, которая обеспечивает большую гибкость. Дополнительные сведения по их использованию см. в [этом руководстве](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
 
 Мы работаем с Ping Identity и Auth0, чтобы гарантировать, что у всех клиентов службы контроля доступа есть пути переноса своих приложений и служб, которые позволяют уменьшить объем работы, необходимый для перемещения.
 

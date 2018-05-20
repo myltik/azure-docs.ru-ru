@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по MSI для Azure Active Directory
+metadata:
+  document_id: 
+  title: Документация по MSI для Azure Active Directory
+  description: Узнайте, как с помощью функции "Управляемое удостоверение службы" (MSI) выполнять безопасную аутентификацию в облачных службах Azure без необходимости хранить учетные данные в исходном коде.
+  services: active-directory
+  ms.component: msi
+  author: daveba
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/16/2018
+  ms.author: daveba
+  ms.openlocfilehash: a6262b67e3d2029765ba798705234cb6be8abbd3
+  ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/17/2018
+abstract:
+  description: Служба управляемых удостоверений службы предоставляет службам Azure автоматически управляемые удостоверения в Azure Active Directory (Azure AD). Это удостоверение можно использовать для аутентификации в любой службе, которая поддерживает аутентификацию Azure AD, не храня какие-либо учетные данные в коде.  Узнайте, как создавать и администрировать управляемые удостоверения служб, из наших кратких руководств и других материалов.
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: Узнайте, как получить доступ к API Azure Resource Manager с помощью функции "Управляемое удостоверение службы" (MSI)
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Доступ к Azure Resource Manager с виртуальной машины Azure под управлением Windows</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Доступ к Azure Resource Manager с виртуальной машины Azure под управлением Linux</a>
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: Узнайте, как обеспечить безопасный доступ к ресурсам Azure с помощью функции "Управляемое удостоверение службы" (MSI)
+  - type: paragraph
+    text: Виртуальные машины и масштабируемые наборы виртуальных машин Windows
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Доступ к Azure Data Lake Store</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Доступ к службе хранилища Azure с помощью ключа доступа</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Доступ к Azure SQL</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Доступ к Azure Key Vault</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Доступ к Azure Cosmos DB</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Доступ к Azure Resource Manager с помощью пользовательского удостоверения</a>
+  - type: paragraph
+    text: Виртуальные машины и масштабируемые наборы виртуальных машин Linux
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Доступ к Azure Data Lake Store</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Доступ к службе хранилища Azure с помощью ключа доступа</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Доступ к Azure Key Vault</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Доступ к Azure Cosmos DB</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Доступ к Azure Resource Manager с помощью пользовательского удостоверения</a>
+- title: Справочные материалы
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Командная строка
+      html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">интерфейс командной строки Azure</a></p>
+    - title: Языки
+      html: <p><a href="dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi">GO</a></p>

@@ -1,22 +1,22 @@
 ---
-title: "Квоты службы контейнеров Azure (AKS) и ее доступность в регионах"
-description: "Квоты по умолчанию и доступность в регионах для службы контейнеров Azure."
+title: Квоты службы Azure Kubernetes (AKS) и ее доступность в регионах
+description: Квоты по умолчанию и доступность в регионах для службы Azure Kubernetes (AKS).
 services: container-service
-author: david-stanford
-manager: timlt
+author: neilpeterson
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
-ms.openlocfilehash: eddfab874501fd045820d7da3c968d340fdffe93
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 04/26/2018
+ms.author: nepeters
+ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="quotas-and-region-availability-for-azure-container-service-aks"></a>Квоты и доступность в регионах для службы контейнеров Azure (AKS)
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Квоты и доступность в регионах для службы Azure Kubernetes (AKS)
 
-Все службы Azure включают несколько стандартных ограничений и квот для ресурсов и функций. В разделах ниже содержится подробная информация об ограничениях ресурсов по умолчанию для нескольких ресурсов службы AKS, а также сведения о доступности службы AKS в регионах Azure.
+Все службы Azure включают несколько стандартных ограничений и квот для ресурсов и функций. В разделах ниже содержится подробная информация об ограничениях по умолчанию для нескольких ресурсов службы Azure Kubernetes (AKS), а также сведения о доступности службы AKS в регионах Azure.
 
 ## <a name="service-quotas-and-limits"></a>Квоты и ограничения службы
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="region-availability"></a>Регионы доступности
 
-Предварительная версия службы контейнеров Azure доступна в следующих регионах:
+Предварительная версия службы Azure Kubernetes (AKS) доступна в следующих регионах:
 - Восток США
 - Западная Европа
 - Центральный регион США

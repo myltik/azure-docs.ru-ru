@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Управление экземплярами в устойчивых функциях (Функции Azure)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-В языках, отличных от .NET, также можно использовать привязку к выходным данным функции для запуска новых экземпляров. В этом случае можно применить любой объект, сериализуемый в формат JSON, с тремя полями для указанных выше параметров. Например, рассмотрим следующую функцию Node.js:
+В языках, отличных от .NET, также можно использовать привязку к выходным данным функции для запуска новых экземпляров. В этом случае можно применить любой объект, сериализуемый в формат JSON, с тремя полями для указанных выше параметров. Например, рассмотрим следующую функцию JavaScript:
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ module.exports = function (context, input) {
 * **CreatedTime.** Время создания, то есть время начала выполнения функции оркестратора.
 * **LastUpdatedTime.** Время прохождения последней контрольной точки оркестрации.
 * **Input.** Входные данные функции в формате JSON.
+* **CustomStatus.** Настраиваемое значение состояния оркестрации в формате JSON. 
 * **Output.** Выходные данные функции в формате JSON (если выполнение функции успешно завершено). Если выполнение функции оркестратора завершилась сбоем, это свойство содержит сведения об ошибке. Если функция оркестратора была прервана, это свойство содержит сведения о причине завершения (при их наличии).
 * **RuntimeStatus.** Состояние выполнения может иметь одно из следующих значений:
     * **Running.** Началось выполнение экземпляра.
@@ -99,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Сейчас отправка запросов к экземплярам поддерживается только для функций оркестратора C#.
-
 ## <a name="terminating-instances"></a>Прерывание выполнения экземпляров
 
 Запуск экземпляра оркестрации можно прервать с помощью метода [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) из класса [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Он принимает два параметра: `instanceId` и строку `reason`, которая сохраняется в журнале выполнения и в сведениях о состоянии экземпляра. Выполнение экземпляра прекращается по достижении очередной точки ожидания (`await`). Если он уже находится в состоянии ожидания (`await`), выполнение прекращается немедленно. 
@@ -116,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Сейчас завершение работы экземпляров поддерживается только для функций оркестратора C#.
 
 > [!NOTE]
 > Завершение работы экземпляр в настоящее время не распространяется. Функции действий и суборкестрации будут выполняться до конца, даже если экземпляр оркестрации, вызвавший их, будет завершен.
@@ -145,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Сейчас создание событий поддерживается только для функций оркестратора C#.
 
 > [!WARNING]
 > Если экземпляра оркестрации с указанным *идентификатором* не существует или этот экземпляр не ожидает указанное *имя события*, сообщение о событии игнорируется. Дополнительные сведения об этом поведении см. в [описании проблемы на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

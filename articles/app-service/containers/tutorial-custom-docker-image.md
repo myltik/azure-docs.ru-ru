@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: acfe066d9ad4882bcff85b7fd51dc7d3b2278235
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров".
 
@@ -42,7 +42,6 @@ ms.lasthandoff: 03/16/2018
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * [Git.](https://git-scm.com/downloads)
-* Активная [подписка Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * [Docker](https://docs.docker.com/get-started/#setup)
 * [Учетная запись Docker Hub](https://docs.docker.com/docker-id/).
 
@@ -125,6 +124,10 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 Убедитесь, что веб-приложение и контейнер функционируют правильно, перейдя по адресу `http://localhost:2222`.
 
 ![Локальное тестирование веб-приложения](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+
+> [!NOTE] 
+> Можно также подключиться к контейнеру приложения непосредственно с локального компьютера разработки с помощью SSH, SFTP или Visual Studio Code (для динамической отладки приложений Node.js). См. дополнительные сведения об [удаленной отладке и SSH в службе приложений в Linux](https://aka.ms/linux-debug).
+>
 
 ## <a name="push-the-docker-image-to-docker-hub"></a>Отправка образа Docker в Docker Hub
 

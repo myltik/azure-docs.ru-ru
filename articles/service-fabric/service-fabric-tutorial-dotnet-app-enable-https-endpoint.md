@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7361a71d9e178f47761c42cebe706246eb9d5e64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Руководство. Добавление конечной точки HTTPS к интерфейсной службе веб-API ASP.NET Core
 Это руководство представляет собой первую часть цикла.  Вы узнаете, как включить HTTPS в службе ASP.NET Core, работающей в Service Fabric. Когда вы закончите, у вас будет приложение для голосования с внешним веб-интерфейсом ASP.NET Core с поддержкой HTTPS, прослушивающего порт 443. Если вы не хотите вручную создавать приложение для голосования в статье [Руководство по развертыванию приложения в кластере Service Fabric в Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), вы можете [скачать исходный код](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/23/2018
 > * Настройка Kestrel для использования HTTPS.
 > * Настройка SSL-сертификата на узлах удаленного кластера.
 > * Предоставление службе NETWORK SERVICE доступа к закрытому ключу сертификата.
-> * Открытие порта 443 в подсистеме балансировки нагрузки Azure.
+> * Открытие порта 443 в подсистеме балансировки нагрузки Azure
 > * Развертывание приложения в удаленном кластере.
 
 Из этого цикла руководств вы узнаете, как выполнять такие задачи:
@@ -274,7 +274,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Запуск скрипта установки с правами локального администратора
 По умолчанию исполняемый файл точки входа установки службы запускается с теми же учетными данными, что и Service Fabric (обычно это учетная запись NetworkService). Для выполнения *SetCertAccess.ps1* требуются права администратора. В манифесте приложения вы можете изменить разрешения безопасности для выполнения скрипта запуска от имени локальной учетной записи администратора.  
 
-В обозревателе решений откройте *Voting/ApplicationPackageRoot/ManifestManifest.xml*. Сначала создайте раздел **Участники** и добавьте нового пользователя, например SetupAdminUser. Добавьте учетную запись SetupAdminUser в системную группу "Администраторы".
+В обозревателе решений откройте *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. Сначала создайте раздел **Участники** и добавьте нового пользователя, например SetupAdminUser. Добавьте учетную запись SetupAdminUser в системную группу "Администраторы".
 Затем в разделе VotingWebPkg **ServiceManifestImport** настройте **RunAsPolicy**, чтобы применить субъект SetupAdminUser к точке входа установки. Эта политика сообщает Service Fabric, что файл MySetup.bat должен всегда выполняться с правами администратора (от имени учетной записи SetupAdminUser). 
 
 ```xml
@@ -418,7 +418,7 @@ $slb | Set-AzureRmLoadBalancer
 > * Настройка Kestrel для использования HTTPS.
 > * Настройка SSL-сертификата на узлах удаленного кластера.
 > * Предоставление службе NETWORK SERVICE доступа к закрытому ключу сертификата.
-> * Открытие порта 443 в подсистеме балансировки нагрузки Azure.
+> * Открытие порта 443 в подсистеме балансировки нагрузки Azure
 > * Развертывание приложения в удаленном кластере. 
 
 Перейдите к следующему руководству:

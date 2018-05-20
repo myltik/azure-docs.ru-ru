@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Установка расширения устойчивых функций и примеров (Функции Azure)
 
 Расширение [устойчивых функций](durable-functions-overview.md) для Функций Azure предоставляется в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). В этой статье показано, как установить пакет и набор примеров для следующих сред разработки:
 
-* Visual Studio 2017 (рекомендуется) 
-* Visual Studio Code.
+* Visual Studio 2017 (рекомендуется для C#); 
+* Visual Studio Code (рекомендуется для JavaScript);
 * Портал Azure
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/30/2018
 
 * Установите [последнюю версию Visual Studio](https://www.visualstudio.com/downloads/) (15.3 или выше). Включите рабочую нагрузку **разработки Azure** в параметрах установки.
 
-### <a name="start-with-sample-functions"></a>Начало работы с примерами функций
+### <a name="start-with-sample-functions"></a>Начало работы с примерами функций 
 
 1. Скачайте [ZIP-файл с примерами приложений для Visual Studio](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). Ссылку на NuGet добавлять не нужно, так как она уже содержится в примере проекта.
 2. Установите и запустите [эмулятор хранилища Azure](https://docs.microsoft.com/azure/storage/storage-use-emulator) версии 5.2 или выше. Вместо этого можно также обновить файл *local.appsettings.json* строки подключения к реальному хранилищу Azure.
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/30/2018
 Следуйте тем же инструкциям, что и в начале работы с примерами, но вместо скачивания *ZIP*-файла выполните следующие действия.
 
 1. Создайте проект приложения-функции.
-2. Найдите ссылку на приведенный ниже пакет NuGet, щелкнув *Управление пакетами Nuget*, и добавьте его в проект: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (для поиска этого пакета установите флажок *Включить предварительные выпуски*).
+2. Найдите ссылку на приведенный ниже пакет NuGet, щелкнув *Управление пакетами NuGet*, и добавьте его в проект: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (для поиска этого пакета установите флажок *Включить предварительные выпуски*).
    
 ## <a name="visual-studio-code"></a>Visual Studio Code.
 
@@ -63,24 +63,51 @@ Visual Studio Code поддерживает процесс локальной р
     >[!IMPORTANT]
     > Если у вас уже есть кроссплатформенные средства Функций Azure, обновите их до последней доступной версии.
 
-*  Установите и запустите [эмулятор хранилища Azure](https://docs.microsoft.com/azure/storage/storage-use-emulator) версии 5.2 или выше. Или включите в файл *local.appsettings.json* строку подключения к реальному хранилищу Azure. 
+    >[!IMPORTANT]
+    >Для устойчивых функций в JavaScript требуется версия 2.x основных инструментов решения "Функции Azure".
+
+*  Если вы используете компьютер с Windows, установите и запустите [эмулятор службы хранилища Azure](https://docs.microsoft.com/azure/storage/storage-use-emulator) версии 5.2 или выше. Или включите в файл *local.appsettings.json* строку подключения к реальному хранилищу Azure. 
 
 
 ### <a name="start-with-sample-functions"></a>Начало работы с примерами функций
+
+#### <a name="c"></a>C#
 
 1. Клонируйте [репозиторий устойчивых функций](https://github.com/Azure/azure-functions-durable-extension.git).
 2. На локальном компьютере перейдите к [папке с примерами скриптов C#](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
 3. Установите расширение устойчивых функций Azure, выполнив следующую команду в командной строке или окне терминала:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 4. Установите расширение Twilio для службы "Функции Azure", выполнив следующую команду в командной строке или окне терминала:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
     ```
 5. Запустите эмулятор хранения Azure или добавьте в файл *local.appsettings.json* строку подключения к реальному хранилищу Azure.
+6. Откройте проект в Visual Studio Code. 
+7. Инструкции о том, как запустить пример, см. в руководстве по [созданию цепочек функций с примером последовательности приветствия](durable-functions-sequence.md). Пример можно выполнить локально или опубликовать в Azure.
+8. Запустите проект, выполнив в командной строке или окне терминала следующую команду:
+    ```bash
+    func host start
+    ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для службы "Функции" версии 2)
+
+1. Клонируйте [репозиторий устойчивых функций](https://github.com/Azure/azure-functions-durable-extension.git).
+2. На локальном компьютере перейдите к [папке с примерами скриптов JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
+3. Установите расширение устойчивых функций Azure, выполнив следующую команду в командной строке или окне терминала:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    ```
+4. Восстановите пакеты npm, выполнив следующую команду в командной строке или окне терминала:
+    
+    ```bash
+    npm install
+    ``` 
+5. Обновите файл *local.appsettings.json*, добавив реальную строку подключения к службе хранилища Azure.
 6. Откройте проект в Visual Studio Code. 
 7. Инструкции о том, как запустить пример, см. в руководстве по [созданию цепочек функций с примером последовательности приветствия](durable-functions-sequence.md). Пример можно выполнить локально или опубликовать в Azure.
 8. Запустите проект, выполнив в командной строке или окне терминала следующую команду:
@@ -94,7 +121,7 @@ Visual Studio Code поддерживает процесс локальной р
 2. Установите расширение устойчивых функций Azure, выполнив следующую команду в командной строке или окне терминала:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 3. Создайте приложение функции, выполнив команду ниже.
 
@@ -119,6 +146,9 @@ Visual Studio Code поддерживает процесс локальной р
 ## <a name="azure-portal"></a>Портал Azure
 
 При желании для разработки с использованием устойчивых функций можно использовать портал Azure.
+
+   > [!NOTE]
+   > Устойчивые функции в JavaScript пока недоступны на портале.
 
 ### <a name="create-an-orchestrator-function"></a>Создание функции оркестратора
 

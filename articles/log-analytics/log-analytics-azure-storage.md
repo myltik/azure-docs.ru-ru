@@ -1,11 +1,11 @@
 ---
-title: "Сбор журналов и метрик для служб Azure в Log Analytics | Документация Майкрософт"
-description: "Настройте диагностику ресурсов Azure для записи журналов и метрик в Log Analytics."
+title: Сбор журналов и метрик для служб Azure в Log Analytics | Документация Майкрософт
+description: Настройте диагностику ресурсов Azure для записи журналов и метрик в Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Сбор журналов и метрик для служб Azure для использования в Log Analytics
 
@@ -68,6 +68,13 @@ ms.lasthandoff: 10/11/2017
 Множество ресурсов Azure могут записывать журналы диагностики и метрики напрямую в Log Analytics. Это предпочтительный способ сбора данных для анализа. При использовании диагностики Azure данные сразу записываются в Log Analytics, поэтому их не нужно сначала записывать в хранилище.
 
 Ресурсы Azure с поддержкой [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) могут отправлять свои журналы и метрики напрямую в Log Analytics.
+
+> [!NOTE]
+> Отправка многомерных метрик в Log Analytics с помощью параметров диагностики сейчас не поддерживается. Метрики с измерениями экспортируются как преобразованные в плоскую структуру одномерные метрики, агрегированные по значениям измерений.
+>
+> *Пример.* Метрику "Входящие сообщения" в концентраторе событий можно изучить и вывести в виде диаграммы на уровне очереди. Но при экспорте с помощью параметров диагностики метрика представлена в виде всех входящих сообщений для всех очередей концентратора событий.
+>
+>
 
 * Дополнительные сведения о доступных метриках см. в разделе [Метрики, поддерживаемые Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Дополнительные сведения о доступных журналах см. в разделе [Поддерживаемые службы и схемы для журналов диагностики](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,7 +152,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 Для служб Azure, в которых не предусмотрена отправка журналов и метрик в Log Analytics напрямую, можно использовать сценарий автоматизации Azure для сбора журналов и метрик. Сценарий может отправить данные в Log Analytics с помощью [API сборщика данных](log-analytics-data-collector-api.md).
 
-В коллекции шаблонов Azure есть [примеры использования службы автоматизации Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) для сбора данных из служб и их отправки в Log Analytics.
+В коллекции шаблонов Azure есть [примеры использования службы автоматизации Azure](https://azure.microsoft.com/resources/templates/?term=OMS) для сбора данных из служб и их отправки в Log Analytics.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -185,27 +185,27 @@
 ##### [Пользовательские домены](manage-apps/application-proxy-configure-custom-domain.md)
 #### [Единый вход](manage-apps/application-proxy-single-sign-on.md)
 ##### [Единый вход с применением ограниченного делегирования Kerberos](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [Единый вход с применением заголовков](application-proxy-ping-access.md)
-##### [Единый вход с хранением паролей](application-proxy-sso-azure-portal.md)
+##### [Единый вход с применением заголовков](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [Единый вход с хранением паролей](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Основные понятия
-##### [Соединители](application-proxy-understand-connectors.md)
-##### [Безопасность](application-proxy-security-considerations.md)
-##### [Сети](application-proxy-network-topology-considerations.md)
+##### [Соединители](manage-apps/application-proxy-connectors.md)
+##### [Безопасность](manage-apps/application-proxy-security.md)
+##### [Сети](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Обновление с TMG или UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Обновление с TMG или UAG](manage-apps/application-proxy-migration.md)
 
 #### Расширенные конфигурации
-##### [Публикация в отдельных сетях](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Прокси-серверы](application-proxy-working-with-proxy-servers.md)
-##### [Приложения с поддержкой утверждений](active-directory-application-proxy-claims-aware-apps.md)
-##### [Приложения Native Client](active-directory-application-proxy-native-client.md)
-##### [Автоматическая установка](active-directory-application-proxy-silent-installation.md)
-##### [Пользовательская домашняя страница](application-proxy-office365-app-launcher.md)
-##### [Преобразование встроенных ссылок](application-proxy-link-translation.md)
+##### [Публикация в отдельных сетях](manage-apps/application-proxy-connector-groups.md)
+##### [Прокси-серверы](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Приложения с поддержкой утверждений](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Приложения Native Client](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Автоматическая установка](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Пользовательская домашняя страница](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Преобразование встроенных ссылок](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Пошаговые руководства по публикации
-##### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Удаленный рабочий стол](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

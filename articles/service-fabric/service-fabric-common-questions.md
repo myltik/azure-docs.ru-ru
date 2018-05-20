@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a112951409fc6177240b9eddc9fcd7f6c0c932cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Распространенные вопросы о Service Fabric
 
 Пользователи задают множество схожих вопросов о возможностях и использовании Service Fabric. В этом документе приведены ответы на многие из этих вопросов.
 
 ## <a name="cluster-setup-and-management"></a>Настройка кластера и управление им
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Как откатить смену сертификата кластера Service Fabric?
+
+Для отката каких-либо обновлений приложения нужно выполнить обнаружение сбоев работоспособности. После этого изменения фиксируются в кворуме кластера Service Fabric. Для зафиксированных изменений можно выполнить только накат. Чтобы восстановить кластер, возможно, инженеру потребуется повысить привилегии в службе поддержки пользователей, если введено критическое изменение сертификата, для которого не выполняется мониторинг.  При [обновлении приложения Service Fabric](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) применяются [параметры обновления приложения](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) и гарантируется нулевое время простоя.  В рекомендуемом режиме мониторинга приложение автоматически обновляется в доменах обновления, если пройдены проверки работоспособности. Если обновление службы по умолчанию завершается сбоем, выполняется автоматический откат.
+ 
+Если для кластера по-прежнему используется классическое свойство отпечатка сертификата в шаблоне Resource Manager, рекомендуем [присвоить кластеру общее имя вместо отпечатка сертификата](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn). Это позволит использовать современные функции управления секретами.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Можно ли создать кластер, охватывающий несколько регионов Azure или моих центров обработки данных?
 
@@ -89,7 +95,7 @@ ms.lasthandoff: 04/03/2018
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Можно ли зашифровать присоединенные диски данных в типе узла кластера (масштабируемый набор виртуальных машин)?
 Да.  Дополнительные сведения см. в разделе [Создание кластера Service Fabric с подключенными дисками данных](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) и статьях о шифровании дисков с помощью [PowerShell](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) и [CLI](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>Какие каталоги и процессы необходимо исключить при запуске антивирусной программы в кластере?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Какие каталоги и процессы необходимо исключить при запуске антивирусной программы в кластере?
 
 | **Исключаемые при проверке антивирусной программой каталоги** |
 | --- |

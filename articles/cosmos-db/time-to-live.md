@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Автоматическое завершение срока действия данных в коллекциях Azure Cosmos DB с использованием срока жизни
 Приложения могут создавать и хранить большие объемы данных. Некоторые из этих данных, например созданные компьютером данные о событиях, журналы и пользовательские сеансы, имеют ценность только в течение ограниченного периода времени. Когда данных становится больше, чем нужно приложению, их можно безопасно удалять, чтобы снизить потребности приложения в ресурсах хранения.
@@ -124,7 +124,7 @@ ms.lasthandoff: 04/16/2018
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>Удаление TTL из документа
 Если для документа определено свойство TTL, но необходимость в устаревании документа отпала, вы можете извлечь этот документ, удалить поле TTL и сохранить документ на сервере. Когда поле TTL удаляется из документа, для него применяется значение по умолчанию, установленное для коллекции. Чтобы документ не устаревал и к нему не применялось значение TTL для коллекции, следует установить значение TTL, равное -1.
@@ -136,7 +136,7 @@ ms.lasthandoff: 04/16/2018
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>Отключение TTL
 Чтобы полностью отключить функцию TTL для коллекции и остановить фоновый поиск устаревших документов, следует удалить свойство DefaultTTL из коллекции. Удаление этого свойства и выбор значения -1 имеют разный эффект. Выбор значения -1 означает, что новые документы, добавляемые в коллекцию, будут сохраняться в течение неограниченного времени, но это поведение можно переопределить для конкретных документов в коллекции. Удаление свойства из коллекции означает, что документы не будут устаревать, даже если для них значение по умолчанию было ранее переопределено.

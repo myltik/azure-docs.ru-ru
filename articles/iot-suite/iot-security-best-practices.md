@@ -1,12 +1,12 @@
 ---
-title: "Рекомендации по обеспечению безопасности Интернета вещей | Документация Майкрософт"
-description: "Рекомендации по обеспечению безопасности инфраструктуры IoT"
-services: 
+title: Рекомендации по обеспечению безопасности Интернета вещей | Документация Майкрософт
+description: Рекомендации по обеспечению безопасности инфраструктуры IoT
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24e7bda2-5f7b-44e3-b8af-761abd3276ff
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: e21911d0b0748c50d6f93ff267b8d0283fd74400
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f060f79ee7676909943bb0dbc4369d1cbff60b46
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 01/18/2018
 * [Архитектура безопасности "Интернета вещей"][lnk-security-architecture]
 * [Защита развертывания IoT][lnk-security-deployment]
 
-Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+Вы также можете ознакомиться с другими функциями и возможностями акселераторов решений для Интернета вещей:
 
-* [Обзор предварительно настроенного решения прогнозируемого обслуживания][lnk-predictive-overview]
-* [Часто задаваемые вопросы об IoT Suite][lnk-faq]
+* [Обзор акселератора решений для прогнозного обслуживания][lnk-predictive-overview]
+* [Часто задаваемые вопросы об акселераторах решений для Интернета вещей Azure][lnk-faq]
 
 Сведения о безопасности Центра Интернета вещей см. в статье [Управление доступом к Центру Интернета вещей][lnk-devguide-security] в руководстве для разработчиков.
 

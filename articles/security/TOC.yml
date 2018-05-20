@@ -143,24 +143,14 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: Управление персональными данными
-          href: manage-personal-data-azure.md
-        - name: 'Обнаружение, определение и классификация персональных данных'
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: Защита персональных данных в Azure
-          href: protect-personal-data-azure.md
-        - name: Защита персональных данных с помощью центра безопасности
-          href: protect-personal-data-azure-security-center.md
-        - name: Защита персональных данных с помощью шлюза приложений
-          href: protect-personal-data-network-security.md
-        - name: Защита персональных данных с помощью управления удостоверениями и доступом
-          href: protect-personal-data-identity-access-controls.md
-        - name: Защита неактивных персональных данных с помощью шифрования
-          href: protect-personal-data-at-rest.md
-        - name: Защита персональных данных при передаче с помощью шифрования
-          href: protect-personal-data-in-transit-encryption.md
-        - name: Защита персональных данных с помощью средств создания отчетов Azure
-          href: protection-personal-data-azure-reporting-tools.md
+        - name: Аналитика данных
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: Хранилище данных
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: Веб-приложение IaaS
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: Веб-приложение PaaS
+          href: ./blueprints/gdpr-paaswa-overview.md
     - name: FedRAMP
       items:
         - name: Аналитика данных

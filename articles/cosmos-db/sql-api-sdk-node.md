@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68c124bc2a89c819eb72310138ddd5d0c7739c4d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK для Node.js для API-интерфейса SQL
 > [!div class="op_single_selector"]
@@ -33,8 +33,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Поставщик ресурсов REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor — .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor — Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
@@ -61,6 +61,16 @@ ms.lasthandoff: 04/16/2018
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="1.14.4"/>1.14.4</a>
+* Исправлена документация npm.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Добавлена поддержка для повторных попыток по умолчанию при проблемах с подключением.
+* Добавлена поддержка канала изменений для коллекции операций чтения.
+* Исправлена ошибка согласованности сеансов, при которой периодически поступало сообщение о недоступности сеанса для чтения.
+* Добавлена поддержка запроса метрик.
+* Изменено максимальное число подключений агента HTTP.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Обновленная документация для Azure DB Cosmos вместо Azure DocumentDB.
@@ -193,6 +203,8 @@ ms.lasthandoff: 04/16/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |3 мая 2018 г. |--- |
+| [1.14.3](#1.14.3) |3 мая 2018 г. |--- |
 | [1.14.2](#1.14.2) |21 декабря 2017 г. |--- |
 | [1.14.1](#1.14.1) |10 ноября 2017 г. |--- |
 | [1.14.0](#1.14.0) |9 ноября 2017 г. |--- |

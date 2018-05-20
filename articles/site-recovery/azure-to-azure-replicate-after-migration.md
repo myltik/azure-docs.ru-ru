@@ -1,17 +1,17 @@
 ---
-title: "Настройка аварийного восстановления для виртуальных машин Azure после миграции в Azure с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье объясняется, как подготовить виртуальные машины для настройки аварийного восстановления между регионами Azure после миграции в Azure с помощью Site Recovery."
+title: Настройка аварийного восстановления для виртуальных машин Azure после миграции в Azure с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье объясняется, как подготовить виртуальные машины для настройки аварийного восстановления между регионами Azure после миграции в Azure с помощью Site Recovery.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Настройка аварийного восстановления виртуальных машин Azure после миграции в Azure 
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="install-the-azure-vm-agent"></a>Установка агента виртуальной машины Azure
 
-Чтобы служба Site Recovery могла реплицировать виртуальную машину, на ней должен быть установлен [агент виртуальной машины](../virtual-machines/windows/agent-user-guide.md) Azure.
+Чтобы служба Site Recovery могла реплицировать виртуальную машину, на ней должен быть установлен [агент виртуальной машины](../virtual-machines/extensions/agent-windows.md) Azure.
 
 
 1. Чтобы установить этот агент на виртуальной машине под управлением Windows, скачайте и запустите [установщик агента](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Для установки необходимы права администратора виртуальной машины.
-2. Чтобы установить агент виртуальной машины на виртуальной машине под управлением Linux, установите последнюю версию [агента Linux](../virtual-machines/linux/agent-user-guide.md). Чтобы выполнить установку, необходимо иметь права администратора. Мы рекомендуем устанавливать агент из репозитория дистрибутива. Не советуем устанавливать агент виртуальной машины Linux непосредственно из Github. 
+2. Чтобы установить агент виртуальной машины на виртуальной машине под управлением Linux, установите последнюю версию [агента Linux](../virtual-machines/extensions/agent-linux.md). Чтобы выполнить установку, необходимо иметь права администратора. Мы рекомендуем устанавливать агент из репозитория дистрибутива. Не советуем устанавливать агент виртуальной машины Linux непосредственно из Github. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Подтверждение установки на виртуальных машинах Windows

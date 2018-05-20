@@ -1,6 +1,6 @@
 ---
-title: "Использование статического IP-адреса с подсистемой балансировки нагрузки Службы контейнеров Azure (AKS)"
-description: "Использование статического IP-адреса с подсистемой балансировки нагрузки Службы контейнеров Azure (AKS)."
+title: Использование статического IP-адреса с подсистемой балансировки нагрузки Службы Azure Kubernetes (AKS)
+description: Использование статического IP-адреса с подсистемой балансировки нагрузки Службы Azure Kubernetes (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: da1fc4cd31a4b4f13da5b527e2a62e147799bfef
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Использование статического IP-адреса с подсистемой балансировки нагрузки Службы контейнеров Azure (AKS)
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Использование статического IP-адреса с подсистемой балансировки нагрузки Службы Azure Kubernetes (AKS)
 
 В некоторых случаях, например при повторном создании подсистемы балансировки нагрузки Службы контейнеров Azure (AKS) или служб Kubernetes типа LoadBalancer, общедоступный IP-адрес службы Kubernetes может изменяться. В этом документе описывается настройка статического IP-адреса для служб Kubernetes.
 
@@ -59,9 +59,11 @@ az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eas
 
  При необходимости этот адрес можно получить с помощью команды [az network public-ip list][az-network-public-ip-list].
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 Если статический IP-адрес не был создан или был создана в неправильной группе ресурсов, то произойдет сбой создания службы. Для устранения неполадок верните события создания службы, выполнив команду [kubectl describe][kubectl-describe].
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>
@@ -112,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

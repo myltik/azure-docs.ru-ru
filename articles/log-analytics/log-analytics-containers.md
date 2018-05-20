@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Решение для мониторинга контейнеров в Log Analytics
 
@@ -34,8 +34,9 @@ ms.lasthandoff: 03/28/2018
 - Service Fabric
 - Red Hat OpenShift.
 
+Если вы заинтересованы в мониторинге производительности рабочих нагрузок, развернутых в средах Kubernetes, которые размещены в Службе контейнеров Azure (AKS), см. статью [Мониторинг работоспособности службы Azure Kubernetes (AKS) (предварительная версия)](../monitoring/monitoring-container-health.md).  Решение мониторинга контейнеров не поддерживает мониторинг этой платформы.  
 
-На схеме ниже показаны связи между разными узлами контейнера и агентами с OMS.
+На схеме ниже показаны связи между разными узлами контейнера и агентами с Log Analytics.
 
 ![Схема контейнеров](./media/log-analytics-containers/containers-diagram.png)
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
-1. Решение для мониторинга контейнеров необходимо добавить в рабочую область OMS из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
+1. Решение для мониторинга контейнеров необходимо добавить в рабочую область Log Analytics из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 
 2. Установите и используйте Docker с агентом OMS. В зависимости от операционной системы и оркестратора Docker можно использовать следующие методы настройки агента.
   - Для автономных узлов:
@@ -116,15 +117,15 @@ ms.lasthandoff: 03/28/2018
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Установка и настройка узлов контейнера Linux
 
-После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Сначала необходимо получить идентификатор и ключ рабочей области OMS, которые можно найти на портале Azure. В рабочей области щелкните **Быстрый запуск** > **Компьютеры**, чтобы просмотреть **идентификатор рабочей области** и **первичный ключ**.  Скопируйте их и вставьте в любой удобный для вас редактор.
+После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Сначала необходимо получить идентификатор и ключ рабочей области Log Analytics, которые можно найти на портале Azure. В рабочей области щелкните **Быстрый запуск** > **Компьютеры**, чтобы просмотреть **идентификатор рабочей области** и **первичный ключ**.  Скопируйте их и вставьте в любой удобный для вас редактор.
 
 **Для всех узлов контейнера Linux, за исключением CoreOS:**
 
-- Дополнительные сведения и инструкции по установке агента OMS для Linux см. в статье [Подключение компьютеров Linux к Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- Дополнительные сведения и инструкции по установке агента OMS для Linux см. в статье [Сбор данных с компьютеров в среде с помощью Log Analytics](log-analytics-concept-hybrid.md).
 
 **Для всех узлов контейнера Linux, включая CoreOS:**
 
-Запустите контейнер OMS, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
+Запустите контейнер, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **Для всех узлов контейнера Linux Azure для государственных организаций, включая CoreOS:**
 
-Запустите контейнер OMS, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
+Запустите контейнер, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -144,7 +145,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Настройка агента OMS для Docker Swarm
 
-Агент OMS можно запускать в качестве глобальной службы в Docker Swarm. Используйте приведенные ниже сведения для создания службы агента OMS. Необходимо вставить свой идентификатор рабочей области OMS и первичный ключ.
+Агент OMS можно запускать в качестве глобальной службы в Docker Swarm. Используйте приведенные ниже сведения для создания службы агента OMS. Необходимо будет предоставить идентификатор и первичный ключ рабочей области Log Analytics.
 
 - Выполните следующую команду на главном узле.
 
@@ -190,8 +191,8 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 В этом разделе описаны действия, которые необходимо выполнить для установки агента OMS как набора daemon-set для OpenShift.  
 
-1. Войдите на главный узел OpenShift и скопируйте YAML-файл [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) с портала GitHub на свой главный узел. При этом замените значения идентификатора рабочей области OMS и первичного ключа своими значениями.
-2. Выполните следующие команды, чтобы создать проект для OMS и настроить учетную запись пользователя.
+1. Войдите на главный узел OpenShift и скопируйте YAML-файл [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) с портала GitHub на свой главный узел. При этом замените значения идентификатора рабочей области Log Analytics и первичного ключа своими значениями.
+2. Выполните следующие команды, чтобы создать проект для Log Analytics и настроить учетную запись пользователя.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     No events.  
     ```
 
-Чтобы применить секреты для защиты идентификатора рабочей области OMS и первичного ключа, когда используется YAML-файл набора daemon-set агента OMS, выполните следующие действия.
+Чтобы применить секреты для защиты идентификатора рабочей области Log Analytics и первичного ключа, когда используется YAML-файл набора daemon-set агента OMS, выполните следующие действия.
 
-1. Войдите на главный узел OpenShift и скопируйте YAML-файл [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) и сценарий создания секретов [ocp secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) с портала GitHub.  Этот сценарий создаст YAML-файл секретов для идентификатора рабочей области OMS и первичного ключа, чтобы защитить ваши секретные сведения.  
-2. Выполните следующие команды, чтобы создать проект для OMS и настроить учетную запись пользователя. Сценарий создания секретов запросит ввести идентификатор рабочей области OMS <WSID> и первичный ключ <KEY>, после чего создаст файл ocp-secret.yaml.  
+1. Войдите на главный узел OpenShift и скопируйте YAML-файл [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) и сценарий создания секретов [ocp secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) с портала GitHub.  Этот сценарий создаст YAML-файл секретов для идентификатора рабочей области Log Analytics и первичного ключа, чтобы защитить ваши секретные сведения.  
+2. Выполните следующие команды, чтобы создать проект для Log Analytics и настроить учетную запись пользователя. Сценарий создания секретов запросит ввести идентификатор рабочей области Log Analytics <WSID> и первичный ключ <KEY>, после чего создаст файл ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     1. Скопируйте сценарий и файл шаблона секретов в один и тот же каталог.
         - Сценарий создания секретов — secret-gen.sh
         - Шаблон секретов — secret-template.yaml
-    2. Выполните сценарий, как показано в следующем примере. Сценарий запрашивает идентификатор рабочей области OMS и первичный ключ, а после их ввода создает YAML-файл секретов, который можно запустить.   
+    2. Выполните сценарий, как показано в следующем примере. Сценарий запрашивает идентификатор рабочей области Log Analytics и первичный ключ, а после их ввода создает YAML-файл секретов, который можно запустить.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -561,7 +562,7 @@ KEY:    88 bytes
 
 
 ## <a name="monitor-containers"></a>Мониторинг контейнеров
-Включив решение на портале OMS, вы увидите плитку **Контейнеры**, на которой отображаются сводные сведения об узлах контейнеров и контейнерах, запущенных на узлах.
+Включив решение на портале Log Analytics, вы увидите плитку **Контейнеры**, на которой отображаются сводные сведения об узлах контейнеров и контейнерах, запущенных на узлах.
 
 ![Плитка "Контейнеры"](./media/log-analytics-containers/containers-title.png)
 

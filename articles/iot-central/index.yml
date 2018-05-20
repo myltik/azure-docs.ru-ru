@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Azure IoT Central (предварительная версия)
+metadata:
+  title: Документация по Azure IoT Central (предварительная версия). Руководства и справочник по API | Документация Майкрософт
+  description: Azure IoT Central — это полностью управляемое SaaS-решение (модели "программное обеспечение как услуга"), которое облегчает подключение и мониторинг ресурсов Интернета вещей, а также управление ими в любом масштабе. Azure IoT Central упрощает начальную настройку вашего решения Интернета вещей и снижает расходы на управление, эксплуатационные расходы и дополнительные временные затраты для стандартных проектов Интернета вещей. Узнайте, как создать, настроить, администрировать и использовать приложение Azure IoT Central, из наших кратких руководств и других материалов.
+  services: iot-central
+  author: czeumault
+  manager: carolz
+  ms.prod: microsoft-iot-central
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: carolz
+  ms.openlocfilehash: 3e443a4ba2de76971ef856b67fdeb1f8836f68e1
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 05/16/2018
+abstract:
+  description: Azure IoT Central — это полностью управляемое SaaS-решение (модели "программное обеспечение как услуга"), которое облегчает подключение и мониторинг ресурсов Интернета вещей, а также управление ими в любом масштабе. Azure IoT Central упрощает начальную настройку вашего решения Интернета вещей и снижает расходы на управление, эксплуатационные расходы и дополнительные временные затраты для стандартных проектов Интернета вещей. Узнайте, как создать, настроить, администрировать и использовать приложение Azure IoT Central, из наших кратких руководств и других материалов.
+sections:
+- title: 5-минутные руководства по началу работы
+  items:
+  - type: paragraph
+    text: Узнайте, как <a href="quick-deploy-iot-central">создать приложение Azure IoT Central</a>.
+- title: Пошаговые руководства
+  items:
+  - type: paragraph
+    text: Узнайте, как настроить и использовать приложение Azure IoT Central.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-define-device-type">Определение нового типа устройства</a>
+    - html: <a href="tutorial-configure-rules">Настройка правил</a>
+    - html: <a href="tutorial-customize-operator">Настройка представления оператора</a>
+    - html: <a href="tutorial-monitor-devices">Мониторинг устройств</a>
+    - html: <a href="tutorial-add-device">Добавление реального устройства</a>

@@ -1,7 +1,7 @@
 ---
-title: "Поведение имитированного устройства в решении удаленного мониторинга в Azure | Документация Майкрософт"
-description: "В этой статье описывается, как определить поведение имитированного устройства в решении удаленного мониторинга с помощью JavaScript."
-services: 
+title: Поведение имитированного устройства в решении удаленного мониторинга в Azure | Документация Майкрософт
+description: В этой статье описывается, как определить поведение имитированного устройства в решении удаленного мониторинга с помощью JavaScript.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>Реализация поведения модели устройства
 
@@ -53,10 +53,10 @@ ms.lasthandoff: 02/09/2018
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/09/2018
 Ниже показана структура стандартной функции `main`:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,7 +192,7 @@ function main(context, previousState) {
 Ниже показана структура стандартной функции `main`:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -205,15 +205,18 @@ function main(context, previousState) {
 
 В параметре `state` содержится состояние устройства, поддерживаемое службой моделирования устройств.
 
-Есть две глобальные функции, которые можно использовать для реализации поведения метода:
+Параметр `properties` содержит свойства устройства, записанные как сообщаемые свойства в двойнике устройства Центра Интернета вещей.
+
+Есть три глобальные функции, которые можно использовать для реализации поведения метода:
 
 - `updateState`, чтобы обновить состояние, которое служба моделирования хранит в памяти.
+- `updateProperty`, чтобы обновить отдельное свойство устройства.
 - `sleep`, чтобы приостановить выполнение для моделирования длительной задачи.
 
 В примере ниже приводится сокращенная версия сценария **IncreasePressure-method.js**, используемая имитированными устройствами Chiller:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

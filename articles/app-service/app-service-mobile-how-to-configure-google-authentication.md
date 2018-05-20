@@ -1,24 +1,24 @@
 ---
-title: "Настройка проверки подлинности Google для приложения служб приложений"
-description: "Настройка проверки подлинности Google для приложения служб приложений."
+title: Настройка проверки подлинности Google для приложения служб приложений
+description: Настройка проверки подлинности Google для приложения служб приложений.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: mattchenderson
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a174913446c0a1d5e3e3b01123db8b40bfd172c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Как настроить приложение службы приложений для использования имени для входа Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,11 +30,13 @@ ms.lasthandoff: 10/11/2017
 ## <a name="register"> </a>Регистрация приложения с помощью Google
 1. Войдите на [портал Azure]и перейдите к своему приложению. Скопируйте **URL-адрес**, который вы будете использовать позже для настройки приложения Google.
 2. Перейдите на веб-сайт [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), войдите с помощью учетных данных Google, выберите команду **Создать проект**, укажите имя проекта в поле **Название проекта**, а затем нажмите кнопку **Создать**.
-3. В разделе **Social APIs** (Интерфейсы API для соцсетей) щелкните **Google + API**, а затем — **Включить**.
-4. В области навигации слева выберите **Учетные данные** > **OAuth consent screen** (Экран согласия OAuth), выберите свой **адрес электронной почты**, введите **имя продукта** и щелкните **Сохранить**.
-5. На вкладке **Учетные данные** щелкните **Create credentials** (Создать учетные данные) > **Идентификатор клиента OAuth**, а затем выберите **Веб-приложение**.
-6. Вставьте скопированный ранее **URL-адрес** службы приложений в поле **Authorized JavaScript Origins** (Разрешенные источники JavaScript) и вставьте универсальный код ресурса (URI) перенаправления в поле **Authorized Redirect URI** (Разрешенный код URI перенаправления). Универсальный код ресурса (URI) перенаправления — это URL-адрес приложения, дополненный путем */.auth/login/google/callback*. Например, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Убедитесь, что используете схему HTTPS. Затем щелкните **Создать**.
-7. На следующем экране запишите идентификатор клиента и секрет клиента.
+3. После создания проекта выберите его. На панели мониторинга проекта выберите **Go to APIs overview** (Перейти к обзору API-интерфейсов).
+4. Выберите **Enable APIs and services** (Включить API-интерфейсы и службы). Выполните поиск **API Google+** и выберите его. Затем щелкните **Включить**.
+6. В области навигации слева выберите **Учетные данные** > **OAuth consent screen** (Экран согласия OAuth), выберите свой **адрес электронной почты**, введите **имя продукта** и щелкните **Сохранить**.
+7. На вкладке **Учетные данные** щелкните **Create credentials (Создать учетные данные)** > **OAuth client ID (Идентификатор клиента OAuth)**. Щелкните **Configure consent screen** (Настроить экран согласия) и укажите **название продукта**. Затем щелкните **Сохранить**
+8. На экране для создания идентификатора клиента выберите **Веб-приложение**.
+9. Вставьте скопированный ранее **URL-адрес** службы приложений в поле **Authorized JavaScript Origins** (Разрешенные источники JavaScript) и вставьте универсальный код ресурса (URI) перенаправления в поле **Authorized Redirect URI** (Разрешенный код URI перенаправления). Универсальный код ресурса (URI) перенаправления — это URL-адрес приложения, дополненный путем */.auth/login/google/callback*. Например, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Убедитесь, что используете схему HTTPS. Затем щелкните **Создать**.
+10. На следующем экране запишите идентификатор клиента и секрет клиента.
 
     > [!IMPORTANT]
     > Секрет клиента — это важные учетные данные безопасности. Не сообщайте этот секрет никому и не раскрывайте его в клиентском приложении.

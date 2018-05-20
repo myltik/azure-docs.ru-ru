@@ -8,14 +8,14 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1e04b12241121d3894e2d71df423bae4f000a60d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Создание управляемого экземпляра базы данных SQL Azure на портале Azure
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/19/2018
    |**Подписка**|Ваша подписка|Дополнительные сведения о подписках см. [здесь](https://account.windowsazure.com/Subscriptions).|
    |**Группа ресурсов**|Выберите группу ресурсов, созданную на предыдущем шаге.|Сведения о допустимых именах см. в статье [Соглашения об именовании](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Местоположение.**|Выберите расположение, указанное в процедуре выше.| Дополнительные сведения о регионах Azure см. [здесь](https://azure.microsoft.com/regions/).|
-   |**Отключение распространения маршрутов BCP**|Отключено||
+   |**Отключение распространения маршрутов BCP**|Включено||
    ||||
 
    ![форма создания таблицы маршрутов](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
@@ -216,7 +216,7 @@ ms.lasthandoff: 04/19/2018
    |**Имя**|Любое допустимое имя|Сведения о допустимых именах см. в статье [Соглашения об именовании](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Диапазон адресов (блок CIDR)**|Любой допустимый диапазон адресов в виртуальной сети (используется по умолчанию).||
    |**группа безопасности сети**.|None||
-   |**Таблица маршрутов**|Нет||
+   |**Таблица маршрутов**|None||
    |**Конечные точки службы**|None||
 
    ![сведения о подсети виртуальной машины](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)

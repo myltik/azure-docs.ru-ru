@@ -1,25 +1,25 @@
 ---
-title: Настройка входящего трафика с помощью кластера Службы контейнеров Azure (AKS)
-description: Установка и настройка контроллера входящего трафика NGINX в кластере Службы контейнеров Azure (AKS).
+title: Настройка входящего трафика с помощью кластера Службы Azure Kubernetes (AKS)
+description: Установка и настройка контроллера входящего трафика NGINX в кластере Службы Azure Kubernetes (AKS).
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d56b27a040420d049f567ac0de9289b1e72f3ea9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9246fccb1713f69d2c6c655b09f0daf51055596f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>Входящий трафик HTTPS в Службе контейнеров Azure (AKS)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Входящий трафик HTTPS в Службе Azure Kubernetes (AKS)
 
 Контроллер входящего трафика является программным компонентом, предоставляющим для служб Kubernetes обратный прокси-сервер, настраиваемую маршрутизацию трафика и обработку подключений TLS для последующей передачи. Ресурсы входящего трафика Kubernetes используются при настройке правил входящего трафика и маршрутов для отдельных служб Kubernetes. Применяя контроллер и правила входящего трафика, для маршрутизации трафика в несколько служб в кластере Kubernetes можно использовать один внешний адрес.
 
-В этом документе описывается пример развертывания [контроллера входящего трафика NGINX][nginx-ingress] в кластере Службы контейнеров Azure (AKS). Кроме того, проект [KUBE-LEGO][kube-lego] используется для автоматического создания и настройки сертификатов [Let's Encrypt][lets-encrypt]. Наконец, в кластере AKS запущено несколько приложений, каждое из которых доступно по одному адресу.
+В этом документе описывается пример развертывания [контроллера входящего трафика NGINX][nginx-ingress] в кластере Службы Azure Kubernetes (AKS). Кроме того, проект [KUBE-LEGO][kube-lego] используется для автоматического создания и настройки сертификатов [Let's Encrypt][lets-encrypt]. Наконец, в кластере AKS запущено несколько приложений, каждое из которых доступно по одному адресу.
 
 ## <a name="prerequisite"></a>Предварительные требования
 
@@ -46,9 +46,9 @@ helm install stable/nginx-ingress --namespace kube-system
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Так как правила входящего трафика не созданы, при переходе к общедоступному IP-адресу по умолчанию будет отображаться страница с ошибкой "404 — страница не найдена" для контролеров входящего трафика NGINX.
@@ -63,7 +63,7 @@ eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none> 
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
@@ -182,7 +182,7 @@ kubectl apply -f hello-world-ingress.yaml
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

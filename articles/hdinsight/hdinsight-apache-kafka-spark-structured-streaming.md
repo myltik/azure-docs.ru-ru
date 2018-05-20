@@ -1,6 +1,6 @@
 ---
-title: Структурированная потоковая передача Apache Spark с Kafka в Azure HDInsight | Документы Майкрософт
-description: Узнайте об использовании потоковой передачи Apache Spark (DStream) для двунаправленного обмена данными с Apache Kafka. В этом примере показано, как выполнить потоковую передачу данных, используя записную книжку Jupyter из Spark в HDInsight.
+title: Руководство. Структурированная потоковая передача Apache Spark с Kafka в Azure HDInsight | Документация Майкрософт
+description: Узнайте об использовании потоковой передачи Apache Spark для двунаправленного обмена данными с Apache Kafka. В этом руководстве показано, как выполнить потоковую передачу данных, используя записную книжку Jupyter из Spark в HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -10,28 +10,107 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 49c13bbea537d7de60ecf509bc28675191c0b34d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Использование структурированной потоковой передачи Spark с Kafka в HDInsight
+# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Руководство. Использование структурированной потоковой передачи Spark с Kafka в HDInsight
 
-Узнайте, как использовать структурированную потоковую передачу Spark для чтения данных из Apache Kafka в Azure HDInsight.
+В этом руководстве демонстрируется, как использовать структурированную потоковую передачу Spark, чтобы считывать и записывать данные с использованием Apache Kafka в Azure HDInsight.
 
-Структурированная потоковая передача Spark — это механизм обработки потока, встроенный в Spark SQL. Он позволяет выражать потоковые вычисления так же, как пакетные вычисления статических данных. Дополнительные сведения о структурированной потоковой передаче см. в разделе [Руководство по программированию структурированной потоковой передачи [альфа-версия]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) на Apache.org.
+Структурированная потоковая передача Spark — это механизм обработки потока, встроенный в Spark SQL. Он позволяет выражать потоковые вычисления так же, как пакетные вычисления статических данных. 
+
+Из этого руководства вы узнаете, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Структурированная потоковая передача с помощью Kafka
+> * Создание кластеров Kafka и Spark.
+> * Передача записной книжки в Spark.
+> * Использование записной книжки
+> * Очистка ресурсов
+
+Выполнив инструкции, не забудьте удалить кластеры, чтобы избежать ненужных расходов.
+
+## <a name="prerequisites"></a>предварительным требованиям
+
+* Опыт работы с записными книжками Jupyter с Spark в HDInsight. Дополнительные сведения см. в статье [Выполнение интерактивных запросов в кластерах Spark в HDInsight](spark/apache-spark-load-data-run-query.md).
+
+* Опыт работы с языком [Scala](https://www.scala-lang.org/). Код, используемый в этом руководстве, написан на языке Scala.
+
+* Опыт создания разделов Kafka. Дополнительные сведения см. в документе [Приступая к работе с Apache Kafka в HDInsight](kafka/apache-kafka-get-started.md).
 
 > [!IMPORTANT]
-> В этом примере используется Spark 2.2 в HDInsight 3.6.
+> Чтобы выполнить действия, описанные в этом документе, необходимо иметь группу ресурсов Azure, которая содержит кластеры Spark и Kafka в HDInsight. Оба этих кластера находятся в виртуальной сети Azure, что позволяет кластеру Spark напрямую обмениваться данными с кластером Kafka.
+> 
+> Для удобства в этом документе есть ссылка на шаблон, с помощью которого можно создать все необходимые ресурсы Azure. 
 >
-> Вы узнаете, как создать группу ресурсов Azure, которая содержит кластеры Spark и Kafka в HDInsight. Оба этих кластера находятся в виртуальной сети Azure, что позволяет кластеру Spark напрямую обмениваться данными с кластером Kafka.
->
-> Выполнив инструкции, не забудьте удалить кластеры, чтобы избежать ненужных расходов.
+> Дополнительные сведения об использовании HDInsight в виртуальной сети см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
+
+## <a name="structured-streaming-with-kafka"></a>Структурированная потоковая передача с помощью Kafka
+
+Структурированная потоковая передача Spark — это механизм обработки потока, встроенный в ядро Spark SQL. При использовании структурированной потоковой передачи можно писать запросы потоковой передачи так же, как и пакетные запросы.
+
+В следующих фрагментах кода демонстрируется чтение данных из Kafka и их сохранение в файле. Первый фрагмент кода — это пакетная операция, а второй — операция потоковой передачи.
+
+```scala
+// Read a batch from Kafka
+val kafkaDF = spark.read.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data and write to file
+kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .write
+                .format("parquet")
+                .option("path","/example/batchtripdata")
+                .option("checkpointLocation", "/batchcheckpoint")
+                .save()
+```
+
+```scala
+// Stream from Kafka
+val kafkaStreamDF = spark.readStream.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data from the stream and write to file
+kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .writeStream
+                .format("parquet")
+                .option("path","/example/streamingtripdata")
+                .option("checkpointLocation", "/streamcheckpoint")
+                .start.awaitTermination(30000)
+```
+
+В обоих фрагментах кода данные считываются из Kafka и записываются в файл. Ниже показаны различия в примерах.
+
+| Пакетная служба Azure | Потоковая передача |
+| --- | --- |
+| `read` | `readStream` |
+| `write` | `writeStream` |
+| `save` | `start` |
+
+Операция потоковой передачи также использует `awaitTermination(30000)`, что останавливает потоковую передачу спустя 30 000 мс. 
+
+Чтобы использовать структурированную потоковую передачу с помощью Kafka, ваш проект должен иметь зависимость в пакете `org.apache.spark : spark-sql-kafka-0-10_2.11`. Версия этого пакета должна соответствовать версии Spark в HDInsight. Для Spark версии 2.2.0 (доступна в HDInsight 3.6) можно найти сведения о зависимости для разных типов проекта по адресу [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
+
+Для записной книжки Jupyter, предоставленной в этом руководстве, следующие ячейки передают зависимость пакета:
+
+```
+%%configure -f
+{
+    "conf": {
+        "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
+        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+    }
+}
+```
 
 ## <a name="create-the-clusters"></a>Создание кластеров
 
@@ -44,7 +123,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 > [!NOTE]
 > Служба Kafka ограничена обменом данными в пределах виртуальной сети. Другие службы в кластере, например SSH и Ambari, могут быть доступны через Интернет. Дополнительные сведения об общих портах, доступных в HDInsight, см. в статье [Порты и универсальные коды ресурсов (URI), используемые кластерами HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Для удобства в приведенных ниже действиях для создания кластеров Kafka и Spark в виртуальной сети используется шаблон Azure Resource Manager.
+Чтобы создать виртуальную сеть Azure, а затем создать кластеры Kafka и Spark в ее пределах, выполните такие действия:
 
 1. Нажмите эту кнопку, чтобы войти в Azure и открыть шаблон на портале Azure.
     
@@ -59,7 +138,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
     * виртуальную сеть Azure, содержащую кластеры HDInsight.
 
     > [!IMPORTANT]
-    > Записная книжка структурированной потоковой передачи, используемая в этом примере, требует Spark в HDInsight 3.6. Если используется более ранняя версия Spark в HDInsight, возникнут ошибки при использовании этой записной книжки.
+    > Записная книжка структурированной потоковой передачи, используемая в этом руководстве, требует Spark 2.2.0 в HDInsight 3.6. Если используется более ранняя версия Spark в HDInsight, возникнут ошибки при использовании этой записной книжки.
 
 2. Заполните раздел **Настроенный шаблон**, используя следующие сведения:
 
@@ -68,8 +147,8 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
     | Подписка | Ваша подписка Azure. |
     | Группа ресурсов | Группа ресурсов, в которой содержатся ресурсы. |
     | Расположение | Регион Azure, в котором создаются ресурсы. |
-    | Spark Cluster Name (Имя кластера Spark) | Имя кластера Spark. |
-    | Kafka Cluster Name (Имя кластера Kafka) | Имя кластера Kafka. |
+    | Spark Cluster Name (Имя кластера Spark) | Имя кластера Spark. Первые шесть символов должны отличаться от имени кластера Kafka. |
+    | Kafka Cluster Name (Имя кластера Kafka) | Имя кластера Kafka. Первые шесть символов должны отличаться от имени кластера Spark. |
     | Имя пользователя для входа в кластер | Имя администратора кластеров. |
     | Пароль для входа в кластер | Пароль администратора кластеров. |
     | Имя пользователя SSH | Пользователь SSH, который создается для кластеров. |
@@ -77,18 +156,18 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
    
     ![Снимок экрана с настроенным шаблоном](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
+3. Прочтите **условия использования** и установите флажок **Я принимаю указанные выше условия**.
+
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. 
 
 > [!NOTE]
 > Создание кластеров может занять до 20 минут.
 
-## <a name="get-the-notebook"></a>Получение записной книжки
-
-Код для примера, описанного в этом документе: [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
-
-## <a name="upload-the-notebooks"></a>Отправка записных книжек
+## <a name="upload-the-notebook"></a>Передача записной книжки
 
 Чтобы отправить записные книжки из проекта в кластер Spark в HDInsight, выполните следующие действия:
+
+1. Скачайте проект по этому адресу [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
 1. В веб-браузере подключитесь к записной книжке Jupyter в вашем кластере Spark. В следующем URL-адресе замените `CLUSTERNAME` именем вашего кластера __Spark__:
 
@@ -128,7 +207,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Теперь, когда вы узнали, как использовать структурированную потоковую передачу Spark, перейдите к следующим документам для углубленного изучения работы со Spark и Kafka.
+Из этого руководства вы узнали, как использовать структурированную потоковую передачу Spark для записи и чтения данных из Kafka в HDInsight. Воспользуйтесь следующей ссылкой, чтобы узнать, как совместно использовать Storm и Kafka.
 
-* [Как использовать потоковую передачу Spark (DStream) с Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Начало работы с записной книжкой Jupyter и Spark в HDInsight](spark/apache-spark-jupyter-spark-sql.md).
+> [!div class="nextstepaction"]
+> [Руководство. Использование Apache Storm с Kafka в HDInsight](hdinsight-apache-storm-with-kafka.md)

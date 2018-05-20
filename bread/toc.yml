@@ -336,9 +336,12 @@
         - name: Служба подготовки устройств к добавлению в Центр Интернета вещей
           tocHref: /azure/iot-dps/
           topicHref: /azure/iot-dps/
-        - name: Акселераторы решений Интернета вещей
+        - name: Акселераторы решений для Интернета вещей
           tocHref: /azure/iot-suite/
           topicHref: /azure/iot-suite/
+        - name: IoT Central
+          tocHref: /azure/iot-central/
+          topicHref: /azure/iot-central/
         - name: Карты
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/

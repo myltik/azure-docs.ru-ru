@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: сквозная проверка подлинности — часто задаваемые вопросы | Документы Майкрософт"
-description: "Ответы на часто задаваемые вопросы о сквозной аутентификации Azure Active Directory."
+title: 'Azure AD Connect: сквозная проверка подлинности — часто задаваемые вопросы | Документы Майкрософт'
+description: Ответы на часто задаваемые вопросы о сквозной аутентификации Azure Active Directory.
 services: active-directory
-keywords: "сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход"
-documentationcenter: 
+keywords: сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 7a817092581ef0be0b6be063282f7484c46ff094
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Сквозная проверка подлинности Azure Active: ответы на часто задаваемые вопросы
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/05/2018
 
 Нет. Нет, сквозная аутентификация _не_ выполняет автоматический переход на синхронизацию хэшей паролей. Она является резервным действием для [сценариев, не поддерживаемых сквозной проверкой подлинности](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Чтобы избежать ошибок входа пользователей, следует настроить [высокий уровень доступности](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) сквозной проверки подлинности.
 
-## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Можно ли установить соединитель [прокси приложения Azure AD](../active-directory-application-proxy-get-started.md) на одном сервере с агентом сквозной проверки подлинности?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Можно ли установить соединитель [прокси приложения Azure AD](../manage-apps/application-proxy.md) на одном сервере с агентом сквозной проверки подлинности?
 
 Да. Эта конфигурация поддерживается в переработанной версии агента сквозной аутентификации (версия 1.5.193.0 или более поздняя).
 

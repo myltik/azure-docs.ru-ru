@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Передача файлов в учетную запись служб мультимедиа с помощью REST
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ ms.lasthandoff: 05/07/2018
     ```
 4. В левой части окна **Postman** щелкните **1. Get AAD Auth token** (Получить маркер безопасности AAD) -> **Get Azure AD Token for Service Principal** (Получить маркер безопасности Azure AD для субъекта-службы).
 
-    Часть URL-адреса заполняется значением из переменной среды **AzureADSTSEndpoint** (которое мы установили ранее в этом учебнике).
-    
-5. Нажмите кнопку **Отправить**.
+    Часть URL-адреса заполняется переменной среды **AzureADSTSEndpoint** (ранее в этом руководстве вы задали значения [переменных среды](#configure-the-environment), поддерживающих [коллекции](#configure-the-collection)).
 
     ![Отправить файл.](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. Нажмите кнопку **Отправить**.
 
     Как видите, ответ содержит параметр "access_token". Скрипт test принимает это значение и присваивает его переменной среды **AccessToken** (как описано выше). Изучив значения переменных среды, вы заметите, что теперь в этой переменной сохранен маркер безопасности (маркер носителя), который будет применяться в остальных операциях. 
 

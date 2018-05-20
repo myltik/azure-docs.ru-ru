@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6ab1b2357e88525f4730b5ad550cfcf3acbb906e
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Использование Azure PowerShell для создания субъекта-службы с сертификатом
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/19/2018
 > Вместо создания субъекта-службы вы можете применить управляемое удостоверение службы (MSI) Azure AD в качестве удостоверения приложения. MSI Azure AD используется в режиме общедоступной предварительной версии. Эта функция Azure Active Directory упрощает создание удостоверения для кода. Если код выполняется в службе, которая поддерживает MSI Azure AD и обращается к ресурсам, которые поддерживают аутентификацию Azure Active Directory, то MSI Azure AD будет оптимальным выбором. Дополнительные сведения об удостоверении MSI Azure AD, в том числе список поддерживаемых служб, см. в статье [Управляемое удостоверение службы (MSI) для ресурсов Azure](../active-directory/managed-service-identity/overview.md).
 
 В этой статье показано, как создать субъект-службу, который выполняет аутентификацию с помощью сертификата. Настройка субъекта-службы с паролем описана в статье [Создание субъекта-службы Azure с помощью Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+
+Для выполнения задач из этой статься требуется Azure PowerShell [последней версии](/powershell/azure/get-started-azureps).
 
 ## <a name="required-permissions"></a>Необходимые разрешения
 
@@ -58,61 +60,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если период ожидания окажется недостаточным, появится следующее сообщение об ошибке: "Субъект {идентификатор} не существует в каталоге {идентификатор_каталога}". Чтобы устранить эту ошибку, подождите немного и выполните команду **New-AzureRmRoleAssignment** еще раз.
 
-Следующий пример более сложен, так как он позволяет задать для назначения роли другую область, отличную от текущей подписки Azure. Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов. Если при назначении ролей возникнет ошибка, назначение выполняется повторно. Необходимо наличие Azure PowerShell 2.0 в Windows 10 или Windows Server 2016.
-
-```powershell
-Param (
-
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
- [Parameter(Mandatory=$false)]
- [String] $ResourceGroup,
-
- # Use to set subscription. If no value is provided, default subscription is used. 
- [Parameter(Mandatory=$false)]
- [String] $SubscriptionId,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationDisplayName
- )
-
- Connect-AzureRmAccount
- Import-Module AzureRM.Resources
-
- if ($SubscriptionId -eq "") 
- {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
- }
- else
- {
-    Set-AzureRmContext -Subscription $SubscriptionId
- }
-
- if ($ResourceGroup -eq "")
- {
-    $Scope = "/subscriptions/" + $SubscriptionId
- }
- else
- {
-    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
- }
-
- $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
- $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
-
- $NewRole = $null
- $Retries = 0;
- While ($NewRole -eq $null -and $Retries -le 6)
- {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-    Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
-    $Retries++;
- }
-```
+Вы можете задать область назначения ролей для определенной группы ресурсов с помощью параметра **ResourceGroupName**. Кроме того, вы можете задать область для определенного ресурса с помощью параметров **ResourceType** и **ResourceName**. 
 
 Если вы **не используете Windows 10 или Windows Server 2016**, скачайте сценарий [генератора самозаверяющих сертификатов](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) из центра скриптов Microsoft. Извлеките содержимое сценария и импортируйте требуемый командлет.
 
@@ -137,35 +85,14 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Azure Active Directory.
 
 ```powershell
-Param (
- 
- [Parameter(Mandatory=$true)]
- [String] $CertSubject,
- 
- [Parameter(Mandatory=$true)]
- [String] $ApplicationId,
+$TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+$ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- [Parameter(Mandatory=$true)]
- [String] $TenantId
- )
-
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match "CN=exampleappScriptCert" }).Thumbprint
  Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
-```
-
-Идентификаторы приложения и клиента не являются конфиденциальными, поэтому их можно внедрить непосредственно в скрипт. Чтобы получить идентификатор клиента, используйте следующий командлет:
-
-```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-```
-
-Чтобы получить идентификатор приложения, используйте следующий командлет:
-
-```powershell
-(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Создание субъекта-службы с помощью сертификата из центра сертификации
@@ -264,13 +191,13 @@ Param (
 Чтобы удалить все учетные данные для приложения, используйте следующую команду.
 
 ```powershell
-Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
 ```
 
 Чтобы добавить значение сертификата, создайте самозаверяющий сертификат, как показано в этой статье. Затем используйте следующую команду.
 
 ```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 `
+Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore

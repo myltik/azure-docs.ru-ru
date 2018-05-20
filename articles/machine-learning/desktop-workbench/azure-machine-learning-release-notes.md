@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Новые возможности Машинного обучения Azure
 
-Из этой статьи вы узнаете о новых выпусках [Служб машинного обучения Azure](../service/overview-what-is-azure-ml.md). 
+Из этой статьи вы узнаете о новых выпусках службы [Машинное обучение Azure](../service/overview-what-is-azure-ml.md). 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05 (спринт 5)
+
+Этот выпуск службы "Машинное обучение Azure" предоставляет следующие возможности:
++ Создание признаков изображений с помощью квантованной версии ResNet 50, обучение классификатора на основе этих признаков и [развертывание этой модели в FPGA в Azure](../service/how-to-deploy-fpga-web-service.md), что обеспечивает очень низкую задержку.
+
++ Быстро создавайте и развертывайте очень точные модели машинного и глубинного обучения с помощью [пользовательских пакетов службы "Машинное обучение Azure"](../service/reference-python-package-overview.md) для следующих доменов:
+  + [Компьютерное зрение](../service/how-to-build-deploy-image-classification-models.md)
+  + [Текстовая аналитика](../service/how-to-build-deploy-text-classification-models.md)
+  + [Прогнозирование](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (спринт 4)
 **Номер версии**: 0.1.1801.24353 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Найти свою версию](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Представляем пятое обновление Azure Machine Learning Workbench. Многие из следующих обновлений являются их прямым результатом. Продолжайте отправлять нам свои идеи и предложения.
+Многие из следующих обновлений являются их прямым результатом. Продолжайте отправлять нам свои идеи и предложения.
 
 **Новые важные функции и изменения**
 

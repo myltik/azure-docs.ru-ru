@@ -1,7 +1,7 @@
 ---
-title: "Настройка решения для удаленного мониторинга в Azure | Документация Майкрософт"
-description: "Статья содержит сведения о способе доступа к исходному коду предварительно настроенного решения для удаленного мониторинга."
-services: 
+title: Настройка пользовательского интерфейса решения для удаленного мониторинга в Azure | Документация Майкрософт
+description: Статья содержит сведения о способе доступа к исходному коду пользовательского интерфейса акселератора решений для удаленного мониторинга, а также о некоторых настройках.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,256 +12,457 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: be20d45b380f66208884f15f4644f36f2a403837
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Настройка предварительно настроенного решения для удаленного мониторинга
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Настройка акселератора решений для удаленного мониторинга
 
-Статья содержит сведения о способе доступа к исходному коду и настройке предварительно настроенного решения для удаленного мониторинга. Содержание статьи:
+Статья содержит сведения о способе доступа к исходному коду и настройке пользовательского интерфейса акселератора решений для удаленного мониторинга. Содержание статьи:
 
-* Репозитории GitHub с исходным кодом и ресурсы для микрослужб, формирующих предварительно настроенное решение.
-* Общие сценарии настройки, такие как добавление нового типа устройств.
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Подготовка локальной среды разработки для пользовательского интерфейса
 
-В следующем видео представлен обзор возможностей настройки предварительно настроенного решения для удаленного мониторинга:
+Код пользовательского интерфейса акселератора решений для удаленного мониторинга реализуется с помощью платформы React.js. Исходный код можно найти в репозитории GitHub [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui).
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
+Чтобы внести изменения в пользовательский интерфейс, его копию можно запустить локально. Локальная копия подключается к развернутому экземпляру решения для выполнения действий, например для извлечения данных телеметрии.
 
-## <a name="project-overview"></a>Обзор проекта
+Ниже описан процесс настройки локальной среды для развертывания пользовательского интерфейса.
 
-### <a name="implementations"></a>Варианты реализации решения
+1. Разверните **базовый** экземпляр акселератора решений с помощью CLI **PCS**. Запишите имя развертывания и учетные данные, указанные для виртуальной машины. Дополнительные сведения см. в статье [Развертывание предварительно настроенного решения для удаленного мониторинга с помощью интерфейса командной строки](iot-suite-remote-monitoring-deploy-cli.md).
 
-Решение для удаленного мониторинга можно внедрить с помощью .NET и Java. Оба варианта реализации обеспечивают аналогичную функциональность и используют одни и те же базовые службы Azure. Репозитории GitHub верхнего уровня можно найти в этих статьях:
+1. С помощью портала Azure или [командной строки Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) включите доступ по протоколу SSH к виртуальной машине, на которой размещаются микрослужбы в вашем решении. Например: 
 
-* [решение .NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet);
-* [решение Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+    ```sh
+    az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
+    ```
 
-### <a name="microservices"></a>Микрослужбы
+1. Используя портал Azure или [командную строку Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), найдите имя и общедоступный IP-адрес виртуальной машины. Например: 
 
-Вы можете получить доступ к репозиториям GitHub для каждой отдельной микрослужбы, если вас интересуют определенные параметры решения. Каждая микрослужба реализует различные части функциональных возможностей решения. Чтобы узнать больше об общей архитектуре, см. статью [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md).
+    ```sh
+    az resource list --resource-group {your solution name} -o table
+    az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
+    ```
 
-В этой таблице представлены общие сведения о доступности микрослужб для каждого языка в настоящее время:
+1. Подключитесь к виртуальной машине по протоколу SSH, используя IP-адрес из предыдущего шага и учетные данные, указанные при запуске **PCS** для развертывания решения.
 
-<!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
+1. Чтобы разрешить локальному пользовательскому интерфейсу установить подключение, выполните следующие команды в оболочке Bash на виртуальной машине.
 
-| Микрослужба      | ОПИСАНИЕ | Java | .NET |
-| ----------------- | ----------- | ---- | ---- |
-| Веб-интерфейс            | Веб-приложение для решения удаленного мониторинга. Реализация пользовательского интерфейса с использованием платформы React.js. | [Недоступно (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [Недоступно (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
-| Диспетчер Центра Интернета вещей   | Взаимодействие с Центром Интернета вещей.        | [Доступно](https://github.com/Azure/iothub-manager-java) | [Доступно](https://github.com/Azure/iothub-manager-dotnet)   |
-| Authentication    |  Управление интеграцией с Azure Active Directory.  | Пока недоступно | [Доступно](https://github.com/Azure/pcs-auth-dotnet)   |
-| Виртуальное устройство | Управление пулом виртуальных устройств. | Пока недоступно | [Доступно](https://github.com/Azure/device-simulation-dotnet)   |
-| Телеметрия         | Предоставление доступа к телеметрии устройства в пользовательском интерфейсе. | [Доступно](https://github.com/Azure/device-telemetry-java) | [Доступно](https://github.com/Azure/device-telemetry-dotnet)   |
-| Агент телеметрии   | Анализ потока телеметрии, хранение сообщений из Центра Интернета вещей Azure и создание предупреждений в соответствии с определенными правилами.  | [Доступно](https://github.com/Azure/telemetry-agent-java) | [Доступно](https://github.com/Azure/telemetry-agent-dotnet)   |
-| Настройка пользовательского интерфейса         | Управление данными конфигурации из пользовательского интерфейса. | [Доступно](https://github.com/azure/pcs-ui-config-java) | [Доступно](https://github.com/azure/pcs-ui-config-dotnet)   |
-| Адаптер хранения   |  Управление взаимодействием со службой хранения.   | [Доступно](https://github.com/azure/pcs-storage-adapter-java) | [Доступно](https://github.com/azure/pcs-storage-adapter-dotnet)   |
-| Обратный прокси-сервер.     | Предоставление частных ресурсов управляемым образом через уникальную конечную точку. | Пока недоступно | [Доступно](https://github.com/Azure/reverse-proxy-dotnet)   |
+    ```sh
+    cd /app
+    sudo ./start.sh --unsafe
+    ```
 
-Сейчас решение Java использует аутентификацию, симуляцию и обратный прокси-сервер микрослужб .NET. Эти микрослужбы будут заменены версиями Java, как только они станут доступными.
+1. После завершения команды и запуска веб-сайта можно отключиться от виртуальной машины.
 
-## <a name="presentation-and-visualization"></a>Визуализация и представление
+1. В локальной копии репозитория [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) измените **.ENV**-файл, добавив URL-адрес развернутого решения.
 
-В следующих разделах описываются параметры настройки уровня представления и визуализации в решении для удаленного мониторинга:
+    ```config
+    NODE_PATH = src/
+    REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
+    ```
 
-### <a name="change-the-logo-in-the-ui"></a>Изменение логотипа в пользовательском интерфейсе
-
-При развертывании по умолчанию в пользовательском интерфейсе используется название и логотип компании Contoso. Для отображения имени и логотипа вашей компании нужно изменить следующие элементы пользовательского интерфейса:
-
-1. Используйте следующую команду для клонирования репозитория веб-интерфейса:
+1. В командной строке локальной копии папки `azure-iot-pcs-remote-monitoring-webui` выполните следующие команды, чтобы установить необходимые библиотеки и запустить пользовательский интерфейс локально.
 
     ```cmd/sh
-    git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
+    npm install
+    npm start
     ```
 
-1. Для изменения имени компании откройте файл `src/common/lang.js` в текстовом редакторе.
+1. Предыдущая команда запускает пользовательский интерфейс локально по адресу http://localhost:3000/dashboard. Вы можете изменить код во время работы сайта.Он будет обновляться динамически.
 
-1. Найдите в файле следующую строку:
+## <a name="customize-the-layout"></a>Настройка макета
 
-    ```js
-    CONTOSO: 'Contoso',
+Каждая страница в решении для удаленного мониторинга состоит из набора элементов управления, которые называются *панелями* в исходном коде. Например, страница **Панель мониторинга** состоит из пяти панелей: "Обзор", "Карта", "Сигналы", "Телеметрия" и "Ключевые показатели эффективности". Исходный код, определяющий каждую страницу и ее панели, находится в репозитории GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Например, код, определяющий страницу **Панель мониторинга**, ее макет и панели на странице, расположен в папке [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+
+Так как панели управляют собственным макетом и размером, вы можете без труда изменить макет страницы. Например, следующие изменения в элементе **PageContent** в файле `src/components/pages/dashboard/dashboard.js` заменяют положение панелей карты и телеметрии и изменяют относительную ширину панелей карты и ключевых показателей эффективности.
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-5">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+![Изменение макета панели](media/iot-suite-remote-monitoring-customize/layout.png)
+
+> [!NOTE]
+> Карта не настроена в локальном развертывании.
+
+Вы также можете добавить несколько экземпляров одной панели или нескольких версий, если [дублируете и настроите панель](#duplicate-and-customize-an-existing-control). В следующем примере показано, как добавить два экземпляра панели телеметрии, изменив файл `src/components/pages/dashboard/dashboard.js`.
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-2">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+Затем вы можете просмотреть разные данные телеметрии на каждой панели.
+
+![Несколько панелей данных телеметрии](media/iot-suite-remote-monitoring-customize/multiple-telemetry.png)
+
+> [!NOTE]
+> Карта не настроена в локальном развертывании.
+
+## <a name="duplicate-and-customize-an-existing-control"></a>Дублирование и настройка имеющихся элементов управления
+
+Ниже показано, как использовать панель **сигналов**, чтобы продемонстрировать, как дублировать имеющуюся панель, изменить ее и использовать измененную версию.
+
+1. В локальной копии репозитория создайте копию папки **alarms** в папке `src/components/pages/dashboard/panels`. Присвойте новой копии имя **cust_alarms**.
+
+1. В файле **alarmsPanel.js** папки **cust_alarms** измените имя класса на **CustAlarmsPanel**:
+
+    ```nodejs
+    export class CustAlarmsPanel extends Component {
     ```
 
-1. Замените `Contoso` именем компании. Например: 
+1. Добавьте следующую строку в файл `src/components/pages/dashboard/panels/index.js` :
 
-    ```js
-    CONTOSO: 'YourCo',
+    ```nodejs
+    export * from './cust_alarms';
     ```
 
-1. Сохраните файл.
+1. Замените `AlarmsPanel` на `CustAlarmsPanel` в файле `src/components/pages/dashboard/dashboard.js`:
 
-1. Для обновления логотипа добавьте новый файл с расширением SVG в папку `assets/icons`. Файл `assets/icons/Contoso.svg` является имеющимся логотипом.
+    ```nodejs
+    import {
+      OverviewPanel,
+      CustAlarmsPanel,
+      TelemetryPanel,
+      KpisPanel,
+      MapPanel,
+      transformTelemetryResponse,
+      chartColors
+    } from './panels';
 
-1. Откройте файл `src/components/layout/leftNav/leftNav.js` в текстовом редакторе.
+    ...
 
-1. Найдите в файле следующую строку:
-
-    ```js
-    import ContosoIcon from '../../../assets/icons/Contoso.svg';
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
     ```
 
-1. Замените `Contoso.svg` именем своего файла логотипа. Например: 
+Вы заменили исходную панель **сигналов** копией **CustAlarms**. Эта копия аналогична исходной. Теперь можно изменить копию. Например, чтобы изменить порядок столбцов в панели **сигналов**, сделайте следующее:
 
-    ```js
-    import ContosoIcon from '../../../assets/icons/YourCo.svg';
+1. Откройте файл `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js` .
+
+1. Измените определения столбцов, как показано в следующем фрагменте кода:
+
+    ```nodejs
+    this.columnDefs = [
+      rulesColumnDefs.severity,
+      {
+        headerName: 'rules.grid.count',
+        field: 'count'
+      },
+      {
+        ...rulesColumnDefs.ruleName,
+        minWidth: 200
+      },
+      rulesColumnDefs.explore
+    ];
     ```
 
-1. Найдите в файле следующую строку:
+На следующем рисунке показана новая версия панели **сигналов**:
 
-    ```js
-    alt="ContosoIcon"
+![Обновленная панель сигналов](media/iot-suite-remote-monitoring-customize/reorder-columns.png)
+
+## <a name="customize-the-telemetry-chart"></a>Настройка диаграммы телеметрии
+
+Диаграмма телеметрии на странице **Панель мониторинга** определяется файлами в папке `src/components/pages/dashboard/panels/telemtry`. Пользовательский интерфейс извлекает данные телеметрии из серверной части решения в файле `src/services/telemetryService.js`. Ниже показано, как изменить период времени, отображаемый на диаграмме телеметрии, с 15 минут до 5:
+
+1. В файле `src/services/telemetryService.js` найдите функцию **getTelemetryByDeviceIdP15M**. Скопируйте функцию и измените ее копию следующим образом:
+
+    ```nodejs
+    static getTelemetryByDeviceIdP5M(devices = []) {
+      return TelemetryService.getTelemetryByMessages({
+        from: 'NOW-PT5M',
+        to: 'NOW',
+        order: 'desc',
+        devices
+      });
+    }
     ```
 
-1. Замените имя репозитория `ContosoIcon` своим альтернативным текстом (`alt`). Например: 
+1. Чтобы использовать эту функцию для заполнения диаграммы телеметрии, откройте файл `src/components/pages/dashboard/dashboard.js`. Найдите строку, которая инициализирует поток телеметрии, и измените ее следующим образом:
 
-    ```js
-    alt="YourCoIcon"
+    ```node.js
+    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-1. Сохраните файл.
+Диаграмма телеметрии отображает данные телеметрии за 5 минут:
 
-1. Для проверки изменений запустите обновленный `webui` на локальном компьютере. Сведения о создании и запуске решения `webui`решение локально см. в разделе о [локальной сборке, локальном выполнении и запуске](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally) в файле Readme из репозитория GitHub `webui`.
+![Диаграмма телеметрии с данными за один день](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
 
-1. Сведения о развертывании изменений см. в [справочнике разработчика](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide).
+## <a name="add-a-new-kpi"></a>Добавление нового ключевого показателя эффективности
 
-<!--
+Страница **Панель мониторинга** отображает ключевые показатели эффективности на панели **ключевых показателей эффективности системы**. Эти показатели вычисляются в файле `src/components/pages/dashboard/dashboard.js`. Они преобразовываются для просмотра с помощью файла `src/components/pages/dashboard/panels/kpis/kpisPanel.js`. Ниже показано, как рассчитать и преобразовать для просмотра новое значение ключевого показателя эффективности на странице **Панель мониторинга**. Ниже приведен пример добавления нового процентного изменения в ключевом показателе эффективности аварийного предупреждения.
 
-### Add a new KPI to the Dashboard page
+1. Откройте файл `src/components/pages/dashboard/dashboard.js` . Измените объект **initialState**, чтобы он включал свойство **warningAlarmsChange**, как показано ниже.
 
-The following steps describe how to add a new KPI to display on the **Dashboard** page. The new KPI shows information about the number of alarms with specific status values as a pie chart:
+    ```nodejs
+    const initialState = {
+      ...
 
-1. Step 1
+      // Kpis data
+      currentActiveAlarms: [],
+      topAlarms: [],
+      alarmsPerDeviceId: {},
+      criticalAlarmsChange: 0,
+      warningAlarmsChange: 0,
+      kpisIsPending: true,
+      kpisError: null,
 
-1. Step 2
--->
+      ...
+    };
+    ```
 
-### <a name="customize-the-map"></a>Настройка карты
+1. Измените объект **currentAlarmsStats**, чтобы он включал свойство **totalWarningCount**:
+
+    ```nodejs
+    return {
+      openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
+      openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
+      totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
+      totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
+      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+    };
+    ```
+
+1. Вычислите новый ключевой показатель эффективности. Найти вычисления по количеству критических предупреждений. Дублируйте код и измените копию следующим образом:
+
+    ```nodejs
+    // ================== Warning Alarms Count - START
+    const currentWarningAlarms = currentAlarmsStats.totalWarningCount;
+    const previousWarningAlarms = previousAlarms.reduce(
+      (cnt, { severity }) => severity === 'warning' ? cnt + 1 : cnt,
+      0
+    );
+    const warningAlarmsChange = ((currentWarningAlarms - previousWarningAlarms) / currentWarningAlarms * 100).toFixed(2);
+    // ================== Warning Alarms Count - END
+    ```
+
+1. Добавьте ключевой показатель эффективности **warningAlarmsChange** в поток данных КПЭ.
+
+    ```nodejs
+    return ({
+      kpisIsPending: false,
+
+      // Kpis data
+      currentActiveAlarms,
+      topAlarms,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      alarmsPerDeviceId: currentAlarmsStats.alarmsPerDeviceId,
+
+      ...
+    });
+
+1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+
+    ```nodejs
+    const {
+      ...
+
+      currentActiveAlarms,
+      topAlarms,
+      alarmsPerDeviceId,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      kpisIsPending,
+      kpisError,
+
+      ...
+    } = this.state;
+    ```
+
+1. Обновите данные, передаваемые на панель ключевых показателей эффективности:
+
+    ```node.js
+    <KpisPanel
+      topAlarms={topAlarmsWithName}
+      alarmsPerDeviceId={alarmsPerDeviceType}
+      criticalAlarmsChange={criticalAlarmsChange}
+      warningAlarmsChange={warningAlarmsChange}
+      isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+      error={devicesError || rulesError || kpisError}
+      colors={chartColorObjects}
+      t={t} />
+    ```
+
+Вы внесли нужные изменения в файл `src/components/pages/dashboard/dashboard.js`. Ниже описаны изменения, внесенные в файл `src/components/pages/dashboard/panels/kpis/kpisPanel.js`, для отображения нового ключевого показателя эффективности.
+
+1. Измените следующую строку кода для получения нового значения ключевого показателя эффективности следующим образом:
+
+    ```nodejs
+    const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
+    ```
+
+1. Измените разметку для отображения нового значения ключевого показателя эффективности следующим образом:
+
+    ```nodejs
+    <div className="kpi-cell">
+      <div className="kpi-header">{t('dashboard.panels.kpis.criticalAlarms')}</div>
+      <div className="critical-alarms">
+        {
+          criticalAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ criticalAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+      <div className="kpi-header">{t('Warning alarms')}</div>
+      <div className="critical-alarms">
+        {
+          warningAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ warningAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+    </div>
+    ```
+
+На странице **Панель мониторинга** теперь отображается новое значение ключевого показателя эффективности.
+
+![Ключевой показатель эффективности предупреждения](media/iot-suite-remote-monitoring-customize/new-kpi.png)
+
+## <a name="customize-the-map"></a>Настройка карты
 
 Дополнительные сведения о компонентах карты в решении см. на странице GitHub о [настройке карты](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 <!--
-### Customize the telemetry chart
-
-See the [Customize telemetry chart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the telemetry chart components in the solution.
-
 ### Connect an external visualization tool
 
 See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
 
-### Duplicate an existing control
-
-To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
-
 -->
 
-### <a name="other-customization-options"></a>Другие возможности настройки
+## <a name="other-customization-options"></a>Другие возможности настройки
 
 Для дополнительного изменения уровня представления и визуализации в решении для удаленного мониторинга можно изменить код. Соответствующие репозитории GitHub:
 
-* [UIConfig (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/);
-* [UIConfig (Java)](https://github.com/Azure/pcs-ui-config-java/);
-* [веб-интерфейс для удаленного мониторинга Azure PCS](https://github.com/Azure/pcs-remote-monitoring-webui).
-
-## <a name="device-connectivity-and-streaming"></a>Подключение устройств и потоковая передача
-
-В следующих разделах описываются параметры настройки уровня подключения устройств и уровня потоковой передачи в решении для удаленного мониторинга. [Модели устройств](https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models) описывают типы устройств и телеметрию в решениях. Модели устройств используются как для виртуальных, так и для физических устройств.
-
-Пример реализации физического устройства см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Node.js)](iot-suite-connecting-devices-node.md).
-
-Если вы используете _физическое устройство_, укажите для клиентского приложения модель устройства, которая содержит метаданные устройства и спецификацию телеметрии.
-
-В следующих разделах рассматривается использование моделей устройств с виртуальными устройствами:
-
-### <a name="add-a-telemetry-type"></a>Добавление типа данных телеметрии
-
-Типы устройств в демо-решениях Contoso определяют телеметрию, которую отправляет каждое из устройств. Чтобы указать дополнительные типы телеметрии, устройство может отправлять определения телеметрии в виде метаданных в решение. При использовании этого формата панель мониторинга динамически потребляет телеметрию вашего устройства и доступные методы, поэтому вам не нужно изменять пользовательский интерфейс. Кроме того, вы можете изменить определение типа устройства в решении.
-
-Сведения о добавлении пользовательской телеметрии в микрослужбу _Симулятор устройства_ см. в статье [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md) (Проверка решений с помощью виртуальних устройств).
-
-### <a name="add-a-device-type"></a>Добавление типа устройств
-
-Демо-решение Contoso определяет некоторые образцы типов устройств. Решение позволяет определять пользовательские типы устройств в соответствии с вашими требованиями к конкретным приложениям. Например, ваша компания может использовать технический шлюз в качестве основного устройства, подключенного к решению.
-
-Для создания точного представления о вашем устройстве необходимо изменить приложение, выполняемое на устройстве, в соответствии с требованиями устройства.
-
-Сведения о добавлении нового типа устройства в микрослужбу _Симулятор устройства_ см. в статье [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md) (Проверка решений с помощью виртуальных устройств).
-
-### <a name="define-custom-methods-for-simulated-devices"></a>Определение пользовательских методов для виртуальных устройств
-
-Дополнительные сведения о том, как определить настраиваемые методы для виртуальных устройств в решении для удаленного мониторинга, см. в статье [Get list of device models that can be simulated](https://github.com/Azure/device-simulation-dotnet/wiki/%5BAPI-Specifications%5D-Device-Models) (Получение списка устройств, пригодных для симуляции) в репозитории GitHub.
-
-<!--
-#### Using the simulator service
-
-TODO: add steps for the simulator microservice here
--->
-
-#### <a name="using-a-physical-device"></a>Использование физических устройств
-
-Для реализации методов и заданий на физических устройствах см. следующие статьи о Центре Интернета вещей:
-
-* [Общие сведения о прямых методах и информация о вызове этих методов из Центра Интернета вещей](../iot-hub/iot-hub-devguide-direct-methods.md).
-* [Планирование заданий на нескольких устройствах](../iot-hub/iot-hub-devguide-jobs.md).
-
-### <a name="other-customization-options"></a>Другие возможности настройки
-
-Для дополнительного изменения уровня подключения устройства и потокового уровня в решении для удаленного мониторинга можно изменить код. Соответствующие репозитории GitHub:
-
-* [телеметрия устройства (.NET)](https://github.com/Azure/device-telemetry-dotnet);
-* [телеметрия устройства (Java)](https://github.com/Azure/device-telemetry-java);
-* [агент телеметрии (.NET)](https://github.com/Azure/telemetry-agent-dotnet);
-* [агент телеметрии (Java)](https://github.com/Azure/telemetry-agent-java).
-
-## <a name="data-processing-and-analytics"></a>Обработка данных и аналитика
-
-<!--
-The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
-
-### Rules and actions
-
-See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
-
-
-### Other customization options
--->
-
-Для изменения уровня обработки и анализа данных в решении для удаленного мониторинга можно изменить код. Соответствующие репозитории GitHub:
-
-* [агент телеметрии (.NET)](https://github.com/Azure/telemetry-agent-dotnet);
-* [агент телеметрии (Java)](https://github.com/Azure/telemetry-agent-java).
-
-## <a name="infrastructure"></a>Инфраструктура
-
-<!--
-The following sections describe options for customizing the infrastructure services in the remote monitoring solution:
-
-### Change storage
-
-The default storage service for the remote monitoring solution is Cosmos DB. See the [Customize storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses.
-
-### Change log storage
-
-The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
-
-### Other customization options
--->
-
-Для изменения инфраструктуры в решении удаленного мониторинга можно изменить код. Соответствующие репозитории GitHub:
-
-* [диспетчер Центра Интернета вещей (.NET)](https://github.com/Azure/iothub-manager-dotnet);
-* [Диспетчер Центра Интернета вещей (Java)](https://github.com/Azure/iothub-manager-java);
-* [адаптер хранения (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet);
-* [адаптер хранения (Java)](https://github.com/Azure/pcs-storage-adapter-java).
+* [Микрослужба конфигурации для решений Интернета вещей Azure (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
+* [Микрослужба конфигурации для решений Интернета вещей Azure (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Веб-интерфейс для удаленного мониторинга Интернета вещей Azure PCS](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Из статьи вы узнали о ресурсах, которые могут помочь вам при настройке предварительно настроенного решения.
+Из статьи вы узнали о ресурсах, которые могут помочь вам при настройке пользовательского веб-интерфейса в акселераторе решений для удаленного мониторинга.
 
-Более подробные сведения о предварительно настроенном решении для удаленного мониторинга см. в статье [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md).
+Более подробные сведения об акселераторе решений для удаленного мониторинга см. в статье [Архитектура предварительно настроенного решения удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md).
 
-Дополнительные сведения о решении для удаленного мониторинга см. в следующих статьях:
-
-* [Справочник разработчика](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Руководство по устранению неполадок для разработчиков](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-
+Дополнительные сведения о настройке решения для удаленного мониторинга см. в статье [Настройка и повторное развертывание микрослужбы](iot-suite-microservices-example.md).
 <!-- Next tutorials in the sequence -->

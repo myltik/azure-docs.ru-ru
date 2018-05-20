@@ -1,8 +1,8 @@
 ---
-title: "Копирование данных из больших двоичных объектов хранилища Azure в Data Lake Store | Документация Майкрософт"
-description: "Использование средства AdlCopy для копирования данных из больших двоичных объектов хранилища Azure в хранилище озера данных"
+title: Копирование данных из больших двоичных объектов хранилища Azure в Data Lake Store | Документация Майкрософт
+description: Использование средства AdlCopy для копирования данных из больших двоичных объектов хранилища Azure в хранилище озера данных
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -156,7 +156,7 @@ ms.lasthandoff: 01/10/2018
 В этом разделе показано, как использовать AdlCopy для копирования данных из источника (в приведенном ниже примере — из большого двоичного объекта службы хранилища Azure) в целевую учетную запись Data Lake Store с помощью сопоставления шаблонов. Например, описанные ниже действия можно использовать для копирования всех файлов с расширением CSV из исходного большого двоичного объекта в целевое хранилище.
 
 1. Откройте командную строку и перейдите в каталог, в который установлено средство AdlCopy, обычно `%HOMEPATH%\Documents\adlcopy`.
-2. Выполните следующую команду, чтобы скопировать все файлы с расширением CSV из указанного большого двоичного объекта из исходного контейнера в Data Lake Store:
+2. Выполните следующую команду, чтобы скопировать все файлы с расширением \*.CSV из указанного большого двоичного объекта из исходного контейнера в Data Lake Store:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 

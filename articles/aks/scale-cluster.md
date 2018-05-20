@@ -1,21 +1,21 @@
 ---
-title: "Масштабирование кластера Службы контейнеров Azure (AKS)"
-description: "Масштабируйте кластер Службы контейнеров Azure (AKS)."
+title: Масштабирование кластера службы Azure Kubernetes
+description: Масштабирование кластера службы Azure Kubernetes.
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 577fff2e659759647ffc7e96158ebcbe5a88ab25
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Масштабирование кластера Службы контейнеров Azure (AKS)
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Масштабирование кластера службы Azure Kubernetes
 
 Вы можете легко масштабировать кластер AKS до различного количества узлов.  Выберите требуемое число узлов и запустите команду `az aks scale`.  При уменьшении масштаба узлы будут тщательно [заблокированы и остановлены][kubernetes-drain], чтобы свести к минимуму время простоя работающих приложений.  При увеличении масштаба `az` команда ожидает, пока кластер Kubernetes не задаст для узлов состояние `Ready`.
 

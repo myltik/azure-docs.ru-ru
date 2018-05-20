@@ -5,14 +5,14 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/01/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e925dba3805ec8994aeba730e325c407468a5c87
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7139ec67536a1c0e41c991db6d867b956f995c11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/03/2018
 ---
 ## <a name="supported-distributions-and-drivers"></a>Поддерживаемые дистрибутивы и драйверы
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/24/2018
 
 | Дистрибутив | Драйвер |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 или 7.4<br/><br/> CentOS 7.3 или 7.4, 7.4 HPC на основе CentOS | NVIDIA CUDA 9.1, драйвер серии R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 или 7.4<br/><br/> Версия 7.3 или 7.4 на платформе CentOS, HPC на платформе CentOS 7.4 | NVIDIA CUDA 9.1, драйвер серии R390 |
 
 ### <a name="nv-series---nvidia-grid-drivers"></a>Драйверы NVIDIA GRID для виртуальных машин серии NV
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/24/2018
 
 | Дистрибутив | Драйвер |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 6.0, ветвь драйверов R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 или 7.4<br/><br/>Версия 7.3 или 7.4 на платформе CentOS | NVIDIA GRID 6.0, ветвь драйверов R390|
 
 
 

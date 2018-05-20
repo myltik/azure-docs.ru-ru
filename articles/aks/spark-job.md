@@ -1,6 +1,6 @@
 ---
-title: Запуск задания Apache Spark с помощью службы контейнеров Azure (AKS)
-description: Использование службы контейнеров Azure (AKS) для выполнения задания Apache Spark
+title: Запуск задания Apache Spark с помощью Службы Azure Kubernetes (AKS)
+description: Использование Службы Azure Kubernetes (AKS) для выполнения задания Apache Spark
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 627cb80a055fb4b66fcc428a1de87d754af6991e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbeddb60ce968ff0d32e2ddb6a4f62d2036d80aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Запуск заданий Apache Spark в AKS
 
-[Apache Spark][apache-spark] — это среда, позволяющая быстро обрабатывать большие объемы данных. Начиная с версии [Spark 2.3.0][spark-latest-release], Apache Spark поддерживает встроенную интеграцию с кластерами Kubernetes. Служба контейнеров Azure (AKS) — это управляемая среда Kubernetes, работающая в Azure. В этом документе описывается подготовка и запуск заданий Apache Spark в кластере AKS.
+[Apache Spark][apache-spark] — это среда, позволяющая быстро обрабатывать большие объемы данных. Начиная с версии [Spark 2.3.0][spark-latest-release], Apache Spark поддерживает встроенную интеграцию с кластерами Kubernetes. Служба Azure Kubernetes (AKS) — это управляемая среда Kubernetes, выполняющаяся в Azure. В этом документе описывается подготовка и запуск заданий Apache Spark в кластере Службы Azure Kubernetes (AKS).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="create-an-aks-cluster"></a>Создание кластера AKS
 
-Spark используется для крупномасштабной обработки данных и требует, чтобы узлы Kubernetes соответствовали требованиям к ресурсам Spark. Минимальный рекомендуемый размер для узлов AKS — `Standard_D3_v2`.
+Spark используется для крупномасштабной обработки данных и требует, чтобы узлы Kubernetes соответствовали требованиям к ресурсам Spark. Минимальный рекомендуемый размер для узлов Службы Azure Kubernetes (AKS) — `Standard_D3_v2`.
 
 Если вам нужен кластер AKS, соответствующий этой минимальной рекомендации, выполните следующие команды.
 

@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Tableau Online | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Tableau Online."
+title: Руководство по интеграции Azure Active Directory с Tableau Online | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Tableau Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae9dbde509726065da7eaee2c7aec491389f45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e7de7946769eb2aeeac1c8b21448efa142728bb
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Руководство. Интеграция Azure Active Directory с Tableau Online
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/11/2017
     
     a. В текстовом поле **URL-адрес для входа** введите URL-адрес: `https://sso.online.tableau.com`
 
-    Б. В текстовом поле **Идентификатор** введите URL-адрес `https://sso.online.tableau.com/public/sp/<instancename>`.
+    Б. В текстовом поле **Идентификатор** введите URL-адрес `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `.
 
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -160,10 +160,6 @@ ms.lasthandoff: 12/11/2017
      * фамилия: **surname**
    
    ![Настройка единого входа](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
@@ -262,4 +258,3 @@ ms.lasthandoff: 12/11/2017
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-

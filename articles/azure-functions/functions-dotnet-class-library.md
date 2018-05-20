@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Справочник разработчика C# по функциям Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/20/2018
 > [!IMPORTANT]
 > Процесс сборки создает файл *function.json* для каждой функции. Этот файл *function.json* не предназначен для непосредственного редактирования. Невозможно изменить конфигурацию привязки или отключить функцию путем редактирования этого файла. Чтобы отключить функцию, используйте атрибут [Отключить](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Например, добавьте логический параметр приложения MY_TIMER_DISABLED и примените `[Disable("MY_TIMER_DISABLED")]` к функции. Изменяя значение этого параметра, можно включать и отключать функцию.
 
-### <a name="functionname-and-trigger-attributes"></a>FunctionName и атрибуты триггеров
+## <a name="methods-recognized-as-functions"></a>Методы, распознаваемые как функции
 
 В библиотеке классов функция — это статический метод с `FunctionName` и атрибутом триггера, как показано в следующем примере:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-Атрибут `FunctionName` помечает метод как точку входа функции. Имя должно быть уникальным в пределах проекта.
+Атрибут `FunctionName` помечает метод как точку входа функции. Имя должно быть уникальным в пределах проекта. Шаблоны проектов часто создают метод `Run`, но метод может иметь любое допустимое имя для метода C#.
 
 Атрибут триггера указывает тип триггера и привязывает входные данные к параметру метода. Пример функции срабатывает по сообщению очереди, а сообщение очереди передается методу в параметре `myQueueItem`.
 
-### <a name="additional-binding-attributes"></a>Дополнительные атрибуты привязок
+## <a name="method-signature-parameters"></a>Параметры сигнатуры метода
 
-Могут использоваться дополнительные входные и выходные атрибуты привязки. В следующем примере изменяется предыдущий путем добавления привязки очереди вывода. Функция записывает сообщение очереди ввода в новое сообщение очереди, в другой очереди.
+Сигнатура метода может содержать параметры, отличные от используемых с атрибутом триггера. Ниже приведены некоторые дополнительные параметры, которые можно включить:
+
+* [Входные и выходные привязки](functions-triggers-bindings.md), помеченные как таковые путем дополнения атрибутами.  
+* Параметр `ILogger` или `TraceWriter` [ведения журнала](#logging).
+* Параметр `CancellationToken` для [нормального завершения работы](#cancellation-tokens).
+* Параметры [выражений привязок](functions-triggers-bindings.md#binding-expressions-and-patterns) для получения метаданных триггера.
+
+Порядок параметров в сигнатуре функции не имеет значения. Например, можно указать параметры триггера до или после других привязок, а параметр для средства ведения журнала — до или после параметров триггера или привязки.
+
+### <a name="output-binding-example"></a>Пример выходной привязки
+
+В следующем примере изменяется предыдущий путем добавления привязки очереди вывода. Функция записывает сообщение очереди, запускающее функцию для нового сообщения очереди в другую очередь.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Порядок параметров
+В справочных статьях по привязкам (например, [Привязки хранилища очередей Azure для службы "Функции Azure"](functions-bindings-storage-queue.md)) объясняется, какие типы параметров можно использовать с триггерами, а также с атрибутами входных или выходных привязок.
 
-Порядок параметров в сигнатуре функции не имеет значения. Например, можно указать параметры триггера до или после других привязок, а параметр для средства ведения журнала — до или после параметров триггера или привязки.
+### <a name="binding-expressions-example"></a>Пример выражений привязки
 
-### <a name="binding-expressions"></a>Выражения привязки
-
-Выражения привязки можно использовать в параметрах конструктора атрибутов и параметрах функции. Например, приведенный ниже код позволяет получить имя очереди для мониторинга из настроек приложения и время, когда было создано сообщение очереди, в параметре `insertionTime`.
+Приведенный ниже код позволяет получить имя очереди для мониторинга из настроек приложения и время создания сообщения очереди в параметре `insertionTime`.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Дополнительные сведения см. в разделе **Выражения привязки и шаблоны** статьи о [триггерах и привязках](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Преобразование в файл function.json
+## <a name="autogenerated-functionjson"></a>Автоматически созданный файл function.json
 
 Процесс сборки создает файл *function.json* в папке функции в папке сборки. Как уже говорилось, этот файл не предназначен для непосредственного редактирования. Невозможно изменить конфигурацию привязки или отключить функцию путем редактирования этого файла. 
 
@@ -134,7 +141,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Пакет NuGet Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 Создание файла *function.json* выполняется пакетом NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ public static class BindingExpressionsExample
 
 Исходный код пакета `Microsoft.NET.Sdk.Functions` доступен в репозитории GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Версия среды выполнения
+## <a name="runtime-version"></a>Версия среды выполнения
 
 Visual Studio выполняет проекты Функций с помощью [основных инструментов Функций Azure](functions-run-local.md#install-the-azure-functions-core-tools). Основные инструменты — это интерфейс командной строки среды выполнения Функций.
 

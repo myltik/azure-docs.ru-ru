@@ -1,11 +1,11 @@
 ---
-title: "Пример политики службы управления API Azure. Маршрутизация запроса на основе размера его текста | Документация Майкрософт"
-description: "Пример политики службы управления API Azure. Маршрутизация запроса на основе размера его текста."
+title: Пример политики службы управления API Azure. Маршрутизация запроса на основе размера его текста | Документация Майкрософт
+description: Пример политики службы управления API Azure. Маршрутизация запроса на основе размера его текста.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 0558f82a31015af91df135b6a0d4c4050049d11d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: da21a7c83a61b618646c4c4d2f422756b04dc300
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Маршрутизация запроса на основе размера его текста
 

@@ -301,7 +301,7 @@ ms.lasthandoff: 04/03/2018
 
 ### <a name="monitor-the-pipeline-run"></a>Выполнили мониторинг конвейера.
 
-2. Выполните командлет **Get-AzureRmDataFactorySlice**, чтобы получить сведения обо всех срезах выходного набора данных\**, то есть созданной конвейером выходной таблицы.
+2. Выполните командлет **Get-AzureRmDataFactorySlice**, чтобы получить сведения обо всех срезах выходного набора данных\*\*, то есть созданной конвейером выходной таблицы.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b1c8c981c0b1c3b599d2dd737b680390a52888eb
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Создание учетной записи пакетной службы на портале Azure
 
@@ -37,8 +37,7 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="create-a-batch-account"></a>Создание учетной записи Пакетной службы
 
-> [!NOTE]
-> При создании учетной записи пакетной службы необходимо выбрать режим по умолчанию — **Пакетная служба**. В нем пулы автоматически выделяются в подписках, управляемых Azure. В альтернативном режиме **Пользовательская подписка**, который больше не рекомендуется использовать в большинстве сценариев, при создании пула виртуальные машины пакетной службы и другие ресурсы создаются непосредственно в подписке пользователя. Чтобы создать учетную запись пакетной службы в режиме пользовательской подписки, необходимо зарегистрировать подписку в пакетной службе Azure и связать учетную запись с Azure Key Vault.
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 1. Войдите на [портал Azure][azure_portal].
 2. Щелкните **Создать ресурс** и выполните в Marketplace поиск по запросу **пакетная служба**.

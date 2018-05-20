@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/20//2018
 ms.author: kgremban
-ms.openlocfilehash: 8b95bb18f2e8941c10f7bcdf6a60e7fda6ab0ea5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Отправка данных телеметрии с устройства в Центр Интернета вещей (Swift)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/23/2018
 ## <a name="prerequisites"></a>предварительным требованиям
 
 - Скачать пример кода из [примеров Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip). 
-- Последняя версия [XCode](https://developer.apple.com/xcode/), выполняющая последнюю версию пакета SDK для iOS. Это краткое руководство было протестировано с XCode 9.3 и iOS 11.3.
+- Последняя версия [XCode](https://developer.apple.com/xcode/), выполняющая последнюю версию пакета SDK для iOS. Это краткое руководство протестировано с использованием версий XCode 9.3 и iOS 11.3;
 - Последняя версия [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 - Служебная программа iothub-explorer, читающая телеметрию из Центра Интернета вещей. Чтобы установить ее, сначала установите [Node.js](https://nodejs.org) версии 4.x.x или более поздней, а затем выполните команду: 
 
@@ -80,6 +80,8 @@ ms.lasthandoff: 04/23/2018
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
 
+    Если вы выбрали другое имя для своего устройства, обновите имя устройства в примерах приложений перед их запуском.
+
 1. Выполните следующую команду, чтобы получить _строку подключения устройства_ для зарегистрированного устройства:
 
    ```azurecli-interactive
@@ -116,11 +118,11 @@ cd quickstart/sample-device
 pod install
 ```
 
-Вместе с установкой модулей, необходимых для проекта, команда установки также создает файл рабочей области XCode, который уже настроен для использования pod для зависимостей. 
+Вместе с установкой модулей, необходимых для проекта, команда установки также создает файл рабочей области XCode, который уже настроен для использования pod с зависимостями. 
 
 ### <a name="run-the-sample-application"></a>Запуск примера приложения 
 
-1. Откройте пример в рабочей области XCode.
+1. Откройте пример рабочей области в XCode.
 
    ```sh
    open "MQTT Client Sample.xcworkspace"
@@ -130,7 +132,7 @@ pod install
 3. Откройте **ViewController.swift** для редактирования в XCode. 
 4. Найдите переменную **connectionString** и обновите значение с помощью строки подключения устройства, записанной ранее.
 5. Сохраните изменения. 
-6. Выполните проект в эмуляторе устройства с помощью кнопки **Сборка и запуск** или клавиш **Command + R**. 
+6. Выполните проект в эмуляторе устройства, нажав кнопку **Сборка и запуск** или клавиши **COMMAND+R**. 
 
    ![Запуск проекта](media/quickstart-send-telemetry-ios/run-sample.png)
 

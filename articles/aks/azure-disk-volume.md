@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 33d9a01f063ee8ad531a3f7e01dcfbf1c4ba8901
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Тома с дисками Azure
 
-Контейнерные приложения часто требуются для обращения к данным и их хранения во внешнем томе данных. В качестве этого внешнего хранилища данных можно использовать диски Azure. Из этой статьи вы узнаете, как использовать диск Azure в качестве тома Kubernetes в службе контейнеров Azure (AKS).
+Контейнерные приложения часто требуются для обращения к данным и их хранения во внешнем томе данных. В качестве этого внешнего хранилища данных можно использовать диски Azure. Из этой статьи вы узнаете, как использовать диск Azure в качестве тома Kubernetes в кластере службы Azure Kubernetes.
 
 Дополнительные сведения о томах Kubernetes см. в разделе [Volumes][kubernetes-volumes] (Тома).
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Чтобы создать диск Azure, используйте команду [az disk create][az-disk-create]. 
+Чтобы создать диск Azure, используйте команду [az disk create][az-disk-create].
 
 Используя этот пример, замените `--resource-group` именем группы ресурсов, а `--name` — любым именем.
 
@@ -58,7 +58,7 @@ az disk create \
 
 ## <a name="mount-disk-as-volume"></a>Подключите диска в качестве тома
 
-Подключите диск Azure к pod, настроив том в спецификации контейнера. 
+Подключите диск Azure к pod, настроив том в спецификации контейнера.
 
 Создайте файл `azure-disk-pod.yaml` со следующим содержимым. Замените `diskName` именем созданного диска, а `diskURI` — идентификатором диска. Кроме того, запишите `mountPath`. Это путь, по которому диск Azure подключен в pod.
 

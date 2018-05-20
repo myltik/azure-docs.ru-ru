@@ -1,13 +1,13 @@
 ---
-title: "Регистрация приложения для использования Azure Active Directory | Документация Майкрософт"
-description: "Эта статья, предназначенная для ИТ-специалистов, содержит рекомендации по интеграции приложений Azure с Active Directory."
+title: Регистрация приложения для использования Azure Active Directory | Документация Майкрософт
+description: Эта статья, предназначенная для ИТ-специалистов, содержит рекомендации по интеграции приложений Azure с Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
-ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 66102836b954bf4fafc4379cf573658d89e0d409
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Разработка бизнес-приложений для Azure Active Directory
 Это руководство содержит сведения о разработке бизнес-приложений для Azure Active Directory (AD). Оно предназначено специально для глобальных администраторов Active Directory и Office 365.
@@ -77,7 +77,7 @@ ms.lasthandoff: 01/18/2018
 Дополнительные сведения о согласии пользователей и процедуре использования согласия в Azure см. в статье [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="related-articles"></a>Связанные статьи
-* [Как обеспечить безопасный удаленный доступ к локальным приложениям](active-directory-application-proxy-get-started.md)
+* [Как обеспечить безопасный удаленный доступ к локальным приложениям](manage-apps/application-proxy.md)
 * [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Управление доступом к приложениям с помощью Azure AD](active-directory-managing-access-to-apps.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

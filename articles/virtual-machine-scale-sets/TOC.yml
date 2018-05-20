@@ -1,0 +1,163 @@
+- name: Документация по масштабируемым наборам виртуальных машин
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое наборы масштабирования виртуальных машин?
+      href: overview.md
+- name: Быстрое начало работы
+  items:
+    - name: Создание с помощью портала Azure
+      href: quick-create-portal.md
+    - name: Создание с помощью Azure CLI 2.0
+      href: quick-create-cli.md
+    - name: Создание с помощью Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Создание с помощью шаблона
+      items:
+        - name: Масштабируемый набор Linux
+          href: quick-create-template-linux.md
+        - name: Масштабируемый набор Windows
+          href: quick-create-template-windows.md
+- name: Учебники
+  items:
+    - name: 1. Создание масштабируемого набора и управление им
+      items:
+        - name: "Azure CLI\_2.0"
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2. Использование дисков данных
+      items:
+        - name: "Azure CLI\_2.0"
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3. Использование настраиваемого образа виртуальной машины
+      items:
+        - name: "Azure CLI\_2.0"
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4. Развертывание приложений в масштабируемый набор
+      items:
+        - name: "Azure CLI\_2.0"
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Шаблон
+          href: tutorial-install-apps-template.md
+    - name: 5. Автоматическое масштабирование масштабируемого набора
+      items:
+        - name: "Azure CLI\_2.0"
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Шаблон
+          href: tutorial-autoscale-template.md
+    - name: Развертывание приложений в масштабируемом наборе виртуальных машин Azure с помощью пользовательского образа Packer
+      items:
+        - name: "Azure CLI\_2.0"
+          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
+- name: Примеры
+  items:
+    - name: "Azure CLI\_2.0"
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+- name: Практическое руководство
+  items:
+    - name: Планирование и проектирование
+      items:
+        - name: Рекомендации по проектированию
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: Общие сведения об идентификаторах экземпляров
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Создание шаблона
+      items:
+        - name: Сведения о шаблонах масштабируемых наборов
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Использование существующей виртуальной сети
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Использование пользовательского образа
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Использование автоматического масштабирования на основе гостевой виртуальной машины с помощью шаблона масштабируемого набора Linux
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Развертывание
+      items:
+        - name: Создание с помощью Visual Studio
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Использование зон доступности
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Автоматическое масштабирование масштабируемого набора
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Использование портала Azure
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Расширенное автомасштабирование
+              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Приложения в масштабируемых наборах
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Использование дисков данных с масштабируемыми наборами
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Шифрование дисков в масштабируемых наборах
+          items:
+            - name: Использование PowerShell
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Использование Azure CLI 2.0
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Работа с большими масштабируемыми наборами
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Преобразование шаблона масштабируемого набора для использования управляемого диска
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Использование виртуальных машин с низким приоритетом
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: управление
+      items:
+        - name: Общие задачи управления
+          items:
+            - name: Использование Azure CLI 2.0
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Использование Azure PowerShell
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Вертикальное масштабирование в масштабируемом наборе
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Автоматические обновления ОС
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Изменение масштабируемого набора
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Использование DSC и масштабируемых наборов
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Работа в сети для масштабируемых наборов
+          href: virtual-machine-scale-sets-networking.md
+        - name: Преобразование шаблона в управляемый диск
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Устранение неполадок
+      items:
+        - name: Autoscale
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: Часто задаваемые вопросы
+      items:
+        - name: Вопросы и ответы о масштабируемых наборах
+          href: virtual-machine-scale-sets-faq.md
+- name: Справочные материалы
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Инфраструктура CLI Azure
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Цены
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'

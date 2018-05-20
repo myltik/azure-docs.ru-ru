@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/26/2017
+ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e91a92d34131d0b35cfb7b0bfdca99637924552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Руководство. Подготовка геореплицированного реестра контейнеров Azure
 
@@ -31,17 +31,13 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для этого руководства требуется Azure CLI 2.0.20 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Для работы с этим руководством нужна локальная установка Azure CLI версии 2.0.31 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды Docker. При необходимости см. статью о [начале работы с Docker]( https://docs.docker.com/get-started/), чтобы ознакомиться с основами работы с контейнерами.
+Вам потребуется понимание базовых понятий Docker, таких как контейнеры, образы контейнеров и основные команды CLI Docker. [Руководство по началу работы с Docker]( https://docs.docker.com/get-started/) содержит базовые сведения о контейнерах.
 
-Для работы с этим руководством требуется среда разработки Docker. Docker содержит пакеты, которые позволяют быстро настроить Docker в любой системе [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) или [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Для работы с этим руководством потребуется локальная установка Docker. На сайте Docker предоставляются инструкции по установке для систем [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) и [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 Azure Cloud Shell не включает в себя компоненты Docker, необходимые для выполнения каждого шага этого руководства. Таким образом, мы рекомендуем выполнить локальную установку среды разработки Azure CLI и Docker.
-
-> [!IMPORTANT]
-> Функция георепликации реестра контейнеров Azure сейчас находится в **предварительной версии**. Предварительные версии предоставляются при условии, что вы соглашаетесь с [дополнительными условиями использования](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Некоторые аспекты этой функции могут быть изменены до выхода общедоступной версии.
->
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров
 
@@ -91,9 +87,9 @@ Azure Cloud Shell не включает в себя компоненты Docker,
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Теперь, после настройки георепликации, создайте образ контейнера и отправьте его в свой реестр. Сначала войдите в свой экземпляр ACR, прежде чем отправлять в него образы. С помощью [SKU уровня "Базовый", "Стандартный" и "Премиум"](container-registry-skus.md) можно выполнить аутентификацию, используя удостоверение Azure.
+Теперь, после настройки георепликации, создайте образ контейнера и отправьте его в свой реестр. Сначала войдите в свой экземпляр ACR, прежде чем отправлять в него образы.
 
-Выполните команду [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login), чтобы аутентифицировать и кэшировать учетные данные для вашего реестра. Замените `<acrName>` именем реестра, созданного на предыдущих шагах.
+Выполните команду [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login), чтобы аутентифицировать и кэшировать учетные данные для вашего реестра. Замените `<acrName>` именем реестра, созданного ранее.
 
 ```azurecli
 az acr login --name <acrName>
@@ -103,7 +99,7 @@ az acr login --name <acrName>
 
 ## <a name="get-application-code"></a>Получение кода приложения
 
-Пример в этом руководстве включает небольшое веб-приложение, созданное с помощью [ASP.NET Core](http://dot.net). Приложение обслуживает страницу HTML, отображающую регион, из которого был развернут образ с помощью реестра контейнеров Azure.
+Пример в этом руководстве включает небольшое веб-приложение, созданное на базе [ASP.NET Core][aspnet-core]. Приложение обслуживает страницу HTML, отображающую регион, из которого был развернут образ с помощью реестра контейнеров Azure.
 
 ![Приложение из руководства, отображающееся в браузере][tut-app-01]
 
@@ -114,11 +110,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
+Если у вас не установлен `git`, вы можете [скачать ZIP-архив][acr-helloworld-zip] непосредственно с сайта GitHub.
+
 ## <a name="update-dockerfile"></a>Обновление Dockerfile
 
-Файл Dockerfile в примере репозитория демонстрирует, как создается контейнер. Он запускается из официального образа [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore), копирует файлы приложения в контейнер, устанавливает зависимости, компилирует выходные данные с помощью официального образа [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) и, наконец, оптимизирует образ aspnetcore.
+Файл Dockerfile в примере репозитория демонстрирует, как создается контейнер. Он запускается из официального образа [aspnetcore][dockerhub-aspnetcore], копирует файлы приложения в контейнер, устанавливает зависимости, компилирует выходные данные с помощью официального образа [aspnetcore-build][dockerhub-aspnetcore-build] и, наконец компилирует оптимизированный образ aspnetcore.
 
-Dockerfile расположен в каталоге `./AcrHelloworld/Dockerfile` в клонированном источнике.
+[Dockerfile][dockerfile] расположен в каталоге `./AcrHelloworld/Dockerfile` клонированного источника.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -146,9 +144,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-Приложение в образе *acr-helloworld* пытается определить регион, из которого был развернут его контейнер, запросив информацию о сервере входа в реестр у DNS. Необходимо указать URL-адрес сервера входа в реестр в переменной среде `DOCKER_REGISTRY` в Dockerfile.
+Приложение в образе *acr-helloworld* пытается определить регион, из которого был развернут его контейнер, запросив информацию о сервере входа в реестр у DNS. Необходимо указать полное доменное имя сервера входа в реестр для переменной среды `DOCKER_REGISTRY` в Dockerfile.
 
-Сначала необходимо получить URL-адрес сервера входа в реестр, выполнив команду `az acr show`. Замените `<acrName>` именем реестра, созданного на предыдущих шагах.
+Сначала получите URL-адрес сервера входа в реестр, выполнив команду `az acr show`. Замените `<acrName>` именем реестра, созданного на предыдущих шагах.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,7 +160,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Затем обновите строку `DOCKER_REGISTRY`, используя URL-адрес сервера входа в реестр. В этом примере мы обновим строку в соответствии с примером имени реестра *uniqueregistryname*:
+Затем замените строку `ENV DOCKER_REGISTRY` полным доменным именем сервера входа в реестр. В этом примере используется имя реестра *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
@@ -170,7 +168,7 @@ ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 
 ## <a name="build-container-image"></a>Создание образа контейнера
 
-Теперь, когда вы обновили файл Dockerfile с помощью URL-адреса реестра, можно выполнить команду `docker build`, чтобы создать образ контейнера. Выполните указанную ниже команду, чтобы создать образ и пометить его URL-адресом частного реестра. Снова замените `<acrName>` именем своего реестра.
+Теперь, когда вы включили в файл Dockerfile полное доменное имя сервера входа в реестр, можно создать образ контейнера с помощью команды `docker build`. Выполните указанную ниже команду, чтобы создать образ и пометить его URL-адресом частного реестра. Снова замените `<acrName>` именем своего реестра.
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -183,7 +181,9 @@ Sending build context to Docker daemon  523.8kB
 Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
 2.0: Pulling from microsoft/aspnetcore
 3e17c6eae66c: Pulling fs layer
-...
+
+[...]
+
 Step 18/18 : ENTRYPOINT dotnet AcrHelloworld.dll
  ---> Running in 6906d98c47a1
  ---> c9ca1763cfb1
@@ -192,23 +192,18 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Выполните команду `docker images`, чтобы просмотреть созданный образ:
+Используйте `docker images`, чтобы просмотреть готовый образ с тегами:
 
-```bash
-docker images
-```
-
-Выходные данные:
-
-```bash
+```console
+$ docker images
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
 uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
-...
+[...]
 ```
 
 ## <a name="push-image-to-azure-container-registry"></a>Передача образа в реестр контейнеров Azure
 
-Наконец, выполните команду `docker push`, чтобы отправить образ *acr-helloworld* в реестр. Замените `<acrName>` именем реестра.
+Теперь выполните команду `docker push`, чтобы отправить в реестр образ *acr-helloworld*. Замените `<acrName>` именем реестра.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -216,9 +211,8 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Так как реестр настроен для георепликации, ваш образ будет автоматически реплицирован в регион *западной части США* и *восточной части США*. Для этого необходимо выполнить отдельную команду `docker push`.
 
-Выходные данные:
-
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 cd54739c444b: Pushed
 d6803756744a: Pushed
@@ -232,15 +226,9 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-В этом руководстве вы создали частный, геореплицированный реестр контейнеров, образ контейнера, а затем отправили образ в реестр. Следуя шагам в этом руководстве, вы:
+В этом руководстве вы создали частный, геореплицированный реестр контейнеров, образ контейнера, а затем отправили образ в реестр.
 
-> [!div class="checklist"]
-> * создали геореплицированный реестр контейнеров Azure;
-> * клонировали исходный код приложения из GitHub;
-> * создали образ контейнера Docker из источника приложения;
-> * отправили образ контейнера в реестр.
-
-Перейдите к следующему руководству, чтобы ознакомиться с развертыванием контейнера в нескольких экземплярах службы "Веб-приложение для контейнеров" с использованием георепликации для локального обслуживания образов.
+Перейдите к следующему руководству, из которого вы узнаете, как развернуть созданный контейнер в нескольких экземплярах службы "Веб-приложение для контейнеров" с использованием георепликации для локального обслуживания образов.
 
 > [!div class="nextstepaction"]
 > [Развертывание веб-приложения из реестра контейнеров Azure](container-registry-tutorial-deploy-app.md)
@@ -253,3 +241,10 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 [tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
 [tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
 [tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
+
+<!-- LINKS - External -->
+[acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
+[aspnet-core]: http://dot.net
+[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
+[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
+[dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

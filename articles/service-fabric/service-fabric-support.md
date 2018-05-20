@@ -1,24 +1,24 @@
 ---
-title: "Описание вариантов поддержки Azure Service Fabric | Документация Майкрософт"
-description: "Поддерживаемые версии кластера Service Fabric и ссылки для отправки запросов в службу поддержки."
+title: Описание вариантов поддержки Azure Service Fabric | Документация Майкрософт
+description: Поддерживаемые версии кластера Service Fabric и ссылки для отправки запросов в службу поддержки.
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/26/2018
+ms.date: 5/14/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 503bc07ff904dcb5952a13f12296f14fdd1999c0
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Варианты поддержки Azure Service Fabric
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/01/2018
 
 См. также:
  
-- [Поддержка корпорации Майкрософт для клиентов Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Поддержка корпорации Майкрософт для клиентов Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Поддержка Premier](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
@@ -77,7 +77,8 @@ ms.lasthandoff: 02/01/2018
 | 5.6.* | 5.4.164.* |Не выше версии 2.6 |13 октября 2017 г.   |
 | 5.7.* | 5.4.164.* |Не выше версии 2.7 |15 декабря 2017 г.  |
 | 6.0.* | 5.6.205.* |Не выше версии 2.8 |30 марта 2018 г.     | 
-| 6.1.* | 5.7.221.* |Не выше версии 3.0 |Текущая версия, дата окончания поддержки не определена. |
+| 6.1.* | 5.7.221.* |Не выше версии 3.0 |15 июля 2018 г.      |
+| 6.2.* | 6.0.232.* |Не выше версии 3.1 |Текущая версия, дата окончания поддержки не определена. |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Предварительные версии Service Fabric не поддерживаются для использования в рабочей среде.
 Время от времени мы выпускаем версии с важными функциями, доступными в виде предварительных версий, отзывы по которым мы хотим получить. Эти предварительные версии следует использовать только для целей тестирования. На производственном кластере всегда должна быть запущена поддерживаемая стабильная версия Service Fabric. Предварительная версия всегда начинается с номера основной и вспомогательной версии, равного 255. Например, если отображается версия Service Fabric 255.255.5703.949, она является предварительной и ее следует использовать в тестовых кластерах. О выходе этих предварительных выпусков также объявляется в [блоге группы Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) и приводятся сведения о функциях, включенных в их состав.

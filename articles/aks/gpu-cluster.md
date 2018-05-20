@@ -1,6 +1,6 @@
 ---
-title: Процессоры GPU в службе контейнеров Azure (AKS)
-description: Использование процессоров GPU в службе контейнеров Azure (AKS)
+title: GPU в службе Azure Kubernetes (AKS)
+description: Использование GPU в службе Azure Kubernetes (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-gpus-on-aks"></a>Использование GPU в AKS
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="create-an-aks-cluster"></a>Создание кластера AKS
 
 Процессоры GPU обычно необходимы для рабочих нагрузок с большим объемом вычислений, например графической обработки и визуализаций. Ознакомьтесь с [этим документом](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu), чтобы определить нужный размер виртуальной машины для своей рабочей нагрузки.
-Минимальный рекомендуемый размер для узлов AKS — `Standard_NC6`.
+Минимальный рекомендуемый размер для узлов службы Azure Kubernetes (AKS) — `Standard_NC6`.
 
 > [!NOTE]
 > Виртуальные машины с поддержкой процессоров GPU содержат специализированное оборудование, на которое предусмотрена более высокая цена и которое зависит от доступности в регионе. Дополнительные сведения см. на странице [цен](https://azure.microsoft.com/pricing/) и сайте о [доступности в регионе](https://azure.microsoft.com/global-infrastructure/services/).
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>Подтверждение того, что процессоры GPU планируемые
 
-Выполните следующие команды, чтобы подтвердить, что процессоры GPU планируются через Kubernetes. 
+Выполните следующие команды, чтобы подтвердить, что процессоры GPU планируются через Kubernetes.
 
 Получите текущий список узлов.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Используйте команду [kubectl create][kubectl-create], чтобы запустить задание. Эта команда анализирует файл манифеста и создает заданные объекты Kubernetes.

@@ -1,28 +1,31 @@
 ---
-title: "Решение для мониторинга VMware в Log Analytics | Документация Майкрософт"
-description: "Узнайте о том, как решение для мониторинга VMware помогает управлять журналами событий и отслеживать узлы ESXi."
+title: Решение для мониторинга VMware в Log Analytics | Документация Майкрософт
+description: Узнайте о том, как решение для мониторинга VMware помогает управлять журналами событий и отслеживать узлы ESXi.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Решение для мониторинга VMware (предварительная версия) в Log Analytics | Microsoft Azure
 
 ![Символ VMware](./media/log-analytics-vmware/vmware-symbol.png)
+
+> [!NOTE]
+> Решение "Мониторинг VMware" больше не поддерживается.  Пользователи, установившие его, могут продолжать работать с ним, но это решение нельзя добавить в новые рабочие области.
 
 Решение для мониторинга VMware в Log Analytics помогает управлять централизованным ведением больших журналов VMware, а также отслеживать их. В статье описано, как с помощью этого решения централизованно устранять неполадки, связанные с узлами ESXi, а также регистрировать их и управлять ими. В решении можно увидеть подробные данные для всех узлов ESXi в одном расположении. В журналах узла ESXi вы можете просматривать счетчики основных событий, а также состояния и тенденции ВМ и узлов ESXi. Вы также можете устранять неполадки, просматривая централизованные журналы узлов ESXi и выполняя поиск в них. И наоборот, можно создавать оповещения на основе поисковых запросов по журналам.
 
@@ -34,7 +37,7 @@ ms.lasthandoff: 02/13/2018
 * Добавьте решение для мониторинга VMware в подписку, используя процесс, описанный в разделе [Добавление решения для управления](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Поддерживаемые узлы VMware ESXi
-vSphere ESXi Host версий 5.5 и 6.0.
+vSphere ESXi Host версий 5.5, 6.0 и 6.5
 
 #### <a name="prepare-a-linux-server"></a>Подготовка сервера под управлением Linux
 Создайте ВМ с ОС Linux, чтобы получать все данные системных журналов от узлов ESXi. [Агент OMS для Linux ](log-analytics-linux-agents.md) — это точка сбора всех данных системных журналов узлов ESXi. Можно использовать несколько узлов ESXi для пересылки журналов на отдельный сервер под управлением Linux, как показано в следующем примере.  
@@ -42,7 +45,7 @@ vSphere ESXi Host версий 5.5 и 6.0.
    ![Поток данных системных журналов](./media/log-analytics-vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Настройка сбора системных журналов
-1. Настройте пересылку системных журналов для VSphere. Подробные сведения о настройке пересылки системных журналов см. [здесь](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Последовательно выберите **ESXi Host Configuration** > **Software** > **Advanced Settings** > **Syslog** (Конфигурация узла ESXi > Программное обеспечение > Дополнительные параметры > Системный журнал).
+1. Настройте пересылку системных журналов для VSphere. Подробные сведения о настройке пересылки системных журналов в ESXi 5.0 и более поздних версиях см. [здесь](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Последовательно выберите **ESXi Host Configuration** > **Software** > **Advanced Settings** > **Syslog** (Конфигурация узла ESXi > Программное обеспечение > Дополнительные параметры > Системный журнал).
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. В поле *Syslog.global.logHost* укажите сервер Linux и номер порта *1514*. Например, `tcp://hostname:1514` или `tcp://123.456.789.101:1514`.
 3. Откройте брандмауэр узла ESXi для системного журнала. Последовательно выберите **ESXi Host Configuration** > **Software** > **Security Profile** > **Firewall** и **Properties** (Конфигурация узла ESXi > Программное обеспечение > Профиль безопасности > Брандмауэр > Свойства).  

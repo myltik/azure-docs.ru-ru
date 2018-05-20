@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e65f64939826a97eae0fca0fe3ae220f5479d2b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75c61894d5562f4bb0cb45fd8500bd9cf0f2bf8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Создание веб-приложения Service Manager с помощью автоматизированного скрипта
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 04/28/2018
 - префикс имени сайта для веб-приложения;
 - пространство имен ServiceBus.
 
-Скрипт создает веб-приложение, используя имя, которое вы указали (с несколькими дополнительными строками, обеспечивающими его уникальность). Он создаст **URL-адрес веб-приложения**, **идентификатор клиента** и **секрет клиента**.
+Скрипт создает веб-приложение, используя имя, которое вы указали (с несколькими дополнительными строками, обеспечивающими его уникальность). Он создаст **URL-адрес веб-приложения**, **идентификатор** и **секрет клиента**.
 
-Сохраните эти значения. Вы сможете их использовать при создании подключения с помощью соединителя управления ИТ-службами.
+Сохраните эти значения. Вы сможете их использовать при создании подключения с помощью Соединителя управления ИТ-услугами.
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -191,6 +191,8 @@ Write-Output "Web App Deployed successfully!!"
 Add-Type -AssemblyName System.Web
 
 $clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+
+$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
 
 try
 {

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Цепочки функций в устойчивых функциях — пример последовательности Hello
 
@@ -35,9 +35,13 @@ ms.lasthandoff: 03/23/2018
 * Функция оркестратора `E1_HelloSequence`, которая вызывает `E1_SayHello` несколько раз подряд. При этом сохраняются выходные данные каждого вызова `E1_SayHello` и записываются результаты.
 * Функция действия `E1_SayHello`, которая добавляет Hello в начало строки.
 
-В следующих разделах рассматривается конфигурация и код, которые используются для написания скриптов на языке C#. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
- 
-## <a name="functionjson-file"></a>Файл function.json
+В следующих разделах рассматривается конфигурация и код, которые используются для написания скриптов на языках C# и JavaScript. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
+
+> [!NOTE]
+> Устойчивые функции доступны в JavaScript только для среды выполнения функций версии 2.
+
+## <a name="e1hellosequence"></a>E1_HelloSequence
+### <a name="functionjson-file"></a>Файл function.json
 
 Если вы используете для разработки Visual Studio Code или портал Azure, файл *function.json* с указанным здесь содержимым позволит создать функцию оркестратора. Для большинства функций оркестратора файл *function.json* будет выглядеть почти так же.
 
@@ -48,7 +52,7 @@ ms.lasthandoff: 03/23/2018
 > [!WARNING]
 > Чтобы не нарушать требование "без ввода и вывода", применяемое к функциям оркестратора, не используйте никакие привязки входных или выходных данных совместно с триггером привязки `orchestrationTrigger`.  Если вам нужны входные или выходные привязки, используйте их в контексте функций `activityTrigger`, которые вызываются оркестратором.
 
-## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Скрипт C# (пример кода Visual Studio Code и портала Azure) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Скрипт C# (пример кода Visual Studio Code и портала Azure) 
 
 Ниже приведен исходный код:
 
@@ -57,6 +61,23 @@ ms.lasthandoff: 03/23/2018
 Для всех функций оркестратора на C# должен использоваться параметр типа `DurableOrchestrationContext`, который присутствует в сборке `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Если вы работаете со скриптом C#, для ссылки на сборку можно использовать нотацию `#r`. Этот объект контекста позволяет вызывать другие функции *действия* и передавать им входные параметры с помощью метода [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 Этот код трижды последовательно вызывает `E1_SayHello` с разными значениями параметров. Значение, возвращаемое при каждом вызове, добавляется в список `outputs`, который возвращается в качестве результата функции.
+
+### <a name="javascript"></a>JavaScript
+
+Ниже приведен исходный код:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+Все функции оркестратора на JavaScript должны включать модуль `durable-functions`. Это библиотека JavaScript, которая преобразует действия функции оркестратора в протокол выполнения устойчивых функций для языков вне процесса. Есть три существенных различия между функциями оркестратора и другими функциями JavaScript:
+
+1. Эта функция является [функцией генератора](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript).
+2. Эта функция упаковывается в вызов к модулю `durable-functions` (в нашем примере это `df`).
+3. Эта функция завершается вызовом `return`, а не `context.done`.
+
+Объект `context` содержит объект `df`, что позволяет вызывать другие функции *действий* и передавать им входные параметры с помощью метода `callActivityAsync`. Этот код вызывает `E1_SayHello` три раза подряд с разными значениями параметров, указывая с помощью `yield`, что процесс выполнения должен ожидать возврата из асинхронных функций действий. Значение, возвращаемое при каждом вызове, добавляется в список `outputs`, который возвращается в качестве результата функции.
+
+## <a name="e1sayhello"></a>E1_SayHello
+### <a name="functionjson-file"></a>Файл function.json
 
 Файл *Function.json* для функции действия `E1_SayHello` будет таким же, как и для `E1_HelloSequence`, с одним исключением: в нем используется тип привязки `activityTrigger` вместо `orchestrationTrigger`.
 
@@ -67,9 +88,17 @@ ms.lasthandoff: 03/23/2018
 
 Функция `E1_SayHello` реализует достаточно простую операцию форматирования строки.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 Эта функция принимает параметр типа [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), при помощи которого она получает входные данные, переданные ранее при вызове функции оркестратора [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### <a name="javascript"></a>JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+В отличие от функции оркестратора JavaScript, функция действия JavaScript не требует дополнительной настройки. Входные данные, которые ей передает функция оркестратора, размещаются в объекте `context.bindings` под именем привязки `activitytrigger` (в нашем примере это `context.bindings.name`). Имя привязки можно задать в качестве параметра экспортируемой функции и обращаться к нему напрямую, как показано в этом примере кода.
 
 ## <a name="run-the-sample"></a>Запуск примера
 

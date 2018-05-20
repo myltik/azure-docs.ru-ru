@@ -14,11 +14,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 373983413ea83e5924b52fbbcbc666aa1a188d80
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4fa93e4bf64e01b44b0826b2182b125004c49609
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Управление административными единицами в Azure AD (общедоступная предварительная версия)
 В этой статье рассматриваются административные единицы — новые контейнеры ресурсов Azure Active Directory, которые можно использовать для делегирования административных разрешений и применения политик к подмножествам пользователей. Административные единицы Azure Active Directory позволяют администраторам центра делегировать разрешения администраторам периферии или настраивать политики на детальном уровне.
@@ -38,4 +38,4 @@ ms.lasthandoff: 05/07/2018
 Дополнительные сведения о требованиях к программному обеспечению и установке модуля Azure AD, а также информацию о командлетах управления административными единицами через модуль Azure AD, включая синтаксис, описание параметров и примеры, см. в разделе [Управление Azure AD с помощью Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Выпуски Azure Active Directory](active-directory-editions.md)
+[Выпуски Azure Active Directory](active-directory-whatis.md)

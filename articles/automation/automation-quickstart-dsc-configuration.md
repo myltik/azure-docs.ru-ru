@@ -1,7 +1,9 @@
 ---
-title: "Быстрое начало работы с Azure — настройка DSC на виртуальной машине | Документация Майкрософт"
-description: "Создание стека LAMP на виртуальной машине Linux с настройкой требуемого состояния"
+title: Быстрое начало работы с Azure — настройка DSC на виртуальной машине | Документация Майкрософт
+description: Создание стека LAMP на виртуальной машине Linux с настройкой требуемого состояния
 services: automation
+ms.service: automation
+ms.component: dsc
 keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
@@ -9,11 +11,11 @@ ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Настройка требуемого состояния на виртуальной машине Linux
 
@@ -28,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 * Виртуальная машина Azure Resource Manager (не классическая) под управлением Red Hat Enterprise Linux, CentOS или Oracle Linux. Инструкции по созданию виртуальной машины см. в статье [Создание первой виртуальной машины Linux на портале Azure](../virtual-machines/linux/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
-Войдите на портал Azure по адресу https://portal.azure.com.
+Войдите в Azure: https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Подключение виртуальной машины
 Подключить компьютер и активировать настройку требуемого состояния можно разными способами. В этом руководстве мы рассматриваем подключение с помощью учетной записи службы автоматизации. Сведения о других методах подключения компьютера к настройке требуемого состояния см. [в этой статье](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).

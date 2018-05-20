@@ -1,13 +1,13 @@
 ---
-title: "Краткое руководство по установке одного экземпляра SAP HANA вручную на виртуальных машинах Azure | Документация Майкрософт"
-description: "Краткое руководство по установке одного экземпляра SAP HANA вручную на виртуальных машинах Azure"
+title: Краткое руководство по установке одного экземпляра SAP HANA вручную на виртуальных машинах Azure | Документация Майкрософт
+description: Краткое руководство по установке одного экземпляра SAP HANA вручную на виртуальных машинах Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Краткое руководство по установке одного экземпляра SAP HANA вручную на виртуальных машинах Azure
 ## <a name="introduction"></a>Введение
@@ -251,7 +251,7 @@ ms.lasthandoff: 11/02/2017
 
 Когда вы устанавливаете SAP NetWeaver в среде SLES 12 или SLES for SAP Applications 12 из стандартного образа коллекции Azure, отображается сообщение о нехватке области буфера, как показано на следующем снимке экрана. Чтобы закрыть это сообщение, можно вручную добавить файл подкачки с помощью **dd**, **mkswap** и **swapon**. Инструкции см. в подразделе "Adding a Swap File Manually" (Добавление файла подкачки вручную) [раздела "Using the YaST Partitioner" (Использование модуля секционирования YaST) документации SUSE](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
-Область буфера можно также настроить с помощью агента виртуальной машины Linux. Дополнительные сведения см. в [руководстве пользователя агента Linux Azure](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Область буфера можно также настроить с помощью агента виртуальной машины Linux. Дополнительные сведения см. в [руководстве пользователя агента Linux Azure](../../extensions/agent-linux.md).
 
 ![Всплывающее сообщение, предупреждающее о том, что в области буфера недостаточно места](./media/hana-get-started/image010.jpg)
 

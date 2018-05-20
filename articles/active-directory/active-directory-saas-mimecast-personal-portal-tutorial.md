@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Mimecast Personal Portal | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Mimecast Personal Portal."
+title: Руководство по интеграции Azure Active Directory с Mimecast Personal Portal | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Mimecast Personal Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Руководство по интеграции Azure Active Directory с Mimecast Personal Portal
 
@@ -80,8 +80,6 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Mimecast Personal Portal соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Mimecast Personal Portal.
 
-Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Mimecast Personal Portal.
-
 Чтобы настроить и проверить единый вход Azure AD в Mimecast Personal Portal, вам потребуется выполнить действия в следующих стандартных блоках.
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
@@ -127,6 +125,16 @@ ms.lasthandoff: 12/11/2017
     | ЮАР    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Австралия       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Внешнее расположение        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес: 
+
+    | Регион  |  Значение | 
+    | --------------- | --------------- | 
+    | Европа          | `https://eu-api.mimecast.com/login/saml`|
+    | США   | `https://us-api.mimecast.com/login/saml`|
+    | ЮАР    | `https://za-api.mimecast.com/login/saml`|
+    | Австралия       | `https://au-api.mimecast.com/login/saml`|
+    | Внешнее расположение        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > Значение идентификатора приведено для примера и не является реальным. Вместо него нужно указать фактический идентификатор. Чтобы получить это значение, обратитесь к [группе поддержки клиентов Mimecast Personal Portal](http://www.mimecast.com/customer-success/technical-support/). 
@@ -178,10 +186,6 @@ ms.lasthandoff: 12/11/2017
     h. Установите флажок **Разрешить единый вход**.
    
     i. Выберите команду **Сохранить**.
-
-> [!TIP]
-> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

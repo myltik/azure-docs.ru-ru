@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Отправка сообщений из облака на устройство с помощью Центра Интернета вещей (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -176,7 +176,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="next-steps"></a>Дополнительная информация
 В этом учебнике вы научились отправлять и получать сообщения с облака на устройство. 
 
-Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по Azure IoT Suite].
+Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по акселераторам решений для удаленного мониторинга Интернета вещей Azure].
 
 Дополнительные сведения о разработке решений с помощью Центра Интернета вещей см. в [руководстве разработчика для Центра Интернета вещей].
 
@@ -195,5 +195,5 @@ ms.lasthandoff: 04/03/2018
 [руководстве разработчика для Центра Интернета вещей]: iot-hub-devguide.md
 [Подключение устройства к Центру Интернета вещей с помощью .NET]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[документации по Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
+[документации по акселераторам решений для удаленного мониторинга Интернета вещей Azure]: https://docs.microsoft.com/azure/iot-suite/
 [пакетов SDK для устройств Azure IoT]: iot-hub-devguide-sdks.md

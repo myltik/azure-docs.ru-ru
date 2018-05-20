@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Руководство. Добавление личного домена к конечной точке CDN Azure
 Из этого руководства вы узнаете, как добавить личный домен к конечной точке сети доставки содержимого (CDN) Azure. При использовании конечной точки CDN для доставки содержимого личный домен требуется, если вы хотите обеспечить видимость своего доменного имени в URL-адресе CDN. Видимое доменное имя удобно для клиентов и эффективно используется для популяризации бренда. 
@@ -28,9 +27,9 @@ ms.lasthandoff: 04/16/2018
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
-> - Создание записи CNAME DNS
-> - Связывание личного домена с конечной точкой CDN.
-> - Проверка личного домена.
+> - создание записи CNAME DNS;
+> - связывание личного домена с конечной точкой CDN;
+> - проверка личного домена.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -211,16 +210,16 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Вы научились выполнять следующие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
-> - Создание записи CNAME DNS.
-> - Связывание личного домена с конечной точкой CDN.
-> - Проверка личного домена.
+> - создание записи CNAME DNS;
+> - связывание личного домена с конечной точкой CDN;
+> - проверка личного домена.
 
 Перейдите к следующему руководству, чтобы научиться настраивать протокол HTTPS в личном домене Azure CDN.
 
 > [!div class="nextstepaction"]
-> [Настройка протокола HTTPS для личного домена в сети доставки содержимого Azure](cdn-custom-ssl.md)
+> [Руководство по настройке протокола HTTPS для личного домена в сети доставки содержимого Azure](cdn-custom-ssl.md)
 
 

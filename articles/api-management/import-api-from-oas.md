@@ -3,7 +3,7 @@ title: Импорт спецификации OpenAPI с помощью порт�
 description: Сведения об импорте спецификации OpenAPI с помощью службы управления API.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0ea24b58deb7b33755a44737a66938883f74a13c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-an-openapi-specification"></a>Импорт спецификации OpenAPI
 
 В этой статье показано, как импортировать API серверной части "Спецификация OpenAPI", расположенный по адресу http://conferenceapi.azurewebsites.net?format=json. Этот API серверной части предоставляется корпорацией Майкрософт и размещен в Azure. Также здесь показано, как проверить API службы управления API.
 
 > [!IMPORTANT]
-> Важные сведения и советы, связанные с импортом OpenAPI, см. в этом [документе](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/).
+> Важные сведения и советы, связанные с импортом OpenAPI, см. в этом [документе](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/).
 
 В этой статье раскрываются следующие темы:
 

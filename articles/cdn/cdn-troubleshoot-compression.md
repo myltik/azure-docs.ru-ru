@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок со сжатием файлов в Azure CDN | Документация Майкрософт"
-description: "Узнайте, как устранить неполадки со сжатием файлов Azure CDN."
+title: Устранение неполадок со сжатием файлов в Azure CDN | Документация Майкрософт
+description: Узнайте, как устранить неполадки со сжатием файлов Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Устранение неполадок со сжатием файлов CDN
 Эта статья поможет вам устранить неполадки со [сжатием файлов CDN](cdn-improve-performance.md).
@@ -61,9 +61,9 @@ ms.lasthandoff: 10/11/2017
 
 ![Заголовки запроса CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Проверка параметров сжатия (стандартный профиль CDN)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Проверка параметров сжатия (профили CDN уровня "Стандартный")
 > [!NOTE]
-> Это действие применимо только для профилей **Azure CDN уровня "Стандартный" от Verizon** или **Azure CDN уровня "Стандартный" от Akamai**. 
+> Это действие применимо только для профилей **Azure CDN уровня "Стандартный" от Майкрософт**, **Azure CDN уровня "Стандартный" от Verizon** или **Azure CDN уровня "Стандартный" от Akamai**. 
 > 
 > 
 
@@ -74,9 +74,9 @@ ms.lasthandoff: 10/11/2017
 
 ![Параметры сжатия CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Проверка параметров сжатия (профиль CDN уровня "Премиум")
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Проверка параметров сжатия (профили CDN уровня "Премиум")
 > [!NOTE]
-> Это действие применимо только для профиля **Azure CDN уровня "Премиум" от Verizon** .
+> Это действие применимо только для профиля **Azure CDN уровня "Премиум" от Verizon**.
 > 
 > 
 
@@ -88,9 +88,9 @@ ms.lasthandoff: 10/11/2017
 
 ![Параметры сжатия CDN уровня "Премиум"](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Проверка кэширования содержимого
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Проверка кэширования содержимого (профили CDN от Verizon)
 > [!NOTE]
-> Это действие применимо только для профиля **Azure CDN от Verizon** (уровня "Премиум" или "Стандартный").
+> Это действие применимо только для профиля **Azure CDN уровня "Стандартный" от Verizon** или **Azure CDN уровня "Премиум" от Verizon**.
 > 
 > 
 
@@ -101,9 +101,9 @@ ms.lasthandoff: 10/11/2017
 
 ![Заголовки ответа CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Проверка соответствия файла требованиям к размеру
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Проверка соответствия файла требованиям к размеру (профили CDN от Verizon)
 > [!NOTE]
-> Это действие применимо только для профиля **Azure CDN от Verizon** (уровня "Премиум" или "Стандартный").
+> Это действие применимо только для профиля **Azure CDN уровня "Стандартный" от Verizon** или **Azure CDN уровня "Премиум" от Verizon**.
 > 
 > 
 

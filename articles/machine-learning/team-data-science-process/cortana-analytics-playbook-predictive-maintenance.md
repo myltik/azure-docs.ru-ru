@@ -1,8 +1,8 @@
 ---
-title: "Диагностическое обслуживание в авиакосмической отрасли с помощью Azure: шаблон решения Cortana Intelligence | Документация Майкрософт"
-description: "Шаблон решения с использованием Microsoft Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических, транспортных и обслуживающих компаниях."
+title: Сборник схем искусственного интеллекта Azure для решений прогнозного обслуживания | Документация Майкрософт
+description: Подробное описание технологии обработки и анализа данных, лежащей в основе решений прогнозного обслуживания в нескольких различных отраслях.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Сборник тренировочных заданий для шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Сборник схем искусственного интеллекта Azure для решений прогнозного обслуживания 
 ## <a name="executive-summary"></a>Аннотация
 Прогнозируемое обслуживание — одно из наиболее востребованных сценариев использования прогнозной аналитики, которое предоставляет ряд бесспорных преимуществ, в том числе существенную экономию затрат. Этот сборник тренировочных заданий предназначен для предоставления справки по решениям прогнозируемого обслуживания с акцентом на основных вариантах использования.
 Здесь представлены наиболее распространенные бизнес-сценарии прогнозируемого обслуживания, критерии определения того, можно ли устранить бизнес-проблему с помощью таких решений, данные, необходимые для решения этих бизнес-проблем, приемы прогнозного моделирования для создания решений с использованием таких данных и рекомендации с примерами архитектур решений.

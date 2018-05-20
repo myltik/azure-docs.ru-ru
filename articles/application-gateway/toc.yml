@@ -7,17 +7,17 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Направление веб-трафика с помощью портала
+    - name: Управление веб-трафиком с помощью портала
       href: quick-create-portal.md
-    - name: Направление веб-трафика с помощью PowerShell
+    - name: Управление веб-трафиком с помощью PowerShell
       href: quick-create-powershell.md
-    - name: Направление веб-трафика с помощью Azure CLI
+    - name: Управление веб-трафиком с помощью Azure CLI
       href: quick-create-cli.md
 - name: Учебники
   items:
     - name: Управление веб-трафиком
       href: tutorial-manage-web-traffic-cli.md
-    - name: Ограничение веб-трафика
+    - name: Включение брандмауэра веб-приложения Azure
       href: tutorial-restrict-web-traffic-cli.md
     - name: Защита с помощью SSL
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: Основные понятия
   items:
+    - name: завершение SSL-запросов;
+      href: ssl-overview.md
+    - name: Общие сведения о политике SSL
+      href: application-gateway-ssl-policy-overview.md
     - name: Брандмауэр веб-приложения
       href: waf-overview.md
     - name: Маршрутизация URL-адресов
       href: url-route-overview.md
     - name: Размещение нескольких сайтов
       href: multiple-site-overview.md
-    - name: завершение SSL-запросов;
-      href: ssl-overview.md
-    - name: Перенаправление URL-адресов
+    - name: Поддержка перенаправления
       href: redirect-overview.md
+    - name: Поддержка мультитенантного режима
     - name: Мониторинг работоспособности
       href: application-gateway-probe-overview.md
+    - name: Поддержка WebSocket
+      href: application-gateway-websocket.md
 - name: Практические руководства
   items:
     - name: Создание шлюза приложений
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Использование веб-приложений с помощью PowerShell
           href: create-web-app.md
-    - name: Включение завершения SSL-запросов с помощью портала
+        - name: Настройка внутренней подсистемы балансировки нагрузки
+          href: application-gateway-ilb.md
+    - name: Настройка завершения SSL-запросов с помощью портала
       href: create-ssl-portal.md
     - name: Размещение нескольких сайтов с помощью портала
       href: create-multiple-sites-portal.md
+    - name: Настройка правил WAF
+      items:
+        - name: Портал Azure
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Инфраструктура CLI Azure
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Перенаправление внешнего трафика
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: Справочные материалы
   items:
+    - name: Правила CRS
+      href: application-gateway-crs-rulegroups-rules.md
     - name: Инфраструктура CLI Azure
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Вызов API Microsoft Graph из приложения Android
+---
+title: включение файла
+description: включение файла
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Вход пользователей и вызов всех API Microsoft Graph из приложения Android
 
 В этом руководстве показано, как собственное приложение Android может получить маркер доступа и вызвать API Microsoft Graph или другие API, которым требуются маркеры доступа, из конечной точки Azure Active Directory версии 2.
 
 Когда вы завершите работу с этим руководством, ваше приложение сможет принимать операции входа с помощью личных учетных записей (включая outlook.com, live.com и другие), а также рабочих и учебных учетных записей из любой компании или организации, в которых используется Azure Active Directory. Затем приложение сможет вызвать программный интерфейс, защищенный конечной точкой Azure Active Directory версии 2.  
 
-## <a name="how-this-sample-works"></a>Как работает этот пример
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Как работает пример приложения, созданный в этом руководстве
 ![Как работает этот пример](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 Пример приложения, созданный в этом руководстве, основан на сценарии, в котором приложение Android используется для запроса веб-API, принимающего маркеры из конечной точки Azure Active Directory версии 2 (в нашем случае — API Microsoft Graph). В этом сценарии приложение добавляет полученный маркер в HTTP-запросы через заголовок авторизации. Получение маркера и его обновление выполняет библиотека проверки подлинности Майкрософт (MSAL).

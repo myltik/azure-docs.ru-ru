@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
 
@@ -478,6 +478,10 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 ## <a name="change-list"></a>Список изменений
 
 Чтобы проверить номер версии, щелкните правой кнопкой мыши значок локального эмулятора на панели задач и выберите пункт меню.
+
+### <a name="1220-released-on-april-20-2018"></a>1.22.0. Версия выпущена 20 апреля 2018 г.
+
+Помимо обновления служб эмулятора для контроля четности в облачных службах Cosmos DB, в этот выпуск включена усовершенствованная документация PowerShell и несколько исправлений ошибок.
 
 ### <a name="12106-released-on-march-27-2018"></a>Версия 1.21.0.6 выпущена 27 марта 2018 года.
 

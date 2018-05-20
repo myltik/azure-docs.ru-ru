@@ -78,6 +78,7 @@
 #### [Node.js (универсальная версия)](iot-suite-connecting-devices-node.md)
 #### [Использование Node.js с Raspberry Pi](iot-suite-connecting-pi-node.md)
 #### [Использование C с Raspberry Pi](iot-suite-connecting-pi-c.md)
+#### [Набор MX Chip AZ3166 DevKit](iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 ### Основные понятия
 #### [Сведения о реализации удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md)

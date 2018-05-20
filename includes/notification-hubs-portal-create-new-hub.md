@@ -1,5 +1,19 @@
-
-
+---
+title: включение файла
+description: включение файла
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/07/2018
+---
 1. Войдите на [портале Azure](https://portal.azure.com).
 
 2. Последовательно выберите **Создать ресурс** > **Интернет и мобильные устройства** > **Концентратор уведомлений**.
@@ -18,10 +32,9 @@
    
       ![Портал Azure: настройка свойств концентратора уведомлений](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Когда вы создадите пространство имен и концентратор уведомлений, откройте его. Для этого нажмите **All resources** (Все ресурсы) и выберите в списке созданный концентратор уведомлений. 
-   
-      ![Портал Azure: страница портала концентратора уведомлений](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+4. Последовательно выберите **Уведомления** (значок колокольчика) и **Go to resource** (Перейти к ресурсу). 
 
+      ![Портал Azure — "Уведомления" -> Go to resource (Перейти к ресурсу)](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. Выберите **Политики доступа** в списке. Запишите две строки подключения, которые отобразятся. Они требуются для дальнейшей обработки push-уведомлений.
 
       >[!IMPORTANT]

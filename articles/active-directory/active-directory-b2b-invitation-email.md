@@ -1,24 +1,20 @@
 ---
-title: "Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory | Документация Майкрософт"
-description: "Шаблон сообщения с приглашением в службу совместной работы Azure Active Directory B2B"
+title: Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory | Документация Майкрософт
+description: Шаблон сообщения с приглашением в службу совместной работы Azure Active Directory B2B
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.custom: seohack1
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3767a2ce457f7aa976620fb2df217d7f0823fe99
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory
 
@@ -72,16 +68,10 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Другие статьи о службе совместной работы Azure AD B2B:
+Другие статьи о службе совместной работы Azure AD B2B перечислены ниже.
 
-* [Что такое предварительная версия службы совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
-* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
-* [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
-* [Руководство по лицензированию службы совместной работы Azure Active Directory B2B](active-directory-b2b-licensing.md)
-* [Устранение неполадок службы совместной работы Azure Active Directory B2B](active-directory-b2b-troubleshooting.md)
-* [Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B](active-directory-b2b-faq.md)
-* [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
-* [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
-* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Что такое предварительная версия службы совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
+- [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
+- [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
+- [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)

@@ -13,14 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cbfc9c02cbde8bcf9a253144ff41497676c98f13
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="createuidefinition-elements"></a>Элементы CreateUiDefinition
-В этой статье описывается схема и свойства всех поддерживаемых элементов CreateUiDefinition. Для большинства элементов схема выглядит следующим образом:
+В этой статье описывается схема и свойства всех поддерживаемых элементов CreateUiDefinition. 
+
+## <a name="schema"></a>Схема
+
+Для большинства элементов схема выглядит следующим образом:
 
 ```json
 {
@@ -52,13 +56,16 @@ ms.lasthandoff: 04/03/2018
 
 - [Элемент пользовательского интерфейса Microsoft.Common.DropDown](microsoft-common-dropdown.md)
 - [Элемент пользовательского интерфейса Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
+- [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Элемент пользовательского интерфейса Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Элемент пользовательского интерфейса Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Элемент пользовательского интерфейса Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Элемент пользовательского интерфейса Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Элемент пользовательского интерфейса Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Элемент пользовательского интерфейса Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Элемент пользовательского интерфейса Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.Network.AvailabilityZoneDropDown](microsoft-network-availabilityzonedropdown.md)
 - [Элемент пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Элемент пользовательского интерфейса Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
 - [Элемент пользовательского интерфейса Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)

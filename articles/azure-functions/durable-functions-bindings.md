@@ -1,12 +1,12 @@
 ---
-title: "Привязки для устойчивых функций — Azure"
-description: "Инструкции по использованию триггеров и привязок в расширении устойчивых функций для Функций Azure."
+title: Привязки для устойчивых функций — Azure
+description: Инструкции по использованию триггеров и привязок в расширении устойчивых функций для Функций Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Привязки для устойчивых функций (Функции Azure)
 
@@ -36,17 +36,12 @@ ms.lasthandoff: 02/21/2018
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` является именем оркестрации. Это значение, которое клиенты должны использовать, когда требуется запускать новые экземпляры этой функции оркестрации. Это необязательное свойство. Если не указан, используется имя функции.
-* `version` является меткой версии оркестрации. Клиенты, которые запускают новый экземпляр оркестрации, должны включать соответствующую метку версии. Это необязательное свойство. Если не указано, используется пустая строка. Дополнительные сведения об управлении версиями см. в статье [Управление версиями в устойчивых функциях (Функции Azure)](durable-functions-versioning.md).
-
-> [!NOTE]
-> В настоящее время устанавливать значения для свойств `orchestration` или `version` не рекомендуется.
 
 Внутри эта привязка триггера опрашивает серии очередей в учетной записи хранения по умолчанию приложения-функции. Эти очереди представляют собой сведения о внутренней реализации расширения, поэтому они не настраиваются явно в свойствах привязки.
 
@@ -69,12 +64,11 @@ ms.lasthandoff: 02/21/2018
 * **Входные данные**. Функции оркестрации поддерживают только [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) в качестве типа параметра. Входные данные десериализации непосредственно в сигнатуре функции не поддерживаются. В коде необходимо использовать метод [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) для извлечения входных данных функции оркестратора. Эти входные данные должны быть типа, который сериализуется в JSON.
 * **Выходные данные**. Триггеры оркестрации поддерживают выходные значения, а также входные данные. Возвращаемое значение функции используется для назначения выходного значения и должно быть типа, который сериализуется в JSON. Если функция возвращает `Task` или `void`, значение `null` будет сохранено как выходное.
 
-> [!NOTE]
-> Сейчас триггеры оркестрации поддерживаются только в C#.
-
 ### <a name="trigger-sample"></a>Пример триггера
 
-Ниже приведен пример, как может выглядеть простая функция оркестратора "Hello World" на C#:
+Ниже приведен пример простой функции оркестратора "Hello World":
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,17 +79,45 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> Для оркестраторов JavaScript нужно использовать `return`. Библиотека `durable-functions` отвечает за вызов метода `context.done`.
+
 Большинство функций оркестратора вызывают функции действий. Пример "Hello World" демонстрирует, как вызвать функцию действия:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Триггеры действий
@@ -110,17 +132,12 @@ public static async Task<string> Run(
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` является именем действия. Это значение, которое функции оркестратора используют для вызова этой функции действия. Это необязательное свойство. Если не указан, используется имя функции.
-* `version` является меткой версии действия. Функции оркестратора, которые вызывают действия, должны содержать соответствующую метку версии. Это необязательное свойство. Если не указано, используется пустая строка. Дополнительные сведения см. в статье [Управление версиями в устойчивых функциях (Функции Azure)](durable-functions-versioning.md).
-
-> [!NOTE]
-> В настоящее время устанавливать значения для свойств `activity` или `version` не рекомендуется.
 
 Внутри эта привязка триггера опрашивает очередь в учетной записи хранения по умолчанию приложения-функции. Эта очередь представляет собой сведения о внутренней реализации расширения, поэтому она не настраивается явно в свойствах привязки.
 
@@ -144,12 +161,11 @@ public static async Task<string> Run(
 * **Выходные данные.** Функции действий поддерживают выходные значения, а также входные данные. Возвращаемое значение функции используется для назначения выходного значения и должно быть типа, который сериализуется в JSON. Если функция возвращает `Task` или `void`, значение `null` будет сохранено как выходное.
 * **Метаданные**. Функции действий можно привязать к параметру `string instanceId`, чтобы получить идентификатор экземпляра родительской оркестрации.
 
-> [!NOTE]
-> Триггеры действий в настоящее время не поддерживаются в функциях Node.js.
-
 ### <a name="trigger-sample"></a>Пример триггера
 
-Ниже приведен пример, как может выглядеть простая функция действия "Hello World" на C#:
+Ниже приведен пример простой функции действия "Hello World":
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,13 +176,69 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 Типом параметра по умолчанию для привязки `ActivityTriggerAttribute` является `DurableActivityContext`. Однако триггеры действий также поддерживают привязку непосредственно к JSON-сериализуемым типам (включая примитивные типы), поэтому эту же функцию можно упростить следующим образом:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
+}
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (только для решения "Функции" версии 2)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
+```
+
+### <a name="passing-multiple-parameters"></a>Передача нескольких параметров 
+
+Передать несколько параметров непосредственно в функцию действия нельзя. В этом случае рекомендуем передать массив объектов или использовать объекты [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples).
+
+В следующем примере используются новые функции [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples), добавленные в [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<dynamic> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university 
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
 }
 ```
 
@@ -264,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Образец Node.js
+#### <a name="javascript-sample"></a>Пример на языке JavaScript
 
-В следующем примере показано, как использовать привязку клиента устойчивой оркестрации для запуска нового экземпляра функции из функции Node.js:
+В следующем примере показано, как использовать привязку клиента устойчивой оркестрации для запуска нового экземпляра функции из функции JavaScript:
 
 ```js
 module.exports = function (context, input) {

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 10/9/2017
+ms.date: 5/10/2018
 ms.author: mobandyo
-ms.openlocfilehash: 7b573c906ee4ced803369606c3e318fd452a426a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Использование API выставления счетов Azure для программного получения ценных сведений об использовании Azure
 Используйте API выставления счетов Azure для извлечения данных об использовании и ресурсах в предпочитаемые средства анализа данных. API использования ресурсов и RateCard в Azure позволяют точно прогнозировать расходы и управлять ими. Интерфейсы API реализованы в виде поставщика ресурсов и относятся к семейству API, предоставляемых Azure Resource Manager.  
@@ -73,5 +73,5 @@ ms.lasthandoff: 05/04/2018
 
 * Дополнительные сведения о Azure Resource Manager см. в статье [Обзор Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
-* Дополнительные сведения о наборе средств, необходимых для получения представления о расходах на облако, см. в статье Gartner [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (Руководство по ИТ-средствам финансового управления (ITFM)).
+
 

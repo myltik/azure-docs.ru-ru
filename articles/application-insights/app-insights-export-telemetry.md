@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Экспорт данных телеметрии из Application Insights
 Хотите увеличить период удержания телеметрии или анализировать ее особым образом? Функция "Непрерывный экспорт" идеально подходит для этого. События, которые отображаются на портале Application Insights, можно экспортировать в хранилище Microsoft Azure в формате JSON. Отсюда можно загрузить данные; также вы можете написать любой код, необходимый для их обработки.  
 
-За использование непрерывного экспорта может взиматься дополнительная плата. Проверьте свою [модель ценообразования](http://azure.microsoft.com/pricing/details/application-insights/).
+За использование непрерывного экспорта может взиматься дополнительная плата. Проверьте свою [модель ценообразования](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Прежде чем настраивать функцию непрерывного экспорта, рассмотрите некоторые альтернативные варианты.
 

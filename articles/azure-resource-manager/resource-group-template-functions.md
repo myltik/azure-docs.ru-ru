@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e21a8251cc4a85232b92faa05d01d0f73410e496
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Функции шаблонов диспетчера ресурсов Azure
 В этой статье описаны все функции, которые можно использовать в шаблоне Azure Resource Manager.
@@ -28,6 +28,8 @@ ms.lasthandoff: 04/16/2018
 Выражение шаблона не может превышать 24 576 знаков.
 
 Функции шаблонов и их параметры зависят от регистра. Например, Resource Manager одинаково преобразует **variables('var1')** и **VARIABLES('VAR1')**. При вычислении функция сохранит регистр, если его изменение не является ее явным предназначением (например, функции toUpper и toLower). Для некоторых типов ресурсов требования к регистру могут не зависеть от того, как происходит вычисление функций.
+
+Для создания собственных функций см. раздел об [определяемых пользователем функциях](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />

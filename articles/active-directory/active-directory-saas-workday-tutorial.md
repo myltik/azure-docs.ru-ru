@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Руководство. Интеграция Azure Active Directory с Workday
 
@@ -174,19 +174,17 @@ ms.lasthandoff: 04/16/2018
 
     ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "Поставщики удостоверений SAML")
    
-    c. Установите флажок **Enable idp Initiated Logout** (Включить выход, инициируемый IdP).
-   
-    d. На портале Azure в окне **Настройка единого входа** скопируйте значение **URL-адрес выхода** и вставьте его в текстовое поле **Logout Response URL** (URL-адрес ответа выхода).
+    c. На портале Azure в окне **Настройка единого входа** скопируйте значение **URL-адрес выхода** и вставьте его в текстовое поле **Logout Response URL** (URL-адрес ответа выхода).
 
-    д. На портале Azure в окне **Настройка единого входа** скопируйте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML) и вставьте его в текстовое поле **IdP SSO Service URL** (URL-адрес службы единого входа IdP).
+    d. На портале Azure в окне **Настройка единого входа** скопируйте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML) и вставьте его в текстовое поле **IdP SSO Service URL** (URL-адрес службы единого входа IdP).
 
-    f. В текстовом поле **Used for Environments** (Используется для сред) выберите имя среды.
+    д. В текстовом поле **Used for Environments** (Используется для сред) выберите имя среды.
 
-    ж. Щелкните **Identity Provider Public Key Certificate** (Сертификат открытого ключа поставщика удостоверений), а затем нажмите кнопку **Создать**. 
+    f. Щелкните **Identity Provider Public Key Certificate** (Сертификат открытого ключа поставщика удостоверений), а затем нажмите кнопку **Создать**. 
 
     ![Создание](./media/active-directory-saas-workday-tutorial/IC782928.png "Создание")
 
-    h. Щелкните **Create x509 Public Key**(Создать открытый ключ x509). 
+    ж. Щелкните **Create x509 Public Key**(Создать открытый ключ x509). 
 
     ![Создание](./media/active-directory-saas-workday-tutorial/IC782929.png "Создание")
 

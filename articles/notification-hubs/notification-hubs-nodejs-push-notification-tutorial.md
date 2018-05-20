@@ -1,25 +1,25 @@
 ---
-title: "Отправка push-уведомлений с помощью Центров уведомлений Azure и Node.js"
-description: "Узнайте, как использовать концентраторы уведомлений для отправки push-уведомлений из приложения Node.js."
-keywords: "push-уведомление, push-уведомления, push-уведомления node.js, push-уведомления ios"
+title: Отправка push-уведомлений с помощью Центров уведомлений Azure и Node.js
+description: Узнайте, как использовать концентраторы уведомлений для отправки push-уведомлений из приложения Node.js.
+keywords: push-уведомление, push-уведомления, push-уведомления node.js, push-уведомления ios
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Отправка push-уведомлений с помощью Центров уведомлений Azure и Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/12/2017
 > 
 > 
 
-В этом руководстве показано, как отправлять push-уведомления с помощью Центров уведомлений Azure непосредственно из приложения Node.js. 
+В этом руководстве показано, как отправлять push-уведомления с помощью службы "Центры уведомлений Azure" непосредственно из приложения Node.js. 
 
 Описанные сценарии включают отправку push-уведомлений в приложения на следующих платформах:
 
@@ -65,12 +65,12 @@ ms.lasthandoff: 12/12/2017
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>Настройка подключения концентратора уведомлений Azure
-Объект **NotificationHubService** позволяет работать с концентраторами уведомлений. Следующий код создает объект **NotificationHubService** для центра уведомлений с именем **hubname**. Добавьте его в начало файла **server.js** после оператора импорта модуля Аzure.
+### <a name="set-up-an-azure-notification-hub-connection"></a>Настройка подключения к центру уведомлений Azure
+Объект **NotificationHubService** позволяет работать с концентраторами уведомлений. Следующий код создает объект **NotificationHubService** для центра уведомлений **hubname**. Добавьте его в начало файла **server.js** после оператора импорта модуля Аzure.
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Значение строки подключения **connectionstring** можно получить с помощью [портала Azure] , выполнив следующие действия.
+Значение строки подключения **connectionstring** можно получить с помощью [портала Azure], выполнив следующие действия.
 
 1. В области навигации слева щелкните **Обзор**.
 2. Выберите **Центры уведомлений**, затем щелкните центр, который хотите использовать. Если вам нужна помощь в создании центра уведомлений, обратитесь к учебнику по [началу работы с центрами уведомлений для Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/12/2017
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Практическое руководство. Отправка push-уведомлений в приложения Android
 Объект **GcmService** предоставляет метод **send**, который может использоваться для отправки push-уведомлений в приложения Android. Метод **Отправить** принимает следующие параметры:
 
-* **Tags** — идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам.
+* **Tags** — идентификатор тега. Если тег отсутствует, уведомления отправляются всем клиентам.
 * **Payload** — полезные данные JSON или строковые полезные данные сообщения.
 * **Callback** — функция обратного вызова.
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/12/2017
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>Практическое руководство. Отправка push-уведомлений в приложения iOS
 Как и в случае с описанными выше приложениями Android, объект **ApnsService** предоставляет метод **send**, который может использоваться для отправки push-уведомлений в приложения iOS. Метод **Отправить** принимает следующие параметры:
 
-* **Tags** — идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам.
+* **Tags** — идентификатор тега. Если тег отсутствует, уведомления отправляются всем клиентам.
 * **Payload** — полезные данные JSON или строковые полезные данные сообщения.
 * **Callback** — функция обратного вызова.
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/12/2017
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Практическое руководство. Отправка push-уведомлений в приложения Windows Phone
 Объект **MpnsService** предоставляет метод **send**, который может использоваться для отправки push-уведомлений в приложения Windows Phone. Метод **Отправить** принимает следующие параметры:
 
-* **Tags** — идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам.
+* **Tags** — идентификатор тега. Если тег отсутствует, уведомление отправляется всем клиентам.
 * **Payload** — полезные данные XML сообщения.
 * **TargetName** - `toast` — уведомлений во всплывающем окне. `token` для уведомлений на плитке.
 * **NotificationClass** — приоритет уведомления. Допустимые значения см. в разделе **HTTP Header Elements** (Элементы заголовка HTTP) документа [Pushing Notifications from a Server (Windows Phone)](http://msdn.microsoft.com/library/hh221551.aspx) (Push-уведомления от сервера (Windows Phone)).
@@ -158,7 +158,7 @@ ms.lasthandoff: 12/12/2017
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Практическое руководство. Отправка push-уведомлений в приложения универсальной платформы Windows (UWP)
 Объект **WnsService** предоставляет метод **send**, который может использоваться для отправки push-уведомлений в приложения универсальной платформы Windows.  Метод **Отправить** принимает следующие параметры:
 
-* **Tags** — идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем зарегистрированным клиентам.
+* **Tags** — идентификатор тега. Если тег отсутствует, уведомление отправляется всем зарегистрированным клиентам.
 * **Payload** — полезные данные XML сообщения.
 * **Type** — тип уведомления.
 * **Options** — необязательные заголовки запроса.
@@ -210,4 +210,4 @@ ms.lasthandoff: 12/12/2017
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[портала Azure]: https://portal.azure.com
+[портал Azure]: https://portal.azure.com

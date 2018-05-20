@@ -1,32 +1,24 @@
 ---
-title: "Защита многоуровневого развертывания приложения SAP NetWeaver с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье описывается, как защитить развернутые приложения SAP NetWeaver с помощью Azure Site Recovery."
+title: Защита многоуровневого развертывания приложения SAP NetWeaver с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье описывается, как защитить развернутые приложения SAP NetWeaver с помощью Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-<<<<<<< HEAD
-ms.openlocfilehash: 1ee472498bdefc4eeb9863670e5480326b5ba6d8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2107177663163259d1f731717c4910bc986fc1f
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
-=======
-ms.openlocfilehash: b6ab734186f23d51d60e51bd0946329d5209097b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
->>>>>>> a49d9936881e0cbe5bf47e3a75beb9f11929dd22
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Защита многоуровневого развертывания приложения SAP NetWeaver с помощью Site Recovery
 

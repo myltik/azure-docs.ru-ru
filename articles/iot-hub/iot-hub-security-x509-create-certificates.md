@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2017
+ms.date: 05/01/2018
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 656799c76a87870a19018849dbeffea3b12a356e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Использование сценариев PowerShell для управления сертификатами X.509, подписанными ЦС
 
@@ -33,15 +33,18 @@ ms.lasthandoff: 03/13/2018
 ## <a name="create-x509-certificates"></a>Создание сертификатов X.509
 Далее показан пример создания корневых сертификатов X.509 локально. 
 
-1. Откройте окно PowerShell от имени *администратора*. 
+1. Откройте окно PowerShell от имени *администратора*.  
+   **Примечание.** Откройте его в PowerShell самостоятельно без использования интегрированной среды сценариев PowerShell, Visual Studio Code или других средств, которые являются оболочкой для базовой консоли PowerShell.  Если использовать PowerShell не на основе консоли, приведенные ниже команды `openssl` зависнут.
+
 2. Перейдите в рабочий каталог. Запустите следующий сценарий, чтобы задать глобальные переменные. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
     $errorActionPreference    = "stop"
 
     # Note that these values are for test purpose only
-    $_rootCertSubject         = "CN=Azure IoT Root CA"
-    $_intermediateCertSubject = "CN=Azure IoT Intermediate {0} CA"
+    $_rootCertCommonName      = "Azure IoT Root CA"
+    $_rootCertSubject         = "CN=$_rootCertCommonName"
+    $_intermediateCertSubject = "Azure IoT Intermediate {0} CA"
     $_privateKeyPassword      = "123"
 
     $rootCACerFileName          = "./RootCA.cer"
@@ -120,10 +123,10 @@ ms.lasthandoff: 03/13/2018
 Создайте цепочку сертификатов с помощью корневого ЦС, например CN=Azure IoT Root CA, используемого в этом примере, выполнив следующий сценарий PowerShell. Этот сценарий также обновляет хранилище сертификатов ОС Windows, а также создает файлы сертификатов в локальной рабочей папке. 
     1. Следующий сценарий создает функцию PowerShell для создания самозаверяющего сертификата для заданного *имени субъекта* и заверителя подписи. 
     ```PowerShell
-    function New-CASelfsignedCertificate([string]$subjectName, [object]$signingCert, [bool]$isASigner=$true)
+    function New-CASelfsignedCertificate([string]$commonName, [object]$signingCert, [bool]$isASigner=$true)
     {
         # Build up argument list
-        $selfSignedArgs =@{"-DnsName"=$subjectName; 
+        $selfSignedArgs =@{"-DnsName"=$commonName; 
                            "-CertStoreLocation"="cert:\LocalMachine\My";
                            "-NotAfter"=(get-date).AddDays(30); 
                           }
@@ -156,10 +159,10 @@ ms.lasthandoff: 03/13/2018
     ``` 
     2. Следующая функция PowerShell создает промежуточные сертификаты X.509, использующие предыдущую функцию, а также двоичные файлы OpenSSL. 
     ```PowerShell
-    function New-CAIntermediateCert([string]$subjectName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
+    function New-CAIntermediateCert([string]$commonName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
     {
-        $certFileName = ($subjectName + ".cer")
-        $newCert = New-CASelfsignedCertificate $subjectName $signingCert
+        $certFileName = ($commonName + ".cer")
+        $newCert = New-CASelfsignedCertificate $commonName $signingCert
         Export-Certificate -Cert $newCert -FilePath $certFileName -Type CERT | Out-Null
         Import-Certificate -CertStoreLocation "cert:\LocalMachine\CA" -FilePath $certFileName | Out-Null
 
@@ -204,13 +207,12 @@ ms.lasthandoff: 03/13/2018
    ```PowerShell
    function New-CAVerificationCert([string]$requestedSubjectName)
    {
-       $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
        $verifyRequestedFileName = ".\verifyCert4.cer"
        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
        Write-Host "Using Signing Cert:::" 
        Write-Host $rootCACert
    
-       $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
+       $verifyCert = New-CASelfsignedCertificate $requestedSubjectName $rootCACert $false
 
        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
        if (-not (Test-Path $verifyRequestedFileName))
@@ -218,7 +220,7 @@ ms.lasthandoff: 03/13/2018
            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
        }
    
-       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $requestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
    }
    New-CAVerificationCert "<your verification code>"
    ```
@@ -237,7 +239,6 @@ ms.lasthandoff: 03/13/2018
    ```PowerShell
    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
    {
-       $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
@@ -245,7 +246,7 @@ ms.lasthandoff: 03/13/2018
    
        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-       $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
+       $newDeviceCertPfx = New-CASelfSignedCertificate $deviceName $signingCert $false
    
        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
 

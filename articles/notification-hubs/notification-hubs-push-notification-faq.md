@@ -3,23 +3,23 @@ title: Часто задаваемые вопросы о Центрах увед
 description: Часто задаваемые вопросы по разработке и реализации решений в концентраторах уведомлений
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 keywords: отправка push-уведомлений, push-уведомления, push-уведомления iOS, push-уведомления android, push-уведомления ios, push-уведомления android
-editor: ''
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
-ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Часто задаваемые вопросы об отправке push-уведомлений с помощью Центров уведомлений Azure
 ## <a name="general"></a>Общие сведения
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/12/2017
 * приложения Bing — десятки миллионов устройств, отправляющих 3 миллиона уведомлений ежедневно.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Как мне повысить или понизить уровень для узла или пространства имен?
-Перейдите на **[портал Azure]** > **Notification Hubs Namespaces** (Пространства имен Центров уведомлений) или **Центры уведомлений**. Выберите ресурс, который требуется обновить, и перейдите на **страницу цен**. Обратите внимание на следующие требования:
+Перейдите на **[портал Azure ]** > **Notification Hubs Namespaces** (Пространства имен Центров уведомлений) или **Центры уведомлений**. Выберите ресурс, который требуется обновить, и перейдите на **страницу цен**. Обратите внимание на следующие требования:
 
 * Новая ценовая категория будет применяться ко *всем* узлам в пространстве имен, с которыми вы работаете.
 * Если при снижении уровня будет превышен лимит на число устройств, установленный для нового уровня, такое изменение вступит в силу только тогда, когда вы удалите все лишние устройства.
@@ -179,14 +179,14 @@ Push-уведомления поддерживаются на платформа
 В течение определенного периода времени устройства, на которых не открыты приложения, не будут получать уведомления.
 
 ### <a name="is-there-audit-log-capability"></a>Предусмотрена ли возможность ведения журнала аудита?
-Все операции по управлению Центрами уведомлений регистрируются в журналах операций, которые представлены на [портал Azure].
+Все операции по управлению Центрами уведомлений регистрируются в журналах операций, которые представлены на [портал Azure ].
 
 ## <a name="monitoring-and-troubleshooting"></a>Мониторинг и устранение неполадок
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Какие возможности для устранения неполадок доступны?
 Центры уведомлений Azure предоставляют несколько функциональных возможностей для устранения неполадок, особенно в наиболее распространенном случае удаления уведомлений. Дополнительные сведения см. в техническом документе [Центры уведомлений Azure — рекомендации по диагностике].
 
 ### <a name="what-telemetry-features-are-available"></a>Какие телеметрические функции доступны?
-Центры уведомлений Microsoft Azure позволяют просматривать данные телеметрии на [портал Azure]. Дополнительные сведения о доступных метриках в Центрах уведомлений см. на [этой странице].
+Центры уведомлений Microsoft Azure позволяют просматривать данные телеметрии на [портал Azure ]. Дополнительные сведения о доступных метриках в Центрах уведомлений см. на [этой странице].
 
 > [!NOTE]
 > Успешная доставка уведомлений означает только то, что push-уведомления доставлены во внешнюю службу PNS (например, APNS для Apple или GCM для Google). Службы PNS отвечают за доставку уведомлений на целевые устройства. Как правило, служба PNS не предоставляет метрики доставки третьим лицам.  
@@ -195,7 +195,7 @@ Push-уведомления поддерживаются на платформа
 
 Центры уведомлений также предоставляют возможность экспортировать данные телеметрии программным путем (на уровне "Стандартный"). Дополнительные сведения см. в статье [Fetch Notification Hubs Telemetry Programmatically] (Получение данных телеметрии Центров уведомлений программным путем).
 
-[портал Azure]: https://portal.azure.com
+[портал Azure ]: https://portal.azure.com
 [цен на Центры уведомлений]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Анализ примера — Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Push-уведомления поддерживаются на платформа
 [этой странице]: https://msdn.microsoft.com/library/dn458822.aspx
 [Fetch Notification Hubs Telemetry Programmatically]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel (Получение данных телеметрии Центров уведомлений программным путем)
 [Практическое руководство. Массовый экспорт и изменение регистраций]: https://msdn.microsoft.com/library/dn790624.aspx
-[портале Azure]: https://portal.azure.com
+[портал Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [мобильных приложений]: https://azure.microsoft.com/services/app-service/mobile/
 [с ценами на службу приложений]: https://azure.microsoft.com/pricing/details/app-service/

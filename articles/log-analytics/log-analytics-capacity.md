@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Планирование ресурсов виртуальной машины Hyper-V с помощью решения "Емкость и производительность" (предварительная версия)
 
 ![Символ "Емкость и производительность"](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> Решение "Емкость и производительность" отмечено как нерекомендуемое.  Пользователи, установившие его, могут продолжать работать с ним, но решение "Емкость и производительность" нельзя добавить в новые рабочие области.
 
 Решение "Емкость и производительность" в службе Log Analytics позволяет оценивать ресурсы серверов Hyper-V Server. Это решение предоставляет подробные сведения о среде Hyper-V, отображая данные о совокупном использовании (ресурсов ЦП, памяти и дисков) узлов и виртуальных машин, запущенных на этих узлах Hyper-V. Кроме того, оно собирает метрики ЦП, памяти и дисков на всех узлах и их виртуальных машинах.
 

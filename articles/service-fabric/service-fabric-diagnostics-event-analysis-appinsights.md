@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Анализ и визуализация событий с помощью Application Insights
 
@@ -32,7 +32,7 @@ Azure Application Insights — это расширяемая платформа
 
 ## <a name="monitoring-in-app-insights"></a>Мониторинг в Application Insights
 
-Azure Application Insights имеет широкие возможности для интеграции с Service Fabric. На странице "Обзор" в Application Insights предоставляются основные сведения о службе, например время отклика ответа и число обработанных запросов. Щелкнув кнопку "Поиск" вверху, вы увидите список последних запросов в приложении. Кроме того, вы увидите здесь неудачные запросы и сможете продиагностировать возникшие ошибки.
+Application Insights имеет широкие возможности для использования Service Fabric. На странице "Обзор" в Application Insights предоставляются основные сведения о службе, например время отклика ответа и число обработанных запросов. Щелкнув кнопку "Поиск" вверху, вы увидите список последних запросов в приложении. Кроме того, вы увидите здесь неудачные запросы и сможете продиагностировать возникшие ошибки.
 
 ![Страница "Обзор" в Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

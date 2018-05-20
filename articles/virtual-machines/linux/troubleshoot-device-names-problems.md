@@ -1,24 +1,24 @@
 ---
-title: "Устранение неполадок при изменении имени устройства виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Объясняется, почему изменяются имена устройств виртуальных машин Linux и как устранить эту проблему."
+title: Устранение неполадок при изменении имени устройства виртуальной машины Linux в Azure | Документация Майкрософт
+description: Объясняется, почему изменяются имена устройств виртуальных машин Linux и как устранить эту проблему.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 891ca1c2db431c792329b1c67c24e2e453aa00d1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1b500cc279cf9b92a3358d66e6db59dbf41d73b8
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Устранение неполадок при изменении имени устройства виртуальной машины Linux
 

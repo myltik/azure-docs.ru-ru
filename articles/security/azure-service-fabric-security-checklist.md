@@ -1,12 +1,12 @@
 ---
-title: "Контрольный список для обеспечения безопасности Azure Service Fabric | Документация Майкрософт"
-description: "В этой статье представлен контрольный список для обеспечения безопасности Azure Service Fabric."
+title: Контрольный список для обеспечения безопасности Azure Service Fabric | Документация Майкрософт
+description: В этой статье представлен контрольный список для обеспечения безопасности Azure Service Fabric.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 526f10bab30b7d0fae796e47f5a27a58428b9a3b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Контрольный список для обеспечения безопасности Azure Service Fabric
 Эта статья содержит удобный контрольный список, который поможет обеспечить защиту среды Azure Service Fabric.
@@ -43,7 +43,7 @@ Azure Service Fabric — это платформа распределенных 
 |ClientCertificateThumbprints| <ul><li>Это набор сертификатов, которые требуется установить на клиентских компьютерах, прошедших аутентификацию. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Укажите общее имя первого сертификата клиента для параметра CertificateCommonName. CertificateIssuerThumbprint — это отпечаток издателя сертификата. </li></ul>|
 |ReverseProxyCertificate| <ul><li>Это необязательный сертификат, который можно указать, если вы хотите защитить [обратный прокси-сервер](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
-|хранилище ключей;| <ul><li>Используется для управления сертификатами кластеров Service Fabric в Azure.  </li></ul>|
+|Key Vault| <ul><li>Используется для управления сертификатами кластеров Service Fabric в Azure.  </li></ul>|
 
 
 ## <a name="next-steps"></a>Дополнительная информация

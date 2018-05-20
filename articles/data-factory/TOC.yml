@@ -350,16 +350,18 @@
           href: data-factory-service-identity.md
     - name: Отслеживание и управление
       items:
-        - name: Использование пакетов SDK
-          href: monitor-programmatically.md
-        - name: Использование Azure Monitor
-          href: monitor-using-azure-monitor.md
         - name: Визуальный мониторинг
           href: monitor-visually.md
-        - name: Управление средой выполнения интеграции Azure SSIS
-          href: manage-azure-ssis-integration-runtime.md
+        - name: Мониторинг с помощью Azure Monitor
+          href: monitor-using-azure-monitor.md
+        - name: Мониторинг с помощью пакетов SDK
+          href: monitor-programmatically.md
         - name: Мониторинг среды выполнения интеграции
           href: monitor-integration-runtime.md
+        - name: Мониторинг среды выполнения интеграции Azure Integration Services
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: Управление средой выполнения интеграции Azure SSIS
+          href: manage-azure-ssis-integration-runtime.md
     - name: Создание среды выполнения интеграции
       items:
         - name: Среда выполнения интеграции Azure
@@ -370,24 +372,22 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Запуск пакетов служб SSIS в Azure
       items:
-        - name: Настройка среды выполнения интеграции Azure Integration Services
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Настройка выпуска Enterprise Edition для среды выполнения интеграции Azure Integration Services
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Управление средой выполнения интеграции Azure SSIS
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Настройка параметров производительности для среды выполнения интеграции Azure Integration Services
+        - name: Настройка высокой производительности среды выполнения интеграции Azure Integration Services
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Настройка выпуска Enterprise Edition для среды выполнения интеграции Azure Integration Services
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Настройка среды выполнения интеграции Azure Integration Services
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Развертывание лицензированных компонентов для среды выполнения интеграции Azure Integration Services
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Запуск пакетов Integration Services с помощью действия Integration Services
           href: how-to-invoke-ssis-package-ssis-activity.md
-        - name: Выполнение пакетов Integration Services с помощью действия хранимой процедуры
+        - name: Запуск пакетов Integration Services с помощью действия хранимой процедуры
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Планирование среды выполнения интеграции Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Разработка лицензированных компонентов для среды выполнения интеграции Azure Integration Services
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Создание триггеров
       items:
         - name: Создание триггера расписания

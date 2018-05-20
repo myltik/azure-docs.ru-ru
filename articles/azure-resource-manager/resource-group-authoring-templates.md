@@ -1,6 +1,6 @@
 ---
-title: "Структура и синтаксис шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Описывается создание структуры и свойств шаблонов Azure Resource Manager с помощью декларативного синтаксиса JSON."
+title: Структура и синтаксис шаблона Azure Resource Manager | Документация Майкрософт
+description: Описывается создание структуры и свойств шаблонов Azure Resource Manager с помощью декларативного синтаксиса JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3b70817f973f0bfbdcec2aa8c76a431eec308bcf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Описание структуры и синтаксиса шаблонов Azure Resource Manager
 В этой статье описана структура шаблона Azure Resource Manager. Статья содержит информацию о разных разделах шаблона и свойствах, которые доступны в этих разделах. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания. Пошаговое руководство по созданию шаблона приведено в разделе [Создание первого шаблона Azure Resource Manager](resource-manager-create-first-template.md).
@@ -32,6 +32,7 @@ ms.lasthandoff: 12/15/2017
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
+    "functions": {  },
     "resources": [  ],
     "outputs": {  }
 }
@@ -43,6 +44,7 @@ ms.lasthandoff: 12/15/2017
 | contentVersion |Yes |Версия шаблона (например, 1.0.0.0). Для этого элемента можно предоставить любое значение. При развертывании ресурсов с помощью шаблона это значение позволяет убедиться в том, что используется нужный шаблон. |
 | parameters |Нет  |Значения, которые предоставляются при выполнении развертывания для настройки развертывания ресурсов. |
 | variables |Нет  |Значения, используемые в виде фрагментов JSON в шаблоне для упрощения выражений на языке шаблона. |
+| functions |Нет  |Определяемые пользователем функции, доступные в шаблоне. |
 | ресурсов |Yes |Типы ресурсов, которые развертываются или обновляются в группе ресурсов. |
 | outputs |Нет  |Значения, возвращаемые после развертывания. |
 
@@ -92,6 +94,25 @@ ms.lasthandoff: 12/15/2017
             }
         ]
     },
+    "functions": [
+      {
+        "namespace": "<namespace-for-your-function>",
+        "members": {
+          "<function-name>": {
+            "parameters": [
+              {
+                "name": "<parameter-name>",
+                "type": "<type-of-parameter-value>"
+              }
+            ],
+            "output": {
+              "type": "<type-of-output-value>",
+              "value": "<function-expression>"
+            }
+          }
+        }
+      }
+    ],
     "resources": [
       {
           "condition": "<boolean-value-whether-to-deploy>",
@@ -184,6 +205,59 @@ ms.lasthandoff: 12/15/2017
 ```
 
 Дополнительные сведения об определении переменных см. в описании [шаблонов Azure Resource Manager](resource-manager-templates-variables.md).
+
+## <a name="functions"></a>Функции Azure
+
+В шаблоне можно создать свои собственные функции. Эти функции доступны для использования в шаблоне. Как правило, определяется сложное выражение, которое вы не хотите повторять в шаблоне. Создаются определяемые пользователем функции на основе выражений и [функции](resource-group-template-functions.md), которые поддерживаются в шаблонах.
+
+При определении пользовательской функции есть несколько ограничений:
+
+* Функция не может обращаться к переменным.
+* Для функции нельзя использовать [ссылочную функцию](resource-group-template-functions-resource.md#reference).
+* Для параметров этой функции нельзя задавать значения по умолчанию.
+
+Для функции требуется значение пространства имен, чтобы избежать конфликтов именования с функциями шаблона. В следующем примере показана функция, которая возвращает имя учетной записи хранения:
+
+```json
+"functions": [
+  {
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
+  }
+],
+```
+
+Вызов функции выполняется с помощью следующего кода:
+
+```json
+"resources": [
+  {
+    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "South Central US",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## <a name="resources"></a>Ресурсы
 В разделе resources определяются ресурсы, которые развертываются или обновляются. Этот раздел может еще больше усложниться, так как вы должны понимать принципы работы развертываемых типов для предоставления правильных значений.

@@ -1,8 +1,8 @@
 ---
-title: "Устранение неполадок службы файлов Azure в Linux | Документация Майкрософт"
-description: "Сведения об устранении неполадок со службой файлов Azure в Linux."
+title: Устранение неполадок службы файлов Azure в Linux | Документация Майкрософт
+description: Сведения об устранении неполадок со службой файлов Azure в Linux.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
 editor: na
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7b5567359e7ca87d26e05d336337b55af364031e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Устранение неполадок службы файлов Azure в Linux
 

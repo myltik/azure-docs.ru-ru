@@ -5,24 +5,24 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: aaf8b93a41399b7754fb458d7d1d278a64f82139
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Краткое руководство. Создание Azure Key Vault с помощью CLI
 
-Azure Key Vault — это облачная служба, которая работает как защищенное хранилище секретов. Вы можете безопасно хранить ключи, пароли, сертификаты и другие секреты. Дополнительные сведения о хранилище ключей см. в статье [обзора](key-vault-overview.md). Azure CLI используется для создания ресурсов Azure и управления ими с помощью скриптов и команд. В этой статье вы создадите Key Vault. В рамках этого краткого руководства вы создадите хранилище ключей. После этого вы сохраните в нем секрет.
+Azure Key Vault — это облачная служба, которая работает как защищенное хранилище секретов. Вы можете безопасно хранить ключи, пароли, сертификаты и другие секреты. Дополнительные сведения о хранилище ключей см. в статье [обзора](key-vault-overview.md). Azure CLI используется для создания ресурсов Azure и управления ими с помощью скриптов и команд. В рамках этого краткого руководства вы создадите хранилище ключей. После этого вы сохраните в нем секрет.
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
@@ -99,4 +99,4 @@ az group delete --name ContosoResourceGroup
 В этом кратком руководстве вы создали Key Vault и сохранили в нем секрет. Чтобы получить дополнительные сведения о Key Vault и о том, как вы можете использовать его в своих приложениях, ознакомьтесь с руководством по веб-приложениям, работающим с Key Vault.
 
 > [!div class="nextstepaction"]
-> См. статью [Использование хранилища ключей Azure из веб-приложения](key-vault-use-from-web-application.md). Чтобы узнать, как прочитать секрет из хранилища ключей с помощью веб-приложения, используя [удостоверение управляемой службы](/active-directory/managed-service-identity/overview.md), перейдите к следующему руководству [Tutorial: Configure an Azure web application to read a secret from Key Vault](tutorial-web-application-keyvault.md) (Руководство. Настройка веб-приложения Azure для чтения секрета из Key Vault).
+> Чтобы узнать, как считать секрет из Key Vault с помощью веб-приложения, используя удостоверения управляемой службы, перейдите к [следующему руководству](tutorial-web-application-keyvault.md).

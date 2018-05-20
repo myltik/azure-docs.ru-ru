@@ -1,11 +1,11 @@
 ---
-title: "Пример политики службы управления API Azure. Создание подписанного URL-адреса | Документация Майкрософт"
-description: "Пример политики службы управления API Azure. Создание подписанного URL-адреса с помощью выражений и перенаправление запроса в службу хранилища Azure с использованием политики rewrite-uri."
+title: Пример политики службы управления API Azure. Создание подписанного URL-адреса | Документация Майкрософт
+description: Пример политики службы управления API Azure. Создание подписанного URL-адреса с помощью выражений и перенаправление запроса в службу хранилища Azure с использованием политики rewrite-uri.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 9b0d37e4f7930389d3399e51de905db2b2ce8c27
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fadad6f83f1a855f3ca1509a6a5e02c822db512d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="generate-shared-access-signature"></a>Создание подписанного URL-адреса
 

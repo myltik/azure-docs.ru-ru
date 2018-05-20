@@ -1,6 +1,6 @@
 ---
-title: Создание внутренней подсистемы балансировки нагрузки Службы контейнеров Azure (AKS)
-description: Использование внутренней подсистемы балансировки нагрузки со Службой контейнеров Azure (AKS).
+title: Создание внутренней подсистемы балансировки нагрузки Службы Azure Kubernetes (AKS)
+description: Использование внутренней подсистемы балансировки нагрузки со Службой Azure Kubernetes (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>Использование внутренней подсистемы балансировки нагрузки со Службой контейнеров Azure (AKS)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Использование внутренней подсистемы балансировки нагрузки со Службой Azure Kubernetes (AKS)
 
-Внутренняя балансировка нагрузки позволяет сделать службу Kubernetes доступной для приложений, работающих в той же виртуальной сети, что и кластер Kubernetes. В этом документе описывается использование внутренней подсистемы балансировки нагрузки со Службой контейнеров Azure (AKS).
+Внутренняя балансировка нагрузки позволяет сделать службу Kubernetes доступной для приложений, работающих в той же виртуальной сети, что и кластер Kubernetes. В этом документе описывается, как использовать внутреннюю подсистему балансировки нагрузки со Службой Azure Kubernetes (AKS).
 
 ## <a name="create-internal-load-balancer"></a>Создание внутренней подсистемы балансировки нагрузки
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-После развертывания служба Azure Load Balancer будет создана и доступна в той же виртуальной сети, что и кластер AKS. 
+После развертывания служба Azure Load Balancer будет создана и доступна в той же виртуальной сети, что и кластер AKS.
 
 ![Изображение внутренней подсистемы балансировки нагрузки AKS](media/internal-lb/internal-lb.png)
 
-При получении сведений о службе в столбце `EXTERNAL-IP` отображается IP-адрес внутренней подсистемы балансировки нагрузки. 
+При получении сведений о службе в столбце `EXTERNAL-IP` отображается IP-адрес внутренней подсистемы балансировки нагрузки.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-При получении сведений о службе в столбце `EXTERNAL-IP` должен отображаться указанный IP-адрес. 
+При получении сведений о службе в столбце `EXTERNAL-IP` должен отображаться указанный IP-адрес.
 
 ```console
 $ kubectl get service azure-vote-front

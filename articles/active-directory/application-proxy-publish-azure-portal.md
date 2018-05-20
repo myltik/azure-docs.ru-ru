@@ -3,23 +3,23 @@ title: Публикация приложений с помощью прокси 
 description: Публикация локальных приложений в облако с помощью прокси приложения Azure AD на портале Azure.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Публикация приложений с помощью прокси приложения Azure AD
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/05/2018
 
 Эта статья содержит пошаговое описание процесса публикации локальных приложений с помощью прокси приложения. После выполнения инструкций в этой статье пользователи смогут подключаться к вашему приложению удаленно. И вы сможете настроить для приложения такие дополнительные возможности, как единый вход, личные сведения и параметры безопасности.
 
-Если вы еще не знакомы с прокси приложения, узнайте, [как обеспечить безопасный удаленный доступ к локальным приложениям](active-directory-application-proxy-get-started.md).
+Если вы еще не знакомы с прокси приложения, узнайте, [как обеспечить безопасный удаленный доступ к локальным приложениям](manage-apps/application-proxy.md).
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Публикация локального приложения для удаленного доступа

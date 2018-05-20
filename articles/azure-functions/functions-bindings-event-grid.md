@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Триггер службы "Сетка событий" для службы "Функции Azure"
 
@@ -337,6 +337,9 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ## <a name="local-testing-with-requestbin"></a>Локальное тестирование с помощью RequestBin
 
+> [!NOTE]
+> Веб-сайт RequestBin сейчас недоступен, но вместо него можно воспользоваться https://hookbin.com. Если этот сайт не работает, можно использовать [ngrok](#local-testing-with-ngrok).
+
 Чтобы протестировать триггер службы "Сетка событий" локально, необходимо отправить HTTP-запросы службы "Сетка событий", переданные из своего источника в облаке, на локальный компьютер. Для этого можно записать запросы в сети и вручную отправить их на локальный компьютер:
 
 2. [Создайте конечную точку RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ### <a name="create-a-requestbin-endpoint"></a>Создание конечной точки RequestBin
 
-RequestBin является средством с открытым исходным кодом, которое принимает HTTP-запросы и показывает текст запроса. Служба "Сетка событий Azure" взаимодействует с URL-адресом http://requestb.in особым образом. Чтобы упростить тестирование, Сетка событий отправляет события в URL-адрес RequestBin, не требуя правильного ответа на запросы подтверждения подписки. Два других средства тестирования обрабатываются точно так же: http://webhookinbox.com и http://hookbin.com.
+RequestBin является средством с открытым исходным кодом, которое принимает HTTP-запросы и показывает текст запроса. Служба "Сетка событий Azure" взаимодействует с URL-адресом http://requestb.in особым образом. Чтобы упростить тестирование, Сетка событий отправляет события в URL-адрес RequestBin, не требуя правильного ответа на запросы подтверждения подписки. Еще одно средство тестирования обрабатывается точно так же: http://hookbin.com.
 
 RequestBin не предназначено для использования с высокой пропускной способностью. Если вы одновременно отправляете несколько событий, в средстве могут отобразиться не все события.
 

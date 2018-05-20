@@ -1,25 +1,27 @@
 ---
-title: "Области, разрешения и согласие в Azure Active Directory версии 2.0 | Документация Майкрософт"
-description: "Описание авторизации в конечной точке Azure AD версии 2.0, включая области, разрешение и предоставление согласия."
+title: Области, разрешения и согласие в Azure Active Directory версии 2.0 | Документация Майкрософт
+description: Описание авторизации в конечной точке Azure AD версии 2.0, включая области, разрешение и предоставление согласия.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Области, разрешения и согласие для конечной точки Azure Active Directory версии 2.0
 Приложения, интегрируемые с Azure Active Directory (Azure AD), придерживаются определенной модели авторизации, позволяющей пользователям контролировать способ получения приложением доступа к их данным. Реализация версии 2.0 этой модели авторизации была обновлена, в результате чего изменился механизм взаимодействия приложения с Azure AD. В этой статье рассматриваются основные понятия этой модели авторизации, включая области, разрешения и согласие на их предоставление.
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-Полученный маркер доступа можно использовать в HTTP-запросах к ресурсу. Он достоверно указывает ресурсу, что у приложения имеется необходимое разрешение для выполнения определенной задачи.  
+Полученный маркер доступа можно использовать в HTTP-запросах к ресурсу. Он достоверно указывает ресурсу, что у приложения имеется необходимое разрешение для выполнения определенной задачи. 
 
 Дополнительные сведения о протоколе OAuth 2.0 и способах получения маркеров доступа можно найти в [справочнике по протоколу конечной точки версии 2.0](active-directory-v2-protocols.md).

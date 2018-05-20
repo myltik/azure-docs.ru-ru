@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>Что такое подключенная фабрика Azure IoT Suite?
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Дополнительные сведения о предварительно настроенном решении "Подключенная фабрика" см. в следующих статьях:
+Дополнительные сведения о предварительно настроенном решении подключенной фабрики см. в следующих статьях:
 
 * [Пошаговое руководство по работе с предварительно настроенным решением подключенной фабрики](iot-suite-connected-factory-sample-walkthrough.md)
-* [Развертывание шлюза для решения подключенной фабрики]( iot-suite-connected-factory-gateway-deployment.md)
+* [Развертывание шлюза Edge для предварительно настроенного решения подключенной фабрики в ОС Windows или Linux]( iot-suite-connected-factory-gateway-deployment.md)
