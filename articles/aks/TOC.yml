@@ -45,13 +45,13 @@
           href: delete-cluster.md
     - name: Конфигурирование томов данных
       items:
-        - name: Динамическая подготовка AzureDisk
+        - name: "Диск Azure\_— динамический"
           href: azure-disks-dynamic-pv.md
-        - name: Статическая подготовка AzureDisk
+        - name: "Диск Azure\_— статический"
           href: azure-disk-volume.md
-        - name: Динамическая подготовка AzureFile
+        - name: "Файлы Azure\_— динамические"
           href: azure-files-dynamic-pv.md
-        - name: Статическая подготовка AzureFile
+        - name: "Файлы Azure\_— статические"
           href: azure-files-volume.md
     - name: Настройка сети
       items:
