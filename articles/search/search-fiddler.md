@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Работа с REST API службы "Поиск Azure" с помощью Fiddler или Postman
 
@@ -48,14 +48,14 @@ ms.lasthandoff: 04/23/2018
 
 Каждое средство сохраняет сведения заголовка запроса для сеанса. Это означает, что URL-адрес конечной точки, версию и ключ API, а также тип содержимого нужно ввести только один раз.
 
-Полный URL-адрес должен выглядеть как в следующем примере, только в вашем адресе имя в заполнителе **`my-app`** нужно заменить: `https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+Полный URL-адрес должен выглядеть как в следующем примере, только в вашем адресе имя в заполнителе **`my-app`** нужно заменить: `https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
 Композиция URL-адреса службы включает следующие элементы:
 
 + Префикс HTTPS.
 + URL-адрес службы, полученный с портала.
 + Ресурс (операция, создающая объект в службе). На этом шаге это индекс с именем hotels.
-+ Версия API, необходимая строка в нижнем регистре (?api-version = 2016-09-01) для текущей версии. [Версии API](search-api-versions.md) регулярно обновляются. Включая версию API для каждого запроса дает полный контроль над используемой версией.  
++ Версия API, необходимая строка в нижнем регистре (?api-version=2017-11-11) для текущей версии. [Версии API](search-api-versions.md) регулярно обновляются. Включая версию API для каждого запроса дает полный контроль над используемой версией.  
 
 Композиция заголовка запроса содержит два элемента, тип содержимого и ключ API, описанные в предыдущем разделе:
 
@@ -124,7 +124,7 @@ ms.lasthandoff: 04/23/2018
 Создание и заполнение индекса выполняется по отдельности. В службе "Поиск Azure" индекс содержит все данные с возможностью поиска, которые можно указать в виде документов JSON. Сведения о просмотре этой операции в API см. в статье [Add, Update or Delete Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Добавление, обновление или удаление документов (REST API службы "Поиск Azure")).
 
 + Изменить команду на **POST** для этого шага.
-+ Измените конечную точку для включения `/docs/index`. Полный URL-адрес должен выглядеть так: `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01`.
++ Измените конечную точку для включения `/docs/index`. Полный URL-адрес должен выглядеть так: `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`.
 + Сохраните заголовки запроса без изменений. 
 
 Тело запроса содержит четыре документа, которые нужно добавить в индекс отелей.
@@ -213,7 +213,7 @@ ms.lasthandoff: 04/23/2018
 После загрузки индекса и документов можно формировать запросы к ним. Дополнительные сведения об этом API см. в статье [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Поиск документов (REST API службы "Поиск Azure")).  
 
 + Изменить команду на **GET** для этого шага.
-+ Измените конечную точку, чтобы добавить параметры запроса, включая строки поиска. Запрос URL-адреса может выглядеть так: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2016-09-01`.
++ Измените конечную точку, чтобы добавить параметры запроса, включая строки поиска. Запрос URL-адреса может выглядеть так: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`.
 + Сохраните заголовки запроса без изменений.
 
 Этот запрос выполняет поиск слова motel и возвращает число документов в результатах поиска. После того, как вы щелкнете **Отправить**, запрос и ответ для Postman будет выглядеть как на следующем снимке экрана. Код состояния должен быть 200.
@@ -222,18 +222,18 @@ ms.lasthandoff: 04/23/2018
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Советы по выполнению наших примеров запросов в Fiddler
 
-Ниже приведен пример запроса из статьи [Search Documents (Azure Search Service REST API)](http://msdn.microsoft.com/library/dn798927.aspx) (Поиск документов (REST API службы "Поиск Azure")). Многие примеры запросов в этой статье включают пробелы, что является недопустимым в Fiddler. Замените все пробелы символом "+" перед вставкой в строку запроса и его выполнением в Fiddler:
+Ниже приведен пример запроса из статьи [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Поиск документов (REST API службы "Поиск Azure")). Многие примеры запросов в этой статье включают пробелы, что является недопустимым в Fiddler. Замените все пробелы символом "+" перед вставкой в строку запроса и его выполнением в Fiddler:
 
 **Перед заменой пробелов (в части lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
 **После замены пробелов на + (в части lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## <a name="query-index-properties"></a>Запрос свойств индекса
-Вы также можете запрашивать системную информацию для получения количества документов и занятого объема хранилища: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01`.
+Вы также можете запрашивать системную информацию для получения количества документов и занятого объема хранилища: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`.
 
 В Postman запрос должен выглядеть следующим образом, а ответ включает число документов и используемое пространство в байтах.
 

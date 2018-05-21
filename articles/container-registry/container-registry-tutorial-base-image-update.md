@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 976f61d99b88d241b39bfec9d95e16de272d9c14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 531aeaacf0bd70521d70afb45d141fc3296ebb04
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>Руководство. Автоматизация сборок образа при обновлении базового образа с помощью службы "Сборка Реестра контейнеров Azure"
 
@@ -28,8 +28,7 @@ ms.lasthandoff: 05/07/2018
 > * отображение активированной сборки;
 > * проверка обновленного образа приложения.
 
-> [!IMPORTANT]
-> Решение "Сборка ACR" в настоящее время доступно в режиме предварительной версии и поддерживается только реестрами контейнеров Azure в регионах **Восточная часть США** (eastus) и **Западная Европа** (westeurope). Предварительные версии предоставляются только в том случае, если вы принимаете [дополнительные условия использования][terms-of-use]. Некоторые аспекты этой функции могут быть изменены до выхода общедоступной версии.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +41,7 @@ ms.lasthandoff: 05/07/2018
 Приступая к работе с этим руководством, предполагается, что вы уже выполнили шаги, описанные в первых двух руководствах в серии, и выполнили действия ниже.
 
 * Создание реестра контейнеров Azure
-* Создали вилку примера репозитория.
+* Создание вилки примера репозитория
 * Клонировали пример репозитория.
 * Создали личный маркер доступа GitHub.
 
@@ -129,7 +128,7 @@ FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-После завершения сборки обратите внимание на **код сборки** (например, "eastus6"), если нужно выполнить следующий необязательный шаг.
+По завершении сборки обратите внимание на **код сборки** (например, "aa6"), если нужно выполнить следующий необязательный шаг.
 
 ### <a name="optional-run-application-container-locally"></a>Необязательно. Локальный запуск контейнера приложения
 
@@ -141,7 +140,7 @@ az acr build-task run --registry $ACR_NAME --name buildhelloworld
 az acr login --name $ACR_NAME
 ```
 
-Затем локально запустите контейнер с помощью `docker run`. Замените код **\<build-id\>** на код сборки, полученный в выходных данных на предыдущем шаге (например, "eastus5").
+Затем локально запустите контейнер с помощью `docker run`. Замените код **\<build-id\>** на код сборки, полученный в выходных данных на предыдущем шаге (например, "aa6").
 
 ```azurecli
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
@@ -163,14 +162,14 @@ az acr build-task list-builds --registry $ACR_NAME --output table
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
-eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
-eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## <a name="update-base-image"></a>Обновление базового образа
@@ -202,18 +201,18 @@ az acr build-task list-builds --registry $ACR_NAME --output table
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------    --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
-eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
-eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
+aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
+aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
 ```
 
-Если вы хотите выполнить следующий необязательный шаг (запуск только что созданного контейнера), чтобы увидеть обновленный номер версии, обратите внимание на значение **кода сборки** для сборки образа, активируемой при обновлении (в предыдущих выходных данных — "eastus6").
+Если вы хотите выполнить следующий необязательный шаг (запуск только что созданного контейнера), чтобы отобразился обновленный номер версии, обратите внимание на значение **кода сборки** для сборки образа, активируемой при обновлении (в предыдущих выходных данных — "aa8").
 
 ### <a name="optional-run-newly-built-image"></a>Необязательно. Запуск только что созданного образа
 
@@ -253,7 +252,6 @@ az ad sp delete --id http://$ACR_NAME-pull
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

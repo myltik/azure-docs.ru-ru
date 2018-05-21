@@ -109,8 +109,6 @@
           href: security-center-just-in-time.md
         - name: Адаптивные элементы управления приложениями
           href: security-center-adaptive-application.md
-        - name: Мониторинг целостности файлов
-          href: security-center-file-integrity-monitoring.md
     - name: Управление решениями по обеспечению безопасности
       href: security-center-partner-integration.md
       items:

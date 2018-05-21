@@ -1,36 +1,36 @@
 ---
-title: Центр безопасности Azure и виртуальные машины Windows в Azure | Документация Майкрософт
-description: Дополнительные сведения о контроле безопасности виртуальных машин Windows в Azure с помощью центра безопасности Azure.
+title: Руководство. Использование центра безопасности Azure для виртуальных машин Windows в Azure | Документация Майкрософт
+description: В этом руководстве описаны функции центра безопасности Azure для защиты виртуальных машин Windows в Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Контроль безопасности виртуальных машин с помощью центра безопасности Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Руководство. Использование центра безопасности Azure для мониторинга виртуальных машин Windows в Azure
 
 Центр безопасности Azure поможет получить рекомендации по безопасности ресурсов Azure. Центр безопасности предлагает встроенный мониторинг безопасности. Это позволяет распознавать угрозы, которые в противном случае могли быть не замечены. В этом руководстве вы узнаете о центре безопасности Azure и научитесь:
- 
+
 > [!div class="checklist"]
 > * Настраивать сбор данных.
 > * Устанавливать политики безопасности.
 > * Просматривать и устранять неполадки конфигурации.
-> * Просматривать обнаруженные угрозы.  
+> * Просматривать обнаруженные угрозы.
 
 ## <a name="security-center-overview"></a>Обзор центра безопасности
 

@@ -12,17 +12,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 05/11/2018
 ms.author: juliako
-ms.openlocfilehash: def590fa8253d81f3477c3953db684c160e25cd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 783dc0fd37f98a12d9240ad4b3ee72aa98212eff
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Пример скрипта CLI. Создание учетной записи Служб мультимедиа Azure
 
-С помощью этого скрипта создается учетная запись Служб мультимедиа Azure.
+В скрипте Azure CLI в этой статье показано, как создать учетную запись Служб мультимедиа Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="example-script"></a>Пример сценария
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/media-services-create-account.sh "Create Account")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/Create-Account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
 Выполните следующую команду, чтобы удалить группу ресурсов и все связанные с ней ресурсы.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name amsResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Описание скрипта
@@ -48,9 +48,10 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Создание учетной записи хранения. |
-| **az ams account create** | Создание учетной записи Служб мультимедиа. |
-| **az ams account sp create** | Создание субъекта-службы с паролем и настройка его доступа к учетной записи Служб мультимедиа Azure. |
+| [az ams account create](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | Создание учетной записи Служб мультимедиа. |
+| [az ams account sp create](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | Создание субъекта-службы с паролем и настройка его доступа к учетной записи Служб мультимедиа Azure. 
 | [az group delete](/cli/azure/group#az_group_delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 

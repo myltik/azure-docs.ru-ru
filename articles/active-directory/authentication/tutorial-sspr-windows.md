@@ -2,35 +2,29 @@
 title: Самостоятельный сброс пароля Azure AD на экране входа в Windows 10 | Документация Майкрософт
 description: Настройка функций сброса пароля Azure AD и восстановления ПИН-кода на экране входа в Windows 10
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Сброс пароля Azure AD на экране входа
 
 Вы уже развернули функцию самостоятельного сброса пароля (SSPR) в Azure AD, но пользователи по-прежнему обращаются в службу технической поддержки, когда забывают свой пароль. Они обращаются за помощью, так как не могут открыть веб-браузер, чтобы получить доступ к функции SSPR.
 
-Начиная с обновления Windows 10 Fall Creators Update для пользователей устройств, присоединенных к Azure AD, отображается ссылка "Сбросить пароль" на экране входа. Когда пользователи щелкают эту ссылку, они переходят к уже знакомому им интерфейсу SSPR.
+Начиная с обновления Windows 10 за апрель 2018, для пользователей устройств, присоединенных к Azure AD **обычным** или **гибридным способом**, отображается ссылка "Сбросить пароль" на экране входа. Когда пользователи щелкают эту ссылку, они переходят к уже знакомому им интерфейсу SSPR.
 
 Чтобы разрешить пользователям сбрасывать пароли Azure AD на экране входа в Windows 10, необходимо выполнить следующие требования:
 
-* Используйте клиент Windows 10 (версии 1709 и выше), [присоединенный к Azure AD](../device-management-azure-portal.md).
+* Обновление Windows 10 за апрель 2018 или более новый клиент, присоединенный к Azure AD [обычным](../device-management-azure-portal.md) или [гибридным способом](../device-management-hybrid-azuread-joined-devices-setup.md).
 * Функция самостоятельного сброса пароля Azure AD должна быть включена.
 * Настройте и разверните параметр, чтобы включить отображение ссылки сброса пароля с помощью одного из следующих способов:
    * [профиль конфигурации устройств Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune);
@@ -66,7 +60,7 @@ ms.lasthandoff: 04/23/2018
 
 1. Войдите на [портал Azure](https://portal.azure.com) и щелкните **Azure Active Directory**.
 2. Последовательно выберите **Пользователи и группы** > **Все группы** > **Создать группу**.
-3. Введите имя для группы и в поле **Тип членства** выберите **Назначено**. 
+3. Введите имя для группы и в поле **Тип членства** выберите **Назначено**.
    * В разделе **Участники** выберите устройства с Windows 10, присоединенные к Azure AD, к которым требуется применить политику.
    * Нажмите кнопку **Выбрать**.
 4. Нажмите кнопку **Создать**.
@@ -117,6 +111,7 @@ ms.lasthandoff: 04/23/2018
 * Сброс пароля сейчас не поддерживается на удаленном рабочем столе.
 
 ## <a name="next-steps"></a>Дополнительная информация
+
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
 
 * [Как развернуть самостоятельный сброс пароля](howto-sspr-deployment.md)
