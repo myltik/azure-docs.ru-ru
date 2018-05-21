@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Как прокси приложения Azure AD предоставляет единый вход?
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/14/2018
 
 Если вы уже настроили решение единого входа для своих локальных удостоверений, выберите **Вход по ссылке**. Этот параметр позволяет Azure Active Directory использовать существующие решения единого входа, но по-прежнему предоставляет пользователям удаленный доступ к приложению. 
 
-Дополнительные сведения о функции связанного входа (существующей функции единого входа) см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Дополнительные сведения о функции связанного входа (существующей функции единого входа) см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="integrated-windows-authentication"></a>Встроенная проверка подлинности Windows
 

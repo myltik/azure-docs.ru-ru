@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Opal | Документация Майкрософт"
-description: "Сведения о настройке единого входа Azure Active Directory в Opal."
+title: Руководство по интеграции Azure Active Directory с Opal | Документация Майкрософт
+description: Сведения о настройке единого входа Azure Active Directory в Opal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e82d7bf5c453196357b9fa83aa9c8d68c6968f9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 9aed2a2fc80872af984bba7e9c4e88fa6fb8f5e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Руководство по интеграции Azure Active Directory с Opal
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/13/2018
 - Вы можете включить автоматический вход пользователей в Opal (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Opal из коллекции.
+1. Добавление Opal из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-opal-from-the-gallery"></a>Добавление Opal из коллекции
@@ -229,7 +229,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

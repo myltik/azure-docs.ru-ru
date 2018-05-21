@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Управление сертификатами для федеративного единого входа в Azure Active Directory
 В этой статье рассматриваются распространенные вопросы и предоставляются сведения, связанные с сертификатами, создаваемыми службой Azure Active Directory (Azure AD) для обеспечения федеративного единого входа в приложения SaaS. Эти приложения можно добавить из коллекции приложений Azure AD или с помощью шаблона приложения не из коллекции. Настройте приложение для федеративного единого входа.
@@ -76,5 +76,5 @@ ms.lasthandoff: 05/10/2018
 ## <a name="related-articles"></a>Связанные статьи
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Указатель статей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)

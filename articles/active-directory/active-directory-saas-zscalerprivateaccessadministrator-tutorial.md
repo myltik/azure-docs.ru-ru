@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Zscaler Private Access Administrator | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Zscaler Private Access Administrator."
+title: Руководство по интеграции Azure Active Directory с Zscaler Private Access Administrator | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Zscaler Private Access Administrator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: bf0b7cbd8047dfdbc1a4503775e6d36f8e8a67c1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c3918e4b54d60d6f609e99e24ed2f4b2995bf80c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Руководство по интеграции Azure Active Directory с Zscaler Private Access Administrator
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/13/2018
 - Вы можете включить автоматический вход пользователей в Zscaler Private Access Administrator (единый вход) с их учетными записями Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Zscaler Private Access Administrator из коллекции.
+1. Добавление Zscaler Private Access Administrator из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-zscaler-private-access-administrator-from-the-gallery"></a>Добавление Zscaler Private Access Administrator из коллекции
@@ -270,7 +270,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

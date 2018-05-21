@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Создание и использование внутренней подсистемы балансировки нагрузки с использованием среды службы приложений #
 
@@ -215,7 +215,7 @@ SSL-сертификат необходимо преобразовать в PFX-
 
 В мультитенантной службе приложений и внешней среде ASE применяется единый вход между порталом Azure и консолью Kudu. Тем не менее в среде ASE с ILB необходимо использовать учетные данные публикации для входа в консоль Kudu.
 
-Веб-системы непрерывной интеграции, такие как GitHub и Visual Studio Team Services, не работают со средой ASE с ILB, так как конечная точка публикации недоступна через Интернет. Вместо этого необходимо использовать систему непрерывной интеграции, в которой применяется модель полного извлечения, например Dropbox.
+Веб-системы непрерывной интеграции (CI), такие как GitHub и Visual Studio Team Services, будут по-прежнему работать со средой ASE с внутренним балансировщиком нагрузки, если агент сборки доступен через Интернет и размещен в той же сети, что и среда ASE с внутренним балансировщиком нагрузки. Поэтому в случае Visual Studio Team Services, если агент сборки создан в той же виртуальной сети, что и среда ASE с внутренним балансировщиком нагрузки (допускается другая подсеть), то он сможет извлечь код из репозитория GIT в VSTS и развернуть его в среде ASE с внутренним балансировщиком нагрузки. Если вы не хотите создавать собственный агент сборки, необходимо использовать систему непрерывной интеграции, которая использует модель извлечения, например Dropbox.
 
 Для конечных точек публикации приложений в среде ASE с ILB используется домен, созданный вместе со средой. Этот домен можно увидеть в профиле публикации приложения и в колонке приложения на портале (в разделе **Обзор** > **Основное** и в разделе **Свойства**). При наличии среды ASE с ILB с поддоменом *contoso.net* и приложения с именем *mytest* вы перейдете по протоколу FTP по адресу *mytest.contoso.net* и выполните веб-развертывание по адресу *mytest.scm.contoso.net*.
 
@@ -244,7 +244,7 @@ SSL-сертификат необходимо преобразовать в PFX-
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

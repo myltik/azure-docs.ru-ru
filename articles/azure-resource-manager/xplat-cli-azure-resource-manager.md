@@ -1,23 +1,23 @@
 ---
-title: "Управление ресурсами с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Используйте интерфейс командной строки Azure для управления ресурсами и группами ресурсов в Azure."
-editor: 
+title: Управление ресурсами с помощью интерфейса командной строки Azure | Документация Майкрософт
+description: Используйте интерфейс командной строки Azure для управления ресурсами и группами ресурсов в Azure.
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure
 

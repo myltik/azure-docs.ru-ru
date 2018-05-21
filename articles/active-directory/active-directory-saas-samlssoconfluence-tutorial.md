@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с SAML SSO for Confluence by resolution GmbH | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход для Azure Active Directory и SAML SSO for Confluence by resolution GmbH."
+title: Руководство по интеграции Azure Active Directory с SAML SSO for Confluence by resolution GmbH | Документация Майкрософт
+description: Узнайте, как настроить единый вход для Azure Active Directory и SAML SSO for Confluence by resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 70c01e2ee5d97ed5d09e9281c69f1110b5c220da
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6593a53cc05771b6001aed1316233b5d17fe0f24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Руководство по интеграции Azure Active Directory с SAML SSO for Confluence by resolution GmbH
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 - Можно включить автоматический вход пользователей в SAML SSO for Confluence by resolution GmbH (единый вход) с учетными записями Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -320,7 +320,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

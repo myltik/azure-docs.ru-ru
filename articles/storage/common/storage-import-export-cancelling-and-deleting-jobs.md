@@ -1,11 +1,11 @@
 ---
-title: "Отмена и удаление задания импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как отменять и удалять задания службы импорта и экспорта Microsoft Azure."
+title: Отмена и удаление задания импорта и экспорта Azure | Документация Майкрософт
+description: Узнайте, как отменять и удалять задания службы импорта и экспорта Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fd3d66f0-1dbb-4c75-9223-307d5abaeefc
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3524f1677baaa218b009b8498b851390c7b9da9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>Отмена и удаление заданий службы импорта и экспорта Azure
 
@@ -27,6 +27,8 @@ ms.lasthandoff: 10/11/2017
  Отмененное задание примет состояние `Completed` и будет храниться в течение 90 дней, после чего будет удалено.
 
  Чтобы удалить задание, вызовите операцию [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) перед доставкой задания (т. е. пока задание находится в состоянии `Creating`). Кроме того, задание можно удалить, когда оно находится в состоянии `Completed`. После удаления задания его данные и состояние станут недоступны через REST API или портал Azure.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 

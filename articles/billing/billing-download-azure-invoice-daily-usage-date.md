@@ -17,17 +17,18 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18f568fdeead10fadad0e403ce0ca7fe4b3213a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Скачивание или просмотр счета на оплату и данных о ежедневном использовании в Azure
 Счет можно скачать на [портале Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) или получить по электронной почте. Чтобы скачать данные о ежедневном использовании, перейдите в [Центр управления учетной записью Azure](https://account.azure.com/Subscriptions). Получать сведения о выставлении счетов и использовании разрешено только определенным ролям, например администратору учетной записи. Дополнительные сведения о доступе к сведениям о выставлении счетов см. в статье [Управление доступом для выставления счетов Azure с помощью ролей](billing-manage-access.md).
 
->[!NOTE]
->Эта статья не относится к клиентам с соглашением Enterprise (EA). Если вы являетесь клиентом EA, ваши счета отправляются непосредственно администраторам регистрации.
+Эта статья не относится к клиентам с соглашением Enterprise (EA). Если вы являетесь клиентом EA, ваши счета отправляются непосредственно администраторам регистрации.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Получение счета по электронной почте (в формате PDF)
 Вы можете согласиться и настроить дополнительных получателей Azure для получения счета по электронной почте. Эта функция может быть недоступна для определенных подписок, например для предложений о планах поддержки, соглашений Enterprise или Azure с открытой лицензией.
