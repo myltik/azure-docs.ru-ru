@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: a378c2185d94864435188b84155d2b300a23b657
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 8a70311825d0ef548660f8ce4d12b5100b530170
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="overview-of-azure-data-lake-analytics"></a>Обзор Azure Data Lake Analytics
+# <a name="welcome-to-azure-data-lake-analytics"></a>Добро пожаловать в Azure Data Lake Analytics
 
 Azure Data Lake Analytics — это служба обработки заданий аналитики по запросу, позволяющая упростить большие данные. Вместо развертывания и настройки оборудования вы пишете запросы для преобразования данных и получения ценных выводов. Служба аналитики способна мгновенно выполнять задания любого масштаба, для чего нужно указать необходимый объем ресурсов. Вы оплачиваете только время выполнения задания, что приводит к значительной экономии средств. 
 

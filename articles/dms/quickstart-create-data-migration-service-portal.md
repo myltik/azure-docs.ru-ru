@@ -1,21 +1,21 @@
 ---
-title: "Создание экземпляра службы Azure Database Migration Service с помощью портала Azure | Документация Майкрософт"
-description: "Использование портала Azure для создания экземпляра службы Azure Database Migration Service"
+title: Создание экземпляра службы Azure Database Migration Service с помощью портала Azure | Документация Майкрософт
+description: Использование портала Azure для создания экземпляра службы Azure Database Migration Service
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Создание экземпляра службы Azure Database Migration Service с помощью портала Azure
 В этом кратком руководстве вы создадите экземпляр службы Azure Database Migration Service с помощью портала Azure.  После создания службы вы сможете использовать ее для переноса данных с локального сервера SQL Server в базу данных SQL Azure.
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/13/2017
 ![Регистрация поставщика ресурсов](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Создание экземпляра службы
-1. Нажмите кнопку **+ Создать ресурс**, чтобы создать экземпляр службы Azure Database Migration Service, которая сейчас доступна в предварительной версии.
+1. Щелкните **+ Create a resource** (+ Создать ресурс), чтобы создать экземпляр службы Azure Database Migration Service.
 
-2. Выполните в Marketplace поиск по слову migration, выберите службу **Azure Database Migration Service**, а затем на экране **Azure Database Migration Service (preview)** (Azure Database Migration Service (предварительная версия)) нажмите кнопку **Create** (Create).
+2. Выполните в Marketplace поиск по слову migration, выберите службу **Azure Database Migration Service**, а затем на экране **Azure Database Migration Service** (Azure Database Migration Service) нажмите кнопку **Create** (Create).
 
 3. На экране **Database Migration Service** сделайте следующее. 
 

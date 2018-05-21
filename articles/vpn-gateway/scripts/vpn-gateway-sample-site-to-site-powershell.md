@@ -1,10 +1,10 @@
 ---
-title: Пример скрипта Azure PowerShell. Настройка подключения VPN типа "сеть — сеть" | Документы Microsoft
-description: Настройка подключения VPN типа "сеть — сеть".
+title: Пример скрипта Azure PowerShell. Настройка VPN-подключения "сеть — сеть" | Документы Microsoft
+description: Настройка VPN-подключения "сеть — сеть".
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: anzaman
-ms.openlocfilehash: da506165dd7c2ca29f977af1452d11189d2fdd2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62381c08892017512dcf2bd5d9c7f8690bedfb6c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Создание VPN-шлюза и добавление подключения типа "сеть — сеть" с помощью PowerShell
 
-С помощью этого скрипта создается VPN-шлюз на основе маршрутов и добавляется конфигурация "точка — сеть" с использованием проверки имени пользователя или пароля RADIUS.
+Этот скрипт создает VPN-шлюз на основе маршрутов и добавляется конфигурация "точка — сеть". Для создания подключения, необходимо также настроить устройство VPN. См. дополнительные сведения об [VPN-устройствах и параметрах IPsec/IKE для подключений "сеть — сеть" через VPN-шлюз](../vpn-gateway-about-vpn-devices.md).
 
 
 ```azurepowershell-interactive

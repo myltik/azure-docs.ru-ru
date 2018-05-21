@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Сценарии тестирования платформы Service Fabric: обмен данными между службами
 Микрослужбы и стили сервисноориентированной архитектуры естественным образом развертываются на платформе Azure Service Fabric. В распределенных архитектурах этих типов компонентные приложения микрослужб обычно состоят из нескольких служб, которые должны взаимодействовать друг с другом. Даже в простейших случаях у вас обычно есть как минимум веб-служба без отслеживания состояния и служба хранилища данных с отслеживанием состояния, которые должны взаимодействовать друг с другом.

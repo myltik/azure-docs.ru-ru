@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с ArcGIS Online | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в ArcGIS Online."
+title: Руководство по интеграции Azure Active Directory с ArcGIS Online | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в ArcGIS Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: fc6bf53e379fec266062753e550ef1c613816443
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Руководство по интеграции Azure Active Directory с ArcGIS Online
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 - Вы можете включить автоматический вход пользователей в ArcGIS Online (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -258,7 +258,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

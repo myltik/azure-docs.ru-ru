@@ -1,6 +1,6 @@
 ---
-title: "Полиморфизм на платформе Reliable Actors | Документация Майкрософт"
-description: "Создание иерархий интерфейсов .NET и типов на платформе Reliable Actors для многократного использования функций и определений API-интерфейсов."
+title: Полиморфизм на платформе Reliable Actors | Документация Майкрософт
+description: Создание иерархий интерфейсов .NET и типов на платформе Reliable Actors для многократного использования функций и определений API-интерфейсов.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 38a86b25b30420c6f0b3027258fa094529c90278
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Полиморфизм на платформе надежных субъектов
 Платформа Reliable Actors позволяет создавать субъекты с использованием многих приемов, применяемых в объектно-ориентированном проектировании. Одним из них является полиморфизм, благодаря которому типы и интерфейсы могут наследоваться от более обобщенных родительских элементов. Наследование на платформе надежных субъектов обычно соответствует модели .NET с несколькими дополнительными ограничениями. В случае Java или Linux наследование соответствует модели Java.
