@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure
 В этой статье показано, как настроить индексатор больших двоичных объектов в службе поиска Azure для извлечения структурированного содержимого из больших двоичных объектов JSON в хранилище BLOB-объектов Azure.
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/28/2018
 | Документ JSON | parsingMode | ОПИСАНИЕ | Доступность |
 |--------------|-------------|--------------|--------------|
 | Один на большой двоичный объект | `json` | Анализирует большие двоичные объекты JSON как отдельный блок текста. Каждый большой двоичный объект JSON становится отдельным документом в службе поиска Azure. | Общедоступен в API-интерфейсах [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) и [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Несколько на большой двоичный объект | `jsonArray` | Анализирует массив JSON в большом двоичном объекте, где каждый элемент массива становится отдельным документом в службе поиска Azure.  | В предварительной версии в [REST API версии `2016-09-01-Preview`](search-api-2016-09-01-preview.md) и [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Несколько на большой двоичный объект | `jsonArray` | Анализирует массив JSON в большом двоичном объекте, где каждый элемент массива становится отдельным документом в службе поиска Azure.  | В предварительной версии в [REST API версии `2017-11-11-Preview`](search-api-2017-11-11-preview.md) и [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
@@ -116,7 +116,7 @@ ms.lasthandoff: 04/28/2018
 
 Для массива JSON запрос индексатора использует API предварительной версии и анализатор `jsonArray`. Это единственные два требования к массиву для индексирования больших двоичных объектов JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ ms.lasthandoff: 04/28/2018
     }
 
 Снова отметим, что сопоставления полей необязательны. Если имеется индекс с полями "id" и "text", индексатор больших двоичных объектов может определить правильное сопоставление без списка сопоставления полей.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>Вложенные массивы JSON
 Что делать, если требуется индексировать массив объектов JSON, но он является вложенным в документ? Можно выбрать, какое свойство содержит массив, с помощью свойства конфигурации `documentRoot` . Например, если большой двоичный объект выглядит следующим образом:

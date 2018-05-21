@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Как связать или добавить подписку Azure в Azure Active Directory
 
@@ -53,6 +51,8 @@ ms.lasthandoff: 04/16/2018
 
     ![Снимок экрана, показывающий переключатель](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Перемещение подписки затрагивает также все имеющиеся хранилища ключей Azure, поэтому необходимо [изменить идентификатор клиента хранилища ключей](../key-vault/key-vault-subscription-move-fix.md) перед возобновлением операций.
 
 Изменение каталога подписки — это операция, выполняющаяся на уровне обслуживания. Она не влияет на права владения выставлением счетов по подписке, а администратор учетной записи по-прежнему может менять администратора службы в [Центре управления учетной записью](https://account.azure.com/subscriptions). Если необходимо удалить исходный каталог, передайте права владения выставлением счетов по подписке новому администратору учетной записи. Сведения о передаче прав владения выставлением счетов см. в статье [Передача прав владения подпиской Azure другой учетной записи](../billing/billing-subscription-transfer.md). 
 
