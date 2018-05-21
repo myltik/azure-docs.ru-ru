@@ -2,25 +2,19 @@
 title: 'Azure Active Directory: самостоятельный сброс пароля'
 description: Сведения о быстром развертывании самостоятельного сброса пароля в Azure AD.
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Быстрое развертывание самостоятельного сброса пароля в Azure AD
 
@@ -33,11 +27,13 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Включение SSPR для клиента Azure AD
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. Из существующего клиента Azure AD на **портале Azure** под **Azure Active Directory** выберите **Сброс пароля**.
 
 2. На странице **Свойства** для параметра **Разрешен самостоятельный сброс пароля** выберите одно из следующих значений:
    * **Нет** — никто не может использовать функцию SSPR.
-   * **Selected** (Избранные) — только члены указанной группы Azure AD могут использовать функцию SSPR. Рекомендуем определить группу пользователей и использовать этот параметр при развертывании этой функции для подтверждения концепции.
+   * **Selected** (Избранные) — только члены указанной группы Azure AD могут использовать функцию SSPR. Рекомендуем определить группу пользователей и использовать этот параметр при развертывании этой функции для подтверждения концепции. Вложение групп безопасности поддерживается.
    * **Все** — все пользователи с учетными записями в вашем клиенте Azure AD могут использовать функцию SSPR. Рекомендуем использовать это значение, когда вы будете готовы развернуть эту функцию по всему клиенту после завершения подтверждения концепции.
 
    > [!IMPORTANT]
