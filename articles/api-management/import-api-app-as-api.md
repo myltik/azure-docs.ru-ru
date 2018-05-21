@@ -1,11 +1,11 @@
 ---
-title: "Импорт приложения API в качестве API с помощью портала Azure | Документация Майкрософт"
-description: "В этом руководстве показано, как импортировать приложение API в качестве API с помощью службы управления API."
+title: Импорт приложения API в качестве API с помощью портала Azure | Документация Майкрософт
+description: В этом руководстве показано, как импортировать приложение API в качестве API с помощью службы управления API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: d0e1aa6763d96b5a84bbc5fba7dcae690c051eb3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-an-api-app-as-an-api"></a>Импорт приложения API в качестве API
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/04/2017
 ## <a name="prerequisites"></a>предварительным требованиям
 
 + Выполните задачи из краткого руководства по [созданию экземпляра службы управления API Azure](get-started-create-service-instance.md)
-+ Убедитесь, что в вашей подписке есть приложение API. Дополнительные сведения см. в [документации по службе приложений] [https://docs.microsoft.com/azure/app-service/].
++ Убедитесь, что в вашей подписке есть приложение API. Дополнительные сведения см. в [документации по службе приложений][https://docs.microsoft.com/azure/app-service/]
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

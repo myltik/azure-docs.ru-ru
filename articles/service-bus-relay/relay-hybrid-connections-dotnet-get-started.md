@@ -1,11 +1,11 @@
 ---
-title: "Приступая к работе с гибридными подключениями к ретранслятору Azure в .NET | Документация Майкрософт"
-description: "Написание консольного приложения #C для гибридных подключений ретранслятора Azure."
+title: Начало работы с гибридными подключениями WebSocket к Azure Relay в .NET | Документация Майкрософт
+description: 'Написание консольного приложения #C для гибридных подключений WebSocket к Azure Relay.'
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Приступая к работе с гибридными подключениями к ретранслятору
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Начало работы с гибридными подключениями WebSocket к Azure Relay в .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 В этом руководстве содержатся основные сведения о [гибридных подключениях ретранслятора Azure](relay-what-is-it.md#hybrid-connections). Узнайте, как при помощи Microsoft .NET создать клиентское приложение, в котором отправляются сообщения в соответствующее приложение, ожидающее передачи данных. 

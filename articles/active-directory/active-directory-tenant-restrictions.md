@@ -3,7 +3,7 @@ title: Управление доступом к облачным приложе�
 description: Как использовать ограничение клиентов для управления доступом пользователей к приложениям на основе их клиента Azure AD.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: barbkess
 manager: mtillman
 editor: yossib
 ms.service: active-directory
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
-ms.author: kgremban
-ms.openlocfilehash: 250e3bcbff745ed3810ddbc658bdd73e9fdac054
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/15/2018
+ms.author: barbkess
+ms.reviewer: richagi
+ms.openlocfilehash: 6584db755a586fcf5fd7318f9396b797edeaf0ad
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Использование ограничения клиентов для управления доступом к облачным приложениям SaaS
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 57961cf1cb64f90cec7d2be90f3fbfe33344467d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Краткое руководство. Создание первого контейнера в службе "Экземпляры контейнеров Azure"
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Когда контейнер перейдет в состояние **успешного запуска**, к нему можно будет перейти в браузере, указав полное доменное имя:
+Когда контейнер перейдет в состояние **успешного запуска**, перейдите к нему в браузере, указав полное доменное имя:
 
 ![Снимок экрана браузера: приложение, выполняющееся в экземпляре контейнера Azure][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Извлечение журналов контейнера
 
-Вы можете извлечь журналы для созданного контейнера с помощью команды [az container logs][az-container-logs]:
+Просмотр журналов для экземпляра контейнера помогает устранять неполадки с этим контейнером или запущенными в нем приложениями.
+
+Извлеките журналы контейнера с помощью команды [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Вы должны увидеть результат, аналогичный приведенному ниже:
+В выходных данных будут содержаться журналы для контейнера, а также должны отобразиться запросы HTTP GET, созданные при просмотре приложения в браузере.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>Удаление контейнера
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
-По завершении работы с контейнером его можно удалить с помощью команды [az container delete][az-container-delete]:
+По завершении работы с контейнером удалите его с помощью команды [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ az container list --resource-group myResourceGroup --output table
 
 ## <a name="next-steps"></a>Дополнительная информация
 
-Полный код для контейнера, используемого в этом кратком руководстве, и файл Dockerfile доступны [на сайте GitHub][app-github-repo]. Если вы хотите выполнить сборку самостоятельно и развернуть контейнер в службе "Экземпляры контейнеров Azure" с помощью реестра контейнеров Azure, продолжайте изучение руководств по этой службе.
+В этом кратком руководстве вы создали экземпляр контейнера Azure из образа, размещенного в общедоступном реестре Docker Hub. Если вы хотите самостоятельно скомпилировать образ контейнера и развернуть его в службе "Экземпляры контейнеров Azure" через частный реестр контейнеров Azure, переходите к руководству по использованию службы "Экземпляры контейнеров Azure".
 
 > [!div class="nextstepaction"]
-> [Руководства по использованию службы "Экземпляры контейнеров Azure"](./container-instances-tutorial-prepare-app.md)
+> [Руководство по использованию службы "Экземпляры контейнеров Azure"](./container-instances-tutorial-prepare-app.md)
 
-Чтобы проверить параметры запуска контейнеров в системе оркестрации Azure, см. краткие руководства по [Service Fabric][service-fabric] или [ службе контейнеров Azure (AKS)][container-service].
+Чтобы проверить параметры запуска контейнеров в системе оркестрации Azure, см. краткие руководства по [Service Fabric][service-fabric] или [службе Kubernetes Azure (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
