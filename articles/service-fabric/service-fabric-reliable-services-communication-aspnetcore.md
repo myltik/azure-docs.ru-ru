@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core в Service Fabric Reliable Services
 
@@ -310,7 +310,7 @@ HttpSys является рекомендуемым веб-сервером дл
 | --- | --- | --- |
 | Веб-сервер | Kestrel | Kestrel является предпочтительным веб-сервером, так как он поддерживается в Windows и Linux. |
 | Конфигурация порта | static | Хорошо известный статический порт необходимо настроить в конфигурации `Endpoints` файла ServiceManifest.xml, например 80 для HTTP и 443 для HTTPS. |
-| ServiceFabricIntegrationOptions | Нет | Параметр `ServiceFabricIntegrationOptions.None` должен использоваться при настройке ПО промежуточного слоя интеграции Service Fabric, чтобы служба не пыталась проверять входящие запросы для уникального идентификатора. Внешние пользователи приложения не будут знать уникальные идентификаторы, используемые ПО промежуточного слоя. |
+| ServiceFabricIntegrationOptions | None | Параметр `ServiceFabricIntegrationOptions.None` должен использоваться при настройке ПО промежуточного слоя интеграции Service Fabric, чтобы служба не пыталась проверять входящие запросы для уникального идентификатора. Внешние пользователи приложения не будут знать уникальные идентификаторы, используемые ПО промежуточного слоя. |
 | Число экземпляров | -1 | При стандартных вариантах использования значение количества экземпляров должно быть равно "-1", чтобы экземпляр становился доступным на всех узлах, получающих трафик от балансировщика нагрузки. |
 
 Если несколько служб, предоставляемых извне, совместно используют один и тот же набор узлов, HttpSys следует использовать с уникальным, но стабильным URL-адресом. Это можно сделать, изменив URL-адрес, указанный при настройке IWebHost. Обратите внимание, что это относится только к HttpSys.

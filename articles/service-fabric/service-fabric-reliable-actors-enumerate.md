@@ -9,16 +9,16 @@ editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 037138f68e5c18822e4d7b3fa47591411e8a2407
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d5d6ac87db18815aa945d6964338626365b08e64
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Перечисление Reliable Actors в Service Fabric
 Служба Reliable Actors позволяет клиенту перечислять метаданные о размещенных службой субъектах. Так как служба субъектов — это секционированная служба с отслеживанием состояния, перечисление выполняется по каждому разделу. Так как каждая секция может содержать большое количество субъектов, перечисление возвращается как набор постраничных результатов. Страницы зацикливаются до тех пор, пока все они не будут прочитаны. В следующем примере показано, как создать список всех активных субъектов в одной секции службы субъектов:
