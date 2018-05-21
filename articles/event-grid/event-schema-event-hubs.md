@@ -1,18 +1,18 @@
 ---
-title: "Схема событий концентраторов в службе \"Сетка событий Azure\""
-description: "Описание свойств для событий концентраторов, используемых со службой \"Сетка событий Azure\""
+title: Схема событий концентраторов в службе "Сетка событий Azure"
+description: Описание свойств для событий концентраторов, используемых со службой "Сетка событий Azure"
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Схема событий службы "Сетка событий Azure" для концентраторов
 
@@ -63,8 +63,8 @@ ms.lasthandoff: 02/01/2018
 | eventTime | строка | Время создания события с учетом времени поставщика в формате UTC. |
 | id | строка | Уникальный идентификатор события. |
 | data | object | Данные события концентратора. |
-| dataVersion | строка | Версия схемы объекта данных. Версию схемы определяет издатель. |
-| metadataVersion | строка | Версия схемы метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
+| dataVersion | строка | Версия схемы для объекта данных. Версию схемы определяет издатель. |
+| metadataVersion | строка | Версия схемы для метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
 
 Объект данных имеет следующие свойства:
 

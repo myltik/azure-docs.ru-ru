@@ -1,24 +1,24 @@
 ---
-title: "Диспетчер кластерных ресурсов Service Fabric — интеграция управления | Документация Майкрософт"
-description: "Обзор точек интеграции между диспетчером ресурсов кластера и управлением Service Fabric."
+title: Диспетчер кластерных ресурсов Service Fabric — интеграция управления | Документация Майкрософт
+description: Обзор точек интеграции между диспетчером ресурсов кластера и управлением Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Интеграция диспетчера кластерных ресурсов с управлением кластерами Service Fabric
 Диспетчер кластерных ресурсов Service Fabric не инициирует обновления в Service Fabric, но участвует в них. Первый способ, используемый диспетчером кластерных ресурсов при управлении, заключается в отслеживании требуемого состояния кластера и служб внутри него. Он отправляет отчеты о работоспособности, если не удается перевести кластер в нужное состояние. Например, если емкости недостаточно, то диспетчер кластерных ресурсов отправляет предупреждения о работоспособности и сообщает об ошибках работоспособности, указывающие на проблему. Второе направление интеграции связано с обновлениями. Во время обновлений диспетчер кластерных ресурсов изменяет свое поведение.  

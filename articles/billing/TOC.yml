@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Упорядочение ресурсов с помощью групп управления
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Экономия за счет использования зарезервированных экземпляров виртуальных машин
+    - name: Экономия за счет использования Azure Reserved VM Instances
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Предоплата за использование виртуальных машин с Azure Reserved VM Instances
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Управление службой Azure Reserved VM Instances
+          href: billing-manage-reserved-vm-instance.md
+        - name: Общие сведения о применении скидки на использование Azure Reserved VM Instances
+          href: billing-understand-vm-reservation-charges.md
+        - name: Общие сведения об использовании зарезервированных экземпляров с оплатой по мере использования
+          href: billing-understand-reserved-instance-usage.md
+        - name: Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Azure Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Затраты на программные продукты Windows при использовании Azure Reserved VM Instances
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Ограничения и квоты
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Практическое руководство
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Сопоставление единиц измерения бесплатных служб
           href: billing-understand-free-service-meter-mapping.md
-        - name: Затраты на программные продукты Windows при использовании зарезервированных экземпляров виртуальных машин
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Общие сведения о применении скидки на зарезервированные экземпляры виртуальных машин
-          href: billing-understand-vm-reservation-charges.md
         - name: Общие сведения о предельной сумме расходов
           href: billing-spending-limit.md
         - name: Настройка платежных оповещений
           href: billing-set-up-alerts.md
         - name: Решение проблемы просроченных платежей
           href: billing-azure-subscription-past-due-balance.md
-        - name: Общие сведения об использовании зарезервированных экземпляров с оплатой по мере использования
-          href: billing-understand-reserved-instance-usage.md
-        - name: Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Azure Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Управление подписками
       items:
         - name: Поиск подписок или групп управления
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Просмотр учетных записей выставления счетов
           href: billing-view-all-accounts.md
-    - name: Управление зарезервированными экземплярами виртуальных машин
-      href: billing-manage-reserved-vm-instance.md
     - name: Устранение неполадок
       items:
         - name: Проблемы при регистрации

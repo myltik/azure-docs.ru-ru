@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальных машин со стеком для SQL, IIS и .NET в Azure | Документация Майкрософт"
-description: "Руководство по установке стека для SQL, IIS и .NET в Azure на виртуальных машинах Windows."
+title: Руководство. Создание виртуальных машин с выполняемым стеком SQL, IIS и .NET в Azure | Документация Майкрософт
+description: В этом руководстве описано, как установить стек SQL, IIS и .NET Azure на виртуальной машине Windows в Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Установка стека для SQL, IIS и .NET в Azure
+# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Руководство. Установка стека SQL, IIS и .NET на виртуальной машине Windows с помощью Azure PowerShell.
 
-В этом руководстве мы установим стек для SQL, IIS и .NET с помощью Azure PowerShell. Этот стек состоит из двух виртуальных машин на базе Windows Server 2016: одной с IIS и .NET, а другой с SQL Server.
+Используя это руководство, вы установите стек SQL, IIS и .NET с помощью Azure PowerShell. Этот стек состоит из двух виртуальных машин на базе Windows Server 2016: одной с IIS и .NET, а другой с SQL Server.
 
 > [!div class="checklist"]
 > * Создание виртуальной машины 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Чтобы установить и использовать PowerShell локально, для работы с этим руководством вам понадобится модуль AzureRM.Compute 4.3.1 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM.Compute`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Чтобы установить и использовать PowerShell локально, для работы с этим руководством вам понадобится модуль AzureRM.Compute 5.7.0 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM.Compute`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Создание виртуальной машины с IIS 
 

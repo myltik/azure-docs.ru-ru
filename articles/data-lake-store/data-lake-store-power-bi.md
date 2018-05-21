@@ -1,24 +1,22 @@
 ---
-title: "Анализ данных в Data Lake Store с помощью Power BI | Документация Майкрософт"
-description: "Использование Power BI для анализа данных в хранилище озера данных Azure"
+title: Анализ данных в Data Lake Store с помощью Power BI | Документация Майкрософт
+description: Использование Power BI для анализа данных в хранилище озера данных Azure
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 4a10dac1eca85b54ef144a91445af6dad3b5d93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 08660bd1c434c9404fa53a33be209b7a3c4d9372
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Анализ данных в хранилище озера данных с помощью Power BI
 В этой статье вы узнаете, как использовать Power BI Desktop для анализа и визуализации данных в хранилище озера данных Azure.

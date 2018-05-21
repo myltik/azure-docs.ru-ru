@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: Практические руководства
   items:
-    - name: Планирование и проектирование
+    - name: План
       items:
         - name: виртуальные сети;
           href: virtual-network-vnet-plan-design-arm.md
-        - name: Группы безопасности сети
-          href: virtual-networks-nsg.md
     - name: Развертывание
       items:
         - name: Группы безопасности сети
