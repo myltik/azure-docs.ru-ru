@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Настройка кластера Linux RDMA для выполнения приложений MPI
 Узнайте, как настроить кластер Linux RDMA в Azure с [виртуальными машинами серии H или серии A для ресурсоемких вычислений](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для параллельного выполнения приложений с интерфейсом MPI. Эта статья содержит процедуру подготовки образа Linux HPC для запуска Intel MPI в кластере. После предварительной подготовки вы развернете кластер виртуальных машин, используя этот образ и еще один для любого размера виртуальной машины Azure, поддерживающего RDMA (сейчас это H16r, H16mr, A8 и A9). Такой кластер позволяет выполнять приложения MPI, которые эффективно взаимодействуют через сеть с низкой задержкой и высокой пропускной способностью с использованием технологии удаленного прямого доступа к памяти (RDMA).
@@ -210,7 +210,7 @@ done
 
 На сайте [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) можно найти предоставленный сообществом пользователей пример сценария для включения аутентификации пользователей в кластере HPC на основе CentOS. Скачайте и используйте этот скрипт, следуя приведенным ниже указаниям. Вы можете также изменить этот сценарий или использовать любой другой метод, чтобы настроить проверку подлинности через SSH без пароля между вычислительными узлами кластера.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Чтобы выполнить сценарий, требуется префикс IP-адресов подсети. Получите его, выполнив следующую команду на одном из узлов кластера. Вывод должен выглядеть примерно как 10.1.3.5, где 10.1.3 — это префикс.
 

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/26/2018
+ms.date: 5/14/2018
 ms.author: pkc
-ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7a00b72f0b8d52ae0ced5f44784c2a61d40c8ac2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Варианты поддержки Azure Service Fabric
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/28/2018
 | 5.6.* | 5.4.164.* |Не выше версии 2.6 |13 октября 2017 г.   |
 | 5.7.* | 5.4.164.* |Не выше версии 2.7 |15 декабря 2017 г.  |
 | 6.0.* | 5.6.205.* |Не выше версии 2.8 |30 марта 2018 г.     | 
-| 6.1.* | 5.7.221.* |Не выше версии 3.0 |15 июня 2018 г.      |
+| 6.1.* | 5.7.221.* |Не выше версии 3.0 |15 июля 2018 г.      |
 | 6.2.* | 6.0.232.* |Не выше версии 3.1 |Текущая версия, дата окончания поддержки не определена. |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Предварительные версии Service Fabric не поддерживаются для использования в рабочей среде.
