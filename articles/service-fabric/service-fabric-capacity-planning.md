@@ -1,24 +1,24 @@
 ---
-title: "Планирование емкости для приложений Service Fabric | Документация Майкрософт"
-description: "Описание процедуры определения количество вычислительных узлов, необходимых для приложения Service Fabric."
+title: Планирование емкости для приложений Service Fabric | Документация Майкрософт
+description: Описание процедуры определения количество вычислительных узлов, необходимых для приложения Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: markfuss
-editor: 
+editor: ''
 ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: dc5e81ff7e5466d258624cee80c520c848bd60fa
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Планирование емкости для приложений Service Fabric
 В этом документе содержатся сведения об определении объема ресурсов (ЦП, ОЗУ, дискового хранилища), необходимых для выполнения приложений Service Fabric. Чаще всего требования к ресурсам со временем меняются. Как правило, при разработке или тестировании службы требуется незначительное количество ресурсов. Но при переходе в рабочую среду и росте популярности приложения объем ресурсов возрастает. При проектировании приложения следует рассмотреть требования в долгосрочной перспективе и принять решения, которые позволят масштабировать службу в соответствии с возросшими требованиями клиентов.

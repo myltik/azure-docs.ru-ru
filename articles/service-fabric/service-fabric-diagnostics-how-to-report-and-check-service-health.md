@@ -1,24 +1,24 @@
 ---
-title: "Проверка работоспособности и оповещение о проблемах в Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как отправлять отчеты о работоспособности из кода службы и проверять работоспособность службы с использованием средств наблюдения Azure Service Fabric."
+title: Проверка работоспособности и оповещение о проблемах в Azure Service Fabric | Документация Майкрософт
+description: Узнайте, как отправлять отчеты о работоспособности из кода службы и проверять работоспособность службы с использованием средств наблюдения Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: a8c1ac57d38ae504e677c44c6fec08164b9b74ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="report-and-check-service-health"></a>Проверка работоспособности службы и оповещение о проблемах
 Если при работе служб возникают проблемы, то возможность ответить на все возникшие инциденты и устранить их зависит от того, насколько быстро вы сможете обнаружить проблему. Сообщив о проблемах и сбоях диспетчеру работоспособности Azure Service Fabric из кода службы, вы сможете использовать стандартные средства мониторинга работоспособности, которые предоставляет Service Fabric.
