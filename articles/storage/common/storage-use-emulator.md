@@ -2,23 +2,17 @@
 title: Использование эмулятора хранения Azure для разработки и тестирования | Документы Майкрософт
 description: Эмулятор хранения Azure предоставляет свободную локальную среду для разработки и тестирования приложений службы хранилища Azure. Вы можете подробнее узнать о способе проверки подлинности запросов, подключении к эмулятору из приложения и использовании программы командной строки.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Использование эмулятора хранения Azure для разработки и тестирования
 
@@ -44,17 +38,10 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Запуск и инициализация эмулятора хранения
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Запуск эмулятора хранилища Azure в Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>Использование пакета SDK
-
 Чтобы запустить эмулятор хранения Azure, сделайте следующее:
 1. Нажмите кнопку **Пуск** или клавишу **Windows**.
-1. Начните вводить текст `Azure Storage Emulator`.
-1. Выберите эмулятор в списке отображенных приложений.
+2. Начните вводить текст `Azure Storage Emulator`.
+3. Выберите эмулятор в списке отображенных приложений.
 
 При запуске эмулятора хранения отображается окно командной строки. Вы можете использовать это окно консоли для запуска и остановки эмулятора хранения, очистки данных, получения состояния и инициализации эмулятора. Дополнительные сведения см. ниже в разделе [Справочник по программе командной строки эмулятора хранения](#storage-emulator-command-line-tool-reference).
 
@@ -71,6 +58,7 @@ docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Инициализация эмулятора хранения для использования другой базы данных SQL
+
 Вы можете использовать программу командной строки эмулятора хранения, чтобы инициализировать эмулятор хранения для указания экземпляра базы данных SQL, отличного от экземпляра LocalDB по умолчанию.
 
 1. Откройте окно консоли эмулятора хранения, как описано в разделе [Запуск и инициализация эмулятора хранения](#start-and-initialize-the-storage-emulator).

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
-> * [C в Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [C в Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js (универсальная версия)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Использование Node.js с Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [Использование C с Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [C в Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [C в Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (универсальная версия)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Использование Node.js с Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [Использование C с Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
-В этом руководстве мы реализуем устройство **Chiller**, которое отправляет следующие данные телеметрии в [акселератор решений](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md) для удаленного мониторинга:
+В этом руководстве мы реализуем устройство **Chiller**, которое отправляет следующие данные телеметрии в [акселератор решений](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) для удаленного мониторинга:
 
 * температура;
 * Давление
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Развертывание акселератора решений для удаленного мониторинга
 
-Созданное в этом руководстве устройство **Chiller** отправляет данные в экземпляр акселератора решений для [удаленного мониторинга](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Если вы еще не подготовили этот акселератор решений в своей учетной записи Azure, см. статью [Deploy the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md) (Развертывание акселератора решений для удаленного мониторинга).
+Созданное в этом руководстве устройство **Chiller** отправляет данные в экземпляр акселератора решений для [удаленного мониторинга](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Если вы еще не подготовили этот акселератор решений в своей учетной записи Azure, см. статью [Deploy the remote monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) (Развертывание акселератора решений для удаленного мониторинга).
 
 После завершения развертывания решения для удаленного мониторинга нажмите кнопку **Запустить**, чтобы открыть панель мониторинга этого решения в браузере.
 

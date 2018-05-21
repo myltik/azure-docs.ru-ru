@@ -1,6 +1,6 @@
 ---
-title: "Руководство. Интеграция Azure Active Directory с Central Desktop | Документация Майкрософт"
-description: "Сведения о настройке единого входа между Azure Active Directory и Central Desktop."
+title: Руководство. Интеграция Azure Active Directory с Central Desktop | Документация Майкрософт
+description: Сведения о настройке единого входа между Azure Active Directory и Central Desktop.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 94c67bef7a0c6ba60fc9c7a60c79a23bf7984fb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 92c24688cf3d9baefcedcf22c915752b2d29b53c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Учебник. Интеграция Azure Active Directory с Central Desktop
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 - Вы можете включить автоматический вход пользователей в Central Desktop с помощью учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -119,9 +119,9 @@ ms.lasthandoff: 12/21/2017
     c. В поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их на фактические значения идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов Central Desktop](https://imeetcentral.com/contact-us). 
+    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов Central Desktop](https://imeetcentral.com/contact-us). 
 
-4. В разделе **Сертификат подписи SAML** выберите **Сертификат**. Затем сохраните файл сертификата на свой компьютер.
+4. В разделе **Сертификат подписи SAML** выберите **Сертификат**. Затем сохраните файл сертификата на своем компьютере.
 
     ![Ссылка для скачивания сертификата](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
@@ -268,7 +268,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

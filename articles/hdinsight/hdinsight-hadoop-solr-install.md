@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: d263f6255eedb9b45b7f0b232e1595197556b7c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Установка и использование Solr в кластерах HDInsight под управлением Windows
 
@@ -157,7 +157,7 @@ Solr можно установить в кластере любого типа (
              </lst>
              <str name="status">OK</str>
            </response>
-   2. В удаленном сеансе перейдите к {SOLR_HOME}\{Collection}\data. Для кластера, созданного с помощью примера скрипта, это должна быть папка **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. В этом расположении вы увидите папку моментальных снимков с именем, похожим на **snapshot.*timestamp***.
+   2. В удаленном сеансе перейдите к {SOLR_HOME}\{Collection}\data. Для кластера, созданного с помощью примера скрипта, это должна быть папка **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. В этом расположении вы увидите папку моментальных снимков с именем, похожим на **snapshot.* timestamp***.
    3. Запакуйте эту папку моментальных снимков и отправьте ее в хранилище больших двоичных объектов Azure. В командной строке Hadoop перейдите к расположению папки моментальных снимков, используя следующую команду:
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -176,11 +176,9 @@ Solr можно установить в кластере любого типа (
 * [Настройка кластера HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария.
 * [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions.md).
 * [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]. Пример действия сценария для установки Spark.
-* [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r]. Пример действия сценария для установки R.
 * [Установка и использование Giraph в HDInsight](hdinsight-hadoop-giraph-install.md) — пример действия скрипта для установки Giraph.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

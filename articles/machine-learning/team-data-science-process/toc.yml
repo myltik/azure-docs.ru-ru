@@ -56,6 +56,9 @@
         - name: Распознавание биомедицинских форм
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
+        - name: Классификация изображений рака кожи
+          href: isic-image-classification.md
+          maintainContext: true
     - name: Spark с PySpark и Scala;
       href: walkthroughs-spark.md
       items:
