@@ -1,6 +1,6 @@
 ---
-title: "Субъекты диагностики и мониторинга | Документация Майкрософт"
-description: "В этой статье описаны функции диагностики и мониторинга производительности в среде выполнения Reliable Actors Service Fabric, в том числе генерируемые ею события и счетчики производительности."
+title: Субъекты диагностики и мониторинга | Документация Майкрософт
+description: В этой статье описаны функции диагностики и мониторинга производительности в среде выполнения Reliable Actors Service Fabric, в том числе генерируемые ею события и счетчики производительности.
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 5fbef8a3fb32f4bc47856ef6c6b459ae389dd541
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Диагностика и мониторинг производительности в Reliable Actors
 В среде выполнения субъектов Reliable Actors предусмотрены события [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) и [счетчики производительности](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). содержащие полезную информацию о работоспособности среды выполнения и помогающие устранять неполадки и контролировать производительность.

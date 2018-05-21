@@ -53,19 +53,11 @@
 ### [Просмотр стоимости Enterprise отключен](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Справочные материалы
-## [Обзор API выставления счетов Azure](billing-usage-rate-card-overview.md)
-### [REST API выставления счетов Azure](https://docs.microsoft.com/rest/api/billing)
-### [Партнерское решение: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
-## API потребления Azure
-### [REST API потребления Azure](https://docs.microsoft.com/rest/api/consumption) 
-### [REST API RateCard](https://msdn.microsoft.com/library/azure/mt219005.aspx)
-### [REST API использования ресурсов](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Обзор API](billing-usage-rate-card-overview.md)
 ## [Обзор API для корпоративной отчетности](billing-enterprise-api.md)
-### [REST API для корпоративной отчетности](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
-## Примеры кода для выставления счетов
-### [Пример кода API счетов](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
-### [Пример кода API использования](https://github.com/Azure-Samples/billing-dotnet-usage-api)
-### [Пример кода API RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+## [Выставление счетов в REST API](/rest/api/billing)
+## [Использование и REST API RateCard](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+## [Партнерское решение: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)

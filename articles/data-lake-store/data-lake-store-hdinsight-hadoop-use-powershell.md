@@ -8,18 +8,17 @@ editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4c08dac95a2d2b52f1a1d28f6933b94ad4db10b7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Создание кластера HDInsight с Data Lake Store (как дополнительное хранилище) с помощью Azure PowerShell
+
 > [!div class="op_single_selector"]
 > * [Использование портала](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Использование PowerShell (для хранилища по умолчанию)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -122,6 +121,7 @@ ms.lasthandoff: 04/19/2018
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>настройка проверки подлинности для доступа к хранилищу озера данных на основе ролей;
+
 Каждая подписка Azure связана со службой Azure Active Directory. Пользователи и службы, получающие доступ к ресурсам подписки через портал Azure или API Azure Resource Manager, сначала должны пройти аутентификацию в соответствующей службе Azure Active Directory. Доступ к подпискам и службам Azure предоставляется путем назначения соответствующей роли для ресурса Azure.  В случае со службами субъект-служба идентифицирует службу в Azure Active Directory (AAD). В этом разделе мы расскажем, как предоставить службе приложения, в частности HDInsight, доступ к ресурсу Azure (созданной ранее учетной записи хранилища озера данных Azure). Для этого с помощью Azure PowerShell мы создадим для приложения субъект-службу и назначим ему роли.
 
 Чтобы настроить для озера данных Azure проверку подлинности в Active Directory, вам необходимо сделать следующее:
@@ -130,6 +130,7 @@ ms.lasthandoff: 04/19/2018
 * создать приложение в Azure Active Directory и субъект-службу.
 
 ### <a name="create-a-self-signed-certificate"></a>Создание самозаверяющего сертификата
+
 Прежде чем выполнять дальнейшие действия, описанные в этом разделе, убедитесь, что на вашем компьютере установлен [пакет SDK Windows](https://dev.windows.com/en-us/downloads). Вам также необходимо создать каталог, например **C:\mycertdir**, в котором будет создан сертификат.
 
 1. В окне PowerShell перейдите в расположение, где установлен пакет SDK Windows (обычно это `C:\Program Files (x86)\Windows Kits\10\bin\x86`), и с помощью служебной программы [MakeCert][makecert] создайте самозаверяющий сертификат и закрытый ключ. Используйте такие команды:
@@ -147,13 +148,14 @@ ms.lasthandoff: 04/19/2018
     При появлении соответствующего запроса введите указанный ранее пароль для закрытого ключа. Значение, указываемое для параметра **-po** — это пароль, связанный с PFX-файлом. После успешного выполнения команды вы должны увидеть в указанном каталоге сертификата файл CertFile.pfx.
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>Создание приложения в Azure Active Directory и субъекта-службы
+
 Следуя описаниям, приведенным в этом разделе, вы создадите субъект-службу для приложения Azure Active Directory, назначите роль субъекту-службе и пройдете проверку подлинности в качестве субъекта-службы, используя сертификат. Чтобы создать приложение в Azure Active Directory, выполните следующие команды.
 
 1. В окне консоли PowerShell вставьте из буфера обмена следующие командлеты. Укажите для свойства **-DisplayName** уникальное значение. Значения свойств **-HomePage** b **-IdentiferUris** — это заполнители, которые не проверяются.
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

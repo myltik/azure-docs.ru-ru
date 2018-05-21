@@ -9,15 +9,13 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Рекомендации по использованию Azure Data Lake Store
 Из этой статьи вы узнаете о лучших методиках и рекомендациях, связанных с работой с Azure Data Lake Store. В этом руководстве приводятся сведения о безопасности, производительности, отказоустойчивости и мониторинге для Data Lake Store. До появления Data Lake Store работать с большими данными в таких службах, как Azure HDInsight, было достаточно сложно. Нужно было сегментировать данные в нескольких учетных записях хранения больших двоичных объектов, чтобы обеспечить хранение петабайтовых файлов и оптимальную производительность в этом масштабе. С Data Lake Store большинство жестких ограничений размера и производительности исчезли. Тем не менее в этой статье рассматриваются некоторые методики по обеспечению высокой производительности при работе с Data Lake Store. 
@@ -30,7 +28,7 @@ Azure Data Lake Store предлагает элементы управления
 
 ### <a name="use-security-groups-versus-individual-users"></a>Сравнение использования групп безопасности и отдельных пользователей 
 
-При работе с большими данными в Data Lake Store субъект-служба, скорее всего, будет использоваться для предоставления службам, таким как Azure HDInsight, разрешения работать с данными. Однако встречаются случаи, когда доступ к данным также необходимо предоставить отдельным пользователям. В таких случаях нужно использовать группы безопасности Azure Active Directory вместо назначения отдельных пользователей папкам и файлам. 
+При работе с большими данными в Data Lake Store субъект-служба, скорее всего, будет использоваться для предоставления службам, таким как Azure HDInsight, разрешения работать с данными. Однако встречаются случаи, когда доступ к данным также необходимо предоставить отдельным пользователям. В таких случаях нужно использовать группы безопасности [Azure Active Directory](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) вместо назначения отдельных пользователей папкам и файлам. 
 
 Когда группе безопасности назначены разрешения, для добавления или удаления пользователей из группы не требуются какие-либо обновления Data Lake Store. Так вы не превысите ограничение в [32 списка ACL (списки для доступа и списки по умолчанию)](../azure-subscription-service-limits.md#data-lake-store-limits). Сюда входят четыре списка ACL типа POSIX, которые всегда связаны со всеми файлами и папками: [пользователь-владелец](data-lake-store-access-control.md#the-owning-user), [группа-владелец](data-lake-store-access-control.md#the-owning-group), [маска](data-lake-store-access-control.md#the-mask-and-effective-permissions)и др.
 

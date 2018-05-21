@@ -3,22 +3,22 @@ title: Основные сведения о доступе к ресурсам �
 description: В этой статье рассматривается управление доступом к ресурсам на всем портале Azure с использованием администраторов подписок.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: it-pro;
-ms.openlocfilehash: 8996406a2e4c907402651d3f8cb8cd19e47e2829
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b993721a614f380aa1d5748bc925bd3bc9151841
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Основные сведения о доступе к ресурсам в Azure
 

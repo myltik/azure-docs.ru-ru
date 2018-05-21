@@ -1,24 +1,24 @@
 ---
-title: "Обновление приложений: параметры обновления | Документация Майкрософт"
-description: "Описывает параметры, относящиеся к обновлению приложения Service Fabric, включая проверки работоспособности и политики для автоматической отмены обновления."
+title: 'Обновление приложений: параметры обновления | Документация Майкрософт'
+description: Описывает параметры, относящиеся к обновлению приложения Service Fabric, включая проверки работоспособности и политики для автоматической отмены обновления.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eb319b0f4e910163572ee62d8bdee735f27be592
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="application-upgrade-parameters"></a>Параметры обновления приложений
 В настоящей статье описаны различные параметры, которые применяются во время обновления приложения Azure Service Fabric. Параметры включают название и версию приложения. Это элементы управления временем ожидания и проверками работоспособности, которые применяются во время обновления и указывают политики, которые должны применяться при сбое обновления.
