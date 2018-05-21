@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure
 
@@ -35,6 +35,10 @@ ms.lasthandoff: 04/05/2018
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
+Уделите 11 минут вашего времени, чтобы просмотреть следующее видео с кратким обзором и демонстрацией этой функции:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
+
 ## <a name="prerequisites"></a>предварительным требованиям
 
   - **Создайте рабочую область Azure Databricks**. [Создайте рабочую область Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) или используйте существующую. Вы создадите записную книжку Python в рабочей области Azure Databricks. Затем запустите ее и передадите в нее параметры, используя фабрику данных Azure.
@@ -49,7 +53,7 @@ ms.lasthandoff: 04/05/2018
 
 3.  На панели **Новая фабрика данных** введите **ADFTutorialDataFactory** в поле **Имя**.
 
-    Имя фабрики данных Azure должно быть *глобально уникальным*. Если появится следующая ошибка, измените имя фабрики данных. (Например, используйте **\<yourname\>ADFTutorialDataFactory**.) Правила именования для артефактов службы "Фабрика данных" см. в [этой](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) статье.
+    Имя фабрики данных Azure должно быть *глобально уникальным*. Если появится следующая ошибка, измените имя фабрики данных. (Например, используйте **\<yourname\>ADFTutorialDataFactory**.) Правила именования для артефактов службы "Фабрика данных" см. в [этой](https://docs.microsoft.com/azure/data-factory/naming-rules) статье.
 
     ![Указание имени для новой фабрики данных](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -61,7 +65,7 @@ ms.lasthandoff: 04/05/2018
     
     - Выберите **Создать** и введите имя группы ресурсов.
 
-    Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+    Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1.  Для **версии** выберите **V2 (предварительная версия)**.
 

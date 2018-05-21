@@ -1,11 +1,11 @@
 ---
-title: "Работа с крупными масштабируемыми наборами виртуальных машин Azure | Документация Майкрософт"
-description: "Сведения об использовании крупных масштабируемых наборов виртуальных машин Azure"
+title: Работа с крупными масштабируемыми наборами виртуальных машин Azure | Документация Майкрософт
+description: Сведения об использовании крупных масштабируемых наборов виртуальных машин Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: negat
-ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Работа с крупными масштабируемыми наборами виртуальных машин
 Теперь вы можете создавать [масштабируемые наборы виртуальных машин](/azure/virtual-machine-scale-sets/) Azure, включающие до 1000 виртуальных машин. В этом документе под _крупным масштабируемым набором виртуальных машин_ подразумевается масштабируемый набор, в который можно добавить более 100 виртуальных машин. Эта возможность задается с помощью свойства масштабируемого набора (_singlePlacementGroup=False_). 
@@ -77,10 +77,10 @@ az vmss create --help
       "mode": "Automatic"
     }
 ```
-Полный пример шаблона масштабируемого набора см. по адресу [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Полный пример шаблона крупного масштабируемого набора доступен по адресу [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Преобразование существующего масштабируемого набора для поддержки нескольких групп размещения
-Чтобы существующий масштабируемый набор виртуальных машин мог масштабироваться до более 100 виртуальных машин, необходимо задать для свойства _singplePlacementGroup_ значение _false_ в модели масштабируемого набора. Вы можете попробовать изменить это свойство в [обозревателе ресурсов Azure](https://resources.azure.com/). Найдите существующий масштабируемый набор, выберите _Изменить_ и измените свойство _singlePlacementGroup_. Если вы не видите это свойство, возможно, вы открыли масштабируемый набор в более старой версии Microsoft.Compute API.
+Чтобы существующий масштабируемый набор виртуальных машин мог масштабироваться до более 100 виртуальных машин, необходимо задать для свойства _singlePlacementGroup_ значение _false_ в модели масштабируемого набора. Вы можете попробовать изменить это свойство в [обозревателе ресурсов Azure](https://resources.azure.com/). Найдите существующий масштабируемый набор, выберите _Изменить_ и измените свойство _singlePlacementGroup_. Если вы не видите это свойство, возможно, вы открыли масштабируемый набор в более старой версии Microsoft.Compute API.
 
 >[!NOTE] 
 Масштабируемый набор с поддержкой одной группы размещения (по умолчанию) можно преобразовать в масштабируемый набор с поддержкой нескольких групп размещения, но не наоборот. Поэтому прежде чем выполнять преобразование, разберитесь со свойствами крупных масштабируемых наборов.

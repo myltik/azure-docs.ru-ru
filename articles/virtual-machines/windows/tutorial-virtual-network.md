@@ -1,6 +1,6 @@
 ---
-title: Виртуальные сети и виртуальные машины Windows в Azure | Документы Майкрософт
-description: Руководство по управлению виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell
+title: Руководство. Создание и администрирование виртуальных сетей Azure для виртуальных машин Windows | Документация Майкрософт
+description: В этом руководстве описано, как с помощью Azure PowerShell создать и администрировать виртуальные сети Azure для виртуальных машин Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feaef679a3090491b64c69ac69bf22153c281d31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Управление виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Руководство. Создание и администрирование виртуальных сетей Azure для виртуальными машинами Windows с помощью Azure PowerShell
 
 Виртуальные машины Azure осуществляют внутреннее и внешнее взаимодействие через сеть Azure. В этом руководстве содержатся сведения о развертывании двух виртуальных машин и настройке для них сети Azure. Примеры, описанные в этом руководстве, предполагают, что на виртуальных машинах размещается веб-приложение с сервером базы данных, но здесь не описывается развертывание самого приложения. Из этого руководства вы узнаете, как выполнять такие задачи:
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 03/23/2018
 > * защищают сетевой трафик;
 > * Создание внутренней виртуальной машины
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-
-Для работы с этим руководством требуется модуль AzureRM.Compute версии не ниже 4.3.1. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM.Compute`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell версии 5.7.0 и выше. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Connect-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="vm-networking-overview"></a>Обзор сети виртуальной машины
 
@@ -266,7 +266,7 @@ New-AzureRmVM `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
    -ResourceGroupName myRGNetwork `
    -Location "EastUS" `
-   -SubnetName myFrontendSubnet `
+   -SubnetName MyBackendSubnet `
    -VirtualNetworkName myVNet
 ```
 

@@ -1,9 +1,9 @@
 ---
-title: "Экспорт из Azure Application Insights с помощью Stream Analytics | Документация Майкрософт"
-description: "Stream Analytics может непрерывно преобразовывать, фильтровать и маршрутизировать данные, экспортируемые из Application Insights."
+title: Экспорт из Azure Application Insights с помощью Stream Analytics | Документация Майкрософт
+description: Stream Analytics может непрерывно преобразовывать, фильтровать и маршрутизировать данные, экспортируемые из Application Insights.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c898e43cb1334bf7fb1836554fb92708033d3f7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Обработка данных, экспортированных из Application Insights, при помощи Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) — идеальное средство для обработки данных, [экспортированных из Application Insights](app-insights-export-telemetry.md). Stream Analytics может извлекать данные из различных источников. Это средство может преобразовывать и фильтровать данные и затем отправлять их в различные приемники.
@@ -67,7 +67,7 @@ ms.lasthandoff: 01/05/2018
 1. Пусть данные накопятся. Предоставьте пользователям возможность поработать с приложением на протяжении некоторого времени. После получения данных телеметрии в [обозревателе метрик](app-insights-metrics-explorer.md) отобразятся статистические диаграммы, а в разделе [поиска по журналу диагностики](app-insights-diagnostic-search.md) — отдельные события. 
    
     Данные также будут экспортированы в хранилище. 
-2. Проверьте экспортированные данные. В Visual Studio откройте меню **"Вид" или "Обозреватель облака"**и выберите элемент "Azure" или "Хранилище". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно "Создание проекта", разверните узел "Visual C#/облако" и выберите "Получить Microsoft Azure SDK для .NET".)
+2. Проверьте экспортированные данные. В Visual Studio откройте меню **"Вид" или "Обозреватель облака"** и выберите элемент "Azure" или "Хранилище". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно "Создание проекта", разверните узел "Visual C#/облако" и выберите "Получить Microsoft Azure SDK для .NET".)
    
     ![](./media/app-insights-export-stream-analytics/04-data.png)
    

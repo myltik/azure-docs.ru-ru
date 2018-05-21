@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>Ускоритель записи
 Ускоритель записи — это функция диска для виртуальных машин серии M в хранилище уровня "Премиум", использующих исключительно управляемые диски Azure. Как очевидно из названия, целью функции является уменьшение задержки операций ввода-вывода при записи в службу хранилища Azure уровня "Премиум". Ускоритель записи идеально подходит для случаев, когда требуется высокопроизводительное сохранение на диск обновлений файлов журнала для современных баз данных.
@@ -164,6 +164,21 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 ![Ускоритель записи на портале Azure](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### <a name="enabling-through-azure-cli"></a>Включение с помощью Azure CLI
+Для включения ускорителя записи можно использовать [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). 
+
+Чтобы включить ускоритель записи на существующем диске, используйте приведенную ниже команду, заменив diskName, VMName и ResourceGroup собственными значениями: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+Чтобы подключить диск с включенным ускорителем записи, используйте приведенную ниже команду с собственными значениями:
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+Чтобы отключить ускоритель записи, задайте для этого свойства значение false: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>Включение ускорителя записи через интерфейсы REST API
 Чтобы выполнить развертывание с помощью Azure REST API, необходимо установить клиент ARMClient Azure.

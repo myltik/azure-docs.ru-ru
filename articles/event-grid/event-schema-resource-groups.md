@@ -1,18 +1,18 @@
 ---
-title: "Схема событий группы ресурсов службы \"Сетка событий Azure\""
-description: "Описание свойств для событий группы ресурсов, используемых со службой \"Сетка событий Azure\""
+title: Схема событий группы ресурсов службы "Сетка событий Azure"
+description: Описание свойств для событий группы ресурсов, используемых со службой "Сетка событий Azure"
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 163c32bdb8a3fdc278404b9e26fdc3097797d16c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Схема событий службы "Сетка событий Azure" для групп ресурсов
 
@@ -101,8 +101,8 @@ ms.lasthandoff: 02/01/2018
 | eventTime | строка | Время создания события с учетом времени поставщика в формате UTC. |
 | id | строка | Уникальный идентификатор события. |
 | data | object | Данные события группы ресурсов. |
-| dataVersion | строка | Версия схемы объекта данных. Версию схемы определяет издатель. |
-| metadataVersion | строка | Версия схемы метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
+| dataVersion | строка | Версия схемы для объекта данных. Версию схемы определяет издатель. |
+| metadataVersion | строка | Версия схемы для метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
 
 Объект данных имеет следующие свойства:
 

@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг использования и производительности классических приложений для Windows"
-description: "Анализ использования и производительности классического приложения для Windows с помощью HockeyApp и Application Insights."
+title: Мониторинг использования и производительности классических приложений для Windows
+description: Анализ использования и производительности классического приложения для Windows с помощью Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,25 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Мониторинг использования и производительности в классических приложениях для Windows
 
-
-С помощью [Azure Application Insights](app-insights-overview.md) и [HockeyApp](https://hockeyapp.net) можно отслеживать показатели использования и производительности развернутого приложения.
-
-> [!IMPORTANT]
-> Мы рекомендуем использовать [HockeyApp](https://hockeyapp.net) для распространения и мониторинга классических приложений и приложений для устройств. С помощью HockeyApp можно управлять распространением, тестированием в реальном времени и отзывами пользователей, а также отслеживать отчеты об использовании и сбоях. Вы также можете [экспортировать и запросить данные телеметрии с помощью аналитики](app-insights-hockeyapp-bridge-app.md).
-> 
-> Несмотря на то, что данные телеметрии можно отправлять в Application Insights из классического приложения, этот подход главным образом используется для отладки и проведения экспериментов.
-> 
-> 
+Несмотря на то, что данные телеметрии можно отправлять в Application Insights из классического приложения, этот подход главным образом используется для отладки и проведения экспериментов.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Отправка данных телеметрии в Application Insights из приложения для Windows
 1. На [портале Azure](https://portal.azure.com) [создайте ресурс Application Insights](app-insights-create-new-resource.md). Для параметра типа приложения выберите приложение ASP.NET.

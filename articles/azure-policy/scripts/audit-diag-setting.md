@@ -12,18 +12,18 @@ ms.devlang: ''
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
-ms.date: 10/30/2017
+ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 93aed0457c8fba33cd69342d7c86ef7a6d8f1102
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="audit-diagnostic-setting"></a>Аудит параметров диагностики
 
-Проверяет, включены ли параметры диагностики для определенных типов ресурсов. Вы можете указать массив типов ресурсов, чтобы проверить, включены ли параметры диагностики.
+Эта встроенная политика проверяет, включены ли параметры диагностики для определенных типов ресурсов. Вы можете указать массив типов ресурсов, чтобы проверить, включены ли параметры диагностики.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,21 +31,28 @@ ms.lasthandoff: 04/28/2018
 
 [!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-Можно развернуть шаблон с помощью [портала Azure](#deploy-with-the-portal), [PowerShell](#deploy-with-powershell) или [интерфейса командной строки Azure](#deploy-with-azure-cli).
+Можно развернуть шаблон с помощью [портала Azure](#deploy-with-the-portal), [PowerShell](#deploy-with-powershell) или [интерфейса командной строки Azure](#deploy-with-azure-cli). Чтобы получить встроенную политику, используйте идентификатор `7f89b1eb-583c-429a-8828-af049802c1d9`.
+
+## <a name="parameters"></a>Параметры
+
+Чтобы передать значение параметра, используйте следующий формат:
+
+```json
+{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}
+```
 
 ## <a name="deploy-with-the-portal"></a>Развертывание с помощью портала
 
-[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FMonitoring%2Faudit-diagnostic-setting%2Fazurepolicy.json)
+При назначении политики выберите **Аудит параметров диагностики** в списке доступных встроенных определений.
 
 ## <a name="deploy-with-powershell"></a>Развертывание с помощью PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "audit-diagnostic-setting" -DisplayName "Audit diagnostic setting" -description "Audit diagnostic setting for selected resource types" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.parameters.json' -Mode All
-$definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -listOfResourceTypes <Resource Types> -PolicyDefinition $definition
-$assignment
+$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
+
+New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>Очистка развертывания, выполненного с помощью PowerShell
@@ -53,7 +60,7 @@ $assignment
 Выполните следующую команду, чтобы удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>Развертывание с помощью интерфейса командной строки Azure
@@ -61,9 +68,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy definition create --name 'audit-diagnostic-setting' --display-name 'Audit diagnostic setting' --description 'Audit diagnostic setting for selected resource types' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.parameters.json' --mode All
-
-az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-diagnostic-setting"
+az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'
 ```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Очистка развертывания, выполненного с помощью интерфейса командной строки Azure
@@ -71,7 +76,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 Выполните следующую команду, чтобы удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+az policy assignment delete --name "Audit diagnostics" --resource-group myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация
