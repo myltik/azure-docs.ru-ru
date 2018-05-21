@@ -2,24 +2,19 @@
 title: Настройка расширения NPS для Azure MFA | Документация Майкрософт
 description: После установки расширения NPS выполните приведенные здесь действия для расширенной настройки, например создание утвержденного списка IP-адресов и замена имени участника-пользователя.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: d028be90f3a8c06b319faa442f77ab3e5c24dcb7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1aa474424823a180a16206ac509053a93c7bfa18
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Параметры расширенной конфигурации расширения NPS для Многофакторной идентификации
 

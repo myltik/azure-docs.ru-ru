@@ -1,6 +1,6 @@
 ---
-title: "Создание тестов хаотичных сбоев и отработки отказа для микрослужб Azure | Документация Майкрософт"
-description: "Использование сценариев тестов на хаос и отработку отказа Service Fabric для провоцирования ошибок и проверки надежности служб."
+title: Создание тестов хаотичных сбоев и отработки отказа для микрослужб Azure | Документация Майкрософт
+description: Использование сценариев тестов на хаос и отработку отказа Service Fabric для провоцирования ошибок и проверки надежности служб.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -9,16 +9,16 @@ editor: toddabel
 ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9c05ba2b98af5ef26ef5b5a7ae0995512df4e75
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="testability-scenarios"></a>Сценарии Testability
 Крупные распределенные системы, такие как облачные инфраструктуры, ненадежные по своей сути. Azure Service Fabric предоставляет разработчикам возможность создавать службы, которые работают в ненадежных инфраструктурах. Чтобы создать высококачественные службы, разработчики должны иметь возможность проверить стабильность работы своих служб в таких ненадежных инфраструктурах.

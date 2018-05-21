@@ -1,24 +1,24 @@
 ---
-title: "Интеграция решений по обеспечению безопасности в центре безопасности Azure | Документация Майкрософт"
-description: "Сведения о том, как интегрировать центр безопасности Azure с партнерами для повышения общей безопасности ресурсов Azure."
+title: Интеграция решений по обеспечению безопасности в центре безопасности Azure | Документация Майкрософт
+description: Сведения о том, как интегрировать центр безопасности Azure с партнерами для повышения общей безопасности ресурсов Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
-ms.author: yurid
-ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 05/04/2018
+ms.author: terrylan
+ms.openlocfilehash: ac1e49400f32194ada319f23b5233cc81de02a02
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Интеграция решений по обеспечению безопасности в центре безопасности Azure
 В этом документе описана процедура управления решениями по обеспечению безопасности, подключенными к центру безопасности Azure, и добавления новых решений.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/09/2018
 
 Сейчас к интегрированным решениям безопасности относятся следующие решения:
 
-- Защита конечных точек ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Защитник Windows и System Center Endpoint Protection (SCEP)).
+- Защита конечных точек ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, McAfee, Защитник Windows и System Center Endpoint Protection (SCEP))
 - Брандмауэр веб-приложения ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) и [шлюз приложений Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)).
 - Брандмауэр следующего поколения ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) и [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)).
 - Оценка уязвимостей ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/)).  
@@ -44,8 +44,8 @@ ms.lasthandoff: 03/09/2018
 | Защитник Windows (антивредоносное ПО Майкрософт)                  | Windows Server 2016                   | Нет, встроен в ОС           | Yes                       |
 | System Center Endpoint Protection (антивредоносное ПО Майкрософт) | Windows Server 2012 R2, 2012, 2008 R2 | Через расширение                | Yes                       |
 | Trend Micro — все версии         | Семейство Windows Server                 | Через расширение                | Yes                       |
-| Symantec v12.1.1100+                     | Семейство Windows Server                 | Нет                            | Yes                        |
-| MacAfee                           | Семейство Windows Server                 | Нет                            | Нет                         |
+| Symantec v12.1.1100+              | Семейство Windows Server                 | Нет                            | Yes                       |
+| McAfee v10+                       | Семейство Windows Server                 | Нет                            | Yes                       |
 | Kaspersky                         | Семейство Windows Server                 | Нет                            | Нет                         |
 | Sophos                            | Семейство Windows Server                 | Нет                            | Нет                         |
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 03/09/2018
 Центр безопасности автоматически обнаруживает решения по обеспечению безопасности, которые запущены в Azure, но не подключены к центру безопасности, и отображает их в разделе **Обнаруженные решения**. Сюда входят такие решения Azure, как [Защита идентификации Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), а также партнерские решения.
 
 > [!NOTE]
-> Функция обнаружения решений доступна в центре безопасности Azure уровня "Стандартный". Дополнительные сведения о ценовых категориях центра безопасности см. на странице [Цены](security-center-pricing.md).
+> Использование центра безопасности категории "Стандартный" на уровне подписки является обязательным требованием для работы функции обнаружения решений. Дополнительные сведения о ценовых категориях центра безопасности см. на странице [Цены](security-center-pricing.md).
 >
 >
 

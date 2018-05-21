@@ -105,5 +105,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ресурсы
   items:
+    - name: Запросы данных клиентов
+      href: iot-central-customer-data-requests.md
     - name: Переполнение стека
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-central'
