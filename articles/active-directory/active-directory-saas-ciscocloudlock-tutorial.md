@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Cisco Cloudlock | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Cisco Cloudlock."
+title: Руководство по интеграции Azure Active Directory с Cisco Cloudlock | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Cisco Cloudlock.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: d6961eb760544ac078fdd6ed0d7c0c4d750a8b9f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 77390c8fb0731a2590fa9f0f60ea35374788c710
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloudlock"></a>Руководство по интеграции Azure Active Directory с Cisco Cloudlock
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/13/2018
 - Вы можете включить автоматический вход пользователей в Cisco Cloudlock (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Cisco Cloudlock из коллекции.
+1. Добавление Cisco Cloudlock из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-cisco-cloudlock-from-the-gallery"></a>Добавление Cisco Cloudlock из коллекции
@@ -211,7 +211,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

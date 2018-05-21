@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Управление параметрами единого входа для корпоративных приложений
 
-В этой статье описывается управление параметрами единого входа для корпоративных приложений с помощью [портала Azure](https://portal.azure.com). Корпоративные приложения — это приложения, развертываемые и используемые в вашей организации. Эта статья в частности касается приложений, которые были добавлены из [коллекции приложений Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+В этой статье описывается управление параметрами единого входа для корпоративных приложений с помощью [портала Azure](https://portal.azure.com). Корпоративные приложения — это приложения, развертываемые и используемые в вашей организации. Эта статья в частности касается приложений, которые были добавлены из [коллекции приложений Azure Active Directory](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Поиск приложений на портале
 Все корпоративные приложения, для которых был настроен единый вход, можно просматривать и администрировать на портале Azure. Приложения можно найти в разделе портала **Все службы** &gt; **Корпоративные приложения**. 
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/11/2018
 * **Вход по паролю**. Этот параметр доступен, если Azure AD поддерживает заполняемую для приложения форму пароля.
 * **Вход по ссылке** — ранее назывался "Существующий единый вход". Этот параметр позволяет администраторам помещать ссылку для перехода в приложение на пользовательскую панель доступа Azure AD или в средство запуска приложений Office 365.
 
-Дополнительные сведения об этих режимах см. в разделе [Принцип работы единого входа с Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Дополнительные сведения об этих режимах см. в разделе [Принцип работы единого входа с Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Вход на основе SAML
 При выборе параметра **Вход на основе SAML** откроется колонка, которая состоит из четырех частей:
@@ -79,12 +79,12 @@ ms.lasthandoff: 05/11/2018
 ![Встроенные документы](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Единый вход по паролю
-Если этот параметр поддерживается приложением, чтобы включить его, выберите режим единого входа на основе пароля, а затем щелкните **Сохранить**. Дополнительные сведения о развертывании единого входа на основе пароля см. в разделе [Принцип работы единого входа с Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Если этот параметр поддерживается приложением, чтобы включить его, выберите режим единого входа на основе пароля, а затем щелкните **Сохранить**. Дополнительные сведения о развертывании единого входа на основе пароля см. в разделе [Принцип работы единого входа с Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Единый вход по паролю](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Связанный единый вход
-Если этот параметр поддерживается приложением, чтобы добавить URL-адрес, на который будет перенаправляться пользователь после выбора ссылки на панели доступа Azure AD или в средстве запуска приложений Office 365, выберите режим связанного единого входа. Дополнительные сведения о развертывании единого входа по ссылке (ранее известного как "Существующий единый вход") см. в разделе [Принцип работы единого входа с Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Если этот параметр поддерживается приложением, чтобы добавить URL-адрес, на который будет перенаправляться пользователь после выбора ссылки на панели доступа Azure AD или в средстве запуска приложений Office 365, выберите режим связанного единого входа. Дополнительные сведения о развертывании единого входа по ссылке (ранее известного как "Существующий единый вход") см. в разделе [Принцип работы единого входа с Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Связанный единый вход](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

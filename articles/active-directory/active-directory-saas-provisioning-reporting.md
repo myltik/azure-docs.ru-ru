@@ -1,8 +1,8 @@
 ---
-title: "Отчеты по автоматической подготовке учетных записей пользователей Azure Active Directory для приложений SaaS | Документация Майкрософт"
-description: "Узнайте, как проверить состояние заданий автоматической подготовки учетных записей пользователей и устранить неполадки при подготовке отдельных пользователей."
+title: Отчеты по автоматической подготовке учетных записей пользователей Azure Active Directory для приложений SaaS | Документация Майкрософт
+description: Узнайте, как проверить состояние заданий автоматической подготовки учетных записей пользователей и устранить неполадки при подготовке отдельных пользователей.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: d2ec1b25e39717fb2411d35e3b0a9f5eb3a977be
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1527e8fe28d395a77d7b3c1535e40fe59df1baba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Руководство по отчетам об автоматической подготовке учетных записей пользователей
 
@@ -133,4 +133,4 @@ Azure Active Directory включает в себя [службу подгото
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

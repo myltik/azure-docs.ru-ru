@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory c Palo Alto Networks (GlobalProtect) | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Palo Alto Networks (GlobalProtect)."
+title: Руководство по интеграции Azure Active Directory c Palo Alto Networks (GlobalProtect) | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Palo Alto Networks (GlobalProtect).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 43355374436cb9efac82cf118fce285c01a59175
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Руководство по интеграции Azure Active Directory c Palo Alto Networks (GlobalProtect)
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/19/2018
 - Вы можете включить автоматический вход пользователей в Palo Alto Networks (GlobalProtect) (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -246,7 +246,7 @@ Palo Alto Networks (GlobalProtect) поддерживает JIT-подготов
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

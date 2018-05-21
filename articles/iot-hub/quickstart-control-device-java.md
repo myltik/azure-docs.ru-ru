@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 569234e15c0f12de7cbf4ac6bd1c5617035ce0ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6dcbf954fdfd6f5b6f65b54edf33e9da234c7d0f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Краткое руководство по управлению подключенным к Центру Интернета вещей устройством (Java)
 
@@ -72,8 +72,10 @@ mvn --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
+
+    Если вы выбрали другое имя для устройства, обновите имя устройства в примерах приложений перед их запуском.
 
 1. Выполните следующую команду, чтобы получить _строку подключения устройства_ для зарегистрированного устройства:
 

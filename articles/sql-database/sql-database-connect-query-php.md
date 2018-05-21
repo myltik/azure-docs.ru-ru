@@ -3,18 +3,18 @@ title: Использование PHP для создания запросов �
 description: В этой статье показано, как использовать PHP для создания программы, которая подключается к базе данных SQL Azure, и создавать к ней запросы с помощью инструкций Transact-SQL.
 services: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 238bd98ee4b2c39a30508602384828526c866172
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8fe343587336ff22f82ed0d1ef700fc56c86f577
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Использование PHP для создания запросов к базе данных SQL Azure
 

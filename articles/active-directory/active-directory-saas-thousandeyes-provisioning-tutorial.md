@@ -1,8 +1,8 @@
 ---
-title: "Руководство по настройке ThousandEyes для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить Azure Active Directory для автоматической подготовки и отзыва учетных записей пользователей в ThousandEyes."
+title: Руководство по настройке ThousandEyes для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт
+description: Узнайте, как настроить Azure Active Directory для автоматической подготовки и отзыва учетных записей пользователей в ThousandEyes.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 4b9d8fa17cf7d376d11ab692e41a65f0dc6b0fae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 055355be0de1c3f589bde468da3558963e8e1383
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Руководство по настройке ThousandEyes для автоматической подготовки пользователей
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 02/09/2018
 
 12. Выберите команду **Сохранить**. 
 
-После этого начнется начальная синхронизация всех пользователей и (или) групп, назначенных в ThousandEyes в разделе "Пользователи и группы". Начальная синхронизация занимает больше времени, чем последующие операции синхронизации. Последующие операции синхронизации выполняются примерно каждые 40 минут при условии, что служба запущена. В разделе **Сведения о синхронизации** можно отслеживать ход выполнения и переходить по ссылкам для просмотра журналов действий по подготовке, в которых зафиксированы все действия, выполняемые службой подготовки.
+После этого начнется начальная синхронизация всех пользователей и (или) групп, назначенных в ThousandEyes в разделе "Пользователи и группы". Начальная синхронизация занимает больше времени, чем последующие операции синхронизации. Если служба запущена, они выполняются примерно каждые 40 минут. В разделе **Сведения о синхронизации** можно отслеживать ход выполнения и переходить по ссылкам для просмотра журналов действий по подготовке, в которых зафиксированы все действия, выполняемые службой подготовки.
 
 Дополнительные сведения о чтении журналов подготовки Azure AD см. в руководстве по [отчетам об автоматической подготовке учетных записей](active-directory-saas-provisioning-reporting.md).
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Дополнительная информация
 

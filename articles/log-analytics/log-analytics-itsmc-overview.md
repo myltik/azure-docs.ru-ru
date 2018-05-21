@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 48fe35006ca9ca5ac48e6b2d2a207576426e814d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Подключение Azure к инструментам ITSM с помощью соединителя управления ИТ-услугами
 
@@ -307,7 +307,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Выходные данные запроса на изменение ServiceNow
 
-| Служба Log Analytics | Поле ServieNow |
+| Log Analytics | Поле ServieNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
 | CreatedBy_s | "Кем запрошено" |
@@ -333,10 +333,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-itsm-connections"></a>Устранение неполадок с подключениями ITSM
 1.  Если сбой подключения происходит из пользовательского интерфейса подключенного источника с сообщением **Ошибка при сохранении подключения**, сделайте следующее:
-- При использовании подключений ServiceNow, Cherwell и Provance   
+ - При использовании подключений ServiceNow, Cherwell и Provance   
     - проверьте правильность ввода ими пользователя и пароля, а также идентификатора и секрета клиента каждого подключения.  
     - Проверьте наличие необходимых прав в соответствующем продукте ITSM, чтобы установить подключение.  
-- При использовании Service Manager  
+ - При использовании Service Manager  
     - убедитесь, что веб-приложение успешно развернуто и создано гибридное подключение. Чтобы проверить подключение к локальному компьютеру Service Manager, перейдите по URL-адресу веб-приложения, как описано в документации по установке [гибридного подключения](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Если данные из ServiceNow не синхронизируются с Log Analytics, убедитесь, что экземпляр ServiceNow не находится в спящем режиме. Иногда экземпляры разработки ServiceNow переходят в спящий режим при длительном периоде простоя. В противном случае сообщите о проблеме.

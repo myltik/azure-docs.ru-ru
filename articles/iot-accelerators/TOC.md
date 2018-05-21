@@ -47,48 +47,48 @@
 ### [Пошаговое руководство по акселератору решений для диагностического обслуживания](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Подключенная фабрика
-### [Что собой представляет подключенная фабрика](../iot-suite/iot-suite-connected-factory-features.md)
-### [Общие сведения о решении подключенной фабрики](../iot-suite/iot-suite-connected-factory-overview.md)
-### [Пошаговое руководство по решению подключенной фабрики](../iot-suite/iot-suite-connected-factory-sample-walkthrough.md)
+### [Что собой представляет подключенная фабрика](iot-accelerators-connected-factory-features.md)
+### [Общие сведения о решении подключенной фабрики](iot-accelerators-connected-factory-overview.md)
+### [Пошаговое руководство по решению подключенной фабрики](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Имитация устройства
-### [Развертывание имитации устройства](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [Изучение имитации устройства](../iot-suite/iot-suite-device-simulation-explore.md)
+### [Развертывание имитации устройства](iot-accelerators-device-simulation-deploy.md)
+### [Изучение имитации устройства](iot-accelerators-device-simulation-explore.md)
 
 # Практические руководства
 ## Удаленный мониторинг
-### [Выполнение расширенного мониторинга](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [Выполнение расширенного мониторинга](iot-accelerators-remote-monitoring-monitor.md)
 ### [Использование правил для обнаружения проблем](iot-accelerators-remote-monitoring-automate.md)
-### [Интеграция данных SIM-карты](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [Управление устройствами](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [Устранение неполадок с устройствами](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [Общие сведения о схеме модели устройства](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
-### [Общие сведения о поведении модели устройства](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Создание имитированного устройства](../iot-suite/iot-suite-remote-monitoring-test.md)
-### [Визуализация с помощью Power BI](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [Интеграция данных SIM-карты](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Управление устройствами](iot-accelerators-remote-monitoring-manage.md)
+### [Устранение неполадок с устройствами](iot-accelerators-remote-monitoring-maintain.md)
+### [Общие сведения о схеме модели устройства](iot-accelerators-remote-monitoring-device-schema.md)
+### [Общие сведения о поведении модели устройства](iot-accelerators-remote-monitoring-device-behavior.md)
+### [Создание имитированного устройства](iot-accelerators-remote-monitoring-test.md)
+### [Визуализация с помощью Power BI](iot-accelerators-integrate-data-powerbi.md)
 ### [Настройка пользовательского интерфейса решения](iot-accelerators-remote-monitoring-customize.md)
-### [Настройка и повторное развертывание микрослужбы](../iot-suite/iot-suite-microservices-example.md)
+### [Настройка и повторное развертывание микрослужбы](iot-accelerators-microservices-example.md)
 ### [Развертывание с помощью интерфейса командной строки](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Развертывание в локальной среде](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Визуализация данных с помощью службы "Аналитика временных рядов"](../iot-suite/iot-suite-time-series-insights.md)
-### [Интеграция с Data Lake Store](../iot-suite/iot-suite-integrate-data-lake.md)
+### [Интеграция с Data Lake Store](iot-accelerators-integrate-data-lake.md)
 ### Подключение физического устройства
-#### [C в Windows](../iot-suite/iot-suite-connecting-devices.md)
-#### [C в Linux](../iot-suite/iot-suite-connecting-devices-linux.md)
-#### [Node.js (универсальная версия)](../iot-suite/iot-suite-connecting-devices-node.md)
-#### [Использование Node.js с Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [Использование C с Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [C в Windows](iot-accelerators-connecting-devices.md)
+#### [C в Linux](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (универсальная версия)](iot-accelerators-connecting-devices-node.md)
+#### [Использование Node.js с Raspberry Pi](iot-accelerators-connecting-pi-node.md)
+#### [Использование C с Raspberry Pi](iot-accelerators-connecting-pi-c.md)
 #### [Набор MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Основные понятия
-#### [Сведения о реализации удаленного мониторинга](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Сведения о реализации удаленного мониторинга](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 #### [Варианты архитектуры решений для удаленного мониторинга](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Подключенная фабрика
-### [Развертывание шлюза для решения подключенной фабрики](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
-### [Настройка подключенной фабрики](../iot-suite/iot-suite-connected-factory-customize.md)
+### [Развертывание шлюза для решения подключенной фабрики](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Настройка подключенной фабрики](iot-accelerators-connected-factory-customize.md)
 ### [Использование издателя OPC для подключенной фабрики](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Конфигурирование подключенной фабрики](../iot-suite/iot-suite-connected-factory-configure.md)
+### [Конфигурирование подключенной фабрики](iot-accelerators-connected-factory-configure.md)
 ## [Разрешения для azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Справочные материалы
@@ -118,8 +118,8 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
-## [Часто задаваемые вопросы](../iot-suite/iot-suite-faq.md)
-## [Удаленный мониторинг: вопросы и ответы](../iot-suite/iot-suite-faq-rm-v2.md)
-## [Подключенная фабрика: вопросы и ответы](../iot-suite/iot-suite-faq-cf.md)
+## [Часто задаваемые вопросы](iot-accelerators-faq.md)
+## [Удаленный мониторинг: вопросы и ответы](iot-accelerators-faq-rm-v2.md)
+## [Подключенная фабрика: вопросы и ответы](iot-accelerators-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Схема обучения работе с акселераторами решений Интернета вещей](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

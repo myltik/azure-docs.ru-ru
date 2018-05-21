@@ -1,8 +1,8 @@
 ---
-title: "Развертывание расширения панели доступа Azure для Internet Explorer с помощью объекта групповой политики | Документация Майкрософт"
-description: "Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
+title: Развертывание расширения панели доступа Azure для Internet Explorer с помощью объекта групповой политики | Документация Майкрософт
+description: Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения».
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
@@ -15,14 +15,14 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики
-В этом руководстве описывается удаленная установка расширения панели доступа для Internet Explorer на компьютерах пользователей с помощью групповой политики. Это расширение является обязательным для пользователей Internet Explorer, выполняющих вход в приложения, для которых настроен [единый вход по паролю](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+В этом руководстве описывается удаленная установка расширения панели доступа для Internet Explorer на компьютерах пользователей с помощью групповой политики. Это расширение является обязательным для пользователей Internet Explorer, выполняющих вход в приложения, для которых настроен [единый вход по паролю](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 Мы рекомендуем автоматизировать развертывание этого расширения. В противном случае пользователям нужно будет самостоятельно загружать и устанавливать расширение. Для этого требуются права администратора, к тому же пользователи могут совершать ошибки при установке. В этом руководстве рассматривается один из методов автоматизированного развертывания программного обеспечения с помощью групповой политики. [Дополнительные сведения о групповой политике.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -162,6 +162,6 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 
