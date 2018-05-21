@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Копирование данных в базу данных Azure SQL и из нее с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ ms.lasthandoff: 04/16/2018
     - Ключ приложения
     - Tenant ID
 
-2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD должен быть пользователем AAD или группой AAD, но не может быть субъектом-службой. Этот шаг нужен, чтобы затем можно было использовать удостоверение AAD для создания пользователя автономной базы данных для субъекта-службы.
+2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD должен быть пользователем AAD или группой AAD, но не может быть субъектом-службой. Этот шаг нужен, чтобы затем можно было использовать удостоверение AAD для создания пользователя автономной базы данных для субъекта-службы.
 
 3. **Создайте пользователя автономной базы данных для субъекта-службы**. Для этого подключитесь к базе данных, из которой или в которую требуется скопировать данные, с помощью таких средств, как среда SSMS, используя удостоверение AAD по крайней мере с разрешением ALTER ANY USER, и выполните следующий сценарий T-SQL. Дополнительные сведения о пользователе автономной базы данных см. [здесь](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -111,7 +111,7 @@ ms.lasthandoff: 04/16/2018
 4. **Предоставьте субъекту-службе необходимые разрешения** точно так же, как вы предоставляете разрешения пользователям SQL. Например, выполните эту команду:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. Настройте в ADF связанную службу базы данных SQL Azure.
@@ -160,7 +160,7 @@ ms.lasthandoff: 04/16/2018
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD может быть пользователем AAD или группой AAD. При предоставлении группе с MSI роли администратора пропустите шаги 3 и 4, так как администратор будет иметь полный доступ к базе данных.
+2. **[Подготовьте администратор Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** для сервера Azure SQL Server на портале Azure (если вы этого еще не сделали). Администратор AAD может быть пользователем AAD или группой AAD. При предоставлении группе с MSI роли администратора пропустите шаги 3 и 4, так как администратор будет иметь полный доступ к базе данных.
 
 3. **Создайте пользователя автономной базы данных для группы AAD**. Для этого подключитесь к базе данных, из которой или в которую требуется скопировать данные, с помощью таких средств, как среда SSMS, используя удостоверение AAD по крайней мере с разрешением ALTER ANY USER, и выполните следующий сценарий T-SQL. Дополнительные сведения о пользователе автономной базы данных см. [здесь](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -171,7 +171,7 @@ ms.lasthandoff: 04/16/2018
 4. **Предоставьте группе AAD необходимые разрешения** точно так же, как вы предоставляете разрешения пользователям SQL. Например, выполните эту команду:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. Настройте в ADF связанную службу базы данных SQL Azure.

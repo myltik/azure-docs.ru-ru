@@ -80,8 +80,6 @@ items:
         href: unique-keys.md
       - name: Бессерверная база данных
         href: serverless-computing-database.md
-      - name: Общие сведения о BulkExecutor
-        href: bulk-executor-overview.md
       - name: Безопасность
         href: database-security.md
         items:
@@ -467,10 +465,14 @@ items:
         href: regional-failover.md
       - name: Ведения журнала диагностики
         href: logging.md
+      - name: Общие сведения о BulkExecutor
+        href: bulk-executor-overview.md
       - name: Экономичные операции чтения и записи
         href: key-value-store-cost.md
       - name: Автоматическое истечение срока хранения данных
         href: time-to-live.md
+      - name: Управление с помощью PowerShell
+        href: manage-account-with-powershell.md
       - name: Управление использованием Обозревателя службы хранилища
         href: storage-explorer.md
   - name: Ресурсы

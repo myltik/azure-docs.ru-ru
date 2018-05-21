@@ -1,24 +1,24 @@
 ---
-title: "Планировщик ресурсов Azure Site Recovery для сценариев развертывания виртуальных машин VMware в Azure | Документация Майкрософт"
-description: "Руководство по использованию планировщика ресурсов Azure Site Recovery."
+title: Планировщик ресурсов Azure Site Recovery для сценариев развертывания виртуальных машин VMware в Azure | Документация Майкрософт
+description: Руководство по использованию планировщика ресурсов Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: nisoneji
-ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d14d7af39af59bb0b4fbcd5857e8686176afb71
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Планировщик развертывания Azure Site Recovery для сценариев развертывания виртуальных машин VMware в Azure
 В этой статье приведены рекомендации по использованию планировщика развертывания Azure Site Recovery в сценариях рабочих развертываний виртуальных машин VMware в Azure.
@@ -105,9 +105,9 @@ ms.lasthandoff: 03/12/2018
 Папка содержит несколько файлов и вложенных папок. Исполняемый файл ASRDeploymentPlanner.exe находится в родительской папке.
 
     Пример. Скопируйте ZIP-файл в папку E:\ drive и распакуйте его.
-    E:\ASR Deployment Planner_v2.1zip
+    E:\ASR Deployment Planner_v2.2.zip
 
-    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Обновление планировщика развертывания до последней версии
 Если установлена предыдущая версия планировщика развертывания, выполните одно из следующих действий.
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/12/2018
 
 
 ## <a name="version-history"></a>Журнал версий
-Последняя версия средства планировщика развертывания Site Recovery — 2.1.
+Последняя версия Планировщика развертывания Site Recovery — 2.2.
 Описание исправлений, добавляемых при каждом обновлении, см. на странице [журнала версий планировщика развертывания Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
 
 ## <a name="next-steps"></a>Дополнительная информация

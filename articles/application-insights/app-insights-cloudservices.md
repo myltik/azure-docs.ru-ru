@@ -1,9 +1,9 @@
 ---
-title: "Application Insights для облачных служб Azure | Документация Майкрософт"
-description: "Эффективное отслеживание веб-ролей и рабочих ролей с помощью Application Insights"
+title: Application Insights для облачных служб Azure | Документация Майкрософт
+description: Эффективное отслеживание веб-ролей и рабочих ролей с помощью Application Insights
 services: application-insights
-documentationcenter: 
-keywords: "WAD2AI, система диагностики Azure"
+documentationcenter: ''
+keywords: WAD2AI, система диагностики Azure
 author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights для облачных служб Azure
 С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [системы диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
@@ -223,7 +223,7 @@ ms.lasthandoff: 01/24/2018
 
 Если в системе используются другие службы Azure, такие как Stream Analytics, добавьте и их диаграммы мониторинга. 
 
-При наличии клиентского мобильного приложения добавьте код, отправляющий пользовательские события для ключевых операций пользователей, и создайте [мост HockeyApp](app-insights-hockeyapp-bridge-app.md). Создайте запросы в [Аналитике](app-insights-analytics.md) для отображения числа событий и закрепите эти показатели на панели мониторинга.
+Если у вас есть клиентское мобильное приложение, воспользуйтесь [Центром приложений](app-insights-mobile-center-quickstart.md). Создайте запросы в [Аналитике](app-insights-analytics.md) для отображения числа событий и закрепите эти показатели на панели мониторинга.
 
 ## <a name="example"></a>Пример
 [примере](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) отслеживается служба, которая имеет веб-роль и две рабочие роли.

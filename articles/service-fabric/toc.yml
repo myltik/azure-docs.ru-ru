@@ -543,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Удаленное подключение к виртуальной машине узла кластера
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: Обновление и перенос SKU масштабируемого набора виртуальных машин
+              href: service-fabric-update-vmss-sku.md
         - name: Изолированные кластеры
           items:
             - name: Создание

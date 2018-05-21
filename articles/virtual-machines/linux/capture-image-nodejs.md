@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3b45f46197467dd7b83bd986604338e14daa8107
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Запись виртуальной машины Linux, работающей в Azure
 Выполните инструкции в этой статье, чтобы подготовить и записать образ виртуальной машины под управлением Linux для Azure в рамках модели развертывания с помощью Resource Manager. При подготовке к использованию виртуальной машины удаляются личные сведения учетных записей и виртуальная машина подготавливается к использованию в качестве образа. После этого можно записать универсальный образ виртуального жесткого диска (VHD) для операционной системы, виртуальные жесткие диски для подключенных дисков данных и [шаблон Resource Manager](../../azure-resource-manager/resource-group-overview.md) для развертывания новой виртуальной машины. В этой статье подробно описано, как записать образ виртуальной машины, использующей неуправляемые диски, с помощью Azure CLI 1.0. Вы можете также [записать образ виртуальной машины, использующей Управляемые диски Azure, с помощью Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Дополнительные сведения об Управляемых дисках Azure см. в [этой статье](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/05/2018
 * **Azure CLI**. Установите [Azure CLI](../../cli-install-nodejs.md) на локальном компьютере.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Шаг 1. Удалите агент Linux для Azure
-Сначала на виртуальной машине Linux выполните команду **waagent** с параметром **deprovision**. Эта команда удаляет файлы и данные перед подготовкой виртуальной машины к использованию. Дополнительные сведения см. в [руководстве пользователя агента Linux для Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Сначала на виртуальной машине Linux выполните команду **waagent** с параметром **deprovision**. Эта команда удаляет файлы и данные перед подготовкой виртуальной машины к использованию. Дополнительные сведения см. в [руководстве пользователя агента Linux для Azure](../extensions/agent-windows.md).
 
 1. Подключитесь к виртуальной машине Linux c помощью клиента SSH.
 2. В окне сеанса SSH введите следующую команду.

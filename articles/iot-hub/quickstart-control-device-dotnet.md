@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: d0233d2bd68397491e22cc7eb6993d0909f92218
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: cff3775e4925fc0b327f590bddef6fe1e952961a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Краткое руководство по управлению подключенным к Центру Интернета вещей устройством (.NET)
 
@@ -64,15 +64,13 @@ dotnet --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyDotnetDevice
     ```
-
-    Если вы выбрали другое имя для устройства, обновите имя устройства в примерах приложений перед их запуском.
 
 1. Выполните следующую команду, чтобы получить _строку подключения устройства_ для зарегистрированного устройства:
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
     ```
 
     Запишите строку подключения устройства, которая выглядит как `Hostname=...=`. Это значение понадобится позже в рамках этого краткого руководства.
@@ -156,4 +154,4 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 Чтобы узнать, как маршрутизировать сообщения с устройства в облако в разные расположения в облаке, перейдите к следующему руководству.
 
 > [!div class="nextstepaction"]
-> [Маршрутизация сообщений с помощью Центра Интернета вещей (Java)](iot-hub-csharp-csharp-process-d2c.md)
+> [Маршрутизация сообщений с помощью Центра Интернета вещей (.NET)](iot-hub-csharp-csharp-process-d2c.md)

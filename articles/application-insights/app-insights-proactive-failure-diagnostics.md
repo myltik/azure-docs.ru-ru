@@ -1,9 +1,9 @@
 ---
-title: "Интеллектуальное обнаружение аномальных сбоев в Application Insights | Документация Майкрософт"
-description: "Оповещает о необычных изменениях в частоте неудачных запросов для веб-приложения, а также выполняет диагностический анализ. Настройка не требуется."
+title: Интеллектуальное обнаружение аномальных сбоев в Application Insights | Документация Майкрософт
+description: Оповещает о необычных изменениях в частоте неудачных запросов для веб-приложения, а также выполняет диагностический анализ. Настройка не требуется.
 services: application-insights
-documentationcenter: 
-author: yorac
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mbullwin
-ms.openlocfilehash: ca484f4d11cf8ab18db2d0c6152f369a90311f10
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; yossiy
+ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---failure-anomalies"></a>Интеллектуальное обнаружение аномальных сбоев
 [Application Insights](app-insights-overview.md) автоматически уведомляет вас (почти в реальном времени), когда работа веб-приложения сопровождается чрезмерно частыми неудачно завершенными запросами. Эта служба обнаруживает необычное увеличение числа невыполненных HTTP-запросов или вызовов зависимостей. Невыполненными обычно считаются запросы с кодом ответа 400 или больше. Для того чтобы вам было проще определить и диагностировать проблему, в уведомление включается анализ характеристик сбоев и соответствующие данные телеметрии. Кроме того, даются ссылки на портал Application Insights для дальнейшей диагностики. Эта функция не требует настройки, так как использует алгоритмы машинного обучения для прогнозирования нормальной частоты невыполненных запросов.

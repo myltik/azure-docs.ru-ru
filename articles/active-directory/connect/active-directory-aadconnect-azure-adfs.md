@@ -1,12 +1,12 @@
 ---
-title: "Службы федерации Active Directory в Azure | Документация Майкрософт"
-description: "Из этого документа вы узнаете, как развертывать AD FS в Azure, чтобы обеспечить высокую доступность."
-keywords: "Развертывание AD FS в azure, развертывание azure adfs, azure adfs, azure ad fs, развертывание adfs, развертывание ad fs, ad fs в azure, развертывание adfs в azure, развертывание AD FS в azure, adfs azure, введение в AD FS, Azure, AD FS в Azure, iaas, ADFS, перемещение adfs в azure"
+title: Службы федерации Active Directory в Azure | Документация Майкрософт
+description: Из этого документа вы узнаете, как развертывать AD FS в Azure, чтобы обеспечить высокую доступность.
+keywords: Развертывание AD FS в azure, развертывание azure adfs, azure adfs, azure ad fs, развертывание adfs, развертывание ad fs, ad fs в azure, развертывание adfs в azure, развертывание AD FS в azure, adfs azure, введение в AD FS, Azure, AD FS в Azure, iaas, ADFS, перемещение adfs в azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Развертывание служб федерации Active Directory в Azure
 В службах федерации Active Directory (AD FS) представлены возможности упрощенной безопасной федерации удостоверений и единого входа. Федерация с Azure AD или O365 дает пользователям возможность выполнять проверку подлинности с использованием локальных учетных данных и получать доступ ко всем ресурсам в облаке. В связи с этим требуется высокодоступная инфраструктура AD FS, обеспечивающая доступ к ресурсам как в локальной, так и в облачной средах. С помощью развертывания AD FS в Azure можно достичь необходимого уровня доступности с минимальными усилиями.
@@ -303,7 +303,7 @@ ms.lasthandoff: 02/22/2018
 
 1. Запустите указанный ниже командлет на сервере AD FS с помощью PowerShell, чтобы включить страницу входа:
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true. 
-2. С любого внешнего компьютера перейдите по адресу https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx.  
+2. С любого внешнего компьютера перейдите по адресу https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
 3. Должна появиться страница AD FS, как показано ниже.
 
 ![Тестовая страница входа](./media/active-directory-aadconnect-azure-adfs/test1.png)
