@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: d887c690a5f0bc8120daa74d6076083634da08f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 36005988611e7ec3f16146919e3ab3f04755e7e5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>Краткое руководство. Отправка данных телеметрии с устройства в Центр Интернета вещей и чтение данных телеметрии из центра с помощью внутреннего приложения (Java)
 
@@ -65,8 +65,10 @@ mvn --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
+
+    Если вы выбрали другое имя для устройства, обновите имя устройства в примерах приложений перед их запуском.
 
 1. Выполните следующую команду, чтобы получить _строку подключения устройства_ для зарегистрированного устройства:
 
