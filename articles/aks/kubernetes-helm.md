@@ -3,17 +3,17 @@ title: Развертывание контейнеров с помощью Helm 
 description: Использование средства упаковки Helm для развертывания контейнеров в кластере Kubernetes в AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c46bd64b3fec06e4ba4050542f27ba3e70862e45
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Использование Helm со службой Azure Kubernetes
 
@@ -53,7 +53,7 @@ Bash completion has been installed to:
 Команда [helm init][helm-init] используется для установки компонентов Helm в кластере Kubernetes и выполнения настроек на стороне клиента. Выполните следующую команду, чтобы установить Helm в кластере AKS и настроить клиент Helm.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 Выходные данные:
@@ -118,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 Чтобы развернуть входящий контроллер NGINX, используйте команду [helm install][helm-install].
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 Вывод выглядит следующим образом, но включает дополнительные сведения, например инструкции по использованию развертывания Kubernetes.
