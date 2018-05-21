@@ -1,24 +1,22 @@
 ---
-title: "Регистрация данных из Data Lake Store в каталоге данных Azure | Документация Майкрософт"
-description: "Регистрация данных из хранилища озера данных в каталоге данных Azure"
+title: Регистрация данных из Data Lake Store в каталоге данных Azure | Документация Майкрософт
+description: Регистрация данных из хранилища озера данных в каталоге данных Azure
 services: data-lake-store,data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Регистрация данных из хранилища озера данных в каталоге данных Azure
 В этой статье вы узнаете, как интегрировать хранилище озера данных Azure с каталогом данных Azure, чтобы в организации можно было обнаруживать данные с помощью интеграции с каталогом данных. Дополнительные сведения о каталогизации данных см. в статье [Каталог данных Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Чтобы понять, в каких сценариях можно использовать каталог данных, см. статью [Типичные сценарии каталога данных Azure](../data-catalog/data-catalog-common-scenarios.md).

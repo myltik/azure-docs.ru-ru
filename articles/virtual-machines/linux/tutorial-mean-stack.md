@@ -1,6 +1,6 @@
 ---
-title: Создание стека MEAN на виртуальной машине Linux в Azure | Документация Майкрософт
-description: Сведения о создании стеков (MEAN) MongoDB, Express, AngularJS и Node.js на виртуальной машине Linux в Azure.
+title: Руководство. Создание стека MEAN на виртуальной машине Linux в Azure | Документация Майкрософт
+description: В этом руководстве описано, как создать стек MongoDB, Express, AngularJS и Node.js (MEAN) на виртуальной машине Linux в Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Создание стеков (MEAN) MongoDB, Express, AngularJS и Node.js на виртуальной машине Linux в Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Руководство. Создание стека MongoDB, Express, AngularJS и Node.js (MEAN) на виртуальной машине Linux в Azure.
 
-В этом руководстве описаны способы реализации стеков (MEAN) MongoDB, Express, AngularJS и Node.js на виртуальной машине Linux в Azure. Созданный вами стек MEAN позволяет добавлять, удалять и перечислять книги в базе данных. Вы узнаете, как выполнять следующие задачи:
+В этом руководстве описано, как реализовать стек MongoDB, Express, AngularJS и Node.js (MEAN) на виртуальной машине Linux в Azure. Созданный вами стек MEAN позволяет добавлять, удалять и перечислять книги в базе данных. Вы узнаете, как выполнять следующие задачи:
 
 > [!div class="checklist"]
 > * Создание виртуальной машины Linux
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Чтобы установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.30 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Создание виртуальной машины Linux
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Откройте веб-браузер и перейдите по адресу, предоставленному для виртуальной машины. Например, *http://13.72.77.9:3300*. Вы должны увидеть страницу вроде этой:
+2. Откройте веб-браузер и перейдите по адресу, предоставленному для виртуальной машины. (например, *http://13.72.77.9:3300*). Вы должны увидеть страницу вроде этой:
 
     ![Запись о книге](media/tutorial-mean/meanstack-init.png)
 

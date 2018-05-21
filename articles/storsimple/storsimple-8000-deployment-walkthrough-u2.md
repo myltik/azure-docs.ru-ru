@@ -1,24 +1,24 @@
 ---
-title: "Развертывание устройства StorSimple серии 8000 на портале Azure | Документация Майкрософт"
-description: "В этой статье описываются действия и рекомендации по развертыванию устройства StorSimple серии 8000 (с обновлением 3 и более поздних версий), а также службы диспетчера устройств StorSimple."
+title: Развертывание устройства StorSimple серии 8000 на портале Azure | Документация Майкрософт
+description: В этой статье описываются действия и рекомендации по развертыванию устройства StorSimple серии 8000 (с обновлением 3 и более поздних версий), а также службы диспетчера устройств StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Развертывание локального устройства StorSimple (с обновлением 3 и более поздней версии)
 
@@ -195,6 +195,19 @@ ms.lasthandoff: 11/03/2017
 Чтобы вручную запустить резервное копирование отдельного тома на устройстве StorSimple, на портале Azure выполните указанные ниже действия.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>Перейдите к схеме выводов для последовательного кабеля StorSimple
+Следующую схему выводов можно использовать для последовательного кабеля консоли StorSimple.
+
+Гнездовой соединитель DB9 P1 — это Р1, а — соединитель 3,5 мм — это P2.
+
+![Схема выводов 1 для последовательного кабеля консоли StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+Конец стерео разъема соответствует PIN 3 RX, средняя часть — PIN 2 TX и основа — PIN 1 GND, как показано на следующей схеме.
+
+![Схема выводов 2 для последовательного кабеля консоли StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Дополнительная информация
 * [Deploy and manage a StorSimple Cloud Appliance in Azure (Update 3 and later)](storsimple-8000-cloud-appliance-u2.md) (Развертывание и администрирование облачного устройства StorSimple в Azure (обновление 3 и более поздней версии)).

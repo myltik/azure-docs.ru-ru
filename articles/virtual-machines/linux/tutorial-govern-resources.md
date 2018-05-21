@@ -1,6 +1,6 @@
 ---
-title: Управление виртуальными машинами Windows с помощью Azure CLI | Документация Майкрософт
-description: Руководство по управлению виртуальными машинами Azure с применением RBAC, политик, блокировок и тегов с помощью Azure CLI
+title: Руководство. Управление виртуальными машинами Azure с помощью Azure CLI 2.0 | Документация Майкрософт
+description: Из этого руководства вы узнаете, как управлять виртуальными машинами Azure с применением RBAC, политик, блокировок и тегов с помощью Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,22 +10,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Управление виртуальными машинами с помощью Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Руководство. Управление виртуальными машинами Linux с помощью Azure CLI 2.0
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Сведения об установке и локальном использовании Azure CLI см. в статье [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Установка Azure CLI 2.0).
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.30 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Общие сведения об области
 

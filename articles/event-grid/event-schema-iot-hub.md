@@ -1,20 +1,20 @@
 ---
-title: "Схема службы \"Сетка событий Azure\" для Центра Интернета вещей | Документация Майкрософт"
-description: "Страница со справочными сведениями о формате схемы событий и свойствах Центра Интернета вещей"
+title: Схема службы "Сетка событий Azure" для Центра Интернета вещей | Документация Майкрософт
+description: Страница со справочными сведениями о формате схемы событий и свойствах Центра Интернета вещей
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Схема событий службы "Сетка событий Azure" для Центра Интернета вещей
 
