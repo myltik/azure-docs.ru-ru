@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Регистрация в партнерской программе CSP и просмотр данных о затратах
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/28/2018
 
 Чтобы предоставить доступ непрямым клиентам или партнерам CSP, выполните инструкции по настройке пробной регистрации, приведенные в разделе [Создание пробной регистрации](#create-a-trial-registration). Выполните приведенные ниже инструкции, чтобы сегментировать данные непрямых клиентов CSP с помощью сущностей Cloudyn. После этого назначьте группам сущностей соответствующие разрешения пользователей.
 
-1. Создайте группу сущностей с данными, приведенными в разделе о [создании сущностей](tutorial-user-access.md#create-entities).
+1. Создайте группу сущностей с данными, приведенными в разделе о [создании сущностей](tutorial-user-access.md#create-and-manage-entities).
 2. Выполните действия, описанные в видео о [назначении подписок сущностям затрат](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Свяжите учетную запись и подписки Azure непрямого клиента CSP с сущностью, созданной ранее.
 3. Выполните инструкции, приведенные в разделе [Создание пользователя с правами администратора](tutorial-user-access.md#create-a-user-with-admin-access), чтобы создать учетную запись пользователя с правами администратора. Затем убедитесь, что учетной записи предоставлен доступ администратора к конкретным сущностям, созданным ранее для учетной записи непрямого клиента.
 
