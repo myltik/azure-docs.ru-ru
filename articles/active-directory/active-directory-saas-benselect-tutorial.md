@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с BenSelect | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и BenSelect."
+title: Руководство по интеграции Azure Active Directory с BenSelect | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и BenSelect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 22f786864067385b0a61b6d8fdb5fc314a90be1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a1a8e8bf818ad90e0f834ab87dba929e5d1ceaa3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Руководство. Интеграция Azure Active Directory с BenSelect
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в BenSelect (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -219,7 +219,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

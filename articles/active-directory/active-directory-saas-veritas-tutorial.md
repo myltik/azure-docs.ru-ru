@@ -1,6 +1,6 @@
 ---
-title: "Руководство. Интеграция Azure Active Directory с Veritas Enterprise Vault.cloud SSO | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Veritas Enterprise Vault.cloud SSO."
+title: Руководство. Интеграция Azure Active Directory с Veritas Enterprise Vault.cloud SSO | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в Veritas Enterprise Vault.cloud SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a60df7f743c893305f0b3b4aba05505e761f505d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Руководство. Интеграция Azure Active Directory с Veritas Enterprise Vault.cloud SSO
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/01/2018
 - Вы можете включить автоматический вход пользователей в Veritas Enterprise Vault.cloud SSO (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -223,7 +223,7 @@ ms.lasthandoff: 02/01/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

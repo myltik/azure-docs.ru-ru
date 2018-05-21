@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Rollbar | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Rollbar."
+title: Руководство по интеграции Azure Active Directory с Rollbar | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Rollbar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 277dc8e378e5e0c5f649da4f129d3daca96ef8be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Руководство по интеграции Azure Active Directory с Rollbar
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/28/2018
 - Вы можете включить автоматический вход пользователей в Rollbar (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -261,7 +261,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

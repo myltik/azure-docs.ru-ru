@@ -1,6 +1,6 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с LinkedInSalesNavigator | Документы Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в LinkedInSalesNavigator."
+title: Учебник. Интеграция Azure Active Directory с LinkedInSalesNavigator | Документы Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в LinkedInSalesNavigator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: fde1d2c5d1a90092ec4528f727dc7af672f80917
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c8dcf4ad49b8f261814c2d442bfdded221e8cbf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Руководство по интеграции Azure Active Directory с LinkedIn Sales Navigator
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 - Вы можете включить автоматический вход пользователей в LinkedIn Sales Navigator (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее об интеграции приложений SaaS с Azure AD можно узнать в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее об интеграции приложений SaaS с Azure AD можно узнать в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -264,7 +264,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
