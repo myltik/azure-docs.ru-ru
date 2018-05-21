@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с IBM OpenPages | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и IBM OpenPages."
+title: Руководство по интеграции Azure Active Directory с IBM OpenPages | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и IBM OpenPages.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6b96a54bad2166a15574cf015f1ee586cf6fcc35
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f177e8551ce6f3b9d6a452f08ebb983d0eac3bdf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Руководство по интеграции Azure Active Directory с IBM OpenPages
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/19/2017
 - Вы можете включить автоматический вход пользователей в IBM OpenPages (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление IBM OpenPages из коллекции.
+1. Добавление IBM OpenPages из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-ibm-openpages-from-the-gallery"></a>Добавление IBM OpenPages из коллекции
@@ -205,7 +205,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

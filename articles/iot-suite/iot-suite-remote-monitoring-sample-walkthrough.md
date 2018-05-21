@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Архитектура акселератора решения для удаленного мониторинга
 
-[Акселератор решения](iot-suite-what-are-solution-accelerators.md) для удаленного мониторинга — это средство, которое позволяет полностью отслеживать несколько компьютеров в удаленных расположениях. Это решение объединяет основные службы Azure, чтобы обеспечить универсальную реализацию бизнес-сценария. Его можно использовать в качестве отправной точки для собственной реализации и [настроить](iot-suite-remote-monitoring-customize.md) в соответствии с потребностями конкретной организации.
+[Акселератор решения](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) для удаленного мониторинга — это средство, которое позволяет полностью отслеживать несколько компьютеров в удаленных расположениях. Это решение объединяет основные службы Azure, чтобы обеспечить универсальную реализацию бизнес-сценария. Его можно использовать в качестве отправной точки для собственной реализации и [настроить](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) в соответствии с потребностями конкретной организации.
 
 В этой статье рассматриваются некоторые основные компоненты решения для удаленного мониторинга, чтобы вы смогли представить, как оно работает. Эти знания помогут вам:
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="logical-architecture"></a>Логическая архитектура
 
-На приведенной ниже схеме показаны логические компоненты акселератора решения для удаленного мониторинга, наложенные на [архитектуру Интернета вещей](iot-suite-what-is-azure-iot.md):
+На приведенной ниже схеме показаны логические компоненты акселератора решения для удаленного мониторинга, наложенные на [архитектуру Интернета вещей](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Логическая архитектура](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ ms.lasthandoff: 05/07/2018
 * [Акселератор решения для удаленного мониторинга с помощью Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 * [Архитектура акселератора решения для удаленного мониторинга](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Дополнительные сведения см. в статье о [настройке акселератора решения для удаленного мониторинга](iot-suite-remote-monitoring-customize.md).
+Дополнительные сведения см. в статье о [настройке акселератора решения для удаленного мониторинга](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

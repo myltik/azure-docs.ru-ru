@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Fidelity NetBenefits | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Fidelity NetBenefits."
+title: Руководство по интеграции Azure Active Directory с Fidelity NetBenefits | Документация Майкрософт
+description: Узнайте, как настроить единый вход Azure Active Directory в приложении Fidelity NetBenefits.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 007d3c894731560423e2dde0572793a4282a4654
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 19d18dd0d88fa3e66c60191314d0d1f80aa415c1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Руководство по интеграции Azure Active Directory с Fidelity NetBenefits
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 01/13/2018
 - Вы можете включить автоматический вход пользователей в Fidelity NetBenefits (единый вход) с применением учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Fidelity NetBenefits, вам потребуется:
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/13/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Fidelity NetBenefits из коллекции.
+1. Добавление Fidelity NetBenefits из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Добавление Fidelity NetBenefits из коллекции
@@ -222,7 +222,7 @@ ms.lasthandoff: 01/13/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
