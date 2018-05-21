@@ -159,6 +159,8 @@
       items:
         - name: Коллекция Runbook
           href: automation-runbook-gallery.md
+        - name: Мониторинг Runbook с помощью журналов действий
+          href: automation-alert-activity-log.md
         - name: Запуск модуля runbook с помощью оповещений Azure
           href: automation-create-alert-triggered-runbook.md
         - name: Создание виртуальной машины Amazon Web Service

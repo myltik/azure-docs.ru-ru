@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Общие сведения о безопасности при управлении удостоверениями в Azure
 Решения Майкрософт по управлению удостоверениями и доступом помогают ИТ-службам защищать доступ к приложениям и ресурсам в корпоративных центрах обработки данных и в облаке. Они предоставляют такие дополнительные уровни проверки, как многофакторная проверка подлинности и политики условного доступа. Наблюдение за подозрительной активностью с использованием расширенных отчетов, аудита и предупреждений помогает смягчить потенциальные риски безопасности. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) предоставляет функцию единого входа для тысяч облачных приложений (SaaS), а также доступ к локальным веб-приложениям.
@@ -56,7 +56,7 @@ Azure AD расширяет локальные среды Active Directory в о
 Подробнее.
 
 * [Общие сведения о едином входе](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Интеграция единого входа Azure Active Directory с приложениями SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Обратный прокси-сервер.

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dc104470ca2bfd738ca9bfc334a1c1325f7318
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Использование службы "Импорт и экспорт Microsoft Azure" для передачи данных в службу хранилища Azure
 В этой статье предоставляются пошаговые инструкции по использованию службы "Импорт и экспорт Azure" для безопасного переноса больших объемов данных в хранилище BLOB Azure и файлов Azure при отправке дисков в центр обработки данных Azure. Кроме того, эту службу можно использовать, чтобы переносить данные из службы хранилища Azure на жесткие диски и передавать на локальные сайты. Данные с одного внутреннего диска SATA можно импортировать в хранилище BLOB-объектов Azure или хранилище файлов Azure. 
@@ -569,6 +569,9 @@ WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <Targ
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## <a name="next-steps"></a>Дополнительная информация
 
 * [Using the Azure Import/Export Tool](storage-import-export-tool-how-to.md) (Использование средства импорта и экспорта Azure)

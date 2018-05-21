@@ -1,11 +1,11 @@
 ---
-title: "Создание задания импорта для импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как создать задание импорта для службы импорта и экспорта Microsoft Azure."
+title: Создание задания импорта для импорта и экспорта Azure | Документация Майкрософт
+description: Узнайте, как создать задание импорта для службы импорта и экспорта Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Создание задания импорта для службы импорта и экспорта Azure
 
@@ -103,6 +103,8 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Внесение сведений о доставке в задание импорта
 Когда вы получите номер для отслеживания посылки, вызовите операцию [обновления свойств задания](/api/storageimportexport/jobs#Jobs_Update) и предоставьте название компании перевозчика, номер для отслеживания по этому заданию и номер счета перевозчика для возврата дисков. Можно также указать количество дисков и дату отправки.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 
