@@ -1,10 +1,10 @@
 ---
-title: Функции продуктов сети доставки содержимого Azure (CDN) | Документация Майкрософт
+title: Сравнение функций продуктов сети доставки содержимого Azure (CDN) | Документация Майкрософт
 description: Сведения о возможностях, которые поддерживает каждый продукт Azure доставки содержимого сети (CDN).
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,20 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: ae57d4e9feb23f67bb4f05148d87fec96f055a7f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 01396ceba142a91a88040ac28c51275734476e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="azure-cdn-product-features"></a>Характеристики продукта Azure CDN
+# <a name="compare-azure-cdn-product-features"></a>Сравнение функций продуктов Azure CDN
 
-Существуют четыре продукта Azure CDN: **Azure CDN уровня "Стандартный" от корпорации Майкрософт**, **Azure CDN уровня "Стандартный" от Akamai**, **Azure CDN уровня "Стандартный" от Verizon** и **Azure CDN уровня "Премиум" от Verizon**. В следующей таблице перечислены функции, доступные в каждом из продуктов.
+Существуют четыре продукта Azure CDN: **Azure CDN уровня "Стандартный" от корпорации Майкрософт** (предварительная версия), **Azure CDN уровня "Стандартный" от Akamai**, **Azure CDN уровня "Стандартный" от Verizon** и **Azure CDN уровня "Премиум" от Verizon**. 
 
-| **Возможности для повышения производительности и оптимизации** | **Уровень "Стандартный" от корпорации Майкрософт** | **Akamai уровня "Стандартный"** | **Verizon уровня "Стандартный"** | **Verizon уровня "Премиум"** |
+В следующей таблице перечислены функции, доступные в каждом из продуктов.
+
+| **Возможности для повышения производительности и оптимизации** | **Уровень "Стандартный" от корпорации Майкрософт (предварительная версия)** | **Akamai уровня "Стандартный"** | **Verizon уровня "Стандартный"** | **Verizon уровня "Премиум"** |
 | --- | --- | --- | --- | --- |
 | [Динамическое ускорение сайтов](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Динамическое ускорение сайтов — адаптивное сжатие изображений](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -61,7 +63,7 @@ ms.lasthandoff: 05/07/2018
 | [Оповещения в реальном времени](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **Простота использования** | **Уровень "Стандартный" от корпорации Майкрософт** | **Akamai уровня "Стандартный"** | **Verizon уровня "Стандартный"** | **Verizon уровня "Премиум"** | 
-| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service/app-service-web-tutorial-content-delivery-network.md) и [службы мультимедиа](../media-services/media-services-portal-manage-streaming-endpoints.md).  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [веб-приложения](app-service-web-tutorial-content-delivery-network.md) и [Службы мультимедиа](../media-services/media-services-portal-manage-streaming-endpoints.md).  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) или [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Настраиваемый модуль доставки контента на основе правил.](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | Перенаправление или перезапись URL-адреса (с использованием [обработчика правил](cdn-rules-engine.md))  |  | | |**&#x2713;** |

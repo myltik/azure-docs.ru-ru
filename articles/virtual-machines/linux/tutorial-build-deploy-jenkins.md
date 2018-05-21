@@ -1,11 +1,11 @@
 ---
-title: "Непрерывная интеграция и непрерывное развертывание из Jenkins на виртуальных машинах Azure с помощью Team Services | Документация Майкрософт"
-description: "Настройка непрерывной интеграции (CI) и непрерывного развертывания (CD) приложения Node.js с помощью Jenkins на виртуальных машинах Azure из Release Management в Visual Studio Team Services или Microsoft Team Foundation Server."
+title: Руководство. Непрерывная интеграция и непрерывное развертывание из Jenkins на виртуальных машинах Azure с помощью Team Services | Документация Майкрософт
+description: В этом руководстве описано, как настроить непрерывную интеграцию (CI) и непрерывное развертывание (CD) приложения Node.js с помощью Jenkins на виртуальных машинах Azure из Release Management в Visual Studio Team Services или Microsoft Team Foundation Server.
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,19 +14,17 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Развертывание приложения на виртуальных машинах Linux с помощью Jenkins и Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Руководство. Развертывание приложения на виртуальных машинах Linux в Azure с помощью Jenkins и Visual Studio Team Services
 
 Непрерывная интеграция (CI) и непрерывное развертывание (CD) представляют собой конвейер, с помощью которого можно выполнить сборку, выпустить и развернуть свой код. Visual Studio Team Services предоставляет полнофункциональный набор инструментов для автоматизации CI и CD для развертывания в Azure. Jenkins — это популярный сторонний серверный инструмент CI и CD стороннего поставщика, который также обеспечивает автоматизацию этих процессов. Вы можете использовать Team Services и Jenkins вместе, чтобы настроить способ доставки своего облачного приложения или службы.
 
-В этом руководстве для создания веб-приложения Node.js используется Jenkins. Затем вы используете Team Services или Team Foundation Server, чтобы развернуть его в [группе развертывания](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/), содержащей виртуальные машины Linux.
-
-Вы сможете выполнять следующие задачи:
+В этом руководстве для создания веб-приложения Node.js используется Jenkins. Затем вы используете Team Services или Team Foundation Server, чтобы развернуть его в [группе развертывания](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/), содержащей виртуальные машины Linux. Вы узнаете, как выполнять следующие задачи:
 
 > [!div class="checklist"]
 > * Получение примера приложения.

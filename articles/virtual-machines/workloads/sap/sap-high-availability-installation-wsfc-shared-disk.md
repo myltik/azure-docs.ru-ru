@@ -1,13 +1,13 @@
 ---
-title: "Установка SAP NetWeaver высокого уровня доступности в отказоустойчивом кластере Windows на общем диске для экземпляра SAP ASCS/SCS в Azure | Документация Майкрософт"
-description: "Узнайте, как установить SAP NetWeaver высокого уровня доступности в отказоустойчивом кластере Windows на общем диске для экземпляра SAP ASCS/SCS."
+title: Установка SAP NetWeaver высокого уровня доступности в отказоустойчивом кластере Windows на общем диске для экземпляра SAP ASCS/SCS в Azure | Документация Майкрософт
+description: Узнайте, как установить SAP NetWeaver высокого уровня доступности в отказоустойчивом кластере Windows на общем диске для экземпляра SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/14/2017
 
 ### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Установка первого узла кластера SAP
 
-1.  Выполните действие создания первого узла кластера на узле А. В нашем примере это узел pr1-ascs-0.
+1.  Выполните действие создания первого узла кластера на узле А. В нашем примере это узел pr1-ascs-0\*.
 2.  Чтобы сохранить порты по умолчанию для внутреннего балансировщика нагрузки Azure, выберите:
 
   * для **системы ABAP** — экземпляр **ASCS** с номером **00**;

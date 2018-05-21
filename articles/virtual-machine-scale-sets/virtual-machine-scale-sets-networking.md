@@ -1,11 +1,11 @@
 ---
-title: "Сеть для масштабируемых наборов виртуальных машин Azure | Документация Майкрософт"
-description: "Конфигурация свойств сети для масштабируемых наборов виртуальных машин Azure."
+title: Сеть для масштабируемых наборов виртуальных машин Azure | Документация Майкрософт
+description: Конфигурация свойств сети для масштабируемых наборов виртуальных машин Azure.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Сеть для масштабируемых наборов виртуальных машин Azure
 
@@ -55,9 +55,28 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ```
 
+## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Создание масштабируемого набора, который ссылается на шлюз приложений
+Чтобы создать масштабируемый набор, который использует шлюз приложений, создайте ссылку на серверный пул адресов шлюза приложений в разделе ipConfigurations в масштабируемом наборе, как в этой конфигурации шаблона ARM:
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> Обратите внимание, что шлюз приложений должен находиться в той же виртуальной сети, что и масштабируемый набор, но в другой подсети.
+
+
 ## <a name="configurable-dns-settings"></a>Настраиваемые параметры DNS
 По умолчанию наборы масштабирования принимают определенные параметры DNS виртуальной сети и подсети, в которых они были созданы. Однако вы можете настроить параметры DNS непосредственно для набора масштабирования.
-~
+
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Создание масштабируемого набора с настраиваемыми DNS-серверами
 Чтобы создать масштабируемый набор с настраиваемой конфигурацией DNS с помощью интерфейса командной строки 2.0, добавьте аргумент **--dns-servers** в команду **vmss create**, за которой следуют разделенные пробелами IP-адреса сервера. Например: 
 ```bash
@@ -145,7 +164,7 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 
 Чтобы запросить общедоступные IP-адреса, назначенные виртуальным машинам в масштабируемом наборе, используйте [обозреватель ресурсов Azure](https://resources.azure.com) или Azure REST API версии **30-03-2017** или более поздней.
 
-Чтобы просмотреть общедоступные IP-адреса для масштабируемого набора с помощью обозревателя ресурсов, ознакомьтесь с разделом **publicipaddresses** в масштабируемом наборе. Например, https://resources.azure.com/subscriptions/_ИД_подсистемы_/resourceGroups/_ваша_группа_ресурсов_/providers/Microsoft.Compute/virtualMachineScaleSets/_ваша_vmss_/publicipaddresses
+Чтобы просмотреть общедоступные IP-адреса для масштабируемого набора с помощью обозревателя ресурсов, ознакомьтесь с разделом **publicipaddresses** в масштабируемом наборе. Например: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

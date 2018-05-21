@@ -1,6 +1,6 @@
 ---
-title: Создание виртуальных машин Linux и управление ими с помощью Azure CLI | Документация Майкрософт
-description: Руководство по созданию виртуальных машин Linux и управлению ими с помощью Azure CLI.
+title: Руководство. Создание виртуальных машин Linux и управление ими с помощью Azure CLI | Документация Майкрософт
+description: В этом руководстве описано, как с помощью Azure CLI 2.0 создать и администрировать виртуальные машины в Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Создание виртуальных машин Linux и управление ими с помощью Azure CLI
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Руководство по созданию виртуальных машин Linux и управлению ими с помощью Azure CLI 2.0
 
 Виртуальные машины Azure предоставляют полностью настраиваемую и гибкую вычислительную среду. В этом руководстве рассматриваются основные элементы развертывания виртуальной машины Azure, например выбор ее размера, образа и ее развертывание. Вы узнаете, как выполнять следующие задачи:
 
@@ -33,10 +33,9 @@ ms.lasthandoff: 04/18/2018
 > * Изменение размера виртуальной машины
 > * Просмотр виртуальной машины и оценка ее состояния
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.30 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
@@ -85,7 +84,7 @@ az vm create \
 Теперь вы можете подключиться к виртуальной машине с помощью SSH из Azure Cloud Shell или с локального компьютера. Замените IP-адрес в примере адресом `publicIpAddress`, записанным на предыдущем шаге.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 После входа на виртуальную машину можно установить и настроить приложения. По окончании работы закройте сеанс SSH, как обычно:

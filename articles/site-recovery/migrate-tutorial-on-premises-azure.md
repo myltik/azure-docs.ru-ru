@@ -1,6 +1,6 @@
 ---
-title: "Миграция локальных компьютеров в Azure с помощью Azure Site Recovery | Документация Майкрософт"
-description: "В этой статье описан процесс миграции локальных компьютеров в Azure с помощью Azure Site Recovery."
+title: Миграция локальных компьютеров в Azure с помощью Azure Site Recovery | Документация Майкрософт
+description: В этой статье описан процесс миграции локальных компьютеров в Azure с помощью Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656ba02401d9ba610d0ebe33a683164af0b871f0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Миграция локальных компьютеров в Azure
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/28/2018
 Это третье руководство в серии. В этом руководстве предполагается, что вы уже выполнили задачи в предыдущих руководствах:
 
 1. [Подготовка Azure](tutorial-prepare-azure.md).
-2. Подготовка локальных серверов [VMware](vmware-azure-tutorial-prepare-on-premises.md) или Hyper-V.
+2. Подготовка локальных серверов [VMware](vmware-azure-tutorial-prepare-on-premises.md) или [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md).
 
 Перед началом работы полезно изучить архитектуру [VMware](vmware-azure-architecture.md) или [Hyper-V](hyper-v-azure-architecture.md) для аварийного восстановления.
 

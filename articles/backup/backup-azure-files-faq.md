@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: fb455fe6f1b481ad2dc855d147860cb2c7898779
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Вопросы о резервном копировании файлов Azure
 В этой статье содержатся ответы на часто задаваемые вопросы о резервном копировании файлов Azure. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Настройка задания резервного копирования файлов Azure
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Почему я не вижу некоторые учетные записи хранения, содержащие файловые ресурсы, которые требуется защитить в Azure? <br/>
-В предварительной версии службы Backup для файловых ресурсов Azure поддерживаются не все типы учетных записей хранения. Ознакомьтесь с [этим](troubleshoot-azure-files.md#preview-boundaries) списком, чтобы просмотреть поддерживаемые учетные записи хранения.
+В предварительной версии службы Backup для файловых ресурсов Azure поддерживаются не все типы учетных записей хранения. Ознакомьтесь с [этим](troubleshoot-azure-files.md#preview-boundaries) списком, чтобы просмотреть поддерживаемые учетные записи хранения. Также вполне возможно, что учетная запись хранения, которую вы ищете, уже защищена или зарегистрирована в другом хранилище. [Отмените регистрацию](troubleshoot-azure-files.md#configuring-backup) в хранилище, чтобы найти учетную запись хранения, которую требуется защитить, в других хранилищах.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Почему я не вижу некоторые файловые ресурсы Azure в учетной записи хранения при попытке настроить резервное копирование? <br/>
 Проверьте, не защищен ли файловый ресурс Azure в том же хранилище служб восстановления и не удален ли он.
@@ -52,6 +52,7 @@ ms.lasthandoff: 04/06/2018
 - Западная Япония (JPW);
 -   Центральная Индия (INC). 
 - Южная Индия (INS);
+- Республика Корея, центральный регион (KRC)
 - Южная Корея (KRS);
 -   Северо-центральный регион США (NCUS). 
 -   Северная Европа (NE). 

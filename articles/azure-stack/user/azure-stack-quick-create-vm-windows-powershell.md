@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Краткое руководство. Создание виртуальной машины Windows с помощью PowerShell в Azure Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Краткое руководство. Создание виртуальной машины Windows Server с помощью PowerShell в Azure Stack
 
-*Область применения: интегрированные системы Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-В этом руководстве объясняется, как с помощью PowerShell создать виртуальную машину под управлением Windows Server 2016 в Azure Stack. Приведенные в этой статье инструкции можно выполнить либо из Пакета средств разработки Azure Stack, либо из внешнего клиента на базе Windows (при подключении через VPN).
+Вы можете создать виртуальную машину Windows Server 2016 с помощью PowerShell в Azure Stack. Выполните описанные в этой статье действия, чтобы создать и использовать виртуальную машину. В этой статье описаны действия, которые позволят вам:
+
+* подключиться к виртуальной машине через удаленный клиент;
+* установить веб-сервер IIS и открыть его стандартную домашнюю страницу;
+* очистить использованные ресурсы.
+
+>[!NOTE]
+ Приведенные в этой статье инструкции можно выполнить из Пакета средств разработки Azure Stack или внешнего клиента на базе Windows (при подключении через VPN).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

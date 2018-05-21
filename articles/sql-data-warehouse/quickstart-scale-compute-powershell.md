@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Краткое руководство. Масштабирование вычислительных ресурсов в хранилище данных SQL Azure в PowerShell
 
@@ -55,19 +55,19 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 Выполните следующие действия, чтобы найти сведения о расположении хранилища данных.
 
 1. Войдите на [портале Azure](https://portal.azure.com/).
-2. На портале Azure на странице слева щелкните **Базы данных SQL**.
-3. На странице **Базы данных SQL** выберите **mySampleDataWarehouse**. Откроется хранилище данных.
+2. На портале Azure на странице слева щелкните **Хранилища данных SQL**.
+3. На странице **Хранилища данных SQL** выберите **mySampleDataWarehouse**. Откроется хранилище данных.
 
     ![Имя сервера и группа ресурсов](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. Запишите имя хранилища данных, которое будет использоваться в качестве имени базы данных. Помните, что хранилище данных — это один из типов базы данных. Также запишите имя сервера и группу ресурсов. Они будут использоваться в командах приостановки и возобновления работы.
-5. Если вашим сервером является foo.database.windows.net, то в командлетах PowerShell в качестве -ServerName используйте только первую часть имени сервера. На предыдущем рисунке полное имя сервера — newserver-20171113.database.windows.net. Мы используем **newserver-20171113** в качестве имени сервера в командлете PowerShell.
+5. Если вашим сервером является foo.database.windows.net, то в командлетах PowerShell в качестве -ServerName используйте только первую часть имени сервера. На предыдущем рисунке полное имя сервера — newserver-20171113.database.windows.net. Мы используем **newserver-20180430** в качестве имени сервера в командлете PowerShell.
 
 ## <a name="scale-compute"></a>Масштабирование вычислительных ресурсов
 
 В хранилище данных SQL вы можете увеличивать и уменьшать объем вычислительных ресурсов, изменяя число единиц использования хранилища данных (DWU). В статье [Создание хранилища данных SQL Azure на портале Azure и отправка запросов к этому хранилищу данных](create-data-warehouse-portal.md) мы создали хранилище **mySampleDataWarehouse** и инициализировали его со значением 400 DWU. Ниже описаны шаги по изменению числа единиц DWU для **mySampleDataWarehouse**.
 
-Чтобы изменить число единиц DWU, используйте командлет PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). В следующем примере для параметра числа единиц задано значение DW300 для базы данных **mySampleDataWarehouse**, размещенной в группе ресурсов **myResourceGroup** на сервере **mynewserver-20171113**.
+Чтобы изменить число единиц DWU, используйте командлет PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). В следующем примере для параметра числа единиц задано значение DW300 для базы данных **mySampleDataWarehouse**, размещенной в группе ресурсов **myResourceGroup** на сервере **mynewserver-20180430**.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>Проверка состояния хранилища данных
 
-Чтобы просмотреть текущее состояние хранилища данных, используйте командлет PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Он позволяет вернуть состояние базы данных **mySampleDataWarehouse**, размещенной в группе ресурсов **myResourceGroup** на сервере **mynewserver-20171113.database.windows.net**.
+Чтобы просмотреть текущее состояние хранилища данных, используйте командлет PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Он позволяет вернуть состояние базы данных **mySampleDataWarehouse**, размещенной в группе ресурсов **myResourceGroup** на сервере **mynewserver-20180430.database.windows.net**.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

@@ -1,25 +1,20 @@
 ---
 title: Принципы работы Многофакторной идентификации Azure
-description: Многофакторная идентификация Azure помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Эта служба предлагает дополнительную защиту за счет дополнительного способа проверки подлинности и, используя ряд простых способов проверки подлинности, обеспечивает строгую проверку.
+description: Многофакторная идентификация Azure помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: d14db902-9afe-4fca-b3a5-4bd54b3d8ec5
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 3df8d4af21fe37a44983da1aae330785b62323db
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 709fab070533984f94a72ff2136a8bc32fbe6ec6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Принципы работы службы Многофакторной идентификации Azure
 Безопасность двухшаговой проверки подлинности заключается в многоуровневом подходе. Нарушения нескольких факторов проверки подлинности представляет нетривиальную задачу для злоумышленников. Даже если злоумышленнику удается получить пароль пользователя, им нельзя воспользоваться без доверенного устройства. 

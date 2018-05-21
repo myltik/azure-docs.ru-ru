@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Общие сведения о службе хранилища Azure
 
@@ -179,7 +179,7 @@ SSE автоматически шифрует данные на всех уро�
 * [API-интерфейс REST служб хранилища](https://docs.microsoft.com/rest/api/storageservices/)
 * [Клиентская библиотека хранилища для .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Клиентская библиотека хранилища для Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Клиентская библиотека хранилища для Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Клиентская библиотека хранилища для Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Клиентская библиотека хранилища для Python](https://github.com/Azure/azure-storage-python)
 * [Клиентская библиотека хранилища для PHP](https://github.com/Azure/azure-storage-php)
 * [Клиентская библиотека хранилища для Ruby](https://github.com/Azure/azure-storage-ruby)

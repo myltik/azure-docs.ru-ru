@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Справочные материалы по действиям аудита в Azure Active Directory
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 04/23/2018
 
 
 
-## <a name="account-provisioning"></a>"Account Provisioning" (Подготовка учетных записей).
+## <a name="account-provisioning"></a>"Подготовка учетных записей";
 
 |Категория аудита|Действие|
 |---|---|
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/23/2018
 |Ресурс|Удаление субъекта-службы|
 
 
-## <a name="automated-password-rollover"></a>"Automated Password Rollover" (Автоматическая смена пароля)
+## <a name="automated-password-rollover"></a>Automated password rollover (Автоматическая смена пароля);
 
 |Категория аудита|Действие|
 |---|---|
@@ -343,7 +343,7 @@ ms.lasthandoff: 04/23/2018
 |Ресурс|Issue an access token to the application (Предоставление id_token для приложения)|
 
 
-## <a name="core-directory"></a>"Core Directory" (Основной каталог);
+## <a name="core-directory"></a>Core directory (Основной каталог);
 
 |Категория аудита|Действие|
 |---|---|
@@ -496,7 +496,7 @@ ms.lasthandoff: 04/23/2018
 |Управление пользователями|Создание проверки доступа|
 
 
-## <a name="invited-users"></a>Invited Users (Приглашаемые пользователи)
+## <a name="invited-users"></a>Приглашенные пользователи
 
 |Категория аудита|Действие|
 |---|---|
@@ -547,7 +547,7 @@ ms.lasthandoff: 04/23/2018
 
 
 
-## <a name="self-service-group-management"></a>"Self-service Group Management" (Самостоятельное управление группами);
+## <a name="self-service-group-management"></a>Самостоятельное управление группами
 
 |Категория аудита|Действие|
 |---|---|
@@ -562,7 +562,7 @@ ms.lasthandoff: 04/23/2018
 |Управление группами|Admin generates a temporary password (Создание временного пароля администратором)|
 
 
-## <a name="self-service-password-management"></a>"Self-service Password Management" (Самостоятельное управление паролями);
+## <a name="self-service-password-management"></a>Self-service password management (Самостоятельное управление паролями);
 
 |Категория аудита|Действие|
 |---|---|

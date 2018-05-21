@@ -1,12 +1,13 @@
 ---
-title: Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью Azure CLI | Документация Майкрософт
-description: Узнайте, как создать общедоступную подсистему балансировки нагрузки с помощью Azure CLI.
+title: Краткое руководство. Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью Azure CLI | Документация Майкрософт
+description: В рамках этого краткого руководства вы узнаете, как создать общедоступную подсистему балансировки нагрузки с помощью Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -15,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: ee2e70e710be9badda7318aec307325da66e4c58
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 997129d1c67a690fb4890aeb2de9f45a681e3efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью Azure CLI 2.0 для распределения нагрузки между виртуальными машинами
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Краткое руководство. Создание общедоступной подсистемы балансировки нагрузки уровня "Стандартный" с помощью Azure CLI 2.0 для распределения нагрузки между виртуальными машинами
 
 В этом кратком руководстве объясняется процесс создания подсистемы балансировки нагрузки уровня "Стандартный". Чтобы протестировать подсистему балансировки нагрузки, мы развернем две виртуальные машины с установленным сервером Ubuntu для распределения между ними нагрузки веб-приложения.
 

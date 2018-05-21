@@ -1,6 +1,6 @@
 ---
-title: Мониторинг и обновление Azure и виртуальные машины Windows | Документация Майкрософт
-description: Руководство по мониторингу и обновлению виртуальных машин Windows с помощью Azure PowerShell
+title: Руководство. Мониторинг и обновление виртуальных машин Windows в Azure | Документация Майкрософт
+description: В этом руководство описано, как выполнять мониторинг и диагностических данных загрузки, метрик производительности и администрирование пакетных обновлений на виртуальных машинах Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Мониторинг и обновление виртуальных машин Windows с помощью Azure PowerShell
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Руководство. Мониторинг и обновление виртуальных машин Windows в Azure
 
 Служба мониторинга Azure использует агенты для сбора данных о производительности и загрузке с виртуальных машин Azure, сохраняет эти данные в хранилище Azure и предоставляет к ним доступ через портал, модуль Azure PowerShell и Azure CLI. Управление обновлениями позволяет управлять обновлениями и исправлениями виртуальных машин Azure под управлением Windows.
 
@@ -39,9 +39,27 @@ ms.lasthandoff: 04/06/2018
 > * Мониторинг изменений и инвентаризация
 > * Настройка расширенного мониторинга
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Для работы с этим руководством требуется модуль Azure PowerShell версии 5.7.0 и выше. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Для выполнения примера в этом руководстве требуется виртуальная машина. Этот [пример сценария](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) позволяет создать ее при необходимости. При работе с примером по мере необходимости заменяйте имена групп ресурсов, виртуальных машин и расположений.
+## <a name="create-virtual-machine"></a>Создание виртуальной машины
+
+Чтобы настроить мониторинг Azure и администрировать обновления для работы с этим руководством, вам понадобится виртуальная машина Windows в Azure. Сначала укажите имя и пароль администратора для виртуальной машины с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Создайте виртуальную машину с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). В следующем примере создается виртуальная машина с именем *myVM* в расположении *EastUS*. При необходимости будут созданы поддерживающие сетевые ресурсы и группа доступности *myResourceGroupMonitorMonitor*.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupMonitor" `
+    -Name "myVM" `
+    -Location "East US" `
+    -Credential $cred
+```
+
+Создание этих ресурсов и виртуальной машины может занять несколько минут.
 
 ## <a name="view-boot-diagnostics"></a>Просмотр диагностики загрузки
 
@@ -50,14 +68,14 @@ ms.lasthandoff: 04/06/2018
 Данные диагностики загрузки можно получить с помощью команды [Get AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata). В следующем примере данные диагностики загрузки загружаются в корень диска *c:\*.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Просмотр метрик узла.
 
 Виртуальная машина Windows имеет выделенный узел виртуальной машины в Azure, с которым она взаимодействует. Метрики узла собираются автоматически, и их можно просмотреть на портале Azure.
 
-1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroup**, а затем **myVM** в списке ресурсов.
+1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroupMonitor**, а затем в списке ресурсов выберите **myVM**.
 2. Чтобы просмотреть данные о производительности узла виртуальной машины, в колонке виртуальной машины щелкните **Метрики**, а затем выберите любую метрику узла в группе **Доступные метрики**.
 
     ![Просмотр метрик узла.](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
@@ -66,7 +84,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 По умолчанию доступны основные метрики узла. Чтобы просмотреть более детальные метрики определенной виртуальной машины, требуется установить расширение системы диагностики Azure, позволяющее получать дополнительные данные мониторинга и диагностики виртуальной машины. С помощью этих метрик производительности можно создать уведомления с учетом работы виртуальной машины. Расширение системы диагностики устанавливается на портале Azure следующим образом:
 
-1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroup**, а затем **myVM** в списке ресурсов.
+1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroupMonitor**, а затем в списке ресурсов выберите **myVM**.
 2. Щелкните **Параметры диагностики**. В списке будет указано, что *диагностика загрузки* уже включена в предыдущем разделе. Установите флажок для параметра *Базовые метрики*.
 3. Нажмите кнопку **Включить мониторинг на гостевом уровне**.
 
@@ -76,7 +94,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 Метрики виртуальной машины можно просмотреть аналогично метрикам узла виртуальной машины:
 
-1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroup**, а затем **myVM** в списке ресурсов.
+1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroupMonitor**, а затем в списке ресурсов выберите **myVM**.
 2. Чтобы увидеть, как работает виртуальная машина, в колонке виртуальной машины щелкните **Метрики**, затем выберите любую метрику диагностики в группе **Доступные метрики**.
 
     ![Просмотр метрик виртуальной машины.](./media/tutorial-monitoring/monitor-vm-metrics.png)
@@ -87,7 +105,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 В следующем примере создается предупреждение на основе среднего показателя использования ЦП.
 
-1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroup**, а затем **myVM** в списке ресурсов.
+1. На портале Azure щелкните **Группы ресурсов**, выберите **myResourceGroupMonitor**, а затем в списке ресурсов выберите **myVM**.
 2. В колонке виртуальной машины щелкните **Правила оповещения**, а затем выберите **Добавить оповещение метрики**.
 3. Укажите **имя** оповещения, например *myAlertRule*.
 4. Для активации оповещения о превышении процента использования ЦП на 1.0 в течение пяти минут оставьте все настройки по умолчанию.
@@ -246,15 +264,15 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName myVM `
+  -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
   -Settings @{"workspaceId" = $workspaceId} `
   -ProtectedSettings @{"workspaceKey" = $key} `
-  -Location eastus
+  -Location "East US"
 ```
 
 Через несколько минут вы увидите новую виртуальную машину в рабочей области Log Analytics.

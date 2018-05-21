@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Единицы запросов в базе данных Azure Cosmos DB
 
@@ -48,81 +48,6 @@ Azure Cosmos DB обеспечивает высокую прогнозируем
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
-
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Указание количества единиц запросов в Azure Cosmos DB
-
-Вы можете задать количество единиц запросов в секунду (ЕЗ в секунду), которое вы хотите зарезервировать для отдельного контейнера или набора контейнеров. На основе подготовленной пропускной способности база данных Azure Cosmos DB будет выделять физические разделы для размещения контейнеров и разделять или перераспределять данные между секциями по мере увеличения их объема.
-
-При назначении единиц запросов в секунду на уровне отдельного контейнера могут создаваться *фиксированные* или *неограниченные* контейнеры. Контейнеры фиксированного размера имеют максимальный размер в 10 ГБ и пропускную способность в 10 000 ЕЗ в секунду. Чтобы создать контейнер неограниченного размера, необходимо указать минимальную пропускную способность в 1000 ЕЗ в секунду и [ключ раздела](partition-data.md). Так как ваши данные могут быть разделены между несколькими секциями, выбирайте ключ секции с большим количеством элементов (от 100 до миллионов уникальных значений). Выбрав ключ раздела с большим количеством уникальных значений, вы гарантируете, что Azure Cosmos DB сможет равномерно масштабировать контейнеры, таблицы или графы и запросы. 
-
-При назначении единиц запросов в секунду для набора контейнеров эти контейнеры считаются *неограниченными* и для них должен быть указан ключ раздела.
-
-![Подготовка единиц запросов для отдельных контейнеров и набора контейнеров][6]
-
-> [!NOTE]
-> Ключ раздела представляет собой логическую границу, а не физическую. Поэтому вам не нужно ограничивать количество отдельных значений ключа раздела. Чем больше отдельных значений ключа раздела, тем лучше. Такой ключ предоставляет Azure Cosmos DB больше вариантов балансировки нагрузки.
-
-Ниже приведен фрагмент кода для создания отдельного контейнера с 3000 ЕЗ/с с помощью пакета SDK для .NET для API SQL:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Ниже приведен фрагмент кода для подготовки 100 000 ЕЗ/с для набора контейнеров с помощью пакета SDK для .NET для API SQL:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-
-Azure Cosmos DB использует модель резервирования пропускной способности. То есть вы получаете счет за *зарезервированную* пропускную способность независимо от фактических показателей *использования*. Так как нагрузка, данные и шаблоны использования приложения меняются, вы можете легко увеличивать или уменьшать количество зарезервированных единиц запросов с помощью пакетов SDK или [портала Azure](https://portal.azure.com).
-
-Каждый контейнер или набор контейнеров сопоставляется с ресурсом `Offer` в Azure Cosmos DB, который содержит метаданные о подготовленной пропускной способности. Вы можете изменить выделенную пропускную способность. Для этого найдите соответствующий ресурс предложения для контейнера и измените в нем значение пропускной способности. Ниже приведен фрагмент кода для изменения пропускной способности контейнера до 5000 единиц запроса в секунду с помощью пакета SDK для .NET.
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Изменение пропускной способности не влияет на доступность контейнера или набора контейнеров. Обычно новая зарезервированная пропускная способность становится доступной для приложения в течение нескольких секунд.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Изоляция пропускной способности в распределенной базе данных
 
@@ -347,6 +272,11 @@ await client.ReplaceOfferAsync(offer);
 В случае, если к вашей учетной записи имеют доступ несколько клиентов и они выполняют запросы одновременно, процедуры отправки повторного запроса по умолчанию может быть недостаточно, и клиент выдаст для приложения исключение `DocumentClientException` с кодом состояния 429. В таких случаях может понадобиться обработать алгоритм поведения при отправке повторных запросов и логику для процедуры обработки ошибок приложения или увеличить подготовленную пропускную способность для контейнера (или набора контейнеров).
 
 ## <a name="next-steps"></a>Дополнительная информация
+ 
+Дополнительные сведения о настройке и получении пропускной способности с помощью портала Azure и пакета SDK см. в следующей статье.
+
+* [Настройка и получение пропускной способности контейнеров Azure Cosmos DB](set-throughput.md)
+
 Дополнительные сведения о резервировании пропускной способности с помощью баз данных Azure Cosmos DB см. в следующих ресурсах:
 
 * [Страница цен на Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -360,4 +290,4 @@ await client.ReplaceOfferAsync(offer);
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/provisioning_set_containers.png
+

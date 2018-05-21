@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d93ea939a938fa88615161d3d048ee1881dd319a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d707b9a4b7b683e75bb9313dae2611fd59dbb155
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Краткое руководство. Масштабирование вычислительных ресурсов в хранилище данных SQL Azure с помощью портала Azure
 
@@ -36,8 +36,8 @@ ms.lasthandoff: 04/18/2018
 
 Изменить число единиц использования хранилища данных можно так:
 
-1. На портале Azure на странице слева щелкните **Базы данных SQL**.
-2. На странице **Базы данных SQL** выберите **mySampleDataWarehouse**. Откроется хранилище данных.
+1. На портале Azure на странице слева щелкните **Хранилища данных SQL**.
+2. На странице **Хранилища данных SQL** выберите **mySampleDataWarehouse**. Откроется хранилище данных.
 3. Щелкните пункт **Масштаб**.
 
     ![Щелкните пункт Масштаб](media/quickstart-scale-compute-portal/click-scale.png)
