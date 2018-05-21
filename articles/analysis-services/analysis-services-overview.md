@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Общие сведения о службах Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>Службы Azure Analysis Services
 ![Службы Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Службы Azure Analysis Services позволяют выполнять моделирование данных в облаке на корпоративном уровне. Это полностью управляемая платформа как услуга (PaaS), интегрированная со службами платформ данных Azure. 
 
-Службы Analysis Services позволяют комбинировать и объединять данные из нескольких источников, определять метрики и защищать данные в одной доверенной семантической модели данных. Модель данных предоставляет пользователям более быстрый и удобный просмотр значительных объемов данных с помощью клиентских приложений, например Power BI, Excel, служб Reporting Services, сторонних и пользовательских приложений.
+Службы Analysis Services позволяют комбинировать и объединять данные из нескольких источников данных, определять метрики и защищать данные в одной доверенной семантической модели данных. Модель данных предоставляет пользователям более быстрый и удобный просмотр значительных объемов данных с помощью клиентских приложений, например Power BI, Excel, служб Reporting Services, сторонних и пользовательских приложений.
 
 ![Источники данных](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -134,4 +134,5 @@ ms.lasthandoff: 04/16/2018
 У вас есть предложения относительно документации? Чтобы добавить комментарии, щелкните надпись Livefyre в нижней части каждой статьи.
 
 ## <a name="next-steps"></a>Дополнительная информация
-Теперь, когда вы достаточно знаете о службах Azure Analysis Services, пора приступать к работе. Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure. Создав сервер, ознакомьтесь с [руководством по Adventure Works](tutorials/aas-adventure-works-tutorial.md). Вы узнаете, как создать полнофункциональную табличную модель и развернуть ее на сервере.
+Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure.   
+Когда создадите сервер, [добавьте пример модели](analysis-services-create-sample-model.md).   

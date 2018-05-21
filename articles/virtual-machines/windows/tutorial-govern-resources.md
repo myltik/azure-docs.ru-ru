@@ -1,6 +1,6 @@
 ---
-title: Управление виртуальными машинами Windows с помощью Azure PowerShell | Документация Майкрософт
-description: Руководство. Управление виртуальными машинами Azure с применением RBAC, политик, блокировок и тегов при помощи Azure PowerShell
+title: Руководство. Управление виртуальными машинами Azure с помощью Azure PowerShell | Документация Майкрософт
+description: Из этого руководства вы узнаете, как управлять виртуальными машинами Azure с применением RBAC, политик, блокировок и тегов с помощью Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,16 +10,17 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.custom: mvc
+ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>Управление виртуальными машинами с помощью Azure PowerShell
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Руководство. Управление виртуальными машинами Linux с помощью Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 

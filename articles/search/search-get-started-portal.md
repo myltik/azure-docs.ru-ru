@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Создание и фильтрация индекса службы "Поиск Azure", а также отправка запросов к нему
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 04/23/2018
 
    ![Команды индекса и API][6]
 
-3. Щелкните **Задать версию API** на панели команд, чтобы просмотреть доступные интерфейсы REST API. Предварительные версии API обеспечивают доступ к новым функциям, которые еще не являются общедоступными. Для приведенных ниже запросов используйте общедоступную версию (2016-09-01), если не указано иное. 
+3. Щелкните **Задать версию API** на панели команд, чтобы просмотреть доступные интерфейсы REST API. Предварительные версии API обеспечивают доступ к новым функциям, которые еще не являются общедоступными. Для приведенных ниже запросов используйте общедоступную версию (2017-11-11), если не указано иное. 
 
     > [!NOTE]
     > [REST API службы поиска Azure](https://docs.microsoft.com/rest/api/searchservice/search-documents) и [библиотека .NET](search-howto-dotnet-sdk.md#core-scenarios) полностью эквивалентны, но **обозреватель поиска** может обрабатывать только вызовы REST. Он поддерживает и [простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), и [средство полного синтаксического анализа запросов Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), а также все параметры поиска, доступные в операциях [поиска документов](https://docs.microsoft.com/rest/api/searchservice/search-documents).

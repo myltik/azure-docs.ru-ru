@@ -1,12 +1,12 @@
 ---
-title: "Хранилище Azure Stack. Отличия и рекомендации"
-description: "Сведения о различиях между хранилищем Azure Stack и службой хранилища Azure, а также рекомендации по развертыванию Azure Stack."
+title: Хранилище Azure Stack. Отличия и рекомендации
+description: Сведения о различиях между хранилищем Azure Stack и службой хранилища Azure, а также рекомендации по развертыванию Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Хранилище Azure Stack. Отличия и рекомендации
 
@@ -47,6 +47,7 @@ ms.lasthandoff: 03/08/2018
 |Максимальный размер страничного BLOB-объекта|8 ТБ|1 TБ
 |Размер страницы страничного BLOB-объекта|512 байт|4 КБ
 |Ключ секции таблицы и размер ключа строки|1024 символов (2048 байт)|400 символов (800 байт)
+|Моментальный снимок большого двоичного объекта|Максимальное число моментальных снимков одного большого двоичного объекта не ограничено.|Максимальное число моментальных снимков одного большого двоичного объекта — 1000.|
 
 ### <a name="metrics"></a>Метрики
 Кроме того, есть некоторые различия в метриках хранилища:
@@ -59,14 +60,14 @@ ms.lasthandoff: 03/08/2018
 API-интерфейсы служб хранилища Azure.
 
 Обновление 1802 или более новые версии:
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17);
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31);
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11);
- - [2015-07-08](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08);
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05).
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17);
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31);
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11);
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08);
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05).
 
 Предыдущие версии:
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05).
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05).
 
 
 API управления службами хранилища Azure:

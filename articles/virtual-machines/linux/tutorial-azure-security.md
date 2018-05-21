@@ -1,12 +1,12 @@
 ---
-title: Центр безопасности Azure и виртуальные машины Linux в Azure | Документация Майкрософт
-description: Дополнительные сведения о контроле безопасности виртуальных машин Linux в Azure с помощью центра безопасности Azure.
+title: Руководство. Использование центра безопасности Azure для виртуальных машин Linux в Azure | Документация Майкрософт
+description: В этом руководстве описаны функции центра безопасности Azure для защиты виртуальных машин Linux в Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Контроль безопасности виртуальных машин с помощью центра безопасности Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Руководство. Использование центра безопасности Azure для мониторинга виртуальных машин Linux в Azure
 
 Центр безопасности Azure поможет получить рекомендации по безопасности ресурсов Azure. Центр безопасности предлагает встроенный мониторинг безопасности. Это позволяет распознавать угрозы, которые в противном случае могли быть не замечены. В этом руководстве вы узнаете о центре безопасности Azure и научитесь:
  
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2018
 > * Настраивать сбор данных.
 > * Устанавливать политики безопасности.
 > * Просматривать и устранять неполадки конфигурации.
-> * Просматривать обнаруженные угрозы.  
+> * Просматривать обнаруженные угрозы.
 
 ## <a name="security-center-overview"></a>Обзор центра безопасности
 

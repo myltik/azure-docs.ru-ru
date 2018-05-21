@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 860a381e5ec2054cd6243901a8e172832e6ada53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Средства для хранилища Azure Stack
 
@@ -47,41 +47,88 @@ Microsoft Azure Stack предоставляет набор служб хран�
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy — это служебная программа командной строки. Она предназначена для копирования данных из хранилища BLOB-объектов и хранилища таблиц Microsoft Azure и обратно с помощью простых команд, обеспечивающих оптимальную производительность. Кроме того, она позволяет копировать данные из одного объекта в другой в пределах одной учетной записи хранения или из одной такой записи в другую. Существует две версии AzCopy: AzCopy в Windows и AzCopy в Linux. Azure Stack поддерживает только версию Windows. 
- 
-### <a name="download-and-install-azcopy"></a>Скачивание и установка AzCopy 
 
-[Скачайте](https://aka.ms/azcopyforazurestack) поддерживаемую версию Windows AzCopy для Azure Stack. Можно установить и использовать AzCopy в Azure так же, как в Azure. Дополнительные сведения см. в статье [Передача данных с помощью служебной программы командной строки AzCopy](../../storage/common/storage-use-azcopy.md). 
+AzCopy — это служебная программа командной строки. Она предназначена для копирования данных из хранилища BLOB-объектов и хранилища таблиц Microsoft Azure и обратно с помощью простых команд, обеспечивающих оптимальную производительность. Кроме того, она позволяет копировать данные из одного объекта в другой в пределах одной учетной записи хранения или из одной такой записи в другую.
 
- - Для обновления версии 1802 и выше [скачайте AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
- - Для предыдущей версии [скачайте AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405).
+### <a name="download-and-install-azcopy"></a>Скачивание и установка AzCopy
+
+Существует две версии AzCopy: AzCopy в Windows и AzCopy в Linux.
+
+ - **AzCopy в Windows**  
+    - Скачайте поддерживаемую версию AzCopy для Azure Stack. Можно установить и использовать AzCopy в Azure так же, как в Azure. См. дополнительные сведения об [AzCopy в Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+        - Для обновления версии 1802 и выше [скачайте AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+        - Для предыдущих версий [скачайте AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
+
+ - **AzCopy в Linux**  
+
+    - AzCopy в Linux поддерживает обновление Azure Stack версии 1802 и выше. Можно установить и использовать AzCopy в Azure так же, как в Azure. См. дополнительные сведения об [AzCopy в Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Примеры команд AzCopy для передачи данных
 
-В приведенных ниже примерах описаны стандартные сценарии копирования данных в большие двоичные объекты Azure Stack и обратно. Дополнительные сведения см. в статье [Передача данных с помощью служебной программы командной строки AzCopy](../../storage/storage-use-azcopy.md). 
+В следующих примерах описаны стандартные сценарии копирования данных в большие двоичные объекты Azure Stack и обратно. См. дополнительные сведения об AzCopy в [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) и [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
-#### <a name="download-all-blobs-to-local-disk"></a>Скачивание всех больших двоичных объектов на локальный диск
+### <a name="download-all-blobs-to-a-local-disk"></a>Скачивание всех больших двоичных объектов на локальный диск
 
-```azcopy  
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
+````
 
-#### <a name="upload-single-file-to-virtual-directory"></a>Отправка одного файла в виртуальный каталог 
-```azcopy  
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>Отправка одного файла в виртуальный каталог
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Перемещение данных между хранилищем Azure и Azure Stack 
-Асинхронная передача данных между хранилищем Azure и Azure Stack не поддерживается. Для передачи данных необходимо указать параметр **/SyncCopy**. 
+**Linux**
 
-```azcopy  
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Перемещение данных между хранилищем Azure и Azure Stack
+
+Асинхронная передача данных между хранилищем Azure и Azure Stack не поддерживается. Для передачи данных необходимо указать параметр **/SyncCopy** или **--sync-copy**.
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-### <a name="azcopy-known-issues"></a>Известные проблемы при использовании Azcopy
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
+
+### <a name="azcopy-known-issues"></a>Известные проблемы при использовании AzCopy
 
  - Операцию AzCopy невозможно выполнить в хранилище файлов, так как оно еще не доступно в Azure Stack.
  - Асинхронная передача данных между хранилищем Azure и Azure Stack не поддерживается. Вы можете указать передачу с помощью **/SyncCopy**, чтобы копировать данные.
- - Версия Azcopy для Linux не поддерживается в хранилище Azure Stack. 
+ - Версия AzCopy для Linux поддерживает только обновление версии 1802 и выше. Хранилище таблиц не поддерживается.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -132,7 +179,7 @@ Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Connect-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName

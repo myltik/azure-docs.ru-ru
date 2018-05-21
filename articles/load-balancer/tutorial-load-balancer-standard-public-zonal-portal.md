@@ -1,29 +1,41 @@
 ---
-title: Виртуальные машины подсистемы балансировки нагрузки в пределах зоны (портал Azure) | Документация Майкрософт
-description: Создание подсистемы балансировки нагрузки уровня "Стандартный" с зональным внешним интерфейсом для распределения нагрузки на виртуальные машины в пределах зоны доступности с помощью портала Azure
+title: Руководство. Распределение нагрузки на виртуальных машинах в пределах зоны с помощью портала Azure | Документация Майкрософт
+description: В этом руководство описано, как создать подсистему балансировки нагрузки уровня "Стандартный" с зональным внешним интерфейсом для распределения нагрузки на виртуальных машинах в пределах зоны доступности с помощью портала Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 41a33436cb0d2c4c2bbfef4888bb704c62e2b91e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: mvc
+ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Распределение нагрузки на виртуальные машины в пределах зоны доступности с помощью подсистемы балансировки нагрузки уровня "Стандартный" и портала Azure
+# <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Руководство. Распределение нагрузки на виртуальных машинах в пределах зоны доступности с помощью подсистемы балансировки нагрузки уровня "Стандартный" и портала Azure
 
-В этой статье описано, как создать общедоступную [подсистему балансировки нагрузки уровня "Стандартный"](https://aka.ms/azureloadbalancerstandard) с зональным внешним интерфейсом и общедоступным IP-адресом уровня "Стандартный" с помощью портала Azure. В этом сценарии нужно указать определенную зону для серверных и интерфейсных экземпляров, чтобы сопоставить ваш путь к данным и ресурсы с определенной зоной.
+В этом руководстве описано, как создать общедоступную [подсистему балансировки нагрузки уровня "Стандартный"](https://aka.ms/azureloadbalancerstandard) с зональным внешним интерфейсом и общедоступным IP-адресом уровня "Стандартный" с помощью портала Azure. В этом сценарии нужно указать определенную зону для серверных и интерфейсных экземпляров, чтобы сопоставить ваш путь к данным и ресурсы с определенной зоной. Вы узнаете, как выполнять следующие задачи:
+
+> [!div class="checklist"]
+> * Создание подсистемы балансировки нагрузки с зональным внешним интерфейсом
+> * Создание групп безопасности сети для определения правил входящего трафика
+> * Создание зональных виртуальных машин и их присоединение к подсистеме балансировки нагрузки
+> * Создание пробы работоспособности подсистемы балансировки нагрузки
+> * создавать правила трафика подсистемы балансировки нагрузки;
+> * Создание простого узла IIS
+> * Просмотр балансировщика нагрузки в действии
+
 Дополнительные сведения о том, как работают зоны доступности с Load Balancer уровня "Стандартный", см. в статье [Azure Load Balancer уровня "Стандартный" и зоны доступности](load-balancer-standard-availability-zones.md).
 
 При необходимости инструкции из этого руководства можно выполнить с помощью [Azure CLI](load-balancer-standard-public-zonal-cli.md).
