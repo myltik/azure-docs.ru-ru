@@ -1,6 +1,6 @@
 ---
-title: "Настройка надежных микрослужб Azure | Документация Майкрософт"
-description: "Сведения о настройке Reliable Services с отслеживанием состояния в Azure Service Fabric."
+title: Настройка надежных микрослужб Azure | Документация Майкрософт
+description: Сведения о настройке Reliable Services с отслеживанием состояния в Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-stateful-reliable-services"></a>Настройка надежных служб с отслеживанием состояния
 Существует два набора параметров конфигурации для надежных служб. Один набор является глобальным для всех надежных служб в кластере, а второй относится к конкретной надежной службе.

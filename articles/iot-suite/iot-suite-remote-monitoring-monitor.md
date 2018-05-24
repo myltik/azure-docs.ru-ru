@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Расширенный мониторинг с помощью решения для удаленного мониторинга
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/07/2018
 
 Для работы с этим руководством нужен развернутый экземпляр решения для удаленного мониторинга в подписке Azure.
 
-Если решение для удаленного мониторинга еще не развернуто, выполните инструкции по [развертыванию акселератора решений для удаленного мониторинга](iot-suite-remote-monitoring-deploy.md).
+Если решение для удаленного мониторинга еще не развернуто, выполните инструкции по [развертыванию акселератора решений для удаленного мониторинга](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Выбор устройств для отображения
 
@@ -115,7 +115,7 @@ To view the device details, pan and zoom the map to locate the devices, then cli
 
 Теперь, когда вы знаете, как выполнять мониторинг устройств, предлагаем перейти к дальнейшим действиям:
 
-* [Обнаружение проблем с помощью правил на основе пороговых значений](./iot-suite-remote-monitoring-automate.md).
+* [Обнаружение проблем с помощью правил на основе пороговых значений](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Настройка устройств и управление ими](./iot-suite-remote-monitoring-manage.md).
 * [Устранение неполадок на устройстве](./iot-suite-remote-monitoring-maintain.md).
 * [Тестирование решения с помощью виртуальных устройств](iot-suite-remote-monitoring-test.md).

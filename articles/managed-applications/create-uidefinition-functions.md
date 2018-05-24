@@ -1,23 +1,23 @@
 ---
-title: "Функции для создания определения пользовательского интерфейса в управляемых приложениях Azure | Документация Майкрософт"
-description: "Сведения о функциях, используемых при создании определений пользовательского интерфейса для управляемых приложений Azure."
-services: azure-resource-manager
+title: Функции для создания определения пользовательского интерфейса в управляемых приложениях Azure | Документация Майкрософт
+description: Сведения о функциях, используемых при создании определений пользовательского интерфейса для управляемых приложений Azure.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="createuidefinition-functions"></a>Функции CreateUiDefinition
 Этот раздел содержит подписи для всех поддерживаемых функций CreateUiDefinition.

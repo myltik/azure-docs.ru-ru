@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с ThirdPartyTrust | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и ThirdPartyTrust."
+title: Руководство по интеграции Azure Active Directory с ThirdPartyTrust | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и ThirdPartyTrust.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b5a9116ea117b740a4541dc75a0be12d9a099b6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dbb5773b1d8b91ea669d2d1292662f806eb85d1d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>Руководство по интеграции Azure Active Directory с ThirdPartyTrust
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/13/2018
 - Вы можете включить автоматический вход пользователей в ThirdPartyTrust (единый вход) с применением учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление ThirdPartyTrust из коллекции.
+1. Добавление ThirdPartyTrust из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-thirdpartytrust-from-the-gallery"></a>Добавление ThirdPartyTrust из коллекции
@@ -204,7 +204,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

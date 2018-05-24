@@ -29,7 +29,11 @@
 ## [Управление Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Обновление сертификатов для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS)](active-directory-aadconnectfed-ssl-update.md)
-### [Включение обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Параметры устройства](active-directory-azure-ad-connect-device-options.md)
+#### [Включение обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md)
+#### [Постконфигурационные задачи для гибридного присоединения устройств к Azure Active Directory](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Параметры единого входа пользователей](active-directory-aadconnect-user-signin.md)
 #### [Простой единый вход](active-directory-aadconnect-sso.md)
 ##### [Краткое руководство](active-directory-aadconnect-sso-quick-start.md)

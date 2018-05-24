@@ -1,24 +1,24 @@
 ---
-title: "Аварийное восстановление в Azure Service Fabric | Документация Майкрософт"
-description: "Azure Service Fabric предлагает возможности, необходимые для устранения всех типов сбоев. В этой статье описаны типы сбоев, которые могут возникать, и приведены способы их устранения."
+title: Аварийное восстановление в Azure Service Fabric | Документация Майкрософт
+description: Azure Service Fabric предлагает возможности, необходимые для устранения всех типов сбоев. В этой статье описаны типы сбоев, которые могут возникать, и приведены способы их устранения.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 295772b70529f79c7a4c135d8ea7c12a1c661fe6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Аварийное восстановление в Azure Service Fabric
 Для обеспечения высокого уровня доступности крайне важно гарантировать продолжение работы всех типов служб при любых сбоях. Это особенно важно в ситуациях незапланированных сбоев, которые находятся вне вашего контроля. В этой статье описываются некоторые часто встречающиеся виды сбоев, которые могут привести к авариям, если их не смоделировать и не взять под контроль должным образом. Также рассматриваются способы устранения рисков и действия при аварии, если она все таки произошла. Цель этого руководства — помочь ограничить или избежать простоя и потери данных, при которых возникают сбои, запланированные или случайные.

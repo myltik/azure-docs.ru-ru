@@ -1,11 +1,11 @@
 ---
-title: "Устранение неполадок, связанных с расширением панели доступа Azure для Internet Explorer | Документация Майкрософт"
-description: "Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
+title: Устранение неполадок, связанных с расширением панели доступа Azure для Internet Explorer | Документация Майкрософт
+description: Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения».
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Устранение неполадок, связанных с расширением панели доступа для Internet Explorer
 Эта статья поможет устранить следующие проблемы.
@@ -92,6 +92,6 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)
 

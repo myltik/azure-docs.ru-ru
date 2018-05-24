@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 638ae63057df00375b05a58e3ceab510e2a608de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daad9104798dc02b479b4e022287c3630e4a67a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Интеграция службы Azure Active Directory с приложением Box
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/16/2018
 - Вы можете включить для пользователей автоматический вход в Box (единый вход) с использованием учетных записей Azure AD.
 - Вы можете управлять учетными записями централизованно, через портал Azure.
 
-Чтобы узнать об интеграции приложений SaaS с Azure AD, прочитайте статью [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+Чтобы узнать об интеграции приложений SaaS с Azure AD, прочитайте статью [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 03/16/2018
  
 ### <a name="create-a-box-test-user"></a>Создание тестового пользователя Box
 
-В этом разделе вы создадите тестового пользователя Britta Simon в Box. Приложение Box поддерживает JIT-подготовку. Эта функция включена по умолчанию. Если такой пользователь еще не существует, он создается при попытке доступа к приложению Box. Дополнительные действия для создания пользователя не требуются.
+В этом разделе вы создадите тестового пользователя Britta Simon в Box. Приложение Box поддерживает JIT-подготовку. Эта функция включена по умолчанию. Если такой пользователь еще не существует, он создается при попытке доступа к приложению Box. Дополнительные действия по созданию пользователя не требуются.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 03/16/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список руководств, посвященных интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Настройка подготовки пользователей](active-directory-saas-box-userprovisioning-tutorial.md)
 
 
