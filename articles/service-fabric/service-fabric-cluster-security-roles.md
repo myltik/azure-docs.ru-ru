@@ -1,24 +1,24 @@
 ---
-title: "Защита кластера Service Fabric: роли клиента | Документация Майкрософт"
-description: "В данной статье описываются две роли клиента и разрешения, предоставленные этим ролям."
+title: 'Защита кластера Service Fabric: роли клиента | Документация Майкрософт'
+description: В данной статье описываются две роли клиента и разрешения, предоставленные этим ролям.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: coreysa
-editor: 
+editor: ''
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Контроль доступа на основе ролей для клиентов Service Fabric
 Платформа Azure Service Fabric поддерживает два разных типа контроля доступа для клиентов, подключенных к кластеру Service Fabric: администраторский и пользовательский. Благодаря контролю доступа администратор кластера может ограничить доступ разных групп пользователей на выполнение определенных операций в кластере, повысив тем самым уровень безопасности кластера.  

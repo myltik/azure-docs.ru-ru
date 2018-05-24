@@ -6,7 +6,7 @@ documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: d8dce26fb3f84dd3d7bd2c11972e3e440843bb75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Устранение неполадок управления доступом на основе ролей Azure 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/16/2018
 
 Владельцы и участники обладают полным доступом к действиям по управлению, но участник не может предоставлять доступ другим пользователям или группам. С ролью читателя не все так просто, поэтому мы уделим ей больше внимания. Дополнительные сведения о предоставлении доступа см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](role-assignments-portal.md).
 
-## <a name="app-service"></a>Служба приложений
+## <a name="app-service"></a>Служба приложений Azure
 ### <a name="write-access-capabilities"></a>Возможности доступа на запись
 Если предоставить пользователю доступ только для чтения к одному веб-приложению, некоторые компоненты могут неожиданно отключиться. Перечисленные ниже возможности управления требуют доступа к веб-приложению с правом **записи** (роль участника или владельца), поэтому они недоступны при наличии прав только на чтение.
 

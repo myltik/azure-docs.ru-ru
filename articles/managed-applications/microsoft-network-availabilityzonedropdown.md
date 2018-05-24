@@ -1,23 +1,23 @@
 ---
 title: Элемент пользовательского интерфейса Azure AvailabilityZoneDropdown | Документация Майкрософт
 description: Сведения об элементе пользовательского интерфейса Microsoft.Network.AvailabilityZoneDropdown для портала Azure.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 03156f2fd763bb7f2b1d2ba86d042f43f268febe
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 737971551e4bfb81c4f5fd1b53987b7a52c12669
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftnetworkavailabilityzonedropdown-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Network.AvailabilityZoneDropdown
 Элемент управления, с помощью которого можно выбрать зону доступности.

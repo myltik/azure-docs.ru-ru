@@ -1,24 +1,24 @@
 ---
-title: "Балансирование нагрузки кластера Azure Service Fabric | Документация Майкрософт"
-description: "Общие сведения о распределении нагрузки в кластере с помощью диспетчера кластерных ресурсов Azure Service Fabric."
+title: Балансирование нагрузки кластера Azure Service Fabric | Документация Майкрософт
+description: Общие сведения о распределении нагрузки в кластере с помощью диспетчера кластерных ресурсов Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Балансировка кластера Service Fabric
 Диспетчер кластерных ресурсов Service Fabric поддерживает динамическое изменение нагрузки, реагируя на добавление и удаление узлов или служб. Он также автоматически исправляет нарушения ограничений и упреждающе перераспределяет нагрузку в кластере. Но как часто выполняются эти действия и что их инициирует?

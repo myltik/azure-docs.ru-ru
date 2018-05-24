@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с IriusRisk | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и IriusRisk."
+title: Руководство по интеграции Azure Active Directory с IriusRisk | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и IriusRisk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
-ms.openlocfilehash: e33d584b3e7eb939d669253e8c6ef40fd4f963c9
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: bdf46ff504a450b0c12183df911be6f0fd956f2a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Руководство по интеграции Azure Active Directory с IriusRisk
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/22/2017
 - Вы можете включить автоматический вход пользователей в IriusRisk (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление IriusRisk из коллекции.
+1. Добавление IriusRisk из коллекции
 2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-iriusrisk-from-the-gallery"></a>Добавление IriusRisk из коллекции
@@ -208,7 +208,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

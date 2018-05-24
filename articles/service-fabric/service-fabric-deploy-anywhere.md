@@ -1,24 +1,24 @@
 ---
-title: "Создание кластеров Service Fabric в Windows Server и Linux | Документация Майкрософт"
-description: "Кластеры Service Fabric выполняются в Windows Server и Linux, позволяя разворачивать и размещать приложения Service Fabric везде, где можно запустить Windows Server или Linux."
+title: Создание кластеров Service Fabric в Windows Server и Linux | Документация Майкрософт
+description: Кластеры Service Fabric выполняются в Windows Server и Linux, позволяя разворачивать и размещать приложения Service Fabric везде, где можно запустить Windows Server или Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3d427d99f6919991c29fc5947ebe0082670a1cc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Создание кластеров Service Fabric в Windows Server или Linux
 Кластер Azure Service Fabric — это подключенный к сети набор виртуальных машин или физических компьютеров, в котором вы развертываете микрослужбы и управляете ими. Узлом кластера называется компьютер или виртуальная машина, которая входит в состав кластера. Кластеры можно масштабировать до нескольких тысяч узлов. Если вы добавите новые узлы в кластер, реплики раздела службы подвергнутся повторной балансировке Service Fabric с учетом этих узлов. Общая производительность приложения улучшится, а конфликт доступа к памяти уменьшится. При неэффективном использовании узлов в кластере вы можете уменьшить их количество. Service Fabric снова перераспределит реплики и экземпляры секции по меньшему количеству узлов, чтобы эффективно использовать оборудование на каждом узле.

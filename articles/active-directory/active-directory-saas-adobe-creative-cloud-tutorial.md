@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Adobe Creative Cloud | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Adobe Creative Cloud."
+title: Руководство по интеграции Azure Active Directory с Adobe Creative Cloud | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Adobe Creative Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 808debcee11eb83f7e6afa1f3443a35c9f6767c4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Руководство по интеграции Azure Active Directory с Adobe Creative Cloud
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/24/2018
 - Вы можете включить автоматический вход пользователей в Adobe Creative Cloud (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 01/24/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Настройка домена (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 * [Настройка Azure для использования с единым входом Adobe (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 

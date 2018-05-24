@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением Edcor | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Edcor."
+title: Руководство по интеграции Azure Active Directory с приложением Edcor | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Edcor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6651e7ab19434cfd8c98afa33908e9aab7034fde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 80382425ece7d79130177f5e4325b665a7c8b495
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Руководство. Интеграция Azure Active Directory с Edcor
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/15/2017
 - Вы можете включить автоматический вход пользователей в Edcor (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/15/2017
 1. Добавление Edcor из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-edcor-from-the-gallery"></a>Добавление Edcor из коллекции
+## <a name="adding-edcor-from-the-gallery"></a>Добавление Edcor из коллекции.
 Чтобы настроить интеграцию Edcor с Azure AD, необходимо добавить Edcor из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Edcor из коллекции, сделайте следующее:**
@@ -205,7 +205,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

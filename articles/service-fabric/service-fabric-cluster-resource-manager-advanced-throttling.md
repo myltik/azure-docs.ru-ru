@@ -1,24 +1,24 @@
 ---
-title: "Регулирование в диспетчере кластерных ресурсов Service Fabric | Документация Майкрософт"
-description: "Узнайте, как настраивать регулирование в диспетчере кластерных ресурсов Service Fabric."
+title: Регулирование в диспетчере кластерных ресурсов Service Fabric | Документация Майкрософт
+description: Узнайте, как настраивать регулирование в диспетчере кластерных ресурсов Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Регулирование посредством диспетчера кластерных ресурсов Service Fabric
 Даже если диспетчер кластерных ресурсов настроен правильно, работа кластера может быть нарушена. Например, отказы нескольких узлов и доменов сбоя могут произойти во время установки новой версии или при применении обновлений. Диспетчер кластерных ресурсов всегда пытается устранить любые ошибки, используя кластерные ресурсы для реорганизации и исправления кластера. Регулирование обеспечивает ресурсы, чтобы кластер мог стабилизировать работу (вернуть узлы в работоспособное состояние, восстановить работоспособность сетевых разделов и развернуть исправленный код).

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/14/2018
 | Путеводитель по статьям |  |
 |:---:| --- |
 | Введение в проблемы управления приложениями, решаемые с помощью Azure AD |[Управление приложениями с помощью Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
-| Обзор различных функций в Azure AD, связанных с включением единого входа, определением пользователей, у которых есть доступ к приложениям, и способов запуска приложений |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
+| Обзор различных функций в Azure AD, связанных с включением единого входа, определением пользователей, у которых есть доступ к приложениям, и способов запуска приложений |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md) |
 | Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](manage-apps/plan-an-application-integration.md)<br /><br />[Включение единого входа для приложений SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
 | Технические сведения о представлении приложений в Azure AD |[Как и почему приложения добавляются в Azure AD](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ ms.lasthandoff: 05/14/2018
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Общие сведения о федеративном и других способах входа |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-| Тысячи приложений SaaS, предварительно интегрированных с Azure AD, для которых можно с легкостью настроить единый вход |[Начало работы с коллекцией приложений Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Полный список предварительно интегрированных приложений, поддерживающих федерацию](active-directory-saas-tutorial-list.md)<br /><br />[Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md) |
+| Общие сведения о федеративном и других способах входа |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md) |
+| Тысячи приложений SaaS, предварительно интегрированных с Azure AD, для которых можно с легкостью настроить единый вход |[Начало работы с коллекцией приложений Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Полный список предварительно интегрированных приложений, поддерживающих федерацию](active-directory-saas-tutorial-list.md)<br /><br />[Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md) |
 | Более 150 руководств по настройке единого входа для таких приложений, как [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) и многих других |[Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Настройка конфигурации единого входа вручную |[Настройка федеративного единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений](active-directory-saml-claims-customization.md) |
 | Руководство по устранению неполадок для федеративных приложений, использующих протокол SAML |[Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ ms.lasthandoff: 05/14/2018
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Общие сведения о принципах работы единого входа на основе паролей и краткий технический обзор |[Единый вход на основе пароля](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| Общие сведения о принципах работы единого входа на основе паролей и краткий технический обзор |[Единый вход на основе пароля](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Сводка сценариев совместного использования учетных записей и способов решения этих проблем с помощью Azure AD |[Совместное использование учетных записей в Azure AD](active-directory-sharing-accounts.md) |
 | Автоматическое изменение пароля для определенных приложений с определенной периодичностью |[Automated Password Rollover (preview) (Автоматическая смена пароля (предварительная версия))](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Руководства по развертыванию и устранению неполадок для расширения управления паролями Azure AD с использованием Internet Explorer |[Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)<br /><br />[Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Сравнение различных параметров развертывания приложений с поддержкой единого входа для пользователей |[Deploying Azure AD Integrated Applications to Users (Развертывание интегрированных приложений Azure AD для пользователей)](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Сравнение различных параметров развертывания приложений с поддержкой единого входа для пользователей |[Deploying Azure AD Integrated Applications to Users (Развертывание интегрированных приложений Azure AD для пользователей)](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Обзор панели доступа и эквивалентной мобильной версии MyApps |[Общие сведения о панели доступа и MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Получение доступа к приложениям Azure AD на веб-сайте Office 365 |[Средство запуска приложений Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Получение доступа к приложениям Azure AD с мобильного приложения Intune Managed Browser |[Управление доступом в Интернет с помощью политик управляемого браузера в Microsoft Intune](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Получение доступа к приложениям Azure AD с использованием прямых ссылок для запуска единого входа |[Ссылки для прямого входа в федеративные приложения, приложения с паролем или существующие приложения](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Получение доступа к приложениям Azure AD с использованием прямых ссылок для запуска единого входа |[Ссылки для прямого входа в федеративные приложения, приложения с паролем или существующие приложения](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Панель доступа доступна для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

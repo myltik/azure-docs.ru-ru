@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84e9e3b486e3c825e98530a30850e9f21ef41b91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa5ac4d95d11a2dfec1b2c6394b7e2e9cf747f5a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK Python для API-интерфейса SQL
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**Скачать пакет SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 
-<tr><td>**Документация по API**</td><td>[Справочная документация по API Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Документация по API**</td><td>[Справочная документация по API Python](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
 
 <tr><td>**Инструкции по установке пакета SDK**</td><td>[Инструкции по установке пакета SDK для Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
 
@@ -52,6 +52,9 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
+* Добавлена поддержка для повторных попыток по умолчанию при проблемах с подключением.
+
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Обновленная документация для Azure DB Cosmos вместо Azure DocumentDB.
 
@@ -138,6 +141,7 @@ ms.lasthandoff: 05/07/2018
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |8 мая 2018 г. |--- |
 | [2.3.1](#2.3.1) |21 декабря 2017 г. |--- |
 | [2.3.0](#2.3.0) |10 ноября 2017 г. |--- |
 | [2.2.1](#2.2.1) |29 сентября 2017 г. |--- |

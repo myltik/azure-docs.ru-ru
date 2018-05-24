@@ -9,16 +9,16 @@ editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Резервное копирование и восстановление служб Reliable Services и субъектов Reliable Actors
 Azure Service Fabric — это платформа высокой доступности, которая реплицирует состояние между несколькими узлами для обеспечения высокой доступности.  Таким образом, даже в случае сбоя одного узла в кластере службы будут оставаться доступными. Хотя иногда предоставленной платформой встроенной избыточности достаточно, в некоторых случаях желательно выполнять резервное копирование данных службы (во внешнее хранилище).
@@ -241,7 +241,7 @@ class MyCustomActorService : ActorService
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Дополнительные сведения о резервном копировании и восстановлении
 Далее представлены дополнительные сведения о резервном копировании и восстановлении.
 
-### <a name="backup"></a>Архивация
+### <a name="backup"></a>Azure Backup
 Диспетчер надежных состояний позволяет создавать согласованные резервные копии без блокировки операций чтения и записи. Для этого используется механизм сохранения контрольных точек и журналов.  Диспетчер надежных состояний создает нечеткие (упрощенные) контрольные точки в определенных точках, чтобы уменьшить нагрузку на журнал транзакций и сократить время восстановления.  При вызове метода `BackupAsync` диспетчер надежных состояний дает всем надежным объектам команду копировать их последние файлы контрольных точек в локальную папку резервных копий.  Затем он копирует в папку резервного копирования все записи журнала — от «отправной точки» до последней записи в журнале.  Так как все записи журнала включаются в резервную копию и диспетчер надежных состояний сохраняет упреждающие записи журнала, все зафиксированные транзакции (которые успешно вернул `CommitAsync`) будут сохранены при архивации.
 
 Любая транзакция, зафиксированная после вызова метода `BackupAsync`, может быть не включена в резервную копию.  После заполнения локальной папки резервного копирования с помощью платформы (то есть среда выполнения завершает локальное резервное копирование) осуществляется обратный вызов службы резервного копирования.  Этот обратный вызов отвечает за перемещение папки резервного копирования во внешнее расположение, например службу хранилища Azure.
@@ -263,5 +263,5 @@ class MyCustomActorService : ActorService
   - [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Конфигурация Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  - [Периодическое резервное копирование и восстановление в Azure Service Fabric (предварительная версия)](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
+  - [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md) (Периодическое резервное копирование и восстановление в Azure Service Fabric)
 

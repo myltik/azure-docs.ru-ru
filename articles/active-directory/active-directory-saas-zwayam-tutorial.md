@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с приложением Zwayam | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Zwayam."
+title: Руководство по интеграции Azure Active Directory с приложением Zwayam | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Zwayam.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: jeedes
-ms.openlocfilehash: e56f6c1cf61a0db684aac2190ae5ddf4e689f8a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b0b6b5ddb8bc8b95c7c5294a52c02c4604e63465
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayam"></a>Руководство. Интеграция Azure Active Directory со Zwayam
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/24/2018
 - Вы можете включить автоматический вход пользователей в Zwayam (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/24/2018
 1. Добавление Zwayam из коллекции.
 2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-zwayam-from-the-gallery"></a>Добавление Zwayam из коллекции
+## <a name="adding-zwayam-from-the-gallery"></a>Добавление Zwayam из коллекции.
 Чтобы настроить интеграцию Zwayam с Azure AD, необходимо добавить Zwayam из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Zwayam из коллекции, выполните следующие действия.**
@@ -207,7 +207,7 @@ ms.lasthandoff: 02/24/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

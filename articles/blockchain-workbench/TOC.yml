@@ -1,7 +1,6 @@
 - name: Azure Blockchain Workbench (общедоступная предварительная версия)
   href: index.yml
 - name: Обзор
-  expanded: true
   items:
     - name: Сведения об Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -12,7 +11,6 @@
     - name: Шаблоны интеграции
       href: blockchain-workbench-integration-patterns.md
 - name: Практические руководства
-  expanded: true
   items:
     - name: Развертывание Workbench
       href: blockchain-workbench-deploy.md

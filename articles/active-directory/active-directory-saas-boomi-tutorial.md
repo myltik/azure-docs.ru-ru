@@ -1,6 +1,6 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Boomi | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Boomi."
+title: Руководство по интеграции Azure Active Directory с Boomi | Документация Майкрософт
+description: Узнайте, как настроить единый вход между Azure Active Directory и Boomi.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bd0b5cd66718ca0eeb9fa90366b90a899181e912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Руководство. Интеграция Azure Active Directory с Boomi
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 - Вы можете включить автоматический вход пользователей в Boomi (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
@@ -275,7 +275,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

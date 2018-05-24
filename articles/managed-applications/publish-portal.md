@@ -1,20 +1,20 @@
 ---
-title: "Публикация управляемого приложения Azure на портале | Документация Майкрософт"
-description: "Создание с помощью портала Azure управляемого приложения Azure, предназначенного для членов вашей организации."
+title: Публикация управляемого приложения Azure на портале | Документация Майкрософт
+description: Создание с помощью портала Azure управляемого приложения Azure, предназначенного для членов вашей организации.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Публикация приложения каталога службы на портале Azure
 
