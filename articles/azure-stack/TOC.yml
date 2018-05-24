@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Заметки о выпуске
       items:
+        - name: Обновление 1804
+          href: azure-stack-update-1804.md
         - name: Обновление 1803
           href: azure-stack-update-1803.md
         - name: Обновление 1802
           href: azure-stack-update-1802.md
         - name: Обновление 1712
           href: azure-stack-update-1712.md
-        - name: Обновление 1711
-          href: azure-stack-update-1711.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Резервное копирование для Azure Stack
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: Резервное копирование файлов и приложений в Azure Stack
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Восстановление после катастрофической потери данных
               href: azure-stack-backup-recover-data.md
             - name: Рекомендации по резервному копированию
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: Служба приложений в заметках о выпуске обновления 1 Azure Stack
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: "Служба приложений в заметках о выпуске обновления\_2 Azure Stack"
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: Заполнение Marketplace
           items:
             - name: Обзор Marketplace

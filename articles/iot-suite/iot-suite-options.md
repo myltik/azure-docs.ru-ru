@@ -11,15 +11,16 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0d6fc2a49034b2e01a0397fe256a2b44030777b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0d38a41a33632e2c6427b75e365db468940d025d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300974"
 ---
 # <a name="compare-azure-iot-options"></a>Сравнение вариантов Интернета вещей Azure
 
-В статье [Azure и "Интернет вещей"](iot-suite-what-is-azure-iot.md) описывается распространенная архитектура решения Интернета вещей со следующими уровнями:
+В статье [Azure и "Интернет вещей"](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) описывается распространенная архитектура решения Интернета вещей со следующими уровнями:
 
 * взаимодействие устройств и управление;
 * Обработка данных и аналитика
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/10/2018
 
 Для реализации этой архитектуры Центр Интернета вещей предлагает несколько вариантов, каждый из которых подходит для различных наборов требований клиента:
 
-* [Акселераторы решений Azure IoT](index.md) — это коллекция [акселераторов решений](iot-suite-what-are-solution-accelerators.md) корпоративного уровня, созданных на базе платформы как услуги (PaaS) Azure, которые позволяют ускорить разработку пользовательских решений Интернета вещей.
+* [Акселераторы решений Azure IoT](index.md) — это коллекция [акселераторов решений](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) корпоративного уровня, созданных на базе платформы как услуги (PaaS) Azure, которые позволяют ускорить разработку пользовательских решений Интернета вещей.
 
 * [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) — это программное обеспечение как услуга (SaaS), которое использует подход на основе модели для создания решений Интернета вещей корпоративного уровня, не требуя опыта в разработке облачных решений.
 
@@ -63,6 +64,6 @@ ms.lasthandoff: 05/10/2018
 
 На основе выбранного продукта и подхода предлагаются следующие шаги:
 
-* **Акселераторы решений Azure IoT.** [What are the IoT solution accelerators?](iot-suite-what-are-solution-accelerators.md) (Что собой представляют акселераторы решений Интернета вещей).
+* **Акселераторы решений Azure IoT.** [What are the IoT solution accelerators?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) (Что собой представляют акселераторы решений Интернета вещей).
 * **Azure IoT Central**: [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **Центр Интернета вещей**: [Общие сведения о службе Центра Интернета вещей Azure](../iot-hub/iot-hub-what-is-iot-hub.md).

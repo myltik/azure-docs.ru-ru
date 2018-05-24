@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a07e3ed3363ad968156aab2233073406d05b7dba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364613"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Руководство. Добавление конечной точки HTTPS к интерфейсной службе веб-API ASP.NET Core
 Это руководство представляет собой первую часть цикла.  Вы узнаете, как включить HTTPS в службе ASP.NET Core, работающей в Service Fabric. Когда вы закончите, у вас будет приложение для голосования с внешним веб-интерфейсом ASP.NET Core с поддержкой HTTPS, прослушивающего порт 443. Если вы не хотите вручную создавать приложение для голосования в статье [Руководство по развертыванию приложения в кластере Service Fabric в Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), вы можете [скачать исходный код](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/03/2018
 - [Установка пакета SDK для Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Получение сертификата или создание самозаверяющего сертификат разработки
-Вам понадобится цифровой сертификат.  Для рабочих приложений в качестве сертификата нужно использовать сертификат [из центра сертификации (ЦС)](https://wikipedia.org/wiki/Certificate_authority). В целях тестирования и разработки вы можете создать и использовать самозаверяющий сертификат. SDK Service Fabric предоставляет скрипт *CertSetup.ps1*, который создает самозаверяющий сертификат и импортирует его в хранилище сертификатов `Cert:\LocalMachine\My`. Откройте командную строку с правами администратора и выполните следующую команду для создания сертификата с субъектом CN=localhost:
+Для рабочих приложений в качестве сертификата нужно использовать сертификат [из центра сертификации (ЦС)](https://wikipedia.org/wiki/Certificate_authority). В целях тестирования и разработки вы можете создать и использовать самозаверяющий сертификат. SDK Service Fabric предоставляет скрипт *CertSetup.ps1*, который создает самозаверяющий сертификат и импортирует его в хранилище сертификатов `Cert:\LocalMachine\My`. Откройте командную строку с правами администратора и выполните следующую команду для создания сертификата с субъектом CN=localhost:
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost

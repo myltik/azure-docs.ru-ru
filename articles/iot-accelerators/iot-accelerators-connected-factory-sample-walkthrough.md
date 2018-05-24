@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 68ed75a9ef2faee408e65c0991182b7d95bb17a8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2144747fdaa0c596397cc93d8509ca006b67c592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303510"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366211"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Инструкция по работе с акселератором решений подключенной фабрики
 
 [Акселератор решений][lnk-preconfigured-solutions] подключенной фабрики — это полнофункциональная реализация отраслевого решения, предназначенного для следующих задач:
 
-* Подключается к виртуальным отраслевым устройствам под управлением серверов OPC UA на производственных линиях виртуальной фабрики и к физическим устройствам сервера OPC UA. Дополнительные сведения об OPC UA см. в статье [Часто задаваемые вопросы о предварительно настроенном решении для подключенной фабрики IoT Suite](iot-suite-faq-cf.md).
+* Подключается к виртуальным отраслевым устройствам под управлением серверов OPC UA на производственных линиях виртуальной фабрики и к физическим устройствам сервера OPC UA. Дополнительные сведения об OPC UA см. в статье [Часто задаваемые вопросы о предварительно настроенном решении для подключенной фабрики IoT Suite](iot-accelerators-faq-cf.md).
 * Показывает оперативные ключевые показатели эффективности и общую эффективность оборудования этих устройств и производственных линий.
 * Демонстрирует, как можно использовать облачное приложение для взаимодействия с серверными системами OPC UA.
 * Позволяет подключать собственные устройства под управлением сервера OPC UA.
@@ -41,7 +41,7 @@ ms.locfileid: "34303510"
 * спланировать настройку решения в соответствии с определенными требованиями;
 * спроектировать собственное решение IoT, использующее службы Azure.
 
-См. дополнительные сведения о [подключенной фабрике](iot-suite-faq-cf.md).
+См. дополнительные сведения о [подключенной фабрике](iot-accelerators-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Логическая архитектура
 
@@ -127,7 +127,7 @@ TSI отправляет запрос к данным узла с помощью
 
 ## <a name="telemetry-data-flow"></a>Передача данных телеметрии
 
-![Передача данных телеметрии](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+![Передача данных телеметрии](./media/iot-accelerators-connected-factory-sample-walkthrough/telemetry_dataflow.png)
 
 ### <a name="flow-steps"></a>Этапы передачи
 
@@ -179,7 +179,7 @@ TSI отправляет запрос к данным узла с помощью
 
 ## <a name="browsing-data-flow"></a>Передача данных просмотра
 
-![Передача данных просмотра](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+![Передача данных просмотра](./media/iot-accelerators-connected-factory-sample-walkthrough/browsing_dataflow.png)
 
 ### <a name="flow-steps"></a>Этапы передачи
 
@@ -233,15 +233,15 @@ TSI отправляет запрос к данным узла с помощью
 Дополнительные сведения об акселераторах решений Интернета вещей см. в следующих статьях:
 
 * [Разрешения на сайте azureiotsuite.com][lnk-permissions]
-* [Развертывание шлюза Edge для предварительно настроенного решения подключенной фабрики в ОС Windows или Linux](iot-suite-connected-factory-gateway-deployment.md)
+* [Развертывание шлюза Edge для предварительно настроенного решения подключенной фабрики в ОС Windows или Linux](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher for Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md) (Издатель OPC для Azure IoT Edge)
 
-[connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
+[connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
+[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md

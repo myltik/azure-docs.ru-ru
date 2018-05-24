@@ -3,8 +3,8 @@ title: Пример для PowerShell. Копирование базы данн�
 description: Пример сценария Azure PowerShell для копирования базы данных SQL на новый сервер
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: f85ccf98e7b1f1702e1f2a4457d4be88ae7f4eb1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 446bf6e3f73fc703dcb02a2dad530b791a5a51d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366143"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Копирование базы данных SQL на новый сервер с помощью PowerShell
 

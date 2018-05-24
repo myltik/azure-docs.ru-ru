@@ -3,19 +3,20 @@ title: Примеры сценариев Azure CLI для базы данных 
 description: Примеры сценариев Azure CLI для создания серверов, эластичных пулов, баз данных, а также брандмауэров базы данных SQL Azure и управления ими.
 services: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: af6e5282aba844be022c0f15a869652ed8c5ea31
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: e74c9dd6c02c5cd98f62d04e7d6c37dfefcf9804
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365990"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Примеры Azure CLI для базы данных SQL Azure
 

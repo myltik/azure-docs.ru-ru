@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: df70322a2d6562fce8da17fde652dd0dfbfcaec4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362249"
 ---
 # <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Руководство. Настройка пользовательской лаборатории с помощью Azure DevTest Labs
 В этом руководстве мы создадим пользовательскую лабораторию на портале Azure. Администратор лаборатории настраивает в организации лабораторию, в которой он создает виртуальные машины и настраивает политики. Пользователи лаборатории (например, разработчик и тестировщики) запрашивают виртуальные машины лаборатории, подключаются к ним и используют их. 
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/07/2018
 > [!div class="checklist"]
 > * создание пользовательской лаборатории;
 > * добавление виртуальных машин в лабораторию;
-> * добавление пользователя к роли пользователя лаборатории.
+> * Добавление пользователя к роли пользователя лаборатории
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
