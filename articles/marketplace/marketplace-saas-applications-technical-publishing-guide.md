@@ -12,82 +12,145 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076719"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Техническое руководство по публикации SaaS-приложений
 
-Добро пожаловать в техническое руководство по публикации SaaS-приложений в Azure Marketplace! Это руководство предназначено для помощи кандидатам и существующим издателям в публикации своих приложений и служб в Azure Marketplace с использованием предложения "SaaS-приложения".  
-Предложение "SaaS-приложения" можно использовать, если решение будет развернуто в вашей подписке Azure и пользователи будут входить в систему через интерфейс, который вы разработали и которым вы управляете, для тестирования приложения. При этом для тестирования существующей пробной среды используется [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Другими словами, это партнерская бесплатная пробная версия, используемая клиентами. Очень важно разместить такое решение, чтобы покупатели облака могли испытать его независимо, без каких-либо затрат и чтобы этот тип предложения предоставлял бесплатную версию, которая соответствует пользовательским запросам на облачные решения.  
+Добро пожаловать в техническое руководство по публикации SaaS-приложений в Azure Marketplace! Это руководство предназначено для помощи кандидатам и существующим издателям в публикации своих приложений и служб в Azure Marketplace с использованием предложения "SaaS-приложения". 
 
-Общие сведения о других предложениях Marketplace см. в статье [Руководство по публикации в Azure Marketplace и AppSource](https://aka.ms/sellerguide).
+Для удобства мы разбили руководство по публикации предложения SaaS на несколько разделов:
+* обзор предложения;
+* бизнес-требования;
+* технические требования;
+* Процесс публикации
+* Активация пробных версий с помощью Azure Active Directory
+* сертификация интеграции Azure AD для Marketplace.
 
-## <a name="saas-application-technical-guidance"></a>Техническое руководство по приложению SaaS
-Технические требования для приложений SaaS просты. Для публикации приложение издателей только должно быть интегрировано с Azure AD.  Интеграция Azure AD с приложениями описана во многих документах, и корпорация Майкрософт предоставляет множество ресурсов и пакетов SDK для выполнения этой задачи.  
+## <a name="offer-overview"></a>Обзор предложения  
 
-Для начала вам нужна подписка, предназначенная для публикации в Azure Marketplace, чтобы изолировать этот сценарий от других инициатив. Кроме того, в среде разработки необходимо установить следующие компоненты (если вы еще этого не сделали): 
-- [интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
-- [Средства для разработчиков Azure (обзор доступных средств)](https://azure.microsoft.com/tools/)  
-- [Visual Studio Code](https://code.visualstudio.com/)  
+Приложения SaaS доступны в обоих онлайн-магазинах Azure. В следующей таблице описаны текущие доступные варианты:
 
-### <a name="resources"></a>Ресурсы
-Ниже приведены ссылки на ресурсы Azure AD, которые помогут приступить к работе. 
+| Вариант онлайн-магазина | Вывод списка | Пробная версия или транзакция |  
+| --- | --- | --- |  
+| AppSource | Да (связаться со мной) | Да (PowerBI, Dynamics) |
+| Azure Marketplace | Нет  | Да (приложения SaaS) |   
 
-**Документация**
+**Список.** Вариант публикации "Список" включает тип предложения "Связаться со мной" и используется, когда реализовать пробную версию или транзакцию нецелесообразно. Преимущество такого подхода заключается в том, что он позволяет издателям, решения которых уже опубликованы, немедленно получать сведения о потенциальных клиентах, с которыми можно заключить сделки, стимулирующие рост бизнеса.  
+**Пробная версия или транзакция.** Заказчик имеет возможность непосредственно купить или запросить пробную версию вашего решения. Предоставление пробной версии положительно влияет на взаимодействие с клиентами и позволяет им изучить решение до покупки. Благодаря этому у вас будет больше шансов на продвижение в онлайн-магазинах, что позволит получать больше сведений о потенциальных клиентах. Для бесплатных пробных версий должна предоставляться бесплатная поддержка, по крайней мере на протяжении пробного периода.  
 
-- [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+| Предложение приложений SaaS | Бизнес-требования | Технические требования |  
+| --- | --- | --- |  
+| **Связаться с нами** | Yes | Нет  |  
+| **PowerBI, Dynamics** | Yes | Да (интеграция с Azure AD) |  
+| **Приложения SaaS**| Yes | Да (интеграция с Azure AD) |     
 
-- [Интеграция с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
+Дополнительные сведения об онлайн-магазинах Marketplace и описание каждого из вариантов публикации см. в [руководстве издателя Marketplace](https://aka.ms/sellerguide) и разделе [Варианты публикации](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
-- [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+## <a name="business-requirements"></a>Бизнес-требования
+Соответствие бизнес-требованиям к предложению SaaS можно обеспечить параллельно с выполнением технических требований. Большинство бизнес-требований и сведений собираются при создании предложения SaaS на Портале Cloud Partner. Ниже перечислены бизнес-требования: 
+* принятие политик участия;
+* интеграция с Майкрософт; 
+* определение аудитории предложения;
+* определение способа для управления взаимодействием с потенциальными клиентами;
+* установка политики конфиденциальности и условий использования;
+* определение контактов для поддержке.  
 
-- [Безопасность и идентификация на странице стратегии развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+Дополнительные сведения можно найти в разделе [Необходимые условия для публикации в Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing).
 
-**Видеоролики**
+## <a name="technical-requirements"></a>Технические требования
 
-- [Видео о проверке подлинности Azure Active Directory с участием Витторио Берточчи (Vittorio Bertocci)](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+Технические требования для приложений SaaS просты. Для публикации издателям требуется только интеграция с Azure Active Directory (Azure AD). Интеграция Azure AD с приложениями описана во многих документах, и корпорация Майкрософт предоставляет множество ресурсов и пакетов SDK для выполнения этой задачи.  
 
-- [Технический брифинг. Удостоверение Azure Active Directory. Часть 1 из 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+Для начала вам нужна подписка, предназначенная для публикации в Azure Marketplace, чтобы изолировать этот сценарий от других инициатив. После этого можно приступать к развертыванию приложения SaaS в этой подписке и начинать разработку.  
 
-- [Технический брифинг. Удостоверение Azure Active Directory. Часть 2 из 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+Полезную документацию по Azure Active Directory, примеры и руководства см. последующим ссылкам: 
 
-- [Создание приложений с использованием Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+* [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Видеоролики Microsoft Azure, посвященные Azure Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+* [Интеграция с Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
 
-**Обучение**  
-- [Серия материалов "Microsoft Azure для ИТ-специалистов": Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Интеграция приложений с Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
-**Обновления службы Azure Active Directory**  
-- [Обновления службы Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
+* [Безопасность и идентификация на странице стратегии развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+
+Видеоруководства см. по следующим ссылкам:
+
+* [Видео о проверке подлинности Azure Active Directory с участием Витторио Берточчи (Vittorio Bertocci)](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+
+* [Технический брифинг. Удостоверение Azure Active Directory. Часть 1 из 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+
+* [Технический брифинг. Удостоверение Azure Active Directory. Часть 2 из 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+
+* [Создание приложений с использованием Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+
+* [Видеоролики Microsoft Azure, посвященные Azure Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+
+Бесплатный курс обучения по Azure Active Directory см. по следующей ссылке:  
+* [Серия материалов "Microsoft Azure для ИТ-специалистов": Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+
+Проверить наличие обновлений Azure Active Directory можно по следующей ссылке:   
+* [Обновления службы Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
 Для получения помощи можно воспользоваться следующими ресурсы:
-- [Форумы MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-- [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Форумы MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+* [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## <a name="the-azure-active-directory-gallery"></a>Коллекция Azure Active Directory
-Помимо публикации приложения в Azure Marketplace или AppSource, его также можно разместить в коллекции приложений Azure AD, которая является частью AppStore и Azure Marketplace. Клиенты, которые используют Azure AD в качестве поставщика удостоверений, могут находить опубликованные здесь различные соединители приложений SaaS. Администраторы ИТ-систем могут добавлять соединители из коллекции приложений, а затем настраивать и использовать эти соединители для единого входа (SSO) и подготовки. Azure AD поддерживает для функции SSO все основные протоколы федерации, в том числе SAML 2.0, OpenID Connect, OAuth и WS-Fed.  
+## <a name="publishing-process"></a>Процесс публикации
 
-Протестировав интеграцию приложения с Azure AD, отправьте запрос на доступ через наш портал сети приложений. Если у вас есть учетная запись Office 365, используйте ее для входа на портал. Если у вас нет учетной записи Office 365, то для входа можно использовать учетную запись Майкрософт (например, Outlook или Hotmail).
+При публикации SaaS есть нужно обеспечить соответствие техническим требованиям и бизнес-требованиям.  Большую часть процесса разработки и интеграции Azure Active Directory можно осуществлять параллельно с выполнением бизнес-требований предложения. Значительное число бизнес-требований установлено в конфигурации предложения приложений SaaS на Портале Cloud Partner.  
+На следующей схеме показаны основные этапы публикации предложения пробной версии или транзакции:  
 
-## <a name="program-benefits"></a>Преимущества программы
-- Клиенты получают самый удобный способ единого входа.
-- Конфигурация приложения будет простой и минимально необходимой.
-- Клиенты смогут искать приложения и находить их в коллекции.
-- Эта интеграция доступна абсолютно всем клиентам Azure AD, независимо от используемого уровня SKU: "Бесплатный", "Базовый" или "Премиум".
-- Нашим общим клиентам предлагаются пошаговые руководства по настройке.
-- В случае использования SCIM вы сможете подготавливать пользователей для размещенного приложения.
+![Шаги публикации SaaS](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
 
-## <a name="prerequisites"></a>предварительным требованиям
-Чтобы включить приложение в коллекцию Azure AD, необходимо сначала реализовать один из протоколов федерации, поддерживаемых Azure AD. Ознакомьтесь с условиями использования коллекции приложений Azure AD, которые можно найти на странице [Юридическая информация Службы Microsoft Azure](https://azure.microsoft.com/support/legal/).  
+В следующей таблице описан каждый из основных шагов публикации:  
 
-Ниже приведены дополнительные предварительные требования, зависящие от используемого протокола.
+| Шаг публикации | ОПИСАНИЕ |   
+| --- | --- |  
+| **Создание приложения SaaS** | Войдите на Портал Cloud Partner и выберите **Создать**. Затем выберите предложение **Приложения SaaS**. |  
+| **Создание интеграции с Azure AD** | Выполните технические требования, указанные в предыдущем разделе, для интеграции предложения SaaS с Azure AD. |  
+| **Указание параметров предложения**| Введите все начальные сведения о предложении SaaS. Укажите идентификатор и имя предложения, которые следует использовать. |     
+| **Указание технических сведений** | Введите технические сведения о предложении. Для приложений SaaS обязательно укажите URI решения и тип кнопки для приобретения предложения (бесплатная версия, пробная версия или "Связаться со мной"). |  
+| **Тестовый выпуск (необязательно)** | Это необязательный тип пробной версии, необходимый в основном для других типов предложений Marketplace. Он позволяет развернуть пробную версию в подписках издателя вместо пользователя. |  
+| **Предоставление материалов предложения в онлайн-магазине**| В этом разделе издатель предоставляет ссылки и отправляет эмблемы, маркетинговые материалы, юридические документы, а также настраивает систему управления взаимодействием с потенциальными клиентами. |
+| **Указание контактов для предложения** | Введите контактные данные для связи по вопросам проектирования и получения поддержки по предложению SaaS. |  
+| **Проверка интеграции приложения SaaS с Azure AD** | Перед отправкой приложения SaaS на публикацию необходимо убедиться, что приложение интегрировано с Azure AD. |  
+| **Публикация предложения**| Оформив предложение и выполнив технические требования, вы можете отправить предложение на публикацию. После этого шаблон решения тестируется, проверяется, сертифицируется и утверждается для публикации. |
 
-**Подключение OpenID**. Создайте многопользовательское приложение в Azure AD и реализуйте в нем инфраструктуру согласия. Направляйте запрос на вход к общедоступной конечной точке, чтобы любой клиент мог предоставить согласие для приложения. Доступом пользователей клиента можно управлять на основе идентификатора клиента и имени участника-пользователя, которые передаются в маркере.  
-**SAML 2.0 или WS-Fed**. Приложение должно поддерживать интеграцию единого входа SAML или WS-Fed в любом из режимов (инициируемом поставщиком услуг или поставщиком удостоверений).
+## <a name="using-azure-active-directory-to-enable-trials"></a>Активация пробных версий с помощью Azure Active Directory  
+
+Корпорация Майкрософт выполняет аутентификацию всех пользователей Marketplace с помощью Azure AD. Когда пользователь, прошедший аутентификацию, щелкает ваш список пробных версий в Marketplace и перенаправляется в вашу пробную среду, вы можете выполнить подготовку для пользователя непосредственно в пробной среде без необходимости дополнительного входа. Токен, получаемый вашим приложением от Azure AD во время аутентификации, содержит ценные сведения о пользователе, которые помогут вам создать его учетную запись в своем приложении, чтобы автоматизировать процесс подготовки и повысить вероятность перехода. Дополнительные сведения о токене см. в статье [Справочник по токенам в Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims).
+
+С помощью Azure AD для приложения или пробной версии можно включить аутентификацию одним щелчком. Она предоставляет следующие преимущества:  
+* упрощается взаимодействие клиентов с пробной версией в Marketplace;  
+* сохраняется ощущение использования продукта, даже когда пользователь перенаправляется с Marketplace на ваш домен или в пробную среду;  
+* сокращается вероятность отказа от перенаправления, так как отсутствует дополнительный шаг выполнения входа.  
+* Уменьшаются ограничения развертывания для большого числа пользователей Azure AD.  
+
+## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Сертификация интеграции Azure AD для Marketplace  
+
+Интеграцию Azure AD можно сертифицировать несколькими способами. Это зависит от типа приложения (однотенантное или мультитенантное), а также от того, впервые ли вы используете федеративный единый вход (SSO) в Azure AD.  
+
+**Мультитенантные приложения**  
+
+Если вы уже используете Azure AD, сделайте следующее:
+1.  Зарегистрируйте приложение на портале Azure.
+2.  Включите функцию поддержки мультитенантности в Azure AD, чтобы получить пробную версию одним щелчком. Дополнительные сведения можно найти [здесь](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+
+Если вы впервые используете федеративный единый вход в Azure AD, сделайте следующее: 
+1.  Зарегистрируйте приложение на портале Azure.
+2.  Настройте единый вход в Azure AD с помощью [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) или [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Включите функцию поддержки мультитенантности в AAD, чтобы получить пробную версию одним щелчком. Дополнительные сведения можно найти [здесь](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+
+**Для однотенантного приложения используйте любой из следующих вариантов:**  
+* Добавьте пользователей в свой каталог в качестве гостевых пользователей, используя [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Вручную подготовьте пробную версию для клиентов с использованием функции "Связаться со мной".
+* Разработайте тестовый выпуск для одного клиента.
+* Создайте демонстрационное мультитенантное приложение с SSO.
+
